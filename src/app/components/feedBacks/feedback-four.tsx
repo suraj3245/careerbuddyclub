@@ -46,22 +46,22 @@ const slider_b = {
 const slider_a_data = [
   {
     desc: "“The best service I've ever received is from Career Buddy Club, and highly recommended.”",
-    name: "Mohit",
+    name: "Mohit Nath",
     location: "Dehradun",
   },
   {
     desc: "“The best service I've ever received is from Career Buddy Club, and highly recommended.”",
-    name: "Rahul",
+    name: "Tabish Jamal",
     location: "Delhi",
   },
   {
     desc: "“The best service I've ever received is from Career Buddy Club, and highly recommended.”",
-    name: "Arun",
+    name: "Akhil Bharghav",
     location: "Roorkee",
   },
   {
     desc: "“The best service I've ever received is from Career Buddy Club, and highly recommended.”",
-    name: "Dinesh",
+    name: "Ashwani Goswami",
     location: "Uttar Pradesh",
   },
 ];

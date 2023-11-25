@@ -15,7 +15,7 @@ const content_data: {
 }[] = [
   {
     title:
-      "Hassle-free registration process with Powerful job placement services.",
+      "Hassle-free registration process with Seamless job placement services.",
     subtitle: "",
     icon: icon_1,
   },
@@ -27,7 +27,7 @@ const content_data: {
   },
   {
     title:
-      "A platform to promote career-related events and webinars.The ability to create and manage student profiles.",
+      "Multifunctional platform to promote career-related events and webinars.The ability to create and manage student profiles.",
     subtitle: "",
     icon: icon_3,
   },
