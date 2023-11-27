@@ -15,10 +15,13 @@ import shape_2 from "@/assets/images/shape/shape_22.svg";
 import shape_3 from "@/assets/images/shape/shape_24.svg";
 import bg_1 from "@/assets/images/assets/img_16.webp";
 import bg_2 from "@/assets/images/assets/img_17.webp";
-import bg_3 from "@/assets/images/assets/img_18.jpg";
+import bg_3 from "@/assets/images/assets/img_18.webp";
 import bg_4 from "@/assets/images/assets/img_19.webp";
 import bg_5 from "@/assets/images/assets/img20.webp";
 import bg_6 from "@/assets/images/assets/img21.webp";
+import bg_7 from "@/assets/images/assets/img-21.webp";
+import bg_8 from "@/assets/images/assets/img-22.webp";
+import bg_9 from "@/assets/images/assets/img-23.webp";
 
 import { ICategoryTwo } from "@/types/category-type";
 
@@ -27,42 +30,42 @@ export const category_data: ICategoryTwo[] = [
   {
     id: 1,
     icon: icon_1,
-    title: <> Linked In</>,
+    title: <>IntelliPaat</>,
     vacancy: 2340,
     bg_img: bg_1,
   },
   {
     id: 2,
     icon: icon_2,
-    title: <>Jio</>,
+    title: <>Cease Fire Industries Limited</>,
     vacancy: 1560,
     bg_img: bg_2,
   },
   {
     id: 3,
     icon: icon_3,
-    title: <>Tech Mahindra</>,
+    title: <>State Bank Of India</>,
     vacancy: 2210,
     bg_img: bg_3,
   },
   {
     id: 4,
     icon: icon_4,
-    title: <>Tata</>,
+    title: <>Tech mahindra</>,
     vacancy: 980,
     bg_img: bg_4,
   },
   {
     id: 5,
     icon: icon_5,
-    title: <>Amazon</>,
+    title: <>Planet Spark</>,
     vacancy: 1687,
     bg_img: bg_6,
   },
   {
     id: 6,
     icon: icon_6,
-    title: <>Facebook</>,
+    title: <>Capital Via</>,
     vacancy: 758,
     bg_img: bg_5,
   },
@@ -72,6 +75,28 @@ export const category_data: ICategoryTwo[] = [
     title: <>zomato</>,
     vacancy: 1452,
   },
+
+  {
+    id: 8,
+    icon: icon_7,
+    title: <>Paytm</>,
+    vacancy: 1452,
+    bg_img: bg_7,
+  },
+  {
+    id: 9,
+    icon: icon_7,
+    title: <>Justdial</>,
+    vacancy: 1452,
+    bg_img: bg_8,
+  },
+  {
+    id: 10,
+    icon: icon_7,
+    title: <>IGT Solutions</>,
+    vacancy: 1452,
+    bg_img: bg_9,
+  },
   {
     id: 8,
     icon: icon_8,
@@ -80,6 +105,7 @@ export const category_data: ICategoryTwo[] = [
     bg: "bg-color",
     df: true,
   },
+
 ];
 // CategoryCardWrapper
 export function CategoryCardWrapper() {

@@ -3,8 +3,11 @@ import React, { use, useRef, useState } from "react";
 import Image from "next/image";
 import Slider from "react-slick";
 import icon from "@/assets/images/icon/icon_30.svg";
+
 import user_1 from "@/assets/images/assets/mohit.jpg";
-import user_2 from "@/assets/images/assets/fimg.jpg";
+import user_2 from "@/assets/images/assets/TABISH JAMAL (1).jpg";
+import user_3 from "@/assets/images/assets/AKHIL BHARGHAV.jpeg";
+import user_4 from "@/assets/images/assets/ASHWANI GOSWAMI.jpeg";
 
 // slider a
 const slider_a = {
@@ -46,27 +49,27 @@ const slider_b = {
 const slider_a_data = [
   {
     desc: "“The best service I've ever received is from Career Buddy Club, and highly recommended.”",
-    name: "Mohit",
+    name: "Mohit Nath",
     location: "Dehradun",
   },
   {
     desc: "“The best service I've ever received is from Career Buddy Club, and highly recommended.”",
-    name: "Rahul",
+    name: "Tabish Jamal",
     location: "Delhi",
   },
   {
     desc: "“The best service I've ever received is from Career Buddy Club, and highly recommended.”",
-    name: "Arun",
+    name: "Akhil Bharghav",
     location: "Roorkee",
   },
   {
     desc: "“The best service I've ever received is from Career Buddy Club, and highly recommended.”",
-    name: "Dinesh",
+    name: "Ashwani Goswami",
     location: "Uttar Pradesh",
   },
 ];
 // slider b data
-const slider_b_data = [user_1, user_2, user_1, user_2];
+const slider_b_data = [user_1, user_2, user_3, user_4];
 const FeedbackFour = () => {
   const [slider1, setSlider1] = useState<Slider | null>(null);
   const [slider2, setSlider2] = useState<Slider | null>(null);
