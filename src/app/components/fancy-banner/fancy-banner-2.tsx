@@ -28,21 +28,21 @@ const FancyBannerTwo = () => {
                     </span>
                   </div>
                   <h2 className="fw-600 text-white">
-                    Benefits <br /> Of <br />
+                    Benefits  Of <br />
                     <span style={{ color: "#EEE30D" }}>Career</span>
                     Buddy
                     <span style={{ color: "#EEE30D" }}>Club.</span>
                   </h2>
                 </div>
                 <p className="text-white mt-25 mb-55 lg-mb-40">
-                  - The trusted partner of more than 100+ colleges and
-                  institutions.
+                  - The trusted partner of more than <b>100+ colleges and
+                  institutions.</b>
                   <br />
                   - Gain data-driven insights to refine career strategies and
                   track placement success effectively.
-                  <br /> - Engage students with ease using our in-house tools
+                  <br /> - Engage students with ease using our <b>in-house tools </b>
                   for event promotion and internship opportunities.
-                  <br />- Save time with simplified processes for event
+                  <br />- <b> Save time with simplified processes </b>for event
                   management, job postings, and student tracking.{" "}
                 </p>
                 <div className="counter-wrapper pb-50 lg-pb-30">
@@ -61,7 +61,7 @@ const FancyBannerTwo = () => {
                     ))}
                   </div>
                 </div>
-                <Link href="/about-us" className="explore-btn tran3s ">
+                <Link href="/contact" className="explore-btn tran3s ">
                   Explore Career Buddy Club To Empower You and Your Students.
                 </Link>
               </div>

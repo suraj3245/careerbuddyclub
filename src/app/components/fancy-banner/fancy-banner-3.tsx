@@ -44,13 +44,7 @@ const FancyBannerThree = ({ style_2 = false }: { style_2?: boolean }) => {
               <div className="row">
                 <div className="col-xxl-5 col-xl-6 col-lg-6 ms-auto">
                   <div className="text-wrapper wow fadeInRight">
-                    <a
-                      className="fancybox rounded-circle video-icon tran3s d-flex align-items-center justify-content-center"
-                      onClick={() => setIsVideoOpen(true)}
-                      style={{ cursor: "pointer" }}
-                    >
-                      <i className="bi bi-play-fill"></i>
-                    </a>
+                    
                     <div className="title-one mt-35 lg-mt-30 mb-30 lg-mb-20">
                       <h2 className="fw-600 text-white">
                         Key Features for{" "}

@@ -53,7 +53,7 @@ const FeatureOne = () => {
               <ul className="list-style-one style-none">
                 <li>CBC Students Placed In More than 100+ Companies</li>
                 <li>With Average Package more than 6.5 LPA</li>
-                <li>Helped more than 1000+ Students to get dream jobs</li>
+                <li>Helped more than 10k+ Students to get dream jobs</li>
                 <li>Partners with more than 50+ Colleges/University</li>
               </ul>
             </div>
