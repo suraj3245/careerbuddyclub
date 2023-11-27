@@ -12,8 +12,7 @@ import JobPortalIntroTwo from "./components/job-portal-intro/job-portal-intro-2"
 import FooterOne from "@/layouts/footers/footer-one";
 import HeroBannerSeven from "./components/hero-banners/hero-banner-seven";
 import PartnersSlider from "./components/partners/partners-slider";
-import dotenv from 'dotenv';
-
+import dotenv from "dotenv";
 
 export const metadata: Metadata = {
   title: "Career Buddy Club",

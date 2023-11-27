@@ -1,18 +1,20 @@
-"use client"
+"use client";
 import React, { useState, useCallback, useRef } from "react";
 import { useClickAway } from "react-use";
 
-type Option = {
+export type Option = {
   value: string;
   label: string;
+  name?: string;
 };
+export type OnChangeArgument = Option & { name: string };
 
 type IPropType = {
   options: Option[];
   defaultCurrent: number;
   placeholder?: string;
   cls?: string | undefined;
-  onChange: (item: Option) => void;
+  onChange: (item: OnChangeArgument) => void;
   name: string;
 };
 
@@ -33,32 +35,28 @@ const NiceSelect = ({
 
   useClickAway(ref, onClose);
 
-  const currentHandler = (item: { value: string; label: string }) => {
+  const currentHandler = (item: Option) => {
     setCurrent(item);
-    onChange(item);
+    onChange({ ...item, name }); // Pass both item properties and the name
     onClose();
   };
-
   return (
     <div
-      className={`nice-select ${cls?cls:''} ${open && "open"}`}
+      className={`nice-select ${cls ? cls : ""} ${open && "open"}`}
       role="button"
       tabIndex={0}
       onClick={() => setOpen((prev) => !prev)}
       ref={ref}
     >
       <span className="current">{current?.label || placeholder}</span>
-      <ul
-        className="list"
-        role="menubar"
-        onClick={(e) => e.stopPropagation()}
-      >
-        {options?.map((item,i) => (
+      <ul className="list" role="menubar" onClick={(e) => e.stopPropagation()}>
+        {options?.map((item, i) => (
           <li
             key={i}
             data-value={item.value}
-            className={`option ${item.value === current?.value && "selected focus"
-              }`}
+            className={`option ${
+              item.value === current?.value && "selected focus"
+            }`}
             role="menuitem"
             onClick={() => currentHandler(item)}
           >
@@ -71,5 +69,3 @@ const NiceSelect = ({
 };
 
 export default NiceSelect;
-
-

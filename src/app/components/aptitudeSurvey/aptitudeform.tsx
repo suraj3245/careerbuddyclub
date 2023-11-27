@@ -19,7 +19,7 @@ const QuizForm: React.FC = () => {
   const [questions, setQuestions] = useState<Question[]>([]);
   const [answers, setAnswers] = useState<{ [key: number]: string }>({});
   const [currentPage, setCurrentPage] = useState(0);
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(true);
   const [results, setResults] = useState<any | null>(null);
   // const [results, setResults] = useState<any | null>({
   //   R: 17,
@@ -35,7 +35,7 @@ const QuizForm: React.FC = () => {
     const fetchData = async () => {
       const options = {
         method: "POST",
-        url: "http://172.33.0.54:8000/api/students/getallcatquestions",
+        url: "http://172.33.0.153:8000/api/students/getallcatquestions",
         headers: {
           Accept: "*/*",
           Authorization:
@@ -203,7 +203,7 @@ const QuizForm: React.FC = () => {
 
       const submitOptions = {
         method: "POST",
-        url: "http://172.33.0.54:8000/api/students/submitcatanswers",
+        url: "http://172.33.0.153:8000/api/students/submitcatanswers",
         headers: {
           Accept: "*/*",
           Authorization:
@@ -397,7 +397,7 @@ const QuizForm: React.FC = () => {
             </div>
           </div>
           <div className="text-center">
-            <h2 className="mb-6 pb-10" style={{ color: "#13ADBD" }}>
+            <h2 className="mb-6 pb-25" style={{ color: "#13ADBD" }}>
               Quiz Results
             </h2>
             {/* Display the results here using the `results` state */}
@@ -423,7 +423,7 @@ const QuizForm: React.FC = () => {
                 paddingTop: "10px",
               }}
             >
-              <button className="btn-apti">Next Steps</button>
+              <button className="btn-apti pt-50">Next Steps</button>
             </div>
           </div>
         </div>

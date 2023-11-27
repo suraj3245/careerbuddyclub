@@ -2,16 +2,15 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import avatar from "@/assets/dashboard/images/avatar_02.jpg";
-import DashboardHeader from "./dashboard-header";
-import GenderSelect from "./gender-select";
-import MaritialSelect from "./maritial-status";
-import StreamSelect from "./Stream-select";
-import LevelSelect from "./Level-select";
-import SpecializationSelect from "./Specialization";
-import CollegeTypeSelect from "./collegetype";
-import FeeRangeSelect from "./Fee-range";
+
 import NiceSelect from "@/ui/nice-select";
-import { Option, OnChangeArgument } from "@/ui/nice-select";
+import DashboardHeader from "../components/dashboard/candidate/dashboard-header";
+import GenderSelect from "../components/dashboard/candidate/gender-select";
+import MaritialSelect from "../components/dashboard/candidate/maritial-status";
+import FeeRangeSelect from "../components/dashboard/candidate/Fee-range";
+import LevelSelect from "../components/dashboard/candidate/Level-select";
+import SpecializationSelect from "../components/dashboard/candidate/Specialization";
+import StreamSelect from "../components/dashboard/candidate/Stream-select";
 
 // props type
 type IProps = {
@@ -66,7 +65,7 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
     console.log("Form Data: ", formData);
     // Perform your submission logic here, e.g., send data to server
   };
-  const handleSelectChange = (item: OnChangeArgument) => {
+  const handleSelectChange = (item: { name: any; value: any }) => {
     setFormData((prevState) => ({ ...prevState, [item.name]: item.value }));
   };
   const [collegeType, setCollegeType] = useState("");
@@ -74,7 +73,7 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
     <div className="dashboard-body">
       <div className="position-relative">
         {/* header start */}
-        <DashboardHeader setIsOpenSidebar={setIsOpenSidebar} />
+
         {/* header end */}
         <form onSubmit={handleSubmit}>
           <h2 className="main-title">My Profile</h2>

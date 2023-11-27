@@ -6,7 +6,7 @@ const CollegeTypeSelect = () => {
   return (
     <NiceSelect
       options={[
-        { value: "", label: "select College Type" },
+        { value: "", label: "Select College Type" },
         { value: "Private", label: "Private" },
         { value: "Central", label: "Central" },
         { value: "State", label: "State" },
@@ -19,5 +19,4 @@ const CollegeTypeSelect = () => {
     />
   );
 };
-
 export default CollegeTypeSelect;
