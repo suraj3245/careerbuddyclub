@@ -19,7 +19,7 @@ const QuizForm: React.FC = () => {
   const [questions, setQuestions] = useState<Question[]>([]);
   const [answers, setAnswers] = useState<{ [key: number]: string }>({});
   const [currentPage, setCurrentPage] = useState(0);
-  const [isSubmitted, setIsSubmitted] = useState(true);
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const [results, setResults] = useState<any | null>(null);
   // const [results, setResults] = useState<any | null>({
   //   R: 17,
