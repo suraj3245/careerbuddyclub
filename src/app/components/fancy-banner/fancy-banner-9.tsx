@@ -15,17 +15,18 @@ const FancyBannerNine = () => {
                 <div className="text-wrapper wow fadeInRight">
                   <div className="title-one mb-45 lg-mb-30">
                     <h2 className="text-white">
-                      Get the job of your dreams quickly.
+                      We ensure that you find the job of your dreams through our...
                     </h2>
                   </div>
                   <p className="text-white text-md mb-55 lg-mb-30">
                     - Personalized Career Support <br />
-                    - Career & Personal Development
+                    - Career & Personal Development Sessions
                     <br />
-                    - Sessions Placement Support
+                    - Placement Support
                     <br />
-                    - Buddy Assistance Skill
-                    <br />- Enhancement Industry Networking
+                    - Buddy Assistance 
+                    <br />- Skill Enhancement Sessions 
+                    <br />- Industry Networking
                   </p>
                   <Link
                     href="/job-list-v1"

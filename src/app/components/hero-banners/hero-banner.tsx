@@ -15,7 +15,7 @@ const HeroBanner = () => {
           <div className="row">
             <div className="col-lg-6">
               <h1 className="wow fadeInUp text-black" data-wow-delay="0.3s">
-                Unlocking Your Potential with{" "}
+                Unlock Your Potential with{" "}
                 <span style={{ color: "#eee30d" }}> Career Buddy Club.</span>
               </h1>
               <p
