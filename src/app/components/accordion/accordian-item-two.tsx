@@ -1,5 +1,5 @@
 import React from "react";
-
+import Link from "next/link";
 // type
 type IPropType = {
   id: string;
@@ -7,9 +7,19 @@ type IPropType = {
   desc: string;
   isShow?: boolean;
   parent: string;
+  path: string;
+  bdesc: string;
 };
 
-const AccordionItem = ({ id, title, isShow, desc, parent }: IPropType) => {
+const AccordionItemTwo = ({
+  id,
+  title,
+  isShow,
+  desc,
+  parent,
+  path,
+  bdesc,
+}: IPropType) => {
   return (
     <div className="accordion-item">
       <div className="accordion-header" id={`heading-${id}`}>
@@ -32,10 +42,17 @@ const AccordionItem = ({ id, title, isShow, desc, parent }: IPropType) => {
       >
         <div className="accordion-body">
           <p>{desc}</p>
+          <Link
+            href={path}
+            className="btn-five wow fadeInUp"
+            data-wow-delay="0.6s"
+          >
+            {bdesc}
+          </Link>
         </div>
       </div>
     </div>
   );
 };
 
-export default AccordionItem;
+export default AccordionItemTwo;

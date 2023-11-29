@@ -76,7 +76,7 @@ const RegisterForm = () => {
     const options = {
       method: "POST",
       // url: '${process.env.REACT_APP_API_URL}students/register', // Replace with your API's URL
-      url: "http://192.168.7.104:8000/api/students/register", // Replace with your API's URL
+      url: "http://192.168.0.228:8000/api/students/register", // Replace with your API's URL
       headers: {
         "Content-Type": "application/json",
       },
@@ -206,19 +206,6 @@ const RegisterForm = () => {
             </span>
             <div className="help-block with-errors">
               <ErrorMsg msg={errors.password?.message!} />
-            </div>
-          </div>
-        </div>
-
-        <div className="col-12">
-          <div className="agreement-checkbox d-flex justify-content-between align-items-center">
-            <div>
-              <input type="checkbox" name="remember" />
-              <label htmlFor="remember">
-                By hitting the Register button, you agree to the{" "}
-                <a href="#">Terms conditions</a> &{" "}
-                <a href="#">Privacy Policy</a>
-              </label>
             </div>
           </div>
         </div>

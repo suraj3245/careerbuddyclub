@@ -3,13 +3,6 @@ import React, { useState } from "react";
 import Image from "next/image";
 import avatar from "@/assets/dashboard/images/avatar_02.jpg";
 import DashboardHeader from "./dashboard-header";
-import GenderSelect from "./gender-select";
-import MaritialSelect from "./maritial-status";
-import StreamSelect from "./Stream-select";
-import LevelSelect from "./Level-select";
-import SpecializationSelect from "./Specialization";
-import CollegeTypeSelect from "./collegetype";
-import FeeRangeSelect from "./Fee-range";
 import NiceSelect from "@/ui/nice-select";
 import { Option, OnChangeArgument } from "@/ui/nice-select";
 
@@ -25,6 +18,7 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
     socialCategory: "",
     gender: "",
     maritalStatus: "",
+    physicallyChallenged: "",
     bio: "",
     mobileNumber: "",
     email: "",
@@ -55,6 +49,9 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
     feeRange: "",
     // ... other fields as needed ...
   });
+
+  const [isPersonalDetailsSaved, setIsPersonalDetailsSaved] = useState(false);
+
   const handleChange = (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -66,6 +63,44 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
     console.log("Form Data: ", formData);
     // Perform your submission logic here, e.g., send data to server
   };
+
+  const handlePersonalDetailsSubmit = (
+    event: React.FormEvent<HTMLFormElement>
+  ) => {
+    event.preventDefault();
+    console.log("Personal Details: ", formData);
+    // Logic to handle personal details submission
+  };
+
+  const handleContactDetailsSubmit = (
+    event: React.FormEvent<HTMLFormElement>
+  ) => {
+    event.preventDefault();
+    console.log("Contact Details: ", formData);
+    // Logic to handle contact details submission
+  };
+  const handleAddressDetailsSubmit = (
+    event: React.FormEvent<HTMLFormElement>
+  ) => {
+    event.preventDefault();
+    console.log("Contact Details: ", formData);
+    // Logic to handle contact details submission
+  };
+  const handleEducationDetailsSubmit = (
+    event: React.FormEvent<HTMLFormElement>
+  ) => {
+    event.preventDefault();
+    console.log("Contact Details: ", formData);
+    // Logic to handle contact details submission
+  };
+
+  const handlePreferenceDetailsSubmit = (
+    event: React.FormEvent<HTMLFormElement>
+  ) => {
+    event.preventDefault();
+    console.log("Contact Details: ", formData);
+    // Logic to handle contact details submission
+  };
   const handleSelectChange = (item: OnChangeArgument) => {
     setFormData((prevState) => ({ ...prevState, [item.name]: item.value }));
   };
@@ -76,11 +111,12 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
         {/* header start */}
         <DashboardHeader setIsOpenSidebar={setIsOpenSidebar} />
         {/* header end */}
-        <form onSubmit={handleSubmit}>
-          <h2 className="main-title">My Profile</h2>
 
+        <h2 className="main-title">My Profile</h2>
+
+        <>
           <div className="bg-white card-box border-20">
-            <div className="user-avatar-setting d-flex align-items-center mb-30">
+            {/* <div className="user-avatar-setting d-flex align-items-center mb-30">
               <Image src={avatar} alt="avatar" className="lazy-img user-img" />
               <div className="upload-btn position-relative tran3s ms-4 me-3">
                 Upload new photo
@@ -92,75 +128,120 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
                 />
               </div>
               <button className="delete-btn tran3s">Delete</button>
-            </div>
-            <div className="dash-input-wrapper mb-30">
-              <label htmlFor="">Full Name*</label>
-              <input
-                type="text"
-                name="fullName"
-                placeholder="Enter Full Name"
-                value={formData.fullName}
-                onChange={handleChange}
-              />
-            </div>
-            {/* Date of Birth Field */}
-            <div className="row">
-              <div className="col-lg-3">
-                <div className="dash-input-wrapper mb-25">
-                  <label htmlFor="">Date of Birth*</label>
-                  <input
-                    type="date"
-                    name="dateOfBirth"
-                    id="dob"
-                    placeholder="YYYY-MM-DD"
-                    value={formData.dateOfBirth}
-                    onChange={handleChange}
-                  />
-                </div>
-              </div>
-              <div className="col-lg-3">
-                <div className="dash-input-wrapper mb-25">
-                  <label htmlFor="">Social Category*</label>
-                  <input
-                    type="text"
-                    name="socialCategory"
-                    id="socialCategory"
-                    placeholder="Enter your social category"
-                    value={formData.socialCategory}
-                    onChange={handleChange}
-                  />
-                </div>
-              </div>
-              <div className="col-lg-3">
-                <div className="dash-input-wrapper mb-25">
-                  <label htmlFor="">Gender*</label>
-                  <GenderSelect />
-                </div>
-              </div>
-              <div className="col-lg-3">
-                <div className="dash-input-wrapper mb-25">
-                  <label htmlFor="">Maritial Status*</label>
-                  <MaritialSelect />
-                </div>
-              </div>
-            </div>
+            </div> */}
 
-            {/* Social Category Field */}
-            <div className="dash-input-wrapper">
-              <label htmlFor="">Bio*</label>
-              <textarea
-                className="size-lg"
-                name="bio"
-                placeholder="Write something interesting about you...."
-                value={formData.bio}
-                onChange={handleChange}
-              ></textarea>
-              <div className="alert-text">
-                Brief description for your profile. URLs are hyperlinked.
+            <form onSubmit={handlePersonalDetailsSubmit}>
+              <div className="dash-input-wrapper mb-30">
+                <label htmlFor="">Full Name*</label>
+                <input
+                  type="text"
+                  name="fullName"
+                  placeholder="Enter Full Name"
+                  value={formData.fullName}
+                  onChange={handleChange}
+                />
               </div>
-            </div>
+              {/* Date of Birth Field */}
+              <div className="row">
+                <div className="col-lg-3">
+                  <div className="dash-input-wrapper mb-25">
+                    <label htmlFor="">Date of Birth*</label>
+                    <input
+                      type="date"
+                      name="dateOfBirth"
+                      id="dob"
+                      placeholder="YYYY-MM-DD"
+                      value={formData.dateOfBirth}
+                      onChange={handleChange}
+                    />
+                  </div>
+                </div>
+                <div className="col-lg-3">
+                  <div className="dash-input-wrapper mb-25">
+                    <label htmlFor="">Social Category*</label>
+                    <input
+                      type="text"
+                      name="socialCategory"
+                      id="socialCategory"
+                      placeholder="Enter your social category"
+                      value={formData.socialCategory}
+                      onChange={handleChange}
+                    />
+                  </div>
+                </div>
+                <div className="col-lg-3">
+                  <div className="dash-input-wrapper mb-25">
+                    <label htmlFor="">Gender*</label>
+                    <NiceSelect
+                      options={[
+                        { value: "", label: "Select Gender" },
+                        { value: "Male", label: "Male" },
+                        { value: "Female", label: "Female" },
+                        { value: "Others", label: "Others" },
+                      ]}
+                      defaultCurrent={0}
+                      onChange={handleSelectChange}
+                      name="gender"
+                    />
+                  </div>
+                </div>
+                <div className="col-lg-3">
+                  <div className="dash-input-wrapper mb-25">
+                    <label htmlFor="">Maritial Status*</label>
+                    <NiceSelect
+                      options={[
+                        { value: "", label: "select Status" },
+                        { value: "Single", label: "Single" },
+                        { value: "Married", label: "Married" },
+                        { value: "Divorced", label: "Divorced" },
+                      ]}
+                      defaultCurrent={0}
+                      onChange={handleSelectChange}
+                      name="maritialStatus"
+                    />
+                  </div>
+                </div>
+                <div className="col-lg-3">
+                  <div className="dash-input-wrapper mb-25">
+                    <label htmlFor="">Physically Challenged*</label>
+                    <NiceSelect
+                      options={[
+                        { value: "", label: "select Status" },
+                        { value: "Yes", label: "Yes" },
+                        { value: "No", label: "No" },
+                      ]}
+                      defaultCurrent={0}
+                      onChange={handleSelectChange}
+                      name="physicallyChallenged"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Social Category Field */}
+              <div className="dash-input-wrapper">
+                <label htmlFor="">Bio*</label>
+                <textarea
+                  className="size-lg"
+                  name="bio"
+                  placeholder="Write something interesting about you...."
+                  value={formData.bio}
+                  onChange={handleChange}
+                ></textarea>
+                <div className="alert-text">
+                  Brief description for your profile. URLs are hyperlinked.
+                </div>
+              </div>
+              <div className="button-group d-inline-flex align-items-center mt-30">
+                <button type="submit" className="dash-btn-two tran3s me-3">
+                  Save
+                </button>
+              </div>
+            </form>
           </div>
+        </>
 
+        <form onSubmit={handleContactDetailsSubmit}>
           <div className="bg-white card-box border-20 mt-40">
             <h4 className="dash-title-three">Contact details</h4>
 
@@ -188,8 +269,15 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
                 onChange={handleChange}
               />
             </div>
+            <div className="button-group d-inline-flex align-items-center mt-30">
+              <button type="submit" className="dash-btn-two tran3s me-3">
+                Save
+              </button>
+            </div>
           </div>
+        </form>
 
+        <form onSubmit={handleAddressDetailsSubmit}>
           <div className="bg-white card-box border-20 mt-40">
             <h4 className="dash-title-three">Address & Location</h4>
             <div className="row">
@@ -242,8 +330,18 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
                 </div>
               </div>
             </div>
+            <div className="button-group d-inline-flex align-items-center mt-30">
+              <button type="submit" className="dash-btn-two tran3s me-3">
+                Save
+              </button>
+              <a href="#" className="dash-cancel-btn tran3s">
+                Cancel
+              </a>
+            </div>
           </div>
+        </form>
 
+        <form onSubmit={handleEducationDetailsSubmit}>
           <div className="bg-white card-box border-20 mt-40">
             <h4 className="dash-title-three">Education Details*</h4>
             <h5 className="sub-title">Class X Details</h5>
@@ -361,7 +459,14 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
               <div className="col-lg-3">
                 <div className="dash-input-wrapper mb-25">
                   <label htmlFor="">Passing Year*</label>
-                  <input type="number" id="passingYearXII" placeholder="YYYY" />
+                  <input
+                    type="number"
+                    id="passingYearXII"
+                    value={formData.passingYearXII}
+                    onChange={handleChange}
+                    placeholder="YYYY"
+                    name="passingYearXII"
+                  />
                 </div>
               </div>
               <div className="col-lg-3">
@@ -378,7 +483,6 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
                 </div>
               </div>
             </div>
-
             <h5 className="sub-title">Graduation Details</h5>
             <div className="row">
               <div className="col-12">
@@ -450,27 +554,75 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
                 </div>
               </div>
             </div>
+            <div className="button-group d-inline-flex align-items-center mt-30">
+              <button type="submit" className="dash-btn-two tran3s me-3">
+                Save
+              </button>
+            </div>
           </div>
+        </form>
 
+        <form onSubmit={handlePreferenceDetailsSubmit}>
           <div className="bg-white card-box border-20 mt-40">
             <h4 className="dash-title-three">Preference*</h4>
             <div className="row">
               <div className="col-lg-4">
                 <div className="dash-input-wrapper mb-25">
                   <label htmlFor="">Stream*</label>
-                  <StreamSelect />
+                  <NiceSelect
+                    options={[
+                      { value: "", label: "Select Stream" },
+                      { value: "Engineering", label: "Engineering" },
+                      { value: "Architecture", label: "Architecture" },
+                      { value: "Others", label: "Others" },
+                    ]}
+                    defaultCurrent={0}
+                    onChange={handleSelectChange}
+                    name="stream"
+                  />
                 </div>
               </div>
               <div className="col-lg-4">
                 <div className="dash-input-wrapper mb-25">
                   <label htmlFor="">level*</label>
-                  <LevelSelect />
+                  <NiceSelect
+                    options={[
+                      { value: "", label: "select Level" },
+                      { value: "PG", label: "PG" },
+                      { value: "UG", label: "UG" },
+                      { value: "Others", label: "Others" },
+                    ]}
+                    defaultCurrent={0}
+                    onChange={handleSelectChange}
+                    name="level"
+                  />
                 </div>
               </div>
               <div className="col-lg-4">
                 <div className="dash-input-wrapper mb-25">
                   <label htmlFor="">Specialization*</label>
-                  <SpecializationSelect />
+                  <NiceSelect
+                    options={[
+                      { value: "", label: "select Specialization" },
+                      {
+                        value: "computer engineering",
+                        label: "computer engineering",
+                      },
+                      {
+                        value: "civil engineering",
+                        label: "civil engineering",
+                      },
+                      {
+                        value: "electrical engineering",
+                        label: "electrical engineering",
+                      },
+
+                      { value: "Others", label: "Others" },
+                    ]}
+                    defaultCurrent={0}
+                    onChange={handleSelectChange}
+                    name="Specialization"
+                  />
                 </div>
               </div>
               <div className="col-lg-4">
@@ -507,21 +659,37 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
               <div className="col-lg-4">
                 <div className="dash-input-wrapper mb-25">
                   <label htmlFor="">Fee Range*</label>
-                  <FeeRangeSelect />
+                  <NiceSelect
+                    options={[
+                      { value: "", label: "select Fee Range" },
+                      { value: "3L", label: "1-3Lakhs" },
+                      { value: "6L", label: "1-6Lakhs" },
+                      { value: "10L", label: "1-10Lakhs" },
+                      { value: "Others", label: "Others" },
+                    ]}
+                    defaultCurrent={0}
+                    onChange={handleSelectChange}
+                    name="feeRange"
+                  />
                 </div>
               </div>
             </div>
+            <div className="button-group d-inline-flex align-items-center mt-30">
+              <button type="submit" className="dash-btn-two tran3s me-3">
+                Save
+              </button>
+            </div>
           </div>
+        </form>
 
-          <div className="button-group d-inline-flex align-items-center mt-30">
+        {/* <div className="button-group d-inline-flex align-items-center mt-30">
             <button type="submit" className="dash-btn-two tran3s me-3">
               Save
             </button>
             <a href="#" className="dash-cancel-btn tran3s">
               Cancel
             </a>
-          </div>
-        </form>
+          </div> */}
       </div>
     </div>
   );

@@ -5,7 +5,7 @@ import Image from "next/image";
 import screen_1 from "@/assets/images/assets/screen_09.webp";
 import screen_2 from "@/assets/images/assets/screen_08.webp";
 import shape from "@/assets/images/shape/shape_25.svg";
-import AccordionItem from "../accordion/accordion-item";
+import AccordionItemTwo from "../accordion/accordian-item-two";
 
 export function FeatureImgBox() {
   return (
@@ -35,35 +35,36 @@ const FeatureFour = () => {
                 className="accordion accordion-style-one mt-40"
                 id="accordionOne"
               >
-                <AccordionItem
+                <AccordionItemTwo
                   id="one"
                   isShow={true}
-                  title="Career Mentorship"
-                  desc="93% of students are aware of only 7 career options, despite the existence of 250+ options 
-spanning 26 industries and 5000 job roles.
+                  title="Career"
+                  desc="Shaping your future with personalised career guidance and mentorship. 
+                  93% of students are aware of only 7 career options, despite the existence of 250+ options 
+spanning 26 industries and 5000 job roles.We offer a comprehensive Career Aptitude Test designed to help students like you explore and understand your strengths, interests, and aspirations.
 "
                   parent="accordionOne"
+                  path="/careerapt"
+                  bdesc="Career Aptitude"
                 />
-                <AccordionItem
+                <AccordionItemTwo
                   id="two"
-                  title="Career Aptitude Test"
-                  desc="At Career Buddy Club, we understand that choosing the right career can be a daunting task. That's why we offer a comprehensive Career Aptitude Test designed to help students like you explore and understand your strengths, interests, and aspirations. 
+                  title="Course"
+                  desc=" Offering specialised programs that bridge the gap between education and industry.
+                  At Career Buddy Club, we understand that choosing the right career can be a daunting task. That's why we offer a comprehensive Career Aptitude Test designed to help students like you explore and understand your strengths, interests, and aspirations. 
 
 Our aptitude test goes beyond traditional assessments, providing a personalized and in-depth analysis of your potential career options.
 "
                   parent="accordionOne"
+                  path="/addmission"
+                  bdesc="Courses Available"
                 />
-                <AccordionItem
-                  id="three"
-                  title="Corporate"
-                  desc=" Building connections and providing job opportunities through industry engagement.
-"
-                  parent="accordionOne"
-                />
-                <AccordionItem
+                <AccordionItemTwo
                   id="four"
                   title="College"
-                  desc="We partner with renowned colleges providing top notch quality education for your holistic development 
+                  desc="Partnering with premier institutions to provide top-quality education.
+
+                  We partner with renowned colleges providing top notch quality education for your holistic development 
 Personalized Counseling: Tailored guidance based on your academic interests, career goals, and location preferences to find the perfect institutions.
 
 Streamlined Applications: Assistance with preparing college applications and meeting deadlines, enhancing your acceptance prospects.
@@ -71,6 +72,17 @@ Streamlined Applications: Assistance with preparing college applications and mee
 Scholarship Opportunities: Help in securing scholarships and financial aid to make higher education cost-effective.
 "
                   parent="accordionOne"
+                  path="/campus"
+                  bdesc="Collaborated College"
+                />
+                <AccordionItemTwo
+                  id="three"
+                  title="Corporate"
+                  desc=" Building connections and providing job opportunities through industry engagement.
+"
+                  parent="accordionOne"
+                  path="/corporate"
+                  bdesc="Collaborated Companies"
                 />
               </div>
             </div>

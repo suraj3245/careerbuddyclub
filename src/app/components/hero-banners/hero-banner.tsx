@@ -40,7 +40,7 @@ const HeroBanner = () => {
             <Image
               src={main_img}
               alt="main-img"
-              className="lazy-img main-img w-100 h-150"
+              className="lazy-img main-img w-100 h-100"
             />
           </div>
         </div>

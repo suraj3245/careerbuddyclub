@@ -40,6 +40,7 @@ const resolver: Resolver<IFormData> = async (values) => {
 
 const LoginForm = () => {
   const [showPass, setShowPass] = useState<boolean>(false);
+
   // react hook form
   const {
     register,
@@ -51,30 +52,31 @@ const LoginForm = () => {
   const onSubmit = (data: IFormData) => {
     const { email, password } = data;
 
-  // Set up the request options for axios
-  const options = {
-    method: 'POST',
-    url: '${process.env.REACT_APP_API_URL}/students/login', // Replace with your API's URL
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    data: { email, password } // Send only the required data
-  };
+    // Set up the request options for axios
+    const options = {
+      method: "POST",
+      url: "http://192.168.0.228:8000/api/students/login", // Replace with your API's URL
+      headers: {
+        "Content-Type": "application/json",
+      },
+      data: { email, password }, // Send only the required data
+    };
 
-  // Make the POST request using axios
-  axios.request(options)
-    .then(response => {
-      // Handle the response here, e.g., notify the user of success
-      console.log('Registration successful', response.data);
-      alert('Registration successful!');
-    })
-    .catch(error => {
-      // Handle any errors here, e.g., notify the user of the failure
-      console.error('Registration error:', error);
-      alert('Registration failed!');
-    });
+    // Make the POST request using axios
+    axios
+      .request(options)
+      .then((response) => {
+        // Handle the response here, e.g., notify the user of success
+        console.log("Registration successful", response.data);
+        alert("Registration successful!");
+      })
+      .catch((error) => {
+        // Handle any errors here, e.g., notify the user of the failure
+        console.error("Registration error:", error);
+        alert("Registration failed!");
+      });
 
-  reset();
+    reset();
   };
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="mt-10">
