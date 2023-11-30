@@ -8,7 +8,7 @@ import FeatureTweleve from "./components/features/feature-twelve";
 import FancyBannerNine from "./components/fancy-banner/fancy-banner-9";
 import FancyBannerTen from "./components/fancy-banner/fancy-banner-10";
 import FeatureFour from "./components/features/feature-four";
-
+import PartnersSlider2 from "./components/partners/partners-slider2";
 export const metadata: Metadata = {
   title: "addmission",
 };
@@ -21,6 +21,9 @@ const addmission = () => {
         <HeaderFour />
         <HeroBanner />
         <FeatureTweleve />
+        <div className="partner-logos bg-color border-0 pt-45 pb-45 ps-3 pe-3">
+          <PartnersSlider2 />
+        </div>
         <FancyBannerNine />
         <FancyBannerTen />
         <FeatureFour />

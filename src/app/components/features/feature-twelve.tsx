@@ -1,8 +1,8 @@
 import React from "react";
 import Image from "next/image";
-import man_1 from "@/assets/images/assets/img_02.webp";
-import girl from "@/assets/images/assets/img_03.webp";
-import man_2 from "@/assets/images/assets/img_04.webp";
+import man_1 from "@/assets/images/assets/img_02 (1).webp";
+import girl from "@/assets/images/assets/img_03 (1).webp";
+import man_2 from "@/assets/images/assets/img_04 (1).webp";
 import screen_1 from "@/assets/images/assets/screen_01.webp";
 import screen_2 from "@/assets/images/assets/screen_02.webp";
 import screen_3 from "@/assets/images/assets/screen_03.webp";
