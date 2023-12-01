@@ -45,6 +45,7 @@ const LoginForm = () => {
   const [isMounted, setIsMounted] = useState(false);
   const router = useRouter();
   const [showPass, setShowPass] = useState<boolean>(false);
+  const [token, setToken] = useState("");
   // react hook form
   const {
     register,
@@ -80,6 +81,8 @@ const LoginForm = () => {
         //   })
         // );
         localStorage.setItem("token", response.data.access_token);
+        const token = localStorage.getItem("token");
+
         // console.log("Login successful", response.data.access_token);
         toast.success("Successfully logged in 🎉", {
           position: "top-left",
