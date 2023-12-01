@@ -1,10 +1,8 @@
 "use client";
 import React, { useState } from "react";
-import Image from "next/image";
-import avatar from "@/assets/dashboard/images/avatar_02.jpg";
 import DashboardHeader from "./dashboard-header";
 import NiceSelect from "@/ui/nice-select";
-import { Option, OnChangeArgument } from "@/ui/nice-select";
+import { OnChangeArgument } from "@/ui/nice-select";
 
 // props type
 type IProps = {

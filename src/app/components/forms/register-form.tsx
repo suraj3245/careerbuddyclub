@@ -7,6 +7,9 @@ import { Resolver, useForm } from "react-hook-form";
 import ErrorMsg from "../common/error-msg";
 import icon from "@/assets/images/icon/icon_60.svg";
 import axios from "axios";
+import Link from "next/link";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 // form data type
 type IFormData = {
@@ -89,12 +92,30 @@ const RegisterForm = () => {
       .then((response) => {
         // Handle the response here, e.g., notify the user of success
         console.log("Registration successful", response.data);
-        alert("Registration successful!");
+        toast.success("Your Account is created 🚀", {
+          position: "top-left",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
       })
       .catch((error) => {
         // Handle any errors here, e.g., notify the user of the failure
         console.error("Registration error:", error);
-        alert("Registration failed!");
+        toast.error("Unsucessful Registration Already a User 😵‍💫", {
+          position: "top-left",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
       });
 
     reset(); // Reset the form fields after submission attempt
@@ -102,6 +123,30 @@ const RegisterForm = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
+      <ToastContainer
+        position="top-left"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
+      <ToastContainer
+        position="bottom-left"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
       <div className="row">
         <div className="col-12">
           <div className="input-group-meta position-relative mb-25">

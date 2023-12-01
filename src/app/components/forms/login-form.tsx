@@ -6,7 +6,10 @@ import { Resolver, useForm } from "react-hook-form";
 import ErrorMsg from "../common/error-msg";
 import icon from "@/assets/images/icon/icon_60.svg";
 import axios from "axios";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useRouter } from "next/navigation";
+import cookie from "cookie";
 // form data type
 type IFormData = {
   email: string;
@@ -39,8 +42,9 @@ const resolver: Resolver<IFormData> = async (values) => {
 };
 
 const LoginForm = () => {
+  const [isMounted, setIsMounted] = useState(false);
+  const router = useRouter();
   const [showPass, setShowPass] = useState<boolean>(false);
-
   // react hook form
   const {
     register,
@@ -67,19 +71,74 @@ const LoginForm = () => {
       .request(options)
       .then((response) => {
         // Handle the response here, e.g., notify the user of success
-        console.log("Registration successful", response.data);
-        alert("Registration successful!");
+        // res.setHeader(
+        //   "Set-Cookie",
+        //   cookie.serialize("token", response.data.access_token, {
+        //     httpOnly: true,
+        //     path: "/",
+        //     // other cookie options as needed
+        //   })
+        // );
+        localStorage.setItem("token", response.data.access_token);
+        // console.log("Login successful", response.data.access_token);
+        toast.success("Successfully logged in 🎉", {
+          position: "top-left",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+        setTimeout(() => {
+          router.push("/schools");
+        }, 1000);
       })
       .catch((error) => {
         // Handle any errors here, e.g., notify the user of the failure
-        console.error("Registration error:", error);
-        alert("Registration failed!");
+        console.error("Login error:", error);
+        toast.error("Invalid Credentials! 😵‍💫", {
+          position: "top-left",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
       });
 
     reset();
   };
+
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="mt-10">
+      <ToastContainer
+        position="top-left"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
+      <ToastContainer
+        position="bottom-left"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
       <div className="row">
         <div className="col-12">
           <div className="input-group-meta position-relative mb-25">
@@ -119,18 +178,20 @@ const LoginForm = () => {
           </div>
         </div>
         {/* <div className="col-12">
-          <div className="agreement-checkbox d-flex justify-content-between align-items-center">
-            <div>
-              <input type="checkbox" id="remember" />
-              <label htmlFor="remember">Keep me logged in</label>
+            <div className="agreement-checkbox d-flex justify-content-between align-items-center">
+              <div>
+                <input type="checkbox" id="remember" />
+                <label htmlFor="remember">Keep me logged in</label>
+              </div>
+              <a href="#">Forget Password?</a>
             </div>
-            <a href="#">Forget Password?</a>
-          </div>
-        </div> */}
+          </div> */}
         <div className="col-12">
           <button
             type="submit"
-            className="btn-eleven fw-500 tran3s d-block mt-20"
+            className="btn-eleven fw-500 tran3s d-block mt-20 "
+            data-bs-dismiss="modal"
+            aria-label="Close"
           >
             Login
           </button>

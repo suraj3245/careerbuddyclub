@@ -10,7 +10,7 @@ import FancyBannerTen from "./components/fancy-banner/fancy-banner-10";
 import FeatureFour from "./components/features/feature-four";
 
 export const metadata: Metadata = {
-  title: "addmission",
+  title: "career buddy club",
 };
 
 const addmission = () => {
@@ -18,6 +18,7 @@ const addmission = () => {
     <Wrapper>
       <div className="main-page-wrapper">
         {/* header start */}
+
         <HeaderFour />
         <HeroBanner />
         <FeatureTweleve />
