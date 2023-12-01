@@ -26,16 +26,13 @@ const AptiFeaturet = () => {
             <div className="col-lg-5">
               <div className="content-wrapper ps-xxl-4 wow fadeInRight">
                 <div className="title-one">
-                  <h2>OUR SOLUTION</h2>
+                  <h2>Our Solutions</h2>
                 </div>
                 <p className="mt-40 md-mt-20 mb-40 md-mb-20">
-                  EMPOWERING STUDENTS FOR A BRIGHTER TOMORROW
+                Guiding the Path to Personalized Career Development and Success
                 </p>
                 <ul className="list-style-one style-none">
-                  <li>
-                    Enable self-assessment to know aptitude and general
-                    knowledge
-                  </li>
+                 
                   <li>
                     Support students in strategizing and assessing their career
                     options.

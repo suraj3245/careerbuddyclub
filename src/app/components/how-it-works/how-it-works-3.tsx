@@ -8,7 +8,7 @@ const HowItWorksThree = ({style_2}:{style_2?:boolean}) => {
       <div className="container">
         <div className="title-one d-flex align-items-center justify-content-between text-center mb-45 lg-mb-20">
           <span className="line"></span>
-          <h2 className="fw-600 ps-3 pe-3 wow fadeInUp" data-wow-delay="0.3s">How it’s Work?</h2>
+          <h2 className="fw-600 ps-3 pe-3 wow fadeInUp" data-wow-delay="0.3s">How Does it Work?</h2>
           <span className="line"></span>
         </div>
 

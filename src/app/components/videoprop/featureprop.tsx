@@ -51,6 +51,7 @@ const FeatureSection: React.FC = () => {
                 <h2 className="pb-20">What is Career Aptitude Test?</h2>
                  <p>Welcome to the Career Buddy Club's Aptitude Test. Dive into a quick and insightful assessment that will shine a light on your unique personality, cognitive strengths, and professional aptitudes.<br/>
 This easy-to-complete test will guide you through a series of questions aimed at pinpointing your capabilities and preferences. Discover your hidden talents and understand how you can apply them in your career path.<br/>
+Receive a detailed report with personalized feedback to set achievable goals and take control of your personal and professional development. Unlock your full potential with CBC's Career Aptitude Test - try it today and experience the difference in your life.<br/>
 </p>
               </div>
             </div>
