@@ -48,6 +48,7 @@ export function FeatureImgData() {
 const FeatureTweleve = () => {
   return (
     <section className="text-feature-one position-relative pt-120 xl-pt-20 lg-pt-20 md-pt-20 pb-20 xl-pb-20">
+    
       <div className="container">
         <div className="row">
           <div className="col-lg-5 order-lg-last">

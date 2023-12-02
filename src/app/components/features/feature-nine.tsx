@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import img_1 from "@/assets/images/assets/img_37.webp";
 import img_2 from "@/assets/images/assets/img_38.webp";
-import img_3 from "@/assets/images/assets/img_04.webp";
+import img_3 from "@/assets/images/assets/img-0.webp";
 import screen_1 from "@/assets/images/assets/screen_01.webp";
 import screen_2 from "@/assets/images/assets/screen_02.webp";
 import screen_3 from "@/assets/images/assets/screen_03.webp";

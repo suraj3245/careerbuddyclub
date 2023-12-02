@@ -18,14 +18,14 @@ const AptiBanner = () => {
           <div className="row">
             <div className="col-lg-6 col-md-8">
               <h1 className="wow fadeInUp" data-wow-delay="0.3s">
-                Career Aptitude Test <br /> Your gateway to brighter future.
+              Uncertain about the <br />  ideal career path for you?
+
               </h1>
               <p
                 className="text-md mt-40 lg-mt-20 mb-10 lg-mb-10 pe-xxl-5 wow fadeInUp"
                 data-wow-delay="0.4s"
               >
-                At Career Buddy Club (CBC), we're dedicated to shaping future
-                careers by bridging the gap between education and industry
+              We discover your unique skills and interests, guiding you towards a successful and fulfilling career path.
               </p>
             </div>
           </div>
@@ -36,7 +36,7 @@ const AptiBanner = () => {
                 className="btn-five wow fadeInUp "
                 data-wow-delay="0.6s"
               >
-                Take Test
+              Begin your free Test
               </Link>
       </div>
       <div className="img-meta">

@@ -27,16 +27,19 @@ const AptiFeature = () => {
           <div className="col-lg-5">
             <div className="content-wrapper ps-xxl-4 wow fadeInRight">
               <div className="title-one">
-                <h2>PROBLEMS</h2>
+                <h2>Problems</h2>
               </div>
               <p className="mt-40 md-mt-20 mb-40 md-mb-20">
-                CHALLENGES IN TODAY'S CAREER LANDSCAPE
+              Challenges in Today's Career Landscape
               </p>
               <ul className="list-style-one style-none">
                 <li>
                   93% of students are aware of only 7 career options, despite
                   the existence of 250+ options spanning 26 industries and 5000
                   job roles.
+                </li>
+                <li>
+                Almost 50% students regret choosing their careers
                 </li>
                 <li>
                   Navigating parental expectations when a child's interests
