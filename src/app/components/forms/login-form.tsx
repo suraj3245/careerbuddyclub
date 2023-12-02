@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import * as Yup from "yup";
 import { Resolver, useForm } from "react-hook-form";
@@ -9,7 +9,7 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/navigation";
-import cookie from "cookie";
+
 // form data type
 type IFormData = {
   email: string;
@@ -45,7 +45,7 @@ const LoginForm = () => {
   const [isMounted, setIsMounted] = useState(false);
   const router = useRouter();
   const [showPass, setShowPass] = useState<boolean>(false);
-  const [token, setToken] = useState("");
+
   // react hook form
   const {
     register,
@@ -74,14 +74,13 @@ const LoginForm = () => {
         // Handle the response here, e.g., notify the user of success
         // res.setHeader(
         //   "Set-Cookie",
-        //   cookie.serialize("token", response.data.access_token, {
+        //   cookie.serialize("token", respon.data.access_token, {
         //     httpOnly: true,
         //     path: "/",
         //     // other cookie options as needed
         //   })
         // );
         localStorage.setItem("token", response.data.access_token);
-        const token = localStorage.getItem("token");
 
         // console.log("Login successful", response.data.access_token);
         toast.success("Successfully logged in 🎉", {
@@ -95,7 +94,7 @@ const LoginForm = () => {
           theme: "light",
         });
         setTimeout(() => {
-          router.push("/schools");
+          window.location.href = "/";
         }, 1000);
       })
       .catch((error) => {

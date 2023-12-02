@@ -8,8 +8,17 @@ import logo from "@/assets/images/logo/logo4.png";
 import useSticky from "@/hooks/use-sticky";
 import LoginModal from "@/app/components/common/popup/login-modal";
 
-const HeaderFour = () => {
+interface HeaderFourProps {
+  user: {
+    value: string | null;
+  };
+  onLogout: () => void;
+  key: number;
+}
+const HeaderFour: React.FC<HeaderFourProps> = ({ user, key, onLogout }) => {
   const { sticky } = useSticky();
+  const isUserLoggedIn = user && user.value;
+
   return (
     <>
       <header
@@ -32,23 +41,38 @@ const HeaderFour = () => {
                 </Link>
               </div>
               <div className="right-widget ms-auto ms-lg-0 order-lg-2">
-                <ul className="d-flex align-items-center style-none">
-                  <li>
-                    <a
-                      href="#"
-                      className="fw-500 text-dark"
-                      data-bs-toggle="modal"
-                      data-bs-target="#loginModal"
-                    >
-                      Login
-                    </a>
-                  </li>
-                  <li className="d-none d-md-block ms-4">
-                    <Link href="/register" className="btn-five">
-                      Register
-                    </Link>
-                  </li>
-                </ul>
+                {!isUserLoggedIn && (
+                  <ul className="d-flex align-items-center style-none">
+                    <li>
+                      <a
+                        href="#"
+                        className="fw-500 text-dark"
+                        data-bs-toggle="modal"
+                        data-bs-target="#loginModal"
+                      >
+                        Login
+                      </a>
+                    </li>
+                    <li className="d-none d-md-block ms-4">
+                      <Link href="/register" className="btn-five">
+                        Register
+                      </Link>
+                    </li>
+                  </ul>
+                )}
+                {isUserLoggedIn && (
+                  <ul className="d-flex align-items-center style-none">
+                    <li>
+                      <a
+                        href="#"
+                        className=" btn-five fw-500 text-white"
+                        onClick={onLogout}
+                      >
+                        Logout
+                      </a>
+                    </li>
+                  </ul>
+                )}
               </div>
               <nav className="navbar navbar-expand-lg p0 ms-3 ms-lg-0 order-lg-1">
                 <button
@@ -74,11 +98,13 @@ const HeaderFour = () => {
                     {/* menus start */}
                     <Menus />
                     {/* menus end */}
-                    <li className="d-md-none mt-5">
-                      <Link href="/register" className="btn-five w-100">
-                        Register
-                      </Link>
-                    </li>
+                    {isUserLoggedIn && (
+                      <li className="d-md-none mt-5">
+                        <Link href="/register" className="btn-five w-100">
+                          Register
+                        </Link>
+                      </li>
+                    )}
                   </ul>
                 </div>
               </nav>
