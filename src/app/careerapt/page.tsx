@@ -18,6 +18,7 @@ import img1 from '@/assets/images/assets/1.svg'
 import ContactSchoolArea from "../components/contactSchools/contactSchools-area";
 import Component from "../components/how-it-works/how-it-works-4";
 import CareerSurvey from "../aptitudetest/page";
+import FeedbackFour from "../components/feedBacks/feedback-four";
 export const metadata: Metadata = {
   title: "career aptitude test",
 };
@@ -50,6 +51,7 @@ const campus = () => {
         <AptiFeaturet />
         
         {/* how it works end */}
+        <FeedbackFour />
         <Aptibannerthree />
         <FancyBannerTwo />
         {/* feature three end */}
