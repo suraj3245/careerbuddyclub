@@ -10,11 +10,10 @@ import FancyBannerTen from "./components/fancy-banner/fancy-banner-10";
 import FeatureFour from "./components/features/feature-four";
 import PartnersSlider2 from "./components/partners/partners-slider2";
 import { string } from "yup";
-import RootLayout from "./layout";
 
-export const metadata: Metadata = {
-  title: "career buddy club",
-};
+// export const metadata: Metadata = {
+//   title: "career buddy club",
+// };
 
 const addmission = () => {
   // const [token, setToken] = useState<string | null>(null);
@@ -45,6 +44,8 @@ const addmission = () => {
         {/* <HeaderFour user={user} onLogout={handleLogout} key={key} /> */}
         <HeroBanner />
         <FeatureTweleve />
+        <FeatureThirteen />
+        <FlipCardone />
         <div className="partner-logos bg-color border-0 pt-45 pb-45 ps-3 pe-3">
           <PartnersSlider2 />
         </div>

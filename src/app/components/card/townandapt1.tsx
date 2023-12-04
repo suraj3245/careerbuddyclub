@@ -2,21 +2,23 @@
 
 import React, { useState, useEffect } from "react";
 import img2 from "@/assets/images/assets/test.png";
-import img1 from "@/assets/images/assets/test2.png";
+import img1 from "@/assets/images/assets/test3.jpeg";
+import img3 from "@/assets/images/assets/test4.webp";
+import img4 from "@/assets/images/assets/test5.png";
 import { StaticImageData } from "next/image";
+import Link from "next/link";
 
 interface CardProps {
   flip: boolean;
   frontImage: StaticImageData;
-  backTitle: string;
-  backDescription: string;
+  backImage: StaticImageData;
+  
 }
 
 const Card: React.FC<CardProps> = ({
   flip,
   frontImage,
-  backTitle,
-  backDescription,
+  backImage,
 }) => {
   const cardStyle: React.CSSProperties = {
     height: "100%",
@@ -31,11 +33,18 @@ const Card: React.FC<CardProps> = ({
     borderRadius: "20px",
     boxShadow: "0 0 5px 2px rgba(50, 50, 50, 0.25)",
     position: "absolute",
+    backfaceVisibility: "visible",
+    height: "100%",
+    width: "100%",
+  };
+  const backBackCommonStyles: React.CSSProperties = {
+    borderRadius: "20px",
+    boxShadow: "0 0 5px 2px rgba(50, 50, 50, 0.25)",
+    position: "absolute",
     backfaceVisibility: "hidden",
     height: "100%",
     width: "100%",
   };
-
   const frontStyle: React.CSSProperties = {
     ...frontBackCommonStyles,
     backgroundImage: `url(${frontImage.src})`,
@@ -44,23 +53,18 @@ const Card: React.FC<CardProps> = ({
   };
 
   const backStyle: React.CSSProperties = {
-    ...frontBackCommonStyles,
-    backgroundColor: "#3a3a3a",
-    transform: "rotateY(180deg)",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    color: "white",
+    ...backBackCommonStyles,
+    backgroundImage: `url(${backImage.src})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
   };
 
   return (
     <div style={cardStyle}>
       <div style={frontStyle} />
-      <div style={backStyle}>
-        <h1>{backTitle}</h1>
-        <p>{backDescription}</p>
-      </div>
+      <div style={backStyle} />
+    
+      
     </div>
   );
 };
@@ -103,6 +107,9 @@ const FlipCardone: React.FC = () => {
     margin: isMobile ? "0" : "0", // Optional: Adjust margin for mobile if needed
   };
 
+
+
+  
   return (
     <div style={cardsContainerStyle}>
       <div
@@ -112,10 +119,10 @@ const FlipCardone: React.FC = () => {
       >
         <Card
           flip={isFlippedOne}
-          frontImage={img1}
-          backTitle="Career Town"
-          backDescription="This is the description for card one."
+          frontImage={img4}
+          backImage={img1}
         />
+        
       </div>
       <div
         style={containerStyle}
@@ -123,11 +130,13 @@ const FlipCardone: React.FC = () => {
         onMouseLeave={() => setIsFlippedTwo(false)}
       >
         <Card
+       
           flip={isFlippedTwo}
-          frontImage={img2}
-          backTitle="Career Aptitude Test"
-          backDescription="This is the description for card two."
+          frontImage={img3}
+          backImage={img2}
+          
         />
+       
       </div>
     </div>
   );
