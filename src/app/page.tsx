@@ -10,6 +10,8 @@ import FancyBannerTen from "./components/fancy-banner/fancy-banner-10";
 import FeatureFour from "./components/features/feature-four";
 import PartnersSlider2 from "./components/partners/partners-slider2";
 import { string } from "yup";
+import FeatureThirteen from "./components/features/feature-thirteen";
+import FlipCardone from "./components/card/townandapt1";
 
 // export const metadata: Metadata = {
 //   title: "career buddy club",
