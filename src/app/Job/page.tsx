@@ -23,7 +23,7 @@ const HomeFour = () => {
     <Wrapper>
       <div className="main-page-wrapper">
         {/* header start */}
-        <HeaderFour />
+
         {/* header end */}
 
         {/* hero banner start */}

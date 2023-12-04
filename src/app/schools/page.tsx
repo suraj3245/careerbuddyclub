@@ -21,16 +21,15 @@ const schools = () => {
   return (
     <Wrapper>
       {/* feature three end */}
-      <HeaderFour />
       {/* category section 2 start */}
       <HeroBannerThree />
-      <FlipCard/>
+      <FlipCard />
 
       <FeatureFive />
-       <Aptibannerthree/>
+      <Aptibannerthree />
 
       <FeedbackThree />
-      <FancyBannerTwo/>
+      <FancyBannerTwo />
       <FeatureSix />
       <ContactSchoolArea />
 

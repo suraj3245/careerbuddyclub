@@ -6,6 +6,7 @@ const menu_data: IMenuData[] = [
     link: "/",
     title: "Admission",
   },
+
   {
     id: 2,
     link: "/",
@@ -17,7 +18,7 @@ const menu_data: IMenuData[] = [
       { link: "/", title: "company4" },
       { link: "/", title: "company5" },
       { link: "/", title: "company6" },
-      { link: "/", title: "company7" },
+      { link: "/home", title: "Job Portal" },
     ],
   },
   {

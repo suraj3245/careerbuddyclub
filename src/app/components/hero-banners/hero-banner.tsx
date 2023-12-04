@@ -26,11 +26,11 @@ const HeroBanner = () => {
                 mentorship and networking opportunities.
               </p>
               <Link
-                href="/register"
+                href="/dashboard/candidate-dashboard/profile"
                 className="btn-five wow fadeInUp"
                 data-wow-delay="0.6s"
               >
-                Register here
+                Admission here
               </Link>
             </div>
           </div>

@@ -1,15 +1,15 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import * as Yup from "yup";
 import { Resolver, useForm } from "react-hook-form";
 import ErrorMsg from "../common/error-msg";
 import icon from "@/assets/images/icon/icon_60.svg";
 import axios from "axios";
-import Link from "next/link";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useRouter } from "next/navigation";
 
 // form data type
 type IFormData = {
@@ -51,29 +51,69 @@ const schema = Yup.object().shape({
 const RegisterForm = () => {
   const [showPass, setShowPass] = useState<boolean>(false);
   const [isVerificationSent, setIsVerificationSent] = useState<boolean>(false);
+  const [countdown, setCountdown] = useState(60);
+  const [showResend, setShowResend] = useState(false);
+  const router = useRouter();
 
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
+    getValues,
   } = useForm<IFormData>({});
 
-  const sendVerificationCode = (mobile: number) => {
-    console.log(`Sending verification code to ${mobile}`);
-    setIsVerificationSent(true);
+  const requestOTP = (data: {
+    name: string;
+    country_code: string;
+    mobile: number;
+  }) => {
+    axios
+      .post("http://192.168.0.228:8000/api/students/getwhatsappotp", data)
+      .then((response) => {
+        console.log(response.data);
+        // Notify user that OTP is sent
+        console.log("Registration successful", response.data);
+        toast.info("Your Account is created 🚀", {
+          position: "top-left",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+        setIsVerificationSent(true); // To show OTP input field
+      })
+      .catch((error) => {
+        console.error("Error sending OTP:", error);
+        toast.error("Error sending OTP or Number is already registered 😵‍💫", {
+          position: "top-left",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      });
   };
-
-  // const onSubmit = (data: IFormData) => {
-  //   if (data) {
-  //     alert(data.name);
-  //   }
-  //   reset();
-  // };
-
+  useEffect(() => {
+    let interval: string | number | NodeJS.Timeout | undefined;
+    if (isVerificationSent && countdown > 0) {
+      interval = setInterval(() => {
+        setCountdown((currentCountdown) => currentCountdown - 1);
+      }, 1000);
+    } else if (countdown === 0) {
+      setShowResend(true);
+    }
+    return () => clearInterval(interval);
+  }, [isVerificationSent, countdown]);
   const onSubmit = (data: IFormData) => {
     // Destructure the required fields from data
-    const { name, email, password, mobile } = data;
+    const { name, email, password, mobile, verificationCode: otp } = data;
 
     // Set up the request options for axios
     const options = {
@@ -83,7 +123,7 @@ const RegisterForm = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      data: { name, email, password, mobile }, // Send only the required data
+      data: { name, email, password, mobile, otp }, // Send only the required data
     };
 
     // Make the POST request using axios
@@ -91,6 +131,8 @@ const RegisterForm = () => {
       .request(options)
       .then((response) => {
         // Handle the response here, e.g., notify the user of success
+        localStorage.setItem("token", response.data.access_token);
+
         console.log("Registration successful", response.data);
         toast.success("Your Account is created 🚀", {
           position: "top-left",
@@ -102,6 +144,7 @@ const RegisterForm = () => {
           progress: undefined,
           theme: "light",
         });
+        router.push("/");
       })
       .catch((error) => {
         // Handle any errors here, e.g., notify the user of the failure
@@ -193,7 +236,17 @@ const RegisterForm = () => {
               />
               <button
                 type="button"
-                // onClick={() => sendVerificationCode()}
+                onClick={() => {
+                  if (!isVerificationSent || showResend) {
+                    const formData = getValues();
+                    requestOTP({
+                      name: formData.name,
+                      country_code: "91",
+                      mobile: formData.mobile,
+                    });
+                  }
+                }}
+                disabled={isVerificationSent && !showResend}
                 style={{
                   backgroundColor: "#14ADBD",
                   color: "#ffffff",
@@ -203,7 +256,11 @@ const RegisterForm = () => {
                   cursor: "pointer",
                 }}
               >
-                Send OTP
+                {!isVerificationSent
+                  ? "Send OTP"
+                  : showResend
+                  ? "Resend"
+                  : `Wait for ${countdown} sec`}
               </button>
             </div>
             <div className="help-block with-errors">

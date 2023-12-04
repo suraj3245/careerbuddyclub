@@ -34,13 +34,13 @@ const nav_data: {
   link: string;
   title: string;
 }[] = [
-  {
-    id: 1,
-    icon: nav_1,
-    icon_active: nav_1_active,
-    link: "/dashboard/candidate-dashboard",
-    title: "Dashboard",
-  },
+  // {
+  //   id: 1,
+  //   icon: nav_1,
+  //   icon_active: nav_1_active,
+  //   link: "/dashboard/candidate-dashboard",
+  //   title: "Dashboard",
+  // },
   {
     id: 2,
     icon: nav_2,
@@ -59,30 +59,30 @@ const nav_data: {
     id: 4,
     icon: nav_4,
     icon_active: nav_4_active,
-    link: "/dashboard/candidate-dashboard/messages",
-    title: "Messages",
+    link: "/careerapt",
+    title: "Career Aptitude Test",
   },
-  {
-    id: 5,
-    icon: nav_5,
-    icon_active: nav_5_active,
-    link: "/dashboard/candidate-dashboard/job-alert",
-    title: "Job Alert",
-  },
-  {
-    id: 6,
-    icon: nav_6,
-    icon_active: nav_6_active,
-    link: "/dashboard/candidate-dashboard/saved-job",
-    title: "Saved Job",
-  },
-  {
-    id: 7,
-    icon: nav_7,
-    icon_active: nav_7_active,
-    link: "/dashboard/candidate-dashboard/setting",
-    title: "Account Settings",
-  },
+  // {
+  //   id: 5,
+  //   icon: nav_5,
+  //   icon_active: nav_5_active,
+  //   link: "/dashboard/candidate-dashboard/job-alert",
+  //   title: "Job Alert",
+  // },
+  // {
+  //   id: 6,
+  //   icon: nav_6,
+  //   icon_active: nav_6_active,
+  //   link: "/dashboard/candidate-dashboard/saved-job",
+  //   title: "Saved Job",
+  // },
+  // {
+  //   id: 7,
+  //   icon: nav_7,
+  //   icon_active: nav_7_active,
+  //   link: "/dashboard/candidate-dashboard/setting",
+  //   title: "Account Settings",
+  // },
 ];
 // props type
 type IProps = {
@@ -108,25 +108,7 @@ const CandidateAside = ({ isOpenSidebar, setIsOpenSidebar }: IProps) => {
             </button>
           </div>
           <div className="user-data">
-            <div className="user-avatar online position-relative rounded-circle">
-              <Image
-                src={avatar}
-                alt="avatar"
-                className="lazy-img"
-                style={{ height: "auto" }}
-              />
-            </div>
             <div className="user-name-data">
-              <button
-                className="user-name dropdown-toggle"
-                type="button"
-                id="profile-dropdown"
-                data-bs-toggle="dropdown"
-                data-bs-auto-close="outside"
-                aria-expanded="false"
-              >
-                James Brower
-              </button>
               <ul className="dropdown-menu" aria-labelledby="profile-dropdown">
                 <li>
                   <Link
@@ -192,31 +174,8 @@ const CandidateAside = ({ isOpenSidebar, setIsOpenSidebar }: IProps) => {
                   </li>
                 );
               })}
-              <li>
-                <a
-                  href="#"
-                  className="d-flex w-100 align-items-center"
-                  data-bs-toggle="modal"
-                  data-bs-target="#deleteModal"
-                >
-                  <Image src={nav_8} alt="icon" className="lazy-img" />
-                  <span>Delete Account</span>
-                </a>
-              </li>
             </ul>
           </nav>
-          <div className="profile-complete-status">
-            <div className="progress-value fw-500">87%</div>
-            <div className="progress-line position-relative">
-              <div className="inner-line" style={{ width: "80%" }}></div>
-            </div>
-            <p>Profile Complete</p>
-          </div>
-
-          <a href="#" className="d-flex w-100 align-items-center logout-btn">
-            <Image src={logout} alt="icon" className="lazy-img" />
-            <span>Logout</span>
-          </a>
         </div>
       </aside>
       {/* LogoutModal star */}

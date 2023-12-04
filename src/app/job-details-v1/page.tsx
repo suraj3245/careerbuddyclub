@@ -19,7 +19,7 @@ const JobDetailsV1Page = () => {
     <Wrapper>
       <div className="main-page-wrapper">
         {/* header start */}
-        <HeaderFour />
+
         {/* header end */}
 
         {/* job details breadcrumb start */}

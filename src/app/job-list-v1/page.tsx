@@ -17,7 +17,7 @@ const JobListTwoPage = () => {
     <Wrapper>
       <div className="main-page-wrapper">
         {/* header start */}
-        <HeaderFour />
+
         {/* header end */}
 
         {/* search breadcrumb start */}

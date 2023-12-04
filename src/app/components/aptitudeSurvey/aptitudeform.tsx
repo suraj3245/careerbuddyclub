@@ -7,6 +7,8 @@ import Image from "next/image";
 import axios from "axios";
 import { Chart as ChartJS } from "chart.js/auto";
 import Confetti from "react-confetti";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 type Question = {
   id: number;
   question: string;
@@ -21,6 +23,8 @@ const QuizForm: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [results, setResults] = useState<any | null>(null);
+  const [token, setToken] = useState<string | null>(null);
+
   // const [results, setResults] = useState<any | null>({
   //   R: 17,
   //   A: 15,
@@ -33,13 +37,16 @@ const QuizForm: React.FC = () => {
 
   useEffect(() => {
     const fetchData = async () => {
+      const temptoken = localStorage.getItem("token");
+
+      setToken(temptoken);
+
       const options = {
         method: "POST",
-        url: "http://172.33.0.153:8000/api/students/getallcatquestions",
+        url: "http://192.168.0.228:8000/api/students/getallcatquestions",
         headers: {
           Accept: "*/*",
-          Authorization:
-            "Bearer 46|uyFbB1AqVL1eBWFhXYuEKFOzrMe7sy1K45okI9Sueaf54ec3",
+          Authorization: `Bearer ${temptoken}`,
           "Content-Type": "application/json",
         },
         data: {},
@@ -173,7 +180,16 @@ const QuizForm: React.FC = () => {
 
   const goToNextPage = () => {
     if (!areAllQuestionsAnsweredOnPage()) {
-      alert("Please answer all questions on this page.");
+      toast.error("answer all question to go to next page", {
+        position: "top-left",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
       return;
     }
     setCurrentPage(currentPage + 1);
@@ -183,7 +199,6 @@ const QuizForm: React.FC = () => {
     event.preventDefault();
 
     if (!areAllQuestionsAnsweredOnPage()) {
-      alert("Please answer all questions on this page before submitting.");
       return;
     }
 
@@ -203,11 +218,10 @@ const QuizForm: React.FC = () => {
 
       const submitOptions = {
         method: "POST",
-        url: "http://172.33.0.153:8000/api/students/submitcatanswers",
+        url: "http://192.168.0.228:8000/api/students/submitcatanswers",
         headers: {
           Accept: "*/*",
-          Authorization:
-            "Bearer 46|uyFbB1AqVL1eBWFhXYuEKFOzrMe7sy1K45okI9Sueaf54ec3",
+          Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
         },
         data: {
@@ -251,13 +265,8 @@ const QuizForm: React.FC = () => {
           className="flex flex-col p-4  items-center"
         >
           <div className="d-flex align-items-center justify-content-between">
-            <div className="logo order-lg-0">
-              <Link href="/" className="d-flex align-items-center">
-                <Image src={logo} alt="logo" width="125" height="75" priority />
-              </Link>
-            </div>
             <div className="text-center" style={{ flex: 1 }}>
-              <h2 className="mb-6 pb-10" style={{ color: "#13ADBD" }}>
+              <h2 className="mb-6 pb-10 pt-60 " style={{ color: "#13ADBD" }}>
                 Career Aptitude Test
               </h2>
               {/* Centered Header */}
@@ -390,7 +399,7 @@ const QuizForm: React.FC = () => {
               </Link>
             </div>
             <div className="text-center" style={{ flex: 1 }}>
-              <h2 className="mb-6 pb-10" style={{ color: "#13ADBD" }}>
+              <h2 className="mb-6 pb-10 pt-80" style={{ color: "#13ADBD" }}>
                 Career Aptitude Test
               </h2>
               {/* Centered Header */}
@@ -423,7 +432,9 @@ const QuizForm: React.FC = () => {
                 paddingTop: "10px",
               }}
             >
-              <button className="btn-apti pt-50">Next Steps</button>
+              <Link href="/">
+                <button className="btn-apti pt-50">Next Steps</button>
+              </Link>
             </div>
           </div>
         </div>

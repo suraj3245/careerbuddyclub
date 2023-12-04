@@ -98,7 +98,7 @@ const HeaderFour: React.FC<HeaderFourProps> = ({ user, key, onLogout }) => {
                     {/* menus start */}
                     <Menus />
                     {/* menus end */}
-                    {isUserLoggedIn && (
+                    {!isUserLoggedIn && (
                       <li className="d-md-none mt-5">
                         <Link href="/register" className="btn-five w-100">
                           Register

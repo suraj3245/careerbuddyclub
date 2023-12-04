@@ -5,34 +5,38 @@ import Wrapper from "@/layouts/wrapper";
 import JobPortalIntro from "../components/job-portal-intro/job-portal-intro";
 import CompanyBreadcrumb from "../components/common/common-breadcrumb";
 import FooterOne from "@/layouts/footers/footer-one";
-import PricingOne from "../components/pricing/pricing-one";
-import HeaderFour from "@/layouts/headers/header-4";
+import CompanyDetailsArea from "../components/company-details/company-details-area";
+import OpenPosition from "../components/company-details/open-position";
 
 export const metadata: Metadata = {
-  title: "Pricing",
+  title: "Company Details",
 };
 
-const PricingPage = () => {
+const CompanyDetailsPage = () => {
   return (
     <Wrapper>
       <div className="main-page-wrapper">
         {/* header start */}
+
         {/* header end */}
 
         {/*breadcrumb start */}
-        <CompanyBreadcrumb title="Pricing" subtitle="Choose your membership" />
+        <CompanyBreadcrumb
+          title="Company Details"
+          subtitle="Find company details here"
+        />
         {/*breadcrumb end */}
 
-        {/* pricing one start */}
-        <PricingOne />
-        {/* pricing one end */}
+        {/* company details area start */}
+        <CompanyDetailsArea />
+        {/* company details area end */}
 
-        {/* pricing two start */}
-        <PricingOne style_2={true} />
-        {/* pricing two end */}
+        {/*job Open Position */}
+        <OpenPosition />
+        {/*job Open Position */}
 
         {/* job portal intro start */}
-        <JobPortalIntro />
+        <JobPortalIntro top_border={true} />
         {/* job portal intro end */}
 
         {/* footer start */}
@@ -43,4 +47,4 @@ const PricingPage = () => {
   );
 };
 
-export default PricingPage;
+export default CompanyDetailsPage;

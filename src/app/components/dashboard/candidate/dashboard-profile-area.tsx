@@ -3,6 +3,10 @@ import React, { useState } from "react";
 import DashboardHeader from "./dashboard-header";
 import NiceSelect from "@/ui/nice-select";
 import { OnChangeArgument } from "@/ui/nice-select";
+import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import local from "next/font/local";
 
 // props type
 type IProps = {
@@ -15,7 +19,7 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
     dateOfBirth: "",
     socialCategory: "",
     gender: "",
-    maritalStatus: "",
+    maritialStatus: "",
     physicallyChallenged: "",
     bio: "",
     mobileNumber: "",
@@ -66,7 +70,62 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
     event: React.FormEvent<HTMLFormElement>
   ) => {
     event.preventDefault();
-    console.log("Personal Details: ", formData);
+    const personalDetails = {
+      name: formData.fullName,
+      social_category: formData.socialCategory,
+      dob: formData.dateOfBirth,
+      gender: formData.gender.toLowerCase(), // assuming your form provides 'Male', 'Female', etc.
+      marital_status: formData.maritialStatus.toLowerCase(),
+      physically_challenged:
+        formData.physicallyChallenged.toLowerCase() === "yes" ? "yes" : "no",
+      bio: formData.bio,
+    };
+
+    const token = localStorage.getItem("token");
+    console.log(personalDetails);
+    // Set up the request options for axios
+    const options = {
+      method: "POST",
+      url: "http://192.168.0.228:8000/api/students/updatebasicdetails",
+      headers: {
+        Accept: "*/*",
+        "User-Agent": "Thunder Client (https://www.thunderclient.com)",
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+      data: personalDetails, // Send only the required data
+    };
+    axios
+      .request(options)
+      .then((response) => {
+        // Handle the response here, e.g., notify the user of success
+
+        console.log("profileData successful", response.data);
+        toast.success("ProfileData successful 🚀", {
+          position: "top-left",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      })
+      .catch((error) => {
+        // Handle any errors here, e.g., notify the user of the failure
+        console.error(":", error);
+        toast.error("Unsucessful submission😵‍💫", {
+          position: "top-left",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      });
     // Logic to handle personal details submission
   };
 
@@ -74,21 +133,186 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
     event: React.FormEvent<HTMLFormElement>
   ) => {
     event.preventDefault();
-    console.log("Contact Details: ", formData);
+    const contactDetails = {
+      email: formData.email,
+      mobile: formData.mobileNumber,
+    };
+
+    const token = localStorage.getItem("token");
+    console.log(contactDetails);
+    // Set up the request options for axios
+    const options = {
+      method: "POST",
+      url: "http://192.168.0.228:8000/api/students/updatecontactdetails",
+      headers: {
+        Accept: "*/*",
+        "User-Agent": "Thunder Client (https://www.thunderclient.com)",
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+      data: contactDetails, // Send only the required data
+    };
+    axios
+      .request(options)
+      .then((response) => {
+        // Handle the response here, e.g., notify the user of success
+
+        console.log("profileData successful", response.data);
+        toast.success("ProfileData successful 🚀", {
+          position: "top-left",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      })
+      .catch((error) => {
+        // Handle any errors here, e.g., notify the user of the failure
+        console.error(":", error);
+        toast.error("Unsucessful submission😵‍💫", {
+          position: "top-left",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      });
+
     // Logic to handle contact details submission
   };
   const handleAddressDetailsSubmit = (
     event: React.FormEvent<HTMLFormElement>
   ) => {
     event.preventDefault();
-    console.log("Contact Details: ", formData);
+    const AddressDetails = {
+      address: formData.address,
+      state: formData.state,
+      city: formData.city,
+      zipCode: formData.zipCode,
+    };
+
+    const token = localStorage.getItem("token");
+    console.log(AddressDetails);
+    // Set up the request options for axios
+    const options = {
+      method: "POST",
+      url: "http://192.168.0.228:8000/api/students/updateaddresslocation",
+      headers: {
+        Accept: "*/*",
+        "User-Agent": "Thunder Client (https://www.thunderclient.com)",
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+      data: AddressDetails, // Send only the required data
+    };
+    axios
+      .request(options)
+      .then((response) => {
+        // Handle the response here, e.g., notify the user of success
+
+        console.log("profileData successful", response.data);
+        toast.success("ProfileData successful 🚀", {
+          position: "top-left",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      })
+      .catch((error) => {
+        // Handle any errors here, e.g., notify the user of the failure
+        console.error(":", error);
+        toast.error("Unsucessful submission😵‍💫", {
+          position: "top-left",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      });
+
     // Logic to handle contact details submission
   };
   const handleEducationDetailsSubmit = (
     event: React.FormEvent<HTMLFormElement>
   ) => {
     event.preventDefault();
-    console.log("Contact Details: ", formData);
+    const EducationDetails = {
+      schoolnamex: formData.schoolNameX,
+      boardx: formData.boardX,
+      streamx: formData.streamX,
+      passingyearx: formData.passingYearX,
+      percentagex: formData.percentageCgpaX,
+      schoolnamexii: formData.schoolNameXII,
+      boardxii: formData.boardXII,
+      streamxii: formData.streamXII,
+      passingyearxii: formData.passingYearXII,
+      percentagexii: formData.percentageCgpaXII,
+      collegename: formData.collegeName,
+      universityname: formData.universityName,
+      degree: formData.degreeName,
+      passingyearcollege: formData.passingYearCollege,
+      percentagecollege: formData.percentageCgpaCollege,
+    };
+
+    const token = localStorage.getItem("token");
+    console.log(EducationDetails);
+    // Set up the request options for axios
+    const options = {
+      method: "POST",
+      url: "http://192.168.0.228:8000/api/students/updateeducationdetails",
+      headers: {
+        Accept: "*/*",
+        "User-Agent": "Thunder Client (https://www.thunderclient.com)",
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+      data: EducationDetails, // Send only the required data
+    };
+    axios
+      .request(options)
+      .then((response) => {
+        // Handle the response here, e.g., notify the user of success
+
+        console.log("profileData successful", response.data);
+        toast.success("ProfileData successful 🚀", {
+          position: "top-left",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      })
+      .catch((error) => {
+        // Handle any errors here, e.g., notify the user of the failure
+        console.error(":", error);
+        toast.error("Unsucessful submission😵‍💫", {
+          position: "top-left",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      });
+
     // Logic to handle contact details submission
   };
 
@@ -96,6 +320,60 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
     event: React.FormEvent<HTMLFormElement>
   ) => {
     event.preventDefault();
+    const PreferenceDetails = {
+      stream: formData.stream,
+      level: formData.level,
+      specialization: formData.specialization,
+      location: formData.location,
+      collegetype: formData.collegeType,
+      feerange: formData.feeRange,
+    };
+
+    const token = localStorage.getItem("token");
+    console.log(PreferenceDetails);
+    // Set up the request options for axios
+    const options = {
+      method: "POST",
+      url: "http://192.168.0.228:8000/api/students/updatepreference",
+      headers: {
+        Accept: "*/*",
+        "User-Agent": "Thunder Client (https://www.thunderclient.com)",
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+      data: PreferenceDetails, // Send only the required data
+    };
+    axios
+      .request(options)
+      .then((response) => {
+        // Handle the response here, e.g., notify the user of success
+
+        console.log("profileData successful", response.data);
+        toast.success("ProfileData successful 🚀", {
+          position: "top-left",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      })
+      .catch((error) => {
+        // Handle any errors here, e.g., notify the user of the failure
+        console.error(":", error);
+        toast.error("Unsucessful submission😵‍💫", {
+          position: "top-left",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      });
     console.log("Contact Details: ", formData);
     // Logic to handle contact details submission
   };
@@ -332,9 +610,6 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
               <button type="submit" className="dash-btn-two tran3s me-3">
                 Save
               </button>
-              <a href="#" className="dash-cancel-btn tran3s">
-                Cancel
-              </a>
             </div>
           </div>
         </form>
@@ -680,14 +955,11 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
           </div>
         </form>
 
-        {/* <div className="button-group d-inline-flex align-items-center mt-30">
-            <button type="submit" className="dash-btn-two tran3s me-3">
-              Save
-            </button>
-            <a href="#" className="dash-cancel-btn tran3s">
-              Cancel
-            </a>
-          </div> */}
+        <div className="button-group d-inline-flex align-items-center mt-30">
+          <button type="submit" className="dash-btn-two tran3s me-3">
+            Next
+          </button>
+        </div>
       </div>
     </div>
   );

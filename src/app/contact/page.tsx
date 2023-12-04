@@ -16,7 +16,7 @@ const ContactPage = () => {
     <Wrapper>
       <div className="main-page-wrapper">
         {/* header start */}
-        <HeaderFour />
+
         {/* header end */}
 
         {/*MapArea start */}
