@@ -6,7 +6,6 @@ import JobDetailsBreadcrumb from "@/app/components/jobs/breadcrumb/job-details-b
 import RelatedJobs from "@/app/components/jobs/related-jobs";
 import FooterOne from "@/layouts/footers/footer-one";
 import job_data from "@/data/job-data";
-import HeaderFour from "@/layouts/headers/header-4";
 
 const JobDetailsDynamicPage = ({ params }: { params: { id: string } }) => {
   const job = job_data.find((j) => Number(j.id) === Number(params.id));

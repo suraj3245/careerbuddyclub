@@ -69,12 +69,12 @@ const RegisterForm = () => {
     mobile: number;
   }) => {
     axios
-      .post("http://192.168.0.228:8000/api/students/getwhatsappotp", data)
+      .post("http://54.224.161.134:8080/api/students/getwhatsappotp", data)
       .then((response) => {
         console.log(response.data);
         // Notify user that OTP is sent
-        console.log("Registration successful", response.data);
-        toast.info("Your Account is created 🚀", {
+
+        toast.info("Otp sent 🚀", {
           position: "top-left",
           autoClose: 5000,
           hideProgressBar: false,
@@ -87,7 +87,6 @@ const RegisterForm = () => {
         setIsVerificationSent(true); // To show OTP input field
       })
       .catch((error) => {
-        console.error("Error sending OTP:", error);
         toast.error("Error sending OTP or Number is already registered 😵‍💫", {
           position: "top-left",
           autoClose: 5000,
@@ -119,7 +118,7 @@ const RegisterForm = () => {
     const options = {
       method: "POST",
       // url: '${process.env.REACT_APP_API_URL}students/register', // Replace with your API's URL
-      url: "http://192.168.0.228:8000/api/students/register", // Replace with your API's URL
+      url: "http://54.224.161.134:8080/api/students/register", // Replace with your API's URL
       headers: {
         "Content-Type": "application/json",
       },

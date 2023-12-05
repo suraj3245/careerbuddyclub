@@ -1,19 +1,17 @@
 import React from "react";
-import { Metadata } from "next";
 import Wrapper from "@/layouts/wrapper";
-import JobPortalIntro from "../components/job-portal-intro/job-portal-intro";
-import CompanyBreadcrumb from "../components/common/common-breadcrumb";
+import JobPortalIntro from "@/app/components/job-portal-intro/job-portal-intro";
+import CompanyBreadcrumb from "@/app/components/common/common-breadcrumb";
 import FooterOne from "@/layouts/footers/footer-one";
-import CompanyDetailsArea from "../components/company-details/company-details-area";
-import OpenPosition from "../components/company-details/open-position";
+import CompanyDetailsArea from "@/app/components/company-details/company-details-area";
+import OpenPosition from "@/app/components/company-details/open-position";
 import company_details from "@/data/company-details";
 
-export const metadata: Metadata = {
-  title: "Company Details",
-};
+const CompanyDetailsDynamicPage = ({ params }: { params: { id: string } }) => {
+  const details = company_details.find(
+    (j) => Number(j.id) === Number(params.id)
+  );
 
-const CompanyDetailsPage = () => {
-  const details = company_details[0];
   return (
     <Wrapper>
       <div className="main-page-wrapper">
@@ -22,11 +20,14 @@ const CompanyDetailsPage = () => {
         {/* header end */}
 
         {/*breadcrumb start */}
-        <CompanyBreadcrumb title={details.company} subtitle={details.title} />
+        <CompanyBreadcrumb
+          title={details ? details.company : ""}
+          subtitle={details ? details.title : ""}
+        />
         {/*breadcrumb end */}
 
         {/* company details area start */}
-        <CompanyDetailsArea details={details} />
+        {details && <CompanyDetailsArea details={details} />}
         {/* company details area end */}
 
         {/*job Open Position */}
@@ -45,4 +46,4 @@ const CompanyDetailsPage = () => {
   );
 };
 
-export default CompanyDetailsPage;
+export default CompanyDetailsDynamicPage;

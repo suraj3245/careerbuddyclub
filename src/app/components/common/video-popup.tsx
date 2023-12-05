@@ -8,11 +8,7 @@ type IPropType = {
   videoId: string;
 };
 
-const VideoPopup = ({
-  isVideoOpen,
-  setIsVideoOpen,
-  videoId = "-6ZbrfSRWKc",
-}: IPropType) => {
+const VideoPopup = ({ isVideoOpen, setIsVideoOpen, videoId }: IPropType) => {
   return (
     <ModalVideo
       channel="youtube"

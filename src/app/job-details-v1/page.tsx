@@ -7,7 +7,6 @@ import JobDetailsBreadcrumb from "../components/jobs/breadcrumb/job-details-brea
 import JobDetailsV1Area from "../components/job-details/job-details-v1-area";
 import job_data from "@/data/job-data";
 import RelatedJobs from "../components/jobs/related-jobs";
-import HeaderFour from "@/layouts/headers/header-4";
 
 export const metadata: Metadata = {
   title: "Job Details v1",

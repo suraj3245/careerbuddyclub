@@ -27,6 +27,49 @@ import job_img_25 from "@/assets/images/logo/media_58.png";
 import job_img_26 from "@/assets/images/logo/media_59.png";
 import job_img_27 from "@/assets/images/logo/media_60.png";
 import job_img_28 from "@/assets/images/logo/media_61.png";
+import axios from "axios";
+
+async function fetchJobData(): Promise<IJobType[]> {
+  try {
+    const response = await axios.post(
+      "http://192.168.0.228:8000/api/students/getalljobs"
+    );
+    return mapJobsToIJobType(response.data.jobs);
+  } catch (error) {
+    console.error("Error fetching job data:", error);
+    return [];
+  }
+}
+
+// Function to map API response to IJobType format
+function mapJobsToIJobType(apiJobs: any[]): IJobType[] {
+  const images = [job_img_1 /* other imported images */];
+  return apiJobs.map((job, index) => {
+    return {
+      id: job.id,
+      logo: images[index % images.length], // Cycle through images
+      title: job.title,
+      duration: job.type, // Assuming 'type' corresponds to duration
+      date: new Date(job.start_date).toLocaleDateString(), // Format date
+      company: job.name,
+      location: job.location || "Not specified", // Default value if location is null
+      category: job.role ? [job.role] : [], // Wrap role in array
+      tags: job.skills ? job.skills.split(", ") : [], // Split skills into array
+      experience: `${job.minimum_experience} - ${job.maximum_experience}`,
+      salary: parseFloat(job.minimum_ctc), // Convert to number
+      salary_duration: job.payment_frequency,
+      english_fluency: "Fluent", // Default value
+      overview: "Job overview here", // Placeholder overview
+    };
+  });
+}
+
+// Example usage
+fetchJobData().then((jobData) => {
+  console.log(jobData); // This will log the formatted job data
+});
+
+export { fetchJobData };
 
 const job_data: IJobType[] = [
   {

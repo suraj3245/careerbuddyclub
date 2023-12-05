@@ -60,7 +60,7 @@ const LoginForm = () => {
     // Set up the request options for axios
     const options = {
       method: "POST",
-      url: "http://192.168.0.228:8000/api/students/login", // Replace with your API's URL
+      url: "http://54.224.161.134:8080/api/students/login", // Replace with your API's URL
       headers: {
         "Content-Type": "application/json",
       },

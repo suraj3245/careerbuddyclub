@@ -62,8 +62,8 @@ const ContactForm = () => {
   //   if (data) {
   //     emailjs
   //       .send(
-  //         'service_gnu2rla', 
-  //         'template_ilrquco', 
+  //         'service_gnu2rla',
+  //         'template_ilrquco',
   //         templateParams,
   //         'tDbxqotWh8Z0dv0h6'
   //       )
@@ -82,42 +82,37 @@ const ContactForm = () => {
   //   reset();
   // };
 
-  
-
-const onSubmit = (data: IFormData) => {
-  // Send the data to the Express.js server
-  fetch('http://localhost:5000/addContact', {
-      method: 'POST',
+  const onSubmit = (data: IFormData) => {
+    // Send the data to the Express.js server
+    fetch("http://54.224.161.134:8080/api/addContact", {
+      method: "POST",
       headers: {
-          'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(data)
-  })
-  .then(response => {
-      if (response.ok) {
+      body: JSON.stringify(data),
+    })
+      .then((response) => {
+        if (response.ok) {
           // If response from the server is successful
           return response.text();
-      } else {
+        } else {
           // If server returns an error response
           throw new Error("Server responded with an error");
-      }
-  })
-  .then(result => {
-      console.log(result);
-      notifySuccess('Your message sent successfully');
-  })
-  .catch(error => {
-      console.error('Error:', error);
-      notifyError(error?.message);
-  })
-  .finally(() => {
-      reset();
-  });
-};
+        }
+      })
+      .then((result) => {
+        console.log(result);
+        notifySuccess("Your message sent successfully");
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        notifyError(error?.message);
+      })
+      .finally(() => {
+        reset();
+      });
+  };
 
-
-
-  
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="messages"></div>

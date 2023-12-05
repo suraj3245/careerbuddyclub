@@ -43,7 +43,7 @@ const QuizForm: React.FC = () => {
 
       const options = {
         method: "POST",
-        url: "http://192.168.0.228:8000/api/students/getallcatquestions",
+        url: "http://54.224.161.134:8080/api/students/getallcatquestions",
         headers: {
           Accept: "*/*",
           Authorization: `Bearer ${temptoken}`,
@@ -218,7 +218,7 @@ const QuizForm: React.FC = () => {
 
       const submitOptions = {
         method: "POST",
-        url: "http://192.168.0.228:8000/api/students/submitcatanswers",
+        url: "http://54.224.161.134:8080/api/students/submitcatanswers",
         headers: {
           Accept: "*/*",
           Authorization: `Bearer ${token}`,
