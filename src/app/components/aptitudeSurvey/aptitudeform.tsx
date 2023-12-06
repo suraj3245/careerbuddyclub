@@ -393,11 +393,6 @@ const QuizForm: React.FC = () => {
       ) : (
         <div style={{ position: "relative", zIndex: 1 }}>
           <div className="d-flex align-items-center justify-content-between">
-            <div className="logo order-lg-0">
-              <Link href="/" className="d-flex align-items-center">
-                <Image src={logo} alt="logo" width="125" height="75" priority />
-              </Link>
-            </div>
             <div className="text-center" style={{ flex: 1 }}>
               <h2 className="mb-6 pb-10 pt-80" style={{ color: "#13ADBD" }}>
                 Career Aptitude Test
