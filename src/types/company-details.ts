@@ -4,10 +4,8 @@ export interface IcompanyType {
   id: number;
   logo: StaticImageData;
   title: string;
-  size: string;
   link: string;
   email: string;
-  phone: string;
   founded: string;
   feild: string[];
   overviewsection: string;
@@ -16,7 +14,6 @@ export interface IcompanyType {
   company: string;
   location: string;
   category: string[];
-  tags?: string[];
   experience: string;
   salary: number;
   salary_duration: string;

@@ -38,7 +38,7 @@ const VideoCard: React.FC<VideoCardProps> = ({ videoId }) => {
 };
 
 const FeatureSection: React.FC = () => {
-  const videoId = "Re1g_xooNUE";
+  const videoId = "fwfZJ2FAYHs";
 
   return (
     <>
