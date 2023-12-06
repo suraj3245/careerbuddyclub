@@ -7,9 +7,9 @@ export function WidgetOne({ cls,style_2 }: { cls: string;style_2?:boolean }) {
       <h5 className={`footer-title ${style_2?'text-white':''}`}>Services​</h5>
       <ul className="footer-nav-link style-none">
         <li><Link href="/job-grid-v2">Browse Jobs</Link></li>
-        <li><Link href="/company-v1">Companies</Link></li>
-        <li><Link href="/candidates-v1">Candidates</Link></li>
-        <li><Link href="/pricing">Pricing</Link></li>
+        <li><Link href="#">Companies</Link></li>
+        <li><Link href="#">Candidates</Link></li>
+        <li><Link href="#">Pricing</Link></li>
       </ul>
     </div>
   )
@@ -21,7 +21,7 @@ export function WidgetTwo({ cls,style_2 }: { cls: string;style_2?:boolean }) {
       <h5 className={`footer-title ${style_2?'text-white':''}`}>Company</h5>
       <ul className="footer-nav-link style-none">
         <li><Link href="/about-us">About us</Link></li>
-        <li><Link href="/blog-v2">Blogs</Link></li>
+        <li><Link href="#">Blogs</Link></li>
         <li><Link href="/faq">FAQ’s</Link></li>
         <li><Link href='/contact'>Contact</Link></li>
       </ul>

@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import img2 from "@/assets/images/assets/test.png";
 import img1 from "@/assets/images/assets/test3.jpeg";
 import img3 from "@/assets/images/assets/test4.webp";
-import img4 from "@/assets/images/assets/test5.png";
+import img4 from "@/assets/images/assets/test-6.png";
 import { StaticImageData } from "next/image";
 import Link from "next/link";
 
@@ -12,13 +12,14 @@ interface CardProps {
   flip: boolean;
   frontImage: StaticImageData;
   backImage: StaticImageData;
-  
+ 
 }
 
 const Card: React.FC<CardProps> = ({
   flip,
   frontImage,
   backImage,
+ 
 }) => {
   const cardStyle: React.CSSProperties = {
     height: "100%",
@@ -44,6 +45,7 @@ const Card: React.FC<CardProps> = ({
     backfaceVisibility: "hidden",
     height: "100%",
     width: "100%",
+    transform: 'rotateY(180deg)',
   };
   const frontStyle: React.CSSProperties = {
     ...frontBackCommonStyles,
@@ -60,12 +62,12 @@ const Card: React.FC<CardProps> = ({
   };
 
   return (
+ 
     <div style={cardStyle}>
       <div style={frontStyle} />
       <div style={backStyle} />
-    
-      
     </div>
+
   );
 };
 
@@ -119,27 +121,28 @@ const FlipCardone: React.FC = () => {
       >
         <Card
           flip={isFlippedOne}
-          frontImage={img4}
-          backImage={img1}
+          frontImage={img1}
+          backImage={img4}
+          
         />
         
       </div>
+      
       <div
         style={containerStyle}
         onMouseEnter={() => setIsFlippedTwo(true)}
         onMouseLeave={() => setIsFlippedTwo(false)}
       >
         <Card
-       
           flip={isFlippedTwo}
-          frontImage={img3}
-          backImage={img2}
-          
+          frontImage={img2}
+          backImage={img3}
+         
         />
-       
       </div>
     </div>
   );
+
 };
 
 export default FlipCardone;

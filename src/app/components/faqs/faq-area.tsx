@@ -33,32 +33,32 @@ const FaqArea = () => {
           <div className="tab-content" id="myTabContent">
             <div className="tab-pane fade show active" role="tabpanel" id="fc1">
               <div className="accordion accordion-style-two" id="accordionTwo">
-                <AccordionItem id='one' title='How does the free trial work?' desc='Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.' parent='accordionTwo' />
-                <AccordionItem isShow={true} id='two' title='How do you find different criteria in your process?' desc='Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.' parent='accordionTwo' />
-                <AccordionItem id='three' title='What do you look for in a founding team?' desc='Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.' parent='accordionTwo' />
-                <AccordionItem id='four' title='Do you recommend Pay as you go or Pre pay?' desc='Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.' parent='accordionTwo' />
-                <AccordionItem id='five' title='What do I get for $0 with my plan?' desc='Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.' parent='accordionTwo' />
+                <AccordionItem id='one' title='What is CBC?' desc='CBC stands for Career Buddy Club. It is an end-to-end career services management solution that provides personalized career development plans, networking opportunities, training and mentorship programs, job and internship opportunities, and resources for budding entrepreneurs.' parent='accordionTwo' />
+                <AccordionItem isShow={true} id='two' title='Who can benefit from CBC?' desc='CBC services are designed for educational institutions, students, job seekers, and entrepreneurs.' parent='accordionTwo' />
+                <AccordionItem id='three' title='How can CBC help me?' desc='CBC can help job seekers by providing personalized career development plans, job and internship opportunities, mentoring and training programs, and networking opportunities to achive career goals.' parent='accordionTwo' />
+                <AccordionItem id='four' title='How can be part of CBC?' desc='CBC has launched "Jobs Guarantee Program" for students looking for jobs in more than 30+ industries. You too can be a part of this program.' parent='accordionTwo' />
+                <AccordionItem id='five' title='How can I contact CBC for support?' desc='You can contact us by emailing us at contact@careerbuddy.com or Call 7456000100.' parent='accordionTwo' />
               </div>
             </div>
 
             <div className="tab-pane fade" role="tabpanel" id="fc2">
               <div className="accordion accordion-style-two" id="accordionThree">
-                <AccordionItem id='six' title='How does the free trial work?' desc='Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.' parent='accordionThree' />
-                <AccordionItem id='seven' title='How do you find different criteria in your process?' desc='Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.' parent='accordionThree' />
+                <AccordionItem id='six' title='What is this program about?' desc='This program will help you get the right job with an average of Rs. 5 LPA CTC.It will help you become employable and increase your chances of selection. Not only Jobs, this program will also help you figure out your career path by laying out a step by step career plan for you to become successful. Furthermore, It will also help your inner entrepreneur to understand the basics of building a business or use your entrepreneurial traits for jobs. Students who wish to go abroad will also be able to understand the nuances of living abroad and how can one get jobs abroad.' parent='accordionThree' />
+                <AccordionItem id='seven' title='Why should I take this program now?' desc='India is the only country where recession is not coming. But with the advent of AI, jobs will become a lot tougher for those who dont keep up Also,among companies, it is widely known that COVID batch hasnt studied well enough because of the nature of online classes, hence cracking interviews and getting good jobs is tougher now.' parent='accordionThree' />
               </div>
             </div>
 
             <div className="tab-pane fade" role="tabpanel" id="fc3">
               <div className="accordion accordion-style-two" id="accordionFour">
-                <AccordionItem id='eight' title='How does the free trial work?' desc='Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.' parent='accordionFour' />
-                <AccordionItem id='nine' title='How do you find different criteria in your process?' desc='Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.' parent='accordionFour' />
+                <AccordionItem id='eight' title='Can I upgrade my plan later?' desc='Yes, you can upgrade your plan later if you feel that you need more services. You can contact CBC customer support for assistance with upgrading your plan.' parent='accordionFour' />
+                <AccordionItem id='nine' title='Can I cancel my plan and get a refund?' desc='Please contact CBC customer support for assistance with cancellation of plans.' parent='accordionFour' />
               </div>
             </div>
 
             <div className="tab-pane fade" role="tabpanel" id="fc4">
               <div className="accordion accordion-style-two" id="accordionFive">
-                <AccordionItem id='ten' title='How does the free trial work?' desc='Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.' parent='accordionFive' />
-                <AccordionItem id='eleven' title='How do you find different criteria in your process?' desc='Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.' parent='accordionFive' />
+                <AccordionItem id='ten' title='Why should I take this Job Training now?' desc='The job market is highly competitive, and preparing for the selection process is crucial. By joining Manzil now, you gain a significant advantage and increase your chances of securing your dream job.' parent='accordionFive' />
+                <AccordionItem id='eleven' title='Couldnt I find this material online for free?' desc='While you may find some information and resources online, this program offers a curated and comprehensive curriculum tailored specifically to LinkedIn profile building. Our expert mentors provide in-depth knowledge, practical strategies, and personalized guidance, ensuring that you gain the expertise needed to create an exceptional LinkedIn profile that sets you apart from the competition.' parent='accordionFive' />
               </div>
             </div>
 

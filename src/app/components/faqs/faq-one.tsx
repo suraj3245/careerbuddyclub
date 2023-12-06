@@ -12,33 +12,33 @@ const faq_data: {
 }[] = [
     {
       id: "One",
-      title: "How does the free trial work?",
-      desc: "Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+      title: "What is CBC?",
+      desc: "CBC stands for Career Buddy Club. It is an end-to-end career services management solution that provides personalized career development plans, networking opportunities, training and mentorship programs, job and internship opportunities, and resources for budding entrepreneurs.",
       isShow: true,
       parent: "accordionTwo",
     },
     {
       id: "Two",
-      title: "How do you find different criteria in your process?",
-      desc: "Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+      title: "Who can benefit from CBC?",
+      desc: "CBC services are designed for educational institutions, students, job seekers, and entrepreneurs.",
       parent: "accordionTwo",
     },
     {
       id: "Three",
-      title: "What do you look for in a founding team?",
-      desc: "Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+      title: "How can CBC help me?",
+      desc: "CBC can help job seekers by providing personalized career development plans, job and internship opportunities, mentoring and training programs, and networking opportunities to achive career goals.",
       parent: "accordionTwo",
     },
     {
       id: "Four",
-      title: "Do you recommend Pay as you go or Pre pay?",
-      desc: "Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+      title: "How can be part of CBC?",
+      desc: "CBC has launched Jobs Guarantee Program for students looking for jobs in more than 30+ industries. You too can be a part of this program.",
       parent: "accordionTwo",
     },
     {
       id: "Five",
-      title: "What do I get for $0 with my plan?",
-      desc: "Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+      title: "How can I contact CBC for support?",
+      desc: "You can contact us by emailing us at contact@careerbuddy.com or Call 7456000100.",
       parent: "accordionTwo",
     },
   ];

@@ -12,13 +12,13 @@ const menu_data: IMenuData[] = [
     link: "/",
     title: "Placement",
     sub_menus: [
-      { link: "/", title: "company1" },
-      { link: "/", title: "company2" },
-      { link: "/", title: "company3" },
-      { link: "/", title: "company4" },
-      { link: "/", title: "company5" },
-      { link: "/", title: "company6" },
-      { link: "/home", title: "Job Portal" },
+      { link: "/", title: "Aloha on the Ganges" },
+      { link: "/", title: "Artera Group" },
+      { link: "/", title: "Capital Via" },
+      { link: "/", title: "CeaseFire Industries Ltd." },
+      { link: "/", title: "Coachywoods" },
+      { link: "/", title: "Cynoteck Technology Solutions Pvt Ltd." },
+      { link: "/company-v1", title: "see more" },
     ],
   },
   {
@@ -178,8 +178,8 @@ const menu_data: IMenuData[] = [
         id: 1,
         title: "School",
         sub_menus: [
-          { title: "Career Town", link: "/" },
-          { title: "Career Aptitude Test", link: "/" },
+          { title: "Career Town", link: "/schools" },
+          { title: "Career Aptitude Test", link: "/careerapt" },
         ],
       },
       {
