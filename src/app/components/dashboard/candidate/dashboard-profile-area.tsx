@@ -86,7 +86,7 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
     // Set up the request options for axios
     const options = {
       method: "POST",
-      url: "http://192.168.0.228:8000/api/students/updatebasicdetails",
+      url: "http://54.224.161.134:8080/api/students/updatebasicdetails",
       headers: {
         Accept: "*/*",
         "User-Agent": "Thunder Client (https://www.thunderclient.com)",
@@ -143,7 +143,7 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
     // Set up the request options for axios
     const options = {
       method: "POST",
-      url: "http://192.168.0.228:8000/api/students/updatecontactdetails",
+      url: "http://54.224.161.134:8080/api/students/updatecontactdetails",
       headers: {
         Accept: "*/*",
         "User-Agent": "Thunder Client (https://www.thunderclient.com)",
@@ -202,7 +202,7 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
     // Set up the request options for axios
     const options = {
       method: "POST",
-      url: "http://192.168.0.228:8000/api/students/updateaddresslocation",
+      url: "http://54.224.161.134:8080/api/students/updateaddresslocation",
       headers: {
         Accept: "*/*",
         "User-Agent": "Thunder Client (https://www.thunderclient.com)",
@@ -272,7 +272,7 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
     // Set up the request options for axios
     const options = {
       method: "POST",
-      url: "http://192.168.0.228:8000/api/students/updateeducationdetails",
+      url: "http://54.224.161.134:8080/api/students/updateeducationdetails",
       headers: {
         Accept: "*/*",
         "User-Agent": "Thunder Client (https://www.thunderclient.com)",
@@ -334,7 +334,7 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
     // Set up the request options for axios
     const options = {
       method: "POST",
-      url: "http://192.168.0.228:8000/api/students/updatepreference",
+      url: "http://54.224.161.134:8080/api/students/updatepreference",
       headers: {
         Accept: "*/*",
         "User-Agent": "Thunder Client (https://www.thunderclient.com)",

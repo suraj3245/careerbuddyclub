@@ -6,8 +6,8 @@ import CompanyBreadcrumb from "../components/common/common-breadcrumb";
 import FooterOne from "@/layouts/footers/footer-one";
 import CompanyDetailsArea from "../components/company-details/company-details-area";
 import OpenPosition from "../components/company-details/open-position";
-import company_details from "@/data/company-details";
 import college_details from "@/data/college-details";
+import CollegeDetailsArea from "../components/company-details/college-details";
 
 export const metadata: Metadata = {
   title: "College Details",
@@ -23,11 +23,14 @@ const CompanyDetailsPage = () => {
         {/* header end */}
 
         {/*breadcrumb start */}
-        <CompanyBreadcrumb title={details.company} subtitle={details.title} />
+        <CompanyBreadcrumb
+          title={details.college}
+          subtitle={details.location}
+        />
         {/*breadcrumb end */}
 
         {/* company details area start */}
-        <CompanyDetailsArea details={details} />
+        <CollegeDetailsArea details={details} />
         {/* company details area end */}
 
         {/*job Open Position */}

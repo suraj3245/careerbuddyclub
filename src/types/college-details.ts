@@ -1,10 +1,15 @@
 import { StaticImageData } from "next/image";
 
-export interface IcompanyType {
+export interface IcollegeType {
   id: number;
   logo: StaticImageData;
-  title: string;
-  size: string;
+  type: string;
+  establishmentyear: string;
+  Recognisedby: string;
+  Approvedby: string;
+  state: string;
+  city: string;
+  Campusarea: string;
   link: string;
   email: string;
   phone: string;
@@ -13,7 +18,7 @@ export interface IcompanyType {
   overviewsection: string;
   duration: string;
   date: string;
-  company: string;
+  college: string;
   location: string;
   category: string[];
   tags?: string[];
