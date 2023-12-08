@@ -1,29 +1,30 @@
-import React from "react";
+import Reac from "react";
 import shape from "@/assets/images/shape/shape_06.svg";
-import photo1 from "@/assets/images/photo1.jpg"; // Example image import
-import photo2 from "@/assets/images/photo2.jpg"; // Example image import
-// Import more photos as needed
+import { left } from "@popperjs/core";
 
 const FeatureThirteen = () => {
   return (
     <section className="text-feature-one position-relative pt-120 xl-pt-20 lg-pt-20 md-pt-20 pb-20 xl-pb-20">
+    <div className="title-one" style={{ paddingLeft: '70px' }}>
+    <h2>Job Guarantee Degree Program</h2>
+    </div>
+    
       <div className="container">
         <div className="row">
-          {/* Text Content */}
-          <div className="col-lg-5 order-lg-first">
-            <div className="ps-xxl-4 wow fadeInLeft">
-              {/* ... Your existing text content ... */}
+          <div className="col-lg-5 order-lg-last">
+            <div className="ps-xxl-4 wow fadeInRight">
+           
+            <h3 className="mt-40 md-mt-20 mb-40 md-mb-20">
+            Go home with a secured job along with your degree {" "}
+            </h3>
+           
+              <h5 className="mt-40 md-mt-20 mb-40 md-mb-20">
+              Ensure career success with our Job Guarantee Degree Program, offering specialized training and placement assistance along with your degree. {" "}
+              </h5>
+             
             </div>
           </div>
-
-          {/* Image Group */}
-          <div className="col-lg-7 order-lg-last">
-            <div className="image-group wow fadeInRight">
-              <img src={photo1} alt="Photo 1" className="mb-3" />
-              <img src={photo2} alt="Photo 2" className="mb-3" />
-              {/* Add more images as needed */}
-            </div>
-          </div>
+          
         </div>
       </div>
     </section>
@@ -31,5 +32,4 @@ const FeatureThirteen = () => {
 };
 
 export default FeatureThirteen;
-
 
