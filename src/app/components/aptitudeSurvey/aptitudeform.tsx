@@ -1,38 +1,82 @@
 "use client";
 
 import React, { useRef, useState, useEffect } from "react";
-import logo from "@/assets/images/logo/logo4.png";
 import Link from "next/link";
-import Image from "next/image";
 import axios from "axios";
 import { Chart as ChartJS } from "chart.js/auto";
 import Confetti from "react-confetti";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
+import Box from "@mui/material/Box";
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import TopCompany from "../top-company/top-company";
+import TopCareer from "../top-company/top-career";
+import YourCareer from "../top-company/Your-career";
+
+const bull = (
+  <Box
+    component="span"
+    sx={{ display: "inline-block", mx: "2px", transform: "scale(0.8)" }}
+  >
+    •
+  </Box>
+);
+
 type Question = {
   id: number;
   question: string;
   type: string;
 };
-
+const card = (
+  <React.Fragment>
+    <CardContent>
+      <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+        Word of the Day
+      </Typography>
+      <Typography variant="h5" component="div">
+        be{bull}nev{bull}o{bull}lent
+      </Typography>
+      <Typography sx={{ mb: 1.5 }} color="text.secondary">
+        adjective
+      </Typography>
+      <Typography variant="body2">
+        well meaning and kindly.
+        <br />
+        {'"a benevolent smile"'}
+      </Typography>
+    </CardContent>
+    <CardActions>
+      <Button size="small">Learn More</Button>
+    </CardActions>
+  </React.Fragment>
+);
 const defaultOptions = ["Dislike", "Neutral", "Enjoy"];
 
 const QuizForm: React.FC = () => {
   const [questions, setQuestions] = useState<Question[]>([]);
   const [answers, setAnswers] = useState<{ [key: number]: string }>({});
   const [currentPage, setCurrentPage] = useState(0);
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [results, setResults] = useState<any | null>(null);
+  const [isSubmitted, setIsSubmitted] = useState(true);
+  // const [results, setResults] = useState<any | null>(null);
   const [token, setToken] = useState<string | null>(null);
 
-  // const [results, setResults] = useState<any | null>({
-  //   R: 17,
-  //   A: 15,
-  //   S: 15,
-  //   E: 15,
-  //   C: 15,
-  //   I: 13,
-  // });
+  // useEffect(() => {
+  //   const submitted = localStorage.getItem("quizSubmitted") === "true";
+  //   setIsSubmitted(submitted);
+  // }, []);
+  const [results, setResults] = useState<any | null>({
+    R: 17,
+    A: 15,
+    S: 15,
+    E: 15,
+    C: 15,
+    I: 13,
+  });
   const chartRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -235,6 +279,7 @@ const QuizForm: React.FC = () => {
       console.log("Submit Response:", response.data);
       setResults(response.data);
       setIsSubmitted(true);
+      // localStorage.setItem("quizSubmitted", "true");
     } catch (error) {
       console.error("Error submitting answers:", error);
     }
@@ -260,10 +305,7 @@ const QuizForm: React.FC = () => {
         </div>
       )}
       {!isSubmitted ? (
-        <form
-          onSubmit={handleSubmit}
-          className="flex flex-col p-4  items-center"
-        >
+        <form onSubmit={handleSubmit} className="flex flex-col p-4">
           <div className="d-flex align-items-center justify-content-between">
             <div className="text-center" style={{ flex: 1 }}>
               <h2 className="mb-6 pb-10 pt-60 " style={{ color: "#13ADBD" }}>
@@ -393,11 +435,6 @@ const QuizForm: React.FC = () => {
       ) : (
         <div style={{ position: "relative", zIndex: 1 }}>
           <div className="d-flex align-items-center justify-content-between">
-            <div className="logo order-lg-0">
-              <Link href="/" className="d-flex align-items-center">
-                <Image src={logo} alt="logo" width="125" height="75" priority />
-              </Link>
-            </div>
             <div className="text-center" style={{ flex: 1 }}>
               <h2 className="mb-6 pb-10 pt-80" style={{ color: "#13ADBD" }}>
                 Career Aptitude Test
@@ -424,15 +461,18 @@ const QuizForm: React.FC = () => {
                 />
               </div>
             </div>
+
+            <TopCareer />
+            <YourCareer />
             <div
               style={{
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                paddingTop: "10px",
+                paddingTop: "30px",
               }}
             >
-              <Link href="/">
+              <Link href="/dashboard/candidate-dashboard/profile">
                 <button className="btn-apti pt-50">Next Steps</button>
               </Link>
             </div>

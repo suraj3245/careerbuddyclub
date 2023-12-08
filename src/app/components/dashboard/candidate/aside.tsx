@@ -48,18 +48,18 @@ const nav_data: {
     link: "/dashboard/candidate-dashboard/profile",
     title: "My Profile",
   },
-  {
-    id: 3,
-    icon: nav_3,
-    icon_active: nav_3_active,
-    link: "/dashboard/candidate-dashboard/resume",
-    title: "Resume",
-  },
+  // {
+  //   id: 3,
+  //   icon: nav_3,
+  //   icon_active: nav_3_active,
+  //   link: "/dashboard/candidate-dashboard/resume",
+  //   title: "Resume",
+  // },
   {
     id: 4,
     icon: nav_4,
     icon_active: nav_4_active,
-    link: "/careerapt",
+    link: "/aptitudetest",
     title: "Career Aptitude Test",
   },
   // {

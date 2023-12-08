@@ -4,7 +4,6 @@ import Wrapper from "@/layouts/wrapper";
 import CompanyBreadcrumb from "../components/common/common-breadcrumb";
 import FooterOne from "@/layouts/footers/footer-one";
 import RegisterArea from "../components/register/register-area";
-import HeaderFour from "@/layouts/headers/header-4";
 
 export const metadata: Metadata = {
   title: "Register",

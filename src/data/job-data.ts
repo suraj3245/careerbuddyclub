@@ -43,7 +43,7 @@ async function fetchJobData(): Promise<IJobType[]> {
 
 // Function to map API response to IJobType format
 function mapJobsToIJobType(apiJobs: any[]): IJobType[] {
-  const images = [job_img_1 /* other imported images */];
+  const images = [job_img_28 /* other imported images */];
   return apiJobs.map((job, index) => {
     return {
       id: job.id,
