@@ -40,8 +40,18 @@ const CompanyDetailsArea = ({ details }: { details: IcompanyType }) => {
                       <div>{details.location} </div>
                     </li>
                     <li className="col-12">
-                      <span>Size:</span>
-                      <div>{details.size}</div>
+                      <span>Address: </span>
+                      <div>{details.address} </div>
+                    </li>
+                    <li className="col-12">
+                      <span>Founder:</span>
+                      <div>{details.founder}</div>
+                    </li>
+                    <li className="col-12">
+                      <span>CEO:</span>
+                      <div>
+                        <a href="#">{details.CEO}</a>{" "}
+                      </div>
                     </li>
                     <li className="col-12">
                       <span>Email: </span>
@@ -53,12 +63,7 @@ const CompanyDetailsArea = ({ details }: { details: IcompanyType }) => {
                       <span>Founded: </span>
                       <div>{details.date}</div>
                     </li>
-                    <li className="col-12">
-                      <span>Phone:</span>
-                      <div>
-                        <a href="#">{details.phone}</a>{" "}
-                      </div>
-                    </li>
+                    
                     <li className="col-12">
                       <span>Category: </span>
                       <div>{details.category[0]}</div>{" "}

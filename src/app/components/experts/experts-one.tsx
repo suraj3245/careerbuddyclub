@@ -16,36 +16,42 @@ const expert_data: {
   user: StaticImageData;
   name: string;
   title: string;
+  salary: string;
 }[] = [
   {
     id: 1,
     user: user_1,
-    name: "Julie Ake",
-    title: "Product Designer",
+    name: "Student",
+    title: "Comapany",
+    salary: "10lpa",
   },
   {
     id: 2,
     user: user_2,
-    name: "Juan Marko",
-    title: "Java Developer",
+    name: "Student",
+    title: "Comapany",
+    salary: "10pla",
   },
   {
     id: 3,
     user: user_3,
-    name: "Elizabeth Foster",
-    title: "UI/UX Designer",
+    name: "Student",
+    title: "Comapany",
+    salary: "10lpa",
   },
   {
     id: 4,
     user: user_4,
-    name: "John Doe",
-    title: "Marketing Expert",
+    name: "Student",
+    title: "Comapany",
+    salary: "10pla",
   },
   {
     id: 5,
     user: user_5,
-    name: "Elizabeth Foster",
-    title: "UI/UX Designer",
+    name: "Student",
+    title: "Comapany",
+    salary: "10lpa",
   },
 ];
 
@@ -95,16 +101,16 @@ const ExpertsOne = () => {
               data-wow-delay="0.3s"
             >
               <h2>
-                Find the best{" "}
+              Commending {" "}
                 <span className="position-relative">
-                  talented{" "}
+                Success!!{" "}
                   <Image
                     src={shape}
                     alt="shape"
                     className="lazy-img shapes shapes"
                   />
                 </span>{" "}
-                expert in Career Buddy Club.
+                Achievements of our former students.
               </h2>
             </div>
           </div>
