@@ -53,7 +53,7 @@ const HeroBanner = () => {
                 })}
               >
                 Admission here
-              </a>
+              </Link>
             </div>
           </div>
 
