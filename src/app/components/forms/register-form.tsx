@@ -76,7 +76,7 @@ const RegisterForm = () => {
 
         toast.info("Otp sent 🚀", {
           position: "top-left",
-          autoClose: 5000,
+          autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -89,7 +89,7 @@ const RegisterForm = () => {
       .catch((error) => {
         toast.error("Error sending OTP or Number is already registered 😵‍💫", {
           position: "top-left",
-          autoClose: 5000,
+          autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -135,7 +135,7 @@ const RegisterForm = () => {
         console.log("Registration successful", response.data);
         toast.success("Your Account is created 🚀", {
           position: "top-left",
-          autoClose: 5000,
+          autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -143,14 +143,16 @@ const RegisterForm = () => {
           progress: undefined,
           theme: "light",
         });
-        router.push("/");
+        setTimeout(() => {
+          window.location.href = "/";
+        }, 1000);
       })
       .catch((error) => {
         // Handle any errors here, e.g., notify the user of the failure
         console.error("Registration error:", error);
         toast.error("Unsucessful Registration Already a User 😵‍💫", {
           position: "top-left",
-          autoClose: 5000,
+          autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -310,7 +312,16 @@ const RegisterForm = () => {
             </div>
           </div>
         </div>
-
+        <div className="agreement-checkbox d-flex justify-content-between align-items-center">
+          <a
+            href="#"
+            className="fw-500"
+            data-bs-toggle="modal"
+            data-bs-target="#loginModal"
+          >
+            Already a User? login
+          </a>
+        </div>
         <div className="col-12">
           <button
             type="submit"

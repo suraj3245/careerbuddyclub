@@ -2,7 +2,7 @@ import React from "react";
 import { Metadata } from "next";
 import Wrapper from "@/layouts/wrapper";
 import JobPortalIntro from "../components/job-portal-intro/job-portal-intro";
-import CompanyBreadcrumb from "../components/common/common-breadcrumb";
+import CompanyBreadcrumbjob from "../components/common/common-breadcrumb-job";
 import FooterOne from "@/layouts/footers/footer-one";
 import CompanyDetailsArea from "../components/company-details/company-details-area";
 import OpenPosition from "../components/company-details/open-position";
@@ -23,7 +23,7 @@ const CompanyDetailsPage = () => {
         {/* header end */}
 
         {/*breadcrumb start */}
-        <CompanyBreadcrumb
+        <CompanyBreadcrumbjob
           title={details.college}
           subtitle={details.location}
         />

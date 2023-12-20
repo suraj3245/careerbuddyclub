@@ -1,13 +1,30 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 // internal
 import shape_1 from "@/assets/images/shape/shape_01.svg";
 import shape_3 from "@/assets/images/shape/shape_03.svg";
 import main_img from "@/assets/images/assets/img_01.png";
 
 const HeroBanner = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const router = useRouter();
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    setIsLoggedIn(!!token);
+  }, []);
+
+  const handleAdmissionClick = (event: { preventDefault: () => void }) => {
+    if (isLoggedIn) {
+      event.preventDefault();
+      router.push("/dashboard/candidate-dashboard/profile");
+    }
+    // If not logged in, the default behavior of the link will trigger the modal
+  };
+
   return (
     <div className="hero-banner-one position-relative">
       <div className="container">
@@ -18,17 +35,25 @@ const HeroBanner = () => {
               Job Guarantee{" "}
                 <span style={{ color: "#eee30d" }}> Degree Program</span>
               </h1>
-              <h3 className="mt-40 md-mt-20 mb-40 md-mb-20">
-              Go home with a secured job along with your degree{" "}
-            </h3>
-              <p>Ensure career success with our Job Guarantee Degree Program, offering specialized training and placement assistance along with your degree.</p>
+              <p
+                className="text-lg text-black mt-40 md-mt-30 mb-50 md-mb-30 wow fadeInUp"
+                data-wow-delay="0.4s"
+              >
+                Our goal is to foster your career growth through invaluable
+                mentorship and networking opportunities.
+              </p>
               <Link
                 href="/dashboard/candidate-dashboard/profile"
                 className="btn-five wow fadeInUp"
                 data-wow-delay="0.6s"
+                onClick={handleAdmissionClick}
+                {...(!isLoggedIn && {
+                  "data-bs-toggle": "modal",
+                  "data-bs-target": "#loginModal",
+                })}
               >
                 Admission here
-              </Link>
+              </a>
             </div>
           </div>
 

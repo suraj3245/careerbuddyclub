@@ -7,6 +7,7 @@ import Menus from "./component/menus";
 import logo from "@/assets/images/logo/logo4.png";
 import useSticky from "@/hooks/use-sticky";
 import LoginModal from "@/app/components/common/popup/login-modal";
+import RegisterModal from "@/app/components/common/popup/register-modal";
 
 interface HeaderFourProps {
   user: {
@@ -54,9 +55,14 @@ const HeaderFour: React.FC<HeaderFourProps> = ({ user, key, onLogout }) => {
                       </a>
                     </li>
                     <li className="d-none d-md-block ms-4">
-                      <Link href="/register" className="btn-five">
+                      <a
+                        href="#"
+                        className="fw-500 btn-five"
+                        data-bs-toggle="modal"
+                        data-bs-target="#RegisterModal"
+                      >
                         Register
-                      </Link>
+                      </a>
                     </li>
                   </ul>
                 )}
@@ -64,7 +70,7 @@ const HeaderFour: React.FC<HeaderFourProps> = ({ user, key, onLogout }) => {
                   <ul className="d-flex align-items-center style-none">
                     <li>
                       <a
-                        href="#"
+                        href="/"
                         className=" btn-five fw-500 text-white"
                         onClick={onLogout}
                       >
@@ -115,6 +121,7 @@ const HeaderFour: React.FC<HeaderFourProps> = ({ user, key, onLogout }) => {
 
       {/* login modal start */}
       <LoginModal />
+      <RegisterModal />
       {/* login modal end */}
     </>
   );

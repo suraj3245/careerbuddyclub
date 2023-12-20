@@ -1,13 +1,12 @@
 "use client";
 import "./globals.scss";
-import { Metadata } from "next";
 import localFont from "next/font/local";
 import { EB_Garamond } from "next/font/google";
 import BackToTopCom from "./components/common/back-to-top-com";
 import { Providers } from "@/redux/provider";
 import HeaderFour from "@/layouts/headers/header-4";
 import React, { useEffect, useState } from "react";
-
+import { useRouter, usePathname } from "next/navigation";
 const gordita = localFont({
   src: [
     {
@@ -48,6 +47,8 @@ export default function RootLayout({
   const [token, setToken] = useState<string | null>(null);
   const [user, setUser] = useState<{ value: string | null }>({ value: null });
   const [key, setKey] = useState<number>(0);
+  const router = useRouter();
+
   useEffect(() => {
     if (typeof window !== "undefined") {
       const tempToken = localStorage.getItem("token");
@@ -65,6 +66,8 @@ export default function RootLayout({
     // Any additional logout logic goes here
     setKey(Math.random());
   };
+  // Check if the current page is 'aptitudetest'
+  const isAptitudeTestPage = usePathname() === "/aptitudetest";
   return (
     <html lang="en">
       <head>
@@ -74,7 +77,9 @@ export default function RootLayout({
         suppressHydrationWarning={true}
         className={`${gordita.variable} ${garamond.variable}`}
       >
-        <HeaderFour user={user} onLogout={handleLogout} key={key} />
+        {!isAptitudeTestPage && (
+          <HeaderFour user={user} onLogout={handleLogout} key={key} />
+        )}
 
         <Providers>{children}</Providers>
         <BackToTopCom />

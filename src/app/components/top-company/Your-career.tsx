@@ -1,37 +1,34 @@
-import React from "react";
-
-// company data
-const company_data: {
-  id: number;
-  name: string;
-}[] = [
-  {
-    id: 1,
-    name: "Retail Manager",
-  },
-  {
-    id: 2,
-    name: "Cost Accountant",
-  },
-  {
-    id: 3,
-    name: "Entrepreneur",
-  },
-  {
-    id: 4,
-    name: "Chartered Accountant",
-  },
-  {
-    id: 5,
-    name: "Product Manager",
-  },
-  {
-    id: 6,
-    name: "Business Head",
-  },
-];
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 const YourCareer = () => {
+  const [companyData, setCompanyData] = useState([]);
+
+  useEffect(() => {
+    // Make a request to get the career choices from Thunder Client
+    const temptoken = localStorage.getItem("token");
+    const options = {
+      method: "POST",
+      url: "http://54.224.161.134:8080/api/students/careerresultskills",
+      headers: {
+        Accept: "*/*",
+        Authorization: `Bearer ${temptoken}`,
+      },
+      data: { result_letters: "RCE" },
+    };
+
+    axios
+      .request(options)
+      .then((response) => {
+        // Update the state with the received data
+        console.log(response.data);
+        setCompanyData(response.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
+
   return (
     <section className="top-company-section pt-50 lg-pt-50 pb-50 lg-pb-50 mt-50 xl-mt-50">
       <div className="container">
@@ -46,11 +43,11 @@ const YourCareer = () => {
         </div>
 
         <div className="row">
-          {company_data.map((item) => (
-            <div key={item.id} className="col-lg-3 col-md-5 col-sm-6">
+          {companyData.map((item, index) => (
+            <div key={index} className="col-lg-6 col-md-5 col-sm-6">
               <div className="card-style-nine text-center tran3s mt-25 wow fadeInUp">
                 <div className="text-lg fw-500 text-dark mt-10 mb-10">
-                  {item.name}
+                  {item}
                 </div>
               </div>
             </div>
