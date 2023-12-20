@@ -9,6 +9,7 @@ import CompanyDetailsArea from "@/app/components/company-details/company-details
 import company_details from "@/data/company-details";
 import college_details from "@/data/college-details";
 import OpenPosition from "@/app/components/company-details/open-position";
+import CollegeDetailsArea from "@/app/components/company-details/college-details";
 
 export const metadata: Metadata = {
   title: "College Details",
@@ -24,11 +25,12 @@ const CompanyDetailsPage = () => {
         {/* header end */}
 
         {/*breadcrumb start */}
-        <CompanyBreadcrumb title={details.company} subtitle={details.title} />
+        <CompanyBreadcrumb title={details.college} subtitle={details.city} />
         {/*breadcrumb end */}
 
         {/* company details area start */}
-        <CompanyDetailsArea details={details} />
+        <CollegeDetailsArea details={details} />
+
         {/* company details area end */}
 
         {/*job Open Position */}

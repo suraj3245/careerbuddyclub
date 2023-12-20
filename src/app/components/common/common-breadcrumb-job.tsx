@@ -3,7 +3,7 @@ import Image from "next/image";
 import shape_1 from "@/assets/images/shape/shape_02.svg";
 import shape_2 from "@/assets/images/shape/shape_03.svg";
 
-const CommonBreadcrumb = ({
+const CommonBreadcrumbjob = ({
   title,
   subtitle,
 }: {
@@ -21,6 +21,18 @@ const CommonBreadcrumb = ({
               </div>
               <p className="text-lg text-black mt-30 lg-mt-20">{subtitle}</p>
             </div>
+            <ul className="d-flex align-items-center justify-content-center style-none">
+              <li>
+                <a href="#" className="fw-500  btn-five text-dark">
+                  Download Brochure
+                </a>
+              </li>
+              <li className="d-flex d-md-block ms-4">
+                <a href="#" className="btn-five">
+                  Apply Now
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
@@ -30,4 +42,4 @@ const CommonBreadcrumb = ({
   );
 };
 
-export default CommonBreadcrumb;
+export default CommonBreadcrumbjob;

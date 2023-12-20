@@ -4,13 +4,9 @@ import Link from "next/link";
 import Image, { StaticImageData } from "next/image";
 import { usePathname } from "next/navigation";
 import logo from "@/assets/dashboard/images/logo_01.png";
-import avatar from "@/assets/dashboard/images/avatar_01.jpg";
 import profile_icon_1 from "@/assets/dashboard/images/icon/icon_23.svg";
 import profile_icon_2 from "@/assets/dashboard/images/icon/icon_24.svg";
 import profile_icon_3 from "@/assets/dashboard/images/icon/icon_25.svg";
-import logout from "@/assets/dashboard/images/icon/icon_9.svg";
-import nav_1 from "@/assets/dashboard/images/icon/icon_1.svg";
-import nav_1_active from "@/assets/dashboard/images/icon/icon_1_active.svg";
 import nav_2 from "@/assets/dashboard/images/icon/icon_2.svg";
 import nav_2_active from "@/assets/dashboard/images/icon/icon_2_active.svg";
 import nav_3 from "@/assets/dashboard/images/icon/icon_3.svg";
@@ -19,11 +15,6 @@ import nav_4 from "@/assets/dashboard/images/icon/icon_4.svg";
 import nav_4_active from "@/assets/dashboard/images/icon/icon_4_active.svg";
 import nav_5 from "@/assets/dashboard/images/icon/icon_5.svg";
 import nav_5_active from "@/assets/dashboard/images/icon/icon_5_active.svg";
-import nav_6 from "@/assets/dashboard/images/icon/icon_6.svg";
-import nav_6_active from "@/assets/dashboard/images/icon/icon_6_active.svg";
-import nav_7 from "@/assets/dashboard/images/icon/icon_7.svg";
-import nav_7_active from "@/assets/dashboard/images/icon/icon_7_active.svg";
-import nav_8 from "@/assets/dashboard/images/icon/icon_8.svg";
 import LogoutModal from "../../common/popup/logout-modal";
 
 // nav data
@@ -42,33 +33,34 @@ const nav_data: {
   //   title: "Dashboard",
   // },
   {
+    id: 1,
+    icon: nav_4,
+    icon_active: nav_4_active,
+    link: "/dashboard/candidate-dashboard/career-aptitude",
+    title: "Career Aptitude Test",
+  },
+  {
     id: 2,
     icon: nav_2,
     icon_active: nav_2_active,
     link: "/dashboard/candidate-dashboard/profile",
-    title: "My Profile",
+    title: "College Application Form",
   },
-  // {
-  //   id: 3,
-  //   icon: nav_3,
-  //   icon_active: nav_3_active,
-  //   link: "/dashboard/candidate-dashboard/resume",
-  //   title: "Resume",
-  // },
   {
-    id: 4,
-    icon: nav_4,
-    icon_active: nav_4_active,
-    link: "/aptitudetest",
-    title: "Career Aptitude Test",
+    id: 3,
+    icon: nav_3,
+    icon_active: nav_3_active,
+    link: "/dashboard/candidate-dashboard/education",
+    title: "Education Details",
   },
-  // {
-  //   id: 5,
-  //   icon: nav_5,
-  //   icon_active: nav_5_active,
-  //   link: "/dashboard/candidate-dashboard/job-alert",
-  //   title: "Job Alert",
-  // },
+
+  {
+    id: 5,
+    icon: nav_5,
+    icon_active: nav_5_active,
+    link: "/dashboard/candidate-dashboard/job-guarantee",
+    title: "Job Guarantee Program",
+  },
   // {
   //   id: 6,
   //   icon: nav_6,
@@ -97,7 +89,7 @@ const CandidateAside = ({ isOpenSidebar, setIsOpenSidebar }: IProps) => {
       <aside className={`dash-aside-navbar ${isOpenSidebar ? "show" : ""}`}>
         <div className="position-relative">
           <div className="logo text-md-center d-md-block d-flex align-items-center justify-content-between">
-            <Link href="/dashboard/candidate-dashboard">
+            <Link href="/">
               <Image src={logo} width={170} height={90} alt="logo" priority />
             </Link>
             <button

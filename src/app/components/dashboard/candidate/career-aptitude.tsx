@@ -1,5 +1,6 @@
 "use client";
 
+import DashboardHeader from "./dashboard-header";
 import React, { useRef, useState, useEffect } from "react";
 import Link from "next/link";
 import axios from "axios";
@@ -7,8 +8,13 @@ import { Chart as ChartJS } from "chart.js/auto";
 import Confetti from "react-confetti";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import TopCareer from "../top-company/top-career";
-import YourCareer from "../top-company/Your-career";
+import TopCareer from "../../top-company/top-career";
+import YourCareer from "../../top-company/Your-career";
+
+// props type
+type IProps = {
+  setIsOpenSidebar: React.Dispatch<React.SetStateAction<boolean>>;
+};
 
 type Question = {
   id: number;
@@ -18,7 +24,7 @@ type Question = {
 
 const defaultOptions = ["Dislike", "Neutral", "Enjoy"];
 
-const QuizForm: React.FC = () => {
+const DashboardResult = ({ setIsOpenSidebar }: IProps) => {
   const [questions, setQuestions] = useState<Question[]>([]);
   const [answers, setAnswers] = useState<{ [key: number]: string }>({});
   const [currentPage, setCurrentPage] = useState(0);
@@ -56,8 +62,6 @@ const QuizForm: React.FC = () => {
   };
 
   useEffect(() => {
-    // Call the function to fetch the cat result when needed
-    // You can trigger this function based on user actions or any other event
     fetchCatResult();
   }, []);
 
@@ -89,10 +93,6 @@ const QuizForm: React.FC = () => {
   useEffect(() => {
     checkTestStatus();
   }, []);
-  // useEffect(() => {
-  //   const submitted = localStorage.getItem("quizSubmitted") === "true";
-  //   setIsSubmitted(submitted);
-  // }, []);
 
   const chartRef = useRef<HTMLCanvasElement>(null);
 
@@ -221,7 +221,6 @@ const QuizForm: React.FC = () => {
       )
       .every((question) => answers.hasOwnProperty(question.id));
   };
-
   const goToPreviousPage = () => {
     if (currentPage > 0) {
       setCurrentPage(currentPage - 1);
@@ -291,204 +290,117 @@ const QuizForm: React.FC = () => {
     }
   };
   const isLastPage = currentPage === totalPages - 1;
-
+  const [isVideoOpen, setIsVideoOpen] = useState<boolean>(false);
   return (
-    <div
-      style={{ backgroundColor: "#cfeef1", position: "relative", zIndex: 0 }}
-    >
-      {isSubmitted && (
-        <div
-          style={{
-            position: "fixed",
-            top: 0,
-            left: 0,
-            width: "100vw",
-            height: "100vh",
-            zIndex: -1,
-          }}
-        >
-          <Confetti width={window.innerWidth} height={window.innerHeight} />
-        </div>
-      )}
-      {!isSubmitted && testStatus !== "Test completed" ? (
-        <form onSubmit={handleSubmit} className="flex flex-col p-4">
-          <div className="d-flex align-items-center justify-content-between">
-            <div className="text-center" style={{ flex: 1 }}>
-              <h2 className="mb-6 pb-10 pt-60 " style={{ color: "#13ADBD" }}>
-                Career Aptitude Test
-              </h2>
-              {/* Centered Header */}
-            </div>
-          </div>
-
-          <div>
-            {Array.isArray(questions) &&
-              questions
-                .slice(
-                  currentPage * questionsPerPage,
-                  (currentPage + 1) * questionsPerPage
-                )
-                .map((question) => (
-                  <div
-                    key={question.id}
-                    className="mb-10 p-2 border border-#EEE30D rounded  bg-gray-100"
-                    style={{ backgroundColor: "#ffffff" }}
-                  >
-                    <p
-                      className="font-small mb-1 pb-10"
-                      style={{ color: "#13ADBD" }}
-                    >
-                      {question.id}. {question.question}
-                    </p>
-                    <div
-                      className="flex flex-col "
-                      style={{ paddingLeft: "20px" }}
-                    >
-                      {defaultOptions.map((option) => (
-                        <label
-                          key={option}
-                          className="inline-flex items-center mb-1 "
-                          style={{ paddingRight: 20 }}
-                        >
-                          <input
-                            type="radio"
-                            name={`question-${question.id}`}
-                            value={option}
-                            onChange={(e) => handleOptionChange(e, question.id)}
-                            checked={answers[question.id] === option}
-                            className="form-radio text-blue-600"
-                            style={{ paddingRight: 20 }}
-                          />
-                          <span className="ml-2" style={{ marginLeft: "10px" }}>
-                            {option}
-                          </span>
-                        </label>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-          </div>
+    <>
+      <div className="dashboard-body">
+        <div className="position-relative">
+          {/* header start */}
+          <DashboardHeader setIsOpenSidebar={setIsOpenSidebar} />
+          {/* header end */}
           <div
             style={{
-              display: "flex",
-              justifyContent: "inline-block",
-              width: "100%",
-              marginTop: "20px",
-              gap: "20px",
+              backgroundColor: "#125125125",
+              position: "relative",
+              zIndex: 0,
             }}
           >
-            {currentPage > 0 && (
-              <button
-                type="button"
-                onClick={goToPreviousPage}
-                className="text-uppercase btn-five border6"
-                style={{ marginRight: "10px" }}
-              >
-                Previous
-              </button>
-            )}
-            {!isLastPage && (
-              <button
-                type="button"
-                onClick={goToNextPage}
-                className="text-uppercase btn-five border6"
-              >
-                Next
-              </button>
-            )}
-            {isLastPage && (
-              <button type="submit" className="text-uppercase btn-five border6">
-                Submit
-              </button>
-            )}
-          </div>
-          <div
-            style={{
-              width: "100%",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              paddingTop: "10px", // Center horizontally
-            }}
-          >
-            <div
-              style={{
-                width: "300px", // Set the width of the progress bar
-                height: "8px", // Set the height of the progress bar
-                backgroundColor: "#13ADBD", // Set the color of the progress bar
-                borderRadius: "4px", // Set border radius for rounded corners
-                position: "relative",
-              }}
-            >
+            {isSubmitted && (
               <div
                 style={{
-                  width: `${progress}%`, // Set the width based on the progress
-                  height: "100%",
-                  backgroundColor: "#00A86B", // Set the color of the filled progress
-                  borderRadius: "4px", // Set border radius for rounded corners
+                  position: "fixed",
+                  top: 0,
+                  left: 0,
+                  width: "100vw",
+                  height: "100vh",
+                  zIndex: -1,
                 }}
-              ></div>
-            </div>
-            <div
-              style={{
-                fontSize: "16px",
-                fontWeight: "bold",
-                marginLeft: "10px", // Add margin for spacing
-              }}
-            >
-              Progress: {currentPage + 1}/{totalPages}
-            </div>
-          </div>
-        </form>
-      ) : (
-        <div style={{ position: "relative", zIndex: 1 }}>
-          <div className="d-flex align-items-center justify-content-between">
-            <div className="text-center" style={{ flex: 1 }}>
-              <h2 className="mb-6 pb-10 pt-80" style={{ color: "#13ADBD" }}>
-                Career Aptitude Test
-              </h2>
-              {/* Centered Header */}
-            </div>
-          </div>
-          <div className="text-center">
-            <h2 className="mb-6 pb-25" style={{ color: "#13ADBD" }}>
-              Quiz Results
-            </h2>
-            {/* Display the results here using the `results` state */}
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <div>
-                <canvas
-                  ref={chartRef}
-                  style={{ height: "370px", width: "370px" }}
+              >
+                <Confetti
+                  width={window.innerWidth}
+                  height={window.innerHeight}
                 />
               </div>
-            </div>
+            )}
+            {!isSubmitted && testStatus !== "Test completed" ? (
+              <>
+                <div className="d-flex align-items-center justify-content-between">
+                  <div className="text-center" style={{ flex: 1 }}>
+                    <h2
+                      className="mb-6 pb-10 pt-80"
+                      style={{ color: "#13ADBD" }}
+                    >
+                      Career Aptitude Test
+                    </h2>
+                    {/* Centered Header */}
+                    <div className="text-center">
+                      <h2 className="mb-6 pb-25" style={{ color: "#13ADBD" }}>
+                        Please Give The Test
+                      </h2>
+                      <Link href="/careerapt">
+                        <button className="btn-apti pt-50">
+                          Take Your Test Now
+                        </button>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </>
+            ) : (
+              <div style={{ position: "relative", zIndex: 1 }}>
+                <div className="d-flex align-items-center justify-content-between">
+                  <div className="text-center" style={{ flex: 1 }}>
+                    <h2
+                      className="mb-6 pb-10 pt-80"
+                      style={{ color: "#13ADBD" }}
+                    >
+                      Career Aptitude Test
+                    </h2>
+                    {/* Centered Header */}
+                  </div>
+                </div>
+                <div className="text-center">
+                  <h2 className="mb-6 pb-25" style={{ color: "#13ADBD" }}>
+                    Quiz Results
+                  </h2>
+                  {/* Display the results here using the `results` state */}
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    <div>
+                      <canvas
+                        ref={chartRef}
+                        style={{ height: "370px", width: "370px" }}
+                      />
+                    </div>
+                  </div>
 
-            <TopCareer />
-            <YourCareer />
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                paddingTop: "30px",
-              }}
-            >
-              <Link href="/dashboard/candidate-dashboard/profile">
-                <button className="btn-apti pt-50">Next Steps</button>
-              </Link>
-            </div>
+                  <TopCareer />
+                  <YourCareer />
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      paddingTop: "30px",
+                    }}
+                  >
+                    <Link href="/dashboard/candidate-dashboard/profile">
+                      <button className="btn-apti pt-50">Next Steps</button>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
-      )}
-    </div>
+      </div>
+    </>
   );
 };
 
-export default QuizForm;
+export default DashboardResult;

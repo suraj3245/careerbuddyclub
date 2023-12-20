@@ -85,7 +85,7 @@ const LoginForm = () => {
         // console.log("Login successful", response.data.access_token);
         toast.success("Successfully logged in 🎉", {
           position: "top-left",
-          autoClose: 5000,
+          autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -102,7 +102,7 @@ const LoginForm = () => {
         console.error("Login error:", error);
         toast.error("Invalid Credentials! 😵‍💫", {
           position: "top-left",
-          autoClose: 5000,
+          autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -179,15 +179,18 @@ const LoginForm = () => {
             </div>
           </div>
         </div>
-        {/* <div className="col-12">
-            <div className="agreement-checkbox d-flex justify-content-between align-items-center">
-              <div>
-                <input type="checkbox" id="remember" />
-                <label htmlFor="remember">Keep me logged in</label>
-              </div>
-              <a href="#">Forget Password?</a>
-            </div>
-          </div> */}
+        <div className="col-12">
+          <div className="agreement-checkbox d-flex justify-content-between align-items-center">
+            <a
+              href="#"
+              className="fw-500"
+              data-bs-toggle="modal"
+              data-bs-target="#RegisterModal"
+            >
+              Not a User? Register
+            </a>
+          </div>
+        </div>
         <div className="col-12">
           <button
             type="submit"
