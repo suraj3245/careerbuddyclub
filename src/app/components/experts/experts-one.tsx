@@ -5,10 +5,16 @@ import Slider from "react-slick";
 import { StaticImageData } from "next/image";
 import shape from "@/assets/images/shape/shape_04.svg";
 import user_1 from "@/assets/images/assets/img_05.jpg";
-import user_2 from "@/assets/images/assets/img_06.jpg";
-import user_3 from "@/assets/images/assets/img_07.jpg";
-import user_4 from "@/assets/images/assets/img_08.jpg";
-import user_5 from "@/assets/images/assets/team_06.jpg";
+import user_3 from "@/assets/images/assets/img_06 .jpeg";
+import user_2 from "@/assets/images/assets/img_07.jpg";
+import user_4 from "@/assets/images/assets/img_07.jpeg";
+import user_5 from "@/assets/images/assets/img_08.jpeg";
+import user_6 from "@/assets/images/assets/img_09.jpeg";
+import user_7 from "@/assets/images/assets/img_10.jpg";
+import user_8 from "@/assets/images/assets/img_11.jpeg";
+import user_9 from "@/assets/images/assets/img_102.jpeg";
+
+
 
 // expert_data
 const expert_data: {
@@ -21,37 +27,65 @@ const expert_data: {
   {
     id: 1,
     user: user_1,
-    name: "Student",
-    title: "Comapany",
-    salary: "10lpa",
+    name: "Bipul Kumar Pandey",
+    title: "Geetanjali Homestate Pvt Ltd.",
+    salary: " 6 LPA (3LPA fixed and 3 LPA Variable)",
   },
   {
     id: 2,
     user: user_2,
-    name: "Student",
-    title: "Comapany",
-    salary: "10pla",
+    name: "Shubhangi",
+    title: "learning Routes",
+    salary: "5.70 LPA",
   },
   {
     id: 3,
     user: user_3,
-    name: "Student",
-    title: "Comapany",
-    salary: "10lpa",
+    name: "Jyotirmoy Nath",
+    title: "Hike Education",
+    salary: "6.42 LPA",
   },
   {
     id: 4,
     user: user_4,
-    name: "Student",
-    title: "Comapany",
-    salary: "10pla",
+    name: "Sahil Upadhyay",
+    title: "intellipaat",
+    salary: "7.25 LPA",
   },
   {
     id: 5,
     user: user_5,
-    name: "Student",
-    title: "Comapany",
-    salary: "10lpa",
+    name: "Kajal Khan",
+    title: "College Tour",
+    salary: "5.40 LPA",
+  },
+  {
+    id: 6,
+    user: user_6,
+    name: "Abhishek kumar Jaiswal",
+    title: "PinClick",
+    salary: "4.80 LPA",
+  },
+  {
+    id: 7,
+    user: user_7,
+    name: "Anudan Ranjan",
+    title: "Teachnook",
+    salary: "4-6 LPA",
+  },
+  {
+    id: 8,
+    user: user_8,
+    name: "Ansh Kumar",
+    title: "College Tour",
+    salary: "5.40 LPA",
+  },
+  {
+    id: 9,
+    user: user_9,
+    name: "Neha Sharma",
+    title: "Byjus",
+    salary: "7 LPA",
   },
 ];
 
@@ -136,6 +170,7 @@ const ExpertsOne = () => {
                   {item.name}
                 </a>
                 <div className="post">{item.title}</div>
+                <div className="post">{item.salary}</div>
               </div>
             </div>
           ))}

@@ -51,10 +51,10 @@ const FeatureOne = () => {
                 waiting for you?{" "}
               </p>
               <ul className="list-style-one style-none">
-                <li>CBC Students Placed In More than 100+ Companies</li>
-                <li>With Average Package more than 6.5 LPA</li>
-                <li>Helped more than 10k+ Students to get dream jobs</li>
-                <li>Partners with more than 50+ Colleges/University</li>
+                <li> Number of Companies Where CBC Placed Students: 100+</li>
+                <li>Average Package: 6 LPA</li>
+                <li> Total Number of Students Placed through us: 1000+</li>
+                <li> Number of College/University Partners: 50+</li>
               </ul>
             </div>
           </div>

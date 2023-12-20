@@ -1,5 +1,5 @@
 "use client";
-
+// Import the necessary libraries and components
 import React, { useState, useEffect } from "react";
 import img2 from "@/assets/images/assets/test.png";
 import img1 from "@/assets/images/assets/test3.jpeg";
@@ -7,20 +7,20 @@ import img3 from "@/assets/images/assets/test4.webp";
 import img4 from "@/assets/images/assets/test-6.png";
 import { StaticImageData } from "next/image";
 import Link from "next/link";
+import {useRouter} from "next/navigation";
+// Uncomment the line below and replace 'useRouter' with the actual import
+// import { useRouter } from 'next/router';
 
+// Interface for card props
 interface CardProps {
   flip: boolean;
   frontImage: StaticImageData;
   backImage: StaticImageData;
- 
 }
 
-const Card: React.FC<CardProps> = ({
-  flip,
-  frontImage,
-  backImage,
- 
-}) => {
+// Card component
+const Card: React.FC<CardProps> = ({ flip, frontImage, backImage }) => {
+  // Styles for card and images
   const cardStyle: React.CSSProperties = {
     height: "100%",
     width: "100%",
@@ -38,6 +38,7 @@ const Card: React.FC<CardProps> = ({
     height: "100%",
     width: "100%",
   };
+
   const backBackCommonStyles: React.CSSProperties = {
     borderRadius: "20px",
     boxShadow: "0 0 5px 2px rgba(50, 50, 50, 0.25)",
@@ -47,6 +48,7 @@ const Card: React.FC<CardProps> = ({
     width: "100%",
     transform: 'rotateY(180deg)',
   };
+
   const frontStyle: React.CSSProperties = {
     ...frontBackCommonStyles,
     backgroundImage: `url(${frontImage.src})`,
@@ -61,88 +63,84 @@ const Card: React.FC<CardProps> = ({
     backgroundPosition: "center",
   };
 
+  // Render the card
   return (
- 
     <div style={cardStyle}>
       <div style={frontStyle} />
       <div style={backStyle} />
     </div>
-
   );
 };
 
+// Main component
 const FlipCardone: React.FC = () => {
+  // State variables
   const [isFlippedOne, setIsFlippedOne] = useState<boolean>(false);
   const [isFlippedTwo, setIsFlippedTwo] = useState<boolean>(false);
   const [isMobile, setIsMobile] = useState<boolean>(false);
 
+  // Uncomment the line below for actual navigation
+  const router = useRouter();
+
+  // Effect for handling window resize
   useEffect(() => {
-    // This function is now inside useEffect and will only run on the client side
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
     };
 
-    // Call the function to set the initial state
     handleResize();
 
-    // Set up event listener
     window.addEventListener("resize", handleResize);
 
-    // Clean up event listener
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  // Function to redirect to a specific page
+  const redirectToPage = (page: string) => {
+    // Uncomment the line below for actual navigation
+    router.push(page);
+    console.log(`Redirecting to ${page}`);
+  };
+
+  // Styles for container and cards
   const containerStyle: React.CSSProperties = {
     perspective: "1500px",
-    width: "100%", // Changed to 100% for responsiveness
+    width: "100%",
     height: "600px",
     cursor: "pointer",
-    margin: isMobile ? "20px 0" : "0 40px", // Add vertical margin for mobile
+    margin: isMobile ? "20px 0" : "0 40px",
   };
 
   const cardsContainerStyle: React.CSSProperties = {
     display: "flex",
-    flexDirection: isMobile ? "column" : "row", // Stack cards vertically on mobile
+    flexDirection: isMobile ? "column" : "row",
     justifyContent: "center",
     alignItems: "center",
-    height: isMobile ? "1200px" : "100vh", // Increase height to accommodate stacked cards
-    margin: isMobile ? "0" : "0", // Optional: Adjust margin for mobile if needed
+    height: isMobile ? "1200px" : "100vh",
   };
 
-
-
-  
+  // Render the component
   return (
     <div style={cardsContainerStyle}>
       <div
         style={containerStyle}
         onMouseEnter={() => setIsFlippedOne(true)}
         onMouseLeave={() => setIsFlippedOne(false)}
+        onClick={() => redirectToPage("/#")}
       >
-        <Card
-          flip={isFlippedOne}
-          frontImage={img1}
-          backImage={img4}
-          
-        />
-        
+        <Card flip={isFlippedOne} frontImage={img1} backImage={img4} />
       </div>
-      
+
       <div
         style={containerStyle}
         onMouseEnter={() => setIsFlippedTwo(true)}
         onMouseLeave={() => setIsFlippedTwo(false)}
+        onClick={() => redirectToPage("/careerapt")}
       >
-        <Card
-          flip={isFlippedTwo}
-          frontImage={img2}
-          backImage={img3}
-         
-        />
+        <Card flip={isFlippedTwo} frontImage={img2} backImage={img3} />
       </div>
     </div>
   );
-
 };
 
 export default FlipCardone;

@@ -12,6 +12,7 @@ const content_data: {
   title: string;
   subtitle: string;
   icon: StaticImageData;
+
 }[] = [
   {
     title: "Diverse Assessment Tools:",
@@ -20,15 +21,33 @@ const content_data: {
     icon: icon_1,
   },
   {
-    title: " Zero Cost Partnership:.",
+    title: " Zero Cost Partnership:",
     subtitle:
       "Unlike others, we don't charge any fees to our corporate clients.Partner with us and access quality candidates without any additional financial burden.",
     icon: icon_2,
   },
   {
-    title: "Build Your Brand with Gen Z.",
+    title: "Build Your Brand with Gen Z:",
     subtitle:
       "Engage with the largest network of responsive, active, and diverse Gen Z talent.",
+    icon: icon_3,
+  },
+  {
+    title: "Efficiently Scale Your Recruiting:",
+    subtitle:
+      "- Engage your entire team in the hiring journey and efficiently expand your recruitment efforts.",
+    icon: icon_1,
+  },
+  {
+    title: " Events and Sourcing, Together:",
+    subtitle:
+      "Access our website for in-person and virtual events, along with with powerful tool Maximize ROI from your event strategy.Streamline and enhance the candidate experience.",
+    icon: icon_2,
+  },
+  {
+    title: "Quickly Convert Qualified Applicants:",
+    subtitle:
+      "Utilize algorithm-powered filtering, segmenting, and campaign tools.Source and convert the right candidates to apply to your open roles.",
     icon: icon_3,
   },
 ];
@@ -100,13 +119,7 @@ const FancyBannerEight = ({ style_2 = false }: { style_2?: boolean }) => {
               <div className="row">
                 <div className="col-xxl-5 col-xl-6 col-lg-6 ms-auto">
                   <div className="text-wrapper p0 mb-50 md-mb-20 wow fadeInRight">
-                    <a
-                      className="fancybox rounded-circle video-icon tran3s d-flex align-items-center justify-content-center"
-                      onClick={() => setIsVideoOpen(true)}
-                      style={{ cursor: "pointer" }}
-                    >
-                      <i className="bi bi-play-fill"></i>
-                    </a>
+                   
                     <div className="title-one mt-25 mb-25 lg-mb-20">
                       <h2 className="text-white main-font">
                         Key Features for{" "}

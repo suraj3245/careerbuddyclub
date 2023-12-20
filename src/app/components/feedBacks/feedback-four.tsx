@@ -53,17 +53,17 @@ const slider_a_data = [
     location: "Dehradun",
   },
   {
-    desc: "“The best service I've ever received is from Career Buddy Club, and highly recommended.”",
+    desc: "”Game-changer for students. A top-notch program providing personalized support to achieve career goals.”",
     name: "Tabish Jamal",
     location: "Delhi",
   },
   {
-    desc: "“The best service I've ever received is from Career Buddy Club, and highly recommended.”",
+    desc: "“Amazing mentorship program that helps students navigate the job market and build a strong professional network. Highly recommended.”",
     name: "Akhil Bharghav",
     location: "Roorkee",
   },
   {
-    desc: "“The best service I've ever received is from Career Buddy Club, and highly recommended.”",
+    desc: "“Incredible support in developing students' confidence and professional skills. A great addition to our student support services.”",
     name: "Ashwani Goswami",
     location: "Uttar Pradesh",
   },

@@ -15,6 +15,13 @@ import FlipCardone from "./components/card/townandapt1";
 import ExpertsOne from "./components/experts/experts-one";
 import HowItWorksTwo from "./components/how-it-works/how-it-works-2";
 import HowItWorksFive from "./components/how-it-works/how-it-works-5";
+// import Featurefourteen from "./components/features/feature-fourteen";
+import Featurefifteen from "./components/features/feature-fifteen";
+import FeatureSixteen from "./components/features/feature-sixteen";
+import FeatureSeventeen from "./components/features/feature-seventeen";
+import FeatureEieghteen from "./components/features/feature-eighteen";
+import FeatureEighteen from "./components/features/feature-eighteen";
+import Featurefourteen from "./components/features/feature-fourteen";
 
 
 // export const metadata: Metadata = {
@@ -49,13 +56,16 @@ const addmission = () => {
 
         {/* <HeaderFour user={user} onLogout={handleLogout} key={key} /> */}
         <HeroBanner />
-        <FeatureTweleve />
-        <FeatureThirteen />
         <ExpertsOne/>
         <HowItWorksFive/>
-        
+        <FeatureEighteen />
+        <FeatureThirteen />
         <FlipCardone />
-        <div className="partner-logos bg-color border-0 pt-45 pb-45 ps-3 pe-3">
+      <Featurefourteen/>
+        <Featurefifteen />
+        <FeatureSeventeen />
+        <FeatureSixteen />
+        <div className="partner-logos bg-color border-0 pt-45 pb-45 ps-3 pe-3 mt-4">
           <PartnersSlider2 />
         </div>
         <FancyBannerNine />
