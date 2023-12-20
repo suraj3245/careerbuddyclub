@@ -12,6 +12,10 @@ import PartnersSlider2 from "./components/partners/partners-slider2";
 import { string } from "yup";
 import FeatureThirteen from "./components/features/feature-thirteen";
 import FlipCardone from "./components/card/townandapt1";
+import ExpertsOne from "./components/experts/experts-one";
+import HowItWorksTwo from "./components/how-it-works/how-it-works-2";
+import HowItWorksFive from "./components/how-it-works/how-it-works-5";
+
 
 // export const metadata: Metadata = {
 //   title: "career buddy club",
@@ -47,6 +51,9 @@ const addmission = () => {
         <HeroBanner />
         <FeatureTweleve />
         <FeatureThirteen />
+        <ExpertsOne/>
+        <HowItWorksFive/>
+        
         <FlipCardone />
         <div className="partner-logos bg-color border-0 pt-45 pb-45 ps-3 pe-3">
           <PartnersSlider2 />

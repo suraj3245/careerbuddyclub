@@ -5,6 +5,8 @@ export interface IcompanyType {
   logo: StaticImageData;
   title: string;
   link: string;
+  founder: string;
+  CEO: string;
   email: string;
   founded: string;
   feild: string[];
@@ -13,6 +15,7 @@ export interface IcompanyType {
   date: string;
   company: string;
   location: string;
+  address: string;
   category: string[];
   experience: string;
   salary: number;

@@ -7,7 +7,7 @@ export function WidgetOne({ cls,style_2 }: { cls: string;style_2?:boolean }) {
       <h5 className={`footer-title ${style_2?'text-white':''}`}>Services​</h5>
       <ul className="footer-nav-link style-none">
         <li><Link href="/job-grid-v2">Browse Jobs</Link></li>
-        <li><Link href="#">Companies</Link></li>
+        <li><Link href="/company-v1">Companies</Link></li>
         <li><Link href="#">Candidates</Link></li>
         <li><Link href="#">Pricing</Link></li>
       </ul>

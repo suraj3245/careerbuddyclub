@@ -6,7 +6,7 @@ const FeatureThirteen = () => {
   return (
     <section className="text-feature-one position-relative pt-120 xl-pt-20 lg-pt-20 md-pt-20 pb-20 xl-pb-20">
     <div className="title-one" style={{ paddingLeft: '70px' }}>
-    <h2>Confused About Choosing College and/or Career After Your 12th/Graduation?</h2>
+    <h2>Job Guarantee Degree Program</h2>
     </div>
     
       <div className="container">
@@ -15,12 +15,12 @@ const FeatureThirteen = () => {
             <div className="ps-xxl-4 wow fadeInRight">
            
             <h3 className="mt-40 md-mt-20 mb-40 md-mb-20">
-            From Career Assessment to Securing Placements {" "}
+            Go home with a secured job along with your degree {" "}
             </h3>
            
-              <h4 className="mt-40 md-mt-20 mb-40 md-mb-20">
-              We are there for you!! {" "}
-              </h4>
+              <h5 className="mt-40 md-mt-20 mb-40 md-mb-20">
+              Ensure career success with our Job Guarantee Degree Program, offering specialized training and placement assistance along with your degree. {" "}
+              </h5>
              
             </div>
           </div>
@@ -32,3 +32,4 @@ const FeatureThirteen = () => {
 };
 
 export default FeatureThirteen;
+

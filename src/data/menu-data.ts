@@ -1,5 +1,4 @@
 import { IMenuData } from "@/types/menu-data-type";
-
 const menu_data: IMenuData[] = [
   {
     id: 1,
@@ -12,13 +11,13 @@ const menu_data: IMenuData[] = [
     link: "/",
     title: "Placement",
     sub_menus: [
-      { link: "/", title: "Aloha on the Ganges" },
-      { link: "/", title: "Artera Group" },
-      { link: "/", title: "Capital Via" },
-      { link: "/", title: "CeaseFire Industries Ltd." },
-      { link: "/", title: "Coachywoods" },
-      { link: "/", title: "Cynoteck Technology Solutions Pvt Ltd." },
-      { link: "/company-v1", title: "see more" },
+      { link: "/company-v1", title: "Aloha on the Ganges" },
+      { link: "/company-v1", title: "Artera Group" },
+      { link: "/company-v1", title: "Capital Via" },
+      { link: "/company-v1", title: "CeaseFire Industries Ltd." },
+      { link: "/company-v1", title: "Coachywoods" },
+      { link: "/company-v1", title: "Cynoteck Technology Solutions Pvt Ltd." },
+      { link: "/job-list-v1", title: "see more" },
     ],
   },
   {
@@ -178,7 +177,7 @@ const menu_data: IMenuData[] = [
         id: 1,
         title: "School",
         sub_menus: [
-          { title: "Career Town", link: "/schools" },
+          { title: "Career Town", link: "https://www.thecareertown.com"},
           { title: "Career Aptitude Test", link: "/careerapt" },
         ],
       },
@@ -186,8 +185,8 @@ const menu_data: IMenuData[] = [
         id: 2,
         title: "Employee",
         sub_menus: [
-          { title: "Hire", link: "/" },
-          { title: "Job", link: "/" },
+          { title: "Hire", link: "/corporate" },
+          { title: "Job", link: "/job-list-v1" },
         ],
       },
       {
