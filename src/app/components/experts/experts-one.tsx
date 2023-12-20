@@ -10,11 +10,8 @@ import user_2 from "@/assets/images/assets/img_07.jpg";
 import user_4 from "@/assets/images/assets/img_07.jpeg";
 import user_5 from "@/assets/images/assets/img_08.jpeg";
 import user_6 from "@/assets/images/assets/img_09.jpeg";
-import user_7 from "@/assets/images/assets/img_10.jpg";
 import user_8 from "@/assets/images/assets/img_11.jpeg";
 import user_9 from "@/assets/images/assets/img_102.jpeg";
-
-
 
 // expert_data
 const expert_data: {
@@ -66,22 +63,16 @@ const expert_data: {
     title: "PinClick",
     salary: "4.80 LPA",
   },
+
   {
     id: 7,
-    user: user_7,
-    name: "Anudan Ranjan",
-    title: "Teachnook",
-    salary: "4-6 LPA",
-  },
-  {
-    id: 8,
     user: user_8,
     name: "Ansh Kumar",
     title: "College Tour",
     salary: "5.40 LPA",
   },
   {
-    id: 9,
+    id: 8,
     user: user_9,
     name: "Neha Sharma",
     title: "Byjus",
@@ -135,9 +126,9 @@ const ExpertsOne = () => {
               data-wow-delay="0.3s"
             >
               <h2>
-              Commending {" "}
+                Commending{" "}
                 <span className="position-relative">
-                Success!!{" "}
+                  Success!!{" "}
                   <Image
                     src={shape}
                     alt="shape"

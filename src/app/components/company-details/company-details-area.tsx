@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
-import logo from "@/assets/images/logo/media_37.png";
 import CompanyReviews from "./company-reviews";
 import VideoPopup from "../common/video-popup";
 import { IcompanyType } from "@/types/company-details";
