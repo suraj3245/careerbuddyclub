@@ -19,10 +19,7 @@ import HowItWorksFive from "./components/how-it-works/how-it-works-5";
 import Featurefifteen from "./components/features/feature-fifteen";
 import FeatureSixteen from "./components/features/feature-sixteen";
 import FeatureSeventeen from "./components/features/feature-seventeen";
-import FeatureEieghteen from "./components/features/feature-eighteen";
-import FeatureEighteen from "./components/features/feature-eighteen";
 import Featurefourteen from "./components/features/feature-fourteen";
-
 
 // export const metadata: Metadata = {
 //   title: "career buddy club",
@@ -56,12 +53,12 @@ const addmission = () => {
 
         {/* <HeaderFour user={user} onLogout={handleLogout} key={key} /> */}
         <HeroBanner />
-        <ExpertsOne/>
-        <HowItWorksFive/>
-        <FeatureEighteen />
+        <ExpertsOne />
+        <HowItWorksFive />
+
         <FeatureThirteen />
         <FlipCardone />
-      <Featurefourteen/>
+        <Featurefourteen />
         <Featurefifteen />
         <FeatureSeventeen />
         <FeatureSixteen />

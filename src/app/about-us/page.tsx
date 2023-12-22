@@ -9,6 +9,7 @@ import FeatureOne from "../components/features/feature-one";
 import HowItWorks from "../components/how-it-works/how-it-works";
 import FeedbackOne from "../components/feedBacks/feedback-one";
 import HeaderFour from "@/layouts/headers/header-4";
+import FeatureEighteen from "../components/features/feature-eighteen";
 
 export const metadata: Metadata = {
   title: "About us",
@@ -32,6 +33,7 @@ const AboutUsPage = () => {
 
         {/* feature one start */}
         <FeatureOne />
+        <FeatureEighteen />
         {/* feature one end */}
 
         {/* how works start */}

@@ -12,7 +12,7 @@ const FeatureEighteen = () => {
               <h1 className="wow fadeInUp " data-wow-delay="0.3s" style={{ color: "#14adbd", paddingLeft: "10px" }}>
                Our Mission <span style={{ color: "#eee30d", paddingLeft: "100px" }}> Vision &</span>
               </h1>
-              <h1 className="wow fadeInUp " data-wow-delay="0.3s" style={{ color: "#96271E", paddingLeft: "200px" }}>
+              <h1 className="wow fadeInUp " data-wow-delay="0.3s" style={{ color: "#254035", paddingLeft: "200px" }}>
                 Core Values
               </h1>
             </div>
@@ -40,7 +40,7 @@ const FeatureEighteen = () => {
                     </p>
                   </div>
                   <div className="core-values">
-                    <h3 style={{ color: "#96271E"}}>Core Values</h3>
+                    <h3 style={{ color: "#254035"}}>Core Values</h3>
                     <ul>
                       <li>
                         <strong>Excellence:</strong> Striving for the highest
@@ -72,20 +72,19 @@ const FeatureEighteen = () => {
               </div>
             </div>
 
-            <div className="col-lg-6 img-box">
-              <div className="image-container">
-                <Image src={shape_1} alt="shape" className="lazy-img shapes" />
-                <Image
-                  src={main_img}
-                  alt="main-img"
-                  className="lazy-img main-img w-100 h-100"
-                />
-              </div>
+          <div className="col-lg-6 img-box">
+            <div className="image-container">
+              <Image src={shape_1} alt="shape" className="lazy-img shapes" />
+              <Image
+                src={main_img}
+                alt="main-img"
+                className="lazy-img main-img w-100 h-100"
+              />
             </div>
           </div>
         </div>
       </div>
-   
+    </div>
   );
 };
 

@@ -4,7 +4,7 @@ import DashboardHeader from "./dashboard-header";
 import NiceSelect from "@/ui/nice-select-two";
 import { OnChangeArgument } from "@/ui/nice-select";
 import axios from "axios";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Link from "next/link";
 
@@ -64,7 +64,6 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
         url: "http://54.224.161.134:8080/api/students/getstudentsprofile",
         headers: {
           Accept: "*/*",
-          "User-Agent": "Thunder Client (https://www.thunderclient.com)",
           Authorization: `Bearer ${temptoken}`,
         },
       });
@@ -313,7 +312,6 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
     };
 
     const token = localStorage.getItem("token");
-    // Set up the request options for axios
     const options = {
       method: "POST",
       url: "http://54.224.161.134:8080/api/students/updateEducationDetails",
@@ -323,12 +321,11 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
       },
-      data: EducationDetails, // Send only the required data
+      data: EducationDetails,
     };
     axios
       .request(options)
       .then((response) => {
-        // Handle the response here, e.g., notify the user of success
         toast.success("Education Details Successfully updated 🚀", {
           position: "top-left",
           autoClose: 1000,
@@ -601,7 +598,7 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
 
             <form onSubmit={handlePersonalDetailsSubmit}>
               <div className="dash-input-wrapper mb-30">
-                <label htmlFor="">Full Name*</label>
+                <label htmlFor="fullName">Full Name*</label>
                 <input
                   type="text"
                   name="fullName"
@@ -644,7 +641,7 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
                 </div>
                 <div className="col-lg-3">
                   <div className="dash-input-wrapper mb-25">
-                    <label htmlFor="">Gender*</label>
+                    <label htmlFor="Gender">Gender*</label>
                     <NiceSelect
                       options={[
                         { value: "", label: "Select Gender" },
