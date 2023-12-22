@@ -31,13 +31,13 @@ const expert_data: {
     title: "Geetanjali Homestate Pvt Ltd.",
     salary: " 6 LPA (3LPA fixed and 3 LPA Variable)",
   },
-  {
-    id: 2,
-    user: user_2,
-    name: "Shubhangi",
-    title: "learning Routes",
-    salary: "5.70 LPA",
-  },
+  // {
+  //   id: 2,
+  //   user: user_2,
+  //   name: "Shubhangi",
+  //   title: "learning Routes",
+  //   salary: "5.70 LPA",
+  // },
   {
     id: 3,
     user: user_3,
@@ -45,13 +45,13 @@ const expert_data: {
     title: "Hike Education",
     salary: "6.42 LPA",
   },
-  {
-    id: 4,
-    user: user_4,
-    name: "Sahil Upadhyay",
-    title: "intellipaat",
-    salary: "7.25 LPA",
-  },
+  // {
+  //   id: 4,
+  //   user: user_4,
+  //   name: "Sahil Upadhyay",
+  //   title: "intellipaat",
+  //   salary: "7.25 LPA",
+  // },
   {
     id: 5,
     user: user_5,

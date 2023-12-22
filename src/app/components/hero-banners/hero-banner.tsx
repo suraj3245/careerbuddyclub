@@ -52,7 +52,7 @@ const HeroBanner = () => {
                   "data-bs-target": "#loginModal",
                 })}
               >
-                Admission here
+                Admission 
               </Link>
             </div>
           </div>

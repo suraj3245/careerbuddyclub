@@ -1,53 +1,75 @@
 "use client";
-import React from "react";
-// import banner_1 from "@/assets/images/assets/banner_img_01.jpg";
-import banner_1 from "@/assets/images/assets/banner_img_02.webp";
-import useSearchFormSubmit from "@/hooks/use-search-form-submit";
+import React, { useEffect, useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import shape_1 from "@/assets/images/shape/shape_01.svg";
+import shape_3 from "@/assets/images/shape/shape_03.svg";
+import main_img from "@/assets/images/assets/img_02.png";
 
-const HeroBannerSix = () => {
-  const { handleSubmit, setCategoryVal, setSearchText } = useSearchFormSubmit();
-  // handleSearchInput
-  const handleSearchInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchText(e.target.value);
+const HeroBanner = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const router = useRouter();
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    setIsLoggedIn(!!token);
+  }, []);
+
+  const handleAdmissionClick = (event: { preventDefault: () => void }) => {
+    if (isLoggedIn) {
+      event.preventDefault();
+      router.push("/dashboard/candidate-dashboard/profile");
+    }
+    // If not logged in, the default behavior of the link will trigger the modal
   };
+
   return (
-    <div className="hero-banner-six position-relative pt-250 lg-pt-250 pb-160 lg-pb-40">
+    <div className="hero-banner-one position-relative">
       <div className="container">
-        <div className="position-relative">
+        <div className="position-relative text-black pt-150 md-pt-100 pb-120 xl-pb-120 md-pb-80">
           <div className="row">
-            <div className="col-xxl-8 col-xl-9 col-lg-8 m-auto text-center">
-              <h1
-                className="wow fadeInUp"
-                data-wow-delay="0.3s"
-                // style={{ color: "#9813bd" }}
-              >
-                Find & Hire Experts for any Job.
+            <div className="col-lg-6">
+              <h1 className="wow fadeInUp text-black" data-wow-delay="0.3s">
+              Find & Hire{" "}
+                <span style={{ color: "#eee30d" }}>Experts for any Job.
+                </span>
               </h1>
               <p
-                className="text-md mt-25 mb-55 lg-mb-40 wow fadeInUp"
+                className="text-lg text-black mt-40 md-mt-30 mb-50 md-mb-30 wow fadeInUp"
                 data-wow-delay="0.4s"
-                style={{  fontWeight:'bold' }}
               >
-                Welcome to Career Buddy Club, Your source for top talent!!
+              Welcome to Career Buddy Club, Your source for top talent!!
               </p>
+              <Link
+                href="/dashboard/candidate-dashboard/profile"
+                className="btn-five wow fadeInUp"
+                data-wow-delay="0.6s"
+                onClick={handleAdmissionClick}
+                {...(!isLoggedIn && {
+                  "data-bs-toggle": "modal",
+                  "data-bs-target": "#loginModal",
+                })}
+              >
+                Admission here
+              </Link>
             </div>
+          </div>
+
+          <div className="img-box">
+            <Image src={shape_1} alt="shape" className="lazy-img shapes" />
+            <Image
+              src={main_img}
+              alt="main-img"
+              className="lazy-img main-img w-100 h-100"
+            />
           </div>
         </div>
       </div>
-      <div
-        id="banner-six-carousel"
-        className="carousel slide pointer-event"
-        data-bs-ride="carousel"
-      >
-        <div className="carousel-inner w-100 h-100">
-          <div
-            className="carousel-item active"
-            style={{ backgroundImage: `url(${banner_1.src})` }}
-          ></div>
-        </div>
-      </div>
+
+      <Image src={shape_3} alt="shape" className="lazy-img shapes shape_02" />
     </div>
   );
 };
 
-export default HeroBannerSix;
+export default HeroBanner;

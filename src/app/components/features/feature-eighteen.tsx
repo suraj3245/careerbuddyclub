@@ -12,7 +12,7 @@ const FeatureEighteen = () => {
               <h1 className="wow fadeInUp " data-wow-delay="0.3s" style={{ color: "#14adbd", paddingLeft: "10px" }}>
                Our Mission <span style={{ color: "#eee30d", paddingLeft: "100px" }}> Vision &</span>
               </h1>
-              <h1 className="wow fadeInUp " data-wow-delay="0.3s" style={{ color: "#254035", paddingLeft: "200px" }}>
+              <h1 className="wow fadeInUp " data-wow-delay="0.3s" style={{ color: "#96271E", paddingLeft: "200px" }}>
                 Core Values
               </h1>
             </div>
@@ -40,7 +40,7 @@ const FeatureEighteen = () => {
                     </p>
                   </div>
                   <div className="core-values">
-                    <h3 style={{ color: "#254035"}}>Core Values</h3>
+                    <h3 style={{ color: "#96271E"}}>Core Values</h3>
                     <ul>
                       <li>
                         <strong>Excellence:</strong> Striving for the highest

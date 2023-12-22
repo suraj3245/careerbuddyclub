@@ -1,4 +1,6 @@
 import { IMenuData } from "@/types/menu-data-type";
+import { link } from "fs";
+import { title } from "process";
 const menu_data: IMenuData[] = [
   {
     id: 1,
@@ -176,7 +178,7 @@ const menu_data: IMenuData[] = [
   // },
 
   {
-    id: 5,
+    id: 3,
     link: "/",
     title: "Partners",
       sub_menus: [
@@ -185,6 +187,11 @@ const menu_data: IMenuData[] = [
         { title: "For College/ University", link: "/" },
       ],
   },
+  {
+  id:4,
+  link: "/about-us",
+  title: "About-us",
+  }
 ];
 
 export default menu_data;

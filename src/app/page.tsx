@@ -69,8 +69,6 @@ const addmission = () => {
           <PartnersSlider2 />
         </div>
         <FancyBannerNine />
-        <FancyBannerTen />
-        <FeatureFour />
         <FooterOne />
 
         {/* footer end */}

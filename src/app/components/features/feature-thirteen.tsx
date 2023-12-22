@@ -11,13 +11,20 @@ const FeatureThirteen = () => {
           <h3 className="mb-4" style={{ color: "#eed30d" }}>Programs Offered</h3>
       
             <div className="row justify-content-center">
-              <div className="col-lg-6 col-md-8 col-sm-10 d-flex flex-wrap justify-content-center">
+              <div className="col-lg-8 col-md-8 col-sm-10 d-flex flex-wrap justify-content-center">
                 <button className="btn-five wow fadeInUp mx-2 mb-2">B.Tech</button>
                 <button className="btn-five wow fadeInUp mx-2 mb-2">MBA</button>
                 <button className="btn-five wow fadeInUp mx-2 mb-2">MCA</button>
                 <button className="btn-five wow fadeInUp mx-2 mb-2">BBA</button>
                 <button className="btn-five wow fadeInUp mx-2 mb-2">BCA</button>
                 <button className="btn-five wow fadeInUp mx-2 mb-2">BSC</button>
+                <button className="btn-five wow fadeInUp mx-2 mb-2">B.Pharma</button>
+                <button className="btn-five wow fadeInUp mx-2 mb-2">D.Pharma </button>
+                <button className="btn-five wow fadeInUp mx-2 mb-2">B.Com</button>
+                <button className="btn-five wow fadeInUp mx-2 mb-2">BBA LL.B</button>
+                <button className="btn-five wow fadeInUp mx-2 mb-2">PGDM</button>
+                <button className="btn-five wow fadeInUp mx-2 mb-2">B.Design</button>
+                <button className="btn-five wow fadeInUp mx-2 mb-2">GNM</button>
               </div>
             </div>
         </div>
