@@ -6,12 +6,9 @@ import shape from "@/assets/images/shape/shape_25.svg";
 const FeatureSixteen = () => {
   return (
     <>
-      <section className="fancy-banner-nine mt-180 xl-mt-150 lg-mt-100">
+      <section className="fancy-banner-nine mt-100 xl-mt-150 lg-mt-100">
         <div className="container">
           <div className="position-relative wow fadeInUp" style={{ background: "#fff" }}>
-            <div className="title-one pl-4 p-4 mt-4">
-              <h3>What's included in job Guarantee Degree?</h3>
-            </div>
             <div className="row">
               {/* Text on the left side */}
               <div className="col-lg-6 order-lg-first">

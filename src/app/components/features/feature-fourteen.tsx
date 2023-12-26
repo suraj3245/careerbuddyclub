@@ -61,7 +61,7 @@ const Featurefourteen = () => {
                   <AccordionItemThree
                     id="two"
                     isShow={true}
-                    title="Skill Buddy"
+                    title="Skill Buddy:"
                     desc="Your personal mentor, dedicated to elevating both your soft and technical skills. Through personalised guidance, they ensure you acquire the expertise needed to thrive in the ever-evolving professional landscape."
                     parent={""}
                     path="/skill-buddy"
@@ -79,7 +79,7 @@ const Featurefourteen = () => {
                   <AccordionItemThree
                     id="three"
                     isShow={true}
-                    title="Placement Buddy"
+                    title="Placement Buddy:"
                     desc="Your destiny designer ensuring a seamless transition into the professional world. From interview preparation to providing placement opportunities, they guide you every step, helping you embark on the next chapter of your career journey."
                     parent={""}
                     path="/placement-buddy"

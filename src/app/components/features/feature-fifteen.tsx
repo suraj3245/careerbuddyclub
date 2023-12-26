@@ -32,22 +32,30 @@ const Featurefifteen = () => {
       <div className="container">
         <div className="bg-wrapper">
           <div className="row align-items-center">
+          <h2 className="text" style={{ color: "#B7469A" }}>
+  Career Buddy Club Motto
+</h2>
             <div className="col-lg-5">
               <div className="wow fadeInLeft">
-                <div className="title-one">
-                  <h2 className="text-black">
-                  Career Buddy Club Motto
-                  </h2>
-                  <h3>Transformative Learning: The CBC Advantage</h3>
-                </div>
-                <p className="text-black mt-20 mb-45 lg-mb-30">
-                Learn from Recruiters CEOs, CTOs, and COOs of Fortune 500 companies and start-ups with years of recruitment experience.
+                <h3 style={{ paddingLeft: "10px" }} >Transformative Learning: The CBC Advantage
+                </h3> 
+                  <h3 style={{ paddingLeft: "20px",paddingTop:"20px" }}>Learn from Recruiters</h3>
+                <p style={{ paddingLeft: "20px" }}>
+                 CEOs, CTOs, and COOs of Fortune 500 companies and start-ups with years of recruitment experience.
                 </p>
-                <h3>Practice in the Real World
+                <h3 style={{ paddingLeft: "20px" }}>Practice in the Real World
                 </h3>
-               <p> Gain hands-on experience with internships & real-life projects to be job-ready. Participate in Training Bootcamps, Mentorship & Networking in Jobs Fairs, Hackathons, Case Studies, etc.
+               <p style={{ paddingLeft: "20px" }}> Gain hands-on experience with internships & real-life projects to be job-ready. Participate in Training Bootcamps, Mentorship & Networking in Jobs Fairs, Hackathons, Case Studies, etc.
                </p>
-               
+                <h3 style={{ paddingLeft: "20px" }}>Create Your Own Resume
+                </h3>
+               <div style={{ paddingLeft: "20px" }}>
+                <Link href="/ ">
+            <div className= "btn btn-primary" >
+              Resume
+              </div>
+          </Link>
+          </div>
               </div>
             </div>
             <div className="col-lg-6 text-center text-lg-end md-mt-40">
@@ -66,7 +74,7 @@ const Featurefifteen = () => {
                 <MediaImg img={media_3} num="03" />
                 <MediaImg img={media_4} num="04" />
                 <MediaImg img={media_5} num="05" />
-                <div className="brand text-white text-start text-md">
+                <div className="brand text-black text-start text-md">
                   <span>100+</span>Leading Companies
                 </div>
               </div>

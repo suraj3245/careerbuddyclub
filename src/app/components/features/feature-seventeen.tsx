@@ -24,7 +24,7 @@ const FeatureSeventeen = () => {
         <div className="title-one">
           {/* Top Heading */}
           <h2 style={{ color: "#000" }}>Our Key Offerings</h2>
-          <p style={{color: "#000"}}> This is how CBC is different from others</p>
+          <p style={{color: "#000", paddingTop: "10px"}}> This is how CBC is different from others</p>
         </div>
         {/* Line Below Top Heading */}
         <hr style={{ width: "100%", border: "2px solid #fff", marginBottom: "20px" }} />
