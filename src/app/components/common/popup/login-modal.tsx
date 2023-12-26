@@ -11,7 +11,7 @@ const LoginModal = () => {
       tabIndex={-1}
       aria-hidden="true"
     >
-      <div className="modal-dialog modal-fullscreen modal-dialog-centered">
+      <div className="modal-dialog modal-md modal-dialog-centered">
         <div className="container">
           <div className="user-data-form modal-content">
             <button

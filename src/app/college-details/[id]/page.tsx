@@ -4,9 +4,6 @@ import Wrapper from "@/layouts/wrapper";
 import JobPortalIntro from "@/app/components/job-portal-intro/job-portal-intro";
 import CompanyBreadcrumb from "@/app/components/common/common-breadcrumb";
 import FooterOne from "@/layouts/footers/footer-one";
-import CompanyDetailsArea from "@/app/components/company-details/company-details-area";
-
-import company_details from "@/data/company-details";
 import college_details from "@/data/college-details";
 import OpenPosition from "@/app/components/company-details/open-position";
 import CollegeDetailsArea from "@/app/components/company-details/college-details";
@@ -34,7 +31,7 @@ const CompanyDetailsPage = () => {
         {/* company details area end */}
 
         {/*job Open Position */}
-        <OpenPosition />
+
         {/*job Open Position */}
 
         {/* job portal intro start */}

@@ -15,16 +15,6 @@ type IProps = {
 
 const DashboardEducation = ({ setIsOpenSidebar }: IProps) => {
   const [formData, setFormData] = useState({
-    fullName: "",
-    dateOfBirth: "",
-    socialCategory: "",
-    gender: "",
-    mobileNumber: "",
-    email: "",
-    address: "",
-    state: "",
-    city: "",
-    zipCode: "",
     schoolNameX: "",
     boardX: "",
     streamX: "",
@@ -40,12 +30,6 @@ const DashboardEducation = ({ setIsOpenSidebar }: IProps) => {
     degreeName: "",
     passingYearCollege: "",
     percentageCgpaCollege: "",
-    stream: "",
-    level: "",
-    special: "",
-    location: "",
-    collegeType: "",
-    feeRange: "",
     // ... other fields as needed ...
   });
 
@@ -66,16 +50,6 @@ const DashboardEducation = ({ setIsOpenSidebar }: IProps) => {
         // Assuming the data structure is similar to the one you provided
         const data = response.data;
         setFormData({
-          fullName: data.student.name || "",
-          dateOfBirth: data.basicDetails.dob || "",
-          socialCategory: data.basicDetails.social_category || "",
-          gender: data.basicDetails.gender || "",
-          mobileNumber: data.student.mobile || "",
-          email: data.student.email || "",
-          address: data.contactDetails.address || "",
-          state: data.contactDetails.state || "",
-          city: data.contactDetails.city || "",
-          zipCode: data.contactDetails.zip_code || "",
           schoolNameX: data.educationDetails.school_name_x || "",
           boardX: data.educationDetails.board_x || "",
           streamX: data.educationDetails.stream_x || "",
@@ -91,12 +65,6 @@ const DashboardEducation = ({ setIsOpenSidebar }: IProps) => {
           degreeName: data.educationDetails.degree || "",
           passingYearCollege: data.educationDetails.passing_year_college || "",
           percentageCgpaCollege: data.educationDetails.percentage_college || "",
-          stream: data.preferences.stream || "",
-          level: data.preferences.level || "",
-          special: data.preferences.specialization || "",
-          location: data.preferences.location || "",
-          collegeType: data.preferences.college_type || "",
-          feeRange: data.preferences.fee_range || "",
         });
       }
     } catch (error) {

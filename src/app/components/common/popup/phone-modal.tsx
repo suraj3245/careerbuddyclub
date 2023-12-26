@@ -1,18 +1,15 @@
 import React from "react";
-import Image from "next/image";
-import Link from "next/link";
+import PhoneForm from "../../forms/phone-form";
 
-import RegisterForm from "../../forms/register-form";
-
-const RegisterModal = () => {
+const PhoneModal = () => {
   return (
     <div
       className="modal fade"
-      id="RegisterModal"
+      id="PhoneModal"
       tabIndex={-1}
       aria-hidden="true"
     >
-      <div className="modal-dialog modal-fullscreen modal-dialog-centered">
+      <div className="modal-dialog modal-md modal-dialog-centered">
         <div className="container">
           <div className="user-data-form modal-content">
             <button
@@ -25,7 +22,7 @@ const RegisterModal = () => {
               <h2>Hi, Welcome Back!</h2>
             </div>
             <div className="form-wrapper m-auto">
-              <RegisterForm />
+              <PhoneForm />
             </div>
           </div>
         </div>
@@ -34,4 +31,4 @@ const RegisterModal = () => {
   );
 };
 
-export default RegisterModal;
+export default PhoneModal;

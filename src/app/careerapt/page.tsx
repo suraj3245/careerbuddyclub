@@ -18,11 +18,8 @@ import {
 import StatisticsCard from "../components/statistic/stats";
 import FeatureSection from "../components/videoprop/featureprop";
 import HowItWorksThree from "../components/how-it-works/how-it-works-3";
-import ImageWithTextSection from "../components/how-it-works/how-it-works-4";
-import img1 from "@/assets/images/assets/1.svg";
 import ContactSchoolArea from "../components/contactSchools/contactSchools-area";
 import Component from "../components/how-it-works/how-it-works-4";
-import CareerSurvey from "../aptitudetest/page";
 import FeedbackFour from "../components/feedBacks/feedback-four";
 export const metadata: Metadata = {
   title: "career aptitude test",
