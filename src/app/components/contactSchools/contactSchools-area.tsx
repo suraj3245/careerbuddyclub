@@ -62,13 +62,7 @@ const ContactSchoolArea = () => {
             </div>
           </div>
 
-          <div className="row">
-            <div className="col-xl-9 m-auto">
-              <div className="form-style-one mt-85 lg-mt-50 wow fadeInUp">
-                <ContactSchoolForm />
-              </div>
-            </div>
-          </div>
+         
         </div>
       </div>
     </section>

@@ -57,7 +57,7 @@ const addmission = () => {
         <HowItWorksFive />
 
         <FeatureThirteen />
-        <FlipCardone />
+       
         <Featurefourteen />
         <Featurefifteen />
         <FeatureSeventeen />

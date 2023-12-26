@@ -39,10 +39,10 @@ const FeatureThirteen = () => {
         </div>
 
         {/* New Text Section */}
-        <div className="text-center mt-4">
-          <h2 className="mt-40 md-mt-20 mb-40 md-mb-20" style={{ color: "#eed30d" }}>
+        <div className="text mt-4">
+          <h3 className="mt-40 md-mt-20 mb-40 md-mb-20" style={{ color: "#eed30d" }}>
             Confused? Explore Your Ideal Career Fit with Us!
-          </h2>
+          </h3>
           <p className="lead">
             Dive into a quick and insightful assessment that will shine a light on your unique
             personality, cognitive strengths, and professional aptitudes.

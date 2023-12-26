@@ -31,7 +31,7 @@ const CompanyDetailsDynamicPage = ({ params }: { params: { id: string } }) => {
         {/* company details area end */}
 
         {/*job Open Position */}
-        <OpenPosition />
+      
         {/*job Open Position */}
 
         {/* job portal intro start */}

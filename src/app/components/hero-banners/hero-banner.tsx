@@ -33,14 +33,13 @@ const HeroBanner = () => {
             <div className="col-lg-6">
               <h1 className="wow fadeInUp text-black" data-wow-delay="0.3s">
               Job Guarantee{" "}
-                <span style={{ color: "#eee30d" }}> Degree Program</span>
+                <span style={{ color: "#eee30d" }}> Degree </span>
               </h1>
               <p
                 className="text-lg text-black mt-40 md-mt-30 mb-50 md-mb-30 wow fadeInUp"
                 data-wow-delay="0.4s"
               >
-                Our goal is to foster your career growth through invaluable
-                mentorship and networking opportunities.
+              Enroll in a job guaranteed degree from one of our shortlisted colleges. 100% Refund if not placed*.
               </p>
               <Link
                 href="/dashboard/candidate-dashboard/profile"
@@ -52,7 +51,7 @@ const HeroBanner = () => {
                   "data-bs-target": "#loginModal",
                 })}
               >
-                Admission 
+                Apply Now
               </Link>
             </div>
           </div>

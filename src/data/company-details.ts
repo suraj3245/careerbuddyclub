@@ -1,6 +1,37 @@
 import { IcompanyType } from "@/types/company-details";
-import job_img_1 from "@/assets/images/logo/media_22.webp";
-
+import job_img_1 from '@/assets/images/logo/media_29.png';
+import job_img_2 from '@/assets/images/logo/media_30.png';
+import job_img_3 from '@/assets/images/logo/media_31.png';
+import job_img_4 from '@/assets/images/logo/media_38.png';
+import job_img_5 from '@/assets/images/logo/media_39.png';
+import job_img_6 from '@/assets/images/logo/media_40.png';
+import job_img_7 from '@/assets/images/logo/media_41.png';
+import job_img_8 from '@/assets/images/logo/media_32.png';
+import job_img_9 from '@/assets/images/logo/media_42.png';
+import job_img_10 from '@/assets/images/logo/media_43.png';
+import job_img_11 from '@/assets/images/logo/media_44.png';
+import job_img_12 from '@/assets/images/logo/media_45.png';
+import job_img_13 from '@/assets/images/logo/media_46.png';
+import job_img_14 from '@/assets/images/logo/media_47.png';
+import job_img_15 from '@/assets/images/logo/media_48.png';
+import job_img_16 from '@/assets/images/logo/media_49.png';
+import job_img_17 from '@/assets/images/logo/media_50.png';
+import job_img_18 from '@/assets/images/logo/media_51.png';
+import job_img_19 from '@/assets/images/logo/media_52.png';
+import job_img_20 from '@/assets/images/logo/media_53.png';
+import job_img_21 from '@/assets/images/logo/media_54.png';
+import job_img_22 from '@/assets/images/logo/media_55.png';
+import job_img_23 from '@/assets/images/logo/media_56.png';
+import job_img_24 from '@/assets/images/logo/media_57.png';
+import job_img_25 from '@/assets/images/logo/media_58.png';
+import job_img_26 from '@/assets/images/logo/media_59.png';
+import job_img_27 from '@/assets/images/logo/media_60.png';
+import job_img_28 from '@/assets/images/logo/media_61.png';
+import job_img_29 from '@/assets/images/logo/media_62.png';
+import job_img_30 from '@/assets/images/logo/media_63.png';
+import job_img_31 from '@/assets/images/logo/media_64.png';
+import job_img_32 from '@/assets/images/logo/media_65.png';
+import job_img_33 from '@/assets/images/logo/media_66.png';
 const company_details: IcompanyType[] = [
   {
     id: 1,
@@ -36,7 +67,7 @@ const company_details: IcompanyType[] = [
 
   {
     id: 2,
-    logo: job_img_1,
+    logo: job_img_2,
     title: "",
     link: "https://www.artera.com/",
     founder: "Guillaume    ",
@@ -67,7 +98,7 @@ const company_details: IcompanyType[] = [
 
   {
     id: 3,
-    logo: job_img_1,
+    logo: job_img_3,
     title: "",
     
     link: "https://www.capitalvia.com/",
@@ -99,7 +130,7 @@ const company_details: IcompanyType[] = [
   },
   {
     id: 4,
-    logo: job_img_1,
+    logo: job_img_4,
     title: "",
     
     link: "https://www.ceasefire.in/",
@@ -123,7 +154,7 @@ const company_details: IcompanyType[] = [
     english_fluency: "Fluent",
     overview:
       "When team members told us they needed more flexibility around where and how they worked, we acted, creating two options to accommodate two different styles of work. One non-negotiable principle along the way? We had to retain our deep culture of collaboration, both among ourselves and with our clients. Introducing Work From Near and Work From Anywhere at WillowTree. Please indicate which location(s) you're interested.",
-    videoid: "",
+    videoid: "XoYiOF9azcU",
     facebook: "",
     instagram: "",
     twitter: "",
@@ -131,9 +162,8 @@ const company_details: IcompanyType[] = [
   },
   {
     id: 5,
-    logo: job_img_1,
-    title: "",
-    
+    logo: job_img_5,
+    title: "", 
     link: "",
     founder: "",
     CEO: "",
@@ -163,7 +193,7 @@ const company_details: IcompanyType[] = [
   },
   {
     id: 6,
-    logo: job_img_1,
+    logo: job_img_6,
     title: "",
     
     link: "https://cynoteck.com/",
@@ -195,7 +225,7 @@ const company_details: IcompanyType[] = [
   },
   {
     id: 7,
-    logo: job_img_1,
+    logo: job_img_7,
     title: "",
     
     link: "https://four-points.marriott.com/",
@@ -227,7 +257,7 @@ const company_details: IcompanyType[] = [
   },
   {
     id: 8,
-    logo: job_img_1,
+    logo: job_img_8,
     title: "",
     
     link: "https://www.igtsolutions.com/",
@@ -259,7 +289,7 @@ const company_details: IcompanyType[] = [
   },
   {
     id: 9,
-    logo: job_img_1,
+    logo: job_img_9,
     title: "",
     
     link: "https://www.ileads.co.in/",
@@ -290,7 +320,7 @@ const company_details: IcompanyType[] = [
   },
   {
     id: 10,
-    logo: job_img_1,
+    logo: job_img_10,
     title: "",
     
     link: "https://intellipaat.com/?utm_source=google&utm_medium=search&utm_term=intellipaat%20software%20solutions&utm_campaign=s_brand_in_state&gad_source=1&gclid=Cj0KCQiAgqGrBhDtARIsAM5s0_kulyYyLy3b2H4B_8Boy1xlgYCR_TPzIXYsb4tMPZbJMar9JJy44RIaAkMkEALw_wcB",
@@ -322,7 +352,7 @@ const company_details: IcompanyType[] = [
   },
   {
     id: 11,
-    logo: job_img_1,
+    logo: job_img_11,
     title: "",
     
     link: "https://www.justdial.com/",
@@ -355,7 +385,7 @@ const company_details: IcompanyType[] = [
   
   {
     id: 12,
-    logo: job_img_1,
+    logo: job_img_12,
     title: "",
     
     link: "https://www.thecompanycheck.com/company/kaihastu-solutions-private-limited/U74999OR2018PTC030156",
@@ -387,7 +417,7 @@ const company_details: IcompanyType[] = [
   },
   {
     id: 13,
-    logo: job_img_1,
+    logo: job_img_13,
     title: "",
     
     link: "https://manikaranpowerltd.in/",
@@ -419,7 +449,7 @@ const company_details: IcompanyType[] = [
   },
   {
     id: 14,
-    logo: job_img_1,
+    logo: job_img_14,
     title: "",
     
     link: "https://www.mcslog.net/",
@@ -451,7 +481,7 @@ const company_details: IcompanyType[] = [
   },
   {
     id: 15,
-    logo: job_img_1,
+    logo: job_img_15,
     title: "",
     
     link: "https://www.nimbusagrofarms.in/?campaignid=15788723705&adgroupid=132337201659&keyword=nimbus%20agro%20farms&device=c&gad_source=1&gclid=CjwKCAiApaarBhB7EiwAYiMwqjQE6XFqwbbQki9brBG75Nk7GeFxVZQBTydNA3yIxOGC6eMHIUCZmBoCb-UQAvD_BwE ",
@@ -483,7 +513,7 @@ const company_details: IcompanyType[] = [
   },
   {
     id: 16,
-    logo: job_img_1,
+    logo: job_img_16,
     title: "",
     
     link: "https://paytm.com/ ",
@@ -515,7 +545,7 @@ const company_details: IcompanyType[] = [
   },
   {
     id: 17,
-    logo: job_img_1,
+    logo: job_img_17,
     title: "",
     
     link: "https://www.crunchbase.com/organization/petofy ",
@@ -547,7 +577,7 @@ const company_details: IcompanyType[] = [
   },
   {
     id: 18,
-    logo: job_img_1,
+    logo: job_img_18,
     title: "",
     
     link: "https://www.planetspark.in/ ",
@@ -579,7 +609,7 @@ const company_details: IcompanyType[] = [
   },
   {
     id: 19,
-    logo: job_img_1,
+    logo: job_img_19,
     title: "",
     
     link: "https://sbi.co.in/ ",
@@ -611,7 +641,7 @@ const company_details: IcompanyType[] = [
   },
   {
     id: 20,
-    logo: job_img_1,
+    logo: job_img_20,
     title: "",
     
     link: "https://www.techmahindra.com/en-in/?f=55364445 ",
@@ -643,7 +673,7 @@ const company_details: IcompanyType[] = [
   },
   {
     id: 21,
-    logo: job_img_1,
+    logo: job_img_21,
     title: "",
     
     link: "https://www.zementcrete.com/",
@@ -675,7 +705,7 @@ const company_details: IcompanyType[] = [
   },
   {
     id: 22,
-    logo: job_img_1,
+    logo: job_img_22,
     title: "",
     
     link: "https://geetanjalihomestate.co.in/",
@@ -689,7 +719,7 @@ const company_details: IcompanyType[] = [
       "Geetanjali Homestate is centered majorly around Real Estate Consulting in Delhi NCR. Through our fair practice and proficiency in giving way to put or in organizing accounts for investors to make the efficient use of their capitals.      ",
     duration: "Fulltime",
     date: "18 Jul 2024",
-    company: "Zemencrete Pvt Ltd  ",
+    company: "Geetanjali Homestates Pvt. Ltd.  ",
     location: "Haryana, India",
     category: ["Developer", "Coder"],
     experience: "Fresher",
@@ -707,7 +737,7 @@ const company_details: IcompanyType[] = [
   },
   {
     id: 23,
-    logo: job_img_1,
+    logo: job_img_23,
     title: "",
     
     link: "https://www.thecompanycheck.com/company/hanmars-systems-private-limited/U62099UP2023PTC189225",
@@ -739,7 +769,7 @@ const company_details: IcompanyType[] = [
   },
   {
     id: 24,
-    logo: job_img_1,
+    logo: job_img_24,
     title: "",
     
     link: "https://rnftechnologies.com/",
@@ -771,7 +801,7 @@ const company_details: IcompanyType[] = [
   },
   {
     id: 25,
-    logo: job_img_1,
+    logo: job_img_25,
     title: "",
     
     link: "https://www.wns.com/",
@@ -795,6 +825,262 @@ const company_details: IcompanyType[] = [
     english_fluency: "Fluent",
     overview:
       "When team members told us they needed more flexibility around where and how they worked, we acted, creating two options to accommodate two different styles of work. One non-negotiable principle along the way? We had to retain our deep culture of collaboration, both among ourselves and with our clients. Introducing Work From Near and Work From Anywhere at WillowTree. Please indicate which location(s) you're interested.",
+    videoid: "",
+    facebook: "",
+    instagram: "",
+    twitter: "",
+    linkedin: "",
+  },
+  {
+    id: 26,
+    logo: job_img_26,
+    title: "",
+    
+    link: "https://avahotels.in/",
+    founder: "Neeraj Singh Nayal",
+    CEO: "Neeraj Singh Nayal",
+    email: "",
+    founded: "27 Jan,1997",
+    address:"T, 27/4, DLF Phase 3, Sector 24, Gurugram, Haryana 122002",
+    feild: ["Hotel Industry"],
+    overviewsection:
+      "AVA Hotels & Resorts is one of India's fastest-growing hotel brands. AVA Hotels and Resorts are managed by AVA Hospitality. The company is a reputed name in hospitality industry and manages a group of boutique hotels in India.",
+    duration: "Fulltime",
+    date: "18 Jul 2024",
+    company: "Ava Hotels",
+    location: "Haryana, India",
+    category: ["Developer", "Coder"],
+    experience: "Fresher",
+    salary: 900,
+    salary_duration: "Monthly",
+    
+    english_fluency: "Fluent",
+    overview:
+      "AVA Hotels & Resorts is one of India's fastest-growing hotel brands. AVA Hotels and Resorts are managed by AVA Hospitality. The company is a reputed name in hospitality industry and manages a group of boutique hotels in India.",
+    videoid: "",
+    facebook: "",
+    instagram: "",
+    twitter: "",
+    linkedin: "",
+  },
+  {
+    id: 27,
+    logo: job_img_27,
+    title: "",
+    
+    link: "https://www.radissonhotels.com/en-us/brand/radisson-blu",
+    founder: "Amit Jain",
+    CEO: "Federico J. González Tejera",
+    email: "",
+    founded: "27 Jan,1997",
+    address:"Chimes 61, 59, Bhagwan Mahaveer Marg, Sector 44, Gurugram, Haryana 122003",
+    feild: ["Hotel Industry"],
+    overviewsection:
+      "The essence of Radisson Blu is reflected in every aspect of who we are and what we do. We provide unparalleled service, comfort, and style while creating meaningful and memorable experiences.By paying close attention to the small details that make a big difference, we inspire unforgettable experiences with every stay.",
+    duration: "Fulltime",
+    date: "18 Jul 2024",
+    company: "Radison Blu",
+    location: "Haryana, India",
+    category: ["Developer"],
+    experience: "Fresher",
+    salary: 900,
+    salary_duration: "Monthly",
+    
+    english_fluency: "Fluent",
+    overview:
+      "The essence of Radisson Blu is reflected in every aspect of who we are and what we do. We provide unparalleled service, comfort, and style while creating meaningful and memorable experiences.By paying close attention to the small details that make a big difference, we inspire unforgettable experiences with every stay.",
+    videoid: "",
+    facebook: "",
+    instagram: "",
+    twitter: "",
+    linkedin: "",
+  },
+  {
+    id: 28,
+    logo: job_img_28,
+    title: "",
+    
+    link: "https://www.bestwestern.com/en_US/book/hotels-in-new-delhi/best-western-maharani-bagh/propertyCode.79815.html",
+    founder: "",
+    CEO: "",
+    email: "",
+    founded: "27 Jan,1997",
+    address:"A-1, Eastern Avenue, Maharani Bagh, New Delhi, 110065 India",
+    feild: ["Hotel Industry"],
+    overviewsection:
+      "The Best Western Maharani Bagh is a mid-scale hotel in the heart of New Delhi City offering warm hospitality and world cuisine at affordable prices. At the posh location of South Delhi, the hotel has very convenient proximity to Central Delhi.",
+    duration: "Fulltime",
+    date: "18 Jul 2024",
+    company: "Best Western Maharani Bagh",
+    location: "New Delhi, India",
+    category: ["Developer"],
+    experience: "Fresher",
+    salary: 900,
+    salary_duration: "Monthly",
+    
+    english_fluency: "Fluent",
+    overview:
+      "The Best Western Maharani Bagh is a mid-scale hotel in the heart of New Delhi City offering warm hospitality and world cuisine at affordable prices. At the posh location of South Delhi, the hotel has very convenient proximity to Central Delhi.",
+    videoid: "",
+    facebook: "",
+    instagram: "",
+    twitter: "",
+    linkedin: "",
+  },
+  {
+    id: 29,
+    logo: job_img_29,
+    title: "",
+    
+    link: "https://digitalamigos.in/",
+    founder: "Amit Singh",
+    CEO: "Amit Singh",
+    email: "",
+    founded: "27 Jan,1997",
+    address:"Hno 5-6-59/1, Kala Nilayam, Pent House Sangeet Nagar, Kukatpally Hyderabad Hyderabad TG 500072 IN",
+    feild: ["Digital Transformation and IT Solutions"],
+    overviewsection:
+      "Digital Amigos is a leading Digital Solutions Company which helps you to evolve and employ proficient, best priced, and top-notch Digital Marketing Services, Software Development and more related services to empower your business.",
+    duration: "Fulltime",
+    date: "18 Jul 2024",
+    company: "Digital Amigos",
+    location: "Telengana, India",
+    category: ["Developer"],
+    experience: "Fresher",
+    salary: 900,
+    salary_duration: "Monthly",
+    
+    english_fluency: "Fluent",
+    overview:
+      "Digital Amigos is a leading Digital Solutions Company which helps you to evolve and employ proficient, best priced, and top-notch Digital Marketing Services, Software Development and more related services to empower your business.",
+    videoid: "",
+    facebook: "",
+    instagram: "",
+    twitter: "",
+    linkedin: "",
+  },
+  {
+    id: 30,
+    logo: job_img_30,
+    title: "",
+    
+    link: "https://leadheight.com/",
+    founder: "",
+    CEO: "",
+    email: "",
+    founded: "27 Jan,1997",
+    address:"6A2, 6th Floor, Newtown Square Atghora, Newtown Road In Spencer Building, Kolkata, West Bengal 700136",
+    feild: ["Digital Marketing"],
+    overviewsection:
+      "LeadHeight is the perfect blend of a creator and inventor. This digital marketing agency was awarded the Best Startup Company 2020 for excellence and innovation. We are passionate and thrilled to stay updated about the latest marketing trends and techniques to optimize the key component of conversion rate.",
+    duration: "Fulltime",
+    date: "18 Jul 2024",
+    company: "Lead Height",
+    location: "West Bengal, India",
+    category: ["Developer"],
+    experience: "Fresher",
+    salary: 900,
+    salary_duration: "Monthly",
+    
+    english_fluency: "Fluent",
+    overview:
+      "LeadHeight is the perfect blend of a creator and inventor. This digital marketing agency was awarded the Best Startup Company 2020 for excellence and innovation. We are passionate and thrilled to stay updated about the latest marketing trends and techniques to optimize the key component of conversion rate.",
+    videoid: "",
+    facebook: "",
+    instagram: "",
+    twitter: "",
+    linkedin: "",
+  },
+  {
+    id: 31,
+    logo: job_img_31,
+    title: "",
+    
+    link: "https://rkpfinance.com/",
+    founder: "",
+    CEO: "Rahul Singhal",
+    email: "",
+    founded: "27 Jan,1997",
+    address:"19 SARAVANA STREET MADRAS Chennai TN 600017 IN",
+    feild: ["Finance Management"],
+    overviewsection:
+      "RBI classification as “Non-Banking Finance Company-Non Deposit Accepting” on 15th March 2021 Company started lending business and achieved a Tremendous growth in its 1st year of business. With a team of experienced and qualified Members we are working on the business plan to establish our self as a fast growing company, having its financial services presently all around the area of Rajasthan, we are constantly working with a vision to cover all States of India in a planned manner. ",
+    duration: "Fulltime",
+    date: "18 Jul 2024",
+    company: "RKP Finance",
+    location: "Tamil Nadu, India",
+    category: ["Developer"],
+    experience: "Fresher",
+    salary: 900,
+    salary_duration: "Monthly",
+    
+    english_fluency: "Fluent",
+    overview:
+      "RBI classification as “Non-Banking Finance Company-Non Deposit Accepting” on 15th March 2021 Company started lending business and achieved a Tremendous growth in its 1st year of business. With a team of experienced and qualified Members we are working on the business plan to establish our self as a fast growing company, having its financial services presently all around the area of Rajasthan, we are constantly working with a vision to cover all States of India in a planned manner.",
+    videoid: "",
+    facebook: "",
+    instagram: "",
+    twitter: "",
+    linkedin: "",
+  },
+  {
+    id: 32,
+    logo: job_img_32,
+    title: "",
+    
+    link: "https://www.insiderbiz.in/company/UNIDAD-TECHNOLOGIES-SERVICES-PRIVATE-LIMITED",
+    founder: "",
+    CEO: "Jitto J",
+    email: "",
+    founded: "27 Jan,1997",
+    address:"14A, Kurinji Street, VND Avenue Extn Madhanandapuram, porur Kanchipuram Chennai TN 600125 IN",
+    feild: ["Technological Service Provider"],
+    overviewsection:
+      "Unidad Technologies & Services Private Limited is an Indian Non-Government Company, incorporated on 12 Feb, 2016. It's a private company and is classified as'company limited by shares'.Company's authorized capital stands at Rs 1.0 lakhs and has 100.0% paid-up capital which is Rs 1.0 lakhs.",
+    duration: "Fulltime",
+    date: "18 Jul 2024",
+    company: "Unidad Technologies Pvt Ltd",
+    location: "Tamil Nadu, India",
+    category: ["Developer"],
+    experience: "Fresher",
+    salary: 900,
+    salary_duration: "Monthly",
+    
+    english_fluency: "Fluent",
+    overview:
+      "Unidad Technologies & Services Private Limited is an Indian Non-Government Company, incorporated on 12 Feb, 2016. It's a private company and is classified as'company limited by shares'.Company's authorized capital stands at Rs 1.0 lakhs and has 100.0% paid-up capital which is Rs 1.0 lakhs.",
+    videoid: "",
+    facebook: "",
+    instagram: "",
+    twitter: "",
+    linkedin: "",
+  },
+  {
+    id: 33,
+    logo: job_img_33,
+    title: "",
+    
+    link: "http://www.jodo.in/",
+    founder: "Atulya Bhat,Raghav Nagrajan,Koustav Dey",
+    CEO: "Koustav Dey",
+    email: "",
+    founded: "27 Jan,1997",
+    address:"14A, Kurinji Street, VND Avenue Extn Madhanandapuram, porur Kanchipuram Chennai TN 600125 IN",
+    feild: ["Fintech Start up"],
+    overviewsection:
+      "It is a mission-oriented high-growth fintech startup started by three co-founders who have a pedigreed education (IIT/IIM) and professional background (Nomura, Goldman Sachs, Morgan Stanley, Barclays, Matrix Partners). Jodo is backed by marquee VC investors – Tiger Global, Elevation Capital, and Matrix Partners.",
+    duration: "Fulltime",
+    date: "18 Jul 2024",
+    company: "JODO",
+    location: "Bangalore, Mumbai, Delhi, Hyderabad , India",
+    category: ["Developer"],
+    experience: "Fresher",
+    salary: 900,
+    salary_duration: "Monthly",
+    
+    english_fluency: "Fluent",
+    overview:
+      "Unidad Technologies & Services Private Limited is an Indian Non-Government Company, incorporated on 12 Feb, 2016. It's a private company and is classified as'company limited by shares'.Company's authorized capital stands at Rs 1.0 lakhs and has 100.0% paid-up capital which is Rs 1.0 lakhs.",
     videoid: "",
     facebook: "",
     instagram: "",

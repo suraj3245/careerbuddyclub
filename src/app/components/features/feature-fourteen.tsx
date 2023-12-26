@@ -20,10 +20,10 @@ export function FeatureImgBox() {
 const Featurefourteen = () => {
   return (
     <div>
-      <section className="intro-section">
-        <div className="container">
-          <h3>Shortlist Your Colleges with Precision: Match Your Career Fit for the Best Educational Journey</h3>
-          <p>
+      <section className="intro-section pt-100">
+        <div className="container ">
+          <h3 style={{ color: "#eed30d" }}>Shortlist Your Colleges with Precision: Match Your Career Fit for the Best Educational Journey</h3>
+          <p className="lead">
             Our streamlined process helps you identify colleges that align perfectly with your chosen career path. Take the guesswork out of college selection and pave the way for a successful and fulfilling academic experience.
           </p>
           <Link href="/shortlist-colleges ">
@@ -34,7 +34,7 @@ const Featurefourteen = () => {
         </div>
       </section>
 
-      <section className="text-feature-three position-relative pt-150 md-pt-100">
+      <section className="text-feature-three position-relative pt-50 md-pt-100">
         <div className="container">
           <div className="row align-items-center">
             <div className="col-lg-8 order-lg-last ms-auto">

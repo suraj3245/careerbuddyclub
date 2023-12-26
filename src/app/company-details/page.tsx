@@ -30,12 +30,11 @@ const CompanyDetailsPage = () => {
         {/* company details area end */}
 
         {/*job Open Position */}
-        <OpenPosition />
+        
         {/*job Open Position */}
 
         {/* job portal intro start */}
-        <JobPortalIntro top_border={true} />
-        {/* job portal intro end */}
+        <JobPortalIntro top_border={true} />   {/* job portal intro end */}
 
         {/* footer start */}
         <FooterOne />

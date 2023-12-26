@@ -41,18 +41,7 @@ const HeroBanner = () => {
               >
               Welcome to Career Buddy Club, Your source for top talent!!
               </p>
-              <Link
-                href="/dashboard/candidate-dashboard/profile"
-                className="btn-five wow fadeInUp"
-                data-wow-delay="0.6s"
-                onClick={handleAdmissionClick}
-                {...(!isLoggedIn && {
-                  "data-bs-toggle": "modal",
-                  "data-bs-target": "#loginModal",
-                })}
-              >
-                Admission here
-              </Link>
+              
             </div>
           </div>
 

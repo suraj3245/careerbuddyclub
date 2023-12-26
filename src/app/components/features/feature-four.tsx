@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 // internal
-import screen_1 from "@/assets/images/assets/screen_09.webp";
+import screen_1 from "@/assets/images/assets/img_52.jpg";
 import screen_2 from "@/assets/images/assets/screen_08.webp";
 import shape from "@/assets/images/shape/shape_25.svg";
 import AccordionItemTwo from "../accordion/accordian-item-two";
@@ -22,7 +22,7 @@ export function FeatureImgBox() {
 }
 const FeatureFour = () => {
   return (
-    <section className="text-feature-three position-relative pt-225 lg-pt-150 md-pt-100">
+    <section className="text-feature-three position-relative pt-10 lg-pt-150 md-pt-100">
       <div className="container">
         <div className="row align-items-center">
           <div className="col-lg-5 order-lg-last ms-auto">

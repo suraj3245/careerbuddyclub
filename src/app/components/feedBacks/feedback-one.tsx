@@ -1,9 +1,9 @@
 "use client";
 import Slider from "react-slick";
 import React, { useRef } from "react";
-import logo_1 from "@/assets/images/logo/media_01.webp";
-import logo_2 from "@/assets/images/logo/media_02.webp";
-import logo_3 from "@/assets/images/logo/media_01.png";
+import logo_1 from "@/assets/images/logo/media_03.webp";
+import logo_2 from "@/assets/images/logo/media_06.webp";
+import logo_3 from "@/assets/images/logo/media_10.webp";
 import logo_white from "@/assets/images/logo/Unknown.webp";
 import Image, { StaticImageData } from "next/image";
 import PartnersSlider from "../partners/partners-slider";

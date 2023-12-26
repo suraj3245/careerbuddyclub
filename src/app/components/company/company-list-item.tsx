@@ -63,7 +63,7 @@ const CompanyListItem = ({ item }: { item: ICompany }) => {
             <Link href="/company-details"
               className="open-job-btn text-center fw-500 tran3s me-2"
             >
-              {item.vacancy} open job
+               open job
             </Link>
             <Link href="/company-details"
               className="save-btn text-center rounded-circle tran3s"

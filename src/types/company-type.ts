@@ -5,6 +5,6 @@ export interface ICompany {
   img:StaticImageData;
   name:string;
   location:string;
-  vacancy:number;
+  // vacancy:number;
   isFav?:boolean;
 }

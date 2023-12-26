@@ -52,7 +52,7 @@ const FeatureNine = () => {
                 />
               </div>
               <Link href="/candidates-v3" className="btn-five mt-45 lg-mt-20">
-                Learn More
+               Join Now
               </Link>
             </div>
           </div>

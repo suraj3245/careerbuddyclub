@@ -6,8 +6,8 @@ import { StaticImageData } from "next/image";
 import shape from "@/assets/images/shape/shape_04.svg";
 import user_1 from "@/assets/images/assets/img_05.jpg";
 import user_3 from "@/assets/images/assets/img_06 .jpeg";
-import user_2 from "@/assets/images/assets/img_07.jpg";
-import user_4 from "@/assets/images/assets/img_07.jpeg";
+import user_2 from "@/assets/images/assets/img_07.jpeg";
+import user_4 from "@/assets/images/assets/img_07.jpg";
 import user_5 from "@/assets/images/assets/img_08.jpeg";
 import user_6 from "@/assets/images/assets/img_09.jpeg";
 import user_8 from "@/assets/images/assets/img_11.jpeg";
@@ -28,13 +28,13 @@ const expert_data: {
     title: "Geetanjali Homestate Pvt Ltd.",
     salary: " 6 LPA (3LPA fixed and 3 LPA Variable)",
   },
-  // {
-  //   id: 2,
-  //   user: user_2,
-  //   name: "Shubhangi",
-  //   title: "learning Routes",
-  //   salary: "5.70 LPA",
-  // },
+  {
+    id: 2,
+    user: user_2,
+    name: "Gunjan Singh",
+    title: "Hanmars Systems Pvt Limted",
+    salary: "4 LPA",
+  },
   {
     id: 3,
     user: user_3,
@@ -42,13 +42,6 @@ const expert_data: {
     title: "Hike Education",
     salary: "6.42 LPA",
   },
-  // {
-  //   id: 4,
-  //   user: user_4,
-  //   name: "Sahil Upadhyay",
-  //   title: "intellipaat",
-  //   salary: "7.25 LPA",
-  // },
   {
     id: 5,
     user: user_5,
@@ -56,6 +49,14 @@ const expert_data: {
     title: "College Tour",
     salary: "5.40 LPA",
   },
+  {
+    id: 4,
+    user: user_4,
+    name: "Mayank Parashar",
+    title: "Mayank Parashar",
+    salary: "4 LPA",
+  },
+ 
   {
     id: 6,
     user: user_6,

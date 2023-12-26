@@ -13,14 +13,15 @@ const menu_data: IMenuData[] = [
     link: "/",
     title: "Placement",
     sub_menus: [
-      { link: "/", title: "See Jobs Live Now" },
-      { link: "/company-v1", title: "Aloha on the Ganges" },
-      { link: "/company-v1", title: "Artera Group" },
-      { link: "/company-v1", title: "Capital Via" },
-      { link: "/company-v1", title: "CeaseFire Industries Ltd." },
-      { link: "/company-v1", title: "Coachywoods" },
-      { link: "/company-v1", title: "Cynoteck Technology Solutions Pvt Ltd." },
-      { link: "//jobs.careerbuddyclub.com/", title: "see more" },
+      { link: "//jobs.careerbuddyclub.com/", title: "See Jobs Live Now"},
+      { link: "/company-details/29", title: "Digital Amigos" },
+      { link: "/company-details/22", title: "Geetanjali Homestates Pvt Ltd." },
+      { link: "/company-details/8", title: "IGT Solutions" },
+      { link: "/company-details/30", title: "Lead Height" },
+      { link: "/company-details/31", title: "RKP Finance" },
+      { link: "/company-details/32", title: "Unidad Technologies Pvt Ltd." },
+      { link: "/company-details/33", title: "JODO" },
+      { link: "/company-v1", title: "See More" },
     ],
   },
   // {
@@ -176,7 +177,11 @@ const menu_data: IMenuData[] = [
   //   link: "//jobs.careerbuddyclub.com/",
   //   title: "JobPortal",
   // },
-
+  {
+    id: 4,
+    link: "/careerapt",
+    title: "Best Career For You",
+  },
   {
     id: 3,
     link: "/",
@@ -184,13 +189,13 @@ const menu_data: IMenuData[] = [
       sub_menus: [
         { title: "For School", link: "schools"},
         { title: "For Employer", link: "/corporate" },
-        { title: "For College/ University", link: "/" },
+        { title: "For College/ University", link: "/campus" },
       ],
   },
   {
   id:4,
   link: "/about-us",
-  title: "About-us",
+  title: "About us",
   }
 ];
 

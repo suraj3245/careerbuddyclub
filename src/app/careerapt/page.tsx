@@ -57,7 +57,7 @@ const campus = () => {
 
         {/* how it works end */}
         <FeedbackFour />
-        <Aptibannerthree />
+      
         <FancyBannerTwo />
         {/* feature three end */}
         <ContactSchoolArea />

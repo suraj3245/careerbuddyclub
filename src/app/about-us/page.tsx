@@ -10,7 +10,7 @@ import HowItWorks from "../components/how-it-works/how-it-works";
 import FeedbackOne from "../components/feedBacks/feedback-one";
 import HeaderFour from "@/layouts/headers/header-4";
 import FeatureEighteen from "../components/features/feature-eighteen";
-
+import FeatureFour from "../components/features/feature-four";
 export const metadata: Metadata = {
   title: "About us",
 };
@@ -43,7 +43,7 @@ const AboutUsPage = () => {
         {/* feedback one start */}
         <FeedbackOne about_p={true} />
         {/* feedback one end */}
-
+        <FeatureFour />
         {/* job portal intro start */}
         <JobPortalIntro top_border={true} />
         {/* job portal intro end */}
