@@ -32,7 +32,7 @@ const HeroBanner = () => {
           <div className="row">
             <div className="col-lg-6">
               <h1 className="wow fadeInUp text-black" data-wow-delay="0.3s">
-              Job Guarantee{" "}
+                Job Guarantee{" "}
                 <span style={{ color: "#eee30d" }}> Degree Program</span>
               </h1>
               <p

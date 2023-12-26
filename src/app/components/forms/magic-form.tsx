@@ -12,32 +12,12 @@ import { useRouter } from "next/navigation";
 
 // form data type
 type IFormData = {
-  email: string;
-  password: string;
+  magiclink: string;
 };
 
 // schema
 
-// resolver
-const resolver: Resolver<IFormData> = async (values) => {
-  return {
-    values: values.email ? values : {},
-    errors: !values.email
-      ? {
-          email: {
-            type: "required",
-            message: "Email is required.",
-          },
-          password: {
-            type: "required",
-            message: "Password is required.",
-          },
-        }
-      : {},
-  };
-};
-
-const LoginForm = () => {
+const MagicForm = () => {
   const [isMounted, setIsMounted] = useState(false);
   const router = useRouter();
   const [showPass, setShowPass] = useState<boolean>(false);
@@ -51,7 +31,7 @@ const LoginForm = () => {
   } = useForm<IFormData>({});
   // on submit
   const onSubmit = (data: IFormData) => {
-    const { email, password } = data;
+    const { magiclink } = data;
 
     // Set up the request options for axios
     const options = {
@@ -60,7 +40,7 @@ const LoginForm = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      data: { email, password }, // Send only the required data
+      data: { magiclink }, // Send only the required data
     };
 
     // Make the POST request using axios
@@ -96,7 +76,7 @@ const LoginForm = () => {
       .catch((error) => {
         // Handle any errors here, e.g., notify the user of the failure
         console.error("Login error:", error);
-        toast.error("Invalid Credentials! 😵‍💫", {
+        toast.error("Invalid MagicLink Contact Provider and Try again! 😵‍💫", {
           position: "top-left",
           autoClose: 1000,
           hideProgressBar: false,
@@ -140,41 +120,21 @@ const LoginForm = () => {
       <div className="row">
         <div className="col-12">
           <div className="input-group-meta position-relative mb-25">
-            <label style={{ color: "black" }}>Email*</label>
+            <label style={{ color: "black" }}>Magic Link*</label>
             <input
-              type="email"
-              placeholder="Enter Email"
-              {...register("email", { required: `Email is required!` })}
-              name="email"
+              type="magiclink"
+              placeholder="Enter Magic Link"
+              {...register("magiclink", {
+                required: `magic link is required!`,
+              })}
+              name="magiclink"
             />
             <div className="help-block with-errors">
-              <ErrorMsg msg={errors.email?.message!} />
+              <ErrorMsg msg={errors.magiclink?.message!} />
             </div>
           </div>
         </div>
-        <div className="col-12">
-          <div className="input-group-meta position-relative mb-20">
-            <label style={{ color: "black" }}>Password*</label>
-            <input
-              type={`${showPass ? "text" : "password"}`}
-              placeholder="Enter Password"
-              className="pass_log_id"
-              {...register("password", { required: `Password is required!` })}
-              name="password"
-            />
-            <span
-              className="placeholder_icon"
-              onClick={() => setShowPass(!showPass)}
-            >
-              <span className={`passVicon ${showPass ? "eye-slash" : ""}`}>
-                <Image src={icon} alt="icon" />
-              </span>
-            </span>
-            <div className="help-block with-errors">
-              <ErrorMsg msg={errors.password?.message!} />
-            </div>
-          </div>
-        </div>
+
         <div className="col-12">
           <div className="agreement-checkbox d-flex justify-content-between align-items-center mb-20">
             <a
@@ -183,23 +143,23 @@ const LoginForm = () => {
               data-bs-toggle="modal"
               data-bs-target="#PhoneModal"
             >
-              Login using Phone Number!
+              Login using Phone Number !
             </a>
           </div>
         </div>
         <div className="col-12">
-          <div className="agreement-checkbox d-flex justify-content-between align-items-center pb-30">
+          <div className="agreement-checkbox d-flex justify-content-between align-items-center mb-20">
             <a
               href="#"
               className="fw-500"
               data-bs-toggle="modal"
-              data-bs-target="#MagicModal"
-              style={{ color: "blueviolet" }}
+              data-bs-target="#loginModal"
             >
-              Login using Magic Link!
+              Login using Email !
             </a>
           </div>
         </div>
+
         <div className="col-12">
           <div className="agreement-checkbox d-flex justify-content-between align-items-center">
             <a
@@ -225,4 +185,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default MagicForm;

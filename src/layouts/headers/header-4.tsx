@@ -8,6 +8,11 @@ import logo from "@/assets/images/logo/logo4.png";
 import useSticky from "@/hooks/use-sticky";
 import LoginModal from "@/app/components/common/popup/login-modal";
 import RegisterModal from "@/app/components/common/popup/register-modal";
+import ApplyModal from "@/app/components/common/popup/apply-modal";
+import PhoneModal from "@/app/components/common/popup/phone-modal";
+import MagicModal from "@/app/components/common/popup/magic-modal";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 interface HeaderFourProps {
   user: {
@@ -59,9 +64,9 @@ const HeaderFour: React.FC<HeaderFourProps> = ({ user, key, onLogout }) => {
                         href="#"
                         className="fw-500 btn-five"
                         data-bs-toggle="modal"
-                        data-bs-target="#RegisterModal"
+                        data-bs-target="#ApplyModal"
                       >
-                        Register
+                        Apply Now
                       </a>
                     </li>
                   </ul>
@@ -120,8 +125,11 @@ const HeaderFour: React.FC<HeaderFourProps> = ({ user, key, onLogout }) => {
       </header>
 
       {/* login modal start */}
+      <ApplyModal />
       <LoginModal />
       <RegisterModal />
+      <PhoneModal />
+      <MagicModal />
       {/* login modal end */}
     </>
   );

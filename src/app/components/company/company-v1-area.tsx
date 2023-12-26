@@ -1,7 +1,5 @@
 "use client";
 import React, { useState } from "react";
-import Image from "next/image";
-import last_icon from "@/assets/images/icon/icon_50.svg";
 import CompanyV1Filter from "./filter/company-v1-filter";
 import ShortSelect from "../common/short-select";
 import company_data from "@/data/company-data";
@@ -56,14 +54,18 @@ const CompanyV1Area = ({ style_2 = false }: { style_2?: boolean }) => {
                   </div>
                   <button
                     onClick={() => setJobType("list")}
-                    className={`style-changer-btn text-center rounded-circle tran3s ms-2 list-btn ${jobType === "grid" ? "active" : ""}`}
+                    className={`style-changer-btn text-center rounded-circle tran3s ms-2 list-btn ${
+                      jobType === "grid" ? "active" : ""
+                    }`}
                     title="Active List"
                   >
                     <i className="bi bi-list"></i>
                   </button>
                   <button
                     onClick={() => setJobType("grid")}
-                    className={`style-changer-btn text-center rounded-circle tran3s ms-2 grid-btn ${jobType === "list" ? "active" : ""}`}
+                    className={`style-changer-btn text-center rounded-circle tran3s ms-2 grid-btn ${
+                      jobType === "list" ? "active" : ""
+                    }`}
                     title="Active Grid"
                   >
                     <i className="bi bi-grid"></i>
@@ -72,10 +74,12 @@ const CompanyV1Area = ({ style_2 = false }: { style_2?: boolean }) => {
               </div>
 
               <div
-                className={`accordion-box grid-style ${jobType === "grid" ? "show" : ""}`}
+                className={`accordion-box grid-style ${
+                  jobType === "grid" ? "show" : ""
+                }`}
               >
                 <div className="row">
-                  {company_data.slice(0,9).map((item) => (
+                  {company_data.slice(0, 9).map((item) => (
                     <div
                       key={item.id}
                       className="col-xl-4 col-lg-6 col-md-4 col-sm-6 d-flex"
@@ -87,9 +91,11 @@ const CompanyV1Area = ({ style_2 = false }: { style_2?: boolean }) => {
               </div>
 
               <div
-                className={`accordion-box list-style ${jobType === "list" ? "show" : ""}`}
+                className={`accordion-box list-style ${
+                  jobType === "list" ? "show" : ""
+                }`}
               >
-                {company_data.slice(0,9).map((item) => (
+                {company_data.slice(0, 9).map((item) => (
                   <CompanyListItem key={item.id} item={item} />
                 ))}
               </div>
@@ -99,7 +105,7 @@ const CompanyV1Area = ({ style_2 = false }: { style_2?: boolean }) => {
                   Showing <span className="text-dark fw-500">1 to 20</span> of{" "}
                   <span className="text-dark fw-500">350</span>
                 </p>
-                <CompanyPagination/>
+                <CompanyPagination />
               </div>
             </div>
           </div>

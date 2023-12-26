@@ -1,18 +1,15 @@
 import React from "react";
-import Image from "next/image";
-import Link from "next/link";
+import ApplyForm from "../../forms/apply-now";
 
-import RegisterForm from "../../forms/register-form";
-
-const RegisterModal = () => {
+const ApplyModal = () => {
   return (
     <div
       className="modal fade"
-      id="RegisterModal"
+      id="ApplyModal"
       tabIndex={-1}
       aria-hidden="true"
     >
-      <div className="modal-dialog modal-fullscreen modal-dialog-centered">
+      <div className="modal-dialog modal-md modal-dialog-centered">
         <div className="container">
           <div className="user-data-form modal-content">
             <button
@@ -22,10 +19,10 @@ const RegisterModal = () => {
               aria-label="Close"
             ></button>
             <div className="text-center">
-              <h2>Hi, Welcome Back!</h2>
+              <h3> Secure Your Career Now !</h3>
             </div>
             <div className="form-wrapper m-auto">
-              <RegisterForm />
+              <ApplyForm />
             </div>
           </div>
         </div>
@@ -34,4 +31,4 @@ const RegisterModal = () => {
   );
 };
 
-export default RegisterModal;
+export default ApplyModal;
