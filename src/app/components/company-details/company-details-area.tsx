@@ -1,12 +1,77 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import CompanyReviews from "./company-reviews";
 import VideoPopup from "../common/video-popup";
 import { IcompanyType } from "@/types/company-details";
 
+// Define a type for the props if you're using TypeScript
+type VideoCardProps = {
+  videoId: string;
+};
+
+const VideoCard: React.FC<VideoCardProps> = ({ videoId }) => {
+  const [windowWidth, setWindowWidth] = useState<number | undefined>(undefined);
+
+  useEffect(() => {
+    // Set the width only when on the client-side
+    setWindowWidth(window.innerWidth);
+
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup listener to prevent memory leaks
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  // Styles for the video container to maintain aspect ratio
+  const isSmallScreen = windowWidth !== undefined && windowWidth < 768; // Define your breakpoint for smaller screens
+
+  const videoWrapperStyle: React.CSSProperties = isSmallScreen
+    ? {
+        position: "relative",
+        paddingTop: "56.25%", // 16:9 aspect ratio for smaller screens
+        paddingLeft: "10px",
+      }
+    : {
+        position: "relative",
+        width: "896px", // Fixed width for larger screens
+        height: "442px", // Fixed height for larger screens
+        marginLeft: "auto",
+        marginRight: "auto",
+      };
+
+  // Styles for the iframe to make it responsive
+  const iframeStyle: React.CSSProperties = {
+    position: "absolute",
+    top: 0,
+    left: "10px", // To account for the padding on the container
+    right: "10px", // To account for the padding on the container
+    width: "calc(100% - 20px)", // Subtracting the left and right padding
+    height: "100%",
+    border: "0", // If you prefer no border
+  };
+
+  return (
+    <div className="video-card" style={videoWrapperStyle}>
+      <iframe
+        style={iframeStyle}
+        src={`https://www.youtube.com/embed/${videoId}`}
+        title="YouTube video player"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+      ></iframe>
+    </div>
+  );
+};
 const CompanyDetailsArea = ({ details }: { details: IcompanyType }) => {
-  const [isVideoOpen, setIsVideoOpen] = useState<boolean>(false);
+  const videoId = details.videoid;
+
   return (
     <>
       <section className="company-details pt-110 lg-pt-80 pb-160 xl-pb-150 lg-pb-80">
@@ -82,15 +147,11 @@ const CompanyDetailsArea = ({ details }: { details: IcompanyType }) => {
                 <p>{details.overviewsection}</p>
 
                 <h3>Intro</h3>
-                <div className="video-post d-flex align-items-center justify-content-center mb-50">
-                  <a
-                    className="fancybox rounded-circle video-icon tran3s text-center"
-                    onClick={() => setIsVideoOpen(true)}
-                    style={{ cursor: "pointer" }}
-                  >
-                    <i className="bi bi-play-fill"></i>
-                  </a>
+
+                <div className="col-lg-7 pb-80">
+                  <VideoCard videoId={videoId} />
                 </div>
+
                 <div className="position-relative">
                   <h3>Company Reviews</h3>
 
@@ -125,11 +186,7 @@ const CompanyDetailsArea = ({ details }: { details: IcompanyType }) => {
         </div>
       </section>
       {/* video modal start */}
-      <VideoPopup
-        isVideoOpen={isVideoOpen}
-        setIsVideoOpen={setIsVideoOpen}
-        videoId={details.videoid}
-      />
+
       {/* video modal end */}
     </>
   );

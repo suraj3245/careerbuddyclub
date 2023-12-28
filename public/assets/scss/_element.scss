@@ -1,4 +1,42 @@
 // Job Search One
+.btech-container {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btech-badge {
+  width: 100px; /* Adjust size as needed */
+  height: 100px; /* Adjust size as needed */
+  border-radius: 50%;
+  background: linear-gradient(45deg, #00dbde, #fc00ff); /* Gradient colors */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+}
+
+.btech-title {
+  font-size: 24px; /* Adjust size as needed */
+  color: #fff;
+  font-weight: bold;
+}
+
+.btech-info h1 {
+  margin: 0;
+  color: #333; /* Adjust text color as needed */
+  font-size: 20px; /* Adjust size as needed */
+}
+
+.btech-info p {
+  margin: 0;
+  color: #666; /* Adjust text color as needed */
+  font-size: 16px; /* Adjust size as needed */
+}
+
 .job-search-one {
   z-index: 9;
   form {

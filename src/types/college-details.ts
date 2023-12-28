@@ -1,5 +1,16 @@
 import { StaticImageData } from "next/image";
 
+export interface ICourse {
+  specialization: string;
+  annualFee: string;
+  eligibility: string;
+}
+
+export interface IAdmissionDate {
+  name: string;
+  date: string;
+}
+
 export interface IcollegeType {
   id: number;
   logo: StaticImageData;
@@ -32,4 +43,6 @@ export interface IcollegeType {
   instagram: string;
   twitter: string;
   linkedin: string;
+  coursesAndFees: ICourse[]; // Added this line for course and fee details
+  admissionDates: IAdmissionDate[]; // Added this line for admission dates
 }

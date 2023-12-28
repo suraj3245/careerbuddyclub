@@ -5,7 +5,6 @@ import user_1 from "@/assets/images/assets/img_14.jpg";
 import user_2 from "@/assets/images/assets/img_15.jpg";
 import user_3 from "@/assets/images/assets/img_22.jpg";
 
-// slider setting
 const slider_setting = {
   dots: true,
   arrows: false,

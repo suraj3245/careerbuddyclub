@@ -11,28 +11,11 @@ export const metadata: Metadata = {
   title: "College Details",
 };
 
-const CompanyDetailsPage = () => {
+const CoursesDetailsPage = () => {
   const details = college_details[0];
   return (
     <Wrapper>
       <div className="main-page-wrapper">
-        {/* header start */}
-
-        {/* header end */}
-
-        {/*breadcrumb start */}
-        <CompanyBreadcrumb title={details.college} subtitle={details.city} />
-        {/*breadcrumb end */}
-
-        {/* company details area start */}
-        <CollegeDetailsArea details={details} />
-
-        {/* company details area end */}
-
-        {/*job Open Position */}
-
-        {/*job Open Position */}
-
         {/* job portal intro start */}
         <JobPortalIntro top_border={true} />
         {/* job portal intro end */}
@@ -45,4 +28,4 @@ const CompanyDetailsPage = () => {
   );
 };
 
-export default CompanyDetailsPage;
+export default CoursesDetailsPage;
