@@ -11,6 +11,7 @@ import FeedbackOne from "../components/feedBacks/feedback-one";
 import HeaderFour from "@/layouts/headers/header-4";
 import FeatureEighteen from "../components/features/feature-eighteen";
 import FeatureFour from "../components/features/feature-four";
+import FancyBannerTwo from "../components/fancy-banner/fancy-banner-2";
 export const metadata: Metadata = {
   title: "About us",
 };
@@ -39,7 +40,7 @@ const AboutUsPage = () => {
         {/* how works start */}
         <HowItWorks />
         {/* how works end */}
-
+        <FancyBannerTwo />
         {/* feedback one start */}
         <FeedbackOne about_p={true} />
         {/* feedback one end */}

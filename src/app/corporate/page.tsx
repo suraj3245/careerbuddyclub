@@ -43,7 +43,6 @@ const corporate = () => {
           </div>
         </section>
         <FeedbackTwo />
-        <ContactArea />
         <FooterOne />
       </div>
     </Wrapper>

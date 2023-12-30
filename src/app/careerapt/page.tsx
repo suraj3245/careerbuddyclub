@@ -3,7 +3,6 @@ import { Metadata } from "next";
 import Wrapper from "@/layouts/wrapper";
 import HeaderFour from "@/layouts/headers/header-4";
 import FooterOne from "@/layouts/footers/footer-one";
-import FancyBannerTwo from "../components/fancy-banner/fancy-banner-2";
 import ContactArea from "../components/contact/contact-area";
 import AptiBanner from "../components/hero-banners/apti-banner";
 import AptiFeature from "../components/features/feature-apti";
@@ -49,15 +48,7 @@ const campus = () => {
         <Component />
 
         <AptiFeature />
-        {/* how it works start */}
-        <AptiFeaturet />
-
-        {/* how it works end */}
-        <FeedbackFour />
-      
-        <FancyBannerTwo />
-        {/* feature three end */}
-        <ContactSchoolArea />
+        {/* how it works start */} 
         <FooterOne />
         {/* footer end */}
       </div>

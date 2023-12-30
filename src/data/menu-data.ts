@@ -14,14 +14,7 @@ const menu_data: IMenuData[] = [
     title: "Placement",
     sub_menus: [
       { link: "//jobs.careerbuddyclub.com/", title: "See Jobs Live Now"},
-      { link: "/company-details/29", title: "Digital Amigos" },
-      { link: "/company-details/22", title: "Geetanjali Homestates Pvt Ltd." },
-      { link: "/company-details/8", title: "IGT Solutions" },
-      { link: "/company-details/30", title: "Lead Height" },
-      { link: "/company-details/31", title: "RKP Finance" },
-      { link: "/company-details/32", title: "Unidad Technologies Pvt Ltd." },
-      { link: "/company-details/33", title: "JODO" },
-      { link: "/company-v1", title: "See More" },
+      { link: "/company-v1", title: "Explore Company" },
     ],
   },
   // {
@@ -185,18 +178,28 @@ const menu_data: IMenuData[] = [
   {
     id: 3,
     link: "/",
-    title: "Partners",
+    title: "We Assists",
       sub_menus: [
         { title: "For School", link: "schools"},
         { title: "For Employer", link: "/corporate" },
         { title: "For College/ University", link: "/campus" },
       ],
   },
+  // {
+  //   id:4,
+  //   link: "/",
+  //   title: "Succcess Stories",
+  //   },
   {
-  id:4,
+  id:5,
   link: "/about-us",
   title: "About us",
-  }
+  },
+  {
+    id:6,
+    link: "/contact",
+    title: "Contact us",
+    },
 ];
 
 export default menu_data;
