@@ -339,19 +339,7 @@ const ApplyForm = () => {
             Already a User? login
           </a>
         </div>
-        <div className="col-12">
-          <div className="agreement-checkbox d-flex justify-content-between align-items-center pb-30">
-            <a
-              href="#"
-              className="fw-500"
-              data-bs-toggle="modal"
-              data-bs-target="#MagicModal"
-              style={{ color: "blueviolet" }}
-            >
-              Login using Magic Link!
-            </a>
-          </div>
-        </div>
+
         <div className="col-12">
           <button
             type="submit"

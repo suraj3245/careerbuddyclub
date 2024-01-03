@@ -5,7 +5,6 @@ import ErrorMsg from "../common/error-msg";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useRouter } from "next/navigation";
 
 // form data type
 type IFormData = {
@@ -228,19 +227,7 @@ const PhoneForm = () => {
           </a>
         </div>
       </div>
-      <div className="col-12">
-        <div className="agreement-checkbox d-flex justify-content-between align-items-center pb-30">
-          <a
-            href="#"
-            className="fw-500"
-            data-bs-toggle="modal"
-            data-bs-target="#MagicModal"
-            style={{ color: "blueviolet" }}
-          >
-            Login using Magic Link!
-          </a>
-        </div>
-      </div>
+
       <div className="col-12">
         <div className="agreement-checkbox d-flex justify-content-between align-items-center">
           <a

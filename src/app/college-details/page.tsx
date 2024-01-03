@@ -1,5 +1,5 @@
-import React from "react";
-import { Metadata } from "next";
+"use client";
+import React, { useState } from "react";
 import Wrapper from "@/layouts/wrapper";
 import JobPortalIntro from "../components/job-portal-intro/job-portal-intro";
 import CompanyBreadcrumbjob from "../components/common/common-breadcrumb-job";
@@ -7,12 +7,12 @@ import FooterOne from "@/layouts/footers/footer-one";
 import college_details from "@/data/college-details";
 import CollegeDetailsArea from "../components/company-details/college-details";
 
-export const metadata: Metadata = {
-  title: "College Details",
-};
-
-const CompanyDetailsPage = () => {
+const CollegeDetailsPage = () => {
+  
   const details = college_details[0];
+
+ 
+
   return (
     <Wrapper>
       <div className="main-page-wrapper">
@@ -20,6 +20,7 @@ const CompanyDetailsPage = () => {
           title={details.college}
           subtitle={details.location}
         />
+
         <CollegeDetailsArea details={details} />
         <JobPortalIntro top_border={true} />
         <FooterOne />
@@ -28,4 +29,4 @@ const CompanyDetailsPage = () => {
   );
 };
 
-export default CompanyDetailsPage;
+export default CollegeDetailsPage;

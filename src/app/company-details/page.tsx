@@ -18,24 +18,13 @@ const CompanyDetailsPage = () => {
     <Wrapper>
       <div className="main-page-wrapper">
         {/* header start */}
-
         {/* header end */}
-
         {/*breadcrumb start */}
         <CompanyBreadcrumb title={details.company} subtitle={details.title} />
         {/*breadcrumb end */}
-
         {/* company details area start */}
         <CompanyDetailsArea details={details} />
-        {/* company details area end */}
-
-        {/*job Open Position */}
-        
-        {/*job Open Position */}
-
-        {/* job portal intro start */}
-        <JobPortalIntro top_border={true} />   {/* job portal intro end */}
-
+        <JobPortalIntro top_border={true} /> {/* job portal intro end */}
         {/* footer start */}
         <FooterOne />
         {/* footer end */}

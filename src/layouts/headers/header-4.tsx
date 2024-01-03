@@ -2,7 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-// internal
+
 import Menus from "./component/menus";
 import logo from "@/assets/images/logo/logo4.png";
 import useSticky from "@/hooks/use-sticky";
@@ -10,8 +10,7 @@ import LoginModal from "@/app/components/common/popup/login-modal";
 import RegisterModal from "@/app/components/common/popup/register-modal";
 import ApplyModal from "@/app/components/common/popup/apply-modal";
 import PhoneModal from "@/app/components/common/popup/phone-modal";
-import MagicModal from "@/app/components/common/popup/magic-modal";
-import { ToastContainer, toast } from "react-toastify";
+
 import "react-toastify/dist/ReactToastify.css";
 
 interface HeaderFourProps {
@@ -129,7 +128,7 @@ const HeaderFour: React.FC<HeaderFourProps> = ({ user, key, onLogout }) => {
       <LoginModal />
       <RegisterModal />
       <PhoneModal />
-      <MagicModal />
+
       {/* login modal end */}
     </>
   );

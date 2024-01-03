@@ -32,7 +32,7 @@ const slider_setting = {
   ],
 };
 
-const CollegeDetailsArea = ({ details }: { details: IcollegeType }) => {
+const CoursesDetailsArea = ({ details }: { details: IcollegeType }) => {
   const [isVideoOpen, setIsVideoOpen] = useState<boolean>(false);
   const { sticky } = useSticky();
 
@@ -89,17 +89,17 @@ const CollegeDetailsArea = ({ details }: { details: IcollegeType }) => {
                     </li>
                     <li className="nav-item">
                       <a className="nav-link" href="#courses" role="button">
-                        Courses and Fees
+                        Courses Details
                       </a>
                     </li>
                     <li className="nav-item">
                       <a className="nav-link" href="#admission" role="button">
-                        Admission
+                        Syllabus
                       </a>
                     </li>
                     <li className="nav-item">
                       <a className="nav-link" href="#placement" role="button">
-                        Placement
+                        Jobs
                       </a>
                     </li>
                     <li className="nav-item">
@@ -108,30 +108,15 @@ const CollegeDetailsArea = ({ details }: { details: IcollegeType }) => {
                         href="#opportunities"
                         role="button"
                       >
-                        Opportunities
+                        Salary
                       </a>
                     </li>
                     <li className="nav-item">
                       <a className="nav-link" href="#hostel" role="button">
-                        Hostel
-                      </a>
-                    </li>
-                    <li className="nav-item">
-                      <a className="nav-link" href="#awards" role="button">
-                        Awards
+                        Popular Colleges
                       </a>
                     </li>
 
-                    <li className="nav-item">
-                      <a className="nav-link" href="#ranking" role="button">
-                        Ranking
-                      </a>
-                    </li>
-                    <li className="nav-item">
-                      <a className="nav-link" href="#alumini" role="button">
-                        Alumini Reviews
-                      </a>
-                    </li>
                     {/* menus end */}
                   </ul>
                 </div>
@@ -474,14 +459,10 @@ const CollegeDetailsArea = ({ details }: { details: IcollegeType }) => {
         </div>
       </section>
       {/* video modal start */}
-      <VideoPopup
-        isVideoOpen={isVideoOpen}
-        setIsVideoOpen={setIsVideoOpen}
-        videoId={details.videoid}
-      />
+
       {/* video modal end */}
     </>
   );
 };
 
-export default CollegeDetailsArea;
+export default CoursesDetailsArea;

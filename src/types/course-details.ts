@@ -45,21 +45,10 @@ export interface Ireview {
   location: string;
 }
 
-export interface IcollegeType {
+export interface IcourseType {
   id: number;
   logo: StaticImageData;
   type: string;
-  establishmentyear: string;
-  Recognisedby: string;
-  Approvedby: string;
-  state: string;
-  city: string;
-  Campusarea: string;
-  link: string;
-  email: string;
-  phone: string;
-  founded: string;
-  feild: string[];
   overviewsection: string;
   duration: string;
   date: string;

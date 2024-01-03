@@ -25,21 +25,6 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
     state: "",
     city: "",
     zipCode: "",
-    schoolNameX: "",
-    boardX: "",
-    streamX: "",
-    passingYearX: "",
-    percentageCgpaX: "",
-    schoolNameXII: "",
-    boardXII: "",
-    streamXII: "",
-    passingYearXII: "",
-    percentageCgpaXII: "",
-    collegeName: "",
-    universityName: "",
-    degreeName: "",
-    passingYearCollege: "",
-    percentageCgpaCollege: "",
     stream: "",
     level: "",
     special: "",
@@ -73,28 +58,45 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
     try {
       const response = await axios.request(options);
       const data = response.data;
-      // Updating formData state with the fetched data
-      setFormData((prevState) => ({
-        ...prevState,
-        fullName: data.student.name || "",
-        email: data.student.email || "",
-        mobileNumber: data.student.mobile || "",
-        dateOfBirth: data.basicDetails.dob || "",
-        socialCategory: data.basicDetails.social_category || "",
-        gender: data.basicDetails.gender || "",
-        address: data.contactDetails.address || "",
-        state: data.contactDetails.state || "",
-        city: data.contactDetails.city || "",
-        zipCode: data.contactDetails.zip_code || "",
-        stream: data.preferences.stream || "",
-        level: data.preferences.level || "",
-        special: data.preferences.specialization || "",
-        location: data.preferences.location || "",
-        collegeType: data.preferences.college_type || "",
-        courses: data.preferences.courses || "",
-        feeRange: data.preferences.fee_range || "",
-        collegePreference: data.preferences.college_preference || "",
-      }));
+
+      const updatedFormData = { ...formData };
+      if (data.student) {
+        updatedFormData.fullName = data.student.name || formData.fullName;
+        updatedFormData.email = data.student.email || formData.email;
+        updatedFormData.mobileNumber =
+          data.student.mobile || formData.mobileNumber;
+      }
+
+      if (data.basicDetails) {
+        updatedFormData.dateOfBirth =
+          data.basicDetails.dob || formData.dateOfBirth;
+        updatedFormData.socialCategory =
+          data.basicDetails.social_category || formData.socialCategory;
+        updatedFormData.gender = data.basicDetails.gender || formData.gender;
+      }
+      if (data.contactDetails) {
+        updatedFormData.address =
+          data.contactDetails.address || formData.address;
+        updatedFormData.city = data.contactDetails.city || formData.city;
+        updatedFormData.state = data.contactDetails.state || formData.state;
+        updatedFormData.zipCode =
+          data.contactDetails.zip_code || formData.zipCode;
+      }
+      if (data.preferences) {
+        updatedFormData.stream = data.preferences.stream || formData.stream;
+        updatedFormData.level = data.preferences.level || formData.level;
+        updatedFormData.special =
+          data.basicDetails.specialization || formData.special;
+        updatedFormData.courses = data.preferences.courses || formData.courses;
+        updatedFormData.feeRange =
+          data.preferences.fee_range || formData.feeRange;
+        updatedFormData.collegePreference =
+          data.preferences.college_preference || formData.collegePreference;
+      }
+
+      // ... similarly for other nested data structures ...
+
+      setFormData(updatedFormData);
     } catch (error) {
       console.error(error);
     }
@@ -505,20 +507,6 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
 
         <>
           <div className="bg-white card-box border-20">
-            {/* <div className="user-avatar-setting d-flex align-items-center mb-30">
-              <Image src={avatar} alt="avatar" className="lazy-img user-img" />
-              <div className="upload-btn position-relative tran3s ms-4 me-3">
-                Upload new photo
-                <input
-                  type="file"
-                  id="uploadImg"
-                  name="uploadImg"
-                  placeholder=""
-                />
-              </div>
-              <button className="delete-btn tran3s">Delete</button>
-            </div> */}
-
             <form onSubmit={handlePersonalDetailsSubmit}>
               <div className="dash-input-wrapper mb-30">
                 <label htmlFor="fullName">Full Name*</label>
