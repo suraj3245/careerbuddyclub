@@ -58,7 +58,7 @@ const company_details: IcompanyType[] = [
     english_fluency: "Fluent",
     overview:
       "When team members told us they needed more flexibility around where and how they worked, we acted, creating two options to accommodate two different styles of work. One non-negotiable principle along the way? We had to retain our deep culture of collaboration, both among ourselves and with our clients. Introducing Work From Near and Work From Anywhere at WillowTree. Please indicate which location(s) you're interested.",
-    videoid: "",
+    videoid: "XoYiOF9azcU",
     facebook: "",
     instagram: "",
     twitter: "",
@@ -77,10 +77,10 @@ const company_details: IcompanyType[] = [
     address:"HOUSE NO 978, SECTOR 14 NEAR MOTOROLA BUILDING GURGAON Gurgaon HR 122001 IN",
     feild: ["Infrastructure Services"],
     overviewsection:
-      "Artera is a leading provider of integrated essential and critical infrastructure services. With iron-clad operational excellence and governance practices, Artera is forging best-in class safety ratings. Together, Artera builds the foundation that keeps America strong.",
+      "Artera is a leading provider of integrated essential and critical infrastructure services. With iron-clad operational excellence and governance practices, Artera is forging best-in class safety ratings. Together, Artera builds the foundation that keeps America strong. We believe in the dignity of all human beings. We believe that diversity—be it race, ethnicity, religion, orientation, gender, age, background, experience or any other quality that makes each of us unique—adds depth and value to our team. We believe in an environment where every team member is included, respected and safe to share their thoughts and opinions. Discrimination and injustice have no place in our culture, our offices or our job sites.",
     duration: "Fulltime",
     date: "18 Jul 2024",
-    company: "ARTERA GROUP LOGO",
+    company: "ARTERA GROUP ",
     location: "Haryana India",
     category: ["Developer", "Coder"],
     experience: "Fresher",
@@ -89,7 +89,7 @@ const company_details: IcompanyType[] = [
     english_fluency: "Fluent",
     overview:
       "When team members told us they needed more flexibility around where and how they worked, we acted, creating two options to accommodate two different styles of work. One non-negotiable principle along the way? We had to retain our deep culture of collaboration, both among ourselves and with our clients. Introducing Work From Near and Work From Anywhere at WillowTree. Please indicate which location(s) you're interested.",
-    videoid: "",
+    videoid: "XCIw4Wq3Puw",
     facebook: "",
     instagram: "",
     twitter: "",
@@ -109,7 +109,7 @@ const company_details: IcompanyType[] = [
     address:"BN Block, Sector V, Bidhannagar, Kolkata, West Bengal 700091",
     feild: ["Financial Research and Consultant"],
     overviewsection:
-      "Objective of offering unbiased technical analysis & solutions for the trading community, by experienced professionals to create a conducive environment.",
+      "Objective of offering unbiased technical analysis & solutions for the trading community, by experienced professionals to create a conducive environment.CapitalVia Global Research Limited (Investment Advisor) is a pure play financial market research and consulting company. We are differentiated by the stature of our diverse team. Our 15 years of legacy and values, shape our future, helping to strengthen our business and bring value to our clients. The company was founded in 2006 with an objective of offering unbiased technical analysis & solutions for the trading community, by experienced professionals to create a conducive environment.",
     duration: "Fulltime",
     date: "18 Jul 2024",
     company: "Capital Via",
@@ -122,7 +122,7 @@ const company_details: IcompanyType[] = [
     english_fluency: "Fluent",
     overview:
       "When team members told us they needed more flexibility around where and how they worked, we acted, creating two options to accommodate two different styles of work. One non-negotiable principle along the way? We had to retain our deep culture of collaboration, both among ourselves and with our clients. Introducing Work From Near and Work From Anywhere at WillowTree. Please indicate which location(s) you're interested.",
-    videoid: "",
+    videoid: "9C58uYNFVJw",
     facebook: "",
     instagram: "",
     twitter: "",
@@ -141,7 +141,7 @@ const company_details: IcompanyType[] = [
     address:"602 DOLI CHAMBERS NEAR STRAND CINEMA 6TH FLOOR, COLABA MUMBAI MH 400005 IN    ",
     feild: ["FireFighting Solutions"],
     overviewsection:
-      "Ceasefire is dedicated to building a safer planet. CeaseFire knows that in the fight against fire, there are no second chances. CeaseFire innovates constantly, creating life saving products built to perform without fail, to safeguard our customers, their communities and their livelihood.",
+      "Ceasefire is dedicated to building a safer planet. CeaseFire knows that in the fight against fire, there are no second chances. CeaseFire innovates constantly, creating life saving products built to perform without fail, to safeguard our customers, their communities and their livelihood. Ceasefire today is the most trusted fire safety brand in India and a fast emerging global conglomerate. With its globally certified, holistically integrated range of fire fighting solutions, the company is amongst the rarest in the world to have such a diverse product portfolio as part of one eco-system.The company is a leading manufacturer of a 360 degree unified product range that includes a complete line of Fire Extinguishers with -the widest Variety of extinguishing agents, Special Application Extinguishers, Highly advancedIn-Panel Suppression Systems, Total Flooding Systems, Greenest technologies including Inert Gas Based Suppression Systems, Revolutionary Watermist Based Suppression Systems, Extensive range of Watermist and Wet Chemical Based Kitchen Fire Suppression Systems, Hydrant Systems, Fire Alarm Systems and other highly specialised fire fighting technologies.",
     duration: "Fulltime",
     date: "18 Jul 2024",
     company: "CeaseFire Industries Limited",
@@ -154,7 +154,7 @@ const company_details: IcompanyType[] = [
     english_fluency: "Fluent",
     overview:
       "When team members told us they needed more flexibility around where and how they worked, we acted, creating two options to accommodate two different styles of work. One non-negotiable principle along the way? We had to retain our deep culture of collaboration, both among ourselves and with our clients. Introducing Work From Near and Work From Anywhere at WillowTree. Please indicate which location(s) you're interested.",
-    videoid: "XoYiOF9azcU",
+    videoid: "YHHmMZV1LJs",
     facebook: "",
     instagram: "",
     twitter: "",
@@ -172,7 +172,7 @@ const company_details: IcompanyType[] = [
     address:"",
     feild: [""],
     overviewsection:
-      "Ceasefire is dedicated to building a safer planet. CeaseFire knows that in the fight against fire, there are no second chances. CeaseFire innovates constantly, creating life saving products built to perform without fail, to safeguard our customers, their communities and their livelihood.",
+      "We have 15 years vast experience into training and placement industry .Apart from this we are into education field too. As we all are living in digital era, everything is now becoming digitalized . even education filed has not remained untouched .So as per the demand of time we have also updated ourselves and launched our learning platform via APP i.e Quiqr Hr Group. Now we can reach whole globe via this app. Now anyone can easily seek our services despite of their distance or region etc Quiqr Hr App is meant for aspiring students. It has faculties pan India for multi streams(Humanities ,HR ,Business ,Mechanical ,Civil ,Computer Application etc).We are providing coaching for country s esteemed competitive exams i.e SAT,JEE MAINS ,BANKING .Not only this, we are providing coaching for some Internationally recognized tests too which are IELTS,TOFEL,PTE,DUOLINGO . Our focus is on holistic development of aspirant ,so we update their communication skills, personality too. For our candidates we provide coaching for Interview Preparation.",
     duration: "Fulltime",
     date: "18 Jul 2024",
     company: "Coachywoods",
@@ -185,7 +185,7 @@ const company_details: IcompanyType[] = [
     english_fluency: "Fluent",
     overview:
       "When team members told us they needed more flexibility around where and how they worked, we acted, creating two options to accommodate two different styles of work. One non-negotiable principle along the way? We had to retain our deep culture of collaboration, both among ourselves and with our clients. Introducing Work From Near and Work From Anywhere at WillowTree. Please indicate which location(s) you're interested.",
-    videoid: "",
+    videoid: "YTDGTNbx-7M",
     facebook: "",
     instagram: "",
     twitter: "",
@@ -204,7 +204,7 @@ const company_details: IcompanyType[] = [
     address:"PLOT NO.4, MOUNT VIEW COLONY NEAR IT PARK, SAHASTRADHARA ROAD DEHRADUN Dehradun UR 248001 IN    ",
     feild: ["Data Processing"],
     overviewsection:
-      "With deep-rooted knowledge base, Cynoteck help deliver world-class solutions to transform businesses using a perfect mix of Mobile, Cloud, CRM, and other emerging technologies.",
+      "With deep-rooted knowledge base, Cynoteck help deliver world-class solutions to transform businesses using a perfect mix of Mobile, Cloud, CRM, and other emerging technologies.Cynoteck is a dynamic and professional IT services provider that serves enterprises and individuals, helping them meet the challenges of the global economy. We offer services in the area of CRM Consultation and implementation, Application development, Mobile application development, Web development & Offshore Development. Our experienced Project Managers apply a mature development methodology, continuously exceeding our client’s business expectations, and ensuring the success of off-shoring projects. We have expertise ranging from consulting on business and technology to creating innovative technology solutions. Our vision shapes the culture at Cynoteck, which lays a strong emphasis on innovation and thought process.",
     duration: "Fulltime",
     date: "18 Jul 2024",
     company: "Cynoteck Technology Solutions Pvt Ltd",
@@ -217,7 +217,7 @@ const company_details: IcompanyType[] = [
     english_fluency: "Fluent",
     overview:
       "When team members told us they needed more flexibility around where and how they worked, we acted, creating two options to accommodate two different styles of work. One non-negotiable principle along the way? We had to retain our deep culture of collaboration, both among ourselves and with our clients. Introducing Work From Near and Work From Anywhere at WillowTree. Please indicate which location(s) you're interested.",
-    videoid: "",
+    videoid: "pg7jSzjgbOQ",
     facebook: "",
     instagram: "",
     twitter: "",
@@ -236,7 +236,7 @@ const company_details: IcompanyType[] = [
     address:"1325 Miracle Strip Pkwy SE, Fort Walton Beach, FL 32548, United States    ",
     feild: ["Hostel Industry"],
     overviewsection:
-      "Four Points by Sheraton is a multinational hotel brand operated by Marriott International that targets business travelers and small conventions.",
+      "Four Points by Sheraton is a multinational hotel brand operated by Marriott International that targets business travelers and small conventions.Four Points by Sheraton is a multinational hotel brand operated by Marriott International that targets business travelers and small conventions. As of June 30, 2020, Marriott operated 291 properties worldwide under the Four Points by Sheraton brand, with 53,054 rooms. In addition, Marriott had 130 planned hotels with 27,342 additional rooms.",
     duration: "Fulltime",
     date: "18 Jul 2024",
     company: "Four Points by Sherton",
@@ -249,7 +249,7 @@ const company_details: IcompanyType[] = [
     english_fluency: "Fluent",
     overview:
       "When team members told us they needed more flexibility around where and how they worked, we acted, creating two options to accommodate two different styles of work. One non-negotiable principle along the way? We had to retain our deep culture of collaboration, both among ourselves and with our clients. Introducing Work From Near and Work From Anywhere at WillowTree. Please indicate which location(s) you're interested.",
-    videoid: "",
+    videoid: "nbwtonKb0vQ",
     facebook: "",
     instagram: "",
     twitter: "",
@@ -268,7 +268,7 @@ const company_details: IcompanyType[] = [
     address:"Ground Floor, Poddar House A Road. Churchgate Mumbai Mumbai City MH 400020 IN    ",
     feild: [" Software publishing and consultancy supply"],
     overviewsection:
-      "IGT Solutions is a next-gen customer experience (CX) company, defining and delivering transformative experiences for the global and most innovative brands using digital technologies. With the combination of Digital and Human Intelligence, IGT becomes the preferred partner for managing end-to-end CX journeys across Travel and High Growth Tech industries.",
+      "IGT Solutions is a next-gen customer experience (CX) company, defining and delivering transformative experiences for the global and most innovative brands using digital technologies. With the combination of Digital and Human Intelligence, IGT becomes the preferred partner for managing end-to-end CX journeys across Travel and High Growth Tech industries.Utilizing our 20 years of expertise in managing CX for some of the world’s leading brands in the Travel and High Growth Tech industries, IGT has designed its DNA around Customer & Employee Experience 3.A (CeX3.A) that plays a key part in setting up smart contact centers equipped with the right talent and digital technologies.",
     duration: "Fulltime",
     date: "18 Jul 2024",
     company: "IGT SOLUTIONS Pvt Ltd",
@@ -281,7 +281,7 @@ const company_details: IcompanyType[] = [
     english_fluency: "Fluent",
     overview:
       "When team members told us they needed more flexibility around where and how they worked, we acted, creating two options to accommodate two different styles of work. One non-negotiable principle along the way? We had to retain our deep culture of collaboration, both among ourselves and with our clients. Introducing Work From Near and Work From Anywhere at WillowTree. Please indicate which location(s) you're interested.",
-    videoid: "",
+    videoid: "eDcIrs3Qmc8",
     facebook: "",
     instagram: "",
     twitter: "",
@@ -300,10 +300,10 @@ const company_details: IcompanyType[] = [
     address:"REAR BLOCK BEHIND COMMERCIAL COMPLEX KAILASH TOWER NEAR DWARKA STORE DEHRADUN Dehradun UR 248001 IN    ",
     feild: [" BPO/KPO/ITES Industry"],
     overviewsection:
-      "Leads is one of the fastest-growing and leading BPO/KPO/ITES industry-based companies in the Dehradun region. Started in 2010, our company has grown successfully over the years to become one of the most experienced teams in Data and Call Processing works. We are proud to be recognized by both Start Up India as well as Start Up Uttarakhand and the winner of the 2020 Best Start Up by the Chamber of Commerce & Industry of India.",
+      "ILeads is one of the fastest-growing and leading BPO/KPO/ITES industry-based companies in the Dehradun region. Started in 2010, our company has grown successfully over the years to become one of the most experienced teams in Data and Call Processing works. We are proud to be recognized by both Start Up India as well as Start Up Uttarakhand and the winner of the 2020 Best Start Up by the Chamber of Commerce & Industry of India. We possess the finest quality infrastructure with over 2200+ satisfied employees working for us, consisting of both, Highly Qualified Leadership as well as the best Skilled Agents. Our center allows for over 2500+ seats along with exclusive outsourcing support for all our customers.",
     duration: "Fulltime",
     date: "18 Jul 2024",
-    company: " Ileads Auxilary Service Pvt Ltd",
+    company: "Ileads Auxilary Service Pvt Ltd",
     location: "Uttarakhand, India",
     category: ["Developer", "Coder"],
     experience: "Fresher",
@@ -312,7 +312,7 @@ const company_details: IcompanyType[] = [
     english_fluency: "Fluent",
     overview:
       "When team members told us they needed more flexibility around where and how they worked, we acted, creating two options to accommodate two different styles of work. One non-negotiable principle along the way? We had to retain our deep culture of collaboration, both among ourselves and with our clients. Introducing Work From Near and Work From Anywhere at WillowTree. Please indicate which location(s) you're interested.",
-    videoid: "",
+    videoid: "xwhDRuJlCMc",
     facebook: "",
     instagram: "",
     twitter: "",
@@ -331,7 +331,7 @@ const company_details: IcompanyType[] = [
     address:"94A, Vasundhra Colony Tonk Road Jaipur Jaipur RJ 302018 IN    ",
     feild: ["Education"],
     overviewsection:
-      "Intellipaat combines a unique approach to the ideation and creation of the course content. It then collaborates with SMEs for training. Further, it offers its learners lifelong support and lifetime access to the course materials. It also provides professional help to ensure learners find lucrative jobs by conducting mock interview sessions and helping each candidate create a high-quality resume.",
+      "Intellipaat combines a unique approach to the ideation and creation of the course content. It then collaborates with SMEs for training. Further, it offers its learners lifelong support and lifetime access to the course materials. It also provides professional help to ensure learners find lucrative jobs by conducting mock interview sessions and helping each candidate create a high-quality resume.Intellipaat is a global online professional training provider. We are offering some of the most updated, industry-designed certification training programs which include courses in Big Data, Data Science, Artificial Intelligence, and 150 other top-trending technologies. We help professionals make the right career decisions, choose trainers with over a decade of industry experience, provide extensive hands-on projects, rigorously evaluate learner progress, and offer industry-recognized certifications. We also assist corporate clients to upskill their workforce and keep them in sync with the changing technology and digital landscape.",
     duration: "Fulltime",
     date: "18 Jul 2024",
     company: "Intellipaat Software Solutions",
@@ -344,7 +344,7 @@ const company_details: IcompanyType[] = [
     english_fluency: "Fluent",
     overview:
       "When team members told us they needed more flexibility around where and how they worked, we acted, creating two options to accommodate two different styles of work. One non-negotiable principle along the way? We had to retain our deep culture of collaboration, both among ourselves and with our clients. Introducing Work From Near and Work From Anywhere at WillowTree. Please indicate which location(s) you're interested.",
-    videoid: "",
+    videoid: "X098bVCvgXs",
     facebook: "",
     instagram: "",
     twitter: "",
@@ -363,7 +363,7 @@ const company_details: IcompanyType[] = [
     address:"PALM COURT BLDG.- M, 501/B, 5TH FL, NEW LINK RD. BESIDE GOREGAON SPORTS COMPLEX NA MALAD WEST MH 400064 IN    ",
     feild: ["Internet Technology Company"],
     overviewsection:
-      "Justdial is an Indian internet technology company that provides local search for different services in India over the phone, website and mobile apps.",
+      "Justdial is an Indian internet technology company that provides local search for different services in India over the phone, website and mobile apps.Justdial has also initiated ‘Search Plus’ services for its users. These services aim at making several day-to-day tasks conveniently actionable and accessible to users through one App. By doing so, it has transitioned from being purely a provider of local search and related information to being an enabler of such transactions.",
     duration: "Fulltime",
     date: "18 Jul 2024",
     company: "Just Dial Limited",
@@ -376,7 +376,7 @@ const company_details: IcompanyType[] = [
     english_fluency: "Fluent",
     overview:
       "When team members told us they needed more flexibility around where and how they worked, we acted, creating two options to accommodate two different styles of work. One non-negotiable principle along the way? We had to retain our deep culture of collaboration, both among ourselves and with our clients. Introducing Work From Near and Work From Anywhere at WillowTree. Please indicate which location(s) you're interested.",
-    videoid: "",
+    videoid: "z8jDB9Bv0k0",
     facebook: "",
     instagram: "",
     twitter: "",
@@ -396,7 +396,7 @@ const company_details: IcompanyType[] = [
     address:"FLAT - 5, BLOCK C GAGAN AWAS, GAJAPATI NAGAR BHUBANESWAR Khordha OR 751005 IN    ",
     feild: [" Software publishing and consultancy supply"],
     overviewsection:
-      "Kaihastu Solutions Private Limited is a mca provider company with the industrial and NIC / SIC code of 74999 as per the official records.",
+      "Kaihastu Solutions Private Limited is a mca provider company with the industrial and NIC / SIC code of 74999 as per the official records.Kaihastu Solutions Private Limited (KSPL) is a registered startup operating as a Private Limited Indian Non-Government Company incorporated in India on 31 December 2018 (Four years and 11 months 29 days old ). Its registered office is in Khorda, Odisha, India.The Company is engaged in the Financial Services Industry. The Company's status is Active, and it has filed its Annual Returns and Financial Statements up until 31 March 2021. It's a company limited by shares with an authorized capital of Rs 10.00 Lakh and a paid-up capital of Rs 1.00 Lakh, as per the Ministry of Corporate Affairs (MCA) records.",
     duration: "Fulltime",
     date: "18 Jul 2024",
     company: "Kaihastu Solutions Pvt Ltd",
@@ -428,7 +428,7 @@ const company_details: IcompanyType[] = [
     address:"MANIKARAN TOWER, KILBURN COLONY, P.O- HINOO RANCHI JH 834002 IN    ",
     feild: [" Energy Solutions Company "],
     overviewsection:
-      "It is one of the largest Integrated Energy Solution Company in India with a combined experience of more than a decade and a half in the domain of Power, Coal and Gas Trading.      ",
+      "It is one of the largest Integrated Energy Solution Company in India with a combined experience of more than a decade and a half in the domain of Power, Coal and Gas Trading. Manikaran Power Limited, established in 2005, is one of the largest Integrated Energy Solution Company in India with a combined experience of more than a decade and a half in the domain of Power, Coal and Gas Trading. MPL is a trusted partner of 2000+ Industrial clients present across India’s Energy Sector ecosystem such as Indian Energy Exchange(IEX), Indian Gas Exchange (IGX), Power Exchange of India Ltd (PXIL), Hindustan Power Exchange (HPX) State Utilities, Transmission Companies, DISCOMS, IPPs and C&I Consumers. A mix of power sales contracts in both Renewable and Non- Renewable energy in the Short Term, Medium-term and on the Power Exchanges has given MPL a unique strength in terms of Energy Portfolio diversity. MPL has been a regular supplier of coal to various IPPs in India. With the mix of Industrial Consumers, Gas Sellers and City Gas Distributors(CGDs), MPL has developed a strong Gas trading portfolio. MPL is also venturing into the acquisition and maintenance of operating assets, thus truly becoming an Integrated Energy Solution Company.     ",
     duration: "Fulltime",
     date: "18 Jul 2024",
     company: "Manikaran Power Limited    ",
@@ -441,7 +441,7 @@ const company_details: IcompanyType[] = [
     english_fluency: "Fluent",
     overview:
       "When team members told us they needed more flexibility around where and how they worked, we acted, creating two options to accommodate two different styles of work. One non-negotiable principle along the way? We had to retain our deep culture of collaboration, both among ourselves and with our clients. Introducing Work From Near and Work From Anywhere at WillowTree. Please indicate which location(s) you're interested.",
-    videoid: "",
+    videoid: "7sDyf4f635Y",
     facebook: "",
     instagram: "",
     twitter: "",
@@ -492,7 +492,7 @@ const company_details: IcompanyType[] = [
     address:"GORIA, SANTI RARK KOLKATA Kolkata WB 700094 IN ",
     feild: ["Agricultural Sector    "],
     overviewsection:
-      "A Delhi-based Realty Company that offers farmland surrounded by more than hundreds of different species of plants, trees and flowers.",
+      "A Delhi-based Realty Company that offers farmland surrounded by more than hundreds of different species of plants, trees and flowers.Nimbus Agriproducts Limited's Annual General Meeting (AGM) was last held on N/A and as per records from Ministry of Corporate Affairs (MCA), its balance sheet was last filed on N/A.",
     duration: "Fulltime",
     date: "18 Jul 2024",
     company: "Nimbus Agriproducts Limited    ",
@@ -505,7 +505,7 @@ const company_details: IcompanyType[] = [
     english_fluency: "Fluent",
     overview:
       "When team members told us they needed more flexibility around where and how they worked, we acted, creating two options to accommodate two different styles of work. One non-negotiable principle along the way? We had to retain our deep culture of collaboration, both among ourselves and with our clients. Introducing Work From Near and Work From Anywhere at WillowTree. Please indicate which location(s) you're interested.",
-    videoid: "",
+    videoid: "We-o63oFGag",
     facebook: "",
     instagram: "",
     twitter: "",
@@ -537,7 +537,7 @@ const company_details: IcompanyType[] = [
     english_fluency: "Fluent",
     overview:
       "When team members told us they needed more flexibility around where and how they worked, we acted, creating two options to accommodate two different styles of work. One non-negotiable principle along the way? We had to retain our deep culture of collaboration, both among ourselves and with our clients. Introducing Work From Near and Work From Anywhere at WillowTree. Please indicate which location(s) you're interested.",
-    videoid: "",
+    videoid: "OZYkv1MqYwo",
     facebook: "",
     instagram: "",
     twitter: "",
@@ -569,7 +569,7 @@ const company_details: IcompanyType[] = [
     english_fluency: "Fluent",
     overview:
       "When team members told us they needed more flexibility around where and how they worked, we acted, creating two options to accommodate two different styles of work. One non-negotiable principle along the way? We had to retain our deep culture of collaboration, both among ourselves and with our clients. Introducing Work From Near and Work From Anywhere at WillowTree. Please indicate which location(s) you're interested.",
-    videoid: "",
+    videoid: "aBUpTraTq0g",
     facebook: "",
     instagram: "",
     twitter: "",
@@ -601,7 +601,7 @@ const company_details: IcompanyType[] = [
     english_fluency: "Fluent",
     overview:
       "When team members told us they needed more flexibility around where and how they worked, we acted, creating two options to accommodate two different styles of work. One non-negotiable principle along the way? We had to retain our deep culture of collaboration, both among ourselves and with our clients. Introducing Work From Near and Work From Anywhere at WillowTree. Please indicate which location(s) you're interested.",
-    videoid: "",
+    videoid: "sJiiShscx_Y",
     facebook: "",
     instagram: "",
     twitter: "",
@@ -633,7 +633,7 @@ const company_details: IcompanyType[] = [
     english_fluency: "Fluent",
     overview:
       "When team members told us they needed more flexibility around where and how they worked, we acted, creating two options to accommodate two different styles of work. One non-negotiable principle along the way? We had to retain our deep culture of collaboration, both among ourselves and with our clients. Introducing Work From Near and Work From Anywhere at WillowTree. Please indicate which location(s) you're interested.",
-    videoid: "",
+    videoid: "gwg5Xsd0_bQ",
     facebook: "",
     instagram: "",
     twitter: "",
@@ -665,7 +665,7 @@ const company_details: IcompanyType[] = [
     english_fluency: "Fluent",
     overview:
       "When team members told us they needed more flexibility around where and how they worked, we acted, creating two options to accommodate two different styles of work. One non-negotiable principle along the way? We had to retain our deep culture of collaboration, both among ourselves and with our clients. Introducing Work From Near and Work From Anywhere at WillowTree. Please indicate which location(s) you're interested.",
-    videoid: "",
+    videoid: "_lwOpcyjL-4",
     facebook: "",
     instagram: "",
     twitter: "",
@@ -729,7 +729,7 @@ const company_details: IcompanyType[] = [
     english_fluency: "Fluent",
     overview:
       "When team members told us they needed more flexibility around where and how they worked, we acted, creating two options to accommodate two different styles of work. One non-negotiable principle along the way? We had to retain our deep culture of collaboration, both among ourselves and with our clients. Introducing Work From Near and Work From Anywhere at WillowTree. Please indicate which location(s) you're interested.",
-    videoid: "",
+    videoid: "Ev1D71AAW58",
     facebook: "",
     instagram: "",
     twitter: "",
@@ -793,7 +793,7 @@ const company_details: IcompanyType[] = [
     english_fluency: "Fluent",
     overview:
       "When team members told us they needed more flexibility around where and how they worked, we acted, creating two options to accommodate two different styles of work. One non-negotiable principle along the way? We had to retain our deep culture of collaboration, both among ourselves and with our clients. Introducing Work From Near and Work From Anywhere at WillowTree. Please indicate which location(s) you're interested.",
-    videoid: "",
+    videoid: "sdSgpRZNH90",
     facebook: "",
     instagram: "",
     twitter: "",
@@ -825,7 +825,7 @@ const company_details: IcompanyType[] = [
     english_fluency: "Fluent",
     overview:
       "When team members told us they needed more flexibility around where and how they worked, we acted, creating two options to accommodate two different styles of work. One non-negotiable principle along the way? We had to retain our deep culture of collaboration, both among ourselves and with our clients. Introducing Work From Near and Work From Anywhere at WillowTree. Please indicate which location(s) you're interested.",
-    videoid: "",
+    videoid: "r1UPhRISNmU",
     facebook: "",
     instagram: "",
     twitter: "",
@@ -844,7 +844,7 @@ const company_details: IcompanyType[] = [
     address:"T, 27/4, DLF Phase 3, Sector 24, Gurugram, Haryana 122002",
     feild: ["Hotel Industry"],
     overviewsection:
-      "AVA Hotels & Resorts is one of India's fastest-growing hotel brands. AVA Hotels and Resorts are managed by AVA Hospitality. The company is a reputed name in hospitality industry and manages a group of boutique hotels in India.",
+      "AVA Hotels & Resorts is one of India's fastest-growing hotel brands. AVA Hotels and Resorts are managed by AVA Hospitality. The company is a reputed name in hospitality industry and manages a group of boutique hotels in India.AVA Hotels & Resorts is one of India’s fastest-growing hotel brands. AVA Hotels and Resorts are managed by AVA Hospitality. The company is a reputed name in hospitality industry and manages a group of boutique hotels in India. The hotels are professionally managed and operated by a team of professionals who are veterans in the hospitality industry. At AVA Hotels, we not only believe in offering great accommodation but also in creating memories. One of India’s foremost fastest growing ‘chain hotel’ brand, AVA Hotels today successfully operates 4 Boutique Hotels with 109 rooms and several famed restaurants in 4 hotels across 3 locations in the mid-market and budget hotel category in India.",
     duration: "Fulltime",
     date: "18 Jul 2024",
     company: "Ava Hotels",
@@ -857,7 +857,7 @@ const company_details: IcompanyType[] = [
     english_fluency: "Fluent",
     overview:
       "AVA Hotels & Resorts is one of India's fastest-growing hotel brands. AVA Hotels and Resorts are managed by AVA Hospitality. The company is a reputed name in hospitality industry and manages a group of boutique hotels in India.",
-    videoid: "",
+    videoid: "TXgxq7rPr-w",
     facebook: "",
     instagram: "",
     twitter: "",
@@ -889,7 +889,7 @@ const company_details: IcompanyType[] = [
     english_fluency: "Fluent",
     overview:
       "The essence of Radisson Blu is reflected in every aspect of who we are and what we do. We provide unparalleled service, comfort, and style while creating meaningful and memorable experiences.By paying close attention to the small details that make a big difference, we inspire unforgettable experiences with every stay.",
-    videoid: "",
+    videoid: "mwdYavU6iFE",
     facebook: "",
     instagram: "",
     twitter: "",
@@ -985,7 +985,7 @@ const company_details: IcompanyType[] = [
     english_fluency: "Fluent",
     overview:
       "LeadHeight is the perfect blend of a creator and inventor. This digital marketing agency was awarded the Best Startup Company 2020 for excellence and innovation. We are passionate and thrilled to stay updated about the latest marketing trends and techniques to optimize the key component of conversion rate.",
-    videoid: "",
+    videoid: "BlrAtYmnyGw",
     facebook: "",
     instagram: "",
     twitter: "",
@@ -1036,7 +1036,7 @@ const company_details: IcompanyType[] = [
     address:"14A, Kurinji Street, VND Avenue Extn Madhanandapuram, porur Kanchipuram Chennai TN 600125 IN",
     feild: ["Technological Service Provider"],
     overviewsection:
-      "Unidad Technologies & Services Private Limited is an Indian Non-Government Company, incorporated on 12 Feb, 2016. It's a private company and is classified as'company limited by shares'.Company's authorized capital stands at Rs 1.0 lakhs and has 100.0% paid-up capital which is Rs 1.0 lakhs.",
+      "Unidad Technologies & Services Private Limited is an Indian Non-Government Company, incorporated on 12 Feb, 2016. It's a private company and is classified as'company limited by shares'.Company's authorized capital stands at Rs 1.0 lakhs and has 100.0% paid-up capital which is Rs 1.0 lakhs.Unidad integrates design expertise, system know-how, innovative technology and comprehension of customer requirements to keep on top of tight competitions. We constantly research on the cutting edge technologies related to information and communication (ICT), finding new ways to integrate digital technology into human life in the most efficient and cost effective way . Unidad has a product portfolio which includes state-of-the art devices & solutions targeted to vehicle tracking, personal tracking, security solutions and Internet of Things (IoT) applications. Unidad provides customized as well as flexible business models as Hardware/Software turnkey services, in which each customer will receive detailed and complete services/consultancy all the way from even architecture specification discussion to the after-sales quality assurance by dedicated service team, along with unsurpassed technical support.",
     duration: "Fulltime",
     date: "18 Jul 2024",
     company: "Unidad Technologies Pvt Ltd",
@@ -1049,7 +1049,7 @@ const company_details: IcompanyType[] = [
     english_fluency: "Fluent",
     overview:
       "Unidad Technologies & Services Private Limited is an Indian Non-Government Company, incorporated on 12 Feb, 2016. It's a private company and is classified as'company limited by shares'.Company's authorized capital stands at Rs 1.0 lakhs and has 100.0% paid-up capital which is Rs 1.0 lakhs.",
-    videoid: "",
+    videoid: "xBCyxXAUmrQ",
     facebook: "",
     instagram: "",
     twitter: "",
@@ -1081,7 +1081,7 @@ const company_details: IcompanyType[] = [
     english_fluency: "Fluent",
     overview:
       "Unidad Technologies & Services Private Limited is an Indian Non-Government Company, incorporated on 12 Feb, 2016. It's a private company and is classified as'company limited by shares'.Company's authorized capital stands at Rs 1.0 lakhs and has 100.0% paid-up capital which is Rs 1.0 lakhs.",
-    videoid: "",
+    videoid: "vRsmejn1r-s",
     facebook: "",
     instagram: "",
     twitter: "",

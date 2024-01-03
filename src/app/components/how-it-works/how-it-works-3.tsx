@@ -11,7 +11,7 @@ const HowItWorksThree = ({style_2}:{style_2?:boolean}) => {
           <h2 className="fw-600 ps-3 pe-3 wow fadeInUp" data-wow-delay="0.3s">How Does it Work?</h2>
           <span className="line"></span>
         </div>
-
+    
         <div className="border-bottom border-md0">
           <div className="row justify-content-center">
             {how_works_apti.map((item) => (

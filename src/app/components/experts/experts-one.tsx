@@ -10,14 +10,17 @@ import user_2 from "@/assets/images/assets/img_07.jpeg";
 import user_4 from "@/assets/images/assets/img_07.jpg";
 import user_5 from "@/assets/images/assets/img_08.jpeg";
 import user_6 from "@/assets/images/assets/img_09.jpeg";
-import user_8 from "@/assets/images/assets/img_11.jpeg";
-import user_9 from "@/assets/images/assets/img_102.jpeg";
+import user_7 from "@/assets/images/assets/img_11.jpeg";
+import user_8 from "@/assets/images/assets/img_102.jpeg";
+import user_9 from "@/assets/images/assets/img_53.jpeg";
+import user_10 from "@/assets/images/assets/img_54.jpeg";
 
 // expert_data
 const expert_data: {
   id: number;
   user: StaticImageData;
   name: string;
+  college: string;
   title: string;
   salary: string;
 }[] = [
@@ -25,6 +28,7 @@ const expert_data: {
     id: 1,
     user: user_1,
     name: "Bipul Kumar Pandey",
+    college: "Suresh Gyan Vihar University",
     title: "Geetanjali Homestate Pvt Ltd.",
     salary: " 6 LPA (3LPA fixed and 3 LPA Variable)",
   },
@@ -32,6 +36,7 @@ const expert_data: {
     id: 2,
     user: user_2,
     name: "Gunjan Singh",
+    college: "JB Institute of Technology",
     title: "Hanmars Systems Pvt Limted",
     salary: "4 LPA",
   },
@@ -39,6 +44,7 @@ const expert_data: {
     id: 3,
     user: user_3,
     name: "Jyotirmoy Nath",
+    college: "",
     title: "Hike Education",
     salary: "6.42 LPA",
   },
@@ -46,6 +52,7 @@ const expert_data: {
     id: 5,
     user: user_5,
     name: "Kajal Khan",
+    college: "",
     title: "College Tour",
     salary: "5.40 LPA",
   },
@@ -53,6 +60,7 @@ const expert_data: {
     id: 4,
     user: user_4,
     name: "Mayank Parashar",
+    college: "JB Institute of Technology",
     title: "Mayank Parashar",
     salary: "4 LPA",
   },
@@ -61,23 +69,42 @@ const expert_data: {
     id: 6,
     user: user_6,
     name: "Abhishek kumar Jaiswal",
+    college: "",
     title: "PinClick",
     salary: "4.80 LPA",
   },
 
   {
     id: 7,
-    user: user_8,
+    user: user_7,
     name: "Ansh Kumar",
+    college: "",
     title: "College Tour",
     salary: "5.40 LPA",
   },
   {
     id: 8,
-    user: user_9,
+    user: user_8,
     name: "Neha Sharma",
+    college: "",
     title: "Byjus",
     salary: "7 LPA",
+  },
+  {
+    id: 9,
+    user: user_9,
+    name: "Aniket Kumar Chouhan",
+    college: " Binod Bihari Mahto Koylanchal University",
+    title: "Corizo",
+    salary: "4 LPA",
+  },
+  {
+    id: 10,
+    user: user_10,
+    name: "Yugansh Baradia",
+    college: " IBS, Jaipur",
+    title: "Corizo",
+    salary: "4 LPA",
   },
 ];
 
@@ -161,6 +188,7 @@ const ExpertsOne = () => {
                 <a href="#" className="name text-md fw-500 text-dark">
                   {item.name}
                 </a>
+                <div className="post">{item.college}</div>
                 <div className="post">{item.title}</div>
                 <div className="post">{item.salary}</div>
               </div>

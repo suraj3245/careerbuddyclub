@@ -8,7 +8,7 @@ const FeatureThirteen = () => {
         
         {/* New Buttons Section */}
         <div className="text-align">
-          <h3 className="mb-4" style={{ color: "#eed30d" }}>Programs Offered</h3>
+          <h3 className="mb-4" style={{ color: "#eed30d" }}>Job Guarantee Offered in Programs </h3>
       
             <div className="row justify-content-center">
               <div className="col-lg-8 col-md-8 col-sm-10 d-flex flex-wrap justify-content-center">
@@ -48,9 +48,11 @@ const FeatureThirteen = () => {
             personality, cognitive strengths, and professional aptitudes.
           </p>
           <p className="lead mb-5">
-            Discover Your Ideal Career Path with Our Simple and Effective Career Aptitude Test –
-            Find Your Best Fit Today!
-          </p>
+          Discover Your Ideal Career Path with Our Simple and Effective&nbsp; 
+          <a href="/careerapt" style={{color: 'blue'}}>Career Aptitude Test</a> – Find Your Best Fit Today!
+        </p>
+        
+
         </div>
       </div>
     </section>

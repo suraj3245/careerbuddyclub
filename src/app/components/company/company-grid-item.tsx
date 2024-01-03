@@ -19,12 +19,7 @@ const CompanyGridItem = ({ item }: { item: ICompany }) => {
         </Link>
       </h5>
       <p className="text-center mb-auto">{item.location}</p>
-      <div className="bottom-line d-flex">
-        <Link href={`/company-details/${item.id}`}></Link>
-        <Link href={`/company-details/${item.id}`}>
-          <i className="bi bi-bookmark-dash"></i> Save
-        </Link>
-      </div>
+     
     </div>
   );
 };

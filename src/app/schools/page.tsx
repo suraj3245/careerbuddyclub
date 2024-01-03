@@ -29,10 +29,8 @@ const schools = () => {
       <Aptibannerthree />
 
       <FeedbackThree />
-      <FancyBannerTwo />
+      
       <FeatureSix />
-      <ContactSchoolArea />
-
       <FooterOne />
       {/* footer end */}
     </Wrapper>

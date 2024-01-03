@@ -22,10 +22,8 @@ const AptiFeature = () => {
       <div className="container">
         <div className="row feature-flex">
           <div className="col-lg-6">
-            <FeatureImg />
-          </div>
-          <div className="col-lg-5">
-            <div className="content-wrapper ps-xxl-4 wow fadeInRight">
+
+          <div className="content-wrapper ps-xxl-4 wow fadeInRight">
               <div className="title-one">
                 <h2>Problems</h2>
               </div>
@@ -52,6 +50,36 @@ const AptiFeature = () => {
                 </li>
               </ul>
             </div>
+            </div>
+          <div className="col-lg-5">
+          <div className="content-wrapper ps-xxl-4 wow fadeInRight">
+          <div className="title-one">
+            <h2>Our Solutions</h2>
+          </div>
+          <p className="mt-40 md-mt-20 mb-40 md-mb-20">
+          Guiding the Path to Personalized Career Development and Success
+          </p>
+          <ul className="list-style-one style-none">
+           
+            <li>
+              Support students in strategizing and assessing their career
+              options.
+            </li>
+            <li>Recognize and foster their distinct interests.</li>
+            <li>
+              Evaluate strengths and areas for improvement to guide
+              informed choices.
+            </li>
+            <li>
+              Uncover students' personality traits for enhanced career
+              compatibility.
+            </li>
+            <li>
+              Offer invaluable guidance & mentorship to ensure prosperous
+              career paths
+            </li>
+          </ul>
+        </div>
           </div>
         </div>
       </div>
