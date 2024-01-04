@@ -294,7 +294,7 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
     };
 
     const token = localStorage.getItem("token");
-    console.log(PreferenceDetails);
+
     // Set up the request options for axios
     const options = {
       method: "POST",
@@ -556,9 +556,9 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
                     <NiceSelect
                       options={[
                         { value: "", label: "Select Gender" },
-                        { value: "male", label: "Male" },
-                        { value: "female", label: "Female" },
-                        { value: "others", label: "Others" },
+                        { value: "Male", label: "Male" },
+                        { value: "Female", label: "Female" },
+                        { value: "Others", label: "Others" },
                       ]}
                       value={formData.gender}
                       onChange={handleSelectChange}

@@ -110,9 +110,14 @@ const HeaderFour: React.FC<HeaderFourProps> = ({ user, key, onLogout }) => {
                     {/* menus end */}
                     {!isUserLoggedIn && (
                       <li className="d-md-none mt-5">
-                        <Link href="/register" className="btn-five w-100">
-                          Register
-                        </Link>
+                        <a
+                          href="#"
+                          className="fw-500 btn-five"
+                          data-bs-toggle="modal"
+                          data-bs-target="#ApplyModal"
+                        >
+                          Apply Now
+                        </a>
                       </li>
                     )}
                   </ul>
@@ -126,7 +131,6 @@ const HeaderFour: React.FC<HeaderFourProps> = ({ user, key, onLogout }) => {
       {/* login modal start */}
       <ApplyModal />
       <LoginModal />
-      <RegisterModal />
       <PhoneModal />
 
       {/* login modal end */}

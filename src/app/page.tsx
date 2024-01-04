@@ -21,9 +21,9 @@ import FeatureSixteen from "./components/features/feature-sixteen";
 import FeatureSeventeen from "./components/features/feature-seventeen";
 import Featurefourteen from "./components/features/feature-fourteen";
 
-// export const metadata: Metadata = {
-//   title: "career buddy club",
-// };
+export const metadata: Metadata = {
+  title: "career buddy club",
+};
 
 const addmission = () => {
   // const [token, setToken] = useState<string | null>(null);
@@ -42,7 +42,7 @@ const addmission = () => {
 
   // const handleLogout = () => {
   //   localStorage.removeItem("token");
-  //   setUser({ value: null }); // Update the user state to reflect logout
+  //   setUser({ value: null }); // Update th e user state to reflect logout
   //   // Any additional logout logic goes here
   //   setKey(Math.random());
   // };
@@ -57,7 +57,7 @@ const addmission = () => {
         <HowItWorksFive />
 
         <FeatureThirteen />
-       
+
         <Featurefourteen />
         <Featurefifteen />
         <FeatureSeventeen />

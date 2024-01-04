@@ -18,33 +18,14 @@ const CourseDetailsPage = ({ params }: { params: { id: string } }) => {
   return (
     <Wrapper>
       <div className="main-page-wrapper">
-        {/* header start */}
-
-        {/* header end */}
-
-        {/*breadcrumb start */}
         <CompanyBreadcrumbjob
           title={details ? details.college : ""}
           subtitle={details ? details.location : ""}
         />
-        {/*breadcrumb end */}
 
-        {/* company details area start */}
         {details && <CoursesDetailsArea details={details} />}
-
-        {/* company details area end */}
-
-        {/*job Open Position */}
-
-        {/*job Open Position */}
-
-        {/* job portal intro start */}
         <JobPortalIntro top_border={true} />
-        {/* job portal intro end */}
-
-        {/* footer start */}
         <FooterOne />
-        {/* footer end */}
       </div>
     </Wrapper>
   );

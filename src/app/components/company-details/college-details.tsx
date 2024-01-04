@@ -132,7 +132,6 @@ const CollegeDetailsArea = ({ details }: { details: IcollegeType }) => {
                         Alumini Reviews
                       </a>
                     </li>
-                    {/* menus end */}
                   </ul>
                 </div>
               </nav>

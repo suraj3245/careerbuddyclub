@@ -183,12 +183,17 @@ const ApplyForm = () => {
       <div className="row">
         <div className="col-12">
           <div className="input-group-meta position-relative mb-15">
-            <label style={{ color: "black" }}>Name*</label>
             <input
               type="text"
-              placeholder="Enter your full name"
+              placeholder="Name"
               {...register("name", { required: `Name is required!` })}
               name="name"
+              style={{
+                backgroundColor: "white",
+                padding: "8px 12px",
+                fontSize: "14px",
+                height: "40px",
+              }}
             />
             <div className="help-block with-errors">
               <ErrorMsg msg={errors.name?.message!} />
@@ -198,12 +203,17 @@ const ApplyForm = () => {
 
         <div className="col-12">
           <div className="input-group-meta position-relative mb-15">
-            <label style={{ color: "black" }}>Email*</label>
             <input
               type="email"
-              placeholder="Enter your email"
+              placeholder="Email"
               {...register("email", { required: `Email is required!` })}
               name="email"
+              style={{
+                backgroundColor: "white",
+                padding: "8px 12px",
+                fontSize: "14px",
+                height: "40px",
+              }}
             />
             <div className="help-block with-errors">
               <ErrorMsg msg={errors.email?.message!} />
@@ -213,16 +223,22 @@ const ApplyForm = () => {
 
         <div className="col-12">
           <div className="input-group-meta position-relative mb-15">
-            <label style={{ color: "black" }}>Phone Number*</label>
             <div style={{ display: "flex", alignItems: "center" }}>
               <input
                 type="tel"
-                placeholder="Enter your phone number"
+                placeholder="Phone Number"
                 {...register("mobile", {
                   required: `Phone Number is required!`,
                 })}
                 name="mobile"
-                style={{ flex: "1", marginRight: "10px" }}
+                style={{
+                  flex: "1",
+                  marginRight: "10px",
+                  backgroundColor: "white",
+                  padding: "8px 12px",
+                  fontSize: "14px",
+                  height: "40px",
+                }}
               />
               <button
                 type="button"
@@ -241,13 +257,13 @@ const ApplyForm = () => {
                   backgroundColor: "#14ADBD",
                   color: "#ffffff",
                   border: "none",
-                  padding: "10px 15px",
+                  padding: "7px 8px",
                   borderRadius: "5px",
                   cursor: "pointer",
                 }}
               >
                 {!isVerificationSent
-                  ? "Send OTP"
+                  ? "Whatsapp OTP"
                   : showResend
                   ? "Resend"
                   : `Wait for ${countdown} sec`}
@@ -262,14 +278,19 @@ const ApplyForm = () => {
         {isVerificationSent && (
           <div className="col-12">
             <div className="input-group-meta position-relative mb-15">
-              <label style={{ color: "black" }}>Verification Code*</label>
               <input
                 type="text"
-                placeholder="Enter the code sent to your mobile"
+                placeholder="Whatsapp OTP"
                 {...register("verificationCode", {
                   required: `Verification Code is required!`,
                 })}
                 name="verificationCode"
+                style={{
+                  backgroundColor: "white",
+                  padding: "8px 12px",
+                  fontSize: "14px",
+                  height: "40px",
+                }}
               />
               <div className="help-block with-errors">
                 <ErrorMsg msg={errors.verificationCode?.message!} />
@@ -277,37 +298,20 @@ const ApplyForm = () => {
             </div>
           </div>
         )}
-        <div className="col-12">
-          <div className="input-group-meta position-relative mb-20">
-            <label style={{ color: "black" }}>Password*</label>
-            <input
-              type={`${showPass ? "text" : "password"}`}
-              placeholder="Enter Password"
-              className="pass_log_id"
-              {...register("password", { required: `Password is required!` })}
-              name="password"
-            />
-            <span
-              className="placeholder_icon"
-              onClick={() => setShowPass(!showPass)}
-            >
-              <span className={`passVicon ${showPass ? "eye-slash" : ""}`}>
-                <Image src={icon} alt="pass-icon" />
-              </span>
-            </span>
-            <div className="help-block with-errors">
-              <ErrorMsg msg={errors.password?.message!} />
-            </div>
-          </div>
-        </div>
+
         <div className="col-12">
           <div className="input-group-meta position-relative mb-15">
-            <label style={{ color: "black" }}>stream*</label>
             <input
               type="Stream"
-              placeholder="Enter the stream"
+              placeholder="Stream"
               {...register("stream", { required: `stream is required!` })}
               name="stream"
+              style={{
+                backgroundColor: "white",
+                padding: "8px 12px",
+                fontSize: "14px",
+                height: "40px",
+              }}
             />
             <div className="help-block with-errors">
               <ErrorMsg msg={errors.stream?.message!} />
@@ -316,12 +320,17 @@ const ApplyForm = () => {
         </div>
         <div className="col-12">
           <div className="input-group-meta position-relative mb-15">
-            <label style={{ color: "black" }}>level*</label>
             <input
               type="level"
-              placeholder="Enter the level"
+              placeholder="Level"
               {...register("level", { required: `level is required!` })}
               name="level"
+              style={{
+                backgroundColor: "white",
+                padding: "8px 12px",
+                fontSize: "14px",
+                height: "40px",
+              }}
             />
             <div className="help-block with-errors">
               <ErrorMsg msg={errors.level?.message!} />
@@ -329,7 +338,10 @@ const ApplyForm = () => {
           </div>
         </div>
 
-        <div className="agreement-checkbox d-flex justify-content-between align-items-center">
+        <div
+          className="agreement-checkbox d-flex justify-content-between align-items-center"
+          style={{ justifyContent: "center" }}
+        >
           <a
             href="#"
             className="fw-500"
