@@ -7,8 +7,14 @@ const CommonBreadcrumbjob = ({
   title: string;
   subtitle: string;
 }) => {
+  const innerbannersmaller = {
+    padding: "20px 0",
+  };
   return (
-    <div className="inner-banner-one position-relative">
+    <div
+      className="inner-banner-college position-relative"
+      style={innerbannersmaller}
+    >
       <div className="container">
         <div className="position-relative">
           <div className="row">

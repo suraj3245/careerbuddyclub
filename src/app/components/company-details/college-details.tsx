@@ -62,9 +62,9 @@ const CollegeDetailsArea = ({ details }: { details: IcollegeType }) => {
     <>
       <header
         className={`theme-main-menu menu-overlay sticky-menu ${
-          sticky ? "fixed" : ""
+          sticky ? "fixed" : "fixed"
         }`}
-        style={{ top: sticky ? "75px" : "75px" }}
+        style={{ top: sticky ? "1300" : "1300" }}
       >
         <div className="inner-content position-relative">
           <div className="top-header">

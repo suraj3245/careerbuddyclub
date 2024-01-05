@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { Metadata } from "next";
 import Wrapper from "@/layouts/wrapper";
@@ -20,10 +21,6 @@ import Featurefifteen from "./components/features/feature-fifteen";
 import FeatureSixteen from "./components/features/feature-sixteen";
 import FeatureSeventeen from "./components/features/feature-seventeen";
 import Featurefourteen from "./components/features/feature-fourteen";
-
-export const metadata: Metadata = {
-  title: "career buddy club",
-};
 
 const addmission = () => {
   // const [token, setToken] = useState<string | null>(null);

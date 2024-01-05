@@ -67,7 +67,9 @@ export default function RootLayout({
     setKey(Math.random());
   };
   // Check if the current page is 'aptitudetest'
+  const pathname = usePathname();
   const isAptitudeTestPage = usePathname() === "/aptitudetest";
+  const isCollegeDetailsPage = pathname.startsWith("/college-details");
   return (
     <html lang="en">
       <head>
@@ -77,7 +79,7 @@ export default function RootLayout({
         suppressHydrationWarning={true}
         className={`${gordita.variable} ${garamond.variable}`}
       >
-        {!isAptitudeTestPage && (
+        {!isCollegeDetailsPage && !isAptitudeTestPage && (
           <HeaderFour user={user} onLogout={handleLogout} key={key} />
         )}
 
