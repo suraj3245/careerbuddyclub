@@ -1,9 +1,9 @@
 import React from "react";
 import { Metadata } from "next";
-import MainBanner from "./components/hero-banners/main-banner";
+import MainBanner from "../components/hero-banners/main-banner";
 
 export const metadata: Metadata = {
-  title: "Home",
+  title: "main",
 };
 
 const main = () => {

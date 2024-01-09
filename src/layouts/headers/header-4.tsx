@@ -7,9 +7,17 @@ import Menus from "./component/menus";
 import logo from "@/assets/images/logo/logo4.png";
 import useSticky from "@/hooks/use-sticky";
 import LoginModal from "@/app/components/common/popup/login-modal";
-import RegisterModal from "@/app/components/common/popup/register-modal";
-import ApplyModal from "@/app/components/common/popup/apply-modal";
 import PhoneModal from "@/app/components/common/popup/phone-modal";
+
+import dynamic from "next/dynamic";
+
+// Import ApplyModal with SSR disabled
+const ApplyModal = dynamic(
+  () => import("@/app/components/common/popup/apply-modal"),
+  {
+    ssr: false,
+  }
+);
 
 import "react-toastify/dist/ReactToastify.css";
 

@@ -1084,8 +1084,8 @@
   left: 0; // Align to the left of the viewport
   right: 0; // Stretch to the right of the viewport
   z-index: 1000; // Ensure it's above other elements (increase if necessary)
-  background: $color-one; // Background color of the banner
-  padding: 50px 0; // Adjust padding as required
+  background: $color-one;
+  height: 742 px; // Background color of the banner
   width: 100%; // Full width
 
   h1 {
@@ -1195,9 +1195,5 @@
     &.list-layout .cadidate-skills {
       position: static;
     }
-  }
-
-  @media (max-width: 768px) {
-    padding: 30px 0; // Smaller padding for mobile devices
   }
 }

@@ -27,7 +27,10 @@ const PhoneForm = () => {
 
   const requestOTP = (data: { country_code: string; mobile: number }) => {
     axios
-      .post("http://54.224.161.134:8080/api/students/getwhatsappotp", data)
+      .post(
+        "https://test.careerbuddyclub.com:8080/api/students/getwhatsappotp",
+        data
+      )
       .then((response) => {
         console.log(response.data);
         // Notify user that OTP is sent
@@ -76,7 +79,7 @@ const PhoneForm = () => {
     const options = {
       method: "POST",
       // url: '${process.env.REACT_APP_API_URL}students/register', // Replace with your API's URL
-      url: "http://54.224.161.134:8080/api/students/loginNumber", // Replace with your API's URL
+      url: "https://test.careerbuddyclub.com:8080/api/students/loginNumber", // Replace with your API's URL
       headers: {
         "Content-Type": "application/json",
       },

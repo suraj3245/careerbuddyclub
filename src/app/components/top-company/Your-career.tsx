@@ -9,7 +9,7 @@ const YourCareer = () => {
     const temptoken = localStorage.getItem("token");
     const options = {
       method: "POST",
-      url: "http://54.224.161.134:8080/api/students/careerresultskills",
+      url: "https://test.careerbuddyclub.com:8080/api/students/careerresultskills",
       headers: {
         Accept: "*/*",
         Authorization: `Bearer ${temptoken}`,

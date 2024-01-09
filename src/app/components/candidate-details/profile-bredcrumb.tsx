@@ -1,10 +1,16 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import shape_1 from '@/assets/images/shape/shape_02.svg';
-import shape_2 from '@/assets/images/shape/shape_03.svg';
 
-const ProfileBreadcrumb = ({title,subtitle}:{title:string;subtitle:string}) => {
+import shape_2 from "@/assets/images/shape/shape_03.svg";
+
+const ProfileBreadcrumb = ({
+  title,
+  subtitle,
+}: {
+  title: string;
+  subtitle: string;
+}) => {
   return (
     <div className="inner-banner-one position-relative">
       <div className="container">
@@ -27,16 +33,8 @@ const ProfileBreadcrumb = ({title,subtitle}:{title:string;subtitle:string}) => {
           </div>
         </div>
       </div>
-      <Image
-        src={shape_1}
-        alt="shape"
-        className="lazy-img shapes shape_01"
-      />
-      <Image
-        src={shape_2}
-        alt="shape"
-        className="lazy-img shapes shape_02"
-      />
+
+      <Image src={shape_2} alt="shape" className="lazy-img shapes shape_02" />
     </div>
   );
 };

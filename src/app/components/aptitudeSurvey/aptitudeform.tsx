@@ -36,7 +36,7 @@ const QuizForm: React.FC = () => {
 
     const options = {
       method: "POST",
-      url: "http://54.224.161.134:8080/api/students/getcatresult",
+      url: "https://test.careerbuddyclub.com:8080/api/students/getcatresult",
       headers: {
         Accept: "*/*",
         "User-Agent": "Thunder Client (https://www.thunderclient.com)",
@@ -65,7 +65,7 @@ const QuizForm: React.FC = () => {
     const token = localStorage.getItem("token"); // or however you get your token
     const options = {
       method: "POST",
-      url: "http://54.224.161.134:8080/api/students/checkcareerteststatus",
+      url: "https://test.careerbuddyclub.com:8080/students/checkcareerteststatus",
       headers: {
         Accept: "*/*",
         "User-Agent": "Thunder Client (https://www.thunderclient.com)",
@@ -104,7 +104,7 @@ const QuizForm: React.FC = () => {
 
       const options = {
         method: "POST",
-        url: "http://54.224.161.134:8080/api/students/getallcatquestions",
+        url: "https://test.careerbuddyclub.com:8080/api/students/getallcatquestions",
         headers: {
           Accept: "*/*",
           Authorization: `Bearer ${temptoken}`,
@@ -268,7 +268,7 @@ const QuizForm: React.FC = () => {
 
       const submitOptions = {
         method: "POST",
-        url: "http://54.224.161.134:8080/api/students/submitcatanswers",
+        url: "https://test.careerbuddyclub.com:8080/api/students/submitcatanswers",
         headers: {
           Accept: "*/*",
           Authorization: `Bearer ${token}`,

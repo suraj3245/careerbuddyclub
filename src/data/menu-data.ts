@@ -5,15 +5,20 @@ const menu_data: IMenuData[] = [
   {
     id: 1,
     link: "/",
+    title: "Home",
+  },
+  {
+    id: 2,
+    link: "/addmission",
     title: "Admission",
   },
 
   {
-    id: 2,
+    id: 3,
     link: "/",
     title: "Placement",
     sub_menus: [
-      { link: "//jobs.careerbuddyclub.com/", title: "See Jobs Live Now"},
+      { link: "//jobs.careerbuddyclub.com/", title: "See Jobs Live Now" },
       { link: "/company-v1", title: "Explore Company" },
     ],
   },
@@ -171,19 +176,19 @@ const menu_data: IMenuData[] = [
   //   title: "JobPortal",
   // },
   {
-    id: 4,
+    id: 5,
     link: "/careerapt",
     title: "Best Career For You",
   },
   {
-    id: 3,
+    id: 6,
     link: "/",
     title: "We Assists",
-      sub_menus: [
-        { title: "For School", link: "schools"},
-        { title: "For Employer", link: "/corporate" },
-        { title: "For College/ University", link: "/campus" },
-      ],
+    sub_menus: [
+      { title: "For School", link: "schools" },
+      { title: "For Employer", link: "/corporate" },
+      { title: "For College/ University", link: "/campus" },
+    ],
   },
   // {
   //   id:4,
@@ -191,15 +196,15 @@ const menu_data: IMenuData[] = [
   //   title: "Succcess Stories",
   //   },
   {
-  id:5,
-  link: "/about-us",
-  title: "About us",
+    id: 7,
+    link: "/about-us",
+    title: "About us",
   },
   {
-    id:6,
+    id: 8,
     link: "/contact",
     title: "Contact us",
-    },
+  },
 ];
 
 export default menu_data;

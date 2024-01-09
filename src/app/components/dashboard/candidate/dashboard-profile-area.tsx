@@ -45,7 +45,7 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
 
     const options = {
       method: "POST",
-      url: "http://54.224.161.134:8080/api/students/getstudentsprofile",
+      url: "https://test.careerbuddyclub.com:8080/api/students/getstudentsprofile",
       headers: {
         Accept: "*/*",
         "User-Agent": "Thunder Client (https://www.thunderclient.com)",
@@ -128,7 +128,7 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
     // Set up the request options for axios
     const options = {
       method: "POST",
-      url: "http://54.224.161.134:8080/api/students/updatebasicdetails",
+      url: "https://test.careerbuddyclub.com:8080/api/students/updatebasicdetails",
       headers: {
         Accept: "*/*",
         "User-Agent": "Thunder Client (https://www.thunderclient.com)",
@@ -183,7 +183,7 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
     // Set up the request options for axios
     const options = {
       method: "POST",
-      url: "http://54.224.161.134:8080/api/students/updatecontactdetails",
+      url: "https://test.careerbuddyclub.com:8080/api/students/updatecontactdetails",
       headers: {
         Accept: "*/*",
         "User-Agent": "Thunder Client (https://www.thunderclient.com)",
@@ -239,7 +239,7 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
     // Set up the request options for axios
     const options = {
       method: "POST",
-      url: "http://54.224.161.134:8080/api/students/updateAddressLocation",
+      url: "https://test.careerbuddyclub.com:8080/api/students/updateAddressLocation",
       headers: {
         Accept: "*/*",
         "User-Agent": "Thunder Client (https://www.thunderclient.com)",
@@ -298,7 +298,7 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
     // Set up the request options for axios
     const options = {
       method: "POST",
-      url: "http://54.224.161.134:8080/api/students/updatepreference",
+      url: "https://test.careerbuddyclub.com:8080/api/students/updatepreference",
       headers: {
         Accept: "*/*",
         "User-Agent": "Thunder Client (https://www.thunderclient.com)",
@@ -352,7 +352,7 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
     try {
       const response = await axios({
         method: "POST",
-        url: "http://54.224.161.134:8080/api/students/getallstreams",
+        url: "https://test.careerbuddyclub.com:8080/api/students/getallstreams",
         headers: {
           Accept: "*/*",
           "User-Agent": "Thunder Client (https://www.thunderclient.com)",
@@ -379,7 +379,7 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
     try {
       const response = await axios({
         method: "POST",
-        url: "http://54.224.161.134:8080/api/students/getalllevels",
+        url: "https://test.careerbuddyclub.com:8080/api/students/getalllevels",
         headers: {
           Accept: "*/*",
         },
@@ -404,7 +404,7 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
     try {
       const response = await axios({
         method: "POST",
-        url: "http://54.224.161.134:8080/api/students/getcoursesbylevelandstream",
+        url: "https://test.careerbuddyclub.com:8080/api/students/getcoursesbylevelandstream",
         headers: {
           Accept: "*/*",
           "Content-Type": "application/json",
@@ -433,7 +433,7 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
     try {
       const response = await axios({
         method: "POST",
-        url: "http://54.224.161.134:8080/api/students/getspecializationsbycourse",
+        url: "https://test.careerbuddyclub.com:8080/api/students/getspecializationsbycourse",
         headers: {
           Accept: "*/*",
           "Content-Type": "application/json",
@@ -456,7 +456,7 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
     try {
       const response = await axios({
         method: "POST",
-        url: "http://54.224.161.134:8080/api/students/getcollegesbycoursefeeandlocation",
+        url: "https://test.careerbuddyclub.com:8080/api/students/getcollegesbycoursefeeandlocation",
         headers: {
           Accept: "*/*",
           "Content-Type": "application/json",

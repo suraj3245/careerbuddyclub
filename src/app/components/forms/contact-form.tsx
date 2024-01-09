@@ -84,7 +84,7 @@ const ContactForm = () => {
 
   const onSubmit = (data: IFormData) => {
     // Send the data to the Express.js server
-    fetch("http://54.224.161.134:8080/api/addContact", {
+    fetch("https://test.careerbuddyclub.com:8080/api/addContact", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

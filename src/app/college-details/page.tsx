@@ -8,10 +8,7 @@ import college_details from "@/data/college-details";
 import CollegeDetailsArea from "../components/company-details/college-details";
 
 const CollegeDetailsPage = () => {
-  
   const details = college_details[0];
-
- 
 
   return (
     <Wrapper>

@@ -23,10 +23,12 @@ const CollegeDetailsPage = ({ params }: { params: { id: string } }) => {
         {/* header end */}
 
         {/*breadcrumb start */}
+
         <CompanyBreadcrumbjob
           title={details ? details.college : ""}
           subtitle={details ? details.location : ""}
         />
+
         {/*breadcrumb end */}
 
         {/* company details area start */}

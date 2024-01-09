@@ -40,7 +40,7 @@ const ApplyModal = () => {
               aria-label="Close"
             ></button>
             <div className="text-center">
-              <h3>Secure Your Career Now !</h3>
+              <h3>Take Control Of Your Career!</h3>
             </div>
             <div
               style={{
@@ -77,18 +77,20 @@ const ApplyModal = () => {
                       <ul
                         style={{ listStyleType: "none", padding: 0, margin: 0 }}
                       >
-                        <li style={{ marginBottom: "10px", fontSize: "16px" }}>
-                          * With totally online Admission Process
+                        <li style={{ marginBottom: "10px", fontSize: "14px" }}>
+                          * Get admission in 50+ shortlisted Colleges.
                         </li>
-                        <li style={{ marginBottom: "10px", fontSize: "16px" }}>
-                          * Upto 50% discount on application forms
+                        <li style={{ marginBottom: "10px", fontSize: "14px" }}>
+                          * Take admission with CBC 100% Job Guarantee to land a
+                          job after your degree.
                         </li>
-                        <li style={{ marginBottom: "10px", fontSize: "16px" }}>
-                          * Upload your admission documents and get paytm
-                          rewards
+                        <li style={{ marginBottom: "10px", fontSize: "14px" }}>
+                          * Exclusive Job portal for CBC Students from 100+
+                          Corporates with Average 6+ LPA package.
                         </li>
-                        <li style={{ marginBottom: "10px", fontSize: "16px" }}>
-                          * You won't get unwanted calls from third parties
+                        <li style={{ marginBottom: "10px", fontSize: "14px" }}>
+                          * 300+ Buddies to Mentor, Upskill and Train you to
+                          become Successful.
                         </li>
                       </ul>
                     </div>
