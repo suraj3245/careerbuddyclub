@@ -65,6 +65,10 @@ export function CategoryCardWrapper() {
     textAlign: "center", // Center align text
     fontWeight: "500", // Keeping consistent with your existing class
   };
+  const descriptionTextStyle: React.CSSProperties = {
+    color: "#333333", // Replace with your preferred dark color
+    // Add any other styling you need for the description text
+  };
 
   return (
     <div className="card-wrapper row mt-10 lg-mt-10">
@@ -86,7 +90,9 @@ export function CategoryCardWrapper() {
                 <div className="title tran3s fw-500 text-lg" style={titleStyle}>
                   {item.title}
                 </div>
-                <div className="total-job">{item.description}</div>
+                <div className="total-job" style={descriptionTextStyle}>
+                  {item.description}
+                </div>
               </Link>
             )}
             {item.df && (
