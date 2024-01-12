@@ -1,8 +1,7 @@
 "use client";
-
-import React from "react";
-import * as Yup from "yup";
-import { Resolver, useForm } from "react-hook-form";
+import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+import axios from "axios";
 import ErrorMsg from "../common/error-msg";
 import { notifyError, notifySuccess } from "@/utils/toast";
 
@@ -16,110 +15,48 @@ type IFormData = {
   hearAboutUs: string;
   additionalContactInfo: string;
   additionalRequests: string;
+  interests: string[]; // This will be a string array
 };
-
-// Schema
-const schema = Yup.object().shape({
-  schoolName: Yup.string().required().label("School Name"),
-  contactPersonName: Yup.string().required().label("Contact Person Name"),
-  email: Yup.string().required().email().label("Email"),
-  phone: Yup.string().required().label("Phone"),
-  address: Yup.string().required().label("Address"),
-  interest: Yup.string().required().label("interests"),
-  hearAboutUs: Yup.string().required().label("How did you hear about us"),
-  additionalContactInfo: Yup.string().label("Additional Contact Info"),
-  additionalRequests: Yup.string().label("Additional Requests/Comments"),
-});
-
-// Resolver
-const resolver: Resolver<IFormData> = async (values) => {
-  return {
-    values: values.schoolName ? values : {},
-    errors: !values.schoolName
-      ? {
-          name: {
-            type: "required",
-            message: "Name is required.",
-          },
-          email: {
-            type: "required",
-            message: "Email is required.",
-          },
-          message: {
-            type: "required",
-            message: "Message is required.",
-          },
-        }
-      : {},
-  };
-};
-
-// Rest of the code...
 
 const ContactSchoolForm = () => {
-  // react hook form
+  const [selectedInterests, setSelectedInterests] = useState<string[]>([]);
+
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm<IFormData>({ resolver });
-  // on submit
-  // const onSubmit = (data: IFormData) => {
-  //   const templateParams = {
-  //     name: data.name,
-  //     email: data.email,
-  //     subject: data.subject,
-  //     message: data.message,
-  //   };
-  //   if (data) {
-  //     emailjs
-  //       .send(
-  //         'service_gnu2rla',
-  //         'template_ilrquco',
-  //         templateParams,
-  //         'tDbxqotWh8Z0dv0h6'
-  //       )
-  //       .then(
-  //         (response) => {
-  //           // console.log("SUCCESS!", response.status, response.text);
-  //           notifySuccess('Your message sent successfully');
-  //         },
-  //         (err) => {
-  //           // console.log("FAILED...", err);
-  //           notifyError(err?.text);
-  //         }
-  //       );
-  //   }
+  } = useForm<IFormData>({});
 
-  //   reset();
-  // };
+  const handleInterestChange = (event: {
+    target: { value: any; checked: any };
+  }) => {
+    const { value, checked } = event.target;
+    setSelectedInterests((prevInterests) =>
+      checked
+        ? [...prevInterests, value]
+        : prevInterests.filter((interest) => interest !== value)
+    );
+  };
 
   const onSubmit = (data: IFormData) => {
-    // Send the data to the Express.js server
-    fetch("http://localhost:5000/addContact", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
+    const postData = {
+      ...data,
+      interests: selectedInterests.join(", "),
+    };
+
+    axios
+      .post(
+        "https://test.careerbuddyclub.com:8080/api/students/schoolcontactformsubmit",
+        postData
+      )
       .then((response) => {
-        if (response.ok) {
-          // If response from the server is successful
-          return response.text();
-        } else {
-          // If server returns an error response
-          throw new Error("Server responded with an error");
-        }
-      })
-      .then((result) => {
-        console.log(result);
+        console.log(response.data);
         notifySuccess("Your message sent successfully");
       })
       .catch((error) => {
-        console.error("Error:", error);
-        notifyError(error?.message);
+        console.error(error);
+        notifyError("An error occurred while submitting the form");
       })
       .finally(() => {
         reset();
@@ -183,11 +120,8 @@ const ContactSchoolForm = () => {
           <label style={{ fontSize: "0.8rem" }}>
             <input
               type="checkbox"
-              name="interests"
               value="Conducting career aptitude"
-              // {...register("interests.careerAptitude", {
-              //   required: "At least one option must be selected",
-              // })}
+              onChange={handleInterestChange}
               style={{ width: "1rem", height: "1rem", marginRight: "5px" }}
             />
             Conducting Career Aptitude Test
@@ -195,11 +129,8 @@ const ContactSchoolForm = () => {
           <label style={{ fontSize: "0.8rem" }}>
             <input
               type="checkbox"
-              name="interests"
               value="Organizing career town"
-              // {...register("interests.careerTown", {
-              //   required: "At least one option must be selected",
-              // })}
+              onChange={handleInterestChange}
               style={{ width: "1rem", height: "1rem", marginRight: "5px" }}
             />
             Organizing Career Town
@@ -207,19 +138,13 @@ const ContactSchoolForm = () => {
           <label style={{ fontSize: "0.8rem" }}>
             <input
               type="checkbox"
-              name="interests"
-              value="participating in career"
-              // {...register("interests.careerCompetition", {
-              //   required: "At least one option must be selected",
-              // })}
+              value="Participating in career competition"
+              onChange={handleInterestChange}
               style={{ width: "1rem", height: "1rem", marginRight: "5px" }}
             />
             Participating in Career Town competition
           </label>
         </div>
-        {/* {errors.interests && (
-          <ErrorMsg msg="At least one option must be selected" />
-        )} */}
       </div>
 
       {/* How did you hear about us */}

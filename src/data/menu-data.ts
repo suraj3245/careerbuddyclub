@@ -9,7 +9,7 @@ const menu_data: IMenuData[] = [
   },
   {
     id: 2,
-    link: "/addmission",
+    link: "/admission",
     title: "Admission",
   },
 
@@ -180,6 +180,7 @@ const menu_data: IMenuData[] = [
     link: "/careerapt",
     title: "Best Career For You",
   },
+
   {
     id: 6,
     link: "/",
@@ -190,11 +191,6 @@ const menu_data: IMenuData[] = [
       { title: "For College/ University", link: "/campus" },
     ],
   },
-  // {
-  //   id:4,
-  //   link: "/",
-  //   title: "Succcess Stories",
-  //   },
   {
     id: 7,
     link: "/about-us",

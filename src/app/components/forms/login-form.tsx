@@ -143,7 +143,7 @@ const LoginForm = () => {
             <label style={{ color: "black" }}>Email*</label>
             <input
               type="email"
-              placeholder="Enter Email"
+              placeholder="E-mail"
               {...register("email", { required: `Email is required!` })}
               name="email"
             />
@@ -157,7 +157,7 @@ const LoginForm = () => {
             <label style={{ color: "black" }}>Password*</label>
             <input
               type={`${showPass ? "text" : "password"}`}
-              placeholder="Enter Password"
+              placeholder="Password"
               className="pass_log_id"
               {...register("password", { required: `Password is required!` })}
               name="password"

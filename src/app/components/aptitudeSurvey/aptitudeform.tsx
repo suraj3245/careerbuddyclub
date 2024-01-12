@@ -89,10 +89,10 @@ const QuizForm: React.FC = () => {
   useEffect(() => {
     checkTestStatus();
   }, []);
-  // useEffect(() => {
-  //   const submitted = localStorage.getItem("quizSubmitted") === "true";
-  //   setIsSubmitted(submitted);
-  // }, []);
+  useEffect(() => {
+    const submitted = localStorage.getItem("quizSubmitted") === "true";
+    setIsSubmitted(submitted);
+  }, []);
 
   const chartRef = useRef<HTMLCanvasElement>(null);
 
@@ -285,7 +285,7 @@ const QuizForm: React.FC = () => {
       console.log("Submit Response:", response.data);
       setResults(response.data);
       setIsSubmitted(true);
-      // localStorage.setItem("quizSubmitted", "true");
+      localStorage.setItem("quizSubmitted", "true");
     } catch (error) {
       console.error("Error submitting answers:", error);
     }
