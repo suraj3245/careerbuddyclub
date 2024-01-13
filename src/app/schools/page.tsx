@@ -30,9 +30,9 @@ const schools = () => {
       <Aptibannerthree />
 
       <FeedbackThree />
-      <FeatureSix />
-   
 
+      <FeatureSix />
+      <ContactSchoolArea />
       <FooterOne />
       {/* footer end */}
     </Wrapper>

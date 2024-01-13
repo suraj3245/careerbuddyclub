@@ -9,6 +9,7 @@ const CommonBreadcrumbjob = ({
 }) => {
   const innerbannersmaller = {
     padding: "20px 0",
+    paddingTop: "50px",
   };
   return (
     <div
@@ -26,7 +27,7 @@ const CommonBreadcrumbjob = ({
             </div>
             <ul className="d-flex align-items-center justify-content-center style-none">
               <li>
-                <a href="#" className="fw-500  btn-five text-dark">
+                <a href="#" className="fw-500  btn-five text-white">
                   Download Brochure
                 </a>
               </li>

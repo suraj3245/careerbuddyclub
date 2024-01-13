@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -8,7 +8,7 @@ import logo from "@/assets/images/logo/logo4.png";
 import useSticky from "@/hooks/use-sticky";
 import LoginModal from "@/app/components/common/popup/login-modal";
 import PhoneModal from "@/app/components/common/popup/phone-modal";
-
+import img_1 from "@/assets/images/assets/user-icon.png";
 import dynamic from "next/dynamic";
 
 // Import ApplyModal with SSR disabled
@@ -28,9 +28,11 @@ interface HeaderFourProps {
   onLogout: () => void;
   key: number;
 }
+
 const HeaderFour: React.FC<HeaderFourProps> = ({ user, key, onLogout }) => {
   const { sticky } = useSticky();
-  const isUserLoggedIn = user && user.value;
+  const isUserLoggedIn = Boolean(user.value); // user.value will be false if null or empty
+  const [showDropdown, setShowDropdown] = useState(false);
 
   return (
     <>
@@ -80,14 +82,50 @@ const HeaderFour: React.FC<HeaderFourProps> = ({ user, key, onLogout }) => {
                 )}
                 {isUserLoggedIn && (
                   <ul className="d-flex align-items-center style-none">
-                    <li>
+                    <li className="nav-item dropdown">
                       <a
-                        href="/"
-                        className=" btn-five fw-500 text-white"
-                        onClick={onLogout}
+                        className="nav-link "
+                        href="#"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        data-bs-auto-close="outside"
+                        aria-expanded="false"
                       >
-                        Logout
+                        <Image
+                          src={img_1}
+                          width="60"
+                          height="60"
+                          alt="User"
+                          className="user-icon"
+                        />
                       </a>
+                      <ul className="dropdown-menu">
+                        <li>
+                          <Link
+                            href="/dashboard/candidate-dashboard/profile"
+                            className="dropdown-item"
+                          >
+                            Student Dashboard
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            href="/dashboard/candidate-dashboard/setting"
+                            className="dropdown-item"
+                          >
+                            Set Password
+                          </Link>
+                        </li>
+                        <li>
+                          <a
+                            href="/"
+                            className="dropdown-item"
+                            onClick={onLogout}
+                          >
+                            Logout
+                          </a>
+                        </li>
+                      </ul>
                     </li>
                   </ul>
                 )}

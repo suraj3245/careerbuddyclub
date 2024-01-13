@@ -47,7 +47,7 @@ const HeroBanner = () => {
                 onClick={handleAdmissionClick}
                 {...(!isLoggedIn && {
                   "data-bs-toggle": "modal",
-                  "data-bs-target": "#loginModal",
+                  "data-bs-target": "#ApplyModal",
                 })}
               >
                 Apply Now

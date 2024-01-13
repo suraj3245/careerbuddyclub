@@ -34,7 +34,7 @@
 }
 // Hero Banner Two
 .hero-banner-two {
-  background: #e2f9ee;
+  background: $color-one;
   z-index: 1;
   h1 {
     font-size: 90px;
@@ -216,6 +216,7 @@
     font-size: 72px;
     line-height: 1.277em;
     letter-spacing: -1px;
+    color: #14adbd;
   }
   .img-meta {
     position: absolute;
@@ -223,7 +224,7 @@
     right: 0;
     bottom: 0;
     width: 45%;
-    background: url(../images/assets/s15.jpg) no-repeat center;
+    background: url(../images/assets/apti.png) no-repeat center;
     background-size: cover;
     z-index: -1;
 
@@ -1083,7 +1084,7 @@
   top: 0; // Align to the top of the viewport
   left: 0; // Align to the left of the viewport
   right: 0; // Stretch to the right of the viewport
-  z-index: 1000; // Ensure it's above other elements (increase if necessary)
+  z-index: 10; // Ensure it's above other elements (increase if necessary)
   background: $color-one;
   height: 742 px; // Background color of the banner
   width: 100%; // Full width

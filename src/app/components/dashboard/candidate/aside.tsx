@@ -7,14 +7,18 @@ import logo from "@/assets/dashboard/images/logo_01.png";
 import profile_icon_1 from "@/assets/dashboard/images/icon/icon_23.svg";
 import profile_icon_2 from "@/assets/dashboard/images/icon/icon_24.svg";
 import profile_icon_3 from "@/assets/dashboard/images/icon/icon_25.svg";
+import nav_1 from "@/assets/dashboard/images/icon/icon_1.svg";
+import nav_5 from "@/assets/dashboard/images/icon/icon_5.svg";
+import nav_1_active from "@/assets/dashboard/images/icon/icon_1_active.svg";
+import nav_5_active from "@/assets/dashboard/images/icon/icon_5_active.svg";
+
 import nav_2 from "@/assets/dashboard/images/icon/icon_2.svg";
 import nav_2_active from "@/assets/dashboard/images/icon/icon_2_active.svg";
 import nav_3 from "@/assets/dashboard/images/icon/icon_3.svg";
 import nav_3_active from "@/assets/dashboard/images/icon/icon_3_active.svg";
 import nav_4 from "@/assets/dashboard/images/icon/icon_4.svg";
 import nav_4_active from "@/assets/dashboard/images/icon/icon_4_active.svg";
-import nav_5 from "@/assets/dashboard/images/icon/icon_5.svg";
-import nav_5_active from "@/assets/dashboard/images/icon/icon_5_active.svg";
+
 import LogoutModal from "../../common/popup/logout-modal";
 
 // nav data
@@ -34,8 +38,8 @@ const nav_data: {
   // },
   {
     id: 1,
-    icon: nav_4,
-    icon_active: nav_4_active,
+    icon: nav_1,
+    icon_active: nav_1_active,
     link: "/dashboard/candidate-dashboard/career-aptitude",
     title: "Career Aptitude Test",
   },
@@ -53,28 +57,21 @@ const nav_data: {
     link: "/dashboard/candidate-dashboard/education",
     title: "Education Details",
   },
+  {
+    id: 4,
+    icon: nav_4,
+    icon_active: nav_4_active,
+    link: "/dashboard/candidate-dashboard/setting",
+    title: "Set Password",
+  },
 
   {
-    id: 5,
+    id: 4,
     icon: nav_5,
     icon_active: nav_5_active,
-    link: "/dashboard/candidate-dashboard/job-guarantee",
-    title: "Job Guarantee Program",
+    link: "/dashboard/candidate-dashboard/partner-companies",
+    title: "Partner Companies",
   },
-  // {
-  //   id: 6,
-  //   icon: nav_6,
-  //   icon_active: nav_6_active,
-  //   link: "/dashboard/candidate-dashboard/saved-job",
-  //   title: "Saved Job",
-  // },
-  // {
-  //   id: 7,
-  //   icon: nav_7,
-  //   icon_active: nav_7_active,
-  //   link: "/dashboard/candidate-dashboard/setting",
-  //   title: "Account Settings",
-  // },
 ];
 // props type
 type IProps = {

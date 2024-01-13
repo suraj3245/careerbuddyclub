@@ -48,7 +48,22 @@ export default function RootLayout({
   const [user, setUser] = useState<{ value: string | null }>({ value: null });
   const [key, setKey] = useState<number>(0);
   const router = useRouter();
+  const [isMobile, setIsMobile] = useState(false);
 
+  const handleResize = () => {
+    // Update isMobile based on window width
+    setIsMobile(window.innerWidth <= 767);
+  };
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      // Initialize and set up resize event listener
+      handleResize();
+      window.addEventListener("resize", handleResize);
+    }
+
+    // Clean up event listener
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   useEffect(() => {
     if (typeof window !== "undefined") {
       const tempToken = localStorage.getItem("token");
@@ -69,7 +84,10 @@ export default function RootLayout({
   // Check if the current page is 'aptitudetest'
   const pathname = usePathname();
   const isAptitudeTestPage = usePathname() === "/aptitudetest";
-  const isCollegeDetailsPage = pathname.startsWith("/college-details");
+  const isCandidateDashboardPage = pathname.startsWith(
+    "/dashboard/candidate-dashboard/"
+  );
+  // const isCollegeDetailsPage = pathname.startsWith("/college-details");
   return (
     <html lang="en">
       <head>
@@ -79,7 +97,7 @@ export default function RootLayout({
         suppressHydrationWarning={true}
         className={`${gordita.variable} ${garamond.variable}`}
       >
-        {!isCollegeDetailsPage && !isAptitudeTestPage && (
+        {!isAptitudeTestPage && (!isMobile || !isCandidateDashboardPage) && (
           <HeaderFour user={user} onLogout={handleLogout} key={key} />
         )}
 

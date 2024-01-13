@@ -7,6 +7,7 @@ import notify_icon_1 from "@/assets/dashboard/images/icon/icon_36.svg";
 import notify_icon_2 from "@/assets/dashboard/images/icon/icon_37.svg";
 import notify_icon_3 from "@/assets/dashboard/images/icon/icon_38.svg";
 import search from "@/assets/dashboard/images/icon/icon_10.svg";
+import { useMediaQuery } from "react-responsive";
 // notification item
 function NotificationItem({
   icon,
@@ -34,14 +35,18 @@ type IProps = {
   setIsOpenSidebar?: React.Dispatch<React.SetStateAction<boolean>>;
 };
 const DashboardHeader = ({ setIsOpenSidebar }: IProps) => {
+  const isMobile = useMediaQuery({ maxWidth: 767 });
   // handle click to open
   const handleOpen = () => {
     if (setIsOpenSidebar) {
       setIsOpenSidebar(true);
     }
   };
+  if (!isMobile) {
+    return null;
+  }
   return (
-    <header>
+    <header className="dashboard-header">
       <div className="d-flex align-items-center justify-content-end">
         <button
           onClick={handleOpen}

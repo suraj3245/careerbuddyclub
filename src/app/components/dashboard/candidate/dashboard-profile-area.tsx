@@ -556,9 +556,9 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
                     <NiceSelect
                       options={[
                         { value: "", label: "Select Gender" },
-                        { value: "Male", label: "Male" },
-                        { value: "Female", label: "Female" },
-                        { value: "Others", label: "Others" },
+                        { value: "male", label: "Male" },
+                        { value: "female", label: "Female" },
+                        { value: "others", label: "Others" },
                       ]}
                       value={formData.gender}
                       onChange={handleSelectChange}
