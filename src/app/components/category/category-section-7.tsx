@@ -35,7 +35,7 @@ export const category_data: ICategoryThree[] = [
     title: <>College</>,
     description:
       "Worried about not getting into a good College? Let Career Buddy Club get you 100% Guaranteed Admission in the Best College as per your need.",
-    nav: "/campus",
+    nav: "/dashboard/candidate-dashboard/profile",
     bg_img: bg_3,
   },
   {
@@ -44,7 +44,7 @@ export const category_data: ICategoryThree[] = [
     title: <>Company</>,
     description:
       "Not getting hired as a Fresher? Check our Job Portal for the latest Fresher Jobs & their Interview Dates",
-    nav: "/corporate",
+    nav: "https://jobs.careerbuddyclub.com",
     bg_img: bg_4,
   },
 ];
