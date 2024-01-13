@@ -16,7 +16,7 @@ const FeatureEleven = () => {
                 <div className="col-lg-5">
                   <div className="title-one mt-30 md-mb-40">
                     <h2 className="fw-500">
-                      We’ve been helping customer globally.
+                      We’ve been helping Students globally.
                     </h2>
                   </div>
                 </div>

@@ -26,8 +26,8 @@ export const how_works_data: how_works_type[] = [
     id: 3,
     icon: icon_3,
     icon_white: icon_W_3,
-    title: "Apply job or hire",
+    title: "Explore Admission & Placement Services",
     sub_title:
-      "Apply & get your preferable jobs with all the requirements and get it.",
+      "Apply & get admission in Colleges/Universties and get jobs in Corporates.",
   },
 ];

@@ -56,7 +56,7 @@ const AptiBanner = () => {
           onClick={handleBeginTestClick}
           data-wow-delay="0.6s"
         >
-          Begin your free Test
+          Begin your Free Test
         </button>
       </div>
       <div className="img-meta">

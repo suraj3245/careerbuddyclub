@@ -38,7 +38,7 @@ const AptiFeaturet = () => {
                   <li>
                     Get in-depth career reports with personalized development plans.
                   </li>
-                  <li>With help from our career advisers,Compare and select a few colleges from among thousands of options for your primary and backup vocations.</li>
+                  <li>With help from our Career Advisors, Compare and select a few Colleges/Universities from among thousands of options for your primary and backup options.</li>
                   <li>
                   Personalized career counselling and all-around support for all your questions will help you make the best decision.
                   </li>

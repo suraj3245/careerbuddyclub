@@ -14,9 +14,9 @@ const HowItWorks = () => {
           data-wow-delay="0.3s"
         >
           <h2 className="text-black">
-            How it’s{" "}
+            How it{" "}
             <span className="position-relative">
-              work?{" "}
+              works?{" "}
               <Image
                 src={shape_1}
                 alt="shape"

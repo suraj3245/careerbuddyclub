@@ -82,11 +82,7 @@ const FeatureThree = () => {
             </div>
           </div>
 
-          <div className="border-bottom pb-50 lg-pb-20 mt-90 lg-mt-30">
-            <div className="row justify-content-center">
-              <CounterOne />
-            </div>
-          </div>
+          
         </div>
       </section>
 
