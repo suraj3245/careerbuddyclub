@@ -83,6 +83,7 @@ export default function RootLayout({
   };
   // Check if the current page is 'aptitudetest'
   const pathname = usePathname();
+  const isRedirectPage = pathname.startsWith("/redirect");
   const isAptitudeTestPage = usePathname() === "/aptitudetest";
   const isCandidateDashboardPage = pathname.startsWith(
     "/dashboard/candidate-dashboard/"
@@ -97,9 +98,11 @@ export default function RootLayout({
         suppressHydrationWarning={true}
         className={`${gordita.variable} ${garamond.variable}`}
       >
-        {!isAptitudeTestPage && (!isMobile || !isCandidateDashboardPage) && (
-          <HeaderFour user={user} onLogout={handleLogout} key={key} />
-        )}
+        {!isRedirectPage &&
+          !isAptitudeTestPage &&
+          (!isMobile || !isCandidateDashboardPage) && (
+            <HeaderFour user={user} onLogout={handleLogout} key={key} />
+          )}
 
         <Providers>{children}</Providers>
         <BackToTopCom />
