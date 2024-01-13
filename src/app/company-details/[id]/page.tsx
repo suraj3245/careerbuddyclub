@@ -20,10 +20,7 @@ const CompanyDetailsDynamicPage = ({ params }: { params: { id: string } }) => {
         {/* header end */}
 
         {/*breadcrumb start */}
-        <CompanyBreadcrumb
-          title={details ? details.company : ""}
-          subtitle={details ? details.title : ""}
-        />
+
         {/*breadcrumb end */}
 
         {/* company details area start */}
@@ -31,7 +28,7 @@ const CompanyDetailsDynamicPage = ({ params }: { params: { id: string } }) => {
         {/* company details area end */}
 
         {/*job Open Position */}
-      
+
         {/*job Open Position */}
 
         {/* job portal intro start */}

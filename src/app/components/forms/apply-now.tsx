@@ -11,7 +11,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import icon from "@/assets/images/icon/icon_60.svg";
 interface IOption {
-  value: string; // or number, if your value is a numeric ID
+  value: string;
   label: string;
 }
 
@@ -194,7 +194,7 @@ const ApplyForm = () => {
           theme: "light",
         });
         setTimeout(() => {
-          window.location.href = "/";
+          window.location.href = "/dashboard/candidate-dashboard/profile";
         }, 1000);
       })
       .catch((error) => {

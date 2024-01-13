@@ -30,7 +30,7 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
     special: "",
     location: "",
     collegeType: "",
-    courses: "",
+    course: "",
     feeRange: "",
     collegePreference: "",
     // ... other fields as needed ...
@@ -86,12 +86,14 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
         updatedFormData.stream = data.preferences.stream || formData.stream;
         updatedFormData.level = data.preferences.level || formData.level;
         updatedFormData.special =
-          data.basicDetails.specialization || formData.special;
-        updatedFormData.courses = data.preferences.courses || formData.courses;
+          data.preferences.specialization || formData.special;
+        updatedFormData.course = data.preferences.course || formData.course;
         updatedFormData.feeRange =
           data.preferences.fee_range || formData.feeRange;
+        updatedFormData.location =
+          data.preferences.location || formData.location;
         updatedFormData.collegePreference =
-          data.preferences.college_preference || formData.collegePreference;
+          data.preferences.college || formData.collegePreference;
       }
 
       // ... similarly for other nested data structures ...
@@ -288,11 +290,11 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
       level: formData.level,
       specialization: formData.special,
       location: formData.location,
-      course: formData.courses,
+      course: formData.course,
       fee_range: formData.feeRange,
-      college_preference: formData.collegePreference,
+      college: formData.collegePreference,
     };
-
+    console.log(PreferenceDetails);
     const token = localStorage.getItem("token");
 
     // Set up the request options for axios
@@ -342,9 +344,9 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
   const handleSelectChange = (item: OnChangeArgument) => {
     console.log("Select Changed", item);
     setFormData((prevState) => ({ ...prevState, [item.name]: item.value }));
-    if (item.name === "stream" || item.name === "level") {
-      fetchCourses();
-    }
+    // if (item.name === "stream" || item.name === "level") {
+    //   fetchCourses();
+    // }
   };
   const [streamid, setstreamid] = useState([]);
 
@@ -360,7 +362,7 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
       });
       const streamData = response.data.map(
         (stream: { id: any; title: any }) => ({
-          value: stream.id,
+          value: stream.title,
           label: stream.title,
         })
       );
@@ -386,7 +388,7 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
       });
       const streamData = response.data.map(
         (level: { id: any; title: any }) => ({
-          value: level.id,
+          value: level.title,
           label: level.title,
         })
       );
@@ -396,105 +398,105 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
       // Handle error, e.g., set some state to show an error message
     }
   };
-  const fetchCourses = async () => {
-    if (!formData.level || !formData.stream) {
-      return; // exit if either level or stream is not selected
-    }
+  // const fetchCourses = async () => {
+  //   if (!formData.level || !formData.stream) {
+  //     return; // exit if either level or stream is not selected
+  //   }
 
-    try {
-      const response = await axios({
-        method: "POST",
-        url: "https://test.careerbuddyclub.com:8080/api/students/getcoursesbylevelandstream",
-        headers: {
-          Accept: "*/*",
-          "Content-Type": "application/json",
-        },
-        data: {
-          level_id: formData.level,
-          stream_id: formData.stream,
-        },
-      });
+  //   try {
+  //     const response = await axios({
+  //       method: "POST",
+  //       url: "https://test.careerbuddyclub.com:8080/api/students/getcoursesbylevelandstream",
+  //       headers: {
+  //         Accept: "*/*",
+  //         "Content-Type": "application/json",
+  //       },
+  //       data: {
+  //         level_id: formData.level,
+  //         stream_id: formData.stream,
+  //       },
+  //     });
 
-      // Map the response to the format expected by NiceSelect
-      const newCoursesOptions = response.data.map(
-        (course: { id: any; name: any }) => ({
-          value: course.id, // assuming you want to store the course id
-          label: course.name, // the course name for display
-        })
-      );
+  //     // Map the response to the format expected by NiceSelect
+  //     const newCoursesOptions = response.data.map(
+  //       (course: { id: any; name: any }) => ({
+  //         value: course.name, // assuming you want to store the course id
+  //         label: course.name, // the course name for display
+  //       })
+  //     );
 
-      setcoursesOptions(newCoursesOptions);
-    } catch (error) {
-      console.error(error);
-      // Handle the error appropriately
-    }
-  };
-  const fetchSpecializations = async () => {
-    try {
-      const response = await axios({
-        method: "POST",
-        url: "https://test.careerbuddyclub.com:8080/api/students/getspecializationsbycourse",
-        headers: {
-          Accept: "*/*",
-          "Content-Type": "application/json",
-        },
-        data: { course_id: formData.courses },
-      });
-      const specializationData = response.data.map(
-        (spec: { id: any; title: any }) => ({
-          value: spec.id,
-          label: spec.title,
-        })
-      );
-      setSpecializationOptions(specializationData);
-    } catch (error) {
-      console.error(error);
-      // Handle error, e.g., set some state to show an error message
-    }
-  };
-  const fetchcolleges = async () => {
-    try {
-      const response = await axios({
-        method: "POST",
-        url: "https://test.careerbuddyclub.com:8080/api/students/getcollegesbycoursefeeandlocation",
-        headers: {
-          Accept: "*/*",
-          "Content-Type": "application/json",
-        },
-        data: {
-          course_id: formData.courses,
-          fee_range: formData.feeRange,
-          city: formData.location,
-        },
-      });
-      const collegeData = response.data.map(
-        (college: { id: any; college_full_name: any }) => ({
-          value: college.id,
-          label: college.college_full_name,
-        })
-      );
-      setCollegesOptions(collegeData);
-    } catch (error) {
-      console.error(error);
-      // Handle error, e.g., set some state to show an error message
-    }
-  };
+  //     setcoursesOptions(newCoursesOptions);
+  //   } catch (error) {
+  //     console.error(error);
+  //     // Handle the error appropriately
+  //   }
+  // };
+  // const fetchSpecializations = async () => {
+  //   try {
+  //     const response = await axios({
+  //       method: "POST",
+  //       url: "https://test.careerbuddyclub.com:8080/api/students/getspecializationsbycourse",
+  //       headers: {
+  //         Accept: "*/*",
+  //         "Content-Type": "application/json",
+  //       },
+  //       data: { course_id: formData.courses },
+  //     });
+  //     const specializationData = response.data.map(
+  //       (spec: { id: any; title: any }) => ({
+  //         value: spec.title,
+  //         label: spec.title,
+  //       })
+  //     );
+  //     setSpecializationOptions(specializationData);
+  //   } catch (error) {
+  //     console.error(error);
+  //     // Handle error, e.g., set some state to show an error message
+  //   }
+  // };
+  // const fetchcolleges = async () => {
+  //   try {
+  //     const response = await axios({
+  //       method: "POST",
+  //       url: "https://test.careerbuddyclub.com:8080/api/students/getcollegesbycoursefeeandlocation",
+  //       headers: {
+  //         Accept: "*/*",
+  //         "Content-Type": "application/json",
+  //       },
+  //       data: {
+  //         course_id: formData.courses,
+  //         fee_range: formData.feeRange,
+  //         city: formData.location,
+  //       },
+  //     });
+  //     const collegeData = response.data.map(
+  //       (college: { id: any; college_full_name: any }) => ({
+  //         value: college.college_full_name,
+  //         label: college.college_full_name,
+  //       })
+  //     );
+  //     setCollegesOptions(collegeData);
+  //   } catch (error) {
+  //     console.error(error);
+  //     // Handle error, e.g., set some state to show an error message
+  //   }
+  // };
   useEffect(() => {
     fetchLevelOptions(); // Fetch stream options when the component mounts
   }, []);
-  useEffect(() => {
-    if (formData.stream && formData.level) {
-      fetchCourses();
-    }
-  }, [formData.stream, formData.level]);
-  useEffect(() => {
-    if (formData.courses) {
-      fetchSpecializations();
-    }
-  }, [formData.courses]);
-  useEffect(() => {
-    fetchcolleges();
-  }, [formData.courses, formData.feeRange, formData.city]);
+  // useEffect(() => {
+  //   if (formData.stream && formData.level) {
+  //     fetchCourses();
+  //   }
+  // }, [formData.stream, formData.level]);
+  // useEffect(() => {
+  //   if (formData.courses) {
+  //     fetchSpecializations();
+  //   }
+  // }, [formData.courses]);
+  // useEffect(() => {
+  //   fetchcolleges();
+  // }, [formData.courses, formData.feeRange, formData.city]);
 
   return (
     <div className="dashboard-body">
@@ -706,10 +708,26 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
                 <div className="dash-input-wrapper mb-25">
                   <label htmlFor="">Courses*</label>
                   <NiceSelect
-                    options={coursesOptions}
-                    value={formData.courses}
+                    options={[
+                      { value: "", label: "select Courses" },
+                      {
+                        value: "Bachelors",
+                        label: "Bachelors",
+                      },
+                      {
+                        value: "Masters",
+                        label: "Masters",
+                      },
+                      {
+                        value: "Diploma",
+                        label: "Diploma",
+                      },
+
+                      { value: "Others", label: "Others" },
+                    ]}
+                    value={formData.course}
                     onChange={handleSelectChange}
-                    name="courses"
+                    name="course"
                     placeholder="select courses"
                   />
                 </div>
@@ -717,12 +735,35 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
               <div className="col-lg-4">
                 <div className="dash-input-wrapper mb-25">
                   <label htmlFor="">Specialization*</label>
-                  <NiceSelect
+                  {/* <NiceSelect
                     options={specializationOptions}
                     value={formData.special}
                     onChange={handleSelectChange}
                     name="special"
                     placeholder="select specialization"
+                  /> */}
+                  <NiceSelect
+                    options={[
+                      { value: "", label: "select Specialization" },
+                      {
+                        value: "computer engineering",
+                        label: "computer engineering",
+                      },
+                      {
+                        value: "civil engineering",
+                        label: "civil engineering",
+                      },
+                      {
+                        value: "electrical engineering",
+                        label: "electrical engineering",
+                      },
+
+                      { value: "Others", label: "Others" },
+                    ]}
+                    value={formData.special}
+                    onChange={handleSelectChange}
+                    name="special"
+                    placeholder="Select Specialization"
                   />
                 </div>
               </div>
@@ -761,10 +802,19 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
                 <div className="dash-input-wrapper mb-25">
                   <label htmlFor="">College*</label>
                   <NiceSelect
-                    options={collegesOptions}
+                    options={[
+                      { value: "", label: "select Colleges" },
+                      { value: "Guru Nanak", label: "Guru Nanak" },
+                      { value: "BFIT", label: "BFIT" },
+                      { value: "Doon Business", label: "Doon Business" },
+                      {
+                        value: "University of Petroleum",
+                        label: "University of Petroleum",
+                      },
+                    ]}
                     value={formData.collegePreference}
                     onChange={handleSelectChange}
-                    name="CollegePreference"
+                    name="collegePreference"
                     placeholder="select college"
                   />
                 </div>
