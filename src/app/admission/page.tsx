@@ -36,7 +36,6 @@ const admission = () => {
         <div className="partner-logos bg-color border-0 pt-45 pb-45 ps-3 pe-3 mt-4">
           <PartnersSlider2 />
         </div>
-        <FancyBannerNine />
         <FooterOne />
 
         {/* footer end */}

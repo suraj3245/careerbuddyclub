@@ -30,7 +30,7 @@ export function WidgetThree({ cls,style_2 }: { cls: string;style_2?:boolean }) {
     <div className={`${cls} mb-20`}>
       <h5 className={`footer-title ${style_2?'text-white':''}`}>Support</h5>
       <ul className="footer-nav-link style-none">
-        <li><Link href='/faq'>Terms & conditions</Link></li>
+        <li><Link href='/contact'>Terms & conditions</Link></li>
         <li><Link href='/contact'>Contact</Link></li>
 
       </ul>
@@ -42,9 +42,9 @@ export function WidgetFour({ cls,style_2 }: { cls: string;style_2?:boolean }) {
     <div className={`${cls} mb-20`}>
       <h5 className={`footer-title ${style_2?'text-white':''}`}>Our Services</h5>
       <ul className="footer-nav-link style-none">
-        <li><Link href='/schools'>Schools</Link></li>
-        <li><Link href='/campus'>College</Link></li>
-        <li><Link href='/corporate'>Corporate</Link></li>
+        <li><Link href='/schools'>For Schools</Link></li>
+        <li><Link href='/campus'>For College</Link></li>
+        <li><Link href='/corporate'>For Corporate</Link></li>
 
 
       </ul>

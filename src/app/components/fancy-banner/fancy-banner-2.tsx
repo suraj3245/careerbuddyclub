@@ -8,9 +8,9 @@ const counter_data: {
   text: string;
   title: string;
 }[] = [
-  { count: 786, text: "+", title: "World wide Client" },
-  { count: 1000, text: "+", title: "Top Talents" },
-  { count: 100, text: "+", title: "Institution" },
+  { count: 1200, text: "+", title: "Schools" },
+  { count: 50, text: "+", title: "Colleges/Universities" },
+  { count: 100, text: "+", title: "Corporates" },
 ];
 
 const FancyBannerTwo = () => {
@@ -35,7 +35,7 @@ const FancyBannerTwo = () => {
                   </h2>
                 </div>
                 <p className="text-white mt-25 mb-55 lg-mb-40">
-                  - The trusted partner of more than <b>100+ colleges and
+                  - The trusted partner of more than <b>50+ colleges and
                   institutions.</b>
                   <br />
                   - Gain data-driven insights to refine career strategies and
@@ -62,7 +62,7 @@ const FancyBannerTwo = () => {
                     ))}
                   </div>
                 </div>
-                <Link href="/contact" className="explore-btn tran3s ">
+                <Link href="/" className="explore-btn tran3s ">
                   Explore Career Buddy Club To Empower You and Your Students.
                 </Link>
               </div>

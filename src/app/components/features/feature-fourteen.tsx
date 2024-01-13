@@ -20,7 +20,7 @@ export function FeatureImgBox() {
 const Featurefourteen = () => {
   return (
     <div>
-      <section className="intro-section pt-100">
+     {/*} <section className="intro-section pt-100">
         <div className="container ">
           <h3 style={{ color: "#eed30d" }}>Shortlist Your Colleges with Precision: Match Your Career Fit for the Best Educational Journey</h3>
           <p className="lead">
@@ -32,7 +32,7 @@ const Featurefourteen = () => {
               </div>
           </Link>
         </div>
-      </section>
+  </section> */}
 
       <section className="text-feature-three position-relative pt-50 md-pt-100">
         <div className="container">

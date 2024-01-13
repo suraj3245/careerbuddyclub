@@ -37,8 +37,8 @@ const ContactArea = () => {
                     <h5 className="title">Contact Info</h5>
                     <p>
                       Give Us Call At <br />
-                      <a href="tel:+91 95362 00909" className="call">
-                        +91 95362 00909
+                      <a href="tel:+91 95362 00100" className="call">
+                        +91 95362 00100
                       </a>
                     </p>
                   </div>
@@ -62,6 +62,10 @@ const ContactArea = () => {
             </div>
           </div>
 
+
+
+
+          
           <div className="row">
             <div className="col-xl-9 m-auto">
               <div className="form-style-one mt-85 lg-mt-50 wow fadeInUp">

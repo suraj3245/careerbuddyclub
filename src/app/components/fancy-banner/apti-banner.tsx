@@ -45,7 +45,7 @@ const Aptibannerthree = ({ style_2 = false }: { style_2?: boolean }) => {
                     <div className="title-one mt-35 lg-mt-30 mb-30 lg-mb-20">
                       <h2 className="fw-600 text-white">
                         BENEFITS FOR YOUR{" "}
-                        <span style={{ color: "#EEE30D" }}>SCHOOLS</span>
+                        <span style={{ color: "#EEE30D" }}>SCHOOL STUDENTS</span>
                       </h2>
                     </div>
                     <p className="text-white">
