@@ -19,7 +19,7 @@ const menu_data: IMenuData[] = [
     title: "Placement",
     sub_menus: [
       { link: "//jobs.careerbuddyclub.com/", title: "See Jobs Live Now" },
-      { link: "/company-v1", title: "Explore Company" },
+      { link: "/company-v1", title: "Partner Companies" },
     ],
   },
   // {
@@ -184,10 +184,10 @@ const menu_data: IMenuData[] = [
   {
     id: 6,
     link: "/",
-    title: "We Assists",
+    title: "Services",
     sub_menus: [
-      { title: "For School", link: "schools" },
-      { title: "For Employer", link: "/corporate" },
+      { title: "For School", link: "/schools" },
+      { title: "For Corporate", link: "/corporate" },
       { title: "For College/ University", link: "/campus" },
     ],
   },

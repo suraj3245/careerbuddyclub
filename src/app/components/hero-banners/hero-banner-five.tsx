@@ -24,16 +24,16 @@ const HeroBannerFive = () => {
                       "-1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black",
                   }}
                 >
-                  Career buddy club
+                  Career Buddy Club
                 </span>
-                <br /> Your gateway to brighter future.
+                <br /> Bridging the gap between education and employment.
               </h1>
               <p
                 className="text-md mt-40 lg-mt-20 mb-65 lg-mb-30 pe-xxl-5 wow fadeInUp"
                 data-wow-delay="0.4s"
               >
-                With the largest professional creative community online, simply
-                search through from our website
+              Empower your students with Career Buddy Club to achieve the unimaginable
+
               </p>
             </div>
           </div>

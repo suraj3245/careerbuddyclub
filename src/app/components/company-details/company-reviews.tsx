@@ -36,26 +36,26 @@ const review_data: {
   {
     id:1,
     rating:4.7,
-    desc:'It is a well created theme without much overhead. The created was very responsive and helpful.',
+    desc:'',
     user:user_1,
-    name:'James Stephens',
-    location:'China'
+    name:'',
+    location:''
   },
   {
     id:2,
     rating:4.5,
-    desc:'Very impressed with the jobi template. The designs/layouts are modern and professional with quaintly..',
+    desc:'',
     user:user_2,
-    name:'John Doe',
-    location:'Italy'
+    name:'',
+    location:''
   },
   {
     id:3,
     rating:4.8,
-    desc:'Very impressed with the jobi template. The designs/layouts are modern and professional with quaintly..',
+    desc:'',
     user:user_3,
-    name:'Martin Jonas',
-    location:'USA'
+    name:'',
+    location:''
   },
 ]
 

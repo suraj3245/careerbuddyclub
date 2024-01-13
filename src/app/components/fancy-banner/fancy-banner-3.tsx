@@ -5,6 +5,7 @@ import Image, { StaticImageData } from "next/image";
 import icon_1 from "@/assets/images/icon/icon_37.svg";
 import icon_2 from "@/assets/images/icon/icon_38.svg";
 import icon_3 from "@/assets/images/icon/icon_39.svg";
+import icon_4 from "@/assets/images/icon/icon_39.svg";
 import VideoPopup from "../common/video-popup";
 
 // content data
@@ -15,21 +16,27 @@ const content_data: {
 }[] = [
   {
     title:
-      "Hassle-free registration process with Seamless job placement services.",
+      "Boost student employability with targeted career guidance and skill development programs.",
     subtitle: "",
     icon: icon_1,
   },
   {
     title:
-      "Dedicated section for listing internships and co-op programs along with Rich resources for supporting students in their career journey.",
+      "Connect your students with top companies through exclusive job postings and career fairs.",
     subtitle: "",
     icon: icon_2,
   },
   {
     title:
-      "Multifunctional platform to promote career-related events and webinars.The ability to create and manage student profiles.",
+      "Track student placements and measure the impact of your career services.",
     subtitle: "",
     icon: icon_3,
+  },
+  {
+    title:
+      "Simplify your career services with easy-to-use tools and dedicated support.",
+    subtitle: "",
+    icon: icon_4,
   },
 ];
 

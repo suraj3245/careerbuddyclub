@@ -8,12 +8,12 @@ const counter_data: {
   text: string;
   title: string;
 }[] = [
-  { count: 786, text: "+", title: "World wide Client" },
+  { count: 786, text: "+", title: "Worldwide Client" },
   { count: 1000, text: "+", title: "Top Talents" },
   { count: 100, text: "+", title: "Institution" },
 ];
 
-const FancyBannerTwo = () => {
+const FancyBannerTwelve = () => {
   return (
     <section className="fancy-banner-two mt-100 xl-mt-100 lg-mt-100 md-mt-100">
       <div className="container">
@@ -24,27 +24,16 @@ const FancyBannerTwo = () => {
                 <div className="title-two">
                   <div className="sub-title">
                     <span style={{ color: "#EEE30D" }}>
-                      One Solution For All
+                      Carrer Buddy Club
                     </span>
                   </div>
-                  <h2 className="fw-600 text-white">
-                  But why choose <br />
-                    <span style={{ color: "#EEE30D" }}>Career</span>
-                    Buddy
-                    <span style={{ color: "#EEE30D" }}>Club?</span>
-                  </h2>
                 </div>
                 <p className="text-white mt-25 mb-55 lg-mb-40">
-                  - The trusted partner of more than <b>100+ colleges and
-                  institutions.</b>
-                  <br />
-                  - Gain data-driven insights to refine career strategies and
-                  track placement success effectively.
-                  <br /> - Engage students with ease using our <b>in-house tools </b>
-                  for event promotion and internship opportunities.
-                  <br />- <b> Save time with simplified processes </b>for event
-                  management, job postings, and student tracking.
-                  <br /> - 10+ years of experience guiding students to success{" "}
+                  - Empowering 200,000 Class 12 and Grad students to make informed career choices.
+                  <br /> - Forming impactful partnerships with 1200 schools.
+                  <br /> - In 2023, counseling over 3,000 school and college students, aiding them in selecting the right career path and institution.
+                  <br /> - Over 1,000 students have chosen our Job Guarantee Program. 
+                  <br /> - Delivering personalized support to both students and institutions through cutting-edge technology solutions.
                 </p>
                 <div className="counter-wrapper pb-50 lg-pb-30">
                   <div className="row">
@@ -62,9 +51,6 @@ const FancyBannerTwo = () => {
                     ))}
                   </div>
                 </div>
-                <Link href="/contact" className="explore-btn tran3s ">
-                  Explore Career Buddy Club To Empower You and Your Students.
-                </Link>
               </div>
             </div>
             <div className="col-xl-6 col-lg-5">
@@ -77,4 +63,4 @@ const FancyBannerTwo = () => {
   );
 };
 
-export default FancyBannerTwo;
+export default FancyBannerTwelve;

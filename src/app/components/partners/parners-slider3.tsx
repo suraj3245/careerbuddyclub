@@ -2,16 +2,15 @@
 import React from "react";
 import Slider from "react-slick";
 import Image, { StaticImageData } from "next/image";
-import logo_1 from "@/assets/images/logo/media_02.webp";
-import logo_2 from "@/assets/images/logo/media_04.webp";
-import logo_7 from "@/assets/images/logo/media_05.webp";
-import logo_4 from "@/assets/images/logo/media_06.webp";
-import logo_5 from "@/assets/images/logo/media_07.webp";
-import logo_6 from "@/assets/images/logo/media_08.webp";
-import logo_3 from "@/assets/images/logo/media_01.webp";
-import logo_8 from "@/assets/images/logo/media_09.webp";
-import logo_9 from "@/assets/images/logo/media_10.webp";
-import logo_10 from "@/assets/images/logo/media_03.webp";
+import logo_1 from "@/assets/images/logo/s26.webp";
+import logo_2 from "@/assets/images/logo/s27.jpg";
+import logo_7 from "@/assets/images/logo/s28.png";
+import logo_4 from "@/assets/images/logo/s34.jpg";
+import logo_5 from "@/assets/images/logo/s30.png";
+import logo_6 from "@/assets/images/logo/s31.png";
+import logo_3 from "@/assets/images/logo/s32.jpg";
+import logo_8 from "@/assets/images/logo/s33.jpg";
+
 
 // slider setting
 const slider_setting = {
@@ -54,23 +53,21 @@ const logos: StaticImageData[] = [
   logo_6,
   logo_7,
   logo_8,
-  logo_9,
-  logo_10,
 ];
 
-const PartnersSlider = () => {
+const PartnersSlider3 = () => {
   return (
     <>
-    <div className="text-center mt-4">
+     <div className="text-center mt-4">
     <h3 className="mt-40 md-mt-20 mb-40 md-mb-20" style={{ color: "#14adbd" }}>
-      Corporate Partners
+      Campus Partners
     </h3>
     </div>
       <Slider {...slider_setting} className="partner-slider">
         {logos.map((logo, i) => (
           <div key={i} className="item">
             <div className="logo d-flex align-items-center">
-              <Image src={logo} alt="logo" style={{ height: "auto" }} />
+              <Image src={logo} alt="logo" style={{ height: "150px" }} />
             </div>
           </div>
         ))}
@@ -79,4 +76,4 @@ const PartnersSlider = () => {
   );
 };
 
-export default PartnersSlider;
+export default PartnersSlider3;

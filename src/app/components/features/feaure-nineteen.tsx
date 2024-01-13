@@ -4,21 +4,20 @@ import Link from "next/link";
 // internal
 import shape from "@/assets/images/shape/bg_shape_02.png";
 import logo from "@/assets/images/logo/logo.png";
-import media_1 from "@/assets/images/logo/s1.png";
-import media_2 from "@/assets/images/logo/s2.jpeg";
-import media_3 from "@/assets/images/logo/s3.jpeg";
-import media_4 from "@/assets/images/logo/s4.jpeg";
-import media_5 from "@/assets/images/logo/s5.jpeg";
-
+import media_1 from "@/assets/images/logo/s26.webp";
+import media_2 from "@/assets/images/logo/s27.jpg";
+import media_3 from "@/assets/images/logo/s28.png";
+import media_4 from "@/assets/images/logo/s29.png";
+import media_5 from "@/assets/images/logo/s30.png";
 // brand icon
 function MediaImg({ img, num }: { img: StaticImageData; num: string }) {
   return (
     <div
-      className={`brand-icon icon_${num} rounded-circle d-flex align-items-center justify-content-center`}
+      className={`brand-icon icon_${num} rounded-circle d-flex align-items-center justify-content-center `}
     >
       <Image
         src={img}
-        style={{ height: "50px", width: "50px" }}
+        style={{ height: "60px", width: "60px" }}
         alt="media"
         className="lazy-img"
       />
@@ -26,7 +25,7 @@ function MediaImg({ img, num }: { img: StaticImageData; num: string }) {
   );
 }
 
-const FeatureSix = () => {
+const FeatureNineteen = () => {
   return (
     <section className="text-feature-four position-relative mt-60 xl-mt-60 lg-mt-60">
       <div className="container">
@@ -36,18 +35,17 @@ const FeatureSix = () => {
               <div className="wow fadeInLeft">
                 <div className="title-one">
                   <h2 className="text-black">
-                    Collaboration with leading Schools.
+                    Collaboration with leading Institutions.
                   </h2>
                 </div>
                 <p className="text-black mt-20 mb-45 lg-mb-30">
-                  We collaborate with a number of Schools on helping their students.
+                  We collaborate with a number of Institutions on helping their students.
                 </p>
-               
               </div>
             </div>
             <div className="col-lg-6 text-center text-lg-end md-mt-40">
               <div className="big-circle d-inline-block position-relative wow fadeInRight">
-                <Image src={shape} alt="shape" className="lazy-img" />
+                <Image src={shape} alt="shape" className="lazy-img"/>
                 <div className="logo rounded-circle d-flex align-items-center justify-content-center">
                   <Image
                     src={logo}
@@ -61,8 +59,9 @@ const FeatureSix = () => {
                 <MediaImg img={media_3} num="03" />
                 <MediaImg img={media_4} num="04" />
                 <MediaImg img={media_5} num="05" />
+              
                 <div className="brand text-white text-start text-md">
-                  <span>100+</span>Leading Schools
+                  <span>50+</span>Leading Institutions
                 </div>
               </div>
             </div>
@@ -73,4 +72,4 @@ const FeatureSix = () => {
   );
 };
 
-export default FeatureSix;
+export default FeatureNineteen;

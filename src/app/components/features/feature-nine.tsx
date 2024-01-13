@@ -47,7 +47,7 @@ const FeatureNine = () => {
                 <AccordionItem
                   id="three"
                   title="Protected payments, every time"
-                  desc="Practice what you learned on realistic lorem quis test questions testing."
+                  desc="Guaranteed secure payments every time."
                   parent="accordionOne"
                 />
               </div>

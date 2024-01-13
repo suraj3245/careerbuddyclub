@@ -7,6 +7,7 @@ type IPropType = {
   desc: string;
   isShow?: boolean;
   parent: string;
+ 
 };
 
 const AccordionItem = ({ id, title, isShow, desc, parent }: IPropType) => {

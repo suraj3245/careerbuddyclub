@@ -26,7 +26,7 @@ export const category_data: ICategoryThree[] = [
     title: <>Courses</>,
     description:
       "Will your Degree land you a Job? Take Job Guarenteed Degree from Career Buddy Club to have a Job after your Course.",
-    nav: "",
+    nav: "/admission",
     bg_img: bg_2,
   },
   {
