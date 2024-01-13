@@ -9,8 +9,14 @@ import FeedbackFour from "../components/feedBacks/feedback-four";
 import FeatureOne from "../components/features/feature-one";
 import CategorySectionThree from "../components/category/category-section-3";
 import FancyBannerThree from "../components/fancy-banner/fancy-banner-3";
-import FancyBannerTwo from "../components/fancy-banner/fancy-banner-2";
-import ContactArea from "../components/contact/contact-area";
+import BlogOne from "../components/blogs/blog-one";
+import FeatureNineteen from "../components/features/feaure-nineteen";
+import FlipCardtwo from "../components/card/townandapt2";
+import FancyBannerTwelve from "../components/fancy-banner/fancy-banner-12";
+import HeroBannerNine from "../components/hero-banners/hero-banner-nine";
+import FeatureTwenty from "../components/features/feature-twenty";
+import PartnersSlider3 from "../components/partners/parners-slider3";
+
 
 export const metadata: Metadata = {
   title: "campus",
@@ -22,16 +28,22 @@ const campus = () => {
       <div className="main-page-wrapper">
         {/* header start */}
         {/* hero banner start */}
-        <HeroBannerFive />
+        <HeroBannerNine />
+        
+       
         {/* hero banner end */}
         <div className="partner-logos border-0 pt-45 pb-45 ps-3 pe-3">
           <PartnersSlider />
         </div>
-        <FeatureOne />
-        {/* how it works start */}
-        <FeedbackFour />
+        <div className="partner-logos border-0 pt-45 pb-45 ps-3 pe-3">
+        <PartnersSlider3 />
+        </div>
+        <FeatureTwenty />
+      
+        <FeatureOne /> 
+        
         {/* how it works end */}
-        <FancyBannerThree />
+        <FeatureNineteen />
         <CategorySectionThree />
         {/* feature three end */}
         <FooterOne />

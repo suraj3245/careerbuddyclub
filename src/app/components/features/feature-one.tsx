@@ -37,7 +37,7 @@ export function FeatureImgData() {
 
 const FeatureOne = () => {
   return (
-    <section className="text-feature-one position-relative pt-20 xl-pt-20 lg-pt-20 md-pt-20 pb-20 xl-pb-20">
+    <section className="text-feature-one position-relative pt-80 xl-pt-20 lg-pt-20 md-pt-20 pb-20 xl-pb-20">
       <div className="container">
         <div className="row">
           <div className="col-lg-5 order-lg-last">

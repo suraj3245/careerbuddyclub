@@ -30,19 +30,19 @@ const FeatureEleven = () => {
                         id="one"
                         isShow={true}
                         title="Who we are?"
-                        desc="Our founders Dustin Moskovitz and Justin lorem Rosenstein met while leading Engineering teams at Facebook quesi. Lorem ipsum dolor sit, amet consectetur adipisicing elit."
+                        desc="We are a dedicated organization guiding students toward successful careers, nurturing aspirations into accomplishments."
                         parent="accordionOne"
                       />
                       <AccordionItem
                         id="two"
                         title="What’s our goal"
-                        desc="Our founders Dustin Moskovitz and Justin lorem Rosenstein met while leading Engineering teams at Facebook quesi. Lorem ipsum dolor sit, amet consectetur adipisicing elit."
+                        desc="Our goal is to empower students with the knowledge and resources needed for exceptional career success."
                         parent="accordionOne"
                       />
                       <AccordionItem
                         id="three"
                         title="Our vision"
-                        desc="Our founders Dustin Moskovitz and Justin lorem Rosenstein met while leading Engineering teams at Facebook quesi. Lorem ipsum dolor sit, amet consectetur adipisicing elit."
+                        desc="Our vision is to be the foremost catalyst in seamlessly connecting education and industry, shaping empowered careers with limitless potential."
                         parent="accordionOne"
                       />
                     </div>

@@ -3,11 +3,11 @@ import CounterTwo from "../counter/counter-two";
 
 const FeatureThirteen = () => {
   return (
-    <section className="text-feature-four position-relative pt-120 xl-pt-20 lg-pt-20 md-pt-20 pb-20 xl-pb-20 bg-light">
+    <section className="text-feature-four position-relative pt-50 xl-pt-20 lg-pt-20 md-pt-20 pb-20 xl-pb-20 bg-light">
       <div className="container">
         
         {/* New Buttons Section */}
-        <div className="text-align">
+        {/*<div className="text-align">
           <h3 className="mb-4" style={{ color: "#eed30d" }}>Job Guarantee Offered in Programs </h3>
       
             <div className="row justify-content-center">
@@ -27,7 +27,7 @@ const FeatureThirteen = () => {
                 <button className="btn-five wow fadeInUp mx-2 mb-2">GNM</button>
               </div>
             </div>
-        </div>
+  </div> */}
 
         <div className="border-bottom pb-5 lg-pb-3 mt-5 xl-mt-8 lg-mt-3">
           <div className="row">

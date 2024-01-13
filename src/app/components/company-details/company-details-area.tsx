@@ -152,13 +152,7 @@ const CompanyDetailsArea = ({ details }: { details: IcompanyType }) => {
                   <VideoCard videoId={videoId} />
                 </div>
 
-                <div className="position-relative">
-                  <h3>Company Reviews</h3>
-
-                  {/* CompanyReviews */}
-                  <CompanyReviews />
-                  {/* CompanyReviews */}
-                </div>
+             
 
                 <div className="share-option mt-60">
                   <ul className="style-none d-flex align-items-center">
