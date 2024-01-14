@@ -9,7 +9,19 @@ import bg_3 from "@/assets/images/assets/graduate.png";
 import bg_4 from "@/assets/images/assets/company.png";
 import { ICategoryThree } from "@/types/category-type";
 import styled from "styled-components";
+import ApplyModal from "../common/popup/apply-modal";
+import LoginModal from "../common/popup/login-modal";
+import PhoneModal from "../common/popup/phone-modal";
 
+interface CategoryCardWrapperProps {
+  isUserLoggedIn: boolean;
+}
+
+interface categorySectionProps {
+  user: {
+    value: string | null;
+  };
+}
 export const category_data: ICategoryThree[] = [
   {
     id: 1,
@@ -49,7 +61,9 @@ export const category_data: ICategoryThree[] = [
   },
 ];
 // CategoryCardWrapper
-export function CategoryCardWrapper() {
+export function CategoryCardWrapper({
+  isUserLoggedIn,
+}: CategoryCardWrapperProps) {
   const iconContainerStyle = {
     display: "flex",
     justifyContent: "center",
@@ -69,6 +83,36 @@ export function CategoryCardWrapper() {
     color: "#333333", // Replace with your preferred dark color
     // Add any other styling you need for the description text
   };
+  const renderLink = (item: ICategoryThree) => {
+    const linkTarget =
+      item.nav === "/dashboard/candidate-dashboard/profile" && !isUserLoggedIn
+        ? "#" // Link to the modal if user is not logged in
+        : item.nav; // Regular link otherwise
+
+    const linkProps =
+      item.nav === "/dashboard/candidate-dashboard/profile" && !isUserLoggedIn
+        ? { "data-bs-toggle": "modal", "data-bs-target": "#ApplyModal" } // Modal properties
+        : {}; // Regular link properties
+
+    return (
+      <Link href={linkTarget} {...linkProps} className="d-block">
+        <div style={iconContainerStyle}>
+          <Image
+            src={item.icon}
+            style={cardImageStyle}
+            alt="icon"
+            className="lazy-img"
+          />
+        </div>
+        <div className="title tran3s fw-500 text-lg" style={titleStyle}>
+          {item.title}
+        </div>
+        <div className="total-job" style={descriptionTextStyle}>
+          {item.description}
+        </div>
+      </Link>
+    );
+  };
 
   return (
     <div className="card-wrapper row mt-10 lg-mt-10">
@@ -77,24 +121,7 @@ export function CategoryCardWrapper() {
           <div
             className={`card-style-four ${item?.bg} tran3s w-100 mt-30 wow fadeInUp`}
           >
-            {!item.df && (
-              <Link href={item.nav} className="d-block">
-                <div style={iconContainerStyle}>
-                  <Image
-                    src={item.icon}
-                    style={cardImageStyle}
-                    alt="icon"
-                    className="lazy-img"
-                  />
-                </div>
-                <div className="title tran3s fw-500 text-lg" style={titleStyle}>
-                  {item.title}
-                </div>
-                <div className="total-job" style={descriptionTextStyle}>
-                  {item.description}
-                </div>
-              </Link>
-            )}
+            {!item.df && renderLink(item)}
             {item.df && (
               <Link href={item.nav} className="d-block">
                 <div className="title text-white">{item.title}</div>
@@ -114,8 +141,9 @@ export function CategoryCardWrapper() {
   );
 }
 
-const CategorySectionSeven = () => {
+const CategorySectionSeven: React.FC<categorySectionProps> = ({ user }) => {
   const [isLargeScreen, setIsLargeScreen] = useState(false);
+  const isUserLoggedIn = Boolean(user.value); // user.value will be false if null or empty
 
   useEffect(() => {
     const handleResize = () => {
@@ -142,28 +170,33 @@ const CategorySectionSeven = () => {
       };
 
   return (
-    <section
-      style={sectionStyle}
-      className="hero-banner-two position-relative pt-150 lg-pt-150 pb-140 lg-pb-180"
-    >
-      <div className="container">
-        <div className="row justify-content-between">
-          <div className="col-md-12 col-sm-8">
-            <div
-              className="title-one text-center text-sm-start wow fadeInUp"
-              data-wow-delay="0.3s"
-            >
-              <h2 className="fw-600">
-                India's 1ˢᵗ End-To-End Career Services for Students
-              </h2>
+    <>
+      <section
+        style={sectionStyle}
+        className="hero-banner-two position-relative pt-150 lg-pt-150 pb-140 lg-pb-180"
+      >
+        <div className="container">
+          <div className="row justify-content-between">
+            <div className="col-md-12 col-sm-8">
+              <div
+                className="title-one text-center text-sm-start wow fadeInUp"
+                data-wow-delay="0.3s"
+              >
+                <h2 className="fw-600">
+                  India's 1ˢᵗ End-To-End Career Services for Students
+                </h2>
+              </div>
             </div>
           </div>
+          {/* CategoryCardWrapper */}
+          <CategoryCardWrapper isUserLoggedIn={isUserLoggedIn} />
+          {/* CategoryCardWrapper */}
         </div>
-        {/* CategoryCardWrapper */}
-        <CategoryCardWrapper />
-        {/* CategoryCardWrapper */}
-      </div>
-    </section>
+      </section>
+      {/* <ApplyModal />
+      <LoginModal />
+      <PhoneModal /> */}
+    </>
   );
 };
 
