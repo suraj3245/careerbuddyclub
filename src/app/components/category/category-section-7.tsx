@@ -1,3 +1,4 @@
+"use client";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,11 +9,25 @@ import bg_2 from "@/assets/images/assets/meeting.png";
 import bg_3 from "@/assets/images/assets/graduate.png";
 import bg_4 from "@/assets/images/assets/company.png";
 import { ICategoryThree } from "@/types/category-type";
-import styled from "styled-components";
-import ApplyModal from "../common/popup/apply-modal";
-import LoginModal from "../common/popup/login-modal";
-import PhoneModal from "../common/popup/phone-modal";
-
+import dynamic from "next/dynamic";
+const ApplyModal = dynamic(
+  () => import("@/app/components/common/popup/apply-modal"),
+  {
+    ssr: false,
+  }
+);
+const LoginModal = dynamic(
+  () => import("@/app/components/common/popup/login-modal"),
+  {
+    ssr: false,
+  }
+);
+const PhoneModal = dynamic(
+  () => import("@/app/components/common/popup/phone-modal"),
+  {
+    ssr: false,
+  }
+);
 interface CategoryCardWrapperProps {
   isUserLoggedIn: boolean;
 }
@@ -193,9 +208,9 @@ const CategorySectionSeven: React.FC<categorySectionProps> = ({ user }) => {
           {/* CategoryCardWrapper */}
         </div>
       </section>
-      {/* <ApplyModal />
+      <ApplyModal />
       <LoginModal />
-      <PhoneModal /> */}
+      <PhoneModal />
     </>
   );
 };
