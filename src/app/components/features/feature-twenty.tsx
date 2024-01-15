@@ -34,7 +34,7 @@ const FeatureTwenty = () => {
                 <AccordionItem
                   id="two"
                   title="1200+ Schools"
-                  desc="Forming impactful partnerships with 1200+ Schools for Career Aptitude Test & Career Town."
+                  desc='Forming impactful partnerships with 1200+ Schools for <a href="/careerapt" style="color: blue;">Career Aptitude Test</a> & <a href="https:/thecareertown.com" style="color: blue;">Career Town</a>.'
                   parent="accordionOne"
                 />
                 <AccordionItem
@@ -43,20 +43,24 @@ const FeatureTwenty = () => {
                   desc="100+ Corporates recruiting Students from our Campus Partners in 2024-2025."
                   parent="accordionOne"
                 />
-                 <AccordionItem
+                <AccordionItem
                   id="four"
                   title="300+ Global Mentors"
                   desc="300+ Global Mentors from lvy League Universities/Fortune 500 Companies."
                   parent="accordionOne"
                 />
               </div>
-            
             </div>
           </div>
           <div className="col-lg-6 order-lg-first">
             <div className="img-box position-relative rounded-circle d-flex align-items-center justify-content-center wow fadeInLeft">
-              <Image src={screen_1} alt="screen" className="lazy-img "layout="fill"
-      objectFit="cover" />
+              <Image
+                src={screen_1}
+                alt="screen"
+                className="lazy-img "
+                layout="fill"
+                objectFit="cover"
+              />
               <Image
                 src={screen_2}
                 alt="screen"
@@ -65,7 +69,7 @@ const FeatureTwenty = () => {
             </div>
           </div>
         </div>
-     </div>
+      </div>
     </section>
   );
 };
