@@ -61,37 +61,35 @@ const QuizForm: React.FC = () => {
     fetchCatResult();
   }, []);
 
-  const checkTestStatus = () => {
-    const token = localStorage.getItem("token"); // or however you get your token
+  const checkTestStatus = async () => {
+    const token = localStorage.getItem("token"); // Retrieve the stored token
+    if (!token) {
+      console.error("No token available");
+      return;
+    }
+
     const options = {
       method: "POST",
-      url: "https://test.careerbuddyclub.com:8080/students/checkcareerteststatus",
+      url: "https://test.careerbuddyclub.com:8080/api/students/checkcareerteststatus",
       headers: {
         Accept: "*/*",
-        "User-Agent": "Thunder Client (https://www.thunderclient.com)",
         Authorization: `Bearer ${token}`,
       },
     };
 
-    axios
-      .request(options)
-      .then((response) => {
-        setTestStatus(response.data.message);
-        // Store the result for the user
-        // You can use localStorage or a state management solution
-      })
-      .catch((error) => {
-        console.error(error);
-        // Handle error
-      });
+    try {
+      const response = await axios.request(options);
+      if (response.data.message === "Test not completed") {
+        setIsSubmitted(false);
+      } else {
+        setIsSubmitted(true);
+      }
+    } catch (error) {
+      console.error("Error checking test status:", error);
+    }
   };
-
   useEffect(() => {
     checkTestStatus();
-  }, []);
-  useEffect(() => {
-    const submitted = localStorage.getItem("quizSubmitted") === "true";
-    setIsSubmitted(submitted);
   }, []);
 
   const chartRef = useRef<HTMLCanvasElement>(null);
