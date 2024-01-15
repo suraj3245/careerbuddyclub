@@ -64,7 +64,6 @@ const QuizForm: React.FC = () => {
   const checkTestStatus = async () => {
     const token = localStorage.getItem("token"); // Retrieve the stored token
     if (!token) {
-      console.error("No token available");
       return;
     }
 

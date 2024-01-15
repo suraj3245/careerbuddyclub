@@ -28,7 +28,8 @@ const Redirect = ({ params }: { params: { id: string } }) => {
 
         // Redirect to the homepage
         setTimeout(() => {
-          window.location.href = "/";
+          window.location.href =
+            "/dashboard/candidate-dashboard/career-aptitude";
         }, 1000);
       } catch (error) {
         setTimeout(() => {
