@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { Metadata } from "next";
 import Wrapper from "@/layouts/wrapper";
@@ -17,10 +18,6 @@ import HeroBannerNine from "../components/hero-banners/hero-banner-nine";
 import FeatureTwenty from "../components/features/feature-twenty";
 import PartnersSlider3 from "../components/partners/parners-slider3";
 import ContactCollegeArea from "../components/contactCollege/contactCollege-area";
-
-export const metadata: Metadata = {
-  title: "campus",
-};
 
 const campus = () => {
   return (
