@@ -20,6 +20,7 @@ export function WidgetTwo({ cls,style_2 }: { cls: string;style_2?:boolean }) {
       <ul className="footer-nav-link style-none">
         <li><Link href="/about-us">About us</Link></li>
         <li><Link href="/faq">FAQ’s</Link></li>
+       
       </ul>
     </div>
   )
@@ -30,7 +31,8 @@ export function WidgetThree({ cls,style_2 }: { cls: string;style_2?:boolean }) {
     <div className={`${cls} mb-20`}>
       <h5 className={`footer-title ${style_2?'text-white':''}`}>Support</h5>
       <ul className="footer-nav-link style-none">
-        <li><Link href='/contact'>Terms & conditions</Link></li>
+        <li><Link href='/Terms'>Terms & conditions</Link></li>
+        <li><Link href="/Refund">Cancellation & Refund Policy</Link></li>
         <li><Link href='/contact'>Contact</Link></li>
 
       </ul>
