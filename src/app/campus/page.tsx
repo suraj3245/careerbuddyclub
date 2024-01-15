@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 import { Metadata } from "next";
 import Wrapper from "@/layouts/wrapper";
@@ -42,7 +41,6 @@ const campus = () => {
         <FeatureNineteen />
         <CategorySectionThree />
         {/* feature three end */}
-        <ContactCollegeArea />
 
         <FooterOne />
         {/* footer end */}
