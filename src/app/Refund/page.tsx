@@ -9,25 +9,21 @@ import HeaderFour from "@/layouts/headers/header-4";
 import PricingOne from "../components/pricing/pricing-one";
 import Privacyone from "../components/contact/Privacy-area";
 import Termone from "../components/contact/term & condition";
+import Refundone from "../components/contact/Refund";
 
 export const metadata: Metadata = {
   title: "Contact",
 };
 
-const ContactPage = () => {
+const Refund = () => {
   return (
     <Wrapper>
       <div className="main-page-wrapper">
         {/* header start */}
 
         {/* header end */}
+        <Refundone />
 
-        {/*MapArea start */}
-        <MapArea />
-        {/* contact area start */}
-        <ContactArea />
-        {/* contact area end */}
-      
         {/* footer start */}
         <FooterOne />
         {/* footer end */}
@@ -36,4 +32,4 @@ const ContactPage = () => {
   );
 };
 
-export default ContactPage;
+export default Refund;

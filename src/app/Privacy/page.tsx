@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   title: "Contact",
 };
 
-const ContactPage = () => {
+const Privacy = () => {
   return (
     <Wrapper>
       <div className="main-page-wrapper">
@@ -23,11 +23,10 @@ const ContactPage = () => {
         {/* header end */}
 
         {/*MapArea start */}
-        <MapArea />
-        {/* contact area start */}
-        <ContactArea />
+
         {/* contact area end */}
-      
+        <Privacyone />
+
         {/* footer start */}
         <FooterOne />
         {/* footer end */}
@@ -36,4 +35,4 @@ const ContactPage = () => {
   );
 };
 
-export default ContactPage;
+export default Privacy;
