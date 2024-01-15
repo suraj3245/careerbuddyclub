@@ -19,11 +19,10 @@ const Redirect = ({ params }: { params: { id: string } }) => {
             "Content-Type": "application/json",
           },
           data: {
-            magic_link_token: idman, // assuming the `id` is the magic link token
+            magic_link_token: idman,
           },
         });
 
-        // On successful response, store the token in localStorage
         localStorage.setItem("token", response.data.access_token);
 
         // Redirect to the homepage

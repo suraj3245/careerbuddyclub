@@ -7,7 +7,6 @@ type IPropType = {
   desc: string;
   isShow?: boolean;
   parent: string;
- 
 };
 
 const AccordionItem = ({ id, title, isShow, desc, parent }: IPropType) => {
@@ -32,7 +31,7 @@ const AccordionItem = ({ id, title, isShow, desc, parent }: IPropType) => {
         data-bs-parent={`#${parent}`}
       >
         <div className="accordion-body">
-          <p>{desc}</p>
+          <p dangerouslySetInnerHTML={{ __html: desc }}></p>
         </div>
       </div>
     </div>
