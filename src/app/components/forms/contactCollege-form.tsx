@@ -90,7 +90,7 @@ const ContactCollegeForm = () => {
         {errors.phone && <ErrorMsg msg={errors.phone?.message!} />}
       </div>
 
-      {/* School Address */}
+      {/* College Address */}
       <div className="input-group-meta form-group mb-30">
         <label htmlFor="address">College Address*</label>
         <input type="text" placeholder="Address*" {...register("address")} />

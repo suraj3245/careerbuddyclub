@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 import ContactCollegeForm from "../forms/contactCollege-form";
 
