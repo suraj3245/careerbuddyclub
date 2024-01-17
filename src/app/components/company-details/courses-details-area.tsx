@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import VideoPopup from "../common/video-popup";
 import Slider from "react-slick";
-import { IcollegeType } from "@/types/college-details";
+import { IcourseType } from "@/types/course-details";
 import useSticky from "@/hooks/use-sticky";
 
 import {
@@ -32,53 +32,56 @@ const slider_setting = {
   ],
 };
 
-const CoursesDetailsArea = ({ details }: { details: IcollegeType }) => {
+const CoursesDetailsArea = ({ details }: { details: IcourseType }) => {
   const [isVideoOpen, setIsVideoOpen] = useState<boolean>(false);
   const { sticky } = useSticky();
+  const [headerTop, setHeaderTop] = useState<string>("275px");
 
   useEffect(() => {
-    const handleNavLinkClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-      e.preventDefault();
-      const target = e.currentTarget as HTMLAnchorElement;
-      const targetId = target.getAttribute("href")?.substring(1) || "";
-      const targetElement = document.getElementById(targetId);
-
-      if (targetElement) {
-        const headerOffset = 175; // Adjust this value based on your header's actual height
-        const elementPosition = targetElement.getBoundingClientRect().top;
-        const offsetPosition =
-          elementPosition + window.pageYOffset - headerOffset;
-
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: "smooth",
-        });
-      }
+    const handleScroll = () => {
+      const currentScrollPos = window.pageYOffset;
+      setHeaderTop(currentScrollPos > 50 ? "0px" : "275px"); // Change '50' to the scroll position you desire
     };
 
-    const navLinks = document.querySelectorAll(".theme-main-menu .nav-link");
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+    // const handleResize = () => {
+    //   if (typeof window !== "undefined") {
+    //     setHeaderTop(window.innerWidth < 1200 ? "225px" : "275px");
+    //   }
+    // };
+
+    // // Add event listeners for resize and initial check
+    // if (typeof window !== "undefined") {
+    //   window.addEventListener("resize", handleResize);
+    //   handleResize(); // Initial check
+
+    //   const navLinks = document.querySelectorAll(".theme-main-menu .nav-link");
+    // }
+
+    // // Clean up event listeners on component unmount
+    // return () => {
+    //   if (typeof window !== "undefined") {
+    //     window.removeEventListener("resize", handleResize);
+    //   }
+    // };
   }, []);
+
   return (
     <>
       <header
         className={`theme-main-menu menu-overlay sticky-menu ${
           sticky ? "fixed" : ""
         }`}
-        style={{ top: sticky ? "75px" : "75px" }}
+        style={{ top: headerTop }}
       >
         <div className="inner-content position-relative">
           <div className="top-header">
             <div className="d-flex align-items-center">
               <nav className="navbar navbar-expand-lg p0 me-lg-auto ms-3 ms-lg-5 order-lg-1">
-                <button
-                  className="navbar-toggler d-block d-lg-none"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#navbarNav"
-                  aria-controls="navbarNav"
-                  aria-expanded="false"
-                  aria-label="Toggle navigation"
-                ></button>
                 <div className="collapse navbar-collapse" id="navbarNav">
                   <ul className="navbar-nav">
                     {/* menus start */}
@@ -89,17 +92,17 @@ const CoursesDetailsArea = ({ details }: { details: IcollegeType }) => {
                     </li>
                     <li className="nav-item">
                       <a className="nav-link" href="#courses" role="button">
-                        Courses Details
+                        Courses and Fees
                       </a>
                     </li>
                     <li className="nav-item">
                       <a className="nav-link" href="#admission" role="button">
-                        Syllabus
+                        Admission
                       </a>
                     </li>
                     <li className="nav-item">
                       <a className="nav-link" href="#placement" role="button">
-                        Jobs
+                        Placement
                       </a>
                     </li>
                     <li className="nav-item">
@@ -108,15 +111,30 @@ const CoursesDetailsArea = ({ details }: { details: IcollegeType }) => {
                         href="#opportunities"
                         role="button"
                       >
-                        Salary
+                        Opportunities
                       </a>
                     </li>
                     <li className="nav-item">
                       <a className="nav-link" href="#hostel" role="button">
-                        Popular Colleges
+                        Hostel
+                      </a>
+                    </li>
+                    <li className="nav-item">
+                      <a className="nav-link" href="#awards" role="button">
+                        Awards
                       </a>
                     </li>
 
+                    <li className="nav-item">
+                      <a className="nav-link" href="#ranking" role="button">
+                        Ranking
+                      </a>
+                    </li>
+                    <li className="nav-item">
+                      <a className="nav-link" href="#alumini" role="button">
+                        Alumini Reviews
+                      </a>
+                    </li>
                     {/* menus end */}
                   </ul>
                 </div>
@@ -193,7 +211,7 @@ const CoursesDetailsArea = ({ details }: { details: IcollegeType }) => {
                 </div>
               </div>
             </div>
-            <div className="col-xxl-9 col-xl-8 order-xl-first">
+            <div className="col-xxl-9 col-xl-8 order-xl-first pt-100">
               <div className="details-post-data me-xxl-5 pe-xxl-4">
                 <h3 id="overview">Overview</h3>
                 <p>{details.overviewsection}</p>
@@ -459,7 +477,11 @@ const CoursesDetailsArea = ({ details }: { details: IcollegeType }) => {
         </div>
       </section>
       {/* video modal start */}
-
+      <VideoPopup
+        isVideoOpen={isVideoOpen}
+        setIsVideoOpen={setIsVideoOpen}
+        videoId={details.videoid}
+      />
       {/* video modal end */}
     </>
   );

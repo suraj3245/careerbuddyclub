@@ -52,7 +52,7 @@ const ContactCollegeForm = () => {
     <form onSubmit={handleSubmit(onSubmit)}>
       {/* School Name */}
       <div className="input-group-meta form-group mb-30">
-        <label htmlFor="collegeName">College Name*</label>
+        <label htmlFor="collegeName">University / College Name*</label>
         <input
           type="text"
           placeholder="College Name*"
@@ -92,7 +92,7 @@ const ContactCollegeForm = () => {
 
       {/* College Address */}
       <div className="input-group-meta form-group mb-30">
-        <label htmlFor="address">College Address*</label>
+        <label htmlFor="address">University / College Address*</label>
         <input type="text" placeholder="Address*" {...register("address")} />
         {errors.address && <ErrorMsg msg={errors.address?.message!} />}
       </div>
