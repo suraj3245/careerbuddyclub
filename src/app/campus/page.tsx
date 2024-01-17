@@ -38,7 +38,6 @@ const campus = () => {
         <FeatureNineteen />
         <CategorySectionThree />
         {/* feature three end */}
-        <ContactCollegeArea />
 
         <FooterOne />
         {/* footer end */}
