@@ -70,7 +70,7 @@ const ApplyForm = () => {
         url: "https://test.careerbuddyclub.com:8080/api/students/getallstreams",
         headers: {
           Accept: "*/*",
-          "User-Agent": "Thunder Client (https://www.thunderclient.com)",
+
         },
       });
       const streamData = response.data.map((stream: { title: any }) => ({

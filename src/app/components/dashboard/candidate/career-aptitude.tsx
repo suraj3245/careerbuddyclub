@@ -39,7 +39,6 @@ const DashboardResult = ({ setIsOpenSidebar }: IProps) => {
       url: "https://test.careerbuddyclub.com:8080/api/students/getcatresult",
       headers: {
         Accept: "*/*",
-        "User-Agent": "Thunder Client (https://www.thunderclient.com)",
         Authorization: `Bearer ${token}`,
       },
     };
@@ -66,7 +65,6 @@ const DashboardResult = ({ setIsOpenSidebar }: IProps) => {
       url: "https://test.careerbuddyclub.com:8080/api/students/checkcareerteststatus",
       headers: {
         Accept: "*/*",
-        "User-Agent": "Thunder Client (https://www.thunderclient.com)",
         Authorization: `Bearer ${token}`,
       },
     };

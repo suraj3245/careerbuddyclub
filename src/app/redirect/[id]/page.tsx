@@ -15,7 +15,7 @@ const Redirect = ({ params }: { params: { id: string } }) => {
           url: "https://test.careerbuddyclub.com:8080/api/students/loginwithmagiclink",
           headers: {
             Accept: "*/*",
-            "User-Agent": "Thunder Client (https://www.thunderclient.com)",
+
             "Content-Type": "application/json",
           },
           data: {

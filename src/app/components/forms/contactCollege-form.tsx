@@ -13,7 +13,6 @@ type IFormData = {
   phone: string;
   address: string;
   hearAboutUs: string;
-  additionalContactInfo: string;
   additionalRequests: string;
 };
 
@@ -26,25 +25,23 @@ const ContactCollegeForm = () => {
   } = useForm<IFormData>({});
 
   const onSubmit = (data: IFormData) => {
-    const postData = {
-      ...data,
-    };
+    // Optional: Validate data here
 
     axios
       .post(
         "https://test.careerbuddyclub.com:8080/api/students/collegecontactformsubmit",
-        postData
+        data
       )
       .then((response) => {
         console.log(response.data);
         notifySuccess("Your message sent successfully");
+        reset(); // Resetting form on successful submission
       })
       .catch((error) => {
-        console.error(error);
-        notifyError("An error occurred while submitting the form");
-      })
-      .finally(() => {
-        reset();
+        console.error("Error response:", error.response); // More detailed error logging
+        notifyError(
+          "An error occurred while submitting the form: " + error.message
+        );
       });
   };
 

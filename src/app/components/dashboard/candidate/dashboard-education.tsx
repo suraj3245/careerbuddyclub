@@ -41,7 +41,6 @@ const DashboardEducation = ({ setIsOpenSidebar }: IProps) => {
         url: "https://test.careerbuddyclub.com:8080/api/students/getstudentsprofile",
         headers: {
           Accept: "*/*",
-          "User-Agent": "Thunder Client (https://www.thunderclient.com)",
           Authorization: `Bearer ${temptoken}`,
         },
       });
@@ -115,7 +114,6 @@ const DashboardEducation = ({ setIsOpenSidebar }: IProps) => {
       url: "https://test.careerbuddyclub.com:8080/api/students/updateEducationDetails",
       headers: {
         Accept: "*/*",
-        "User-Agent": "Thunder Client (https://www.thunderclient.com)",
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
       },

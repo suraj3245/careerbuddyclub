@@ -39,7 +39,7 @@ const QuizForm: React.FC = () => {
       url: "https://test.careerbuddyclub.com:8080/api/students/getcatresult",
       headers: {
         Accept: "*/*",
-        "User-Agent": "Thunder Client (https://www.thunderclient.com)",
+
         Authorization: `Bearer ${token}`,
       },
     };
