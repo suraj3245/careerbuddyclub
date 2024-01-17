@@ -9,21 +9,18 @@ import FeatureFive from "../components/features/feature-five";
 import FeatureSix from "../components/features/feature-six";
 import FeedbackThree from "../components/feedBacks/feedback-three";
 import ContactSchoolArea from "../components/contactSchools/contactSchools-area";
-import FancyBannerTwo from "../components/fancy-banner/fancy-banner-2";
 import Aptibannerthree from "../components/fancy-banner/apti-banner";
 import FlipCard from "../components/card/townandapt";
 import HeroBannerThree from "../components/hero-banners/hero-banner-three";
 
 export const metadata: Metadata = {
-  title: "campus",
+  title: "Schools",
 };
 
 const schools = () => {
   return (
     <Wrapper>
-      {/* feature three end */}
-      {/* category section 2 start */}
-     <HeroBannerThree />
+      <HeroBannerThree />
       <FlipCard />
 
       <FeatureFive />
