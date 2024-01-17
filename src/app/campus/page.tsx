@@ -9,13 +9,7 @@ import FeatureNineteen from "../components/features/feaure-nineteen";
 import HeroBannerNine from "../components/hero-banners/hero-banner-nine";
 import FeatureTwenty from "../components/features/feature-twenty";
 import PartnersSlider3 from "../components/partners/parners-slider3";
-import dynamic from "next/dynamic";
-const ContactCollegeArea = dynamic(
-  () => import("../components/contactCollege/contactCollege-area"),
-  {
-    ssr: false,
-  }
-);
+import ContactCollegeArea from "../components/contactCollege/contactCollege-area";
 
 export const metadata: Metadata = {
   title: "College",
