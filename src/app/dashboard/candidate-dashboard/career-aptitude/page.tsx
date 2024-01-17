@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import Wrapper from "@/layouts/wrapper";
 import CandidateAside from "@/app/components/dashboard/candidate/aside";
-import DashboardEducation from "@/app/components/dashboard/candidate/dashboard-education";
 import DashboardResult from "@/app/components/dashboard/candidate/career-aptitude";
 
 const CandidateAptitude = () => {
