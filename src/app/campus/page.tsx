@@ -37,7 +37,6 @@ const campus = () => {
         <div className="partner-logos border-0 pt-45 pb-45 ps-3 pe-3">
           <PartnersSlider3 />
         </div>
-        <FeatureTwenty />
 
         <FeatureOne />
 
