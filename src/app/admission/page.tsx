@@ -24,7 +24,6 @@ const admission = () => {
       <div className="main-page-wrapper">
         <HeroBanner />
         <ExpertsOne />
-
         <HowItWorksFive />
 
         <FeatureThirteen />

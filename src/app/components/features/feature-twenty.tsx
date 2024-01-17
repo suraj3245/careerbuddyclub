@@ -2,27 +2,28 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 // internal
-import screen_1 from "@/assets/images/assets/s7.jpg";
+import screen_1 from "@/assets/images/assets/s8.png";
 import screen_2 from "@/assets/images/assets/s14.png";
 
 import AccordionItem from "../accordion/accordion-item";
 
 const FeatureTwenty = () => {
   return (
-    <section className="text-feature-three position-relative pt-150 xl-pt-150 lg-pt-100 md-pt-50">
+    <section className="text-feature-three position-relative pt-180 md-mt-50 xl-pt-200 lg-pt-200 md-pt-50">
       <div className="container">
         <div className="row">
           <div className="col-lg-5 order-lg-last ms-auto">
             <div className="wow fadeInRight">
               <div className="title-two">
                 <div className="sub-title"></div>
-                <h2 className="fw-600 color-blue">
+                <h2 className="fw-600" style={{color:"#14adbd"}}>
                   Advantages for Our Campus Partners
                 </h2>
               </div>
               <div
-                className="accordion accordion-style-one color-two mt-40"
+                className="accordion accordion-style-one mt-40" 
                 id="accordionOne"
+                
               >
                 <AccordionItem
                   id="one"
@@ -61,16 +62,14 @@ const FeatureTwenty = () => {
                 layout="fill"
                 objectFit="cover"
               />
-              <Image
-                src={screen_2}
-                alt="screen"
-                className="lazy-img shapes screen_02"
-              />
+            
             </div>
           </div>
         </div>
       </div>
-    </section>
+     
+  </section>
+
   );
 };
 

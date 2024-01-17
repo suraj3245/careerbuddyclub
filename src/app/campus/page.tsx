@@ -27,7 +27,9 @@ const campus = () => {
       <div className="main-page-wrapper">
         {/* header start */}
         {/* hero banner start */}
+        <FeatureTwenty />
         <HeroBannerNine />
+
         {/* hero banner end */}
         <div className="partner-logos border-0 pt-45 pb-45 ps-3 pe-3">
           <PartnersSlider />
@@ -36,7 +38,9 @@ const campus = () => {
           <PartnersSlider3 />
         </div>
         <FeatureTwenty />
+
         <FeatureOne />
+
         {/* how it works end */}
         <FeatureNineteen />
         <CategorySectionThree />

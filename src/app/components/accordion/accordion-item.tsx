@@ -7,6 +7,7 @@ type IPropType = {
   desc: string;
   isShow?: boolean;
   parent: string;
+  
 };
 
 const AccordionItem = ({ id, title, isShow, desc, parent }: IPropType) => {
@@ -21,7 +22,7 @@ const AccordionItem = ({ id, title, isShow, desc, parent }: IPropType) => {
           aria-expanded={isShow ? "true" : "false"}
           aria-controls={`collapse-${id}`}
         >
-          {title}
+          <span style={{color:"#14adbd"}}>{title}</span>
         </button>
       </div>
       <div
