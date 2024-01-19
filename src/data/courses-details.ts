@@ -9,358 +9,86 @@ const courses_details: IcourseType[] = [
   {
     id: 1,
     logo: job_img_1,
-    type: "private",
-    establishmentyear: "2016",
-    Recognisedby: "UGC",
-    Approvedby: "BCI, RCI, PCI, NCTE",
-    state: "uttarakhand",
-    city: "dehradun",
-    Campusarea: "20+ acre",
-    link: "",
-    email: "slack@inquery.com",
-    founded: "27 Jan,1997",
-    phone: "234 112 779",
-    feild: ["Technology", "Product", "Agency"],
-    overviewsection:
-      "When team members told us they needed more flexibility around where and how they worked, we acted, creating two options to accommodate two different styles of work. One non-negotiable principle along the way? We had to retain our deep culture of collaboration, both among ourselves and with our clients. Introducing Work From Near and Work From Anywhere at WillowTree. Please indicate which location(s) you're interested.",
-    duration: "Fulltime",
-    date: "18 Jul 2024",
-    college: "Guru Nanak College",
-    location: "Dehradun, India",
-    category: ["pharmacy", "Medical"],
-    experience: "Fresher",
-    salary: 900,
-    salary_duration: "Monthly",
-    tags: ["java", "developer"],
-    english_fluency: "Fluent",
-    overview:
-      "When team members told us they needed more flexibility around where and how they worked, we acted, creating two options to accommodate two different styles of work. One non-negotiable principle along the way? We had to retain our deep culture of collaboration, both among ourselves and with our clients. Introducing Work From Near and Work From Anywhere at WillowTree. Please indicate which location(s) you're interested.",
-    videoid: "",
-    facebook: "",
-    instagram: "",
-    twitter: "",
-    linkedin: "",
-    courses:
-      "When team members told us they needed more flexibility around where and how they worked, we acted, creating two options to accommodate two different styles of work. One non-negotiable principle along the way? We had to retain our deep culture of collaboration, both among ourselves and with our clients. Introducing Work From Near and Work From Anywhere at WillowTree. Please indicate which location(s) you're interested.",
+    coursename: "B.Tech",
+    coursefullform: "Bachelor in Technology",
+    courseoverview:
+      "A B. Tech degree is seen as a stepping stone into the area of engineering. Candidates willing to pursue a B. Tech course are always advised to check the highlights before proceeding with the other details. A highlight provides an overview of the course. If you are planning to pursue the course, then go through the important B Tech Course Details given below.",
+    coursesoverviewtable: [
+      {
+        particulars: "Full form",
+        details: "Bachelor of Technology",
+      },
+      {
+        particulars: "Commonly known As",
+        details: "B. Tech Course",
+      },
+      {
+        particulars: "Level",
+        details: "Undergraduate",
+      },
+      {
+        particulars: "B.Tech Course Duration",
+        details: "4 years",
+      },
+      {
+        particulars: "Semester/Yearly",
+        details: "Semester",
+      },
+      {
+        particulars: "B Tech entry procedure",
+        details: "Entrance test followed by counselling by the authorities.",
+      },
+      {
+        particulars: "B Tech Entrance Exam",
+        details: "JEE Main , JEE Advanced , GATE",
+      },
+      {
+        particulars: "B Tech Eligibility Criteria",
+        details:
+          "Should have completed class 10+2 in PCM or PCB from a recognized institute/board",
+      },
+      {
+        particulars: "B Tech Syllabus",
+        details: "The syllabus depends on B Tech specializations",
+      },
+      {
+        particulars: "B Tech Course Fees",
+        details: "INR 5,00,000 to Rs. 12,00,000",
+      },
+      {
+        particulars: "Top B Tech Government Colleges",
+        details: "IITs, NITs, IITs",
+      },
+      {
+        particulars: "Top B Tech Private Colleges",
+        details: "VIT,BITS,MIT",
+      },
+      {
+        particulars: "Types of Careers",
+        details:
+          "Civil Engineer, Mechanical Engineer, Computer Engineer, Electrical Engineer, Marine Engineer",
+      },
+      {
+        particulars: "Top Recruiters",
+        details:
+          "Google, Apple, Hindustan Unilever, ISRO, Microsoft, Amazon, Flipkart, Intel, Tata Consultancy",
+      },
+    ],
 
-    ranking:
-      "When team members told us they needed more flexibility around where and how they worked, we acted, creating two options to accommodate two different styles of work. One non-negotiable principle along the way? We had to retain our deep culture of collaboration, both among ourselves and with our clients. Introducing Work From Near and Work From Anywhere at WillowTree. Please indicate which location(s) you're interested.",
-    awards:
-      "When team members told us they needed more flexibility around where and how they worked, we acted, creating two options to accommodate two different styles of work. One non-negotiable principle along the way? We had to retain our deep culture of collaboration, both among ourselves and with our clients. Introducing Work From Near and Work From Anywhere at WillowTree. Please indicate which location(s) you're interested.",
-    hostel:
-      "When team members told us they needed more flexibility around where and how they worked, we acted, creating two options to accommodate two different styles of work. One non-negotiable principle along the way? We had to retain our deep culture of collaboration, both among ourselves and with our clients. Introducing Work From Near and Work From Anywhere at WillowTree. Please indicate which location(s) you're interested.",
-    opportunities:
-      "When team members told us they needed more flexibility around where and how they worked, we acted, creating two options to accommodate two different styles of work. One non-negotiable principle along the way? We had to retain our deep culture of collaboration, both among ourselves and with our clients. Introducing Work From Near and Work From Anywhere at WillowTree. Please indicate which location(s) you're interested.",
-    campus:
-      "When team members told us they needed more flexibility around where and how they worked, we acted, creating two options to accommodate two different styles of work. One non-negotiable principle along the way? We had to retain our deep culture of collaboration, both among ourselves and with our clients. Introducing Work From Near and Work From Anywhere at WillowTree. Please indicate which location(s) you're interested.",
-    placement:
-      "When team members told us they needed more flexibility around where and how they worked, we acted, creating two options to accommodate two different styles of work. One non-negotiable principle along the way? We had to retain our deep culture of collaboration, both among ourselves and with our clients. Introducing Work From Near and Work From Anywhere at WillowTree. Please indicate which location(s) you're interested.",
-    admission:
-      "When team members told us they needed more flexibility around where and how they worked, we acted, creating two options to accommodate two different styles of work. One non-negotiable principle along the way? We had to retain our deep culture of collaboration, both among ourselves and with our clients. Introducing Work From Near and Work From Anywhere at WillowTree. Please indicate which location(s) you're interested.",
-    coursesAndFees: [
-      {
-        specialization: "Diploma",
-        annualFee: "Rs 45,000",
-        eligibility: "Class 10th with minimum 35% marks in aggregate.",
-      },
-      {
-        specialization: "Diploma in Pharmacy (D.Pharm.)",
-        annualFee: "Rs 1,00,000",
-        eligibility: "As per PCI norms.",
-      },
-      {
-        specialization: "B.Tech",
-        annualFee: "Rs 1,15,000 - Rs 1,30,000",
-        eligibility:
-          "Passed 10+2 examination with Physics and Mathematics as compulsory subjects.",
-      },
-      {
-        specialization: "BCA",
-        annualFee: "Rs 60,000",
-        eligibility:
-          "10+2 with Mathematics/Computer Science/Information Practices etc. with minimum 50% marks.",
-      },
-      {
-        specialization: "B.Sc.",
-        annualFee: "Rs 45,000 - Rs 1,25,000",
-        eligibility: "10+2 or equivalent.",
-      },
-      {
-        specialization: "B.Ed.",
-        annualFee: "Rs 60,000",
-        eligibility:
-          "Graduation in any stream with minimum 50% marks in aggregate.",
-      },
-      {
-        specialization: "B.Com.",
-        annualFee: "Rs 40,000",
-        eligibility:
-          "10+2 with minimum 50% marks in best four relevant subjects.",
-      },
-      {
-        specialization: "B.Com. (Hons.)",
-        annualFee: "Rs 50,000",
-        eligibility: "10+2 with minimum 50% marks.",
-      },
-      {
-        specialization: "BBA",
-        annualFee: "Rs 60,000",
-        eligibility:
-          "10+2 with minimum 50% marks in best four relevant subjects.",
-      },
-      {
-        specialization: "B.Sc. in Nursing",
-        annualFee: "Rs 2,00,000",
-        eligibility:
-          "Candidate must pass the 12th or equivalent exam with PCB and English from a recognised board.",
-      },
-      {
-        specialization: "Integrated B. Com LLB (Hons)",
-        annualFee: "Rs 60,000",
-        eligibility: "10 +2 with minimum 45% marks in aggregate.",
-      },
-      {
-        specialization: "Integrated BA LLB (Hons)",
-        annualFee: "Rs 60,000",
-        eligibility: "Passed 10 +2 with minimum 45% marks in aggregate.",
-      },
-      {
-        specialization: "M.Tech.",
-        annualFee: "Rs 60,000",
-        eligibility:
-          "B.Tech. with minimum 55% marks in the relevant branch or 60% in MCA for Computer Science & Engineering.",
-      },
-      {
-        specialization: "MCA",
-        annualFee: "Rs 60,000",
-        eligibility:
-          "Passed BCA/ Bachelor Degree in Computer Science Engineering or equivalent degree.",
-      },
-      {
-        specialization: "M.Sc.",
-        annualFee: "Rs 30,000 - Rs 70,000",
-        eligibility:
-          "Graduate in science with minimum 50% marks in aggregate with relevant subject.",
-      },
-      {
-        specialization: "M.B.A.",
-        annualFee: "Rs 1,15,000",
-        eligibility:
-          "Bachelor's degree (any discipline) with 50% marks in aggregate.",
-      },
-      {
-        specialization: "M.Pharma",
-        annualFee: "Rs 1,00,000",
-        eligibility:
-          "B.Pharm degree with a minimum of 50% marks from a recognised institute.",
-      },
-      {
-        specialization: "LLM",
-        annualFee: "Rs 40,000",
-        eligibility:
-          "The candidate must have completed an LLB degree (3-year LLB or 5-year LLB) from a recognised university.",
-      },
-      {
-        specialization: "M.Sec.",
-        annualFee: "Rs 50,000",
-        eligibility:
-          "Graduate in Science with minimum 50% marks in aggregate with relevant subjects.",
-      },
+    whychoose:
+      "Engineering is one of the dream professions of many Indian students and families. In this regard, several students apply for B Tech courses in various engineering colleges and work hard to achieve them. One of the major reasons why BTech is one of the top bachelor's degrees is that it offers excellent career opportunities and tremendous. If you have completed Class 12th and are wondering why you are studying a BTech, then go through the key benefits of studying this course given below.",
+
+    whychoosepoints: [
+      "B Tech course gives a wide number of options for engineering specializations, which will provide students with a broader scope by providing a wider range of options as well as a greater variety of professions",
+      "Candidates pursuing a B Tech degree are more theoretical and practical since the whole course teaches and forms students with the practical knowledge and theories essential for their particular sectors",
+      "The demand for BTech engineers has always been the boom, as they form the core of the companies while maintaining the upcoming trends in their engineering policies. Engineers' worth has increased dramatically as a result of the rising population in India and technological advancement. As a result, there are various job opportunities for BTech graduates in various sectors",
+      "The average B Tech salary of an experienced engineer can be as high as INR 40,00,000 Per Annum to INR 50,00,000 Per Annum which can rise to more depending upon the recruiter and candidate's skills.",
+      "Securing a higher degree will not only enhance your study skills but also highlight your position in the professional field. If the candidates pursuing the B Tech course have leadership skills, they can proceed with their start-ups. With the emergence of new technologies and styles, new engineering graduates are starting up their businesses",
+      "When speaking about BTech jobs, there is a lot of abundance in the facilities as the BTech is very diverse. One can opt for jobs in private and public sector undertakings too, depending on the criteria met by the company",
     ],
-    admissionDates: [
-      {
-        name: "Registration Dates",
-        date: "February 8 to September 15, 2023",
-      },
-      {
-        name: "Date of Entrance Test & Interview",
-        date: "September 17, 2023",
-      },
-      {
-        name: "Date of Result Declaration",
-        date: "September 18, 2023",
-      },
-      {
-        name: "Last Date of Submission of Fee",
-        date: "September 28, 2023",
-      },
-      {
-        name: "Commencement of the Coursework",
-        date: "October 3, 2023",
-      },
-    ],
-    campusinfo: [
-      {
-        name: "Registration Dates",
-        info: "February 8 to September 15, 2023",
-      },
-      {
-        name: "Date of Entrance Test & Interview",
-        info: "September 17, 2023",
-      },
-      {
-        name: "Date of Result Declaration",
-        info: "September 18, 2023",
-      },
-      {
-        name: "Last Date of Submission of Fee",
-        info: "September 28, 2023",
-      },
-      {
-        name: "Commencement of the Coursework",
-        info: "October 3, 2023",
-      },
-    ],
-    placementinformation: [
-      {
-        name: "Placement Year",
-        info: "2023",
-      },
-      {
-        name: "Degree",
-        info: "bachelors",
-      },
-      {
-        name: "Number of Students Registered",
-        info: "12312",
-      },
-      {
-        name: "Number of Companies Visited",
-        info: "122",
-      },
-      {
-        name: "Number of Students Placed",
-        info: "1222",
-      },
-      {
-        name: "Number of Offers Made",
-        info: "1222",
-      },
-      {
-        name: "Minimum Salary",
-        info: "1222",
-      },
-      {
-        name: "Average Salary",
-        info: "1222",
-      },
-      {
-        name: "Minimum Salary (International, if applicable)",
-        info: "1222",
-      },
-      {
-        name: "Maximum Salary (International, if applicable)",
-        info: "1222",
-      },
-      {
-        name: "Average Salary (International, if applicable)",
-        info: "1222",
-      },
-      {
-        name: "Average Salary Percentage for Last 3 Years",
-        info: "1222",
-      },
-      {
-        name: "Recruiter List",
-        info: "1222",
-      },
-      {
-        name: " Internship Details",
-        info: "1222",
-      },
-      {
-        name: "Placement Report",
-        info: "1222",
-      },
-    ],
-    opportunitiesinfo: [
-      {
-        name: "Registration Dates",
-        info: "February 8 to September 15, 2023",
-      },
-      {
-        name: "Date of Entrance Test & Interview",
-        info: "September 17, 2023",
-      },
-      {
-        name: "Date of Result Declaration",
-        info: "September 18, 2023",
-      },
-      {
-        name: "Last Date of Submission of Fee",
-        info: "September 28, 2023",
-      },
-      {
-        name: "Commencement of the Coursework",
-        info: "October 3, 2023",
-      },
-    ],
-    awardsinfo: [
-      {
-        name: "Registration Dates",
-        info: "February 8 to September 15, 2023",
-      },
-      {
-        name: "Date of Entrance Test & Interview",
-        info: "September 17, 2023",
-      },
-      {
-        name: "Date of Result Declaration",
-        info: "September 18, 2023",
-      },
-      {
-        name: "Last Date of Submission of Fee",
-        info: "September 28, 2023",
-      },
-      {
-        name: "Commencement of the Coursework",
-        info: "October 3, 2023",
-      },
-    ],
-    hostelinfo: [
-      {
-        name: "Registration Dates",
-        info: "February 8 to September 15, 2023",
-      },
-      {
-        name: "Date of Entrance Test & Interview",
-        info: "September 17, 2023",
-      },
-      {
-        name: "Date of Result Declaration",
-        info: "September 18, 2023",
-      },
-      {
-        name: "Last Date of Submission of Fee",
-        info: "September 28, 2023",
-      },
-      {
-        name: "Commencement of the Coursework",
-        info: "October 3, 2023",
-      },
-    ],
-    rankinginfo: [
-      {
-        name: "Registration Dates",
-        info: "February 8 to September 15, 2023",
-      },
-      {
-        name: "Date of Entrance Test & Interview",
-        info: "September 17, 2023",
-      },
-      {
-        name: "Date of Result Declaration",
-        info: "September 18, 2023",
-      },
-      {
-        name: "Last Date of Submission of Fee",
-        info: "September 28, 2023",
-      },
-      {
-        name: "Commencement of the Coursework",
-        info: "October 3, 2023",
-      },
-    ],
+    typesofcoursedegreeContent:
+      "B Tech is an undergraduate degree course within which there are many specializations from which candidates can choose. Along with that, the BTech is available in various modes like full-time BTech, part-time BTech, online BTech, offline BTech, and distant BTech. Below is the table that highlights the B Tech types along with the BTech fee structure",
+
     reviewinfo: [
       {
         id: 1,

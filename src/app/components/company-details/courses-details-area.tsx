@@ -147,244 +147,39 @@ const CoursesDetailsArea = ({ details }: { details: IcourseType }) => {
       <section className="company-details pt-110 lg-pt-80 pb-160 xl-pb-150 lg-pb-80">
         <div className="container">
           <div className="row">
-            <div className="col-xxl-3 col-xl-4 order-xl-last">
-              <div className="job-company-info ms-xl-5 ms-xxl-0 lg-mb-50">
-                <Image
-                  src={details.logo}
-                  alt="logo"
-                  className="lazy-img m-auto logo"
-                />
-                <div className="text-md text-dark text-center mt-15 mb-20 lg-mb-10">
-                  {details.college}
-                </div>
-                <div className="text-center">
-                  <a
-                    href={details.link}
-                    className="website-btn-two tran3s"
-                    target="_blank"
-                  >
-                    Visit our website
-                  </a>
-                </div>
-
-                <div className="border-top mt-35 lg-mt-20 pt-25">
-                  <ul className="job-meta-data row style-none">
-                    <li className="col-12">
-                      <span>Location: </span>
-                      <div>{details.location} </div>
-                    </li>
-
-                    <li className="col-12">
-                      <span>Email: </span>
-                      <div>
-                        <a href={details.email}>{details.email}</a>
-                      </div>
-                    </li>
-                    <li className="col-12">
-                      <span>Founded: </span>
-                      <div>{details.date}</div>
-                    </li>
-
-                    <li className="col-12">
-                      <span>Category: </span>
-                      <div>{details.category[0]}</div>{" "}
-                      <div>{details.category[1]}</div>{" "}
-                    </li>
-                    <li className="col-12">
-                      <span>Social: </span>
-                      <div>
-                        <a href={details.facebook} className="me-3">
-                          <i className="bi bi-facebook"></i>
-                        </a>
-                        <a href={details.instagram} className="me-3">
-                          <i className="bi bi-instagram"></i>
-                        </a>
-                        <a href={details.twitter} className="me-3">
-                          <i className="bi bi-twitter"></i>
-                        </a>
-                        <a href={details.linkedin}>
-                          <i className="bi bi-linkedin"></i>
-                        </a>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
             <div className="col-xxl-9 col-xl-8 order-xl-first pt-100">
               <div className="details-post-data me-xxl-5 pe-xxl-4">
                 <h3 id="overview">Overview</h3>
-                <p>{details.overviewsection}</p>
-
-                <h3 id="courses">Courses and Fees 2023</h3>
-                <p>{details.courses}</p>
+                <p>{details.courseoverview}</p>
                 <div className="details-post-data me-xxl-5 pe-xxl-4 mt-4 border border-gray-300 rounded-lg overflow-auto ">
                   <Table aria-label="Courses and Fees Table">
                     <TableHeader>
-                      <TableColumn>Specialization</TableColumn>
-                      <TableColumn>Annual Fee</TableColumn>
-                      <TableColumn>Eligibility Criteria</TableColumn>
+                      <TableColumn>Particulars</TableColumn>
+                      <TableColumn>Course Details</TableColumn>
                     </TableHeader>
                     <TableBody>
-                      {details.coursesAndFees.map((course, index) => (
+                      {details.coursesoverviewtable.map((course, index) => (
                         <TableRow key={index}>
-                          <TableCell>{course.specialization}</TableCell>
-                          <TableCell>{course.annualFee}</TableCell>
-                          <TableCell>{course.eligibility}</TableCell>
+                          <TableCell>{course.particulars}</TableCell>
+                          <TableCell>{course.details}</TableCell>
                         </TableRow>
                       ))}
                     </TableBody>
                   </Table>
                 </div>
-                <h3 className="pt-50" id="admission">
-                  Admission Dates 2023
-                </h3>
-                <p>{details.admission}</p>
 
-                <div className="details-post-data me-xxl-5 pe-xxl-4 mt-4 border border-gray-300 rounded-lg overflow-auto ">
-                  <Table aria-label="Admission Dates Table">
-                    <TableHeader>
-                      <TableColumn>Event</TableColumn>
-                      <TableColumn>Date</TableColumn>
-                    </TableHeader>
-                    <TableBody>
-                      {details.admissionDates.map((event, index) => (
-                        <TableRow key={index}>
-                          <TableCell>{event.name}</TableCell>
-                          <TableCell>{event.date}</TableCell>
-                        </TableRow>
-                      ))}
-                    </TableBody>
-                  </Table>
-                </div>
                 <div className="position-relative">
                   <h3 className="pt-50" id="placement">
-                    Placements 2023
+                    Why Choose {details.coursename} Degree?
                   </h3>
-                  <p>{details.placement}</p>
+                  <p>{details.whychoose}</p>
 
-                  <div className="details-post-data me-xxl-5 pe-xxl-4 mt-4 border border-gray-300 rounded-lg overflow-auto ">
-                    <Table aria-label="Admission Dates Table">
-                      <TableHeader>
-                        <TableColumn>Placement Informatiion</TableColumn>
-                        <TableColumn>Details</TableColumn>
-                      </TableHeader>
-                      <TableBody>
-                        {details.placementinformation.map((event, index) => (
-                          <TableRow key={index}>
-                            <TableCell>{event.name}</TableCell>
-                            <TableCell>{event.info}</TableCell>
-                          </TableRow>
-                        ))}
-                      </TableBody>
-                    </Table>
-                  </div>
+                  {details.whychoosepoints.map((point, index) => (
+                    <ul>
+                      <li key={index}> {point}</li>
+                    </ul>
+                  ))}
 
-                  <h3 className="pt-50" id="campus">
-                    About Campus
-                  </h3>
-                  <p>{details.campus}</p>
-
-                  <div className="details-post-data me-xxl-5 pe-xxl-4 mt-4 border border-gray-300 rounded-lg overflow-auto ">
-                    <Table aria-label="Admission Dates Table">
-                      <TableHeader>
-                        <TableColumn>Campus</TableColumn>
-                        <TableColumn>Details</TableColumn>
-                      </TableHeader>
-                      <TableBody>
-                        {details.campusinfo.map((event, index) => (
-                          <TableRow key={index}>
-                            <TableCell>{event.name}</TableCell>
-                            <TableCell>{event.info}</TableCell>
-                          </TableRow>
-                        ))}
-                      </TableBody>
-                    </Table>
-                  </div>
-                  <h3 className="pt-50" id="opportunities">
-                    Opportunities
-                  </h3>
-                  <p>{details.opportunities}</p>
-
-                  <div className="details-post-data me-xxl-5 pe-xxl-4 mt-4 border border-gray-300 rounded-lg overflow-auto ">
-                    <Table aria-label="Admission Dates Table">
-                      <TableHeader>
-                        <TableColumn>opportunities</TableColumn>
-                        <TableColumn>Details</TableColumn>
-                      </TableHeader>
-                      <TableBody>
-                        {details.opportunitiesinfo.map((event, index) => (
-                          <TableRow key={index}>
-                            <TableCell>{event.name}</TableCell>
-                            <TableCell>{event.info}</TableCell>
-                          </TableRow>
-                        ))}
-                      </TableBody>
-                    </Table>
-                  </div>
-                  <h3 className="pt-50" id="hostel">
-                    Hostel
-                  </h3>
-                  <p>{details.hostel}</p>
-
-                  <div className="details-post-data me-xxl-5 pe-xxl-4 mt-4 border border-gray-300 rounded-lg overflow-auto ">
-                    <Table aria-label="Admission Dates Table">
-                      <TableHeader>
-                        <TableColumn>facilites</TableColumn>
-                        <TableColumn>Details</TableColumn>
-                      </TableHeader>
-                      <TableBody>
-                        {details.hostelinfo.map((event, index) => (
-                          <TableRow key={index}>
-                            <TableCell>{event.name}</TableCell>
-                            <TableCell>{event.info}</TableCell>
-                          </TableRow>
-                        ))}
-                      </TableBody>
-                    </Table>
-                  </div>
-                  <h3 className="pt-50" id="awards">
-                    Awards
-                  </h3>
-                  <p>{details.awards}</p>
-
-                  <div className="details-post-data me-xxl-5 pe-xxl-4 mt-4 border border-gray-300 rounded-lg overflow-auto ">
-                    <Table aria-label="Admission Dates Table">
-                      <TableHeader>
-                        <TableColumn>Awards</TableColumn>
-                        <TableColumn>Details</TableColumn>
-                      </TableHeader>
-                      <TableBody>
-                        {details.awardsinfo.map((event, index) => (
-                          <TableRow key={index}>
-                            <TableCell>{event.name}</TableCell>
-                            <TableCell>{event.info}</TableCell>
-                          </TableRow>
-                        ))}
-                      </TableBody>
-                    </Table>
-                  </div>
-                  <h3 className="pt-50" id="ranking">
-                    Ranking
-                  </h3>
-                  <p>{details.ranking}</p>
-
-                  <div className="details-post-data me-xxl-5 pe-xxl-4 mt-4 border border-gray-300 rounded-lg overflow-auto ">
-                    <Table aria-label="Admission Dates Table">
-                      <TableHeader>
-                        <TableColumn>Ranking</TableColumn>
-                        <TableColumn>Details</TableColumn>
-                      </TableHeader>
-                      <TableBody>
-                        {details.rankinginfo.map((event, index) => (
-                          <TableRow key={index}>
-                            <TableCell>{event.name}</TableCell>
-                            <TableCell>{event.info}</TableCell>
-                          </TableRow>
-                        ))}
-                      </TableBody>
-                    </Table>
-                  </div>
                   <h3 className="pt-50" id="alumini">
                     Alumini Reviews
                   </h3>
@@ -476,13 +271,6 @@ const CoursesDetailsArea = ({ details }: { details: IcourseType }) => {
           </div>
         </div>
       </section>
-      {/* video modal start */}
-      <VideoPopup
-        isVideoOpen={isVideoOpen}
-        setIsVideoOpen={setIsVideoOpen}
-        videoId={details.videoid}
-      />
-      {/* video modal end */}
     </>
   );
 };

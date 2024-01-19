@@ -6,6 +6,11 @@ export interface ICourse {
   eligibility: string;
 }
 
+export interface Icoursesoverview {
+  particulars: string;
+  details: string;
+}
+
 export interface IAdmissionDate {
   name: string;
   date: string;
@@ -44,54 +49,24 @@ export interface Ireview {
   name: string;
   location: string;
 }
+export interface Ireview {
+  id: number;
+  rating: number;
+  desc: string;
+  user: StaticImageData;
+  name: string;
+  location: string;
+}
 
 export interface IcourseType {
   id: number;
   logo: StaticImageData;
-  type: string;
-  establishmentyear: string;
-  Recognisedby: string;
-  Approvedby: string;
-  state: string;
-  city: string;
-  Campusarea: string;
-  link: string;
-  email: string;
-  phone: string;
-  founded: string;
-  feild: string[];
-  overviewsection: string;
-  duration: string;
-  date: string;
-  college: string;
-  location: string;
-  category: string[];
-  tags?: string[];
-  experience: string;
-  salary: number;
-  salary_duration: string;
-  english_fluency: string;
-  overview: string;
-  courses: string;
-  ranking: string;
-  awards: string;
-  hostel: string;
-  opportunities: string;
-  campus: string;
-  placement: string;
-  admission: string;
-  videoid: string;
-  facebook: string;
-  instagram: string;
-  twitter: string;
-  linkedin: string;
-  coursesAndFees: ICourse[];
-  admissionDates: IAdmissionDate[];
-  placementinformation: IPlacement[];
-  campusinfo: ICampus[];
-  opportunitiesinfo: Iopportunity[]; // Added this line for admission dates
-  awardsinfo: Iaward[]; // Added this line for admission dates
-  hostelinfo: Ihostel[]; // Added this line for admission dates
-  rankinginfo: Iranking[];
+  coursename: string;
+  coursefullform: string;
+  courseoverview: string;
+  coursesoverviewtable: Icoursesoverview[];
+  whychoose: string;
+  whychoosepoints: string[];
+  typesofcoursedegreeContent: string;
   reviewinfo: Ireview[];
 }

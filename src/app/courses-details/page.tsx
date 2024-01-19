@@ -16,10 +16,9 @@ const CollegeDetailsPage = () => {
     <Wrapper>
       <div className="main-page-wrapper">
         <CompanyBreadcrumbjob
-          title={details.college}
-          subtitle={details.location}
+          title={details.coursename}
+          subtitle={details.coursefullform}
         />
-
         <CoursesDetailsArea details={details} />
         <JobPortalIntro top_border={true} />
         <FooterOne />
