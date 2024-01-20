@@ -10,44 +10,14 @@ export interface Icoursesoverview {
   particulars: string;
   details: string;
 }
-
-export interface IAdmissionDate {
-  name: string;
-  date: string;
+export interface IcoursesTypes {
+  typesofcourse: string;
+  avgfee: string;
 }
 
-export interface IPlacement {
-  name: string;
-  info: string;
-}
-export interface ICampus {
-  name: string;
-  info: string;
-}
-export interface Iopportunity {
-  name: string;
-  info: string;
-}
-export interface Ihostel {
-  name: string;
-  info: string;
-}
-export interface Iranking {
-  name: string;
-  info: string;
-}
-export interface Iaward {
-  name: string;
-  info: string;
-}
-
-export interface Ireview {
-  id: number;
-  rating: number;
-  desc: string;
-  user: StaticImageData;
-  name: string;
-  location: string;
+export interface Iskillset {
+  skill: string;
+  details: string;
 }
 export interface Ireview {
   id: number;
@@ -68,5 +38,13 @@ export interface IcourseType {
   whychoose: string;
   whychoosepoints: string[];
   typesofcoursedegreeContent: string;
+  typesofcourses: IcoursesTypes[];
+  lateralentryprocedure: string;
+  integratedcourse: string;
+  eligibility: string;
+  eligibilitypoint: string[];
+  requiredskillset: string;
+  skillset: Iskillset[];
+
   reviewinfo: Ireview[];
 }

@@ -8,7 +8,8 @@ import HeaderFour from "@/layouts/headers/header-4";
 import React, { useEffect, useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import Script from "next/script";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const gordita = localFont({
   src: [
     {
@@ -136,6 +137,7 @@ export default function RootLayout({
           )}
 
         <Providers>{children}</Providers>
+        <ToastContainer />
         <BackToTopCom />
       </body>
     </html>

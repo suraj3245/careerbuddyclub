@@ -69,7 +69,10 @@ const RegisterForm = () => {
     mobile: number;
   }) => {
     axios
-      .post("https://test.careerbuddyclub.com:8080/api/students/getwhatsappotp", data)
+      .post(
+        "https://test.careerbuddyclub.com:8080/api/students/getwhatsappotp",
+        data
+      )
       .then((response) => {
         console.log(response.data);
         // Notify user that OTP is sent
@@ -167,30 +170,6 @@ const RegisterForm = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <ToastContainer
-        position="top-left"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-      />
-      <ToastContainer
-        position="bottom-left"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-      />
       <div className="row">
         <div className="col-12">
           <div className="input-group-meta position-relative mb-25">
