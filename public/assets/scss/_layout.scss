@@ -226,6 +226,16 @@
     }
   }
 }
+.text-feature-three .video-post-two {
+  background: url(../images/logo/team.jpg) no-repeat center;
+  background-size: cover;
+  height: 300px;
+  border-radius: 20px;
+  @media (min-width: 768px) {
+    // Adjust '768px' to the breakpoint you need for "bigger screens"
+    height: 540px; // Height for bigger screens
+  }
+}
 // Text Feature Four
 .text-feature-four .bg-wrapper {
   background: #eee13d;
@@ -426,7 +436,6 @@
       text-decoration: underline;
     }
   }
-  
 }
 // FAq Page
 .faq-section .nav {

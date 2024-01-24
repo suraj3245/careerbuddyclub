@@ -387,11 +387,7 @@ const DashboardEducation = ({ setIsOpenSidebar }: IProps) => {
         </form>
 
         <div className="button-group d-inline-flex align-items-center mt-30">
-          <Link
-            type="submit"
-            className="dash-btn-two tran3s me-3"
-            href="/dashboard/candidate-dashboard/education"
-          >
+          <Link type="submit" className="dash-btn-two tran3s me-3" href="/">
             Next
           </Link>
         </div>

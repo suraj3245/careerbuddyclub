@@ -1,43 +1,74 @@
 "use client";
 import React, { useState } from "react";
-import Link from "next/link";
 import Image from "next/image";
-import job_data from "@/data/job-data";
-import shape from "@/assets/images/shape/shape_22.svg";
-import icon from "@/assets/images/icon/icon_19.svg";
+import img_1 from "@/assets/images/logo/1.jpg";
+import img_2 from "@/assets/images/logo/2.jpg";
+import img_3 from "@/assets/images/logo/3.jpg";
+import img_4 from "@/assets/images/logo/4.jpg";
+import img_5 from "@/assets/images/logo/5.jpg";
+import img_6 from "@/assets/images/logo/6.jpg";
+import img_7 from "@/assets/images/logo/7.jpg";
+import img_8 from "@/assets/images/logo/8.jpg";
+
+import { IgalType } from "@/types/job-data-type";
 
 // categories
+const job_data: IgalType[] = [
+  {
+    id: 1,
+    logo: img_1,
+    category: ["Career Aptitude"],
+  },
+  {
+    id: 2,
+    logo: img_2,
+    category: ["Career Aptitude"],
+  },
+  {
+    id: 3,
+    logo: img_3,
+    category: ["Career Aptitude"],
+  },
+  {
+    id: 4,
+    logo: img_5,
+    category: ["Career Aptitude"],
+  },
+  {
+    id: 5,
+    logo: img_6,
+    category: ["Career Aptitude"],
+  },
+];
+
 const categories: string[] = [
-  "All Categories",
-  "Design",
-  "Developer",
-  "Marketing",
-  "Business",
+  "Career Town",
+  "Career Aptitude",
+  "Social Events",
 ];
 // job items
-const jobs = job_data.slice(0, 5);
+const jobs = job_data.filter((j) => j.category.includes(categories[0]));
+
 const JobListTwo = () => {
   const [activeCategory, setActiveCategory] = useState<string>(categories[0]);
   const [jobItems, setJobItems] = useState(jobs);
-  // handle job item
+
+  // Updated handleJob function
   const handleJob = (value: string) => {
     setActiveCategory(value);
-    if (value === "All Categories") {
-      setJobItems(jobs);
-    } else {
-      const remaining_jobs = job_data.filter((j) => j.category.includes(value));
-      setJobItems(remaining_jobs);
-    }
+    const filtered_jobs = job_data.filter((j) => j.category.includes(value));
+    setJobItems(filtered_jobs);
   };
+
   return (
     <>
-      <section className="job-listing-two pt-120 xl-pt-100 md-pt-80 pb-130 xl-pb-100 lg-pb-80 mt-110 xl-mt-90 md-mt-50">
+      <section className=" pt-120 xl-pt-100 md-pt-80 pb-130 xl-pb-100 lg-pb-80 mt-110 xl-mt-90 md-mt-50">
         <div className="container">
           <div className="row align-items-center">
             <div className="col-xl-6 col-lg-5">
               <div className="title-one text-center text-lg-start md-mb-20">
                 <h2 className="main-font wow fadeInUp" data-wow-delay="0.3s">
-                  New job listing
+                  Our Engagement
                 </h2>
               </div>
             </div>
@@ -55,7 +86,6 @@ const JobListTwo = () => {
               </ul>
             </div>
           </div>
-
           <div
             id="isotop-gallery-wrapper"
             className="grid-3column pt-55 lg-pt-20"
@@ -66,78 +96,36 @@ const JobListTwo = () => {
                   key={item.id}
                   className="col-lg-4 col-md-6 isotop-item overflow-hidden"
                 >
-                  <div className="job-list-two mt-40 lg-mt-20 position-relative">
-                    <Link href={`/job-details-v1/${item.id}`} className="logo">
+                  <div className="job-list-two mt-10 lg-mt-5 position-relative">
+                    <div className="image">
                       <Image
                         src={item.logo}
                         alt="logo"
-                        width={45}
-                        height={45}
-                        style={{ objectFit: "contain" }}
+                        width={350}
+                        height={350}
+                        style={{
+                          objectFit: "cover",
+                        }}
                         className="lazy-img m-auto"
                       />
-                    </Link>
-                    <Link
-                      href={`/job-details-v1/${item.id}`}
-                      className="save-btn text-center rounded-circle tran3s"
-                      title="Save Job"
-                    >
-                      <i className="bi bi-bookmark-dash"></i>
-                    </Link>
-                    <div>
-                      <Link
-                        href={`/job-details-v1/${item.id}`}
-                        className="job-duration fw-500"
-                      >
-                        {item.duration}
-                      </Link>
-                    </div>
-                    <div>
-                      <Link
-                        href={`/job-details-v1/${item.id}`}
-                        className="title fw-500 tran3s"
-                      >
-                        {item.title}
-                      </Link>
-                    </div>
-                    <div className="job-date">{item.date}</div>
-                    <div className="d-flex align-items-center justify-content-between">
-                      <div className="job-location">
-                        <Link href={`/job-details-v1/${item.id}`}>
-                          {item.location}
-                        </Link>
-                      </div>
-                      <Link
-                        href={`/job-details-v1/${item.id}`}
-                        className="apply-btn text-center tran3s"
-                      >
-                        APPLY
-                      </Link>
                     </div>
                   </div>
                 </div>
               ))}
-              {activeCategory === "All Categories" && (
-                <div className="col-lg-4 col-md-6 isotop-item overflow-hidden">
-                  <div className="card-style-four bg-color tran3s w-100 mt-40 lg-mt-20">
-                    <a href="#" className="d-block">
-                      <div className="title text-white">13k+</div>
-                      <div className="text-lg text-white">
-                        Job already posted
-                      </div>
-                      <div className="d-flex align-items-center justify-content-end mt-140 lg-mt-120 xs-mt-60 mb-30">
-                        <Image src={shape} alt="shape" className="lazy-img" />
-                        <div className="icon tran3s d-flex align-items-center justify-content-center ms-5">
-                          <Image src={icon} alt="icon" className="lazy-img" />
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-              )}
             </div>
           </div>
         </div>
+
+        <section className="text-feature-three position-relative pt-100 lg-pt-80 md-pt-50">
+          <div className="container">
+            <div className="row">
+              <h2> Our Team</h2>
+              <div className="col-xxl-11 m-auto">
+                <div className="video-post-two d-flex align-items-center justify-content-center mt-100 lg-mt-50 mb-50 lg-mb-30"></div>
+              </div>
+            </div>
+          </div>
+        </section>
       </section>
     </>
   );

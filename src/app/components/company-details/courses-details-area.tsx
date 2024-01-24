@@ -1,7 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import VideoPopup from "../common/video-popup";
 import Slider from "react-slick";
 import { IcourseType } from "@/types/course-details";
 import useSticky from "@/hooks/use-sticky";
@@ -33,7 +32,6 @@ const slider_setting = {
 };
 
 const CoursesDetailsArea = ({ details }: { details: IcourseType }) => {
-  const [isVideoOpen, setIsVideoOpen] = useState<boolean>(false);
   const { sticky } = useSticky();
   const [headerTop, setHeaderTop] = useState<string>("275px");
 
@@ -84,7 +82,6 @@ const CoursesDetailsArea = ({ details }: { details: IcourseType }) => {
               <nav className="navbar navbar-expand-lg p0 me-lg-auto ms-3 ms-lg-5 order-lg-1">
                 <div className="collapse navbar-collapse" id="navbarNav">
                   <ul className="navbar-nav">
-                    {/* menus start */}
                     <li className="nav-item">
                       <a className="nav-link" href="#overview" role="button">
                         Overview

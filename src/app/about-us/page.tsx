@@ -12,6 +12,11 @@ import HeaderFour from "@/layouts/headers/header-4";
 import FeatureEighteen from "../components/features/feature-eighteen";
 import FeatureFour from "../components/features/feature-four";
 import FancyBannerTwo from "../components/fancy-banner/fancy-banner-2";
+import JobListTwo from "../components/jobs/list/job-list-two";
+import ExpertsOne from "../components/experts/experts-one";
+import ExpertSectionOne from "../components/expert-member/expert-section-1";
+import ExpertSectionTwo from "../components/expert-member/expert-section-2";
+
 export const metadata: Metadata = {
   title: "About us",
 };
@@ -43,10 +48,15 @@ const AboutUsPage = () => {
         <FancyBannerTwo />
         {/* feedback one start */}
         <FeedbackOne about_p={true} />
+
         {/* feedback one end */}
         <FeatureFour />
+        {/* <ExpertSectionTwo /> */}
         {/* job portal intro start */}
-      
+        {/* <ExpertSectionOne /> */}
+
+        {/* <JobListTwo /> */}
+
         {/* job portal intro end */}
 
         {/* footer start */}

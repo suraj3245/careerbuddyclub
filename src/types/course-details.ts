@@ -27,7 +27,46 @@ export interface Ireview {
   name: string;
   location: string;
 }
-
+export interface IExamination {
+  examination: string;
+  applicationstart: string;
+  applicationend: string;
+  admitcard: string;
+  examdate: string;
+  result: string;
+}
+export interface ISpecialization {
+  courselist: string;
+  courselisttwo: string;
+}
+export interface Iprivatecollege {
+  institutename: string;
+  coursefee: string;
+}
+export interface Igovernmentcollege {
+  institutename: string;
+  coursefee: string;
+}
+export interface Isubject {
+  particulars: string;
+  details: string;
+}
+export interface Istream {
+  specialization: string;
+  subjects: string;
+}
+export interface Icommonstream {
+  semester: string;
+  subjects: string;
+}
+export interface Isemester {
+  semester: string;
+  subjects: string;
+}
+export interface Isyllabus {
+  specialization: string;
+  syllabus: string[];
+}
 export interface IcourseType {
   id: number;
   logo: StaticImageData;
@@ -45,6 +84,27 @@ export interface IcourseType {
   eligibilitypoint: string[];
   requiredskillset: string;
   skillset: Iskillset[];
-
+  entrance: string;
+  EntranceExamination: IExamination[];
+  popularSpecializaiton: string;
+  popularSpecializaitontable: ISpecialization[];
+  admissionprocess: string;
+  admissionviaexam: string;
+  admissionpoints: string[];
+  admissionmeritbasis: string;
+  admissionlateral: string;
+  admissionwithoutprocess: string;
+  admissionwithoutprocesspoint: string[];
+  coursesfeeinindia: string;
+  topprivatecollege: Iprivatecollege[];
+  syllabusandsubject: string;
+  syllabuspoint: string[];
+  syllabussubject: Isubject[];
+  streamwise: string;
+  streamwisetable: Istream[];
+  commonsubjectforall: Icommonstream[];
+  coresubjects: string;
+  syllabussemester: Isemester[];
+  sepecializationsyllabus: Isyllabus[];
   reviewinfo: Ireview[];
 }
