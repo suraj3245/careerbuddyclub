@@ -14,21 +14,21 @@ interface StatisticsCardProps {
 
 // Statistic Item component with inline styling
 const StatisticItem: React.FC<Statistic> = ({ icon, number, label }) => {
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [isMobile, setIsMobile] = useState(false);
 
+  const handleResize = () => {
+    // Update isMobile based on window width
+    setIsMobile(window.innerWidth <= 767);
+  };
   useEffect(() => {
-    // Function to update the state based on window size
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
+    if (typeof window !== "undefined") {
+      // Initialize and set up resize event listener
+      handleResize();
+      window.addEventListener("resize", handleResize);
+    }
 
-    // Add event listener
-    window.addEventListener("resize", handleResize);
-
-    // Clean up
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
+    // Clean up event listener
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
   const iconStyle = {
     fontSize: isMobile ? "1.5rem" : "2rem", // Smaller icon on mobile
