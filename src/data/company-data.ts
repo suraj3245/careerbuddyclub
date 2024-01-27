@@ -45,7 +45,8 @@ import img_44 from '@/assets/images/logo/media_77.png';
 import img_45 from '@/assets/images/logo/media_78.jpg';
 import img_46 from '@/assets/images/logo/media_79.png';
 import img_47 from '@/assets/images/logo/media_80.png';
-
+import img_48 from '@/assets/images/logo/media_81.png';
+import img_49 from '@/assets/images/logo/media_82.png';
 import { ICompany } from './../types/company-type';
 
 const company_data:ICompany[] = [
@@ -376,6 +377,20 @@ const company_data:ICompany[] = [
     img:img_47,
     name:'IDS Infotech Limited',
     location:'Punjab',
+    isFav:true
+  },
+  {
+    id:48,
+    img:img_48,
+    name:'Jungle Works',
+    location:'Maharashtra',
+    isFav:true
+  },
+  {
+    id:49,
+    img:img_49,
+    name:'Apollo Home Healthcare Ltd',
+    location:'Maharashtra',
     isFav:true
   },
 ]

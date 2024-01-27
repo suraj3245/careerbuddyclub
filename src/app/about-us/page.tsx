@@ -12,6 +12,9 @@ import HeaderFour from "@/layouts/headers/header-4";
 import FeatureEighteen from "../components/features/feature-eighteen";
 import FeatureFour from "../components/features/feature-four";
 import FancyBannerTwo from "../components/fancy-banner/fancy-banner-2";
+import FeedbackSix from "../components/feedBacks/feedback-six";
+import FeedbackSeven from "../components/feedBacks/feedback-seven";
+import PartnersSlider2 from "../components/partners/partners-slider2";
 export const metadata: Metadata = {
   title: "About us",
 };
@@ -41,10 +44,13 @@ const AboutUsPage = () => {
         <HowItWorks />
         {/* how works end */}
         <FancyBannerTwo />
-        {/* feedback one start */}
-        <FeedbackOne about_p={true} />
-        {/* feedback one end */}
+        <FeedbackSix />
+        <FeedbackSeven />
+
         <FeatureFour />
+        <div className="partner-logos bg-color border-0 pt-45 pb-45 ps-3 pe-3 mt-4">
+        <PartnersSlider2 />
+      </div>
         {/* job portal intro start */}
       
         {/* job portal intro end */}

@@ -7,7 +7,7 @@ import shape_1 from "@/assets/images/shape/shape_01.svg";
 import shape_3 from "@/assets/images/shape/shape_03.svg";
 import main_img from "@/assets/images/assets/img_02.png";
 
-const HeroBanner = () => {
+const HeroBannerSix = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const router = useRouter();
 
@@ -61,4 +61,4 @@ const HeroBanner = () => {
   );
 };
 
-export default HeroBanner;
+export default HeroBannerSix;

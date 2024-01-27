@@ -8,8 +8,10 @@ export function WidgetOne({ cls,style_2 }: { cls: string;style_2?:boolean }) {
       <ul className="footer-nav-link style-none">
         <li><Link href="http://jobs.careerbuddyclub.com">Browse Jobs</Link></li>
         <li><Link href="/company-v1">Companies</Link></li>
+        <li><Link href="/Speakers">
+        Global Mentors & Speakers</Link></li>
       </ul>
-    </div>
+    </div>  
   )
 }
 
@@ -42,7 +44,7 @@ export function WidgetThree({ cls,style_2 }: { cls: string;style_2?:boolean }) {
 export function WidgetFour({ cls,style_2 }: { cls: string;style_2?:boolean }) {
   return (
     <div className={`${cls} mb-20`}>
-      <h5 className={`footer-title ${style_2?'text-white':''}`}>Our Services</h5>
+      <h5 className={`footer-title ${style_2?'text-white':''}`}>Quick Links</h5>
       <ul className="footer-nav-link style-none">
         <li><Link href='/schools'>For Schools</Link></li>
         <li><Link href='/campus'>For College</Link></li>

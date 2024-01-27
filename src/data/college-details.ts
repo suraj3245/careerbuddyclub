@@ -9,25 +9,25 @@ const college_details: IcollegeType[] = [
   {
     id: 1,
     logo: job_img_1,
-    type: "private",
-    establishmentyear: "2016",
+    type: "Private",
+    establishmentyear: "2009",
     Recognisedby: "UGC",
     Approvedby: "BCI, RCI, PCI, NCTE",
-    state: "uttarakhand",
-    city: "dehradun",
+    state: "Uttarakhand",
+    city: "Dehradun",
     Campusarea: "20+ acre",
-    link: "",
-    email: "slack@inquery.com",
-    founded: "27 Jan,1997",
-    phone: "234 112 779",
-    feild: ["Technology", "Product", "Agency"],
+    link: "https://gncmh.com/",
+    email: "info@gncmh.com",
+    founded: "",
+    phone: "7300900909",
+    feild: ["Education"],
     overviewsection:
       "When team members told us they needed more flexibility around where and how they worked, we acted, creating two options to accommodate two different styles of work. One non-negotiable principle along the way? We had to retain our deep culture of collaboration, both among ourselves and with our clients. Introducing Work From Near and Work From Anywhere at WillowTree. Please indicate which location(s) you're interested.",
     duration: "Fulltime",
     date: "18 Jul 2024",
     college: "Guru Nanak College",
     location: "Dehradun, India",
-    category: ["pharmacy", "Medical"],
+    category: ["Pharmacy", "Medical"],
     experience: "Fresher",
     salary: 900,
     salary_duration: "Monthly",
@@ -59,122 +59,93 @@ const college_details: IcollegeType[] = [
       "When team members told us they needed more flexibility around where and how they worked, we acted, creating two options to accommodate two different styles of work. One non-negotiable principle along the way? We had to retain our deep culture of collaboration, both among ourselves and with our clients. Introducing Work From Near and Work From Anywhere at WillowTree. Please indicate which location(s) you're interested.",
     coursesAndFees: [
       {
-        specialization: "Diploma",
-        annualFee: "Rs 45,000",
-        eligibility: "Class 10th with minimum 35% marks in aggregate.",
+        specialization: "B.Pharma",
+        annualFee: "Rs 3,84,399",
+        eligibility: "Passed 10+2 examination with PCB/PCM.",
       },
       {
-        specialization: "Diploma in Pharmacy (D.Pharm.)",
-        annualFee: "Rs 1,00,000",
-        eligibility: "As per PCI norms.",
+        specialization: "Lateral Entry B.Pharma ",
+        annualFee: "Rs 2,93,099",
+        eligibility: "D Pharma",
       },
       {
-        specialization: "B.Tech",
-        annualFee: "Rs 1,15,000 - Rs 1,30,000",
+        specialization: "B.Sc Optometry",
+        annualFee: "Rs 2,03,099",
         eligibility:
-          "Passed 10+2 examination with Physics and Mathematics as compulsory subjects.",
+          "Passed 10+2 examination with PCB.",
       },
       {
-        specialization: "BCA",
-        annualFee: "Rs 60,000",
+        specialization: "Bachelor in Medical Radio Imaging Technology",
+        annualFee: "Rs 2,03,099",
         eligibility:
-          "10+2 with Mathematics/Computer Science/Information Practices etc. with minimum 50% marks.",
+          "Passed 10+2 examination with PCB.",
       },
       {
-        specialization: "B.Sc.",
-        annualFee: "Rs 45,000 - Rs 1,25,000",
-        eligibility: "10+2 or equivalent.",
+        specialization: "Bachelor of Physio Therapy",
+        annualFee: "Rs 2,64,399",
+        eligibility: "Passed 10+2 examination with PCB.",
       },
       {
-        specialization: "B.Ed.",
-        annualFee: "Rs 60,000",
+        specialization: "B.Sc. Operation Theatre",
+        annualFee: "Rs 2,44,399",
         eligibility:
-          "Graduation in any stream with minimum 50% marks in aggregate.",
+          "Passed 10+2 examination with PCB.",
       },
       {
-        specialization: "B.Com.",
-        annualFee: "Rs 40,000",
+        specialization: "Bachelor of Medical Laboratory Technology",
+        annualFee: "Rs 2,03,099",
         eligibility:
-          "10+2 with minimum 50% marks in best four relevant subjects.",
+          "Passed 10+2 examination with PCB.",
       },
       {
-        specialization: "B.Com. (Hons.)",
-        annualFee: "Rs 50,000",
-        eligibility: "10+2 with minimum 50% marks.",
+        specialization: "B.Sc Nursing",
+        annualFee: "Rs 7,00,000",
+        eligibility: "Passed 10+2 examination with PCB with English.",
       },
       {
-        specialization: "BBA",
-        annualFee: "Rs 60,000",
+        specialization: "D.Pharma ",
+        annualFee: "Rs 1,61,799",
         eligibility:
-          "10+2 with minimum 50% marks in best four relevant subjects.",
+          "Passed 10+2 examination with PCB/PCM.",
       },
       {
-        specialization: "B.Sc. in Nursing",
-        annualFee: "Rs 2,00,000",
+        specialization: "Diploma in Dialysis Technology",
+        annualFee: "Rs 1,35,599",
         eligibility:
-          "Candidate must pass the 12th or equivalent exam with PCB and English from a recognised board.",
+          "Passed 10+2 examination with PCB.",
       },
       {
-        specialization: "Integrated B. Com LLB (Hons)",
-        annualFee: "Rs 60,000",
-        eligibility: "10 +2 with minimum 45% marks in aggregate.",
+        specialization: "General Nursing and Midwifery",
+        annualFee: "Rs 3,60,000",
+        eligibility: "Passed 10+2 examination.",
       },
       {
-        specialization: "Integrated BA LLB (Hons)",
-        annualFee: "Rs 60,000",
-        eligibility: "Passed 10 +2 with minimum 45% marks in aggregate.",
+        specialization: "Diploma in Hotel Management",
+        annualFee: "",
+        eligibility: "Passed 10 examination.",
       },
       {
-        specialization: "M.Tech.",
-        annualFee: "Rs 60,000",
+        specialization: "Diploma in Event Management",
+        annualFee: "",
         eligibility:
-          "B.Tech. with minimum 55% marks in the relevant branch or 60% in MCA for Computer Science & Engineering.",
+          "Passed 10 examination.",
       },
       {
-        specialization: "MCA",
-        annualFee: "Rs 60,000",
+        specialization: "Diploma in Hospitality Management",
+        annualFee: "",
         eligibility:
-          "Passed BCA/ Bachelor Degree in Computer Science Engineering or equivalent degree.",
+          "Passed 10 examination.",
       },
-      {
-        specialization: "M.Sc.",
-        annualFee: "Rs 30,000 - Rs 70,000",
-        eligibility:
-          "Graduate in science with minimum 50% marks in aggregate with relevant subject.",
-      },
-      {
-        specialization: "M.B.A.",
-        annualFee: "Rs 1,15,000",
-        eligibility:
-          "Bachelor's degree (any discipline) with 50% marks in aggregate.",
-      },
-      {
-        specialization: "M.Pharma",
-        annualFee: "Rs 1,00,000",
-        eligibility:
-          "B.Pharm degree with a minimum of 50% marks from a recognised institute.",
-      },
-      {
-        specialization: "LLM",
-        annualFee: "Rs 40,000",
-        eligibility:
-          "The candidate must have completed an LLB degree (3-year LLB or 5-year LLB) from a recognised university.",
-      },
-      {
-        specialization: "M.Sec.",
-        annualFee: "Rs 50,000",
-        eligibility:
-          "Graduate in Science with minimum 50% marks in aggregate with relevant subjects.",
-      },
+      
     ],
     admissionDates: [
       {
-        name: "Registration Dates",
-        date: "February 8 to September 15, 2023",
+        name: "Application Start Date",
+        date: "01-Mar-2024",
       },
       {
-        name: "Date of Entrance Test & Interview",
-        date: "September 17, 2023",
+        name: "Application End Date",
+        date: "30-Jul-2024",
       },
       {
         name: "Date of Result Declaration",
@@ -186,7 +157,7 @@ const college_details: IcollegeType[] = [
       },
       {
         name: "Commencement of the Coursework",
-        date: "October 3, 2023",
+        date: "01-Aug-2024",
       },
     ],
     campusinfo: [
@@ -218,59 +189,55 @@ const college_details: IcollegeType[] = [
       },
       {
         name: "Degree",
-        info: "bachelors",
+        info: "4 Years",
       },
       {
         name: "Number of Students Registered",
-        info: "12312",
+        info: "22",
       },
       {
         name: "Number of Companies Visited",
-        info: "122",
+        info: "11",
       },
       {
         name: "Number of Students Placed",
-        info: "1222",
+        info: "22",
       },
       {
         name: "Number of Offers Made",
-        info: "1222",
+        info: "40",
       },
       {
-        name: "Minimum Salary",
-        info: "1222",
+        name: "Maximum Salary",
+        info: "9 LPA",
       },
       {
         name: "Average Salary",
-        info: "1222",
-      },
-      {
-        name: "Minimum Salary (International, if applicable)",
-        info: "1222",
+        info: "4.5 LPA",
       },
       {
         name: "Maximum Salary (International, if applicable)",
-        info: "1222",
+        info: "9 LPA",
       },
       {
         name: "Average Salary (International, if applicable)",
-        info: "1222",
+        info: "7 LPA",
       },
       {
         name: "Average Salary Percentage for Last 3 Years",
-        info: "1222",
+        info: "4 LPA",
       },
       {
         name: "Recruiter List",
-        info: "1222",
+        info: "Coral Pharmaceutical Selaqui, Unico Medicoz Selaqui, Sun Pharmaceutical Industries Ltd., Cipla Ltd., Divis Laboratories Ltd., Zydus Lifesciences Ltd., Biocon Ltd., Himalayan Drugs, Patanjali, Jubilant Pharma Ltd., Innovexia Life Sciences Pvt. Ltd., Alkem Laboratories, Lupin Limited, Piramal Enterprises Limited, Biophar Lifesciences Pvt. Ltd.",
       },
       {
         name: " Internship Details",
-        info: "1222",
+        info: "Natco Pharma Limited, Hyderabad, Lupin Pharma, ZIM LABORATORIES, Enaltech Pvt Ltd, Fussion Pvt Ltd,  Himalayan Drugs, Patanjali, Jubilant Pharma Ltd., Sun Pharmaceutical Industries Ltd., Piramal Enterprises Limited, Biophar Lifesciences Pvt. Ltd.and many more…..",
       },
       {
         name: "Placement Report",
-        info: "1222",
+        info: "",
       },
     ],
     opportunitiesinfo: [
