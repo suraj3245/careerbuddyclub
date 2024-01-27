@@ -3,8 +3,6 @@ import { Metadata } from "next";
 import Wrapper from "@/layouts/wrapper";
 import HeaderFour from "@/layouts/headers/header-4";
 import FooterOne from "@/layouts/footers/footer-one";
-
-import ContactArea from "../components/contact/contact-area";
 import FeatureFive from "../components/features/feature-five";
 import FeatureSix from "../components/features/feature-six";
 import FeedbackThree from "../components/feedBacks/feedback-three";

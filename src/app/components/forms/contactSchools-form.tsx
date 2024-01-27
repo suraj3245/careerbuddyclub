@@ -55,7 +55,6 @@ const ContactSchoolForm = () => {
         notifySuccess("Your message sent successfully");
       })
       .catch((error) => {
-        console.error(error);
         notifyError("An error occurred while submitting the form");
       })
       .finally(() => {

@@ -5,7 +5,7 @@ import Link from "next/link";
 import axios from "axios";
 import { Chart as ChartJS } from "chart.js/auto";
 import Confetti from "react-confetti";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import TopCareer from "../top-company/top-career";
 import YourCareer from "../top-company/Your-career";
@@ -39,7 +39,7 @@ const QuizForm: React.FC = () => {
       url: "https://test.careerbuddyclub.com:8080/api/students/getcatresult",
       headers: {
         Accept: "*/*",
-        "User-Agent": "Thunder Client (https://www.thunderclient.com)",
+
         Authorization: `Bearer ${token}`,
       },
     };
@@ -311,7 +311,7 @@ const QuizForm: React.FC = () => {
         <form onSubmit={handleSubmit} className="flex flex-col p-4">
           <div className="d-flex align-items-center justify-content-between">
             <div className="text-center" style={{ flex: 1 }}>
-              <h2 className="mb-6 pb-10 pt-60 " style={{ color: "#13ADBD" }}>
+              <h2 className="mb-6 pb-10 pt-18 " style={{ color: "#13ADBD" }}>
                 Career Aptitude Test
               </h2>
               {/* Centered Header */}
@@ -441,7 +441,7 @@ const QuizForm: React.FC = () => {
         <div style={{ position: "relative", zIndex: 1 }}>
           <div className="d-flex align-items-center justify-content-between">
             <div className="text-center" style={{ flex: 1 }}>
-              <h2 className="mb-6 pb-10 pt-80" style={{ color: "#13ADBD" }}>
+              <h2 className="mb-6 pb-10 pt-20" style={{ color: "#13ADBD" }}>
                 Career Aptitude Test
               </h2>
               {/* Centered Header */}

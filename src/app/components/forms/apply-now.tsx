@@ -70,7 +70,6 @@ const ApplyForm = () => {
         url: "https://test.careerbuddyclub.com:8080/api/students/getallstreams",
         headers: {
           Accept: "*/*",
-          "User-Agent": "Thunder Client (https://www.thunderclient.com)",
         },
       });
       const streamData = response.data.map((stream: { title: any }) => ({
@@ -217,28 +216,6 @@ const ApplyForm = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <ToastContainer
-        position="top-left"
-        autoClose={1000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        draggable
-        pauseOnHover
-        theme="light"
-      />
-      <ToastContainer
-        position="bottom-left"
-        autoClose={1000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        draggable
-        pauseOnHover
-        theme="light"
-      />
       <div className="row">
         <div className="col-12">
           <div className="input-group-meta position-relative mb-15">

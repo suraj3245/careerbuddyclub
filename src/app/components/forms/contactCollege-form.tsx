@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import ErrorMsg from "../common/error-msg";
@@ -13,7 +13,6 @@ type IFormData = {
   phone: string;
   address: string;
   hearAboutUs: string;
-  additionalContactInfo: string;
   additionalRequests: string;
 };
 
@@ -26,25 +25,23 @@ const ContactCollegeForm = () => {
   } = useForm<IFormData>({});
 
   const onSubmit = (data: IFormData) => {
-    const postData = {
-      ...data,
-    };
+    // Optional: Validate data here
 
     axios
       .post(
         "https://test.careerbuddyclub.com:8080/api/students/collegecontactformsubmit",
-        postData
+        data
       )
       .then((response) => {
         console.log(response.data);
         notifySuccess("Your message sent successfully");
+        reset(); // Resetting form on successful submission
       })
       .catch((error) => {
-        console.error(error);
-        notifyError("An error occurred while submitting the form");
-      })
-      .finally(() => {
-        reset();
+        console.error("Error response:", error.response); // More detailed error logging
+        notifyError(
+          "An error occurred while submitting the form: " + error.message
+        );
       });
   };
 
@@ -52,7 +49,7 @@ const ContactCollegeForm = () => {
     <form onSubmit={handleSubmit(onSubmit)}>
       {/* School Name */}
       <div className="input-group-meta form-group mb-30">
-        <label htmlFor="collegeName">College Name*</label>
+        <label htmlFor="collegeName">University / College Name*</label>
         <input
           type="text"
           placeholder="College Name*"
@@ -92,7 +89,7 @@ const ContactCollegeForm = () => {
 
       {/* College Address */}
       <div className="input-group-meta form-group mb-30">
-        <label htmlFor="address">College Address*</label>
+        <label htmlFor="address">University / College Address*</label>
         <input type="text" placeholder="Address*" {...register("address")} />
         {errors.address && <ErrorMsg msg={errors.address?.message!} />}
       </div>

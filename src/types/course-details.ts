@@ -6,36 +6,19 @@ export interface ICourse {
   eligibility: string;
 }
 
-export interface IAdmissionDate {
-  name: string;
-  date: string;
+export interface Icoursesoverview {
+  particulars: string;
+  details: string;
+}
+export interface IcoursesTypes {
+  typesofcourse: string;
+  avgfee: string;
 }
 
-export interface IPlacement {
-  name: string;
-  info: string;
+export interface Iskillset {
+  skill: string;
+  details: string;
 }
-export interface ICampus {
-  name: string;
-  info: string;
-}
-export interface Iopportunity {
-  name: string;
-  info: string;
-}
-export interface Ihostel {
-  name: string;
-  info: string;
-}
-export interface Iranking {
-  name: string;
-  info: string;
-}
-export interface Iaward {
-  name: string;
-  info: string;
-}
-
 export interface Ireview {
   id: number;
   rating: number;
@@ -44,59 +27,84 @@ export interface Ireview {
   name: string;
   location: string;
 }
-
+export interface IExamination {
+  examination: string;
+  applicationstart: string;
+  applicationend: string;
+  admitcard: string;
+  examdate: string;
+  result: string;
+}
+export interface ISpecialization {
+  courselist: string;
+  courselisttwo: string;
+}
+export interface Iprivatecollege {
+  institutename: string;
+  coursefee: string;
+}
+export interface Igovernmentcollege {
+  institutename: string;
+  coursefee: string;
+}
+export interface Isubject {
+  particulars: string;
+  details: string;
+}
+export interface Istream {
+  specialization: string;
+  subjects: string;
+}
+export interface Icommonstream {
+  semester: string;
+  subjects: string;
+}
+export interface Isemester {
+  semester: string;
+  subjects: string;
+}
+export interface Isyllabus {
+  specialization: string;
+  syllabus: string[];
+}
 export interface IcourseType {
   id: number;
   logo: StaticImageData;
-  type: string;
-  overviewsection: string;
-  coursedetailsection: string;
-  whatiscourse: string;
+  coursename: string;
+  coursefullform: string;
+  courseoverview: string;
+  coursesoverviewtable: Icoursesoverview[];
   whychoose: string;
-  typescourse: string;
+  whychoosepoints: string[];
+  typesofcoursedegreeContent: string;
+  typesofcourses: IcoursesTypes[];
+  lateralentryprocedure: string;
+  integratedcourse: string;
   eligibility: string;
-  examination: string;
-  popularspecializaiton: string;
-  admissionprocesswithexam: string;
-  admissionprocesswithoutexam: string;
-  coursescollegeinindia: string;
-  syllabusandsubject: string;
-  coursescollegeinIndia: string;
-  coursesofferingdirectadmission: string;
-  careeroption: String;
-  coursesalaryindia: string;
-  coursesalaryexperience: string;
-  duration: string;
-  date: string;
-  college: string;
-  location: string;
-  category: string[];
-  tags?: string[];
-  experience: string;
-  salary: number;
-  salary_duration: string;
-  english_fluency: string;
-  overview: string;
-  courses: string;
-  ranking: string;
-  awards: string;
-  hostel: string;
-  opportunities: string;
-  campus: string;
-  placement: string;
-  admission: string;
-  videoid: string;
-  facebook: string;
-  instagram: string;
-  twitter: string;
-  linkedin: string;
-  coursesAndFees: ICourse[];
-  admissionDates: IAdmissionDate[];
-  placementinformation: IPlacement[];
-  campusinfo: ICampus[];
-  opportunitiesinfo: Iopportunity[]; // Added this line for admission dates
-  awardsinfo: Iaward[]; // Added this line for admission dates
-  hostelinfo: Ihostel[]; // Added this line for admission dates
-  rankinginfo: Iranking[];
+  eligibilitypoint: string[];
+  requiredskillset: string;
+  skillset: Iskillset[];
+  // entrance: string;
+  // EntranceExamination: IExamination[];
+  // popularSpecializaiton: string;
+  // popularSpecializaitontable: ISpecialization[];
+  // admissionprocess: string;
+  // admissionviaexam: string;
+  // admissionpoints: string[];
+  // admissionmeritbasis: string;
+  // admissionlateral: string;
+  // admissionwithoutprocess: string;
+  // admissionwithoutprocesspoint: string[];
+  // coursesfeeinindia: string;
+  // topprivatecollege: Iprivatecollege[];
+  // syllabusandsubject: string;
+  // syllabuspoint: string[];
+  // syllabussubject: Isubject[];
+  // streamwise: string;
+  // streamwisetable: Istream[];
+  // commonsubjectforall: Icommonstream[];
+  // coresubjects: string;
+  // syllabussemester: Isemester[];
+  // sepecializationsyllabus: Isyllabus[];
   reviewinfo: Ireview[];
 }

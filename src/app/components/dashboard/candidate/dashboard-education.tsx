@@ -41,7 +41,6 @@ const DashboardEducation = ({ setIsOpenSidebar }: IProps) => {
         url: "https://test.careerbuddyclub.com:8080/api/students/getstudentsprofile",
         headers: {
           Accept: "*/*",
-          "User-Agent": "Thunder Client (https://www.thunderclient.com)",
           Authorization: `Bearer ${temptoken}`,
         },
       });
@@ -115,7 +114,6 @@ const DashboardEducation = ({ setIsOpenSidebar }: IProps) => {
       url: "https://test.careerbuddyclub.com:8080/api/students/updateEducationDetails",
       headers: {
         Accept: "*/*",
-        "User-Agent": "Thunder Client (https://www.thunderclient.com)",
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
       },
@@ -389,11 +387,7 @@ const DashboardEducation = ({ setIsOpenSidebar }: IProps) => {
         </form>
 
         <div className="button-group d-inline-flex align-items-center mt-30">
-          <Link
-            type="submit"
-            className="dash-btn-two tran3s me-3"
-            href="/dashboard/candidate-dashboard/education"
-          >
+          <Link type="submit" className="dash-btn-two tran3s me-3" href="/">
             Next
           </Link>
         </div>

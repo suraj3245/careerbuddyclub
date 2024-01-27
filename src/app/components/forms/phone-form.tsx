@@ -123,31 +123,6 @@ const PhoneForm = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <ToastContainer
-        position="top-left"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-      />
-      <ToastContainer
-        position="bottom-left"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-      />
-
       <div className="col-12">
         <div className="input-group-meta position-relative mb-25 mt-30">
           <div style={{ display: "flex", alignItems: "center" }}>

@@ -1,5 +1,5 @@
-import React from 'react';
-import { FaUserGraduate, FaChartLine, FaUserTie, FaSchool } from 'react-icons/fa'; // Import icons from react-icons
+"use client";
+import React, { useState, useEffect } from "react";
 
 // Define the props interface
 interface Statistic {
@@ -14,24 +14,47 @@ interface StatisticsCardProps {
 
 // Statistic Item component with inline styling
 const StatisticItem: React.FC<Statistic> = ({ icon, number, label }) => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  const handleResize = () => {
+    // Update isMobile based on window width
+    setIsMobile(window.innerWidth <= 767);
+  };
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      // Initialize and set up resize event listener
+      handleResize();
+      window.addEventListener("resize", handleResize);
+    }
+
+    // Clean up event listener
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   const iconStyle = {
-    fontSize: '2rem',
-    marginBottom: '8px',
+    fontSize: isMobile ? "1.5rem" : "2rem", // Smaller icon on mobile
+    marginBottom: "8px",
   };
 
   const numberStyle = {
-    fontSize: '1.5rem',
-    fontWeight: 'bold',
-    marginBottom: '5px',
+    fontSize: isMobile ? "0.8rem" : "1.5rem", // Smaller font size on mobile
+    fontWeight: "bold",
+    marginBottom: "5px",
   };
 
   const labelStyle = {
-    fontSize: '1rem',
-    color: '#666',
+    fontSize: isMobile ? "0.8rem" : "1rem", // Smaller font size on mobile
+    color: "#666",
   };
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        textAlign: "center",
+      }}
+    >
       <div style={iconStyle}>{icon}</div>
       <div style={numberStyle}>{number}</div>
       <div style={labelStyle}>{label}</div>
@@ -42,31 +65,19 @@ const StatisticItem: React.FC<Statistic> = ({ icon, number, label }) => {
 // Main component with inline styling
 const StatisticsCard: React.FC<StatisticsCardProps> = ({ statistics }) => {
   return (
-    <div style={{
-      display: 'flex',
-      justifyContent: 'space-around',
-      backgroundColor: '#F5F5F5',
-      padding: '20px',
-    }}>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "space-around",
+        backgroundColor: "#F5F5F5",
+        padding: "20px",
+      }}
+    >
       {statistics.map((stat, index) => (
         <StatisticItem key={index} {...stat} />
       ))}
     </div>
   );
 };
-
-// const statistics = [
-//   { icon: <FaUserGraduate />, number: '1,00,000+', label: 'Students taken Test' },
-//   { icon: <FaChartLine />, number: '40,00,000+', label: 'Students Counseled' },
-//   { icon: <FaUserTie />, number: '1500+', label: 'Expert Counsellors' },
-//   { icon: <FaSchool />, number: '1,00,000+', label: 'Admissions taken' }
-// ];
-
-
-// const statusApti = () => {
-//   return (
-//    <StatisticsCard statistics={statistics} />
-//   )
-// }
 
 export default StatisticsCard;

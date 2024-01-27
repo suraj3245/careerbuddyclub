@@ -5,8 +5,7 @@ import React, { useRef, useState, useEffect } from "react";
 import Link from "next/link";
 import axios from "axios";
 import { Chart as ChartJS } from "chart.js/auto";
-import Confetti from "react-confetti";
-import { ToastContainer, toast } from "react-toastify";
+
 import "react-toastify/dist/ReactToastify.css";
 import TopCareer from "../../top-company/top-career";
 import YourCareer from "../../top-company/Your-career";
@@ -25,12 +24,7 @@ type Question = {
 const defaultOptions = ["Dislike", "Neutral", "Enjoy"];
 
 const DashboardResult = ({ setIsOpenSidebar }: IProps) => {
-  const [questions, setQuestions] = useState<Question[]>([]);
-  const [answers, setAnswers] = useState<{ [key: number]: string }>({});
-  const [currentPage, setCurrentPage] = useState(0);
-  const [isSubmitted, setIsSubmitted] = useState(false);
   const [results, setResults] = useState<any | null>(null);
-  const [token, setToken] = useState<string | null>(null);
   const [testStatus, setTestStatus] = useState("");
 
   const fetchCatResult = async () => {
@@ -45,7 +39,6 @@ const DashboardResult = ({ setIsOpenSidebar }: IProps) => {
       url: "https://test.careerbuddyclub.com:8080/api/students/getcatresult",
       headers: {
         Accept: "*/*",
-        "User-Agent": "Thunder Client (https://www.thunderclient.com)",
         Authorization: `Bearer ${token}`,
       },
     };
@@ -72,7 +65,6 @@ const DashboardResult = ({ setIsOpenSidebar }: IProps) => {
       url: "https://test.careerbuddyclub.com:8080/api/students/checkcareerteststatus",
       headers: {
         Accept: "*/*",
-        "User-Agent": "Thunder Client (https://www.thunderclient.com)",
         Authorization: `Bearer ${token}`,
       },
     };
@@ -95,42 +87,6 @@ const DashboardResult = ({ setIsOpenSidebar }: IProps) => {
   }, []);
 
   const chartRef = useRef<HTMLCanvasElement>(null);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const temptoken = localStorage.getItem("token");
-
-      setToken(temptoken);
-
-      const options = {
-        method: "POST",
-        url: "https://test.careerbuddyclub.com:8080/api/students/getallcatquestions",
-        headers: {
-          Accept: "*/*",
-          Authorization: `Bearer ${temptoken}`,
-          "Content-Type": "application/json",
-        },
-        data: {},
-      };
-
-      try {
-        const response = await axios.request(options);
-        setQuestions(
-          response.data.map((item: any) => ({
-            id: item.id,
-            question: item.question,
-            type: item.type,
-          }))
-        );
-        console.log(response.data);
-        // Update this according to the actual response structure
-      } catch (error) {
-        console.error("Error fetching questions:", error);
-      }
-    };
-
-    fetchData();
-  }, []);
 
   useEffect(() => {
     if (results && chartRef.current) {
@@ -199,98 +155,6 @@ const DashboardResult = ({ setIsOpenSidebar }: IProps) => {
     }
   }, [results]);
 
-  const questionsPerPage = 5;
-  const totalPages = Math.ceil(questions.length / questionsPerPage);
-
-  const progress = ((currentPage + 1) / totalPages) * 100;
-
-  const handleOptionChange = (
-    event: React.ChangeEvent<HTMLInputElement>,
-    questionId: number
-  ) => {
-    setAnswers({
-      ...answers,
-      [questionId]: event.target.value,
-    });
-  };
-  const areAllQuestionsAnsweredOnPage = () => {
-    return questions
-      .slice(
-        currentPage * questionsPerPage,
-        (currentPage + 1) * questionsPerPage
-      )
-      .every((question) => answers.hasOwnProperty(question.id));
-  };
-  const goToPreviousPage = () => {
-    if (currentPage > 0) {
-      setCurrentPage(currentPage - 1);
-    }
-  };
-
-  const goToNextPage = () => {
-    if (!areAllQuestionsAnsweredOnPage()) {
-      toast.error("answer all question to go to next page", {
-        position: "top-left",
-        autoClose: 1000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
-      return;
-    }
-    setCurrentPage(currentPage + 1);
-  };
-
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-
-    if (!areAllQuestionsAnsweredOnPage()) {
-      return;
-    }
-
-    try {
-      const defaultOptions = ["Dislike", "Neutral", "Enjoy"];
-
-      const formattedAnswers = Object.entries(answers).map(
-        ([questionId, answer]) => ({
-          questionId: parseInt(questionId, 10),
-          score: defaultOptions.indexOf(answer),
-          type:
-            questions.find(
-              (question) => question.id === parseInt(questionId, 10)
-            )?.type || "R",
-        })
-      );
-
-      const submitOptions = {
-        method: "POST",
-        url: "https://test.careerbuddyclub.com:8080/api/students/submitcatanswers",
-        headers: {
-          Accept: "*/*",
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
-        },
-        data: {
-          answers: formattedAnswers,
-        },
-      };
-
-      const response = await axios.request(submitOptions);
-
-      // Handle the response from the server as needed
-      console.log("Submit Response:", response.data);
-      setResults(response.data);
-      setIsSubmitted(true);
-      // localStorage.setItem("quizSubmitted", "true");
-    } catch (error) {
-      console.error("Error submitting answers:", error);
-    }
-  };
-  const isLastPage = currentPage === totalPages - 1;
-  const [isVideoOpen, setIsVideoOpen] = useState<boolean>(false);
   return (
     <>
       <div className="dashboard-body">
@@ -305,24 +169,7 @@ const DashboardResult = ({ setIsOpenSidebar }: IProps) => {
               zIndex: 0,
             }}
           >
-            {isSubmitted && (
-              <div
-                style={{
-                  position: "fixed",
-                  top: 0,
-                  left: 0,
-                  width: "100vw",
-                  height: "100vh",
-                  zIndex: -1,
-                }}
-              >
-                <Confetti
-                  width={window.innerWidth}
-                  height={window.innerHeight}
-                />
-              </div>
-            )}
-            {!isSubmitted && testStatus !== "Test completed" ? (
+            {testStatus !== "Test completed" ? (
               <>
                 <div className="d-flex align-items-center justify-content-between">
                   <div className="text-center" style={{ flex: 1 }}>
@@ -350,10 +197,7 @@ const DashboardResult = ({ setIsOpenSidebar }: IProps) => {
               <div style={{ position: "relative", zIndex: 1 }}>
                 <div className="d-flex align-items-center justify-content-between">
                   <div className="text-center" style={{ flex: 1 }}>
-                    <h2
-                      className="mb-6 pb-10 pt-80"
-                      style={{ color: "#13ADBD" }}
-                    >
+                    <h2 className="mb-6 pb-10" style={{ color: "#13ADBD" }}>
                       Career Aptitude Test
                     </h2>
                     {/* Centered Header */}

@@ -33,7 +33,7 @@ const AptiBanner = () => {
     }
   };
   return (
-    <div className="hero-banner-apti position-relative pt-150 lg-pt-150 pb-30">
+    <div className="hero-banner-five position-relative pt-150 lg-pt-150 pb-30">
       <div className="container">
         <div className="position-relative">
           <div className="row">

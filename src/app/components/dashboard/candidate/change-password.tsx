@@ -28,7 +28,6 @@ const ChangePasswordArea = () => {
       url: "https://test.careerbuddyclub.com:8080/api/students/setpassword",
       headers: {
         Accept: "*/*",
-        "User-Agent": "Your User Agent",
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
       },

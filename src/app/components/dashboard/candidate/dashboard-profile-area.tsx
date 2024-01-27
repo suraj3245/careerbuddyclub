@@ -48,7 +48,6 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
       url: "https://test.careerbuddyclub.com:8080/api/students/getstudentsprofile",
       headers: {
         Accept: "*/*",
-        "User-Agent": "Thunder Client (https://www.thunderclient.com)",
         Authorization: `Bearer ${token}`, // Replace with your actual token
         "Content-Type": "application/json",
       },
@@ -133,7 +132,6 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
       url: "https://test.careerbuddyclub.com:8080/api/students/updatebasicdetails",
       headers: {
         Accept: "*/*",
-        "User-Agent": "Thunder Client (https://www.thunderclient.com)",
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
       },
@@ -188,7 +186,6 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
       url: "https://test.careerbuddyclub.com:8080/api/students/updatecontactdetails",
       headers: {
         Accept: "*/*",
-        "User-Agent": "Thunder Client (https://www.thunderclient.com)",
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
       },
@@ -244,7 +241,6 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
       url: "https://test.careerbuddyclub.com:8080/api/students/updateAddressLocation",
       headers: {
         Accept: "*/*",
-        "User-Agent": "Thunder Client (https://www.thunderclient.com)",
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
       },
@@ -303,7 +299,6 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
       url: "https://test.careerbuddyclub.com:8080/api/students/updatepreference",
       headers: {
         Accept: "*/*",
-        "User-Agent": "Thunder Client (https://www.thunderclient.com)",
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
       },
@@ -357,7 +352,6 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
         url: "https://test.careerbuddyclub.com:8080/api/students/getallstreams",
         headers: {
           Accept: "*/*",
-          "User-Agent": "Thunder Client (https://www.thunderclient.com)",
         },
       });
       const streamData = response.data.map(
