@@ -1,47 +1,48 @@
 import { StaticImageData } from 'next/image';
-import img_1 from '@/assets/images/assets/img_31.jpg';
-import img_2 from '@/assets/images/assets/img_32.jpg';
-import img_3 from '@/assets/images/assets/img_33.jpg';
-
+import img_4 from '@/assets/images/assets/img_99.png';
+import img_5 from '@/assets/images/assets/img_100.png';
+import img_6 from '@/assets/images/assets/img_101.png';
+import img_7 from '@/assets/images/assets/img_103.png';
 // expert data type 
 type IExpertType = {
   id: number;
   img: StaticImageData;
   name: string;
   designation: string;
+  description: string;
 }
 
 const expert_data:IExpertType[] = [
-  {
-    id:1,
-    img:img_1,
-    name:'Diane Odom',
-    designation:'UI Designer'
-  },
+ 
   {
     id:2,
-    img:img_2,
-    name:'Julie Weaver',
-    designation:'Finance'
+    img:img_7,
+    name:'Sunil Kumar Malik',
+    designation:'Vice President (VP)-Campus Relations',
+    description: "",
+  },
+  {
+    id:1,
+    img:img_4,
+    name:'Anupam Singh',
+    designation:'Vice President (VP)-Marketing',
+    description: ".",
   },
   {
     id:3,
-    img:img_3,
-    name:'Chris Dionne',
-    designation:'Developer'
+    img:img_5,
+    name:'Ashish Jain',
+    designation:'Vice President (VP)-Corporate Relations',
+    description: " ",
   },
-  {
+ /* {
     id:4,
-    img:img_2,
-    name:'Rita Leitner',
-    designation:'Marketing Expert'
-  },
-  {
-    id:5,
-    img:img_1,
-    name:'Thelma Franklin',
-    designation:'UI/UX Designer'
-  },
+    img:img_6,
+    name:'Ganesh Khanna',
+    designation:'Vice President (VP)- Career Centres',
+    description: "Ex.Sr.Trainer in T&P Deptt. SRM Uni., Sonipat, Ex- Sr.Manager/Dy.Dir(Training) at ITTM, MTNL, Delhi (Govt.of India).",
+  },*/
+ 
 ]
 
 export default expert_data;

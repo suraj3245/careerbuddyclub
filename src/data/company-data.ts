@@ -47,6 +47,11 @@ import img_46 from '@/assets/images/logo/media_79.png';
 import img_47 from '@/assets/images/logo/media_80.png';
 import img_48 from '@/assets/images/logo/media_81.png';
 import img_49 from '@/assets/images/logo/media_82.png';
+import img_50 from '@/assets/images/logo/media_83.png';
+import img_51 from '@/assets/images/logo/media_84.png';
+import img_52 from '@/assets/images/logo/media_85.png';
+import img_53 from '@/assets/images/logo/media_86.png';
+import img_54 from '@/assets/images/logo/media_87.jpg';
 import { ICompany } from './../types/company-type';
 
 const company_data:ICompany[] = [
@@ -390,7 +395,42 @@ const company_data:ICompany[] = [
     id:49,
     img:img_49,
     name:'Apollo Home Healthcare Ltd',
-    location:'Maharashtra',
+    location:'Tamil Nadu ',
+    isFav:true
+  },
+  {
+    id:50,
+    img:img_50,
+    name:'Innovalance Learning',
+    location:'New Delhi',
+    isFav:true
+  },
+  {
+    id:51,
+    img:img_51,
+    name:'Marriott International',
+    location:'Mumbai',
+    isFav:true
+  },
+  {
+    id:52,
+    img:img_52,
+    name:'Jagran Solutions',
+    location:'New Delhi',
+    isFav:true
+  },
+  {
+    id:53,
+    img:img_53,
+    name:'Nectar Life Sciences',
+    location:'Hyderabad',
+    isFav:true
+  },
+  {
+    id:54,
+    img:img_54,
+    name:'Bajaj Finserv',
+    location:'Pune',
     isFav:true
   },
 ]

@@ -48,6 +48,11 @@ import job_img_46 from '@/assets/images/logo/media_79.png';
 import job_img_47 from '@/assets/images/logo/media_80.png';
 import job_img_48 from '@/assets/images/logo/media_81.png';
 import job_img_49 from '@/assets/images/logo/media_82.png';
+import job_img_50 from '@/assets/images/logo/media_83.png';
+import job_img_51 from '@/assets/images/logo/media_84.png';
+import job_img_52 from '@/assets/images/logo/media_85.png';
+import job_img_53 from '@/assets/images/logo/media_86.png';
+import job_img_54 from '@/assets/images/logo/media_87.jpg';
 const company_details: IcompanyType[] = [
   {
     id: 1,
@@ -660,7 +665,7 @@ const company_details: IcompanyType[] = [
     logo: job_img_20,
     title: "",
     
-    link: "https://www.techmahindra.com/en-in/?f=55364445 ",
+    link: "https://www.techmahindra.com/en-in/?f=55364445",
     founder: "Anand Mahindra",
     CEO: "Mohit Joshi",
     email: "",
@@ -1610,6 +1615,166 @@ const company_details: IcompanyType[] = [
     overview:
       "Unidad Technologies & Services Private Limited is an Indian Non-Government Company, incorporated on 12 Feb, 2016. It's a private company and is classified as'company limited by shares'.Company's authorized capital stands at Rs 1.0 lakhs and has 100.0% paid-up capital which is Rs 1.0 lakhs.",
     videoid: "GmT-0pIUKkc?si",
+    facebook: "",
+    instagram: "",
+    twitter: "",
+    linkedin: "",
+  },
+  {
+    id: 50,
+    logo: job_img_50,
+    title: "",
+    
+    link: "https://innovalancelearning.com/",
+    founder: "Rahul Kushu",
+    CEO: "",
+    email: "",
+    founded: "27 Jan,1997",
+    address:"7th Floor, HB TWIN TOWER, Netaji Subhash Place, Pitampura, New Delhi, Delhi, 110085 ",
+    feild: ["Career and Academics "],
+    overviewsection:
+      "Innovalance is a company that encourages and supports innovation, personal and professional development, and a positive work-life balance for its employees. With a diverse and experienced team, opportunities for growth and advancement, and a commitment to employee wellness, Innovalance has always been a great place to work and advance your career.",
+    duration: "Fulltime",
+    date: "18 Jul 2024",
+    company: "Innovalance Learning",
+    location: "New Delhi, India",
+    category: ["Developer"],
+    experience: "Fresher",
+    salary: 900,
+    salary_duration: "Monthly",
+    
+    english_fluency: "Fluent",
+    overview:
+      "Unidad Technologies & Services Private Limited is an Indian Non-Government Company, incorporated on 12 Feb, 2016. It's a private company and is classified as'company limited by shares'.Company's authorized capital stands at Rs 1.0 lakhs and has 100.0% paid-up capital which is Rs 1.0 lakhs.",
+    videoid: "",
+    facebook: "",
+    instagram: "",
+    twitter: "",
+    linkedin: "",
+  },
+  {
+    id: 51,
+    logo: job_img_51,
+    title: "",
+    
+    link: "https://www.marriott.com/marriott/aboutmarriott.mi",
+    founder: "J. Willard Marriott",
+    CEO: "Anthony Capuano",
+    email: "",
+    founded: "27 Jan,1997",
+    address:"303 /304 3rd Floor Hiranandani Fulcrum Sahar Road Andheri East Vile Parle (E) Next to Hyatt Regency Mumbai Mumbai City MH IN 400099.",
+    feild: ["Hotel Management"],
+    overviewsection:
+      "Marriott International, Inc. is an American multinational company that operates, franchises, and licenses lodging including hotel, residential and timeshare properties.",
+    duration: "Fulltime",
+    date: "18 Jul 2024",
+    company: "Marriott International",
+    location: "Mumbai, India",
+    category: ["Developer"],
+    experience: "Fresher",
+    salary: 900,
+    salary_duration: "Monthly",
+    
+    english_fluency: "Fluent",
+    overview:
+      "Unidad Technologies & Services Private Limited is an Indian Non-Government Company, incorporated on 12 Feb, 2016. It's a private company and is classified as'company limited by shares'.Company's authorized capital stands at Rs 1.0 lakhs and has 100.0% paid-up capital which is Rs 1.0 lakhs.",
+    videoid: "ThbdcWVHFs8?si",
+    facebook: "",
+    instagram: "",
+    twitter: "",
+    linkedin: "",
+  },
+  {
+    id: 52,
+    logo: job_img_52,
+    title: "",
+    
+    link: "http://www.jagransolutions.com/",
+    founder: "Shri Puran Chandra Gupta",
+    CEO: "Bharat Gupta",
+    email: "",
+    founded: "27 Jan,1997",
+    address:"New Delhi, building no. 9, 11, Okhla Phase III, Okhla Industrial Area, India",
+    feild: ["Newspaper"],
+    overviewsection:
+      "Jagran Solutions offer corporate services including Brand Activation, Corporate Event Management, Conferences and Exhitibiton, integrated campaigns etc.",
+    duration: "Fulltime",
+    date: "18 Jul 2024",
+    company: "Jagran Solutions",
+    location: "New Delhi, India",
+    category: ["Developer"],
+    experience: "Fresher",
+    salary: 900,
+    salary_duration: "Monthly",
+    
+    english_fluency: "Fluent",
+    overview:
+      "Unidad Technologies & Services Private Limited is an Indian Non-Government Company, incorporated on 12 Feb, 2016. It's a private company and is classified as'company limited by shares'.Company's authorized capital stands at Rs 1.0 lakhs and has 100.0% paid-up capital which is Rs 1.0 lakhs.",
+    videoid: "",
+    facebook: "",
+    instagram: "",
+    twitter: "",
+    linkedin: "",
+  },
+  {
+    id: 53,
+    logo: job_img_53,
+    title: "",
+    
+    link: "https://www.neclife.com/",
+    founder: "Mr. Sanjiv Goyal",
+    CEO: "Amit Chadah",
+    email: "",
+    founded: "27 Jan,1997",
+    address:"New Delhi, building no. 9, 11, Okhla Phase III, Okhla Industrial Area, India",
+    feild: ["Pharmaceutical"],
+    overviewsection:
+      "Nectar Lifesciences Limited is a pharmaceutical company in India that manufactures generic drug products. The company has global leadership in several oral and sterile cephalosporin drugs, and has cGMP facilities along with those approved by the European Union and Japan.",
+    duration: "Fulltime",
+    date: "18 Jul 2024",
+    company: "Nectar Life Sciences",
+    location: "Hyderabad, India",
+    category: ["Developer"],
+    experience: "Fresher",
+    salary: 900,
+    salary_duration: "Monthly",
+    
+    english_fluency: "Fluent",
+    overview:
+      "Unidad Technologies & Services Private Limited is an Indian Non-Government Company, incorporated on 12 Feb, 2016. It's a private company and is classified as'company limited by shares'.Company's authorized capital stands at Rs 1.0 lakhs and has 100.0% paid-up capital which is Rs 1.0 lakhs.",
+    videoid: "",
+    facebook: "",
+    instagram: "",
+    twitter: "",
+    linkedin: "",
+  },
+  {
+    id: 54,
+    logo: job_img_54,
+    title: "",
+    
+    link: "https://www.bajajfinserv.in/",
+    founder: "Jamnalal Bajaj",
+    CEO: "Ashish Panchal",
+    email: "",
+    founded: "27 Jan,1997",
+    address:"4th Floor, Bajaj Finserv Corporate Office, Off Pune-Ahmednagar Road, Viman Nagar, Pune – 411 014",
+    feild: ["Non- Banking Financial Company"],
+    overviewsection:
+      "Bajaj Finserv Limited is an Indian non-banking financial services company headquartered in Pune. It is focused on lending, asset management, wealth management and insurance.",
+    duration: "Fulltime",
+    date: "18 Jul 2024",
+    company: "Bajaj Finserv",
+    location: "Pune, India",
+    category: ["Developer"],
+    experience: "Fresher",
+    salary: 900,
+    salary_duration: "Monthly",
+    
+    english_fluency: "Fluent",
+    overview:
+      "Unidad Technologies & Services Private Limited is an Indian Non-Government Company, incorporated on 12 Feb, 2016. It's a private company and is classified as'company limited by shares'.Company's authorized capital stands at Rs 1.0 lakhs and has 100.0% paid-up capital which is Rs 1.0 lakhs.",
+    videoid: "",
     facebook: "",
     instagram: "",
     twitter: "",

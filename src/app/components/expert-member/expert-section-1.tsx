@@ -6,10 +6,10 @@ import expert_data from "@/data/expert-data";
 
 // slider setting
 const slider_setting = {
-  dots: true,
+  dots: false,
   arrows: false,
   centerPadding: "0px",
-  slidesToShow: 4,
+  slidesToShow: 3,
   slidesToScroll: 1,
   autoplay: true,
   autoplaySpeed: 2000,
@@ -59,8 +59,9 @@ const ExpertSectionOne = () => {
                   <div className="img-meta mb-20">
                     <Image src={item.img} alt="team img" className="m-auto" />
                   </div>
-                  <div className="name fw-500 tran3s">{item.name}</div>
-                  <div className="post">{item.designation}</div>
+                  <div className="name fw-500 tran3s text-center">{item.name}</div>
+                  <div className="post text-center">{item.designation}</div>
+                  <p className="message text-center">{item.description}</p>
                 </div>
               </div>
             ))}

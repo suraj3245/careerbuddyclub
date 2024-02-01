@@ -215,8 +215,23 @@ const CollegeDetailsArea = ({ details }: { details: IcollegeType }) => {
               <div className="details-post-data me-xxl-5 pe-xxl-4">
                 <h3 id="overview">Overview</h3>
                 <p>{details.overviewsection}</p>
-
-                <h3 id="courses">Courses and Fees 2023</h3>
+                <div className="details-post-data me-xxl-5 pe-xxl-4 mt-4 mb-4 border border-gray-300 rounded-lg overflow-auto ">
+                <Table aria-label="Courses and Fees Table">
+                <TableHeader>
+                  <TableColumn>Institute Name</TableColumn>
+                  <TableColumn>Guru Nanak College Dehradun</TableColumn>
+                </TableHeader>
+                <TableBody>
+                      {details.overviewtable.map((overview, index) => (
+                        <TableRow key={index}>
+                          <TableCell>{overview.specialization}</TableCell>
+                          <TableCell>{overview.annualfee}</TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </div>
+                <h3 id="courses">Courses and Fees</h3>
                 <p>{details.courses}</p>
                 <div className="details-post-data me-xxl-5 pe-xxl-4 mt-4 border border-gray-300 rounded-lg overflow-auto ">
                   <Table aria-label="Courses and Fees Table">
@@ -237,7 +252,7 @@ const CollegeDetailsArea = ({ details }: { details: IcollegeType }) => {
                   </Table>
                 </div>
                 <h3 className="pt-50" id="admission">
-                  Admission Dates 2023
+                  Admission Dates 
                 </h3>
                 <p>{details.admission}</p>
 
@@ -259,7 +274,7 @@ const CollegeDetailsArea = ({ details }: { details: IcollegeType }) => {
                 </div>
                 <div className="position-relative">
                   <h3 className="pt-50" id="placement">
-                    Placements 2023
+                    Placements 
                   </h3>
                   <p>{details.placement}</p>
 
@@ -330,8 +345,8 @@ const CollegeDetailsArea = ({ details }: { details: IcollegeType }) => {
                   <div className="details-post-data me-xxl-5 pe-xxl-4 mt-4 border border-gray-300 rounded-lg overflow-auto ">
                     <Table aria-label="Admission Dates Table">
                       <TableHeader>
-                        <TableColumn>facilites</TableColumn>
-                        <TableColumn>Details</TableColumn>
+                        <TableColumn>Hostel Type (Girls/ Boys)</TableColumn>
+                        <TableColumn>Both</TableColumn>
                       </TableHeader>
                       <TableBody>
                         {details.hostelinfo.map((event, index) => (
@@ -348,11 +363,11 @@ const CollegeDetailsArea = ({ details }: { details: IcollegeType }) => {
                   </h3>
                   <p>{details.awards}</p>
 
-                  <div className="details-post-data me-xxl-5 pe-xxl-4 mt-4 border border-gray-300 rounded-lg overflow-auto ">
+                  <div className="details-post-data me-xxl-5 pe-xxl-4 mt-4 mb-4 border border-gray-300 rounded-lg overflow-auto ">
                     <Table aria-label="Admission Dates Table">
                       <TableHeader>
-                        <TableColumn>Awards</TableColumn>
-                        <TableColumn>Details</TableColumn>
+                        <TableColumn>Name of Awards</TableColumn>
+                        <TableColumn>Awarding Body</TableColumn>
                       </TableHeader>
                       <TableBody>
                         {details.awardsinfo.map((event, index) => (
@@ -364,6 +379,28 @@ const CollegeDetailsArea = ({ details }: { details: IcollegeType }) => {
                       </TableBody>
                     </Table>
                   </div>
+                  <h3 id="courses">Faculty</h3>
+                <p>{details.faculty}</p>
+                <div className="details-post-data me-xxl-5 pe-xxl-4 mt-4 mb-4 border border-gray-300 rounded-lg overflow-auto ">
+                  <Table aria-label="Courses and Fees Table">
+                    <TableHeader>
+                      <TableColumn>Faculty Name</TableColumn>
+                      <TableColumn>Qualification</TableColumn>
+                      <TableColumn>Experience</TableColumn>
+                      <TableColumn>Specialization</TableColumn>
+                    </TableHeader>
+                    <TableBody>
+                      {details.facultytable.map((faculty, index) => (
+                        <TableRow key={index}>
+                          <TableCell>{faculty.name}</TableCell>
+                          <TableCell>{faculty.Qualification}</TableCell>
+                          <TableCell>{faculty.Experience}</TableCell>
+                          <TableCell>{faculty.Specialization}</TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </div>
                   <h3 className="pt-50" id="ranking">
                     Ranking
                   </h3>

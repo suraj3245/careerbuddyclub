@@ -7,8 +7,19 @@ import img_3 from "@/assets/images/logo/3.jpg";
 import img_4 from "@/assets/images/logo/4.jpg";
 import img_5 from "@/assets/images/logo/5.jpg";
 import img_6 from "@/assets/images/logo/6.jpg";
-import img_7 from "@/assets/images/logo/7.jpg";
-import img_8 from "@/assets/images/logo/8.jpg";
+import img_7 from "@/assets/images/logo/logo_8.jpg";
+import img_8 from "@/assets/images/logo/logo_9.jpg";
+import img_9 from "@/assets/images/logo/logo_10.jpg";
+import img_10 from "@/assets/images/logo/logo_7.jpg";
+import img_11 from "@/assets/images/logo/logo_11.jpg";
+import img_12 from "@/assets/images/logo/logo_12.jpg";
+import img_13 from "@/assets/images/logo/logo_13.jpg";
+import img_14 from "@/assets/images/logo/logo_14.jpg";
+import img_15 from "@/assets/images/logo/logo_15.jpg";
+import img_16 from "@/assets/images/logo/Logo_16.jpg";
+import img_17 from "@/assets/images/logo/logo_17.jpg";
+import img_18 from "@/assets/images/logo/logo_18.jpg";
+
 
 import { IgalType } from "@/types/job-data-type";
 
@@ -38,6 +49,66 @@ const job_data: IgalType[] = [
     id: 5,
     logo: img_6,
     category: ["Career Aptitude"],
+  },
+  {
+    id: 6,
+    logo: img_7,
+    category: [ "Career Town"],
+  },
+  {
+    id: 7,
+    logo: img_8,
+    category: [ "Career Town"],
+  },
+  {
+    id: 8,
+    logo: img_9,
+    category: [ "Career Town"],
+  },
+  {
+    id: 9,
+    logo: img_10,
+    category: [ "Career Town"],
+  },
+  {
+    id: 10,
+    logo: img_11,
+    category: [ "Career Town"],
+  },
+  {
+    id: 11,
+    logo: img_12,
+    category: [ "Career Town"],
+  },
+  {
+    id: 12,
+    logo: img_13,
+    category: [ "Social Events"],
+  },
+  {
+    id: 13,
+    logo: img_14,
+    category: [ "Social Events"],
+  },
+  {
+    id: 14,
+    logo: img_15,
+    category: [ "Social Events"],
+  },
+  {
+    id: 15,
+    logo: img_16,
+    category: [ "Social Events"],
+  },
+  {
+    id: 16,
+    logo: img_17,
+    category: [ "Social Events"],
+  },
+  {
+    id: 17,
+    logo: img_18,
+    category: [ "Social Events"],
   },
 ];
 

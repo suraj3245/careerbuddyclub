@@ -5,6 +5,10 @@ export interface ICourse {
   annualFee: string;
   eligibility: string;
 }
+export interface Ioverview {
+  specialization: string;
+  annualfee: string;
+}
 
 export interface IAdmissionDate {
   name: string;
@@ -35,6 +39,12 @@ export interface Iaward {
   name: string;
   info: string;
 }
+export interface Ifaculty {
+  name: string;
+  Qualification: string;
+  Experience: string;
+  Specialization: string;
+}
 
 export interface Ireview {
   id: number;
@@ -61,6 +71,9 @@ export interface IcollegeType {
   founded: string;
   feild: string[];
   overviewsection: string;
+  overviewtable:Ioverview[];
+  faculty: string;
+  facultytable:Ifaculty[];
   duration: string;
   date: string;
   college: string;
