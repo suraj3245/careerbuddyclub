@@ -26,14 +26,14 @@ const expert_data:IExpertType[] = [
     img:img_4,
     name:'Anupam Singh',
     designation:'Vice President (VP)-Marketing',
-    description: ".",
+    description: "",
   },
   {
     id:3,
     img:img_5,
     name:'Ashish Jain',
     designation:'Vice President (VP)-Corporate Relations',
-    description: " ",
+    description: "",
   },
  /* {
     id:4,
