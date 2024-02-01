@@ -13,11 +13,11 @@ import img_9 from "@/assets/images/logo/logo_10.jpg";
 import img_10 from "@/assets/images/logo/logo_7.jpg";
 import img_11 from "@/assets/images/logo/logo_11.jpg";
 import img_12 from "@/assets/images/logo/logo_12.jpg";
-import img_13 from "@/assets/images/logo/logo_13.jpg";
-import img_14 from "@/assets/images/logo/logo_14.jpg";
-import img_15 from "@/assets/images/logo/logo_15.jpg";
+import img_13 from "@/assets/images/logo/Logo_13.jpg";
+import img_14 from "@/assets/images/logo/Logo_14.jpg";
+import img_15 from "@/assets/images/logo/Logo_15.jpg";
 import img_16 from "@/assets/images/logo/Logo_16.jpg";
-import img_17 from "@/assets/images/logo/logo_17.jpg";
+import img_17 from "@/assets/images/logo/Logo_17.jpg";
 import img_18 from "@/assets/images/logo/logo_18.jpg";
 
 
