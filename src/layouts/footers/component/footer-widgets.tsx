@@ -20,6 +20,9 @@ export function WidgetOne({
         <li>
           <Link href="/company-v1">Companies</Link>
         </li>
+        <li>
+          <Link href="/Speakers">Global Mentors & Speakers</Link>
+        </li>
       </ul>
     </div>
   );
@@ -83,7 +86,7 @@ export function WidgetFour({
   return (
     <div className={`${cls} mb-20`}>
       <h5 className={`footer-title ${style_2 ? "text-white" : ""}`}>
-        Our Services
+        Quick Links
       </h5>
       <ul className="footer-nav-link style-none">
         <li>

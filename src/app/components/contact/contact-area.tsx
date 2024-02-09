@@ -37,8 +37,8 @@ const ContactArea = () => {
                     <h5 className="title">Contact Info</h5>
                     <p>
                       Give Us Call At <br />
-                      <a href="tel:+91 95362 00100" className="call">
-                        +91 95362 00100
+                      <a href="tel:+91 7456000100" className="call">
+                        +91 7456000100
                       </a>
                     </p>
                   </div>

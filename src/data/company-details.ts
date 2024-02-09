@@ -46,6 +46,13 @@ import job_img_44 from '@/assets/images/logo/media_77.png';
 import job_img_45 from '@/assets/images/logo/media_78.jpg';
 import job_img_46 from '@/assets/images/logo/media_79.png';
 import job_img_47 from '@/assets/images/logo/media_80.png';
+import job_img_48 from '@/assets/images/logo/media_81.png';
+import job_img_49 from '@/assets/images/logo/media_82.png';
+import job_img_50 from '@/assets/images/logo/media_83.png';
+import job_img_51 from '@/assets/images/logo/media_84.png';
+import job_img_52 from '@/assets/images/logo/media_85.png';
+import job_img_53 from '@/assets/images/logo/media_86.png';
+import job_img_54 from '@/assets/images/logo/media_87.jpg';
 const company_details: IcompanyType[] = [
   {
     id: 1,
@@ -658,7 +665,7 @@ const company_details: IcompanyType[] = [
     logo: job_img_20,
     title: "",
     
-    link: "https://www.techmahindra.com/en-in/?f=55364445 ",
+    link: "https://www.techmahindra.com/en-in/?f=55364445",
     founder: "Anand Mahindra",
     CEO: "Mohit Joshi",
     email: "",
@@ -1114,7 +1121,7 @@ const company_details: IcompanyType[] = [
     address:"Capital Cyberscape, Sector 59, Gurugram, Haryana -122102",
     feild: ["Medical and Surgical Interventions"],
     overviewsection:
-      "Pristyn Care is a Gurugram based health-tech company that deals in minimal invasive medical and surgical interventions. The organization has a network of more than 700 partnered hospitals and 100 clinics.",
+      "Pristyn Care is a Gurugram based health-tech company that deals in minimal invasive medical and surgical interventions. The organization has a network of more than 700 partnered hospitals and 100 clinics.Pristyn Care is a new-age healthcare company with a laser-sharp focus on simplifying the entire surgery journey of a patient and his/her attendant by offering care and assistance at each and every step. Pristyn Care ensures that the patient’s experience right from the discovery of the right doctor, to booking an appointment at the clinic, getting a detailed diagnosis done, booking tests at a diagnostic center, getting insurance paperwork done, commuting from home to the hospital & back on the day of the surgery, admission-discharge processes at the hospital, and follow-up consultation after the surgery – is hassle-free and care-filled.",
     duration: "Fulltime",
     date: "18 Jul 2024",
     company: "Pristyn Care",
@@ -1146,7 +1153,7 @@ const company_details: IcompanyType[] = [
     address:"401, 4th Floor, Man Excellenza, S. V. Road, Vile Parle (West), Mumbai - 400 056.",
     feild: ["Healthcare"],
     overviewsection:
-      "Established in 2001 , Max Hospital has gained immense expertise in offering Medical Services, Emergency Medical Services, Medical Treatment Services etc. We are located in Kolkata, West Bengal and providing Medical Services, Emergency Medical Services, Medical Treatment Services.",
+      "Established in 2001 , Max Hospital has gained immense expertise in offering Medical Services, Emergency Medical Services, Medical Treatment Services etc. We are located in Kolkata, West Bengal and providing Medical Services, Emergency Medical Services, Medical Treatment Services.Apart from a team of 130 expert doctors, 300+ nurses and a highly trained medical staff, Max Hospital, Dehradun also uses state-of-the-art infrastructure to meet patient challenges even better. This includes six high-end modular Operation Theatres, as well as Gait Training, TENS, Muscle Stimulator, EMG Biofeedback, alongside pain management through Micro Currents and Diadynamic Currents and Laser pain relief for Migraine, Kinesio Taping and Dry Needling. Max Hospital, Dehradun is today known to provide well-rounded and holistic care to every patient who walks in.",
     duration: "Fulltime",
     date: "18 Jul 2024",
     company: "Max Superspeciality Hospital",
@@ -1159,7 +1166,7 @@ const company_details: IcompanyType[] = [
     english_fluency: "Fluent",
     overview:
       "Unidad Technologies & Services Private Limited is an Indian Non-Government Company, incorporated on 12 Feb, 2016. It's a private company and is classified as'company limited by shares'.Company's authorized capital stands at Rs 1.0 lakhs and has 100.0% paid-up capital which is Rs 1.0 lakhs.",
-    videoid: "",
+    videoid: "gv5WstOox-A",
     facebook: "",
     instagram: "",
     twitter: "",
@@ -1178,7 +1185,7 @@ const company_details: IcompanyType[] = [
     address:"BIGRAHPUR,BYPASS ROAD JAKKANPUR PATNA Patna BR 800001 IN",
     feild: ["Healthcare"],
     overviewsection:
-      "Global Health Limited, d/b/a Medanta, is an Indian for-profit private hospital network based in Gurgaon. The chain was started in 2009 by cardiac surgeon Naresh Trehan and Sunil Sachdeva.",
+      "Global Health Limited, d/b/a Medanta, is an Indian for-profit private hospital network based in Gurgaon. The chain was started in 2009 by cardiac surgeon Naresh Trehan and Sunil Sachdeva. MEDANTA HEART INSTITUTE houses the sub-specialities of Cardiac Surgery, Electrophysiology and Pacing, Clinical and Preventive Cardiology and Interventional Cardiology, where experienced, qualified, and dedicated team of heart surgeons, cardiologists and radiologists who work together to provide comprehensive and multidisciplinary care to patients suffering from various heart ailments. Our ‘Heart Team’ approach ensures that the patient receives the benefit of comprehensive advice with high technical and ethical standards. Our team of researchers, doctors, and dedicated nurses is equipped with the latest technologies such as a unique hybrid operating suite, robotic heart surgery, and minimally invasive techniques to improve precision and accuracy.",
     duration: "Fulltime",
     date: "18 Jul 2024",
     company: "Medanta Hospital",
@@ -1191,7 +1198,7 @@ const company_details: IcompanyType[] = [
     english_fluency: "Fluent",
     overview:
       "Unidad Technologies & Services Private Limited is an Indian Non-Government Company, incorporated on 12 Feb, 2016. It's a private company and is classified as'company limited by shares'.Company's authorized capital stands at Rs 1.0 lakhs and has 100.0% paid-up capital which is Rs 1.0 lakhs.",
-    videoid: "",
+    videoid: "p1jHaC3dCdk",
     facebook: "",
     instagram: "",
     twitter: "",
@@ -1210,7 +1217,7 @@ const company_details: IcompanyType[] = [
     address:"C/o Mr. Balraj, Ward No. 3, Vishwakarma Colony, Sohna Gurgaon HR 122103 IN",
     feild: ["Edu Tech"],
     overviewsection:
-      "InternsElite is an Edutech Company who committed to students’ success in different fields of technical and non-technical where they get actual industrial exposure in their life which helps them to implement the same in the company after placements. ",
+      "InternsElite is an Edutech Company who committed to students’ success in different fields of technical and non-technical where they get actual industrial exposure in their life which helps them to implement the same in the company after placements.We offer modern training that can help you improve your abilities and open doors to exciting new possibilities. It's time to start feeding your success. ",
     duration: "Fulltime",
     date: "18 Jul 2024",
     company: "Internselite",
@@ -1255,7 +1262,7 @@ const company_details: IcompanyType[] = [
     english_fluency: "Fluent",
     overview:
       "Unidad Technologies & Services Private Limited is an Indian Non-Government Company, incorporated on 12 Feb, 2016. It's a private company and is classified as'company limited by shares'.Company's authorized capital stands at Rs 1.0 lakhs and has 100.0% paid-up capital which is Rs 1.0 lakhs.",
-    videoid: "",
+    videoid: "Hs4KoQPK0l0",
     facebook: "",
     instagram: "",
     twitter: "",
@@ -1306,7 +1313,7 @@ const company_details: IcompanyType[] = [
     address:"80/28, MALVIYA NAGAR, NEW DELHI DL 110017 IN.",
     feild: ["Consultancy Firm"],
     overviewsection:
-      "Infollion aggregates subject matter experts, independent consultants and freelancers to facilitate their access for short-term expertise to companies, consulting firms and investment funds. Infollion offers flexible modes of engagement to reach out to experts on it's panel.",
+      "Infollion aggregates subject matter experts, independent consultants and freelancers to facilitate their access for short-term expertise to companies, consulting firms and investment funds. Infollion offers flexible modes of engagement to reach out to experts on it's panel.It ranges from a very short and precise phone to almost a few months long project based on pre-determined statement of work and everything in between. Infollion also facilitates a full-time placement of the expert if mutually beneficial and acceptable to the expert and clients. The Panel can be accessed in 3-easy steps.",
     duration: "Fulltime",
     date: "18 Jul 2024",
     company: "Infollion    ",
@@ -1319,7 +1326,7 @@ const company_details: IcompanyType[] = [
     english_fluency: "Fluent",
     overview:
       "Unidad Technologies & Services Private Limited is an Indian Non-Government Company, incorporated on 12 Feb, 2016. It's a private company and is classified as'company limited by shares'.Company's authorized capital stands at Rs 1.0 lakhs and has 100.0% paid-up capital which is Rs 1.0 lakhs.",
-    videoid: "",
+    videoid: "0mi4lTnAVV0",
     facebook: "",
     instagram: "",
     twitter: "",
@@ -1351,7 +1358,7 @@ const company_details: IcompanyType[] = [
     english_fluency: "Fluent",
     overview:
       "Unidad Technologies & Services Private Limited is an Indian Non-Government Company, incorporated on 12 Feb, 2016. It's a private company and is classified as'company limited by shares'.Company's authorized capital stands at Rs 1.0 lakhs and has 100.0% paid-up capital which is Rs 1.0 lakhs.",
-    videoid: "",
+    videoid: "CqkvJd4tjhU",
     facebook: "",
     instagram: "",
     twitter: "",
@@ -1383,7 +1390,7 @@ const company_details: IcompanyType[] = [
     english_fluency: "Fluent",
     overview:
       "Unidad Technologies & Services Private Limited is an Indian Non-Government Company, incorporated on 12 Feb, 2016. It's a private company and is classified as'company limited by shares'.Company's authorized capital stands at Rs 1.0 lakhs and has 100.0% paid-up capital which is Rs 1.0 lakhs.",
-    videoid: "",
+    videoid: "m0ynqzXVDKY",
     facebook: "",
     instagram: "",
     twitter: "",
@@ -1402,7 +1409,7 @@ const company_details: IcompanyType[] = [
     address:"119A, Kilokri, Near Maharani Bagh, New Delhi, Delhi - 110014",
     feild: ["Agriculture and Software Sector "],
     overviewsection:
-      "Krishify enables social networking and commerce in the lives of millions of farmers by directly connecting them with businesses.",
+      "Krishify enables social networking and commerce in the lives of millions of farmers by directly connecting them with businesses.We are bridging the gap between businesses and farmers by helping the former target farmers at scale in a cost-efficient manner. Krishify Business Suite is your go-to platform for running marketing and advertising campaigns, discovering farmers, generating leads, and deriving market insights. ",
     duration: "Fulltime",
     date: "18 Jul 2024",
     company: "Krishify",
@@ -1415,7 +1422,7 @@ const company_details: IcompanyType[] = [
     english_fluency: "Fluent",
     overview:
       "Unidad Technologies & Services Private Limited is an Indian Non-Government Company, incorporated on 12 Feb, 2016. It's a private company and is classified as'company limited by shares'.Company's authorized capital stands at Rs 1.0 lakhs and has 100.0% paid-up capital which is Rs 1.0 lakhs.",
-    videoid: "",
+    videoid: "U_R8do89dkk",
     facebook: "",
     instagram: "",
     twitter: "",
@@ -1434,7 +1441,7 @@ const company_details: IcompanyType[] = [
     address:"F-83, Profit Centre, Gate No 1, Near Pizza Hut, Mahavir Nagar, Kandivali MUMBAI Mumbai City MH 400067 IN",
     feild: ["Healthcare "],
     overviewsection:
-      "CorroHealth is the leading provider of clinically led healthcare analytics and technology-driven solutions dedicated to positively impacting the financial performance of hospitals and health systems.",
+      "CorroHealth is the leading provider of clinically led healthcare analytics and technology-driven solutions dedicated to positively impacting the financial performance of hospitals and health systems.With more than 8,500 employees worldwide, CorroHealth delivers integrated solutions, proven expertise, intelligent technology, and scalability to address needs across the entire revenue cycle.",
     duration: "Fulltime",
     date: "18 Jul 2024",
     company: "Corro Health",
@@ -1447,7 +1454,7 @@ const company_details: IcompanyType[] = [
     english_fluency: "Fluent",
     overview:
       "Unidad Technologies & Services Private Limited is an Indian Non-Government Company, incorporated on 12 Feb, 2016. It's a private company and is classified as'company limited by shares'.Company's authorized capital stands at Rs 1.0 lakhs and has 100.0% paid-up capital which is Rs 1.0 lakhs.",
-    videoid: "",
+    videoid: "IbQ8ywM0emQ",
     facebook: "",
     instagram: "",
     twitter: "",
@@ -1479,7 +1486,7 @@ const company_details: IcompanyType[] = [
     english_fluency: "Fluent",
     overview:
       "Unidad Technologies & Services Private Limited is an Indian Non-Government Company, incorporated on 12 Feb, 2016. It's a private company and is classified as'company limited by shares'.Company's authorized capital stands at Rs 1.0 lakhs and has 100.0% paid-up capital which is Rs 1.0 lakhs.",
-    videoid: "",
+    videoid: "GOkxtpCqFvA",
     facebook: "",
     instagram: "",
     twitter: "",
@@ -1498,7 +1505,7 @@ const company_details: IcompanyType[] = [
     address:"11th Floor, Tower C, DLF Cyber Greens, DLF Cyber City, DLF Phase 3, Gurugram, Haryana 122022.",
     feild: ["Finance"],
     overviewsection:
-      "Freecharge is an Indian financial services company based in Gurgaon. It allows users to pay bills such as electricity, gas and telephone, as well as recharge mobile, broadband, DTH and metro cards. In addition, it enables the users to invest in mutual funds and get credit through Freecharge EMI.",
+      "Freecharge is an Indian financial services company based in Gurgaon. It allows users to pay bills such as electricity, gas and telephone, as well as recharge mobile, broadband, DTH and metro cards. In addition, it enables the users to invest in mutual funds and get credit through Freecharge EMI. With a robust infrastructure supporting multiple payment methods, Freecharge users can choose to make payments via Digital Wallet, UPI, Net Banking, Debit Cards, and Credit Cards at their favorite offline or online merchant.",
     duration: "Fulltime",
     date: "18 Jul 2024",
     company: "Freecharge",
@@ -1511,7 +1518,7 @@ const company_details: IcompanyType[] = [
     english_fluency: "Fluent",
     overview:
       "Unidad Technologies & Services Private Limited is an Indian Non-Government Company, incorporated on 12 Feb, 2016. It's a private company and is classified as'company limited by shares'.Company's authorized capital stands at Rs 1.0 lakhs and has 100.0% paid-up capital which is Rs 1.0 lakhs.",
-    videoid: "",
+    videoid: "RbgeEGEvqqM",
     facebook: "",
     instagram: "",
     twitter: "",
@@ -1530,11 +1537,107 @@ const company_details: IcompanyType[] = [
     address:"Rajiv Gandhi Chandigarh Technology Park, Chandigarh-160003 ",
     feild: ["Meical Scribe (Healthcare)    "],
     overviewsection:
-      "IDS Infotech is a leading and award winning IT solutions company providing full-cycle services in areas of software development, web-based enterprise solutions, web application, portal development and iPhone application development. Established since 1989 - IDS Infotech Ltd.",
+      "IDS Infotech is a leading and award winning IT solutions company providing full-cycle services in areas of software development, web-based enterprise solutions, web application, portal development and iPhone application development. Established since 1989 - IDS Infotech Ltd.With a culture that fosters innovation, creativity, and collaboration, we're more than just a workplace – we're a community. We're looking for the best and brightest minds to be a part of our journey to transform the future.",
     duration: "Fulltime",
     date: "18 Jul 2024",
     company: "IDS Infotech Limited    ",
     location: "Punjab, India",
+    category: ["Developer"],
+    experience: "Fresher",
+    salary: 900,
+    salary_duration: "Monthly",
+    
+    english_fluency: "Fluent",
+    overview:
+      "Unidad Technologies & Services Private Limited is an Indian Non-Government Company, incorporated on 12 Feb, 2016. It's a private company and is classified as'company limited by shares'.Company's authorized capital stands at Rs 1.0 lakhs and has 100.0% paid-up capital which is Rs 1.0 lakhs.",
+    videoid: "XggYIAb0Wkg",
+    facebook: "",
+    instagram: "",
+    twitter: "",
+    linkedin: "",
+  },
+  {
+    id: 48,
+    logo: job_img_48,
+    title: "",
+    
+    link: "https://jungleworks.com/",
+    founder: "Samar Singla",
+    CEO: "Samar Singla",
+    email: "",
+    founded: "27 Jan,1997",
+    address:"FLAT NO 401, VASANT HOUSE, 19TH ROAD NEAR BABA SAHEB AMBEDKAR SCHOOL, KHAR WEST Khar Delivery Mumbai Mumbai MH 400052 IN ",
+    feild: ["Tech Loaded Solution"],
+    overviewsection:
+      "Jungleworks is a tech loaded solution for your on-demand business. From customer facing to delivery management and customer engagement platforms.We believe in giving life to the dream business projects and providing a hassle free experience. We've been successful in offering an extensive online platform for any business genre from starting to running and to reaching new growth parameters.",
+    duration: "Fulltime",
+    date: "18 Jul 2024",
+    company: "Jungle Works",
+    location: "Maharashtra, India",
+    category: ["Developer"],
+    experience: "Fresher",
+    salary: 900,
+    salary_duration: "Monthly",
+    
+    english_fluency: "Fluent",
+    overview:
+      "Unidad Technologies & Services Private Limited is an Indian Non-Government Company, incorporated on 12 Feb, 2016. It's a private company and is classified as'company limited by shares'.Company's authorized capital stands at Rs 1.0 lakhs and has 100.0% paid-up capital which is Rs 1.0 lakhs.",
+    videoid: "Yg-rSN01bUE",
+    facebook: "",
+    instagram: "",
+    twitter: "",
+    linkedin: "",
+  },
+  {
+    id: 49,
+    logo: job_img_49,
+    title: "",
+    
+    link: "https://apollohomecare.com/",
+    founder: "Prathap C Reddy",
+    CEO: "Dr. Mahesh Joshi",
+    email: "",
+    founded: "27 Jan,1997",
+    address:"3rd Floor, Ali Towers, No.55 Greams Road, Thousand Lights, Chennai Chennai TN 600006 IN",
+    feild: ["Healthcare"],
+    overviewsection:
+      "As a well established leader in Indian Healthcare; Apollo Hospitals is uniquely equipped to offer whole spectrum of Homecare services. We bring high-end and specialised homecare services with special emphasis on quality.The transforming healthcare scenario in India has led to the advent of Homecare – Health care services that conveniently come Home for the comfort of patients and their families. Our home care services prioritize your loved one’s well-being.",
+    duration: "Fulltime",
+    date: "18 Jul 2024",
+    company: "Apollo Home Healthcare Ltd",
+    location: "Tamil Nadu, India",
+    category: ["Developer"],
+    experience: "Fresher",
+    salary: 900,
+    salary_duration: "Monthly",
+    
+    english_fluency: "Fluent",
+    overview:
+      "Unidad Technologies & Services Private Limited is an Indian Non-Government Company, incorporated on 12 Feb, 2016. It's a private company and is classified as'company limited by shares'.Company's authorized capital stands at Rs 1.0 lakhs and has 100.0% paid-up capital which is Rs 1.0 lakhs.",
+    videoid: "GmT-0pIUKkc?si",
+    facebook: "",
+    instagram: "",
+    twitter: "",
+    linkedin: "",
+  },
+  {
+    id: 50,
+    logo: job_img_50,
+    title: "",
+    
+    link: "https://innovalancelearning.com/",
+    founder: "Rahul Kushu",
+    CEO: "",
+    email: "",
+    founded: "27 Jan,1997",
+    address:"7th Floor, HB TWIN TOWER, Netaji Subhash Place, Pitampura, New Delhi, Delhi, 110085 ",
+    feild: ["Career and Academics "],
+    overviewsection:
+      "Innovalance is a company that encourages and supports innovation, personal and professional development, and a positive work-life balance for its employees. With a diverse and experienced team, opportunities for growth and advancement, and a commitment to employee wellness, Innovalance has always been a great place to work and advance your career.",
+    duration: "Fulltime",
+    date: "18 Jul 2024",
+    company: "Innovalance Learning",
+    location: "New Delhi, India",
     category: ["Developer"],
     experience: "Fresher",
     salary: 900,
@@ -1550,23 +1653,119 @@ const company_details: IcompanyType[] = [
     linkedin: "",
   },
   {
-    id: 48,
-    logo: job_img_47,
+    id: 51,
+    logo: job_img_51,
     title: "",
     
-    link: "https://jungleworks.com/",
-    founder: "Samar Singla",
-    CEO: "Samar Singla",
+    link: "https://www.marriott.com/marriott/aboutmarriott.mi",
+    founder: "J. Willard Marriott",
+    CEO: "Anthony Capuano",
     email: "",
     founded: "27 Jan,1997",
-    address:"FLAT NO 401, VASANT HOUSE, 19TH ROAD NEAR BABA SAHEB AMBEDKAR SCHOOL, KHAR WEST Khar Delivery Mumbai Mumbai MH 400052 IN ",
-    feild: ["Tech Loaded Solution"],
+    address:"303 /304 3rd Floor Hiranandani Fulcrum Sahar Road Andheri East Vile Parle (E) Next to Hyatt Regency Mumbai Mumbai City MH IN 400099.",
+    feild: ["Hotel Management"],
     overviewsection:
-      "Jungleworks is a tech loaded solution for your on-demand business. From customer facing to delivery management and customer engagement platforms.",
+      "Marriott International, Inc. is an American multinational company that operates, franchises, and licenses lodging including hotel, residential and timeshare properties.",
     duration: "Fulltime",
     date: "18 Jul 2024",
-    company: "Jungle Works",
-    location: "Maharashtra, India",
+    company: "Marriott International",
+    location: "Mumbai, India",
+    category: ["Developer"],
+    experience: "Fresher",
+    salary: 900,
+    salary_duration: "Monthly",
+    
+    english_fluency: "Fluent",
+    overview:
+      "Unidad Technologies & Services Private Limited is an Indian Non-Government Company, incorporated on 12 Feb, 2016. It's a private company and is classified as'company limited by shares'.Company's authorized capital stands at Rs 1.0 lakhs and has 100.0% paid-up capital which is Rs 1.0 lakhs.",
+    videoid: "ThbdcWVHFs8?si",
+    facebook: "",
+    instagram: "",
+    twitter: "",
+    linkedin: "",
+  },
+  {
+    id: 52,
+    logo: job_img_52,
+    title: "",
+    
+    link: "http://www.jagransolutions.com/",
+    founder: "Shri Puran Chandra Gupta",
+    CEO: "Bharat Gupta",
+    email: "",
+    founded: "27 Jan,1997",
+    address:"New Delhi, building no. 9, 11, Okhla Phase III, Okhla Industrial Area, India",
+    feild: ["Newspaper"],
+    overviewsection:
+      "Jagran Solutions offer corporate services including Brand Activation, Corporate Event Management, Conferences and Exhitibiton, integrated campaigns etc.",
+    duration: "Fulltime",
+    date: "18 Jul 2024",
+    company: "Jagran Solutions",
+    location: "New Delhi, India",
+    category: ["Developer"],
+    experience: "Fresher",
+    salary: 900,
+    salary_duration: "Monthly",
+    
+    english_fluency: "Fluent",
+    overview:
+      "Unidad Technologies & Services Private Limited is an Indian Non-Government Company, incorporated on 12 Feb, 2016. It's a private company and is classified as'company limited by shares'.Company's authorized capital stands at Rs 1.0 lakhs and has 100.0% paid-up capital which is Rs 1.0 lakhs.",
+    videoid: "",
+    facebook: "",
+    instagram: "",
+    twitter: "",
+    linkedin: "",
+  },
+  {
+    id: 53,
+    logo: job_img_53,
+    title: "",
+    
+    link: "https://www.neclife.com/",
+    founder: "Mr. Sanjiv Goyal",
+    CEO: "Amit Chadah",
+    email: "",
+    founded: "27 Jan,1997",
+    address:"New Delhi, building no. 9, 11, Okhla Phase III, Okhla Industrial Area, India",
+    feild: ["Pharmaceutical"],
+    overviewsection:
+      "Nectar Lifesciences Limited is a pharmaceutical company in India that manufactures generic drug products. The company has global leadership in several oral and sterile cephalosporin drugs, and has cGMP facilities along with those approved by the European Union and Japan.",
+    duration: "Fulltime",
+    date: "18 Jul 2024",
+    company: "Nectar Life Sciences",
+    location: "Hyderabad, India",
+    category: ["Developer"],
+    experience: "Fresher",
+    salary: 900,
+    salary_duration: "Monthly",
+    
+    english_fluency: "Fluent",
+    overview:
+      "Unidad Technologies & Services Private Limited is an Indian Non-Government Company, incorporated on 12 Feb, 2016. It's a private company and is classified as'company limited by shares'.Company's authorized capital stands at Rs 1.0 lakhs and has 100.0% paid-up capital which is Rs 1.0 lakhs.",
+    videoid: "",
+    facebook: "",
+    instagram: "",
+    twitter: "",
+    linkedin: "",
+  },
+  {
+    id: 54,
+    logo: job_img_54,
+    title: "",
+    
+    link: "https://www.bajajfinserv.in/",
+    founder: "Jamnalal Bajaj",
+    CEO: "Ashish Panchal",
+    email: "",
+    founded: "27 Jan,1997",
+    address:"4th Floor, Bajaj Finserv Corporate Office, Off Pune-Ahmednagar Road, Viman Nagar, Pune – 411 014",
+    feild: ["Non- Banking Financial Company"],
+    overviewsection:
+      "Bajaj Finserv Limited is an Indian non-banking financial services company headquartered in Pune. It is focused on lending, asset management, wealth management and insurance.",
+    duration: "Fulltime",
+    date: "18 Jul 2024",
+    company: "Bajaj Finserv",
+    location: "Pune, India",
     category: ["Developer"],
     experience: "Fresher",
     salary: 900,

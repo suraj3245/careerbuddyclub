@@ -42,7 +42,7 @@ const CourseDetailsPage = ({ params }: { params: { id: string } }) => {
         {/*job Open Position */}
 
         {/* job portal intro start */}
-        <JobPortalIntro top_border={true} />
+      
         {/* job portal intro end */}
 
         {/* footer start */}
