@@ -67,9 +67,17 @@ export interface Isyllabus {
   specialization: string;
   syllabus: string[];
 }
+export interface IcoursesEntrance {
+  Exams: string;
+  Entrance: string;
+  TExams: string;
+  MExams: string;
+}
 export interface IcourseType {
   id: number;
   logo: StaticImageData;
+  courseexam: String;
+  coursesEntrance: IcoursesEntrance [];
   coursename: string;
   coursefullform: string;
   courseoverview: string;

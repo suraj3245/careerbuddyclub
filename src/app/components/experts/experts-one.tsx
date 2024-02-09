@@ -20,7 +20,6 @@ const expert_data: {
   id: number;
   user: StaticImageData;
   name: string;
- 
   title: string;
   salary: string;
 }[] = [
@@ -30,16 +29,17 @@ const expert_data: {
     name: "Bipul Kumar Pandey",
     
     title: "Geetanjali Homestate Pvt Ltd.",
-    salary: " 6 LPA (3LPA fixed and 3 LPA Variable)",
+    salary: " 6 LPA ",
   },
   {
-    id: 2,
-    user: user_2,
-    name: "Gunjan Singh",
-
-    title: "Hanmars Systems Pvt Limted",
-    salary: "4 LPA",
+    id: 8,
+    user: user_8,
+    name: "Neha Sharma",
+   
+    title: "Byjus",
+    salary: "7 LPA",
   },
+  
   {
     id: 3,
     user: user_3,
@@ -83,13 +83,14 @@ const expert_data: {
     salary: "5.40 LPA",
   },
   {
-    id: 8,
-    user: user_8,
-    name: "Neha Sharma",
-   
-    title: "Byjus",
-    salary: "7 LPA",
+    id: 2,
+    user: user_2,
+    name: "Gunjan Singh",
+
+    title: "Hanmars Systems Pvt Limted",
+    salary: "4 LPA",
   },
+ 
   {
     id: 9,
     user: user_9,

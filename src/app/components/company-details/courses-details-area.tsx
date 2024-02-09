@@ -177,6 +177,34 @@ const CoursesDetailsArea = ({ details }: { details: IcourseType }) => {
                     </ul>
                   ))}
 
+                  <div className="details-post-data me-xxl-5 pe-xxl-4 mt-4">
+                  <h3 id="overview">{details.coursename} Entrance Examination</h3>
+                  <p>{details.courseexam}</p>
+                  <div className="details-post-data me-xxl-5 pe-xxl-4 mt-4 border border-gray-300 rounded-lg overflow-auto ">
+                    <Table aria-label="Courses and Fees Table">
+                      <TableHeader>
+                        <TableColumn>Exams</TableColumn>
+                        <TableColumn>What is the exam is for?</TableColumn>
+                        <TableColumn>Type of Exam</TableColumn>
+                        <TableColumn>Mode of Exam</TableColumn>
+
+                      </TableHeader>
+                      <TableBody>
+                        {details.coursesEntrance.map((course, index) => (
+                          <TableRow key={index}>
+                           
+                          <TableCell>{course.Exams}</TableCell>
+                          <TableCell>{course.Entrance}</TableCell>
+                          <TableCell>{course.TExams}</TableCell>
+                          <TableCell>{course.MExams}</TableCell>
+
+                          </TableRow>
+                        ))}
+                      </TableBody>
+                    </Table>
+                  </div>
+                  </div>
+
                   <h3 className="pt-50" id="alumini">
                     Alumini Reviews
                   </h3>

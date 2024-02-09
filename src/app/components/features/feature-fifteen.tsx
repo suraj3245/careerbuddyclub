@@ -47,14 +47,9 @@ const Featurefifteen = () => {
                 </h3>
                <p style={{ paddingLeft: "20px" }}> Gain hands-on experience with internships & real-life projects to be job-ready. Participate in Training Bootcamps, Mentorship & Networking in Jobs Fairs, Hackathons, Case Studies, etc.
                </p>
-                <h3 style={{ paddingLeft: "20px" }}>Create Your Own Resume
-                </h3>
+                
                <div style={{ paddingLeft: "20px" }}>
-                <Link href="/ ">
-            <div className= "btn btn-primary" >
-              Resume
-              </div>
-          </Link>
+              
           </div>
               </div>
             </div>
