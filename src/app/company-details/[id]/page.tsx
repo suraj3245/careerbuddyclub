@@ -22,9 +22,12 @@ const CompanyDetailsDynamicPage = ({ params }: { params: { id: string } }) => {
     <Wrapper>
       <div className="main-page-wrapper">
         {/* header start */}
-
+        
         {/* header end */}
-
+        <CompanyBreadcrumb
+        title={details ? details.company : ""}
+        subtitle={details ? details.title : ""}
+      />
         {/*breadcrumb start */}
 
         {/*breadcrumb end */}

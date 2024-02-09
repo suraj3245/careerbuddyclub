@@ -21,7 +21,7 @@ const HowItWorksFive = ({ style_2 }: { style_2?: boolean }) => {
         <div className="border-bottom border-md0">
           <div className="row justify-content-center">
             {how_works_five.map((item) => (
-              <div key={item.id} className="col-lg-4 col-md-6">
+              <div key={item.id} className="col-lg-3 col-md-6">
                 <div className="card-style-five text-center position-relative mt-25 pb-35 lg-pb-20 wow fadeInUp">
                   <div className="title fw-500 text-lg text-dark mt-25 mb-10">
                     {item.title}

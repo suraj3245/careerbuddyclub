@@ -333,6 +333,76 @@
     animation: jumpFour 5s infinite linear;
   }
 }
+.hero-banner-eleven {
+  background: #ffffff;
+  z-index: 9;
+
+  h1 {
+    color: #000000;
+    span {
+      display: block;
+      color: $color-two;
+    }
+  }
+  .img-box {
+    position: absolute;
+    width: 42%;
+
+    bottom: -95px;
+    right: -29px;
+    z-index: -1;
+    .shapes {
+      left: -40px;
+      top: -40px;
+      z-index: -1;
+    }
+  }
+  .shape_01 {
+    top: 14px;
+    right: 37%;
+  }
+  .shape_02 {
+    bottom: 0;
+    left: 0;
+  }
+  .form-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  .form-container {
+    background-color: #14adbd;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+  }
+  .btn-five {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  
+  .btn-five:hover {
+    background-color: #eee30d;
+  }
+  
+}
 // Fancy Banner One
 .fancy-banner-one .bg-wrapper {
   background: $color-one;
