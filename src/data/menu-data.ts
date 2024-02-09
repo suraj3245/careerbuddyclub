@@ -177,7 +177,7 @@ const menu_data: IMenuData[] = [
   // },
   {
     id: 5,
-    link: "/careerapt",
+    link: "/career-aptitude",
     title: "Best Career For You",
   },
 

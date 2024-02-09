@@ -172,7 +172,7 @@ const DashboardEducation = ({ setIsOpenSidebar }: IProps) => {
 
             <div className="row">
               <div className="col-12">
-                <div className="dash-input-wrapper mb-25">
+                <div className="dash-input-wrapper mb-10">
                   <label htmlFor="">School Name*</label>
                   <input
                     type="text"
@@ -185,7 +185,7 @@ const DashboardEducation = ({ setIsOpenSidebar }: IProps) => {
                 </div>
               </div>
               <div className="col-lg-3">
-                <div className="dash-input-wrapper mb-25">
+                <div className="dash-input-wrapper mb-10">
                   <label htmlFor="">Board*</label>
                   <input
                     type="text"
@@ -198,7 +198,7 @@ const DashboardEducation = ({ setIsOpenSidebar }: IProps) => {
                 </div>
               </div>
               <div className="col-lg-3">
-                <div className="dash-input-wrapper mb-25">
+                <div className="dash-input-wrapper mb-10">
                   <label htmlFor="">Stream*</label>
                   <input
                     type="text"
@@ -212,7 +212,7 @@ const DashboardEducation = ({ setIsOpenSidebar }: IProps) => {
               </div>
 
               <div className="col-lg-3">
-                <div className="dash-input-wrapper mb-25">
+                <div className="dash-input-wrapper mb-10">
                   <label htmlFor="">Passing Year*</label>
                   <input
                     type="number"
@@ -225,7 +225,7 @@ const DashboardEducation = ({ setIsOpenSidebar }: IProps) => {
                 </div>
               </div>
               <div className="col-lg-3">
-                <div className="dash-input-wrapper mb-25">
+                <div className="dash-input-wrapper mb-10">
                   <label htmlFor="percentageCgpaX">Percentage/CGPA*</label>
                   <input
                     type="text"
@@ -241,7 +241,7 @@ const DashboardEducation = ({ setIsOpenSidebar }: IProps) => {
             <h5 className="sub-title">Class XII Details</h5>
             <div className="row">
               <div className="col-12">
-                <div className="dash-input-wrapper mb-25">
+                <div className="dash-input-wrapper mb-10">
                   <label htmlFor="">School Name*</label>
                   <input
                     type="text"
@@ -254,7 +254,7 @@ const DashboardEducation = ({ setIsOpenSidebar }: IProps) => {
                 </div>
               </div>
               <div className="col-lg-3">
-                <div className="dash-input-wrapper mb-25">
+                <div className="dash-input-wrapper mb-10">
                   <label htmlFor="">Board*</label>
                   <input
                     type="text"
@@ -267,7 +267,7 @@ const DashboardEducation = ({ setIsOpenSidebar }: IProps) => {
                 </div>
               </div>
               <div className="col-lg-3">
-                <div className="dash-input-wrapper mb-25">
+                <div className="dash-input-wrapper mb-10">
                   <label htmlFor="">Stream*</label>
                   <input
                     type="text"
@@ -281,7 +281,7 @@ const DashboardEducation = ({ setIsOpenSidebar }: IProps) => {
               </div>
 
               <div className="col-lg-3">
-                <div className="dash-input-wrapper mb-25">
+                <div className="dash-input-wrapper mb-10">
                   <label htmlFor="">Passing Year*</label>
                   <input
                     type="number"
@@ -294,7 +294,7 @@ const DashboardEducation = ({ setIsOpenSidebar }: IProps) => {
                 </div>
               </div>
               <div className="col-lg-3">
-                <div className="dash-input-wrapper mb-25">
+                <div className="dash-input-wrapper mb-10">
                   <label htmlFor="percentageCgpaXII">Percentage/CGPA*</label>
                   <input
                     type="text"
@@ -310,7 +310,7 @@ const DashboardEducation = ({ setIsOpenSidebar }: IProps) => {
             <h5 className="sub-title">Graduation Details</h5>
             <div className="row">
               <div className="col-12">
-                <div className="dash-input-wrapper mb-25">
+                <div className="dash-input-wrapper mb-10">
                   <label htmlFor="">College Name*</label>
                   <input
                     type="text"
@@ -323,7 +323,7 @@ const DashboardEducation = ({ setIsOpenSidebar }: IProps) => {
                 </div>
               </div>
               <div className="col-lg-3">
-                <div className="dash-input-wrapper mb-25">
+                <div className="dash-input-wrapper mb-10">
                   <label htmlFor="">University Name*</label>
                   <input
                     type="text"
@@ -336,7 +336,7 @@ const DashboardEducation = ({ setIsOpenSidebar }: IProps) => {
                 </div>
               </div>
               <div className="col-lg-3">
-                <div className="dash-input-wrapper mb-25">
+                <div className="dash-input-wrapper mb-10">
                   <label htmlFor="">Degree*</label>
                   <input
                     type="text"
@@ -350,7 +350,7 @@ const DashboardEducation = ({ setIsOpenSidebar }: IProps) => {
               </div>
 
               <div className="col-lg-3">
-                <div className="dash-input-wrapper mb-25">
+                <div className="dash-input-wrapper mb-10">
                   <label htmlFor="">Passing Year*</label>
                   <input
                     type="number"
@@ -363,7 +363,7 @@ const DashboardEducation = ({ setIsOpenSidebar }: IProps) => {
                 </div>
               </div>
               <div className="col-lg-3">
-                <div className="dash-input-wrapper mb-25">
+                <div className="dash-input-wrapper mb-10">
                   <label htmlFor="percentageCgpaCollege">
                     Percentage/CGPA*
                   </label>

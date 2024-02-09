@@ -1,29 +1,29 @@
-import React from 'react';
-import { Metadata } from 'next';
-import Wrapper from '@/layouts/wrapper';
-import HeaderThree from '@/layouts/headers/header-3';
-import NavCategoryMenu from '@/layouts/headers/component/nav-category-menu';
-import HeroBannerThree from '../components/hero-banners/hero-banner-three';
-import CategorySectionThree from '../components/category/category-section-3';
-import CategorySectionFour from '../components/category/category-section-4';
-import FeatureFive from '../components/features/feature-five';
-import FancyBannerTwo from '../components/fancy-banner/fancy-banner-2';
-import FancyBannerThree from '../components/fancy-banner/fancy-banner-3';
-import FeedbackThree from '../components/feedBacks/feedback-three';
-import FeatureSix from '../components/features/feature-six';
-import CategorySectionFive from '../components/category/category-section-5';
-import JobPortalIntroTwo from '../components/job-portal-intro/job-portal-intro-2';
-import FooterOne from '@/layouts/footers/footer-one';
+import React from "react";
+import { Metadata } from "next";
+import Wrapper from "@/layouts/wrapper";
+import HeaderThree from "@/layouts/headers/header-3";
+import NavCategoryMenu from "@/layouts/headers/component/nav-category-menu";
+import HeroBannerThree from "../components/hero-banners/hero-banner-three";
+import CategorySectionThree from "../components/category/category-section-3";
+import CategorySectionFour from "../components/category/category-section-4";
+import FeatureFive from "../components/features/feature-five";
+import FancyBannerTwo from "../components/fancy-banner/fancy-banner-2";
+import FancyBannerThree from "../components/fancy-banner/fancy-banner-3";
+import FeedbackThree from "../components/feedBacks/feedback-three";
+import FeatureSix from "../components/features/feature-six";
+import CategorySectionFive from "../components/category/category-section-5";
+import JobPortalIntroTwo from "../components/job-portal-intro/job-portal-intro-2";
+import FooterOne from "@/layouts/footers/footer-one";
 
 export const metadata: Metadata = {
   title: "Home three",
+  robots: "noindex",
 };
 
 const HomeThree = () => {
   return (
     <Wrapper>
-      <div className='main-page-wrapper'>
-
+      <div className="main-page-wrapper">
         {/* header start */}
         <HeaderThree />
         {/* header end */}
@@ -68,8 +68,7 @@ const HomeThree = () => {
         <CategorySectionFive />
         {/* category section Five end */}
 
-        <div className='footer-with-bg'>
-
+        <div className="footer-with-bg">
           {/* job portal intro start */}
           <JobPortalIntroTwo />
           {/* job portal intro end */}
@@ -78,7 +77,6 @@ const HomeThree = () => {
           <FooterOne bottom_bg="bg-white" />
           {/* footer end */}
         </div>
-
       </div>
     </Wrapper>
   );

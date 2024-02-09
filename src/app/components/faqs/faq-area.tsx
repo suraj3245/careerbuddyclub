@@ -35,14 +35,14 @@ const FaqArea = () => {
                 <AccordionItem
                   id="two"
                   title="Who can benefit from CBC?"
-                  desc='CBC services are divided into four student categories. For Class 11th and 12th Students, CBC offers state of the art - <a href="/careerapt" style="color: blue;">Career Aptitude Test</a> to guide students about best career options and course options based on their personalities, strengths and interests. For Class XII students, CBC offers personalised admission services that helps students in getting into the best college based on their academic score, financial capability and college rankings. Apart from admissions, CBC also runs Job Guaranteed Degrees with some colleges where a student will have a guaranteed job after thier graduation. For Final Year Students, CBC organises several placement drives throughout the year and helps students get placed in their dream companies. For  educational institutions, schools can check our services here, colleges/universities can check our services here, employers can check our services here.'
+                  desc='CBC services are divided into four student categories. For Class 11th and 12th Students, CBC offers state of the art - <a href="/career-aptitude" style="color: blue;">Career Aptitude Test</a> to guide students about best career options and course options based on their personalities, strengths and interests. For Class XII students, CBC offers personalised admission services that helps students in getting into the best college based on their academic score, financial capability and college rankings. Apart from admissions, CBC also runs Job Guaranteed Degrees with some colleges where a student will have a guaranteed job after thier graduation. For Final Year Students, CBC organises several placement drives throughout the year and helps students get placed in their dream companies. For  educational institutions, schools can check our services here, colleges/universities can check our services here, employers can check our services here.'
                   parent="accordionTwo"
                 />
 
                 <AccordionItem
                   id="four"
                   title="How can I be part of CBC?"
-                  desc='For Career Aptitude Test, <a href="/careerapt" style="color: blue;">click here.</a> For Admissions in Colleges/Universities, <a href="/admission" style="color: blue;">click here.</a> For Jobs, <a href="https://jobs.careerbuddyclub.com" style="color: blue;">click here.</a>. '
+                  desc='For Career Aptitude Test, <a href="/career-aptitude" style="color: blue;">click here.</a> For Admissions in Colleges/Universities, <a href="/admission" style="color: blue;">click here.</a> For Jobs, <a href="https://jobs.careerbuddyclub.com" style="color: blue;">click here.</a>. '
                   parent="accordionTwo"
                 />
                 <AccordionItem

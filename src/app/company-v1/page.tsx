@@ -9,6 +9,7 @@ import CompanyV1Area from "../components/company/company-v1-area";
 
 export const metadata: Metadata = {
   title: "Company v1",
+  robots: "noindex",
 };
 
 const CompanyV1Page = () => {
@@ -31,7 +32,7 @@ const CompanyV1Page = () => {
         {/* company v1 area end */}
 
         {/* job portal intro start */}
-       
+
         {/* job portal intro end */}
 
         {/* footer start */}

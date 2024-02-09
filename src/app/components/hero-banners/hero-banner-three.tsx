@@ -35,17 +35,23 @@ const HeroBannerThree = () => {
                 className="text-lg mt-35 md-mt-30 mb-30 md-mb-20 pe-xl-5 wow fadeInUp"
                 data-wow-delay="0.5s"
               >
-                50% of students regret choosing their careers, such exposure is essential at the school level.
+                50% of students regret choosing their careers, such exposure is
+                essential at the school level.
               </p>
-             
-              <a href="https://www.thecareertown.com"  target="_blank" // This opens the link in a new tab
-  rel="noopener noreferrer"  className="btn-five wow fadeInUp"
+
+              <a
+                href="https://www.thecareertown.com"
+                target="_blank" // This opens the link in a new tab
+                rel="noopener noreferrer"
+                className="btn-five wow fadeInUp"
                 data-wow-delay="0.6s"
-                style={{ marginRight: "10px" }}>Career Town</a>
-                
-         
+                style={{ marginRight: "10px" }}
+              >
+                Career Town
+              </a>
+
               <Link
-                href="/careerapt"
+                href="/career-aptitude"
                 className="btn-five wow fadeInUp "
                 data-wow-delay="0.6s"
               >

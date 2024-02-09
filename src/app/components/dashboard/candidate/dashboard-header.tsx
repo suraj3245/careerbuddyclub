@@ -2,11 +2,7 @@
 import React from "react";
 import Link from "next/link";
 import Image, { StaticImageData } from "next/image";
-import notifi from "@/assets/dashboard/images/icon/icon_11.svg";
-import notify_icon_1 from "@/assets/dashboard/images/icon/icon_36.svg";
-import notify_icon_2 from "@/assets/dashboard/images/icon/icon_37.svg";
-import notify_icon_3 from "@/assets/dashboard/images/icon/icon_38.svg";
-import search from "@/assets/dashboard/images/icon/icon_10.svg";
+
 import { useMediaQuery } from "react-responsive";
 // notification item
 function NotificationItem({

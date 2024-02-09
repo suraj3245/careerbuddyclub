@@ -9,6 +9,7 @@ import FooterOne from "@/layouts/footers/footer-one";
 
 export const metadata: Metadata = {
   title: "Company v3",
+  robots: "noindex",
 };
 
 const CompanyV3Page = () => {

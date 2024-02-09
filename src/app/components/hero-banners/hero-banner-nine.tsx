@@ -30,23 +30,26 @@ const HeroBannerNine = () => {
                 #1 Best For Campuses
               </div>
               <h1 className="wow fadeInUp" data-wow-delay="0.4s">
-            Empowering Your Institute for Admissions and Placements!
+                Empowering Your Institute for Admissions and Placements!
               </h1>
               <p
                 className="text-lg mt-35 md-mt-30 mb-30 md-mb-20 pe-xl-5 wow fadeInUp"
                 data-wow-delay="0.5s"
-              >
-               
-              </p>
-             
-              <a href="https://www.thecareertown.com"  target="_blank" // This opens the link in a new tab
-  rel="noopener noreferrer"  className="btn-five wow fadeInUp"
+              ></p>
+
+              <a
+                href="https://www.thecareertown.com"
+                target="_blank" // This opens the link in a new tab
+                rel="noopener noreferrer"
+                className="btn-five wow fadeInUp"
                 data-wow-delay="0.6s"
-                style={{ marginRight: "10px" }}>Admissions</a>
-                
-         
+                style={{ marginRight: "10px" }}
+              >
+                Admissions
+              </a>
+
               <Link
-                href="/careerapt"
+                href="/career-aptitude"
                 className="btn-five wow fadeInUp "
                 data-wow-delay="0.6s"
               >

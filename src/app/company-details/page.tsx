@@ -10,6 +10,7 @@ import company_details from "@/data/company-details";
 
 export const metadata: Metadata = {
   title: "Company Details",
+  robots: "noindex",
 };
 
 const CompanyDetailsPage = () => {

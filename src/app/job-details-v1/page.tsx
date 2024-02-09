@@ -10,6 +10,7 @@ import RelatedJobs from "../components/jobs/related-jobs";
 
 export const metadata: Metadata = {
   title: "Job Details v1",
+  robots: "noindex",
 };
 
 const JobDetailsV1Page = () => {

@@ -14,6 +14,7 @@ import FooterOne from "@/layouts/footers/footer-one";
 
 export const metadata: Metadata = {
   title: "CareerBuddyClub",
+  robots: "noindex",
 };
 
 const HomeFour = () => {

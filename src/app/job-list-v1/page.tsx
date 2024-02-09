@@ -10,6 +10,7 @@ import HeaderFour from "@/layouts/headers/header-4";
 
 export const metadata: Metadata = {
   title: "Career buddy club-Job List ",
+  robots: "noindex",
 };
 
 const JobListTwoPage = () => {

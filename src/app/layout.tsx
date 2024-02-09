@@ -80,8 +80,11 @@ export default function RootLayout({
 
   const handleLogout = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("testStatus"); // Clear the stored test status
+    localStorage.removeItem("catResults");
     setUser({ value: null }); // Update the user state to reflect logout
     // Any additional logout logic goes here
+
     setKey(Math.random());
   };
   // Check if the current page is 'aptitudetest'
@@ -91,6 +94,7 @@ export default function RootLayout({
   const isCandidateDashboardPage = pathname.startsWith(
     "/dashboard/candidate-dashboard/"
   );
+
   // const isCollegeDetailsPage = pathname.startsWith("/college-details");
   return (
     <html lang="en">

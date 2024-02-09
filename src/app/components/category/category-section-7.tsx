@@ -10,6 +10,7 @@ import bg_3 from "@/assets/images/assets/graduate.png";
 import bg_4 from "@/assets/images/assets/company.png";
 import { ICategoryThree } from "@/types/category-type";
 import dynamic from "next/dynamic";
+
 const ApplyModal = dynamic(
   () => import("@/app/components/common/popup/apply-modal"),
   {
@@ -44,7 +45,7 @@ export const category_data: ICategoryThree[] = [
     title: <>Career</>,
     description:
       "Still confused which career is best for you? Take our Career Aptitude Test to find the best course for you as per your Personality, Strengths & Interests.",
-    nav: "/careerapt",
+    nav: "/career-aptitude",
     bg_img: bg_1,
   },
   {

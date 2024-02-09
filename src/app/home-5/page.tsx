@@ -16,6 +16,7 @@ import FooterTwo from "@/layouts/footers/footer-2";
 
 export const metadata: Metadata = {
   title: "Home five",
+  robots: "noindex",
 };
 
 const HomeFive = () => {
@@ -57,18 +58,21 @@ const HomeFive = () => {
         {/* partner slider start */}
         <div className="container">
           <div className="partner-logos pt-120 lg-pt-80 pb-80 lg-pb-40">
-            <div className="title fw-500 text-dark text-uppercase text-center mb-65 lg-mb-30"> Trusted by <span>500+</span> companies</div>
+            <div className="title fw-500 text-dark text-uppercase text-center mb-65 lg-mb-30">
+              {" "}
+              Trusted by <span>500+</span> companies
+            </div>
             <PartnersSlider />
           </div>
         </div>
         {/* perter slider end */}
 
         {/* blog start */}
-        <BlogThree/>
+        <BlogThree />
         {/* blog end */}
 
         {/* fancy banner start */}
-        <FancyBannerFive/>
+        <FancyBannerFive />
         {/* fancy banner end */}
 
         {/* footer start */}

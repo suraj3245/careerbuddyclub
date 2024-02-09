@@ -10,6 +10,7 @@ import HeaderFour from "@/layouts/headers/header-4";
 
 export const metadata: Metadata = {
   title: "Job Grid v3",
+  robots: "noindex",
 };
 
 const JobGridThreePage = () => {

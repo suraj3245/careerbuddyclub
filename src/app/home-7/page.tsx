@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Wrapper from "@/layouts/wrapper";
 import HeaderSix from "@/layouts/headers/header-6";
-import shape from '@/assets/images/shape/shape_24.svg';
+import shape from "@/assets/images/shape/shape_24.svg";
 import PartnersSlider from "../components/partners/partners-slider";
 import HeroBannerSeven from "../components/hero-banners/hero-banner-seven";
 import { CategoryCardWrapper } from "../components/category/category-section-2";
@@ -17,9 +17,9 @@ import BlogFive from "../components/blogs/blog-five";
 import FancyBannerSeven from "../components/fancy-banner/fancy-banner-7";
 import FooterOne from "@/layouts/footers/footer-one";
 
-
 export const metadata: Metadata = {
   title: "Home seven",
+  robots: "noindex",
 };
 
 const HomeSix = () => {
@@ -46,12 +46,16 @@ const HomeSix = () => {
             <div className="row justify-content-between">
               <div className="col-sm-8">
                 <div className="title-three">
-                  <h2 className="main-font wow fadeInUp" data-wow-delay="0.3s">Most Demanding Categories.</h2>
+                  <h2 className="main-font wow fadeInUp" data-wow-delay="0.3s">
+                    Most Demanding Categories.
+                  </h2>
                 </div>
               </div>
               <div className="col-sm-4">
                 <div className="d-none d-sm-flex justify-content-sm-end mt-15">
-                  <Link href="/job-grid-v2" className="btn-six">All Categories</Link>
+                  <Link href="/job-grid-v2" className="btn-six">
+                    All Categories
+                  </Link>
                 </div>
               </div>
             </div>
@@ -59,7 +63,9 @@ const HomeSix = () => {
             <CategoryCardWrapper />
             {/* CategoryCardWrapper */}
             <div className="text-center d-sm-none mt-50">
-              <Link href="/job-grid-v2" className="btn-six">All Categories</Link>
+              <Link href="/job-grid-v2" className="btn-six">
+                All Categories
+              </Link>
             </div>
           </div>
           <Image src={shape} alt="shape" className="lazy-img shapes shape_01" />
@@ -70,7 +76,9 @@ const HomeSix = () => {
         <section className="how-it-works-two position-relative pt-130 lg-pt-80">
           <div className="container">
             <div className="title-one text-center mb-70 lg-mb-30">
-              <h2 className="main-font wow fadeInUp" data-wow-delay="0.3s">How it’s Work?</h2>
+              <h2 className="main-font wow fadeInUp" data-wow-delay="0.3s">
+                How it’s Work?
+              </h2>
             </div>
 
             <div className="border-bottom">
@@ -79,8 +87,15 @@ const HomeSix = () => {
                   <div key={item.id} className="col-lg-4 col-md-6">
                     <div className="card-style-five text-center position-relative mt-25 pb-70 lg-pb-20 wow fadeInUp">
                       <div className="icon rounded-circle d-flex align-items-center justify-content-center m-auto">
-                        <Image src={item.icon_white} alt="icon" className="lazy-img" /></div>
-                      <div className="title fw-500 text-lg text-dark mt-25 lg-mt-20 mb-10">{item.title}</div>
+                        <Image
+                          src={item.icon_white}
+                          alt="icon"
+                          className="lazy-img"
+                        />
+                      </div>
+                      <div className="title fw-500 text-lg text-dark mt-25 lg-mt-20 mb-10">
+                        {item.title}
+                      </div>
                       <p>{item.sub_title}</p>
                     </div>
                   </div>
@@ -99,7 +114,6 @@ const HomeSix = () => {
         <TopCompany />
         {/* top company end */}
 
-
         {/* feedback start */}
         <FeedbackOne style_2={true} style_3={true} />
         {/* feedback end */}
@@ -108,18 +122,24 @@ const HomeSix = () => {
         <section className="faq-section position-relative mt-180 xl-mt-150 lg-mt-80">
           <div className="container">
             <div className="title-one text-center">
-              <h2 className="main-font wow fadeInUp" data-wow-delay="0.3s">Questions & Answers</h2>
+              <h2 className="main-font wow fadeInUp" data-wow-delay="0.3s">
+                Questions & Answers
+              </h2>
             </div>
             <div className="mt-60 lg-mt-30">
               <div className="row">
-                <div className="col-xxl-11 m-auto wow fadeInUp" data-wow-delay="0.3s">
+                <div
+                  className="col-xxl-11 m-auto wow fadeInUp"
+                  data-wow-delay="0.3s"
+                >
                   <FaqItems />
                 </div>
               </div>
             </div>
             <div className="text-center mt-50 lg-mt-30 wow fadeInUp">
-              <div className="btn-eight fw-500">Don’t find the answer? We can help. 
-              <Link href="/faq">Click here</Link>
+              <div className="btn-eight fw-500">
+                Don’t find the answer? We can help.
+                <Link href="/faq">Click here</Link>
               </div>
             </div>
           </div>
@@ -127,13 +147,12 @@ const HomeSix = () => {
         {/* faq end */}
 
         {/* blog start */}
-        <BlogFive/>
+        <BlogFive />
         {/* blog end */}
 
         {/* fancy banner start */}
-        <FancyBannerSeven/>
+        <FancyBannerSeven />
         {/* fancy banner end */}
-
 
         {/* footer start */}
         <FooterOne style_3={true} />
