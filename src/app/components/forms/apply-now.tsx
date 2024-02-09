@@ -8,8 +8,7 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/navigation";
-import Image from "next/image";
-import icon from "@/assets/images/icon/icon_60.svg";
+
 interface IOption {
   value: string;
   label: string;
@@ -24,6 +23,9 @@ type IFormData = {
   password: string;
   level: string;
   stream: string;
+  LeadCampaign: string;
+  LeadSource: string;
+  LeadChannel: string;
 };
 
 // schema
@@ -42,6 +44,9 @@ const ApplyForm = () => {
   const [showResend, setShowResend] = useState(false);
   const [levelOptions, setLevelOptions] = useState<IOption[]>([]);
   const [streamOptions, setStreamOptions] = useState<IOption[]>([]);
+  const [leadCampaign, setLeadCampaign] = useState("");
+  const [leadSource, setLeadSource] = useState("");
+  const [leadChannel, setLeadChannel] = useState("");
   const router = useRouter();
 
   const fetchLevelOptions = async () => {
@@ -83,22 +88,31 @@ const ApplyForm = () => {
       // Handle error, e.g., set some state to show an error message
     }
   };
-  useEffect(() => {
-    fetchStreamOptions(); // Fetch stream options when the component mounts
-  }, []);
-  useEffect(() => {
-    fetchLevelOptions();
-    // Fetch stream options when the component mounts
-  }, []);
 
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
+    setValue,
     getValues,
   } = useForm<IFormData>({});
 
+  useEffect(() => {
+    fetchStreamOptions();
+    fetchLevelOptions();
+
+    const queryParams = new URLSearchParams(window.location.search);
+    const campaign = queryParams.get("utm_campaign") || "";
+    const source = queryParams.get("utm_source") || "";
+    const channel = queryParams.get("utm_medium") || "";
+    setLeadCampaign(campaign);
+    setLeadSource(source);
+    setLeadChannel(channel);
+    setValue("LeadCampaign", campaign);
+    setValue("LeadSource", source);
+    setValue("LeadChannel", channel);
+  }, []);
   const requestOTP = (data: {
     name: string;
     country_code: string;
@@ -151,27 +165,24 @@ const ApplyForm = () => {
   }, [isVerificationSent, countdown]);
   const onSubmit = (data: IFormData) => {
     // Destructure the required fields from data
-    const {
-      name,
-      email,
-      mobile,
-      verificationCode: otp,
-      password,
-      level,
-      stream,
-    } = data;
-
-    console.log("Form Data:", data);
+    const submissionData = {
+      ...data,
+      LeadCampaign: leadCampaign,
+      LeadSource: leadSource,
+      LeadChannel: leadChannel,
+    };
+    console.log("Form Data:", submissionData);
 
     // Set up the request options for axios
     const options = {
       method: "POST",
-      // url: '${process.env.REACT_APP_API_URL}students/register', // Replace with your API's URL
       url: "https://test.careerbuddyclub.com:8080/api/students/register", // Replace with your API's URL
       headers: {
         "Content-Type": "application/json",
       },
-      data: { name, email, mobile, otp, password, level, stream }, // Send only the required data
+      data: {
+        submissionData,
+      }, // Send only the required data
     };
 
     // Make the POST request using axios
@@ -193,7 +204,8 @@ const ApplyForm = () => {
           theme: "light",
         });
         setTimeout(() => {
-          window.location.href = "/dashboard/candidate-dashboard/profile";
+          window.location.href =
+            "/dashboard/candidate-dashboard/career-aptitude";
         }, 1000);
       })
       .catch((error) => {
@@ -390,7 +402,9 @@ const ApplyForm = () => {
             </div>
           </div>
         </div>
-
+        <input type="hidden" {...register("LeadCampaign")} />
+        <input type="hidden" {...register("LeadSource")} />
+        <input type="hidden" {...register("LeadChannel")} />
         <div
           className="agreement-checkbox d-flex justify-content-between align-items-center"
           style={{ justifyContent: "center" }}

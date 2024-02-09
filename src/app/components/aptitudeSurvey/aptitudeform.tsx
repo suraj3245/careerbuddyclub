@@ -9,7 +9,14 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import TopCareer from "../top-company/top-career";
 import YourCareer from "../top-company/Your-career";
+import { ApexOptions } from "apexcharts";
+import dynamic from "next/dynamic";
+import { jsPDF } from "jspdf";
+import html2canvas from "html2canvas";
 
+const ReactApexChart = dynamic(() => import("react-apexcharts"), {
+  ssr: false,
+});
 type Question = {
   id: number;
   question: string;
@@ -26,9 +33,50 @@ const QuizForm: React.FC = () => {
   const [results, setResults] = useState<any | null>(null);
   const [token, setToken] = useState<string | null>(null);
   const [testStatus, setTestStatus] = useState("");
+  const barColors = [
+    "#FF4560",
+    "#00E396",
+    "#008FFB",
+    "#775DD0",
+    "#FEB019",
+    "#FF4560",
+    "#00E396",
+    "#008FFB",
+    "#775DD0",
+    "#FEB019",
+  ];
+  const downloadResultsAsPDF = async () => {
+    const input = document.getElementById("resultsContainer");
+    if (!(input instanceof HTMLElement)) return; // Type check
 
-  const fetchCatResult = async () => {
-    const token = localStorage.getItem("token");
+    const canvas = await html2canvas(input, {
+      scale: 1, // Adjust scale as needed
+      scrollY: -window.scrollY, // Adjust for page scrolling
+    });
+
+    const imgData = canvas.toDataURL("image/png");
+    const pdf = new jsPDF({
+      orientation: "portrait",
+      unit: "px",
+      format: [canvas.width, canvas.height],
+    });
+
+    pdf.addImage(imgData, "PNG", 0, 0, canvas.width, canvas.height);
+    pdf.save("Career-Aptitude-test.pdf");
+  };
+  useEffect(() => {
+    // Assuming you need the token to fetch the results
+    const fetchToken = async () => {
+      const fetchedToken = localStorage.getItem("token");
+      if (fetchedToken) {
+        setToken(fetchedToken);
+        await fetchCatResult(fetchedToken);
+      }
+    };
+
+    fetchToken();
+  }, [isSubmitted]);
+  const fetchCatResult = async (token: string) => {
     if (!token) {
       // Handle the case where the token is not available
       return;
@@ -54,12 +102,6 @@ const QuizForm: React.FC = () => {
       console.error("Error fetching cat result:", error);
     }
   };
-
-  useEffect(() => {
-    // Call the function to fetch the cat result when needed
-    // You can trigger this function based on user actions or any other event
-    fetchCatResult();
-  }, []);
 
   const checkTestStatus = async () => {
     const token = localStorage.getItem("token"); // Retrieve the stored token
@@ -90,8 +132,6 @@ const QuizForm: React.FC = () => {
   useEffect(() => {
     checkTestStatus();
   }, []);
-
-  const chartRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -128,73 +168,6 @@ const QuizForm: React.FC = () => {
 
     fetchData();
   }, []);
-
-  useEffect(() => {
-    if (results && chartRef.current) {
-      const ctx = chartRef.current.getContext("2d");
-      if (ctx) {
-        const chartLabels = Object.keys(results).map((key) => {
-          switch (key) {
-            case "R":
-              return "Realistic";
-            case "I":
-              return "Investigative";
-            case "A":
-              return "Artistic";
-            case "S":
-              return "Social";
-            case "E":
-              return "Enterprising";
-            case "C":
-              return "Conventional";
-            default:
-              return key;
-          }
-        });
-
-        const chart = new ChartJS(ctx, {
-          type: "bar",
-          data: {
-            labels: chartLabels,
-            datasets: [
-              {
-                label: "Score",
-                data: Object.values(results),
-                backgroundColor: [
-                  "rgba(255, 99, 132, 0.2)", // Red
-                  "rgba(54, 162, 235, 0.2)", // Blue
-                  "rgba(255, 206, 86, 0.2)", // Yellow
-                  "rgba(75, 192, 192, 0.2)", // Green
-                  "rgba(153, 102, 255, 0.2)", // Purple
-                  "rgba(255, 159, 64, 0.2)", // Orange
-                ],
-                borderColor: [
-                  "rgba(255, 99, 132, 1)", // Red
-                  "rgba(54, 162, 235, 1)", // Blue
-                  "rgba(255, 206, 86, 1)", // Yellow
-                  "rgba(75, 192, 192, 1)", // Green
-                  "rgba(153, 102, 255, 1)", // Purple
-                  "rgba(255, 159, 64, 1)", // Orange
-                ],
-                borderWidth: 2,
-              },
-            ],
-          },
-          options: {
-            scales: {
-              y: {
-                beginAtZero: true,
-              },
-            },
-          },
-        });
-
-        return () => {
-          chart.destroy();
-        };
-      }
-    }
-  }, [results]);
 
   const questionsPerPage = 5;
   const totalPages = Math.ceil(questions.length / questionsPerPage);
@@ -288,6 +261,77 @@ const QuizForm: React.FC = () => {
     }
   };
   const isLastPage = currentPage === totalPages - 1;
+
+  type TransformedResultType = {
+    category: string;
+    score: number;
+  };
+
+  const getTopThreeScores = () => {
+    if (!results) return [];
+
+    // Transform the results
+    const transformedResults: TransformedResultType[] = Object.entries(
+      results
+    ).map(([key, value]) => {
+      return {
+        category:
+          key.charAt(0).toUpperCase() + key.slice(1).replace("_score", ""),
+        score: typeof value === "number" ? value : 0, // Ensure that the value is a number
+      };
+    });
+
+    // Sort and get the top three scores
+    return transformedResults.sort((a, b) => b.score - a.score).slice(0, 3);
+  };
+  type ResultType = {
+    [key: string]: number;
+  };
+  const transformResultsToChartData = (): {
+    series: ApexAxisChartSeries | [];
+    options: ApexOptions | {};
+  } => {
+    if (!results || Object.keys(results).length === 0)
+      return { series: [], options: {} };
+
+    // Ensure that all necessary data points are numbers and defined
+    const categories = Object.keys(results).map(
+      (key) => key.charAt(0).toUpperCase() + key.slice(1).replace("_score", "")
+    );
+    const dataPoints = categories.map((category, index) => {
+      const key = category.toLowerCase() + "_score";
+      const value = results[key];
+      return {
+        x: category,
+        y: Number(value),
+        fillColor: barColors[index % barColors.length],
+      };
+    });
+
+    return {
+      series: [{ name: "Score", data: dataPoints }],
+      options: {
+        chart: {
+          type: "bar",
+          height: 350,
+        },
+        plotOptions: {
+          bar: {
+            borderRadius: 4,
+            horizontal: true,
+          },
+        },
+        dataLabels: {
+          enabled: false,
+        },
+        xaxis: {
+          categories: categories,
+        },
+        colors: barColors,
+      },
+    };
+  };
+  const chartData = transformResultsToChartData();
 
   return (
     <div
@@ -430,7 +474,7 @@ const QuizForm: React.FC = () => {
               style={{
                 fontSize: "16px",
                 fontWeight: "bold",
-                marginLeft: "10px", // Add margin for spacing
+                marginLeft: "10px",
               }}
             >
               Progress: {currentPage + 1}/{totalPages}
@@ -448,25 +492,32 @@ const QuizForm: React.FC = () => {
             </div>
           </div>
           <div className="text-center">
-            <h2 className="mb-6 pb-25" style={{ color: "#13ADBD" }}>
+            <h2
+              className="mb-6 pb-25"
+              style={{ color: "#13ADBD", fontSize: "40px" }}
+            >
               Quiz Results
             </h2>
             {/* Display the results here using the `results` state */}
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <div>
-                <canvas
-                  ref={chartRef}
-                  style={{ height: "370px", width: "370px" }}
-                />
+            <div className="row">
+              <div className="chart-container  col-12 col-md-8">
+                {results && (
+                  <ReactApexChart
+                    options={chartData.options}
+                    series={chartData.series}
+                    type="bar"
+                    width={"100%"}
+                    height={350}
+                  />
+                )}
+              </div>
+              <div className="top-scores col-12 col-md-4">
+                <h3>Top Scores</h3>
+                {getTopThreeScores().map((result, index) => (
+                  <p key={index}>{`${result.category}: ${result.score}`}</p>
+                ))}
               </div>
             </div>
-
             <TopCareer />
             <YourCareer />
             <div
@@ -475,10 +526,17 @@ const QuizForm: React.FC = () => {
                 justifyContent: "center",
                 alignItems: "center",
                 paddingTop: "30px",
+                paddingBottom: "30px",
               }}
             >
+              <button
+                className="dash-btn-two tran3s me-3"
+                onClick={downloadResultsAsPDF}
+              >
+                Download Results
+              </button>
               <Link href="/dashboard/candidate-dashboard/profile">
-                <button className="btn-apti pt-50">Next Steps</button>
+                <button className="btn-five tran3s me-3">Next Steps</button>
               </Link>
             </div>
           </div>

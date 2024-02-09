@@ -499,12 +499,12 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
         <DashboardHeader setIsOpenSidebar={setIsOpenSidebar} />
         {/* header end */}
 
-        <h2 className="main-title">College Application Form</h2>
+        <h2 className="main-title">College Application Form </h2>
 
         <>
           <div className="bg-white card-box border-20">
             <form onSubmit={handlePersonalDetailsSubmit}>
-              <div className="dash-input-wrapper mb-30">
+              <div className="dash-input-wrapper mb-10">
                 <label htmlFor="fullName">Full Name*</label>
                 <input
                   type="text"
@@ -517,7 +517,7 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
               {/* Date of Birth Field */}
               <div className="row">
                 <div className="col-lg-3">
-                  <div className="dash-input-wrapper mb-25">
+                  <div className="dash-input-wrapper mb-10">
                     <label htmlFor="">Date of Birth*</label>
                     <input
                       type="date"
@@ -530,7 +530,7 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
                   </div>
                 </div>
                 <div className="col-lg-3">
-                  <div className="dash-input-wrapper mb-25">
+                  <div className="dash-input-wrapper mb-10">
                     <label htmlFor="">Social Category*</label>
                     <NiceSelect
                       options={[
@@ -547,7 +547,7 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
                   </div>
                 </div>
                 <div className="col-lg-3">
-                  <div className="dash-input-wrapper mb-25">
+                  <div className="dash-input-wrapper mb-10">
                     <label htmlFor="Gender">Gender*</label>
                     <NiceSelect
                       options={[
@@ -564,7 +564,7 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
                 </div>
               </div>
 
-              <div className="button-group d-inline-flex align-items-center mt-30">
+              <div className="button-group d-inline-flex align-items-center">
                 <button type="submit" className="dash-btn-two tran3s me-3">
                   Save
                 </button>
@@ -574,10 +574,10 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
         </>
 
         <form onSubmit={handleContactDetailsSubmit}>
-          <div className="bg-white card-box border-20 mt-40">
+          <div className="bg-white card-box border-20 mt-20">
             <h4 className="dash-title-three">Contact details</h4>
 
-            <div className="dash-input-wrapper mb-20">
+            <div className="dash-input-wrapper mb-10">
               <label htmlFor="mobileNumber">Mobile Number*</label>
               <input
                 type="tel"
@@ -590,7 +590,7 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
             </div>
 
             {/* Email Field */}
-            <div className="dash-input-wrapper mb-20">
+            <div className="dash-input-wrapper mb-10">
               <label htmlFor="email">Email*</label>
               <input
                 type="email"
@@ -601,7 +601,7 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
                 onChange={handleChange}
               />
             </div>
-            <div className="button-group d-inline-flex align-items-center mt-30">
+            <div className="button-group d-inline-flex align-items-center">
               <button type="submit" className="dash-btn-two tran3s me-3">
                 Save
               </button>
@@ -610,11 +610,11 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
         </form>
 
         <form onSubmit={handleAddressDetailsSubmit}>
-          <div className="bg-white card-box border-20 mt-40">
+          <div className="bg-white card-box border-20 mt-20">
             <h4 className="dash-title-three">Address & Location</h4>
             <div className="row">
               <div className="col-12">
-                <div className="dash-input-wrapper mb-25">
+                <div className="dash-input-wrapper mb-10">
                   <label htmlFor="">Address*</label>
                   <input
                     type="text"
@@ -626,7 +626,7 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
                 </div>
               </div>
               <div className="col-lg-3">
-                <div className="dash-input-wrapper mb-25">
+                <div className="dash-input-wrapper mb-10">
                   <label htmlFor="">State*</label>
                   <input
                     type="text"
@@ -638,7 +638,7 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
                 </div>
               </div>
               <div className="col-lg-3">
-                <div className="dash-input-wrapper mb-25">
+                <div className="dash-input-wrapper mb-10">
                   <label htmlFor="">City*</label>
                   <input
                     type="text"
@@ -650,7 +650,7 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
                 </div>
               </div>
               <div className="col-lg-3">
-                <div className="dash-input-wrapper mb-25">
+                <div className="dash-input-wrapper mb-10">
                   <label htmlFor="">Zip Code*</label>
                   <input
                     type="number"
@@ -662,7 +662,7 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
                 </div>
               </div>
             </div>
-            <div className="button-group d-inline-flex align-items-center mt-30">
+            <div className="button-group d-inline-flex align-items-center">
               <button type="submit" className="dash-btn-two tran3s me-3">
                 Save
               </button>
@@ -671,11 +671,11 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
         </form>
 
         <form onSubmit={handlePreferenceDetailsSubmit}>
-          <div className="bg-white card-box border-20 mt-40">
+          <div className="bg-white card-box border-20 mt-20">
             <h4 className="dash-title-three">Preference*</h4>
             <div className="row">
-              <div className="col-lg-4">
-                <div className="dash-input-wrapper mb-25">
+              <div className="col-lg-3">
+                <div className="dash-input-wrapper mb-10">
                   <label htmlFor="">Stream*</label>
                   <NiceSelect
                     options={streamOptions}
@@ -686,8 +686,8 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
                   />
                 </div>
               </div>
-              <div className="col-lg-4">
-                <div className="dash-input-wrapper mb-25">
+              <div className="col-lg-3">
+                <div className="dash-input-wrapper mb-10">
                   <label htmlFor="">level*</label>
                   <NiceSelect
                     options={levelOptions}
@@ -698,44 +698,10 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
                   />
                 </div>
               </div>
-              <div className="col-lg-4">
-                <div className="dash-input-wrapper mb-25">
-                  <label htmlFor="">Courses*</label>
-                  <NiceSelect
-                    options={[
-                      { value: "", label: "select Courses" },
-                      {
-                        value: "Bachelors",
-                        label: "Bachelors",
-                      },
-                      {
-                        value: "Masters",
-                        label: "Masters",
-                      },
-                      {
-                        value: "Diploma",
-                        label: "Diploma",
-                      },
 
-                      { value: "Others", label: "Others" },
-                    ]}
-                    value={formData.course}
-                    onChange={handleSelectChange}
-                    name="course"
-                    placeholder="select courses"
-                  />
-                </div>
-              </div>
-              <div className="col-lg-4">
-                <div className="dash-input-wrapper mb-25">
+              <div className="col-lg-3">
+                <div className="dash-input-wrapper mb-10">
                   <label htmlFor="">Specialization*</label>
-                  {/* <NiceSelect
-                    options={specializationOptions}
-                    value={formData.special}
-                    onChange={handleSelectChange}
-                    name="special"
-                    placeholder="select specialization"
-                  /> */}
                   <NiceSelect
                     options={[
                       { value: "", label: "select Specialization" },
@@ -761,8 +727,8 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
                   />
                 </div>
               </div>
-              <div className="col-lg-4">
-                <div className="dash-input-wrapper mb-25">
+              <div className="col-lg-3">
+                <div className="dash-input-wrapper mb-10">
                   <label htmlFor="">location*</label>
                   <input
                     type="text"
@@ -775,8 +741,8 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
                 </div>
               </div>
 
-              <div className="col-lg-4">
-                <div className="dash-input-wrapper mb-25">
+              <div className="col-lg-3">
+                <div className="dash-input-wrapper mb-10">
                   <label htmlFor="">Fee Range*</label>
                   <NiceSelect
                     options={[
@@ -792,8 +758,8 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
                   />
                 </div>
               </div>
-              <div className="col-lg-4">
-                <div className="dash-input-wrapper mb-25">
+              <div className="col-lg-3">
+                <div className="dash-input-wrapper mb-10">
                   <label htmlFor="">College*</label>
                   <NiceSelect
                     options={[
@@ -814,7 +780,7 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
                 </div>
               </div>
             </div>
-            <div className="button-group d-inline-flex align-items-center mt-30">
+            <div className="button-group d-inline-flex align-items-center">
               <button type="submit" className="dash-btn-two tran3s me-3">
                 Save
               </button>
@@ -822,7 +788,7 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
           </div>
         </form>
 
-        <div className="button-group d-inline-flex align-items-center mt-30">
+        <div className="button-group d-inline-flex align-items-center mt-20">
           <Link
             className="dash-btn-two tran3s me-3"
             href="/dashboard/candidate-dashboard/education"

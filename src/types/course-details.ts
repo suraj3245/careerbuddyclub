@@ -67,11 +67,50 @@ export interface Isyllabus {
   specialization: string;
   syllabus: string[];
 }
-export interface IcoursesEntrance {
-  Exams: string;
-  Entrance: string;
-  TExams: string;
-  MExams: string;
+export interface Iprivate {
+  nameofcollege: string;
+  nirfranking: string;
+  totalfees: string;
+}
+export interface Igovernment {
+  nameofcollege: string;
+  nirfranking: string;
+  totalfees: string;
+}
+export interface Idirect {
+  nameofcollege: string;
+  totalfees: string;
+}
+export interface Idistance {
+  nameofcollege: string;
+  coursesoffered: string;
+  totalfees: string;
+}
+export interface Icareeroption {
+  employmentArea: string;
+  jobprofiles: string;
+}
+export interface Isalary {
+  jobprofile: string;
+  salary: string;
+}
+export interface Irecruiters {
+  companylistone: string;
+  companylisttwo: string;
+}
+export interface Irecruiters {
+  companylistone: string;
+  companylisttwo: string;
+}
+export interface Iplacementprivate {
+  collegename: string;
+  averagectc: string;
+  toprecruiters: string[];
+}
+export interface Iplacementgovernment {
+  collegename: string;
+  averagectc: string;
+  toprecruiters: string[];
 }
 export interface IcourseType {
   id: number;
@@ -92,8 +131,8 @@ export interface IcourseType {
   eligibilitypoint: string[];
   requiredskillset: string;
   skillset: Iskillset[];
-  // entrance: string;
-  // EntranceExamination: IExamination[];
+  entrance: string;
+  EntranceExamination: IExamination[];
   // popularSpecializaiton: string;
   // popularSpecializaitontable: ISpecialization[];
   // admissionprocess: string;
@@ -114,5 +153,16 @@ export interface IcourseType {
   // coresubjects: string;
   // syllabussemester: Isemester[];
   // sepecializationsyllabus: Isyllabus[];
+  // topprivatecollege:Iprivate[];
+  // topgovernmentcollege:Igovernment[];
+  // topdirectadmission:Idirect[];
+  // topdistance:Idistance[];
+  // topcareeroption:Icareeroption[];
+  //salaryIndia:Isalary[];
+  // scholarship:string[];
+  //placementdescription:string;
+  //placementprivate:Iplacementprivate[];
+  // placementgovernment:Iplacementgovernment[];
+  //coursesafter:string[];
   reviewinfo: Ireview[];
 }

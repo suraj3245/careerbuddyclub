@@ -16,14 +16,13 @@ const FeatureTwenty = () => {
             <div className="wow fadeInRight">
               <div className="title-two">
                 <div className="sub-title"></div>
-                <h2 className="fw-600" style={{color:"#14adbd"}}>
+                <h2 className="fw-600" style={{ color: "#14adbd" }}>
                   Advantages for Our Campus Partners
                 </h2>
               </div>
               <div
-                className="accordion accordion-style-one mt-40" 
+                className="accordion accordion-style-one mt-40"
                 id="accordionOne"
-                
               >
                 <AccordionItem
                   id="one"
@@ -35,7 +34,7 @@ const FeatureTwenty = () => {
                 <AccordionItem
                   id="two"
                   title="1200+ Schools"
-                  desc='Forming impactful partnerships with 1200+ Schools for <a href="/careerapt" style="color: blue;">Career Aptitude Test</a> & <a href="https:/thecareertown.com" style="color: blue;">Career Town</a>.'
+                  desc='Forming impactful partnerships with 1200+ Schools for <a href="/career-aptitude" style="color: blue;">Career Aptitude Test</a> & <a href="https:/thecareertown.com" style="color: blue;">Career Town</a>.'
                   parent="accordionOne"
                 />
                 <AccordionItem
@@ -62,14 +61,11 @@ const FeatureTwenty = () => {
                 layout="fill"
                 objectFit="cover"
               />
-            
             </div>
           </div>
         </div>
       </div>
-     
-  </section>
-
+    </section>
   );
 };
 

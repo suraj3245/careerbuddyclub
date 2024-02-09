@@ -1,3 +1,96 @@
+/* Base styles for the progress bar */
+.progress-bar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2c3e50;
+  padding: 20px;
+  border-radius: 10px;
+  position: relative;
+  margin-top: 20px;
+  overflow: hidden; /* Add this to prevent overflow due to absolute positioning */
+}
+
+.progress-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative; /* Relative position for step numbers */
+}
+
+.step-number {
+  width: 30px;
+  height: 30px;
+  line-height: 30px; /* Align text vertically */
+  background-color: #3498db;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  position: absolute; /* Absolute position to sit on the line */
+  top: 50%;
+  transform: translateY(-50%); /* Center vertically */
+}
+
+.step-name {
+  color: white;
+  font-size: 14px;
+  margin-top: 45px;
+  padding-top: 40px; /* Increased top margin to create a gap between number and text */
+  z-index: 2;
+}
+
+.progress-bar-container::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #34495e;
+  z-index: 1;
+  transform: translateY(-50%);
+}
+
+.progress-step.active .step-number {
+  background-color: #1abc9c;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+  .progress-bar-container {
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px; /* Increase padding to make space for the absolute numbers */
+  }
+
+  .progress-bar-container::before {
+    left: 50%;
+    width: 4px;
+    height: calc(100% - 100px); /* Adjust height to account for padding */
+    transform: translateX(-50%) translateY(-50%);
+  }
+
+  .progress-step {
+    position: static; /* Remove absolute positioning for mobile */
+  }
+
+  .step-number {
+    position: static; /* Remove absolute positioning for mobile */
+    transform: none;
+  }
+
+  .step-name {
+    margin-top: 20px; /* Adjust top margin for mobile to create a gap */
+    font-size: 12px;
+    padding-bottom: 40px; /* Reduced text size for mobile */
+  }
+}
+
 .dash-aside-navbar {
   position: fixed;
   z-index: 1000;
@@ -37,7 +130,7 @@
         border-radius: 50%;
         background: #2ac0d4;
         border: 3px solid #fff;
-        right: -3px;
+        right: 8px;
         bottom: 10px;
         z-index: 1;
       }
@@ -53,7 +146,7 @@
         line-height: 45px;
         padding: 0 5px 0 20px;
         color: $heading;
-        font-size: 16px;
+        font-size: 14px;
         font-weight: 500;
         letter-spacing: -0.16px;
         background: transparent;
@@ -65,7 +158,7 @@
           font-size: 1.1em;
         }
         &:hover {
-          color: $color-five;
+          color: $color-three;
           background: rgba($color: #000000, $alpha: 0.01);
         }
         img {
@@ -75,8 +168,8 @@
     }
     .user-name {
       width: 100%;
-      font-size: 18px;
-      font-weight: 500;
+      font-size: 16px;
+      font-weight: 600;
       color: $color-three;
       margin: 15px 0 45px;
       &:after {
@@ -85,10 +178,10 @@
     }
   }
   .dasboard-main-nav li a {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 500;
     letter-spacing: -0.16px;
-    color: $color-three;
+    color: black;
     padding: 20px 5px 20px 20px;
     border-radius: 15px;
     @include transition(0.25s);
@@ -99,7 +192,7 @@
       color: $text-dark;
     }
     &.active {
-      background: $color-one;
+      background: $color-three;
       color: #fff;
     }
     img {
@@ -136,7 +229,7 @@
     font-size: 16px;
     font-weight: 500;
     letter-spacing: -0.16px;
-    color: $color-one;
+    color: $color-three;
     margin-left: 20px;
     @include transition(0.25s);
     span {
@@ -170,17 +263,18 @@
     border-radius: 30px;
   }
   .card-box {
-    padding: 45px 60px 50px;
+    padding: 20px 40px 10px;
   }
   .main-title {
     font-family: var(--gorditas-font);
-    font-size: 36px;
-    color: $color-one;
+    font-size: 22px;
+    font-weight: 500;
+    color: $color-three;
     margin-bottom: 40px;
   }
   .dash-title-two {
     font-family: var(--gorditas-font);
-    font-size: 20px;
+    font-size: 18px;
     color: $color-one;
     border-bottom: 1px solid #e3f0eb;
     padding: 25px 0 25px 30px;
@@ -188,7 +282,7 @@
   }
   .dash-title-three {
     font-family: var(--gorditas-font);
-    font-size: 24px;
+    font-size: 18px;
     color: $color-five;
     margin: 0 0 30px;
   }
@@ -231,10 +325,10 @@
     padding: 0 15px;
     line-height: 45px;
     border-radius: 50px;
-    background: $color-one;
+    background: $color-three;
     &:hover {
-      background: $color-two;
-      color: $color-one;
+      background: $color-four;
+      color: white;
     }
   }
   .dash-cancel-btn {
@@ -609,18 +703,19 @@
   .dash-input-wrapper {
     label {
       display: block;
-      font-size: 15px;
+      font-size: 13px;
       font-weight: 500;
       color: $heading;
-      margin-bottom: 10px;
+      margin-bottom: 5px;
     }
     .alert-text {
-      font-size: 14px;
+      font-size: 13px;
       letter-spacing: -0.14px;
       color: rgba($color: #000, $alpha: 0.5);
     }
     input {
       width: 100%;
+      font-size: 13px;
       height: 55px;
       letter-spacing: -0.16px;
       border: 1px solid #e5e5e5;
@@ -646,6 +741,7 @@
       border: 1px solid #e5e5e5;
       border-radius: 7px;
       padding: 0 25px 0 20px;
+      font-size: 13px;
 
       .option {
         line-height: 38px;

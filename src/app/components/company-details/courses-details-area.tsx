@@ -166,7 +166,7 @@ const CoursesDetailsArea = ({ details }: { details: IcourseType }) => {
                 </div>
 
                 <div className="position-relative">
-                  <h3 className="pt-50" id="placement">
+                  <h3 className="pt-50">
                     Why Choose {details.coursename} Degree?
                   </h3>
                   <p>{details.whychoose}</p>
@@ -177,32 +177,92 @@ const CoursesDetailsArea = ({ details }: { details: IcourseType }) => {
                     </ul>
                   ))}
 
-                  <div className="details-post-data me-xxl-5 pe-xxl-4 mt-4">
-                  <h3 id="overview">{details.coursename} Entrance Examination</h3>
-                  <p>{details.courseexam}</p>
+                  <h3 id="courses" className="pt-20">
+                    Types of {details.coursename} Degree
+                  </h3>
+                  <p>{details.typesofcoursedegreeContent}</p>
                   <div className="details-post-data me-xxl-5 pe-xxl-4 mt-4 border border-gray-300 rounded-lg overflow-auto ">
                     <Table aria-label="Courses and Fees Table">
                       <TableHeader>
-                        <TableColumn>Exams</TableColumn>
-                        <TableColumn>What is the exam is for?</TableColumn>
-                        <TableColumn>Type of Exam</TableColumn>
-                        <TableColumn>Mode of Exam</TableColumn>
-
+                        <TableColumn>Types of {details.coursename}</TableColumn>
+                        <TableColumn>Annual Fee</TableColumn>
                       </TableHeader>
                       <TableBody>
-                        {details.coursesEntrance.map((course, index) => (
+                        {details.typesofcourses.map((course, index) => (
                           <TableRow key={index}>
-                           
-                          <TableCell>{course.Exams}</TableCell>
-                          <TableCell>{course.Entrance}</TableCell>
-                          <TableCell>{course.TExams}</TableCell>
-                          <TableCell>{course.MExams}</TableCell>
-
+                            <TableCell>{course.typesofcourse}</TableCell>
+                            <TableCell>{course.avgfee}</TableCell>
                           </TableRow>
                         ))}
                       </TableBody>
                     </Table>
                   </div>
+
+                  <h3 className="pt-50">
+                    {details.coursename} Lateral Entry Procedure
+                  </h3>
+                  <p>{details.lateralentryprocedure}</p>
+                  <h3 className="pt-20">
+                    {details.coursename} integrated course
+                  </h3>
+                  <p>{details.integratedcourse}</p>
+
+                  <h3 className="pt-20">
+                    {details.coursename} Eligibility Criteria
+                  </h3>
+                  <p>{details.eligibility}</p>
+                  {details.eligibilitypoint.map((point, index) => (
+                    <ul>
+                      <li key={index}> {point}</li>
+                    </ul>
+                  ))}
+
+                  <h3 className="pt-20">
+                    {details.coursename} Required Skill-sets
+                  </h3>
+                  <p>{details.requiredskillset}</p>
+                  <div className="details-post-data me-xxl-5 pe-xxl-4 mt-4 border border-gray-300 rounded-lg overflow-auto ">
+                    <Table aria-label="Courses and Fees Table">
+                      <TableHeader>
+                        <TableColumn>
+                          Skill Set for {details.coursename}
+                        </TableColumn>
+                        <TableColumn>Description</TableColumn>
+                      </TableHeader>
+                      <TableBody>
+                        {details.skillset.map((course, index) => (
+                          <TableRow key={index}>
+                            <TableCell>{course.skill}</TableCell>
+                            <TableCell>{course.details}</TableCell>
+                          </TableRow>
+                        ))}
+                      </TableBody>
+                    </Table>
+                  </div>
+
+                  <h3 className="pt-20">{details.coursename} Entrance</h3>
+                  <p>{details.entrance}</p>
+                  <div className="details-post-data me-xxl-5 pe-xxl-4 mt-4 border border-gray-300 rounded-lg overflow-auto ">
+                    <Table aria-label="Courses and Fees Table">
+                      <TableHeader>
+                        <TableColumn>Exams in India</TableColumn>
+                        <TableColumn>Application Process Starts</TableColumn>
+                        <TableColumn>Application Process Ends</TableColumn>
+                        <TableColumn>Admit Card</TableColumn>
+                        <TableColumn>Exam Dates</TableColumn>
+                      </TableHeader>
+                      <TableBody>
+                        {details.EntranceExamination.map((course, index) => (
+                          <TableRow key={index}>
+                            <TableCell>{course.examination}</TableCell>
+                            <TableCell>{course.applicationstart}</TableCell>
+                            <TableCell>{course.applicationend}</TableCell>
+                            <TableCell>{course.admitcard}</TableCell>
+                            <TableCell>{course.examdate}</TableCell>
+                          </TableRow>
+                        ))}
+                      </TableBody>
+                    </Table>
                   </div>
 
                   <h3 className="pt-50" id="alumini">

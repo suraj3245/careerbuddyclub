@@ -4,10 +4,10 @@ import Wrapper from "@/layouts/wrapper";
 import CompanyBreadcrumb from "../components/common/common-breadcrumb";
 import FooterOne from "@/layouts/footers/footer-one";
 import RegisterArea from "../components/register/register-area";
-import HeroBannerThree from "../components/hero-banners/hero-banner-three";
+import ApplyArea from "../components/apply-now/apply-area";
 
 export const metadata: Metadata = {
-  title: "Register",
+  title: "Apply now",
 };
 
 const RegisterPage = () => {
@@ -19,15 +19,14 @@ const RegisterPage = () => {
         {/* header end */}
 
         {/*breadcrumb start */}
-        <HeroBannerThree />
         {/*breadcrumb end */}
 
         {/* register area start */}
-        <RegisterArea />
+        <ApplyArea />
         {/* register area end */}
 
         {/* footer start */}
-        <FooterOne />
+        {/* <FooterOne /> */}
         {/* footer end */}
       </div>
     </Wrapper>

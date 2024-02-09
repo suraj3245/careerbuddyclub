@@ -1,25 +1,26 @@
-import React from 'react';
-import { Metadata } from 'next';
-import Wrapper from '@/layouts/wrapper';
-import HeaderTwo from '@/layouts/headers/header-2';
-import HeroBannerTwo from '../components/hero-banners/hero-banner-two';
-import HowItWorksTwo from '../components/how-it-works/how-it-works-2';
-import FeatureThree from '../components/features/feature-three';
-import CategorySectionTwo from '../components/category/category-section-2';
-import FeatureFour from '../components/features/feature-four';
-import FeedbackTwo from '../components/feedBacks/feedback-two';
-import BlogTwo from '../components/blogs/blog-two';
-import JobPortalIntroTwo from '../components/job-portal-intro/job-portal-intro-2';
-import FooterTwo from '@/layouts/footers/footer-2';
+import React from "react";
+import { Metadata } from "next";
+import Wrapper from "@/layouts/wrapper";
+import HeaderTwo from "@/layouts/headers/header-2";
+import HeroBannerTwo from "../components/hero-banners/hero-banner-two";
+import HowItWorksTwo from "../components/how-it-works/how-it-works-2";
+import FeatureThree from "../components/features/feature-three";
+import CategorySectionTwo from "../components/category/category-section-2";
+import FeatureFour from "../components/features/feature-four";
+import FeedbackTwo from "../components/feedBacks/feedback-two";
+import BlogTwo from "../components/blogs/blog-two";
+import JobPortalIntroTwo from "../components/job-portal-intro/job-portal-intro-2";
+import FooterTwo from "@/layouts/footers/footer-2";
 
 export const metadata: Metadata = {
   title: "Home two",
+  robots: "noindex",
 };
 
 const HomeTwo = () => {
   return (
     <Wrapper>
-      <div className='main-page-wrapper'>
+      <div className="main-page-wrapper">
         {/* header start */}
         <HeaderTwo />
         {/* header end */}
@@ -49,15 +50,15 @@ const HomeTwo = () => {
         {/* feedback two end */}
 
         {/* blog two start */}
-        <BlogTwo/>
+        <BlogTwo />
         {/* blog two end */}
 
         {/* job portal intro 2 */}
-        <JobPortalIntroTwo/>
+        <JobPortalIntroTwo />
         {/* job portal intro 2 */}
 
         {/* footer start */}
-        <FooterTwo/>
+        <FooterTwo />
         {/* footer end */}
       </div>
     </Wrapper>

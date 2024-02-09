@@ -2,14 +2,17 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-
 import Menus from "./component/menus";
 import logo from "@/assets/images/logo/logo4.png";
 import useSticky from "@/hooks/use-sticky";
 import LoginModal from "@/app/components/common/popup/login-modal";
 import PhoneModal from "@/app/components/common/popup/phone-modal";
+import ScheduleModal from "@/app/components/common/popup/schedule";
 import img_1 from "@/assets/images/assets/user-icon.png";
 import dynamic from "next/dynamic";
+import { usePathname } from "next/navigation";
+import axios from "axios";
+import { useEffect } from "react";
 
 // Import ApplyModal with SSR disabled
 const ApplyModal = dynamic(
@@ -33,7 +36,56 @@ const HeaderFour: React.FC<HeaderFourProps> = ({ user, key, onLogout }) => {
   const { sticky } = useSticky();
   const isUserLoggedIn = Boolean(user.value); // user.value will be false if null or empty
   const [showDropdown, setShowDropdown] = useState(false);
+  const [userName, setUserName] = useState("");
+  const pathname = usePathname();
 
+  const fetchUserData = async () => {
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+      // Handle the case where the token is not available
+      return;
+    }
+
+    // Check if username is already in localStorage
+    const storedUserName = localStorage.getItem("username");
+    if (storedUserName) {
+      setUserName(storedUserName);
+      return;
+    }
+
+    const options = {
+      method: "POST",
+      url: "https://test.careerbuddyclub.com:8080/api/students/getstudentsprofile",
+      headers: {
+        Accept: "*/*",
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+      data: {},
+    };
+
+    try {
+      const response = await axios.request(options);
+      const data = response.data;
+
+      if (data.student && data.student.name) {
+        localStorage.setItem("username", data.student.name); // Store username in localStorage
+        setUserName(data.student.name);
+      } else {
+        setUserName("No Name Available");
+      }
+    } catch (error) {
+      console.error(error);
+      setUserName("No Name Available");
+    }
+  };
+
+  useEffect(() => {
+    fetchUserData();
+  }, []);
+  const getInitials = (userName: string) =>
+    userName && userName.length > 0 ? userName[0].toUpperCase() : "?";
   return (
     <>
       <header
@@ -91,13 +143,18 @@ const HeaderFour: React.FC<HeaderFourProps> = ({ user, key, onLogout }) => {
                         data-bs-auto-close="outside"
                         aria-expanded="false"
                       >
-                        <Image
-                          src={img_1}
-                          width="60"
-                          height="60"
-                          alt="User"
-                          className="user-icon"
-                        />
+                        <div
+                          className="avatar-placeholder rounded-circle d-flex align-items-center justify-content-center"
+                          style={{
+                            width: "50px",
+                            height: "50px",
+                            backgroundColor: "#007bff",
+                            color: "white",
+                            fontSize: "30px",
+                          }}
+                        >
+                          {getInitials(userName)}
+                        </div>
                       </a>
                       <ul className="dropdown-menu">
                         <li>
@@ -178,7 +235,7 @@ const HeaderFour: React.FC<HeaderFourProps> = ({ user, key, onLogout }) => {
       <ApplyModal />
       <LoginModal />
       <PhoneModal />
-
+      <ScheduleModal />
       {/* login modal end */}
     </>
   );
