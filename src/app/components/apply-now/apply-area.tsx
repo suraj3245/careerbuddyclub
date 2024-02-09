@@ -13,10 +13,10 @@ const ApplyArea = () => {
               className="slogan fw-500 mb-5 wow fadeInUp"
               data-wow-delay="0.3s"
             >
-              Welcome to Career Buddy Club
+              Unlock Your Future with Career Buddy Club
             </div>
             <h1 className="wow fadeInUp" data-wow-delay="0.4s">
-              Help your students in choosing the right career!
+              Where Job Guaranteed Degrees Propel Careers Forward
             </h1>
           </div>
 

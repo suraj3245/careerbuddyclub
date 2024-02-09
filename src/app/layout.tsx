@@ -82,6 +82,7 @@ export default function RootLayout({
     localStorage.removeItem("token");
     localStorage.removeItem("testStatus"); // Clear the stored test status
     localStorage.removeItem("catResults");
+    localStorage.removeItem("username");
     setUser({ value: null }); // Update the user state to reflect logout
     // Any additional logout logic goes here
 
