@@ -67,8 +67,7 @@ const DashboardprofileArea = ({ setIsOpenSidebar, currentStep }: IProps) => {
     { number: 3, name: "Education Details" },
     { number: 4, name: "Expert Counsellor is Assigned" },
     { number: 5, name: "Upload your Documents" },
-    { number: 6, name: "College Fee Submission" },
-    { number: 7, name: "Admission Confirmation" },
+    { number: 6, name: "Admission Confirmation" },
   ];
 
   const getInitials = (userName: string) =>
