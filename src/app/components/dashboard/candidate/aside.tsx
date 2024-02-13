@@ -57,13 +57,13 @@ const nav_data: {
     link: "/dashboard/candidate-dashboard/education",
     title: "Education Details",
   },
-  // {
-  //   id: 5,
-  //   icon: nav_6,
-  //   icon_active: nav_6_active,
-  //   link: "/dashboard/candidate-dashboard/document",
-  //   title: "Documents",
-  // },
+  {
+    id: 5,
+    icon: nav_6,
+    icon_active: nav_6_active,
+    link: "/dashboard/candidate-dashboard/document",
+    title: "Documents",
+  },
 
   {
     id: 6,

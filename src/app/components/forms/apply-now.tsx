@@ -10,10 +10,19 @@ import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import icon from "@/assets/images/icon/icon_60.svg";
+
 interface IOption {
   value: string;
   label: string;
 }
+type UTMParams = {
+  utm_source: string | null;
+  utm_medium: string | null;
+  utm_campaign: string | null;
+  utm_id: string | null;
+  utm_term: string | null;
+  utm_content: string | null;
+};
 
 // form data type
 type IFormData = {
@@ -24,6 +33,12 @@ type IFormData = {
   password: string;
   level: string;
   stream: string;
+  utm_source?: string | null;
+  utm_medium?: string | null;
+  utm_campaign?: string | null;
+  utm_id?: string | null;
+  utm_term?: string | null;
+  utm_content?: string | null;
 };
 
 // schema
@@ -43,6 +58,14 @@ const ApplyForm = () => {
   const [levelOptions, setLevelOptions] = useState<IOption[]>([]);
   const [streamOptions, setStreamOptions] = useState<IOption[]>([]);
   const router = useRouter();
+  const [utmParams, setUtmParams] = useState<UTMParams>({
+    utm_source: null,
+    utm_medium: null,
+    utm_campaign: null,
+    utm_id: null,
+    utm_term: null,
+    utm_content: null,
+  });
 
   const fetchLevelOptions = async () => {
     try {
@@ -84,20 +107,32 @@ const ApplyForm = () => {
     }
   };
   useEffect(() => {
-    fetchStreamOptions(); // Fetch stream options when the component mounts
-  }, []);
-  useEffect(() => {
+    fetchStreamOptions();
     fetchLevelOptions();
-    // Fetch stream options when the component mounts
-  }, []);
 
+    // Parse UTM parameters from the URL
+    const searchParams = new URLSearchParams(window.location.search);
+    const newUtmParams: UTMParams = {
+      utm_source: searchParams.get("utm_source"),
+      utm_medium: searchParams.get("utm_medium"),
+      utm_campaign: searchParams.get("utm_campaign"),
+      utm_id: searchParams.get("utm_id"),
+      utm_term: searchParams.get("utm_term"),
+      utm_content: searchParams.get("utm_content"),
+    };
+    setUtmParams(newUtmParams);
+  }, []);
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
     getValues,
-  } = useForm<IFormData>({});
+  } = useForm<IFormData>({
+    defaultValues: {
+      ...utmParams,
+    },
+  });
 
   const requestOTP = (data: {
     name: string;
