@@ -266,7 +266,18 @@ const QuizForm: React.FC = () => {
     category: string;
     score: number;
   };
-
+  const getTopThreeCategoryNames = () => {
+    if (!results) return [];
+    const transformedResults = Object.entries(results).map(([key, value]) => ({
+      category:
+        key.charAt(0).toUpperCase() + key.slice(1).replace("_score", ""),
+      score: typeof value === "number" ? value : 0,
+    }));
+    return transformedResults
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 3)
+      .map((result) => result.category);
+  };
   const getTopThreeScores = () => {
     if (!results) return [];
 
@@ -518,7 +529,8 @@ const QuizForm: React.FC = () => {
                 ))}
               </div>
             </div>
-            <TopCareer />
+            <TopCareer topCategories={getTopThreeCategoryNames()} />
+
             <YourCareer />
             <div
               style={{

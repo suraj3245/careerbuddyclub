@@ -12,7 +12,7 @@ import Termone from "../components/contact/term & condition";
 import Refundone from "../components/contact/Refund";
 
 export const metadata: Metadata = {
-  title: "Contact",
+  title: "Cancellation Policy",
 };
 
 const Refund = () => {

@@ -7,11 +7,12 @@ import shape_3 from "@/assets/images/shape/shape_17.svg";
 import shape_4 from "@/assets/images/shape/shape_18.svg";
 import shape_5 from "@/assets/images/shape/shape_19.svg";
 import shape_6 from "@/assets/images/shape/shape_20.svg";
-import screen_1 from "@/assets/images/assets/screen_04.png";
-import screen_2 from "@/assets/images/assets/screen_05.png";
-import screen_3 from "@/assets/images/assets/screen_06.png";
-import main_img from "@/assets/images/assets/img_10.png";
+import screen_1 from "@/assets/images/logo/WEB-removebg-preview.png";
+import screen_2 from "@/assets/images/logo/img_pg-removebg-preview.png";
+import screen_3 from "@/assets/images/logo/img1-removebg-preview.png";
+import main_img from "@/assets/images/logo/imgb.png";
 import useSearchFormSubmit from "@/hooks/use-search-form-submit";
+import { ReactTyped } from "react-typed";
 
 const HeroBannerTwo = () => {
   const { handleSubmit, setSearchText } = useSearchFormSubmit();
@@ -26,36 +27,46 @@ const HeroBannerTwo = () => {
           <div className="row">
             <div className="col-lg-6 col-md-8">
               <h1 className="wow fadeInUp" data-wow-delay="0.3s">
-                What Do You Need Help With?
+                How Can We Assist You?
               </h1>
-              <p
+              <div
                 className="text-md mt-35 mb-20 lg-mb-30 pe-xxl-5 wow fadeInUp"
                 data-wow-delay="0.4s"
               >
-                -50% Students Regert Loosing Wrong Career
-              </p>
-              <p
-                className="text-md mt-10 mb-20 lg-mb-30 pe-xxl-5 wow fadeInUp"
-                data-wow-delay="0.4s"
-              >
-                -Only 1 In 4 Students From College Get A Job
-              </p>
-
-              <p
-                className="text-md mt-10 mb-20 lg-mb-30 pe-xxl-5 wow fadeInUp"
-                data-wow-delay="0.4s"
-              >
-                -93% Student Know 7 Courses Only
-              </p>
-              <p
-                className="text-md mt-10 mb-20 lg-mb-30 pe-xxl-5 wow fadeInUp"
-                data-wow-delay="0.4s"
-              >
-                -98% Of Student Follow Same Career Option Without Self-Interest
-              </p>
+                <ReactTyped
+                  strings={[
+                    "50% of students regret choosing the wrong career path.",
+                    "Only 1 in 4 college graduates secure a job in their field of study.",
+                    "98% of students pursue conventional career options without considering their personal interests.",
+                  ]}
+                  typeSpeed={70}
+                  loop
+                  backSpeed={20}
+                  cursorChar=""
+                  showCursor={true}
+                />
+              </div>
             </div>
           </div>
         </div>
+      </div>
+      <div className="img-box">
+        <Image
+          src={main_img}
+          alt="main-img"
+          className="lazy-img main-img"
+          style={{ height: "auto" }}
+        />
+        <Image
+          src={screen_1}
+          alt="screen"
+          className="lazy-img shapes screen_01"
+        />
+        <Image
+          src={screen_2}
+          alt="screen"
+          className="lazy-img shapes screen_02 wow fadeInLeft"
+        />
       </div>
 
       {/* /.img-box */}

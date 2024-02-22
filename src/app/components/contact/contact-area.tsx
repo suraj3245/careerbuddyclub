@@ -24,8 +24,9 @@ const ContactArea = () => {
                     </div>
                     <h5 className="title">Our Address</h5>
                     <p>
-                      NH-72, Jhajra<br />
-                      Dehradun, India.  
+                      NH-72, Jhajra
+                      <br />
+                      Dehradun, India.
                     </p>
                   </div>
                 </div>
@@ -51,8 +52,7 @@ const ContactArea = () => {
                     <h5 className="title">Live Support</h5>
                     <p>
                       live chat service <br />
-                      
-                      <a href="https://wa.me/9536200909" className="webaddress">
+                      <a href="https://wa.me/7456000100" className="webaddress">
                         Click To Chat!
                       </a>
                     </p>
@@ -62,14 +62,10 @@ const ContactArea = () => {
             </div>
           </div>
 
-
-
-
-          
           <div className="row">
             <div className="col-xl-9 m-auto">
               <div className="form-style-one mt-85 lg-mt-50 wow fadeInUp">
-                <ContactForm/>
+                <ContactForm />
               </div>
             </div>
           </div>

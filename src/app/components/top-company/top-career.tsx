@@ -9,6 +9,9 @@ import company_5 from "@/assets/images/logo/artist.png";
 import company_6 from "@/assets/images/logo/social-media.png";
 
 // company data
+interface TopCareerProps {
+  topCategories: string[]; // Define 'topCategories' as an array of strings
+}
 const company_data: {
   id: number;
   icon: StaticImageData;
@@ -53,7 +56,10 @@ const company_data: {
   },
 ];
 
-const TopCareer = () => {
+const TopCareer: React.FC<TopCareerProps> = ({ topCategories }) => {
+  const filteredCompanyData = company_data.filter((item) =>
+    topCategories.includes(item.name)
+  );
   const headingStyle = {
     fontSize: "24px", // Adjust this value as needed
   };
@@ -82,7 +88,7 @@ const TopCareer = () => {
         </div>
 
         <div className="row">
-          {company_data.map((item) => (
+          {filteredCompanyData.map((item) => (
             <div key={item.id} className="col-lg-4 col-md-6 col-sm-6">
               <div className="card-style-nine text-center tran3s mt-20 wow fadeInUp">
                 <Image

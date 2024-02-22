@@ -8,11 +8,11 @@
   width: 5px;
 }
 ::-webkit-scrollbar-track {
-  background: #fff;
+  background: $color-four;
 }
 ::-webkit-scrollbar-thumb {
-  background: $color-two;
-  border-radius: 0;
+  background: $color-three;
+  border-radius: 10;
 }
 body {
   font-family: var(--gorditas-font);

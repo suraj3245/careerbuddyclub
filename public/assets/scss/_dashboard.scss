@@ -107,10 +107,10 @@
     width: 5px;
   }
   &::-webkit-scrollbar-track {
-    background: #fff;
+    background: #eee30d;
   }
   &::-webkit-scrollbar-thumb {
-    background: #fff;
+    background: #13adbd;
     border-radius: 0;
   }
 
@@ -251,7 +251,7 @@
   background: #f0f5f3;
   margin-left: 260px;
   border-radius: 50px 0 0 50px;
-  padding: 150px 55px 50px;
+  padding: 60px 55px 50px;
 
   .border-15 {
     border-radius: 15px;

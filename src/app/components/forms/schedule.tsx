@@ -4,7 +4,6 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-// Update the form data type to include the timeSlot field
 type IFormData = {
   date: string;
   timeSlot: string; // Added timeSlot
@@ -18,9 +17,7 @@ const ScheduleForm = () => {
   } = useForm<IFormData>();
 
   const onSubmit = (data: IFormData) => {
-    // Retrieve the token from localStorage
-    const token = localStorage.getItem("token"); // Adjust "token" to the actual key where your token is stored
-
+    const token = localStorage.getItem("token");
     if (!token) {
       toast.error("Authorization token is missing. Please log in again.", {
         position: "top-center",
@@ -31,7 +28,7 @@ const ScheduleForm = () => {
         draggable: true,
         progress: undefined,
       });
-      return; // Exit the function if there is no token
+      return;
     }
 
     const headers = {
@@ -96,6 +93,7 @@ const ScheduleForm = () => {
                 className="form-control"
                 style={{ padding: "8px", fontSize: "14px" }}
                 defaultValue={currentDate}
+                min={currentDate}
               />
               <div
                 className="help-block with-errors"

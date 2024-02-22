@@ -137,7 +137,7 @@ export default function RootLayout({
 
         {!isRedirectPage &&
           !isAptitudeTestPage &&
-          (!isMobile || !isCandidateDashboardPage) && (
+          !isCandidateDashboardPage && (
             <HeaderFour user={user} onLogout={handleLogout} key={key} />
           )}
 

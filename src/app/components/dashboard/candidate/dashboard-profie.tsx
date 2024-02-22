@@ -5,6 +5,7 @@ import React, { useState, useEffect } from "react";
 import DashboardHeader from "./dashboard-header";
 import axios from "axios";
 import TopCard from "../../top-company/top-card";
+import ScheduleModal from "../../common/popup/schedule";
 
 type IUser = {
   username: string;
@@ -73,49 +74,52 @@ const DashboardprofileArea = ({ setIsOpenSidebar, currentStep }: IProps) => {
   const getInitials = (userName: string) =>
     userName && userName.length > 0 ? userName[0].toUpperCase() : "?";
   return (
-    <div className="dashboard-body">
-      <div className="position-relative">
-        {/* header start */}
-        <DashboardHeader setIsOpenSidebar={setIsOpenSidebar} />
-        {/* header end */}
+    <>
+      <div className="dashboard-body">
+        <div className="position-relative">
+          {/* header start */}
+          <DashboardHeader setIsOpenSidebar={setIsOpenSidebar} />
+          {/* header end */}
 
-        <h2 className="main-title">Dashboard</h2>
+          <h2 className="main-title">Dashboard</h2>
 
-        <div className="bg-white card-box border-20 mt-20">
-          <div className="user-profile d-flex align-items-center">
-            <div
-              className="avatar-placeholder rounded-circle d-flex align-items-center justify-content-center"
-              style={{
-                width: "50px",
-                height: "50px",
-                backgroundColor: "#007bff",
-                color: "white",
-                fontSize: "20px",
-              }}
-            >
-              {getInitials(userName)}
-            </div>
-            <h3 className="ml-10" style={{ marginLeft: "20px" }}>
-              Welcome, {userName}{" "}
-            </h3>
-          </div>
-          <div className="progress-bar-container">
-            {steps.map((step) => (
+          <div className="bg-white card-box border-20 mt-20">
+            <div className="user-profile d-flex align-items-center">
               <div
-                key={step.number}
-                className={`progress-step ${
-                  currentStep >= step.number ? "active" : ""
-                }`}
+                className="avatar-placeholder rounded-circle d-flex align-items-center justify-content-center"
+                style={{
+                  width: "50px",
+                  height: "50px",
+                  backgroundColor: "#007bff",
+                  color: "white",
+                  fontSize: "20px",
+                }}
               >
-                <div className="step-number">{step.number}</div>
-                <div className="step-name">{step.name}</div>
+                {getInitials(userName)}
               </div>
-            ))}
+              <h3 className="ml-10" style={{ marginLeft: "20px" }}>
+                Welcome, {userName}{" "}
+              </h3>
+            </div>
+            <div className="progress-bar-container">
+              {steps.map((step) => (
+                <div
+                  key={step.number}
+                  className={`progress-step ${
+                    currentStep >= step.number ? "active" : ""
+                  }`}
+                >
+                  <div className="step-number">{step.number}</div>
+                  <div className="step-name">{step.name}</div>
+                </div>
+              ))}
+            </div>
           </div>
+          <TopCard />
         </div>
-        <TopCard />
       </div>
-    </div>
+      <ScheduleModal />
+    </>
   );
 };
 

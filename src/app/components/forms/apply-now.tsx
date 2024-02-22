@@ -15,6 +15,7 @@ interface IOption {
   value: string;
   label: string;
 }
+
 type UTMParams = {
   utm_source: string | null;
   utm_medium: string | null;
@@ -53,7 +54,7 @@ const schema = Yup.object().shape({
 const ApplyForm = () => {
   const [showPass, setShowPass] = useState<boolean>(false);
   const [isVerificationSent, setIsVerificationSent] = useState<boolean>(false);
-  const [countdown, setCountdown] = useState(60);
+  const [countdown, setCountdown] = useState(30);
   const [showResend, setShowResend] = useState(false);
   const [levelOptions, setLevelOptions] = useState<IOption[]>([]);
   const [streamOptions, setStreamOptions] = useState<IOption[]>([]);
@@ -139,13 +140,13 @@ const ApplyForm = () => {
     country_code: string;
     mobile: number;
   }) => {
+    setIsVerificationSent(true);
     axios
       .post(
         "https://test.careerbuddyclub.com:8080/api/students/getwhatsappotp",
         data
       )
       .then((response) => {
-        console.log(response.data);
         // Notify user that OTP is sent
 
         toast.info("Otp sent 🚀", {
@@ -158,12 +159,12 @@ const ApplyForm = () => {
           progress: undefined,
           theme: "light",
         });
-        setIsVerificationSent(true); // To show OTP input field
+        // To show OTP input field
       })
       .catch((error) => {
-        toast.error("Error sending OTP or Number is already registered 😵‍💫", {
+        toast.error("Error sending OTP 😵‍💫", {
           position: "top-left",
-          autoClose: 1000,
+          autoClose: 3000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,

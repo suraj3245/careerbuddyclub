@@ -23,6 +23,9 @@ type IProps = {
 const DashboardResult = ({ setIsOpenSidebar }: IProps) => {
   const [results, setResults] = useState<any | null>(null);
   const [testStatus, setTestStatus] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
+  const [showLoader, setShowLoader] = useState(true);
+
   const barColors = [
     "#FF4560",
     "#00E396",
@@ -88,9 +91,6 @@ const DashboardResult = ({ setIsOpenSidebar }: IProps) => {
       console.error("Error fetching cat result:", error);
     }
   };
-  useEffect(() => {
-    fetchCatResult();
-  }, []);
 
   const checkTestStatus = () => {
     const token = localStorage.getItem("token");
@@ -127,14 +127,22 @@ const DashboardResult = ({ setIsOpenSidebar }: IProps) => {
       });
   };
 
-  useEffect(() => {
-    checkTestStatus();
-  }, []);
   type TransformedResultType = {
     category: string;
     score: number;
   };
-
+  const getTopThreeCategoryNames = () => {
+    if (!results) return [];
+    const transformedResults = Object.entries(results).map(([key, value]) => ({
+      category:
+        key.charAt(0).toUpperCase() + key.slice(1).replace("_score", ""),
+      score: typeof value === "number" ? value : 0,
+    }));
+    return transformedResults
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 3)
+      .map((result) => result.category);
+  };
   const getTopThreeScores = () => {
     if (!results) return [];
 
@@ -199,8 +207,45 @@ const DashboardResult = ({ setIsOpenSidebar }: IProps) => {
       },
     };
   };
+  useEffect(() => {
+    setIsLoading(true); // Ensure loading state is set before starting async operations
+    Promise.all([fetchCatResult(), checkTestStatus()])
+      .then(() => {
+        setIsLoading(false); // Set loading to false when both functions have completed
+      })
+      .catch((error) => {
+        console.error("An error occurred:", error);
+        setIsLoading(false); // Ensure loading state is updated even if there's an error
+      });
+    const timer = setTimeout(() => {
+      setShowLoader(false); // Hide loader after 3 seconds
+    }, 3000);
+
+    // Cleanup timeout if component unmounts before timeout completes
+    return () => clearTimeout(timer);
+  }, []);
 
   const chartData = transformResultsToChartData();
+
+  if (showLoader || isLoading) {
+    return (
+      <div
+        className="dashboard-body"
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh",
+        }}
+      >
+        <iframe
+          src="https://lottie.host/embed/2478cb97-84dc-485a-bb0d-bfd5b7566b46/jOw87Lncdm.json"
+          style={{ width: "300px", height: "300px" }} // Adjust size as needed
+        ></iframe>
+      </div>
+    );
+  }
+
   return (
     <>
       <div className="dashboard-body">
@@ -284,7 +329,7 @@ const DashboardResult = ({ setIsOpenSidebar }: IProps) => {
                       </div>
                     </div>
 
-                    <TopCareer />
+                    <TopCareer topCategories={getTopThreeCategoryNames()} />
                     <YourCareer />
                   </div>
                 </div>

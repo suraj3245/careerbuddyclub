@@ -40,6 +40,8 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
   const [specializationOptions, setSpecializationOptions] = useState([]);
   const [coursesOptions, setcoursesOptions] = useState([]);
   const [collegesOptions, setCollegesOptions] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [showLoader, setShowLoader] = useState(true);
   const fetchUserData = async () => {
     const token = localStorage.getItem("token");
 
@@ -98,14 +100,22 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
       // ... similarly for other nested data structures ...
 
       setFormData(updatedFormData);
+      setIsLoading(false);
     } catch (error) {
       console.error(error);
+      setIsLoading(false);
     }
   };
 
   // useEffect to fetch user data on component mount
   useEffect(() => {
     fetchUserData();
+    const timer = setTimeout(() => {
+      setShowLoader(false); // Hide loader after 3 seconds
+    }, 3000);
+
+    // Cleanup timeout if component unmounts before timeout completes
+    return () => clearTimeout(timer);
   }, []);
   const handleChange = (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -491,6 +501,24 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
   // useEffect(() => {
   //   fetchcolleges();
   // }, [formData.courses, formData.feeRange, formData.city]);
+  if (showLoader || isLoading) {
+    return (
+      <div
+        className="dashboard-body"
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh",
+        }}
+      >
+        <iframe
+          src="https://lottie.host/embed/b6d22d1e-15ca-4192-9664-3c09fea20a16/RsXVJpOBmE.json"
+          style={{ width: "300px", height: "300px" }} // Adjust size as needed
+        ></iframe>
+      </div>
+    ); // Replace with your loader component or element
+  }
 
   return (
     <div className="dashboard-body">

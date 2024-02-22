@@ -15,7 +15,7 @@ import FeatureSection from "../components/videoprop/featureprop";
 import HowItWorksThree from "../components/how-it-works/how-it-works-3";
 import Component from "../components/how-it-works/how-it-works-4";
 export const metadata: Metadata = {
-  title: "career aptitude test",
+  title: "Career Aptitude Test",
 };
 
 const statistics = [
