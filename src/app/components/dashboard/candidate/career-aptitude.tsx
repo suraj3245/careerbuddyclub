@@ -278,7 +278,7 @@ const DashboardResult = ({ setIsOpenSidebar }: IProps) => {
                       >
                         Please Give The Test
                       </h2>
-                      <Link href="/career-aptitude">
+                      <Link href="/aptitudetest">
                         <button className="dash-btn-two tran3s me-3">
                           Take Your Test Now
                         </button>
