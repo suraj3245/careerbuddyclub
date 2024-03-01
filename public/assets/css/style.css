@@ -6,11 +6,11 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #fff;
+  background: #eee30d;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #d2f34c;
+  background: #13adbd;
   border-radius: 0;
 }
 
@@ -4641,7 +4641,7 @@ iframe {
   font-size: 0.333em;
   top: -1.2em;
 }
-.pricing-card-one ul li{
+.pricing-card-one ul li {
   font-size: 18px;
   color: #31795a;
   margin-bottom: 17px;

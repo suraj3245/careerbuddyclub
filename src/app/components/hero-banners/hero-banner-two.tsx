@@ -26,7 +26,11 @@ const HeroBannerTwo = () => {
         <div className="position-relative pt-225 xl-pt-200 lg-pt-150 pb-80 lg-pb-60">
           <div className="row">
             <div className="col-lg-6 col-md-8">
-              <h1 className="wow fadeInUp" data-wow-delay="0.3s">
+              <h1
+                className="wow fadeInUp"
+                data-wow-delay="0.3s"
+                style={{ color: "#05A9C7", textShadow: "2px 2px 4px #125125" }}
+              >
                 How Can We Assist You?
               </h1>
               <div
