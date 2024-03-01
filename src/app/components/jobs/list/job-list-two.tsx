@@ -20,7 +20,6 @@ import img_16 from "@/assets/images/logo/Logo_16.jpg";
 import img_17 from "@/assets/images/logo/Logo_17.jpg";
 import img_18 from "@/assets/images/logo/logo_18.jpg";
 
-
 import { IgalType } from "@/types/job-data-type";
 
 // categories
@@ -53,62 +52,62 @@ const job_data: IgalType[] = [
   {
     id: 6,
     logo: img_7,
-    category: [ "Career Town"],
+    category: ["Career Town"],
   },
   {
     id: 7,
     logo: img_8,
-    category: [ "Career Town"],
+    category: ["Career Town"],
   },
   {
     id: 8,
     logo: img_9,
-    category: [ "Career Town"],
+    category: ["Career Town"],
   },
   {
     id: 9,
     logo: img_10,
-    category: [ "Career Town"],
+    category: ["Career Town"],
   },
   {
     id: 10,
     logo: img_11,
-    category: [ "Career Town"],
+    category: ["Career Town"],
   },
   {
     id: 11,
     logo: img_12,
-    category: [ "Career Town"],
+    category: ["Career Town"],
   },
   {
     id: 12,
     logo: img_13,
-    category: [ "Social Events"],
+    category: ["Social Events"],
   },
   {
     id: 13,
     logo: img_14,
-    category: [ "Social Events"],
+    category: ["Social Events"],
   },
   {
     id: 14,
     logo: img_15,
-    category: [ "Social Events"],
+    category: ["Social Events"],
   },
   {
     id: 15,
     logo: img_16,
-    category: [ "Social Events"],
+    category: ["Social Events"],
   },
   {
     id: 16,
     logo: img_17,
-    category: [ "Social Events"],
+    category: ["Social Events"],
   },
   {
     id: 17,
     logo: img_18,
-    category: [ "Social Events"],
+    category: ["Social Events"],
   },
 ];
 
@@ -133,7 +132,7 @@ const JobListTwo = () => {
 
   return (
     <>
-      <section className=" pt-120 xl-pt-100 md-pt-80 pb-130 xl-pb-100 lg-pb-80 mt-110 xl-mt-90 md-mt-50">
+      <section className=" pt-30 xl-pt-50 md-pt-80 pb-130 xl-pb-100 lg-pb-80 mt-110 xl-mt-90 md-mt-50">
         <div className="container">
           <div className="row align-items-center">
             <div className="col-xl-6 col-lg-5">

@@ -76,9 +76,8 @@ const FeedbackSeven = () => {
     sliderRef.current?.slickNext();
   };
   return (
-    <section className="feedback-section-five position-relative mt-180 mb-100 xl-mt-150 pt-90 md-pt-60 pb-130 xl-pb-100 md-pb-70">
-    
-    <div className="container">
+    <section className="feedback-section-five position-relative mt-50 mb-50 xl-mt-50 pt-50 md-pt-60 pb-50 xl-pb-50 md-pb-50">
+      <div className="container">
         <div className="position-relative">
           <div className="row">
             <div className="col-md-6">

@@ -37,7 +37,7 @@ const slider_setting = {
 const ExpertSectionOne = () => {
   return (
     <>
-      <section className="expert-section-one position-relative mt-180 xl-mt-150 md-mt-100">
+      <section className="expert-section-one position-relative mt-100 xl-mt-100 md-mt-100">
         <div className="container position-relative">
           <div className="row justify-content-between align-items-center">
             <div className="col-lg-6">
@@ -59,7 +59,9 @@ const ExpertSectionOne = () => {
                   <div className="img-meta mb-20">
                     <Image src={item.img} alt="team img" className="m-auto" />
                   </div>
-                  <div className="name fw-500 tran3s text-center">{item.name}</div>
+                  <div className="name fw-500 tran3s text-center">
+                    {item.name}
+                  </div>
                   <div className="post text-center">{item.designation}</div>
                   <p className="message text-center">{item.description}</p>
                 </div>

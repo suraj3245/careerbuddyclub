@@ -83,7 +83,7 @@ const slider_setting = {
 
 const FeedbackSix = () => {
   return (
-    <section className="feedback-section-two position-relative pt-65 lg-pt-20 mt-180 xl-mt-150 md-mt-30">
+    <section className="feedback-section-two position-relative lg-pt-20 mt-50 xl-mt-50 md-mt-30">
       <div className="container position-relative">
         <div className="row">
           <div className="col-lg-4">
@@ -97,9 +97,7 @@ const FeedbackSix = () => {
             >
               JOIN US
             </div>
-            <p className="wow fadeInUp" data-wow-delay="0.5s">
-              
-            </p>
+            <p className="wow fadeInUp" data-wow-delay="0.5s"></p>
           </div>
 
           <div className="col-lg-8 ms-auto">
