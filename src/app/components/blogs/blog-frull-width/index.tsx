@@ -1,23 +1,58 @@
-import React from "react";
-import BlogPagination from "../blog-postbox/blog-pagination";
+"use client";
+import React, { useState } from "react";
 import blog_data from "@/data/blog-data";
 import FullWidthItem from "./full-width-item";
 
+const itemsPerPage = 8; // Adjust based on your preference
+
 const BlogFullWidthArea = () => {
-  const blog_items = blog_data
-    .filter((b) => b.blog === "blog-postbox")
-    .slice(0, 8);
+  const [currentPage, setCurrentPage] = useState(1);
+  const totalItems = blog_data.length;
+  const totalPages = Math.ceil(totalItems / itemsPerPage);
+
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const currentItems = blog_data.slice(startIndex, endIndex);
+
   return (
     <section className="blog-section bg-color pt-100 lg-pt-80 pb-120 lg-pb-80">
       <div className="container">
         <div className="row gx-xl-5">
-          {blog_items.map((b) => (
-            <div key={b.id} className="col-md-6">
-              <FullWidthItem blog={b} />
+          {currentItems.map((item) => (
+            <div key={item.id} className="col-md-6">
+              <FullWidthItem blog={item} />
             </div>
           ))}
         </div>
-        <BlogPagination />
+        <div
+          className="pagination"
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "10px",
+          }}
+        >
+          {currentPage > 1 && (
+            <button
+              onClick={() => setCurrentPage(currentPage - 1)}
+              className="btn-five"
+              style={{ margin: "0 10px" }}
+            >
+              Previous
+            </button>
+          )}
+
+          {currentPage < totalPages && (
+            <button
+              onClick={() => setCurrentPage(currentPage + 1)}
+              className="btn-five"
+              style={{ margin: "0 10px" }}
+            >
+              Next
+            </button>
+          )}
+        </div>
       </div>
     </section>
   );

@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import icon from "@/assets/images/icon/icon_46.svg";
-import img from "@/assets/images/assets/img_41.png";
+import img from "@/assets/images/assets/img2_0.png";
 import shape_1 from "@/assets/images/shape/shape_12.svg";
 import shape_2 from "@/assets/images/shape/shape_13.svg";
 import shape_3 from "@/assets/images/shape/shape_14.svg";
@@ -18,22 +18,26 @@ const FancyBannerSeven = () => {
                   <div className="text-wrapper ps-xl-5">
                     <div className="title-two">
                       <h2 className="main-font">
-                        Get your Matched Jobs in a few minutes.
+                        Connecting Talent, Colleges, Recruiters
                       </h2>
                     </div>
                     <p className="text-md text-dark opacity-70 mt-25 lg-mt-20 mb-45 lg-mb-30">
-                      Find your dream job & earn from world leading brands.
-                      Upload your CV now.
+                      Explore Opportunities From Across The Globe To Learn,
+                      Achieve And Live Your Dream Career.
                     </p>
                     <form
                       action="#"
                       className="upload-btn position-relative d-flex align-items-center justify-content-center"
                     >
                       <Image src={icon} alt="" className="lazy-img" />{" "}
-                      <span className="fw-500 ms-2 text-white">
-                        Upload your CV
-                      </span>
-                      <input type="file" id="uploadCV" name="uploadCV" />
+                      <a
+                        href="#"
+                        className="fw-500 btn-five"
+                        data-bs-toggle="modal"
+                        data-bs-target="#ApplyModal"
+                      >
+                        Apply Now
+                      </a>
                     </form>
                   </div>
                 </div>

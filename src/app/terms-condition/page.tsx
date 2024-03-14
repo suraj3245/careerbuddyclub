@@ -11,7 +11,7 @@ import Privacyone from "../components/contact/Privacy-area";
 import Termone from "../components/contact/term & condition";
 
 export const metadata: Metadata = {
-  title: "Contact",
+  title: "Terms and Condition",
 };
 
 const Term = () => {
@@ -25,7 +25,7 @@ const Term = () => {
         {/*MapArea start */}
 
         {/* contact area end */}
-     <Termone />
+        <Termone />
 
         {/* footer start */}
         <FooterOne />

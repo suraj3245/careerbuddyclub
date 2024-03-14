@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Metadata } from "next";
 import Header from "@/layouts/headers/header";
@@ -7,7 +6,7 @@ import FooterOne from "@/layouts/footers/footer-one";
 import Termone from "../components/contact/term & condition";
 import HeroBannerEleven from "../components/hero-banners/hero-banner-eleven";
 export const metadata: Metadata = {
-  title: "Contact",
+  title: "Board Result",
 };
 
 const Privacy = () => {

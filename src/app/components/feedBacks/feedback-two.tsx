@@ -83,7 +83,7 @@ const slider_setting = {
 
 const FeedbackTwo = () => {
   return (
-    <section className="feedback-section-two position-relative pt-65 lg-pt-20 mt-180 xl-mt-150 md-mt-30">
+    <section className="feedback-section-two position-relative">
       <div className="container position-relative">
         <div className="row">
           <div className="col-lg-4">
@@ -169,7 +169,6 @@ const FeedbackTwo = () => {
           </div>
         </div>
       </div>
-      <Image src={shape_2} alt="shape_2" className="lazy-img shapes shape_01" />
     </section>
   );
 };

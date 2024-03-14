@@ -57,13 +57,13 @@ const nav_data: {
     link: "/dashboard/candidate-dashboard/education",
     title: "Education Details",
   },
-  // {
-  //   id: 5,
-  //   icon: nav_6,
-  //   icon_active: nav_6_active,
-  //   link: "/dashboard/candidate-dashboard/document",
-  //   title: "Documents",
-  // },
+  {
+    id: 5,
+    icon: nav_6,
+    icon_active: nav_6_active,
+    link: "/dashboard/candidate-dashboard/document",
+    title: "Documents",
+  },
 
   {
     id: 6,
@@ -82,12 +82,6 @@ type IProps = {
 const CandidateAside = ({ isOpenSidebar, setIsOpenSidebar }: IProps) => {
   const [userName, setUserName] = useState("");
   const pathname = usePathname();
-  const handleLogout = () => {
-    // Clear token and any other necessary data from localStorage
-    localStorage.removeItem("token");
-    localStorage.removeItem("username");
-    window.location.href = "/";
-  };
 
   const fetchUserData = async () => {
     const token = localStorage.getItem("token");
@@ -119,7 +113,7 @@ const CandidateAside = ({ isOpenSidebar, setIsOpenSidebar }: IProps) => {
       const data = response.data;
 
       if (data.student && data.student.name) {
-        localStorage.setItem("username", data.student.name); // Store username in localStorage
+        localStorage.setItem("username", data.student.name);
         setUserName(data.student.name);
       } else {
         setUserName("No Name Available");
@@ -151,7 +145,7 @@ const CandidateAside = ({ isOpenSidebar, setIsOpenSidebar }: IProps) => {
             </button>
           </div>
           <div className="user-data">
-            <div className="user-avatar online position-relative rounded-circle">
+            <div className="user-avatar position-relative rounded-circle">
               <div
                 className="avatar-placeholder rounded-circle d-flex align-items-center justify-content-center"
                 style={{
@@ -167,7 +161,7 @@ const CandidateAside = ({ isOpenSidebar, setIsOpenSidebar }: IProps) => {
             </div>
             <div className="user-name-data">
               <button
-                className="user-name dropdown-toggle"
+                className="user-name dropdown-toggle pt-10 "
                 type="button"
                 id="profile-dropdown"
                 data-bs-toggle="dropdown"
@@ -217,14 +211,6 @@ const CandidateAside = ({ isOpenSidebar, setIsOpenSidebar }: IProps) => {
               })}
             </ul>
           </nav>
-          <a
-            href="/"
-            onClick={handleLogout}
-            className="d-flex w-100 align-items-center logout-btn pt-10"
-          >
-            <Image src={logout} alt="icon" className="lazy-img" />
-            <span>Logout</span>
-          </a>
         </div>
       </aside>
       {/* LogoutModal star */}

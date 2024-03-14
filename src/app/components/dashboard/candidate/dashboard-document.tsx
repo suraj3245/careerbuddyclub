@@ -1,34 +1,44 @@
 import React, { useState } from "react";
 import DashboardHeader from "./dashboard-header";
 
-// Assuming you have an API endpoint to upload files
-const UPLOAD_ENDPOINT = "https://yourapi.com/upload";
+// Base API URL for different document uploads
+const UPLOAD_ENDPOINTS = {
+  upload10th:
+    "https://test.careerbuddyclub.com:8080/api/students/upload10thcertificate",
+  upload12th:
+    "https://test.careerbuddyclub.com:8080/api/students/upload12thcertificate",
+  uploadAadhar:
+    "https://test.careerbuddyclub.com:8080/api/students/uploadaadharcard",
+};
 
 type IProps = {
   setIsOpenSidebar: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 const DashboardDocument: React.FC<IProps> = ({ setIsOpenSidebar }) => {
-  // State to keep track of the file names
   const [uploadedFiles, setUploadedFiles] = useState<{
     upload10th?: string;
     upload12th?: string;
     uploadAadhar?: string;
   }>({});
 
-  // Function to handle file upload
   const handleUpload = async (
     event: React.ChangeEvent<HTMLInputElement>,
-    key: string
+    key: keyof typeof uploadedFiles
   ) => {
     const file = event.target.files ? event.target.files[0] : null;
     if (file) {
       const formData = new FormData();
-      formData.append("file", file);
+      formData.append("certificate", file);
+      const token = localStorage.getItem("token");
 
       try {
-        const response = await fetch(UPLOAD_ENDPOINT, {
+        const response = await fetch(UPLOAD_ENDPOINTS[key], {
           method: "POST",
+          headers: {
+            Accept: "*/*",
+            Authorization: `Bearer ${token}`,
+          },
           body: formData,
         });
         if (response.ok) {
@@ -46,8 +56,7 @@ const DashboardDocument: React.FC<IProps> = ({ setIsOpenSidebar }) => {
     }
   };
 
-  // Function to handle document change
-  const handleChangeDocument = (key: string) => {
+  const handleChangeDocument = (key: keyof typeof uploadedFiles) => {
     setUploadedFiles((prevState) => ({
       ...prevState,
       [key]: undefined,
@@ -62,10 +71,10 @@ const DashboardDocument: React.FC<IProps> = ({ setIsOpenSidebar }) => {
           <h2 className="main-title">Documents</h2>
           <div className="bg-white card-box border-20">
             <div className="row">
-              {/* Example for 10th Marksheet */}
+              {/* 10th Marksheet Upload */}
               <div className="col-lg-4 col-md-6 col-sm-12">
                 <div className="dash-input-wrapper mb-20">
-                  <label htmlFor="upload10thCV">10th Marksheet*</label>
+                  <label htmlFor="upload10th">10th Marksheet*</label>
                 </div>
                 {uploadedFiles.upload10th ? (
                   <div>
@@ -81,8 +90,7 @@ const DashboardDocument: React.FC<IProps> = ({ setIsOpenSidebar }) => {
                   </div>
                 ) : (
                   <div className="dash-btn-one d-inline-block position-relative me-3">
-                    <i className="bi bi-plus"></i>
-                    Upload
+                    <i className="bi bi-plus"></i> Upload
                     <input
                       type="file"
                       id="upload10th"
@@ -93,9 +101,10 @@ const DashboardDocument: React.FC<IProps> = ({ setIsOpenSidebar }) => {
                 )}
                 <small>Upload file .pdf</small>
               </div>
+              {/* 12th Marksheet Upload */}
               <div className="col-lg-4 col-md-6 col-sm-12">
                 <div className="dash-input-wrapper mb-20">
-                  <label htmlFor="upload10thCV">12th Marksheet*</label>
+                  <label htmlFor="upload12th">12th Marksheet*</label>
                 </div>
                 {uploadedFiles.upload12th ? (
                   <div>
@@ -111,8 +120,7 @@ const DashboardDocument: React.FC<IProps> = ({ setIsOpenSidebar }) => {
                   </div>
                 ) : (
                   <div className="dash-btn-one d-inline-block position-relative me-3">
-                    <i className="bi bi-plus"></i>
-                    Upload
+                    <i className="bi bi-plus"></i> Upload
                     <input
                       type="file"
                       id="upload12th"
@@ -123,9 +131,10 @@ const DashboardDocument: React.FC<IProps> = ({ setIsOpenSidebar }) => {
                 )}
                 <small>Upload file .pdf</small>
               </div>
+              {/* Aadhar Upload */}
               <div className="col-lg-4 col-md-6 col-sm-12">
                 <div className="dash-input-wrapper mb-20">
-                  <label htmlFor="upload10thCV">Aadhar Attachment*</label>
+                  <label htmlFor="uploadAadhar">Aadhar Attachment*</label>
                 </div>
                 {uploadedFiles.uploadAadhar ? (
                   <div>
@@ -141,8 +150,7 @@ const DashboardDocument: React.FC<IProps> = ({ setIsOpenSidebar }) => {
                   </div>
                 ) : (
                   <div className="dash-btn-one d-inline-block position-relative me-3">
-                    <i className="bi bi-plus"></i>
-                    Upload
+                    <i className="bi bi-plus"></i> Upload
                     <input
                       type="file"
                       id="uploadAadhar"
@@ -153,11 +161,7 @@ const DashboardDocument: React.FC<IProps> = ({ setIsOpenSidebar }) => {
                 )}
                 <small>Upload file .pdf</small>
               </div>
-              {/* Repeat for other documents */}
             </div>
-          </div>
-          <div className="button-group d-inline-flex align-items-center mt-30">
-            <button className="dash-btn-two tran3s me-3">Save</button>
           </div>
         </div>
       </div>

@@ -14,7 +14,7 @@ type IFormData = {
 
 const PhoneForm = () => {
   const [isVerificationSent, setIsVerificationSent] = useState<boolean>(false);
-  const [countdown, setCountdown] = useState(60);
+  const [countdown, setCountdown] = useState(30);
   const [showResend, setShowResend] = useState(false);
 
   const {
@@ -26,13 +26,13 @@ const PhoneForm = () => {
   } = useForm<IFormData>({});
 
   const requestOTP = (data: { country_code: string; mobile: string }) => {
+    setIsVerificationSent(true);
     axios
       .post(
         "https://test.careerbuddyclub.com:8080/api/students/loginwithphonewpotpsend",
         data
       )
       .then((response) => {
-        console.log(response.data);
         toast.info("Otp sent 🚀", {
           position: "top-left",
           autoClose: 1000,
@@ -43,10 +43,9 @@ const PhoneForm = () => {
           progress: undefined,
           theme: "light",
         });
-        setIsVerificationSent(true);
       })
       .catch((error) => {
-        toast.error("Error sending OTP ! Please Register Yourself😵‍💫", {
+        toast.error("Error sending OTP !😵‍💫", {
           position: "top-left",
           autoClose: 1000,
           hideProgressBar: false,
@@ -101,7 +100,7 @@ const PhoneForm = () => {
           theme: "light",
         });
         setTimeout(() => {
-          window.location.href = "/";
+          window.location.href = "/dashboard/candidate-dashboard/profile";
         }, 1000);
       })
       .catch((error) => {

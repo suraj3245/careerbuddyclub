@@ -37,7 +37,7 @@ const slider_setting = {
 const ExpertSectionTwo = () => {
   return (
     <>
-      <section className="expert-section-one position-relative mt-180 xl-mt-150 md-mt-100">
+      <section className="expert-section-one position-relative mt-50 xl-mt-50 md-mt-100">
         <div className="container position-relative">
           <div className="row justify-content-between align-items-center">
             <div className="col-lg-6">

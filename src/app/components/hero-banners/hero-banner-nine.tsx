@@ -38,7 +38,7 @@ const HeroBannerNine = () => {
               ></p>
 
               <a
-                href="https://www.thecareertown.com"
+                href="/admission"
                 target="_blank" // This opens the link in a new tab
                 rel="noopener noreferrer"
                 className="btn-five wow fadeInUp"
@@ -49,7 +49,7 @@ const HeroBannerNine = () => {
               </a>
 
               <Link
-                href="/career-aptitude"
+                href="https://jobs.careerbuddyclub.com/"
                 className="btn-five wow fadeInUp "
                 data-wow-delay="0.6s"
               >

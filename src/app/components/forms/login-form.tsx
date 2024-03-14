@@ -90,7 +90,7 @@ const LoginForm = () => {
           theme: "light",
         });
         setTimeout(() => {
-          window.location.href = "/";
+          window.location.href = "/dashboard/candidate-dashboard/profile";
         }, 1000);
       })
       .catch((error) => {

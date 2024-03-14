@@ -4,9 +4,8 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-// Update the form data type to include the timeSlot field
 type IFormData = {
-  dateOfBirth: string;
+  date: string;
   timeSlot: string; // Added timeSlot
 };
 
@@ -18,10 +17,37 @@ const ScheduleForm = () => {
   } = useForm<IFormData>();
 
   const onSubmit = (data: IFormData) => {
-    console.log(data);
+    const token = localStorage.getItem("token");
+    if (!token) {
+      toast.error("Authorization token is missing. Please log in again.", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      return;
+    }
+
+    const headers = {
+      Accept: "*/*",
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    };
+
+    const formattedData = {
+      date: data.date,
+      time_slot: data.timeSlot,
+    };
 
     axios
-      .post("https://your-endpoint.com/api/schedule", data)
+      .post(
+        "https://test.careerbuddyclub.com:8080/api/students/counsellorcallschedulecreate",
+        formattedData,
+        { headers }
+      )
       .then((response) => {
         toast.success("Your call has been scheduled!", {
           position: "top-center",
@@ -34,17 +60,21 @@ const ScheduleForm = () => {
         });
       })
       .catch((error) => {
-        toast.error("There was an error scheduling your call.", {
-          position: "top-center",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
+        toast.error(
+          "There was an error scheduling your call. Please try again.",
+          {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          }
+        );
       });
   };
+
   const currentDate = new Date().toISOString().split("T")[0];
 
   return (
@@ -56,19 +86,20 @@ const ScheduleForm = () => {
               className="input-group-meta position-relative mb-25"
               style={{ margin: "10px 0" }}
             >
-              <label style={{ fontSize: "14px" }}>Date of Birth*</label>
+              <label style={{ fontSize: "14px" }}>Date*</label>
               <input
                 type="date"
-                {...register("dateOfBirth", { required: true })}
+                {...register("date", { required: true })}
                 className="form-control"
                 style={{ padding: "8px", fontSize: "14px" }}
                 defaultValue={currentDate}
+                min={currentDate}
               />
               <div
                 className="help-block with-errors"
                 style={{ fontSize: "12px" }}
               >
-                {errors.dateOfBirth && <span>This field is required</span>}
+                {errors.date && <span>This field is required</span>}
               </div>
             </div>
           </div>

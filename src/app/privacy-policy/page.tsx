@@ -11,7 +11,7 @@ import Privacyone from "../components/contact/Privacy-area";
 import Termone from "../components/contact/term & condition";
 
 export const metadata: Metadata = {
-  title: "Contact",
+  title: "Privacy Policy",
 };
 
 const Privacy = () => {

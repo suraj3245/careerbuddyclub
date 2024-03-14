@@ -32,6 +32,8 @@ const DashboardEducation = ({ setIsOpenSidebar }: IProps) => {
     percentageCgpaCollege: "",
     // ... other fields as needed ...
   });
+  const [isLoading, setIsLoading] = useState(true);
+  const [showLoader, setShowLoader] = useState(true);
 
   const fetchUserData = async () => {
     const temptoken = localStorage.getItem("token");
@@ -66,14 +68,22 @@ const DashboardEducation = ({ setIsOpenSidebar }: IProps) => {
           percentageCgpaCollege: data.educationDetails.percentage_college || "",
         });
       }
+      setIsLoading(false);
     } catch (error) {
       console.error(error);
+      setIsLoading(false);
     }
   };
 
   // Use useEffect to fetch data on component mount
   useEffect(() => {
     fetchUserData();
+    const timer = setTimeout(() => {
+      setShowLoader(false); // Hide loader after 3 seconds
+    }, 3000);
+
+    // Cleanup timeout if component unmounts before timeout completes
+    return () => clearTimeout(timer);
   }, []);
 
   const handleChange = (
@@ -155,7 +165,24 @@ const DashboardEducation = ({ setIsOpenSidebar }: IProps) => {
   const handleSelectChange = (item: OnChangeArgument) => {
     setFormData((prevState) => ({ ...prevState, [item.name]: item.value }));
   };
-
+  if (showLoader || isLoading) {
+    return (
+      <div
+        className="dashboard-body"
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh",
+        }}
+      >
+        <iframe
+          src="https://lottie.host/embed/b6d22d1e-15ca-4192-9664-3c09fea20a16/RsXVJpOBmE.json"
+          style={{ width: "300px", height: "300px" }} // Adjust size as needed
+        ></iframe>
+      </div>
+    ); // Replace with your loader component or element
+  }
   return (
     <div className="dashboard-body">
       <div className="position-relative">

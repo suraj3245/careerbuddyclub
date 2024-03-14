@@ -189,13 +189,13 @@ const CategorySectionSeven: React.FC<categorySectionProps> = ({ user }) => {
     <>
       <section
         style={sectionStyle}
-        className="hero-banner-two position-relative pt-150 lg-pt-150 pb-140 lg-pb-180"
+        className="hero-banner-dp position-relative pt-50 lg-pt-50 pb-140 lg-pb-180"
       >
         <div className="container">
           <div className="row justify-content-between">
             <div className="col-md-12 col-sm-8">
               <div
-                className="title-one text-center text-sm-start wow fadeInUp"
+                className="title-one text-center text-sm-start"
                 data-wow-delay="0.3s"
               >
                 <h2 className="fw-600">
