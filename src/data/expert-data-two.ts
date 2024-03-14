@@ -1,6 +1,6 @@
 import { StaticImageData } from "next/image";
 import img_1 from "@/assets/images/assets/img_96.png";
-import img_2 from "@/assets/images/assets/img_98.png";
+import img_2 from "@/assets/images/assets/img_98.jpg";
 import img_3 from "@/assets/images/assets/img_97.png";
 
 // expert data type

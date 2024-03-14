@@ -67,23 +67,25 @@ export interface Isyllabus {
   specialization: string;
   syllabus: string[];
 }
+export interface IcoursesEntrance {
+  Exams: string;
+  Entrance: string;
+  TExams: string;
+  MExams: string;
+}
 export interface IcourseType {
   id: number;
   logo: StaticImageData;
+  courseexam: String;
+  coursesEntrance: IcoursesEntrance [];
   coursename: string;
   coursefullform: string;
   courseoverview: string;
   coursesoverviewtable: Icoursesoverview[];
   whychoose: string;
   whychoosepoints: string[];
-  typesofcoursedegreeContent: string;
-  typesofcourses: IcoursesTypes[];
-  lateralentryprocedure: string;
-  integratedcourse: string;
-  eligibility: string;
-  eligibilitypoint: string[];
-  requiredskillset: string;
-  skillset: Iskillset[];
+  
+  image: StaticImageData;
   // entrance: string;
   // EntranceExamination: IExamination[];
   // popularSpecializaiton: string;

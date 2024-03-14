@@ -7,13 +7,13 @@ const FeatureThirteen = () => {
       <div className="container">
         {/* New Buttons Section */}
         <div className="text-align">
-          <h3 className="mb-4" style={{ color: "#eed30d" }}>Power Degree Program  </h3>
+          <h3 className="mb-4" style={{ color: "#eed30d" }}>Job Guarantee Degree Programs  </h3>
       
             <div className="row justify-content-center">
               <div className="col-lg-8 col-md-8 col-sm-10 d-flex flex-wrap justify-content-center">
                 <button className="btn-five wow fadeInUp mx-2 mb-2">DIPLOMA</button>
-                <button className="btn-five wow fadeInUp mx-2 mb-2">MASTERS</button>
                 <button className="btn-five wow fadeInUp mx-2 mb-2">BACHELORS</button>
+                <button className="btn-five wow fadeInUp mx-2 mb-2">MASTERS</button>
                {/*} <button className="btn-five wow fadeInUp mx-2 mb-2">BBA</button>
                 <button className="btn-five wow fadeInUp mx-2 mb-2">BBA</button>
                 <button className="btn-five wow fadeInUp mx-2 mb-2">BCA</button>
