@@ -376,7 +376,6 @@
   background: url(../images/assets/img_95.jpg) no-repeat center bottom;
   background-size: cover;
   z-index: 1;
-  
   .shape_01 {
     top: 20%;
     left: 6%;
@@ -471,39 +470,6 @@
     background-color: #eee30d;
   }
 }
-
-.hero-banner-twelve {
-  background: url(../images/assets/img_104.webp) no-repeat center bottom;
-  background-size: cover;
-  z-index: 1;
-  margin-top: 80px;
-  .shape_01 {
-    top: 20%;
-    left: 6%;
-    z-index: -1;
-    animation: jumpFour 5s infinite linear;
-  }
-  .shape_02 {
-    top: 40%;
-    left: 3%;
-    z-index: -1;
-    animation: jumpTwo 5s infinite linear;
-  }
-  .shape_03 {
-    top: 22%;
-    right: 8%;
-    z-index: -1;
-    animation: jumpThree 5s infinite linear;
-  }
-  .shape_04 {
-    top: 38%;
-    right: 4%;
-    z-index: -1;
-    animation: jumpFour 5s infinite linear;
-  }
-}
-
-
 // Fancy Banner One
 .fancy-banner-one .bg-wrapper {
   background: $color-one;

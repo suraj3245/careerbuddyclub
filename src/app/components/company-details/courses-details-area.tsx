@@ -34,21 +34,6 @@ const slider_setting = {
 const CoursesDetailsArea = ({ details }: { details: IcourseType }) => {
   const { sticky } = useSticky();
   const [headerTop, setHeaderTop] = useState<string>("275px");
-  const [isMobile, setIsMobile] = useState<boolean>(false);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 767);
-      console.log("isMobile:", isMobile); // Debugging statement
-    };
-
-    window.addEventListener("resize", handleResize);
-    handleResize();
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, [isMobile]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -57,9 +42,6 @@ const CoursesDetailsArea = ({ details }: { details: IcourseType }) => {
     };
 
     window.addEventListener("scroll", handleScroll);
-
-    
-
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -86,8 +68,6 @@ const CoursesDetailsArea = ({ details }: { details: IcourseType }) => {
     // };
   }, []);
 
-  
-
   return (
     <>
       <header
@@ -99,65 +79,75 @@ const CoursesDetailsArea = ({ details }: { details: IcourseType }) => {
         <div className="inner-content position-relative">
           <div className="top-header">
             <div className="d-flex align-items-center">
+              <nav className="navbar navbar-expand-lg p0 me-lg-auto ms-3 ms-lg-5 order-lg-1">
+                <div className="collapse navbar-collapse" id="navbarNav">
+                  <ul className="navbar-nav">
+                    <li className="nav-item">
+                      <a className="nav-link" href="#overview" role="button">
+                        Overview
+                      </a>
+                    </li>
+                    <li className="nav-item">
+                      <a className="nav-link" href="#courses" role="button">
+                        Courses and Fees
+                      </a>
+                    </li>
+                    <li className="nav-item">
+                      <a className="nav-link" href="#admission" role="button">
+                        Admission
+                      </a>
+                    </li>
+                    <li className="nav-item">
+                      <a className="nav-link" href="#placement" role="button">
+                        Placement
+                      </a>
+                    </li>
+                    <li className="nav-item">
+                      <a
+                        className="nav-link"
+                        href="#opportunities"
+                        role="button"
+                      >
+                        Opportunities
+                      </a>
+                    </li>
+                    <li className="nav-item">
+                      <a className="nav-link" href="#hostel" role="button">
+                        Hostel
+                      </a>
+                    </li>
+                    <li className="nav-item">
+                      <a className="nav-link" href="#awards" role="button">
+                        Awards
+                      </a>
+                    </li>
 
+                    <li className="nav-item">
+                      <a className="nav-link" href="#ranking" role="button">
+                        Ranking
+                      </a>
+                    </li>
+                    <li className="nav-item">
+                      <a className="nav-link" href="#alumini" role="button">
+                        Alumini Reviews
+                      </a>
+                    </li>
+                    {/* menus end */}
+                  </ul>
+                </div>
+              </nav>
             </div>
           </div>
         </div>
       </header>
-           
-            <section className="company-details  lg-pt-80 pb-30 xl-pb-150 lg-pb-80">
-            <div className="navbar navbar-expand-lg p0 me-lg-auto ms-3 ms-lg-5 order-lg-1">
-            <div className="collapse navbar-collapse" id="navbarNav">
-              <ul className="navbar-nav">
-                <li className="nav-item">
-                  <a className="nav-link" href="#overview" role="button">
-                    Overview
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#discription" role="button">
-                    Description
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#entrance" role="button">
-                    Entrance Exams
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#alumini" role="button">
-                  Alumini Reviews
-                  </a>
-                </li>
-             
-              {/* menus end */}
-              </ul>
-            </div>
-          </div>
-          
 
-     
-     
+      <section className="company-details pt-110 lg-pt-80 pb-160 xl-pb-150 lg-pb-80">
         <div className="container">
           <div className="row">
-            <div className="col-xxl-9 col-xl-8 order-xl-first pt-30">
+            <div className="col-xxl-9 col-xl-8 order-xl-first pt-100">
               <div className="details-post-data me-xxl-5 pe-xxl-4">
                 <h3 id="overview">Overview</h3>
                 <p>{details.courseoverview}</p>
-
-                <div className="ms-xl-5 ms-xxl-0 lg-mb-50 mb-4">
-                  {!isMobile && (
-                    <Image
-                      src={details.image}
-                      alt="image"
-                      className="lazy-img m-auto"
-                      width={800}
-                      height={500}
-                    />
-                  )}
-                </div>
-      
-
                 <div className="details-post-data me-xxl-5 pe-xxl-4 mt-4 border border-gray-300 rounded-lg overflow-auto ">
                   <Table aria-label="Courses and Fees Table">
                     <TableHeader>
@@ -175,10 +165,8 @@ const CoursesDetailsArea = ({ details }: { details: IcourseType }) => {
                   </Table>
                 </div>
 
-
-
                 <div className="position-relative">
-                  <h3 className="pt-50" id="discription">
+                  <h3 className="pt-50" id="placement">
                     Why Choose {details.coursename} Degree?
                   </h3>
                   <p>{details.whychoose}</p>
@@ -188,34 +176,6 @@ const CoursesDetailsArea = ({ details }: { details: IcourseType }) => {
                       <li key={index}> {point}</li>
                     </ul>
                   ))}
-
-                  <div className="details-post-data me-xxl-5 pe-xxl-4 mt-4">
-                  <h3 id="entrance">{details.coursename} Entrance Examination</h3>
-                  <p>{details.courseexam}</p>
-                  <div className="details-post-data me-xxl-5 pe-xxl-4 mt-4 border border-gray-300 rounded-lg overflow-auto ">
-                    <Table aria-label="Courses and Fees Table">
-                      <TableHeader>
-                        <TableColumn>Exams</TableColumn>
-                        <TableColumn>What is the exam is for?</TableColumn>
-                        <TableColumn>Type of Exam</TableColumn>
-                        <TableColumn>Mode of Exam</TableColumn>
-
-                      </TableHeader>
-                      <TableBody>
-                        {details.coursesEntrance.map((course, index) => (
-                          <TableRow key={index}>
-                           
-                          <TableCell>{course.Exams}</TableCell>
-                          <TableCell>{course.Entrance}</TableCell>
-                          <TableCell>{course.TExams}</TableCell>
-                          <TableCell>{course.MExams}</TableCell>
-
-                          </TableRow>
-                        ))}
-                      </TableBody>
-                    </Table>
-                  </div>
-                  </div>
 
                   <h3 className="pt-50" id="alumini">
                     Alumini Reviews

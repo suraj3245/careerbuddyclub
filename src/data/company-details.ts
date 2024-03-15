@@ -1633,7 +1633,7 @@ const company_details: IcompanyType[] = [
     address:"7th Floor, HB TWIN TOWER, Netaji Subhash Place, Pitampura, New Delhi, Delhi, 110085 ",
     feild: ["Career and Academics "],
     overviewsection:
-      "Innovalance is a company that encourages and supports innovation, personal and professional development, and a positive work-life balance for its employees. With a diverse and experienced team, opportunities for growth and advancement, and a commitment to employee wellness, Innovalance has always been a great place to work and advance your career.Our organization is dedicated to delivering exceptional quality and customer satisfaction. With the latest technology and tools, we ensure timely and top-notch services. Our team of experts stays updated on industry trends and best practices. We offer tailored solutions for various needs like e-learning course development, digital conversion, and localization services. Data privacy and security are paramount to us, and we strictly adhere to guidelines to protect client information. Our robust project management system ensures on-time, on-budget, and satisfying project completion.",
+      "Innovalance is a company that encourages and supports innovation, personal and professional development, and a positive work-life balance for its employees. With a diverse and experienced team, opportunities for growth and advancement, and a commitment to employee wellness, Innovalance has always been a great place to work and advance your career.",
     duration: "Fulltime",
     date: "18 Jul 2024",
     company: "Innovalance Learning",
@@ -1665,7 +1665,7 @@ const company_details: IcompanyType[] = [
     address:"303 /304 3rd Floor Hiranandani Fulcrum Sahar Road Andheri East Vile Parle (E) Next to Hyatt Regency Mumbai Mumbai City MH IN 400099.",
     feild: ["Hotel Management"],
     overviewsection:
-      "Marriott International, Inc. is an American multinational company that operates, franchises, and licenses lodging including hotel, residential and timeshare properties.Marriott is the largest hotel chain in the world by the number of available rooms. It has 31 brands with 8,000 properties containing 1,423,044 rooms in 139 countries and territories. Of these 8,000 properties, 2,149 are operated by Marriott, and 5,493 are operated by others pursuant to franchise agreements.The company also operates 20 hotel reservation centers. Marriott International, Inc. was formed in 1993 when Marriott Corporation split into two companies: Marriott International, Inc., which franchises and manages properties, and Host Marriott Corporation (now Host Hotels & Resorts), which owns properties.",
+      "Marriott International, Inc. is an American multinational company that operates, franchises, and licenses lodging including hotel, residential and timeshare properties.",
     duration: "Fulltime",
     date: "18 Jul 2024",
     company: "Marriott International",
@@ -1697,7 +1697,7 @@ const company_details: IcompanyType[] = [
     address:"New Delhi, building no. 9, 11, Okhla Phase III, Okhla Industrial Area, India",
     feild: ["Newspaper"],
     overviewsection:
-      "Jagran Solutions offer corporate services including Brand Activation, Corporate Event Management, Conferences and Exhitibiton, integrated campaigns etc.We are a part of Jagran Prakashan Ltd. We offer end to end experiential marketing solutions using an integrated approach involving: on-ground, events, digital, P.R., print, radio, mobile, outdoor, consumer generated media, word of mouth & so on.",
+      "Jagran Solutions offer corporate services including Brand Activation, Corporate Event Management, Conferences and Exhitibiton, integrated campaigns etc.",
     duration: "Fulltime",
     date: "18 Jul 2024",
     company: "Jagran Solutions",
@@ -1729,7 +1729,7 @@ const company_details: IcompanyType[] = [
     address:"New Delhi, building no. 9, 11, Okhla Phase III, Okhla Industrial Area, India",
     feild: ["Pharmaceutical"],
     overviewsection:
-      "Nectar Lifesciences Limited is a pharmaceutical company in India that manufactures generic drug products. The company has global leadership in several oral and sterile cephalosporin drugs, and has cGMP facilities along with those approved by the European Union and Japan.Nectar Lifesciences Limited is a research-driven, leading manufacturer of Active Pharmaceutical Ingredients (API), intermediates as well as Finished dosage forms offering largest segment of anti-infectives namely Cephalosporins. Nectar has proven to be a reliable CMO to global pharma innovators.",
+      "Nectar Lifesciences Limited is a pharmaceutical company in India that manufactures generic drug products. The company has global leadership in several oral and sterile cephalosporin drugs, and has cGMP facilities along with those approved by the European Union and Japan.",
     duration: "Fulltime",
     date: "18 Jul 2024",
     company: "Nectar Life Sciences",
@@ -1761,7 +1761,7 @@ const company_details: IcompanyType[] = [
     address:"4th Floor, Bajaj Finserv Corporate Office, Off Pune-Ahmednagar Road, Viman Nagar, Pune – 411 014",
     feild: ["Non- Banking Financial Company"],
     overviewsection:
-      "Bajaj Finserv Limited is an Indian non-banking financial services company headquartered in Pune. It is focused on lending, asset management, wealth management and insurance.Company Profile Bajaj Finance Ltd. (‘BFL’, ‘Bajaj Finance’, or ‘the Company’), a subsidiary of Bajaj Finserv Ltd., is a deposit taking Non-Banking Financial Company (NBFC-D) registered with the Reserve Bank of India (RBI) and is classified as an NBFC-Investment and Credit Company (NBFC-ICC). BFL is engaged in the business of lending and acceptance of deposits. It has a diversified lending portfolio across retail, SMEs, and commercial customers with significant presence in both urban and rural India. It accepts public and corporate deposits and offers a variety of financial services products to its customers. BFL, a thirty-five-year-old enterprise, has now become a leading player in the NBFC sector in India and on a consolidated basis, it has a franchise of 69.14 million customers. ",
+      "Bajaj Finserv Limited is an Indian non-banking financial services company headquartered in Pune. It is focused on lending, asset management, wealth management and insurance.",
     duration: "Fulltime",
     date: "18 Jul 2024",
     company: "Bajaj Finserv",
