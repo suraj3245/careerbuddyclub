@@ -1,9 +1,11 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import CompanyReviews from "./company-reviews";
 import VideoPopup from "../common/video-popup";
+import Slider from "react-slick";
 import { IcollegeType } from "@/types/college-details";
+import useSticky from "@/hooks/use-sticky";
+
 import {
   Table,
   TableHeader,
@@ -12,13 +14,139 @@ import {
   TableRow,
   TableCell,
 } from "@nextui-org/react";
+const slider_setting = {
+  dots: true,
+  arrows: false,
+  centerPadding: "0px",
+  slidesToShow: 2,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 3000,
+  responsive: [
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 1,
+      },
+    },
+  ],
+};
 
 const CollegeDetailsArea = ({ details }: { details: IcollegeType }) => {
   const [isVideoOpen, setIsVideoOpen] = useState<boolean>(false);
+  const { sticky } = useSticky();
+  const [headerTop, setHeaderTop] = useState<string>("275px");
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollPos = window.pageYOffset;
+      setHeaderTop(currentScrollPos > 50 ? "0px" : "275px"); // Change '50' to the scroll position you desire
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+    // const handleResize = () => {
+    //   if (typeof window !== "undefined") {
+    //     setHeaderTop(window.innerWidth < 1200 ? "225px" : "275px");
+    //   }
+    // };
+
+    // // Add event listeners for resize and initial check
+    // if (typeof window !== "undefined") {
+    //   window.addEventListener("resize", handleResize);
+    //   handleResize(); // Initial check
+
+    //   const navLinks = document.querySelectorAll(".theme-main-menu .nav-link");
+    // }
+
+    // // Clean up event listeners on component unmount
+    // return () => {
+    //   if (typeof window !== "undefined") {
+    //     window.removeEventListener("resize", handleResize);
+    //   }
+    // };
+  }, []);
 
   return (
     <>
-      <section className="company-details pt-110 lg-pt-80 pb-160 xl-pb-150 lg-pb-80">
+      <header
+        className={`theme-main-menu menu-overlay sticky-menu ${
+          sticky ? "fixed" : ""
+        }`}
+        style={{ top: headerTop }}
+      >
+        <div className="inner-content position-relative">
+          <div className="top-header">
+            <div className="d-flex align-items-center">
+             
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <section className="company-details  lg-pt-80 pb-30 xl-pb-150 lg-pb-80">
+
+      <div className="navbar navbar-expand-lg p0 me-lg-auto ms-3 ms-lg-5 order-lg-1">
+      <div className="collapse navbar-collapse" id="navbarNav">
+        <ul className="navbar-nav">
+          {/* menus start */}
+          <li className="nav-item">
+            <a className="nav-link" href="#overview" role="button">
+              Overview
+            </a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link" href="#courses" role="button">
+              Courses and Fees
+            </a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link" href="#admission" role="button">
+              Admission
+            </a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link" href="#placement" role="button">
+              Placement
+            </a>
+          </li>
+          <li className="nav-item">
+            <a
+              className="nav-link" href="#opportunities" role="button"
+            >
+              Opportunities
+            </a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link" href="#hostel" role="button">
+              Hostel
+            </a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link" href="#awards" role="button">
+              Awards
+            </a>
+          </li>
+
+          <li className="nav-item">
+            <a className="nav-link" href="#ranking" role="button">
+              Ranking
+            </a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link" href="#alumini" role="button">
+              Alumini Reviews
+            </a>
+          </li>
+          {/* menus end */}
+        </ul>
+      </div>
+    </div>
+
+
         <div className="container">
           <div className="row">
             <div className="col-xxl-3 col-xl-4 order-xl-last">
@@ -85,241 +213,281 @@ const CollegeDetailsArea = ({ details }: { details: IcollegeType }) => {
                 </div>
               </div>
             </div>
-            <div className="col-xxl-9 col-xl-8 order-xl-first">
+            <div className="col-xxl-9 col-xl-8 order-xl-first pt-100">
               <div className="details-post-data me-xxl-5 pe-xxl-4">
-                <h3>Overview</h3>
+                <h3 id="overview">Overview</h3>
                 <p>{details.overviewsection}</p>
-
-                <h3>Intro</h3>
-                <div className="video-post d-flex align-items-center justify-content-center mb-50">
-                  <a
-                    className="fancybox rounded-circle video-icon tran3s text-center"
-                    onClick={() => setIsVideoOpen(true)}
-                    style={{ cursor: "pointer" }}
-                  >
-                    <i className="bi bi-play-fill"></i>
-                  </a>
-                </div>
-
-                <h3 className="pb-50">Courses and Fees 2023</h3>
-                <div className="details-post-data me-xxl-5 pe-xxl-4 mt-4 border border-gray-300 rounded-lg overflow-auto ">
-                  <Table aria-label="Example static collection table">
-                    <TableHeader>
-                      <TableColumn>Specialization</TableColumn>
-                      <TableColumn>Annual Fee</TableColumn>
-                      <TableColumn>Eligibilty Criteria</TableColumn>
-                    </TableHeader>
-                    <TableBody>
-                      <TableRow key="1">
-                        <TableCell>Diploma</TableCell>
-                        <TableCell>Rs 45,000</TableCell>
-                        <TableCell>
-                          Class 10th with minimum 35% marks in aggregate.
-                        </TableCell>
-                      </TableRow>
-                      <TableRow key="2">
-                        <TableCell>Diploma in Pharmacy (D.Pharm.)</TableCell>
-                        <TableCell>Rs 1,00,000</TableCell>
-                        <TableCell>As per PCI norms.</TableCell>
-                      </TableRow>
-                      <TableRow key="3">
-                        <TableCell>B.Tech</TableCell>
-                        <TableCell>Rs 1,15,000 - Rs 1,30,000</TableCell>
-                        <TableCell>
-                          Passed 10+2 examination with Physics and Mathematics
-                          as compulsory subjects
-                        </TableCell>
-                      </TableRow>
-                      <TableRow key="4">
-                        <TableCell>BCA</TableCell>
-                        <TableCell>Rs 60000</TableCell>
-                        <TableCell>
-                          10+2 with Mathematics/Computer Science/Information
-                          Practices etc. with minimum 50% marks
-                        </TableCell>
-                      </TableRow>
-                      <TableRow key="5">
-                        <TableCell>B.Sc.</TableCell>
-                        <TableCell>Rs 45,000 - Rs 1,25,000</TableCell>
-                        <TableCell>10+2 or equivalent</TableCell>
-                      </TableRow>
-                      <TableRow key="6">
-                        <TableCell>B.Ed.</TableCell>
-                        <TableCell>Rs 60000</TableCell>
-                        <TableCell>
-                          Graduation in any stream with minimum 50% marks in
-                          aggregate.
-                        </TableCell>
-                      </TableRow>
-                      <TableRow key="7">
-                        <TableCell>B.Com.</TableCell>
-                        <TableCell>Rs 40000</TableCell>
-                        <TableCell>
-                          10+2 with minimum 50% marks in best four relevant
-                          Subjects.
-                        </TableCell>
-                      </TableRow>
-                      <TableRow key="8">
-                        <TableCell>B.Sc.</TableCell>
-                        <TableCell>Rs 45,000 - Rs 1,25,000</TableCell>
-                        <TableCell>10+2 or equivalent</TableCell>
-                      </TableRow>
-                      <TableRow key="9">
-                        <TableCell>B.Ed.</TableCell>
-                        <TableCell>Rs 60000</TableCell>
-                        <TableCell>
-                          Graduation in any stream with minimum 50% marks in
-                          aggregate.
-                        </TableCell>
-                      </TableRow>
-                      <TableRow key="10">
-                        <TableCell>B.Com.</TableCell>
-                        <TableCell>Rs 40000</TableCell>
-                        <TableCell>
-                          10+2 with minimum 50% marks in best four relevant
-                          Subjects.
-                        </TableCell>
-                      </TableRow>
-                      <TableRow key="11">
-                        <TableCell>B.Com. (Hons.)</TableCell>
-                        <TableCell>Rs 50,000</TableCell>
-                        <TableCell>10+2 with minimum 50% marks.</TableCell>
-                      </TableRow>
-                      <TableRow key="12">
-                        <TableCell>BBA</TableCell>
-                        <TableCell>Rs 60000</TableCell>
-                        <TableCell>
-                          10+2 with minimum 50% marks in best four relevant
-                          Subjects.
-                        </TableCell>
-                      </TableRow>
-                      <TableRow key="13">
-                        <TableCell>B.Sc. in Nursing</TableCell>
-                        <TableCell>Rs 2,00,000</TableCell>
-                        <TableCell>
-                          Candidate must pass the 12th or equivalent exam with
-                          PCB and English from a recognised board.
-                        </TableCell>
-                      </TableRow>
-                      <TableRow key="14">
-                        <TableCell>Integrated B. Com LLB (Hons)</TableCell>
-                        <TableCell>Rs 60000</TableCell>
-                        <TableCell>
-                          10 +2 with minimum 45% marks in aggregate.
-                        </TableCell>
-                      </TableRow>
-                      <TableRow key="14">
-                        <TableCell>Integrated B. Com LLB (Hons)</TableCell>
-                        <TableCell>Rs 60000</TableCell>
-                        <TableCell>
-                          10 +2 with minimum 45% marks in aggregate.
-                        </TableCell>
-                      </TableRow>
-                      <TableRow key="15">
-                        <TableCell>Integrated BA LLB (Hons)</TableCell>
-                        <TableCell>Rs 60000</TableCell>
-                        <TableCell>
-                          Passed 10 +2 with minimum 45% marks in aggregate
-                        </TableCell>
-                      </TableRow>
-                      <TableRow key="16">
-                        <TableCell>M.Tech.</TableCell>
-                        <TableCell>Rs 60000</TableCell>
-                        <TableCell>
-                          B.Tech. with Minimum 55% marks in the relevant branch
-                          or 60% in MCA for Computer Science & Engineering.
-                        </TableCell>
-                      </TableRow>
-                      <TableRow key="17">
-                        <TableCell>MCA</TableCell>
-                        <TableCell>Rs 60000</TableCell>
-                        <TableCell>
-                          Passed BCA/ Bachelor Degree in Computer Science
-                          Engineering or equivalent Degree.
-                        </TableCell>
-                      </TableRow>
-                      <TableRow key="18">
-                        <TableCell>M. Sc.</TableCell>
-                        <TableCell>Rs 30000 - Rs 70,000</TableCell>
-                        <TableCell>
-                          Graduate in science with minimum 50% marks in
-                          aggregate with relevant subject.
-                        </TableCell>
-                      </TableRow>
-                      <TableRow key="19">
-                        <TableCell>M.B.A.</TableCell>
-                        <TableCell>Rs 1,15,000</TableCell>
-                        <TableCell>
-                          Bachelor's degree (any discipline) with 50% marks in
-                          aggregate.
-                        </TableCell>
-                      </TableRow>
-                      <TableRow key="20">
-                        <TableCell>M.Pharma</TableCell>
-                        <TableCell>Rs 1,00,000</TableCell>
-                        <TableCell>
-                          B.Pharm degree with a minimum of 50% marks from a
-                          recognised institute.
-                        </TableCell>
-                      </TableRow>
-                      <TableRow key="21">
-                        <TableCell>LLM</TableCell>
-                        <TableCell>Rs 40000</TableCell>
-                        <TableCell>
-                          The candidate must have completed an LLB degree
-                          (3-year LLB or 5-year LLB) from a recognised
-                          university.
-                        </TableCell>
-                      </TableRow>
-                      <TableRow key="22">
-                        <TableCell>M.Sec.</TableCell>
-                        <TableCell>Rs 50000</TableCell>
-                        <TableCell>
-                          Graduate in Science with minimum 50% marks in
-                          aggregate with relevant subjects.
-                        </TableCell>
-                      </TableRow>
+                <div className="details-post-data me-xxl-5 pe-xxl-4 mt-4 mb-4 border border-gray-300 rounded-lg overflow-auto ">
+                <Table aria-label="Courses and Fees Table">
+                <TableHeader>
+                  <TableColumn>Institute Name</TableColumn>
+                  <TableColumn>{details.college}</TableColumn>
+                </TableHeader>
+                <TableBody>
+                      {details.overviewtable.map((overview, index) => (
+                        <TableRow key={index}>
+                          <TableCell>{overview.specialization}</TableCell>
+                          <TableCell>{overview.annualfee}</TableCell>
+                        </TableRow>
+                      ))}
                     </TableBody>
                   </Table>
                 </div>
-
-                <h3 className="pt-50">Admission Dates 2023</h3>
+                <h3 id="courses">Courses and Fees</h3>
+                <p>{details.courses}</p>
                 <div className="details-post-data me-xxl-5 pe-xxl-4 mt-4 border border-gray-300 rounded-lg overflow-auto ">
-                  <Table aria-label="Example static collection table">
+                  <Table aria-label="Courses and Fees Table">
+                    <TableHeader>
+                      <TableColumn>Specialization</TableColumn>
+                      <TableColumn>Annual Fee</TableColumn>
+                      <TableColumn>Eligibility Criteria</TableColumn>
+                    </TableHeader>
+                    <TableBody>
+                      {details.coursesAndFees.map((course, index) => (
+                        <TableRow key={index}>
+                          <TableCell>{course.specialization}</TableCell>
+                          <TableCell>{course.annualFee}</TableCell>
+                          <TableCell>{course.eligibility}</TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </div>
+                <h3 className="pt-50" id="admission">
+                  Admission Dates 
+                </h3>
+                <p>{details.admission}</p>
+
+                <div className="details-post-data me-xxl-5 pe-xxl-4 mt-4 border border-gray-300 rounded-lg overflow-auto ">
+                  <Table aria-label="Admission Dates Table">
                     <TableHeader>
                       <TableColumn>Event</TableColumn>
                       <TableColumn>Date</TableColumn>
                     </TableHeader>
                     <TableBody>
-                      <TableRow key="1">
-                        <TableCell>Registration Dates</TableCell>
-                        <TableCell>February 8 to September 15, 2023</TableCell>
-                      </TableRow>
-                      <TableRow key="2">
-                        <TableCell>Date of Entrance Test & Interview</TableCell>
-                        <TableCell>September 17, 2023</TableCell>
-                      </TableRow>
-                      <TableRow key="3">
-                        <TableCell>Date of Result Declaration</TableCell>
-                        <TableCell>September 18, 2023</TableCell>
-                      </TableRow>
-                      <TableRow key="4">
-                        <TableCell>Last Date of Submission of Fee</TableCell>
-                        <TableCell>September 28, 2023</TableCell>
-                      </TableRow>
-                      <TableRow key="5">
-                        <TableCell>Commencement of the Coursework</TableCell>
-                        <TableCell>October 3, 2023</TableCell>
-                      </TableRow>
+                      {details.admissionDates.map((event, index) => (
+                        <TableRow key={index}>
+                          <TableCell>{event.name}</TableCell>
+                          <TableCell>{event.date}</TableCell>
+                        </TableRow>
+                      ))}
                     </TableBody>
                   </Table>
                 </div>
-                <div className="position-relative pt-50">
-                  <h3>College Reviews</h3>
+                <div className="position-relative">
+                  <h3 className="pt-50" id="placement">
+                    Placements 
+                  </h3>
+                  <p>{details.placement}</p>
+
+                  <div className="details-post-data me-xxl-5 pe-xxl-4 mt-4 border border-gray-300 rounded-lg overflow-auto ">
+                    <Table aria-label="Admission Dates Table">
+                      <TableHeader>
+                        <TableColumn>Placement Informatiion</TableColumn>
+                        <TableColumn>Details</TableColumn>
+                      </TableHeader>
+                      <TableBody>
+                        {details.placementinformation.map((event, index) => (
+                          <TableRow key={index}>
+                            <TableCell>{event.name}</TableCell>
+                            <TableCell>{event.info}</TableCell>
+                          </TableRow>
+                        ))}
+                      </TableBody>
+                    </Table>
+                  </div>
+
+                  <h3 className="pt-50" id="campus">
+                    About Campus
+                  </h3>
+                  <p>{details.campus}</p>
+
+                  <div className="details-post-data me-xxl-5 pe-xxl-4 mt-4 border border-gray-300 rounded-lg overflow-auto ">
+                    <Table aria-label="Admission Dates Table">
+                      <TableHeader>
+                        <TableColumn>Campus</TableColumn>
+                        <TableColumn>Details</TableColumn>
+                      </TableHeader>
+                      <TableBody>
+                        {details.campusinfo.map((event, index) => (
+                          <TableRow key={index}>
+                            <TableCell>{event.name}</TableCell>
+                            <TableCell>{event.info}</TableCell>
+                          </TableRow>
+                        ))}
+                      </TableBody>
+                    </Table>
+                  </div>
+                  <h3 className="pt-50" id="opportunities">
+                    Opportunities
+                  </h3>
+                  <p>{details.opportunities}</p>
+
+                  <div className="details-post-data me-xxl-5 pe-xxl-4 mt-4 border border-gray-300 rounded-lg overflow-auto ">
+                    <Table aria-label="Admission Dates Table">
+                      <TableHeader>
+                        <TableColumn>opportunities</TableColumn>
+                        <TableColumn>Details</TableColumn>
+                      </TableHeader>
+                      <TableBody>
+                        {details.opportunitiesinfo.map((event, index) => (
+                          <TableRow key={index}>
+                            <TableCell>{event.name}</TableCell>
+                            <TableCell>{event.info}</TableCell>
+                          </TableRow>
+                        ))}
+                      </TableBody>
+                    </Table>
+                  </div>
+                  <h3 className="pt-50" id="hostel">
+                    Hostel
+                  </h3>
+                  <p>{details.hostel}</p>
+
+                  <div className="details-post-data me-xxl-5 pe-xxl-4 mt-4 border border-gray-300 rounded-lg overflow-auto ">
+                    <Table aria-label="Admission Dates Table">
+                      <TableHeader>
+                        <TableColumn>Hostel Type (Girls/ Boys)</TableColumn>
+                        <TableColumn>Both</TableColumn>
+                      </TableHeader>
+                      <TableBody>
+                        {details.hostelinfo.map((event, index) => (
+                          <TableRow key={index}>
+                            <TableCell>{event.name}</TableCell>
+                            <TableCell>{event.info}</TableCell>
+                          </TableRow>
+                        ))}
+                      </TableBody>
+                    </Table>
+                  </div>
+                  <h3 className="pt-50" id="awards">
+                    Awards
+                  </h3>
+                  <p>{details.awards}</p>
+
+                  <div className="details-post-data me-xxl-5 pe-xxl-4 mt-4 mb-4 border border-gray-300 rounded-lg overflow-auto ">
+                    <Table aria-label="Admission Dates Table">
+                      <TableHeader>
+                        <TableColumn>Name of Awards</TableColumn>
+                        <TableColumn>Awarding Body</TableColumn>
+                      </TableHeader>
+                      <TableBody>
+                        {details.awardsinfo.map((event, index) => (
+                          <TableRow key={index}>
+                            <TableCell>{event.name}</TableCell>
+                            <TableCell>{event.info}</TableCell>
+                          </TableRow>
+                        ))}
+                      </TableBody>
+                    </Table>
+                  </div>
+                  <h3 id="courses">Faculty</h3>
+                <p>{details.faculty}</p>
+                <div className="details-post-data me-xxl-5 pe-xxl-4 mt-4 mb-4 border border-gray-300 rounded-lg overflow-auto ">
+                  <Table aria-label="Courses and Fees Table">
+                    <TableHeader>
+                      <TableColumn>Faculty Name</TableColumn>
+                      <TableColumn>Department</TableColumn>
+                      <TableColumn>Experience</TableColumn>
+                      <TableColumn>Specialization</TableColumn>
+                    </TableHeader>
+                    <TableBody>
+                      {details.facultytable.map((faculty, index) => (
+                        <TableRow key={index}>
+                          <TableCell>{faculty.name}</TableCell>
+                          <TableCell>{faculty.Qualification}</TableCell>
+                          <TableCell>{faculty.Experience}</TableCell>
+                          <TableCell>{faculty.Specialization}</TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </div>
+                  <h3 className="pt-50" id="ranking">
+                    Ranking
+                  </h3>
+                  <p>{details.ranking}</p>
+
+                  <div className="details-post-data me-xxl-5 pe-xxl-4 mt-4 border border-gray-300 rounded-lg overflow-auto ">
+                    <Table aria-label="Admission Dates Table">
+                      <TableHeader>
+                        <TableColumn>Ranking</TableColumn>
+                        <TableColumn>Details</TableColumn>
+                      </TableHeader>
+                      <TableBody>
+                        {details.rankinginfo.map((event, index) => (
+                          <TableRow key={index}>
+                            <TableCell>{event.name}</TableCell>
+                            <TableCell>{event.info}</TableCell>
+                          </TableRow>
+                        ))}
+                      </TableBody>
+                    </Table>
+                  </div>
+                  <h3 className="pt-50" id="alumini">
+                    Alumini Reviews
+                  </h3>
 
                   {/* CompanyReviews */}
-                  <CompanyReviews />
-                  {/* CompanyReviews */}
+                  <Slider {...slider_setting} className="company-review-slider">
+                    {details.reviewinfo.map((item) => (
+                      <div key={item.id} className="item">
+                        <div className="feedback-block-four">
+                          <div className="d-flex align-items-center">
+                            <ul className="style-none d-flex rating">
+                              <li>
+                                <a href="#" tabIndex={0}>
+                                  <i className="bi bi-star-fill"></i>
+                                </a>
+                              </li>
+                              <li>
+                                <a href="#" tabIndex={0}>
+                                  <i className="bi bi-star-fill"></i>
+                                </a>
+                              </li>
+                              <li>
+                                <a href="#" tabIndex={0}>
+                                  <i className="bi bi-star-fill"></i>
+                                </a>
+                              </li>
+                              <li>
+                                <a href="#" tabIndex={0}>
+                                  <i className="bi bi-star-fill"></i>
+                                </a>
+                              </li>
+                              <li>
+                                <a href="#" tabIndex={0}>
+                                  <i className="bi bi-star-fill"></i>
+                                </a>
+                              </li>
+                            </ul>
+                            <div className="review-score">
+                              <span className="fw-500 text-dark">
+                                {item.rating}
+                              </span>{" "}
+                              out of 5
+                            </div>
+                          </div>
+                          <blockquote>{item.desc}</blockquote>
+                          <div className="d-flex align-items-center">
+                            <Image
+                              src={item.user}
+                              alt="user"
+                              className="author-img rounded-circle"
+                            />
+                            <div className="ms-3">
+                              <div className="name fw-500 text-dark">
+                                {item.name}
+                              </div>
+                              <span className="opacity-50">
+                                {item.location}
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </Slider>
                 </div>
 
                 <div className="share-option mt-60">

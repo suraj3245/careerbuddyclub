@@ -1,118 +1,64 @@
 "use client";
 import React from "react";
+import { useForm } from "react-hook-form";
 import * as Yup from "yup";
-import { Resolver, useForm } from "react-hook-form";
+import axios from "axios";
 import ErrorMsg from "../common/error-msg";
-import emailjs from "@emailjs/browser";
 import { notifyError, notifySuccess } from "@/utils/toast";
 
+const schema = Yup.object({
+  name: Yup.string().required("Name is required"),
+  email: Yup.string()
+    .email("Invalid email format")
+    .required("Email is required"),
+  subject: Yup.string(),
+  message: Yup.string().required("Message is required"),
+}).required();
+
 // form data type
-type IFormData = {
+interface IFormData {
   name: string;
   email: string;
+  phone: string;
   subject?: string;
   message: string;
-};
+}
 
-// schema
-const schema = Yup.object().shape({
-  name: Yup.string().required().label("Name"),
-  email: Yup.string().required().email().label("Email"),
-  subject: Yup.string().label("Subject"),
-  message: Yup.string().required().label("Subject"),
-});
-// resolver
-const resolver: Resolver<IFormData> = async (values) => {
-  return {
-    values: values.name ? values : {},
-    errors: !values.name
-      ? {
-          name: {
-            type: "required",
-            message: "Name is required.",
-          },
-          email: {
-            type: "required",
-            message: "Email is required.",
-          },
-          message: {
-            type: "required",
-            message: "Message is required.",
-          },
-        }
-      : {},
-  };
-};
 const ContactForm = () => {
-  // react hook form
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm<IFormData>({ resolver });
-  // on submit
-  // const onSubmit = (data: IFormData) => {
-  //   const templateParams = {
-  //     name: data.name,
-  //     email: data.email,
-  //     subject: data.subject,
-  //     message: data.message,
-  //   };
-  //   if (data) {
-  //     emailjs
-  //       .send(
-  //         'service_gnu2rla',
-  //         'template_ilrquco',
-  //         templateParams,
-  //         'tDbxqotWh8Z0dv0h6'
-  //       )
-  //       .then(
-  //         (response) => {
-  //           // console.log("SUCCESS!", response.status, response.text);
-  //           notifySuccess('Your message sent successfully');
-  //         },
-  //         (err) => {
-  //           // console.log("FAILED...", err);
-  //           notifyError(err?.text);
-  //         }
-  //       );
-  //   }
-
-  //   reset();
-  // };
+  } = useForm<IFormData>({});
 
   const onSubmit = (data: IFormData) => {
-    // Send the data to the Express.js server
-    fetch("http://54.224.161.134:8080/api/addContact", {
+    console.log(data);
+    const options = {
       method: "POST",
+      url: "https://test.careerbuddyclub.com:8080/api/students/contactusformsubmit",
       headers: {
+        Accept: "*/*",
+        // Update as needed
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(data),
-    })
-      .then((response) => {
-        if (response.ok) {
-          // If response from the server is successful
-          return response.text();
-        } else {
-          // If server returns an error response
-          throw new Error("Server responded with an error");
-        }
+      data: data,
+    };
+
+    axios
+      .request(options)
+      .then(function (response) {
+        console.log(response.data);
+        notifySuccess("Thank you for contacting us");
       })
-      .then((result) => {
-        console.log(result);
-        notifySuccess("Your message sent successfully");
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-        notifyError(error?.message);
+      .catch(function (error) {
+        console.error(error);
+        notifyError("An error occurred while submitting the form");
       })
       .finally(() => {
-        reset();
+        reset(); // Reset the form
       });
   };
-
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="messages"></div>
@@ -142,6 +88,20 @@ const ContactForm = () => {
             />
             <div className="help-block with-errors">
               <ErrorMsg msg={errors.email?.message!} />
+            </div>
+          </div>
+        </div>
+        <div className="col-12">
+          <div className="input-group-meta form-group mb-30">
+            <label htmlFor="">Phone Number*</label>
+            <input
+              type="phone"
+              placeholder="Phone Number*"
+              {...register("phone", { required: `Phone Number is required!` })}
+              name="phone"
+            />
+            <div className="help-block with-errors">
+              <ErrorMsg msg={errors.phone?.message!} />
             </div>
           </div>
         </div>

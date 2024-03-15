@@ -4,6 +4,7 @@ import Wrapper from "@/layouts/wrapper";
 import CompanyBreadcrumb from "../components/common/common-breadcrumb";
 import FooterOne from "@/layouts/footers/footer-one";
 import RegisterArea from "../components/register/register-area";
+import HeroBannerThree from "../components/hero-banners/hero-banner-three";
 
 export const metadata: Metadata = {
   title: "Register",
@@ -18,10 +19,7 @@ const RegisterPage = () => {
         {/* header end */}
 
         {/*breadcrumb start */}
-        <CompanyBreadcrumb
-          title="Register"
-          subtitle="Create an account & Start posting or hiring talents"
-        />
+        <HeroBannerThree />
         {/*breadcrumb end */}
 
         {/* register area start */}

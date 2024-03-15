@@ -8,7 +8,8 @@ import FooterOne from "@/layouts/footers/footer-one";
 import CompanyV1Area from "../components/company/company-v1-area";
 
 export const metadata: Metadata = {
-  title: "Company v1",
+  title: "Company partners",
+  robots: "noindex",
 };
 
 const CompanyV1Page = () => {
@@ -31,7 +32,7 @@ const CompanyV1Page = () => {
         {/* company v1 area end */}
 
         {/* job portal intro start */}
-        <JobPortalIntro top_border={true} />
+
         {/* job portal intro end */}
 
         {/* footer start */}

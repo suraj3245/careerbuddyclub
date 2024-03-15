@@ -32,15 +32,15 @@ const FeatureSeventeen = () => {
         {/* Logos Section */}
         <div className="row">
           {[
-            { logo: logo1, text: "Guest Lectures by Industry Experts" },
-            { logo: logo2, text: "Skill Enhancement" },
-            { logo: logo3, text: "Exclusive job fairs and networking opportunities." },
-            { logo: logo4, text: "Internships and real-life projects" },
-            { logo: logo5, text: "Placement Guarantee" },
-            { logo: logo6, text: "Personalized Mentorship" },
-            { logo: logo7, text: "Fresher-focused" },
-            { logo: logo8, text: "Global Opportunities" },
-            { logo: logo9, text: "Alumni Network" },
+            { logo: logo1, text: "60+ hrs Specialized Training" },
+            { logo: logo2, text: "200+ Skill Assessment Tests " },
+            { logo: logo3, text: "4 Industry Integrated Certifications" },
+            { logo: logo4, text: "10+ Real-Life Projects" },
+            { logo: logo5, text: "50+ Job Interviews" },
+            { logo: logo6, text: "60+ hrs Personalized Mentorship" },
+            { logo: logo7, text: "Fresherfocused Job Portal " },
+            { logo: logo8, text: "4-6 months On Job Training " },
+            { logo: logo9, text: "300+ Industry Experts from Ivy League & Fortune 500" },
           ].map((item, index) => (
             <div
               key={index}

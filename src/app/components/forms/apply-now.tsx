@@ -11,6 +11,20 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import icon from "@/assets/images/icon/icon_60.svg";
 
+interface IOption {
+  value: string;
+  label: string;
+}
+
+type UTMParams = {
+  utm_source: string | null;
+  utm_medium: string | null;
+  utm_campaign: string | null;
+  utm_id: string | null;
+  utm_term: string | null;
+  utm_content: string | null;
+};
+
 // form data type
 type IFormData = {
   name: string;
@@ -20,6 +34,12 @@ type IFormData = {
   password: string;
   level: string;
   stream: string;
+  utm_source?: string | null;
+  utm_medium?: string | null;
+  utm_campaign?: string | null;
+  utm_id?: string | null;
+  utm_term?: string | null;
+  utm_content?: string | null;
 };
 
 // schema
@@ -34,27 +54,99 @@ const schema = Yup.object().shape({
 const ApplyForm = () => {
   const [showPass, setShowPass] = useState<boolean>(false);
   const [isVerificationSent, setIsVerificationSent] = useState<boolean>(false);
-  const [countdown, setCountdown] = useState(60);
+  const [countdown, setCountdown] = useState(30);
   const [showResend, setShowResend] = useState(false);
+  const [levelOptions, setLevelOptions] = useState<IOption[]>([]);
+  const [streamOptions, setStreamOptions] = useState<IOption[]>([]);
   const router = useRouter();
+  const [utmParams, setUtmParams] = useState<UTMParams>({
+    utm_source: null,
+    utm_medium: null,
+    utm_campaign: null,
+    utm_id: null,
+    utm_term: null,
+    utm_content: null,
+  });
 
+  const fetchLevelOptions = async () => {
+    try {
+      const response = await axios({
+        method: "POST",
+        url: "https://test.careerbuddyclub.com:8080/api/students/getalllevels",
+        headers: {
+          Accept: "*/*",
+        },
+      });
+      const streamData = response.data.map((level: { title: any }) => ({
+        value: level.title,
+        label: level.title,
+      }));
+      setLevelOptions(streamData);
+    } catch (error) {
+      console.error(error);
+      // Handle error, e.g., set some state to show an error message
+    }
+  };
+  const fetchStreamOptions = async () => {
+    try {
+      const response = await axios({
+        method: "POST",
+        url: "https://test.careerbuddyclub.com:8080/api/students/getallstreams",
+        headers: {
+          Accept: "*/*",
+        },
+      });
+      const streamData = response.data.map((stream: { title: any }) => ({
+        value: stream.title,
+        label: stream.title,
+      }));
+
+      setStreamOptions(streamData);
+    } catch (error) {
+      console.error(error);
+      // Handle error, e.g., set some state to show an error message
+    }
+  };
+  useEffect(() => {
+    fetchStreamOptions();
+    fetchLevelOptions();
+
+    // Parse UTM parameters from the URL
+    const searchParams = new URLSearchParams(window.location.search);
+    const newUtmParams: UTMParams = {
+      utm_source: searchParams.get("utm_source"),
+      utm_medium: searchParams.get("utm_medium"),
+      utm_campaign: searchParams.get("utm_campaign"),
+      utm_id: searchParams.get("utm_id"),
+      utm_term: searchParams.get("utm_term"),
+      utm_content: searchParams.get("utm_content"),
+    };
+    setUtmParams(newUtmParams);
+  }, []);
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
     getValues,
-  } = useForm<IFormData>({});
+  } = useForm<IFormData>({
+    defaultValues: {
+      ...utmParams,
+    },
+  });
 
   const requestOTP = (data: {
     name: string;
     country_code: string;
     mobile: number;
   }) => {
+    setIsVerificationSent(true);
     axios
-      .post("http://54.224.161.134:8080/api/students/getwhatsappotp", data)
+      .post(
+        "https://test.careerbuddyclub.com:8080/api/students/getwhatsappotp",
+        data
+      )
       .then((response) => {
-        console.log(response.data);
         // Notify user that OTP is sent
 
         toast.info("Otp sent 🚀", {
@@ -67,12 +159,12 @@ const ApplyForm = () => {
           progress: undefined,
           theme: "light",
         });
-        setIsVerificationSent(true); // To show OTP input field
+        // To show OTP input field
       })
       .catch((error) => {
-        toast.error("Error sending OTP or Number is already registered 😵‍💫", {
+        toast.error("Error sending OTP 😵‍💫", {
           position: "top-left",
-          autoClose: 1000,
+          autoClose: 3000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -105,11 +197,13 @@ const ApplyForm = () => {
       stream,
     } = data;
 
+    console.log("Form Data:", data);
+
     // Set up the request options for axios
     const options = {
       method: "POST",
       // url: '${process.env.REACT_APP_API_URL}students/register', // Replace with your API's URL
-      url: "http://54.224.161.134:8080/api/students/register", // Replace with your API's URL
+      url: "https://test.careerbuddyclub.com:8080/api/students/register", // Replace with your API's URL
       headers: {
         "Content-Type": "application/json",
       },
@@ -122,7 +216,7 @@ const ApplyForm = () => {
       .then((response) => {
         // Handle the response here, e.g., notify the user of success
         localStorage.setItem("token", response.data.access_token);
-
+        localStorage.setItem("username", name);
         console.log("Registration successful", response.data);
         toast.success("Your Account is created ! please check your email. 🚀", {
           position: "top-left",
@@ -135,13 +229,13 @@ const ApplyForm = () => {
           theme: "light",
         });
         setTimeout(() => {
-          window.location.href = "/";
+          window.location.href = "/dashboard/candidate-dashboard/profile";
         }, 1000);
       })
       .catch((error) => {
         // Handle any errors here, e.g., notify the user of the failure
         console.error("Registration error:", error);
-        toast.error("Already a User 😵‍💫", {
+        toast.error("Registration Failed 😵‍💫", {
           position: "top-left",
           autoClose: 1000,
           hideProgressBar: false,
@@ -158,37 +252,20 @@ const ApplyForm = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <ToastContainer
-        position="top-left"
-        autoClose={1000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        draggable
-        pauseOnHover
-        theme="light"
-      />
-      <ToastContainer
-        position="bottom-left"
-        autoClose={1000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        draggable
-        pauseOnHover
-        theme="light"
-      />
       <div className="row">
         <div className="col-12">
           <div className="input-group-meta position-relative mb-15">
-            <label style={{ color: "black" }}>Name*</label>
             <input
               type="text"
-              placeholder="Enter your full name"
+              placeholder="Name"
               {...register("name", { required: `Name is required!` })}
               name="name"
+              style={{
+                backgroundColor: "white",
+                padding: "8px 12px",
+                fontSize: "14px",
+                height: "40px",
+              }}
             />
             <div className="help-block with-errors">
               <ErrorMsg msg={errors.name?.message!} />
@@ -198,12 +275,17 @@ const ApplyForm = () => {
 
         <div className="col-12">
           <div className="input-group-meta position-relative mb-15">
-            <label style={{ color: "black" }}>Email*</label>
             <input
               type="email"
-              placeholder="Enter your email"
+              placeholder="Email"
               {...register("email", { required: `Email is required!` })}
               name="email"
+              style={{
+                backgroundColor: "white",
+                padding: "8px 12px",
+                fontSize: "14px",
+                height: "40px",
+              }}
             />
             <div className="help-block with-errors">
               <ErrorMsg msg={errors.email?.message!} />
@@ -213,16 +295,22 @@ const ApplyForm = () => {
 
         <div className="col-12">
           <div className="input-group-meta position-relative mb-15">
-            <label style={{ color: "black" }}>Phone Number*</label>
             <div style={{ display: "flex", alignItems: "center" }}>
               <input
                 type="tel"
-                placeholder="Enter your phone number"
+                placeholder="Phone Number"
                 {...register("mobile", {
                   required: `Phone Number is required!`,
                 })}
                 name="mobile"
-                style={{ flex: "1", marginRight: "10px" }}
+                style={{
+                  flex: "1",
+                  marginRight: "10px",
+                  backgroundColor: "white",
+                  padding: "8px 12px",
+                  fontSize: "14px",
+                  height: "40px",
+                }}
               />
               <button
                 type="button"
@@ -241,13 +329,13 @@ const ApplyForm = () => {
                   backgroundColor: "#14ADBD",
                   color: "#ffffff",
                   border: "none",
-                  padding: "10px 15px",
+                  padding: "7px 8px",
                   borderRadius: "5px",
                   cursor: "pointer",
                 }}
               >
                 {!isVerificationSent
-                  ? "Send OTP"
+                  ? "Whatsapp OTP"
                   : showResend
                   ? "Resend"
                   : `Wait for ${countdown} sec`}
@@ -262,14 +350,19 @@ const ApplyForm = () => {
         {isVerificationSent && (
           <div className="col-12">
             <div className="input-group-meta position-relative mb-15">
-              <label style={{ color: "black" }}>Verification Code*</label>
               <input
                 type="text"
-                placeholder="Enter the code sent to your mobile"
+                placeholder="Whatsapp OTP"
                 {...register("verificationCode", {
                   required: `Verification Code is required!`,
                 })}
                 name="verificationCode"
+                style={{
+                  backgroundColor: "white",
+                  padding: "8px 12px",
+                  fontSize: "14px",
+                  height: "40px",
+                }}
               />
               <div className="help-block with-errors">
                 <ErrorMsg msg={errors.verificationCode?.message!} />
@@ -277,59 +370,67 @@ const ApplyForm = () => {
             </div>
           </div>
         )}
-        <div className="col-12">
-          <div className="input-group-meta position-relative mb-20">
-            <label style={{ color: "black" }}>Password*</label>
-            <input
-              type={`${showPass ? "text" : "password"}`}
-              placeholder="Enter Password"
-              className="pass_log_id"
-              {...register("password", { required: `Password is required!` })}
-              name="password"
-            />
-            <span
-              className="placeholder_icon"
-              onClick={() => setShowPass(!showPass)}
-            >
-              <span className={`passVicon ${showPass ? "eye-slash" : ""}`}>
-                <Image src={icon} alt="pass-icon" />
-              </span>
-            </span>
-            <div className="help-block with-errors">
-              <ErrorMsg msg={errors.password?.message!} />
-            </div>
-          </div>
-        </div>
+
         <div className="col-12">
           <div className="input-group-meta position-relative mb-15">
-            <label style={{ color: "black" }}>stream*</label>
-            <input
-              type="Stream"
-              placeholder="Enter the stream"
-              {...register("stream", { required: `stream is required!` })}
+            <select
+              {...register("stream", { required: `Stream is required!` })}
               name="stream"
-            />
+              style={{
+                backgroundColor: "white",
+                padding: "8px 12px",
+                fontSize: "14px",
+                height: "40px",
+                width: "100%",
+                border: "1px solid #e3e3e3",
+                borderRadius: "4px",
+              }}
+            >
+              <option value="">Stream</option>
+              {streamOptions.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
             <div className="help-block with-errors">
               <ErrorMsg msg={errors.stream?.message!} />
             </div>
           </div>
         </div>
+
         <div className="col-12">
           <div className="input-group-meta position-relative mb-15">
-            <label style={{ color: "black" }}>level*</label>
-            <input
-              type="level"
-              placeholder="Enter the level"
-              {...register("level", { required: `level is required!` })}
+            <select
+              {...register("level", { required: `Level is required!` })}
               name="level"
-            />
+              style={{
+                backgroundColor: "white",
+                padding: "8px 12px",
+                fontSize: "14px",
+                height: "40px",
+                width: "100%",
+                border: "1px solid #e3e3e3",
+                borderRadius: "4px",
+              }}
+            >
+              <option value="">Level</option>
+              {levelOptions.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
             <div className="help-block with-errors">
               <ErrorMsg msg={errors.level?.message!} />
             </div>
           </div>
         </div>
 
-        <div className="agreement-checkbox d-flex justify-content-between align-items-center">
+        <div
+          className="agreement-checkbox d-flex justify-content-between align-items-center"
+          style={{ justifyContent: "center" }}
+        >
           <a
             href="#"
             className="fw-500"
@@ -339,19 +440,7 @@ const ApplyForm = () => {
             Already a User? login
           </a>
         </div>
-        <div className="col-12">
-          <div className="agreement-checkbox d-flex justify-content-between align-items-center pb-30">
-            <a
-              href="#"
-              className="fw-500"
-              data-bs-toggle="modal"
-              data-bs-target="#MagicModal"
-              style={{ color: "blueviolet" }}
-            >
-              Login using Magic Link!
-            </a>
-          </div>
-        </div>
+
         <div className="col-12">
           <button
             type="submit"

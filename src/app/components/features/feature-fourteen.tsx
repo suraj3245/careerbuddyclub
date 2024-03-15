@@ -20,7 +20,7 @@ export function FeatureImgBox() {
 const Featurefourteen = () => {
   return (
     <div>
-      <section className="intro-section pt-100">
+     {/*} <section className="intro-section pt-100">
         <div className="container ">
           <h3 style={{ color: "#eed30d" }}>Shortlist Your Colleges with Precision: Match Your Career Fit for the Best Educational Journey</h3>
           <p className="lead">
@@ -32,7 +32,7 @@ const Featurefourteen = () => {
               </div>
           </Link>
         </div>
-      </section>
+  </section> */}
 
       <section className="text-feature-three position-relative pt-50 md-pt-100">
         <div className="container">
@@ -60,7 +60,7 @@ const Featurefourteen = () => {
                   />
                   <AccordionItemThree
                     id="two"
-                    isShow={true}
+                    isShow={false}
                     title="Skill Buddy:"
                     desc="Your personal mentor, dedicated to elevating both your soft and technical skills. Through personalised guidance, they ensure you acquire the expertise needed to thrive in the ever-evolving professional landscape."
                     parent={""}
@@ -69,7 +69,7 @@ const Featurefourteen = () => {
                   />
                   <AccordionItemThree
                     id="four"
-                    isShow={true}
+                    isShow={false}
                     title="Insight Buddy:"
                     desc="Your constant companion throughout your learning journey. They provide real-world insights and experiences, guiding you in applying your knowledge effectively. With their support, you gain practical wisdom that goes beyond the classroom."
                     parent={""}
@@ -78,7 +78,7 @@ const Featurefourteen = () => {
                   />
                   <AccordionItemThree
                     id="three"
-                    isShow={true}
+                    isShow={false}
                     title="Placement Buddy:"
                     desc="Your destiny designer ensuring a seamless transition into the professional world. From interview preparation to providing placement opportunities, they guide you every step, helping you embark on the next chapter of your career journey."
                     parent={""}

@@ -16,18 +16,19 @@ export const how_works_apti: how_works_type[] = [
   },
   {
     id: 2,
-    icon: icon_2,
-    icon_white: icon_W_2,
-    title: "Create a Career Roadmap",
-    sub_title:
-      "Compare and select a few colleges from among thousands of options for your primary and backup vocations.",
-  },
-  {
-    id: 3,
     icon: icon_3,
     icon_white: icon_W_3,
     title: "Personalized Counselling",
     sub_title:
       "With the help of professionals, plan your career, stream/subject combinations, course, college, and more.",
   },
+  {
+    id: 3,
+    icon: icon_2,
+    icon_white: icon_W_2,
+    title: "Create a Career Roadmap",
+    sub_title:
+      "Compare and select a few colleges from among thousands of options for your primary and backup vocations.",
+  },
+ 
 ];

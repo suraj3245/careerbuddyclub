@@ -41,13 +41,13 @@ const FeatureNine = () => {
                 <AccordionItem
                   id="two"
                   title="Hire top talents"
-                  desc="Practice what you learned on realistic lorem quis test questions testing."
+                  desc="More than 1000 students from 147 top institutions of India."
                   parent="accordionOne"
                 />
                 <AccordionItem
                   id="three"
                   title="Protected payments, every time"
-                  desc="Practice what you learned on realistic lorem quis test questions testing."
+                  desc="Zero cost campus hiring."
                   parent="accordionOne"
                 />
               </div>

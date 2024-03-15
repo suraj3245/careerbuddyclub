@@ -32,16 +32,17 @@ const DashboardEducation = ({ setIsOpenSidebar }: IProps) => {
     percentageCgpaCollege: "",
     // ... other fields as needed ...
   });
+  const [isLoading, setIsLoading] = useState(true);
+  const [showLoader, setShowLoader] = useState(true);
 
   const fetchUserData = async () => {
     const temptoken = localStorage.getItem("token");
     try {
       const response = await axios({
         method: "POST",
-        url: "http://54.224.161.134:8080/api/students/getstudentsprofile",
+        url: "https://test.careerbuddyclub.com:8080/api/students/getstudentsprofile",
         headers: {
           Accept: "*/*",
-          "User-Agent": "Thunder Client (https://www.thunderclient.com)",
           Authorization: `Bearer ${temptoken}`,
         },
       });
@@ -67,14 +68,22 @@ const DashboardEducation = ({ setIsOpenSidebar }: IProps) => {
           percentageCgpaCollege: data.educationDetails.percentage_college || "",
         });
       }
+      setIsLoading(false);
     } catch (error) {
       console.error(error);
+      setIsLoading(false);
     }
   };
 
   // Use useEffect to fetch data on component mount
   useEffect(() => {
     fetchUserData();
+    const timer = setTimeout(() => {
+      setShowLoader(false); // Hide loader after 3 seconds
+    }, 3000);
+
+    // Cleanup timeout if component unmounts before timeout completes
+    return () => clearTimeout(timer);
   }, []);
 
   const handleChange = (
@@ -112,10 +121,9 @@ const DashboardEducation = ({ setIsOpenSidebar }: IProps) => {
     // Set up the request options for axios
     const options = {
       method: "POST",
-      url: "http://54.224.161.134:8080/api/students/updateEducationDetails",
+      url: "https://test.careerbuddyclub.com:8080/api/students/updateEducationDetails",
       headers: {
         Accept: "*/*",
-        "User-Agent": "Thunder Client (https://www.thunderclient.com)",
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
       },
@@ -157,7 +165,24 @@ const DashboardEducation = ({ setIsOpenSidebar }: IProps) => {
   const handleSelectChange = (item: OnChangeArgument) => {
     setFormData((prevState) => ({ ...prevState, [item.name]: item.value }));
   };
-
+  if (showLoader || isLoading) {
+    return (
+      <div
+        className="dashboard-body"
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh",
+        }}
+      >
+        <iframe
+          src="https://lottie.host/embed/b6d22d1e-15ca-4192-9664-3c09fea20a16/RsXVJpOBmE.json"
+          style={{ width: "300px", height: "300px" }} // Adjust size as needed
+        ></iframe>
+      </div>
+    ); // Replace with your loader component or element
+  }
   return (
     <div className="dashboard-body">
       <div className="position-relative">
@@ -174,7 +199,7 @@ const DashboardEducation = ({ setIsOpenSidebar }: IProps) => {
 
             <div className="row">
               <div className="col-12">
-                <div className="dash-input-wrapper mb-25">
+                <div className="dash-input-wrapper mb-10">
                   <label htmlFor="">School Name*</label>
                   <input
                     type="text"
@@ -187,7 +212,7 @@ const DashboardEducation = ({ setIsOpenSidebar }: IProps) => {
                 </div>
               </div>
               <div className="col-lg-3">
-                <div className="dash-input-wrapper mb-25">
+                <div className="dash-input-wrapper mb-10">
                   <label htmlFor="">Board*</label>
                   <input
                     type="text"
@@ -200,7 +225,7 @@ const DashboardEducation = ({ setIsOpenSidebar }: IProps) => {
                 </div>
               </div>
               <div className="col-lg-3">
-                <div className="dash-input-wrapper mb-25">
+                <div className="dash-input-wrapper mb-10">
                   <label htmlFor="">Stream*</label>
                   <input
                     type="text"
@@ -214,7 +239,7 @@ const DashboardEducation = ({ setIsOpenSidebar }: IProps) => {
               </div>
 
               <div className="col-lg-3">
-                <div className="dash-input-wrapper mb-25">
+                <div className="dash-input-wrapper mb-10">
                   <label htmlFor="">Passing Year*</label>
                   <input
                     type="number"
@@ -227,7 +252,7 @@ const DashboardEducation = ({ setIsOpenSidebar }: IProps) => {
                 </div>
               </div>
               <div className="col-lg-3">
-                <div className="dash-input-wrapper mb-25">
+                <div className="dash-input-wrapper mb-10">
                   <label htmlFor="percentageCgpaX">Percentage/CGPA*</label>
                   <input
                     type="text"
@@ -243,7 +268,7 @@ const DashboardEducation = ({ setIsOpenSidebar }: IProps) => {
             <h5 className="sub-title">Class XII Details</h5>
             <div className="row">
               <div className="col-12">
-                <div className="dash-input-wrapper mb-25">
+                <div className="dash-input-wrapper mb-10">
                   <label htmlFor="">School Name*</label>
                   <input
                     type="text"
@@ -256,7 +281,7 @@ const DashboardEducation = ({ setIsOpenSidebar }: IProps) => {
                 </div>
               </div>
               <div className="col-lg-3">
-                <div className="dash-input-wrapper mb-25">
+                <div className="dash-input-wrapper mb-10">
                   <label htmlFor="">Board*</label>
                   <input
                     type="text"
@@ -269,7 +294,7 @@ const DashboardEducation = ({ setIsOpenSidebar }: IProps) => {
                 </div>
               </div>
               <div className="col-lg-3">
-                <div className="dash-input-wrapper mb-25">
+                <div className="dash-input-wrapper mb-10">
                   <label htmlFor="">Stream*</label>
                   <input
                     type="text"
@@ -283,7 +308,7 @@ const DashboardEducation = ({ setIsOpenSidebar }: IProps) => {
               </div>
 
               <div className="col-lg-3">
-                <div className="dash-input-wrapper mb-25">
+                <div className="dash-input-wrapper mb-10">
                   <label htmlFor="">Passing Year*</label>
                   <input
                     type="number"
@@ -296,7 +321,7 @@ const DashboardEducation = ({ setIsOpenSidebar }: IProps) => {
                 </div>
               </div>
               <div className="col-lg-3">
-                <div className="dash-input-wrapper mb-25">
+                <div className="dash-input-wrapper mb-10">
                   <label htmlFor="percentageCgpaXII">Percentage/CGPA*</label>
                   <input
                     type="text"
@@ -312,7 +337,7 @@ const DashboardEducation = ({ setIsOpenSidebar }: IProps) => {
             <h5 className="sub-title">Graduation Details</h5>
             <div className="row">
               <div className="col-12">
-                <div className="dash-input-wrapper mb-25">
+                <div className="dash-input-wrapper mb-10">
                   <label htmlFor="">College Name*</label>
                   <input
                     type="text"
@@ -325,7 +350,7 @@ const DashboardEducation = ({ setIsOpenSidebar }: IProps) => {
                 </div>
               </div>
               <div className="col-lg-3">
-                <div className="dash-input-wrapper mb-25">
+                <div className="dash-input-wrapper mb-10">
                   <label htmlFor="">University Name*</label>
                   <input
                     type="text"
@@ -338,7 +363,7 @@ const DashboardEducation = ({ setIsOpenSidebar }: IProps) => {
                 </div>
               </div>
               <div className="col-lg-3">
-                <div className="dash-input-wrapper mb-25">
+                <div className="dash-input-wrapper mb-10">
                   <label htmlFor="">Degree*</label>
                   <input
                     type="text"
@@ -352,7 +377,7 @@ const DashboardEducation = ({ setIsOpenSidebar }: IProps) => {
               </div>
 
               <div className="col-lg-3">
-                <div className="dash-input-wrapper mb-25">
+                <div className="dash-input-wrapper mb-10">
                   <label htmlFor="">Passing Year*</label>
                   <input
                     type="number"
@@ -365,7 +390,7 @@ const DashboardEducation = ({ setIsOpenSidebar }: IProps) => {
                 </div>
               </div>
               <div className="col-lg-3">
-                <div className="dash-input-wrapper mb-25">
+                <div className="dash-input-wrapper mb-10">
                   <label htmlFor="percentageCgpaCollege">
                     Percentage/CGPA*
                   </label>
@@ -389,11 +414,7 @@ const DashboardEducation = ({ setIsOpenSidebar }: IProps) => {
         </form>
 
         <div className="button-group d-inline-flex align-items-center mt-30">
-          <Link
-            type="submit"
-            className="dash-btn-two tran3s me-3"
-            href="/dashboard/candidate-dashboard/education"
-          >
+          <Link type="submit" className="dash-btn-two tran3s me-3" href="/">
             Next
           </Link>
         </div>

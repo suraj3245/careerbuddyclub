@@ -8,6 +8,7 @@ import CompanyV1Area from "../components/company/company-v1-area";
 
 export const metadata: Metadata = {
   title: "Company v2",
+  robots: "noindex",
 };
 
 const CompanyV2Page = () => {

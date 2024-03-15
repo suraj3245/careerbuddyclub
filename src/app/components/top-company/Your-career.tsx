@@ -9,7 +9,7 @@ const YourCareer = () => {
     const temptoken = localStorage.getItem("token");
     const options = {
       method: "POST",
-      url: "http://54.224.161.134:8080/api/students/careerresultskills",
+      url: "https://test.careerbuddyclub.com:8080/api/students/careerresultskills",
       headers: {
         Accept: "*/*",
         Authorization: `Bearer ${temptoken}`,
@@ -28,14 +28,24 @@ const YourCareer = () => {
         console.error(error);
       });
   }, []);
+  const headingStyle = {
+    fontSize: "24px", // Adjust this value as needed
+  };
 
+  const textStyle = {
+    fontSize: "14px", // Adjust this value as needed
+  };
   return (
-    <section className="top-company-section pt-50 lg-pt-50 pb-50 lg-pb-50 mt-50 xl-mt-50">
+    <section className="top-company-section pt-10 lg-pt-10 pb-10 lg-pb-10 mt-10 xl-mt-10">
       <div className="container">
-        <div className="row justify-content-between align-items-center pb-40 lg-pb-10">
+        <div className="row justify-content-between align-items-center pb-10 lg-pb-10">
           <div className="col-sm-7">
             <div className="title-one">
-              <h2 className="main-font wow fadeInUp" data-wow-delay="0.3s">
+              <h2
+                className="main-font wow fadeInUp"
+                data-wow-delay="0.3s"
+                style={headingStyle}
+              >
                 Popular Career Choices According To Your Score
               </h2>
             </div>
@@ -44,9 +54,9 @@ const YourCareer = () => {
 
         <div className="row">
           {companyData.map((item, index) => (
-            <div key={index} className="col-lg-6 col-md-5 col-sm-6">
-              <div className="card-style-nine text-center tran3s mt-25 wow fadeInUp">
-                <div className="text-lg fw-500 text-dark mt-10 mb-10">
+            <div key={index} className="col-lg-3 col-md-5 col-sm-6">
+              <div className="card-style-nine text-center tran3s mt-10 wow fadeInUp">
+                <div className="text-lg fw-500 text-dark" style={textStyle}>
                   {item}
                 </div>
               </div>

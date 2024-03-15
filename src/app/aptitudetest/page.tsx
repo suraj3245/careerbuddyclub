@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import QuizForm from "../components/aptitudeSurvey/aptitudeform";
+import AptitudeTestcomp from "../components/aptitude-test/aptitude-test";
+import { Metadata } from "next";
 
-const aptitudetest = () => {
-  return <QuizForm />;
+export const metadata: Metadata = {
+  title: "Aptitude Test",
 };
 
-export default aptitudetest;
+const AptitudeTest = () => {
+  return (
+    <>
+      <AptitudeTestcomp />
+    </>
+  );
+};
+
+export default AptitudeTest;

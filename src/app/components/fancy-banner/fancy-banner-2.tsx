@@ -8,9 +8,9 @@ const counter_data: {
   text: string;
   title: string;
 }[] = [
-  { count: 786, text: "+", title: "World wide Client" },
-  { count: 1000, text: "+", title: "Top Talents" },
-  { count: 100, text: "+", title: "Institution" },
+  { count: 1200, text: "+", title: "Schools" },
+  { count: 50, text: "+", title: "Colleges/Universities" },
+  { count: 100, text: "+", title: "Corporates" },
 ];
 
 const FancyBannerTwo = () => {
@@ -28,14 +28,14 @@ const FancyBannerTwo = () => {
                     </span>
                   </div>
                   <h2 className="fw-600 text-white">
-                    Benefits  Of <br />
+                  But why choose <br />
                     <span style={{ color: "#EEE30D" }}>Career</span>
                     Buddy
-                    <span style={{ color: "#EEE30D" }}>Club.</span>
+                    <span style={{ color: "#EEE30D" }}>Club?</span>
                   </h2>
                 </div>
                 <p className="text-white mt-25 mb-55 lg-mb-40">
-                  - The trusted partner of more than <b>100+ colleges and
+                  - The trusted partner of more than <b>50+ colleges and
                   institutions.</b>
                   <br />
                   - Gain data-driven insights to refine career strategies and
@@ -43,7 +43,8 @@ const FancyBannerTwo = () => {
                   <br /> - Engage students with ease using our <b>in-house tools </b>
                   for event promotion and internship opportunities.
                   <br />- <b> Save time with simplified processes </b>for event
-                  management, job postings, and student tracking.{" "}
+                  management, job postings, and student tracking.
+                  <br /> - 10+ years of experience guiding students to success{" "}
                 </p>
                 <div className="counter-wrapper pb-50 lg-pb-30">
                   <div className="row">
@@ -61,7 +62,7 @@ const FancyBannerTwo = () => {
                     ))}
                   </div>
                 </div>
-                <Link href="/contact" className="explore-btn tran3s ">
+                <Link href="/" className="explore-btn tran3s ">
                   Explore Career Buddy Club To Empower You and Your Students.
                 </Link>
               </div>

@@ -3,15 +3,16 @@ import { StaticImageData } from "next/image";
 export interface category_dropdown {
   id: number;
   category_items: {
-      id: number;
-      icon: StaticImageData;
-      title: string;
-      count: string;
-      bg_clr?: string;
+    id: number;
+    icon: StaticImageData;
+    title: string;
+    count: string;
+    bg_clr?: string;
   }[];
-}[]
+}
+[];
 
-// category two 
+// category two
 export interface ICategoryTwo {
   id: number;
   icon: StaticImageData;
@@ -21,4 +22,16 @@ export interface ICategoryTwo {
   bg?: string;
   bg_img?: StaticImageData;
   df?: boolean;
+}
+
+export interface ICategoryThree {
+  id: number;
+  icon: StaticImageData;
+  title: React.JSX.Element;
+  description?: string;
+  sub_title?: string;
+  bg?: string;
+  bg_img?: StaticImageData;
+  df?: boolean;
+  nav: string;
 }

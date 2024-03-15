@@ -5,23 +5,21 @@ const menu_data: IMenuData[] = [
   {
     id: 1,
     link: "/",
+    title: "Home",
+  },
+  {
+    id: 2,
+    link: "/admission",
     title: "Admission",
   },
 
   {
-    id: 2,
+    id: 3,
     link: "/",
     title: "Placement",
     sub_menus: [
-      { link: "//jobs.careerbuddyclub.com/", title: "See Jobs Live Now"},
-      { link: "/company-details/29", title: "Digital Amigos" },
-      { link: "/company-details/22", title: "Geetanjali Homestates Pvt Ltd." },
-      { link: "/company-details/8", title: "IGT Solutions" },
-      { link: "/company-details/30", title: "Lead Height" },
-      { link: "/company-details/31", title: "RKP Finance" },
-      { link: "/company-details/32", title: "Unidad Technologies Pvt Ltd." },
-      { link: "/company-details/33", title: "JODO" },
-      { link: "/company-v1", title: "See More" },
+      { link: "//jobs.careerbuddyclub.com/", title: "See Jobs Live Now" },
+      { link: "/company-v1", title: "Partner Companies" },
     ],
   },
   // {
@@ -178,25 +176,31 @@ const menu_data: IMenuData[] = [
   //   title: "JobPortal",
   // },
   {
-    id: 4,
-    link: "/careerapt",
+    id: 5,
+    link: "/career-aptitude",
     title: "Best Career For You",
   },
+
   {
-    id: 3,
+    id: 6,
     link: "/",
-    title: "Partners",
-      sub_menus: [
-        { title: "For School", link: "schools"},
-        { title: "For Employer", link: "/corporate" },
-        { title: "For College/ University", link: "/campus" },
-      ],
+    title: "Services",
+    sub_menus: [
+      { title: "For School", link: "/schools" },
+      { title: "For Corporate", link: "/corporate" },
+      { title: "For College/ University", link: "/campus" },
+    ],
   },
   {
-  id:4,
-  link: "/about-us",
-  title: "About us",
-  }
+    id: 7,
+    link: "/about-us",
+    title: "About us",
+  },
+  {
+    id: 8,
+    link: "/contact",
+    title: "Contact us",
+  },
 ];
 
 export default menu_data;

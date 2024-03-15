@@ -6,7 +6,12 @@ import logo from "@/assets/images/logo/logo.png";
 import logo_2 from "@/assets/images/logo/logo_04.png";
 import logo_w from "@/assets/images/logo/logo_06.png";
 import shape from "@/assets/images/shape/shape_28.svg";
-import { WidgetOne, WidgetThree, WidgetTwo } from "./component/footer-widgets";
+import {
+  WidgetFour,
+  WidgetOne,
+  WidgetThree,
+  WidgetTwo,
+} from "./component/footer-widgets";
 import SocialLinks from "./component/social-links";
 
 const FooterOne = ({
@@ -48,24 +53,7 @@ const FooterOne = ({
             {/* widget three */}
             <WidgetThree style_2={style_2} cls="col-lg-2 col-md-3 col-sm-4" />
             {/* widget end */}
-            <div className="col-lg-4 mb-20 footer-newsletter">
-              <h5 className={`footer-title ${style_2 ? "text-white" : ""}`}>
-                Newsletter
-              </h5>
-              <p className={`${style_2 ? "text-white" : ""}`}>
-                Join & get important updates regularly
-              </p>
-              <form
-                action="#"
-                className={`d-flex ${style_3 ? "border-style" : ""}`}
-              >
-                <input type="email" placeholder="Enter your email*" />
-                <button>Send</button>
-              </form>
-              <p className="note">
-                We only send interesting and relevant emails.
-              </p>
-            </div>
+            <WidgetFour style_2={style_2} cls="col-lg-2 col-md-3 col-sm-4" />
           </div>
         </div>
       </div>
@@ -84,7 +72,7 @@ const FooterOne = ({
             <div className="col-lg-4 order-lg-1 mb-15">
               <ul className="d-flex style-none bottom-nav justify-content-center justify-content-lg-start">
                 <li>
-                  <Link href="/contact">Privacy & Terms.</Link>
+                  <Link href="/privacy-policy">Privacy & Terms.</Link>
                 </li>
                 <li>
                   <Link href="/contact"> Contact Us</Link>

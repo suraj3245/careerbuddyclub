@@ -18,7 +18,7 @@ function MediaImg({ img, num }: { img: StaticImageData; num: string }) {
     >
       <Image
         src={img}
-        style={{ height: "40px", width: "40px" }}
+        style={{ height: "50px", width: "50px" }}
         alt="media"
         className="lazy-img"
       />

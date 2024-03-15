@@ -31,6 +31,27 @@ import img_30 from '@/assets/images/logo/media_63.png';
 import img_31 from '@/assets/images/logo/media_64.png';
 import img_32 from '@/assets/images/logo/media_65.png';
 import img_33 from '@/assets/images/logo/media_66.png';
+import img_34 from '@/assets/images/logo/media_67.jpg';
+import img_35 from '@/assets/images/logo/media_68.png';
+import img_36 from '@/assets/images/logo/media_69.png';
+import img_37 from '@/assets/images/logo/media_70.jpg';
+import img_38 from '@/assets/images/logo/media_71.png';
+import img_39 from '@/assets/images/logo/media_72.jpg';
+import img_40 from '@/assets/images/logo/media_73.jpg';
+import img_41 from '@/assets/images/logo/media_74.jpg';
+import img_42 from '@/assets/images/logo/media_75.png';
+import img_43 from '@/assets/images/logo/media_76.jpg';
+import img_44 from '@/assets/images/logo/media_77.png';
+import img_45 from '@/assets/images/logo/media_78.jpg';
+import img_46 from '@/assets/images/logo/media_79.png';
+import img_47 from '@/assets/images/logo/media_80.png';
+import img_48 from '@/assets/images/logo/media_81.png';
+import img_49 from '@/assets/images/logo/media_82.png';
+import img_50 from '@/assets/images/logo/media_83.png';
+import img_51 from '@/assets/images/logo/media_84.png';
+import img_52 from '@/assets/images/logo/media_85.png';
+import img_53 from '@/assets/images/logo/media_86.png';
+import img_54 from '@/assets/images/logo/media_87.jpg';
 import { ICompany } from './../types/company-type';
 
 const company_data:ICompany[] = [
@@ -263,6 +284,153 @@ const company_data:ICompany[] = [
     img:img_33,
     name:'JODO',
     location:'Bangalore, Mumbai, Delhi, Hyderabad',
+    isFav:true
+  },
+  {
+    id:34,
+    img:img_34,
+    name:'Pristyn Care',
+    location:'Haryana',
+    isFav:true
+  },
+  {
+    id:35,
+    img:img_35,
+    name:'Max Superspeciality Hospital',
+    location:'Maharashtra',
+    isFav:true
+  },
+  {
+    id:36,
+    img:img_36,
+    name:'Medanta Hospital',
+    location:'Bihar',
+    isFav:true
+  },
+  {
+    id:37,
+    img:img_37,
+    name:'Internselite',
+    location:'Haryana',
+    isFav:true
+  },
+  {
+    id:38,
+    img:img_38,
+    name:'Insurance Dekho',
+    location:'Haryana',
+    isFav:true
+  },
+  {
+    id:39,
+    img:img_39,
+    name:'Sata Vikas India Pvt Ltd (Miraya Infoways)',
+    location:'Haryana',
+    isFav:true
+  },
+  {
+    id:40,
+    img:img_40,
+    name:'Infollion',
+    location:'Delhi',
+    isFav:true
+  },
+  {
+    id:41,
+    img:img_41,
+    name:'Lenkskart',
+    location:'Delhi',
+    isFav:true
+  },
+  {
+    id:42,
+    img:img_42,
+    name:'HDB Financial Services',
+    location:'Maharashtra',
+    isFav:true
+  },
+  {
+    id:43,
+    img:img_43,
+    name:'Krishify',
+    location:'Delhi',
+    isFav:true
+  },
+  {
+    id:44,
+    img:img_44,
+    name:'Corro Health',
+    location:'Maharashtra',
+    isFav:true
+  },
+  {
+    id:45,
+    img:img_45,
+    name:'Kissan Helpline',
+    location:'Madhya Pradesh',
+    isFav:true
+  },
+  {
+    id:46,
+    img:img_46,
+    name:'Freecharge',
+    location:'Haryana',
+    isFav:true
+  },
+  {
+    id:47,
+    img:img_47,
+    name:'IDS Infotech Limited',
+    location:'Punjab',
+    isFav:true
+  },
+  {
+    id:48,
+    img:img_48,
+    name:'Jungle Works',
+    location:'Maharashtra',
+    isFav:true
+  },
+  {
+    id:49,
+    img:img_49,
+    name:'Apollo Home Healthcare Ltd',
+    location:'Tamil Nadu ',
+    isFav:true
+  },
+  {
+    id:50,
+    img:img_50,
+    name:'Innovalance Learning',
+    location:'New Delhi',
+    isFav:true
+  },
+  {
+    id:51,
+    img:img_51,
+    name:'Marriott International',
+    location:'Mumbai',
+    isFav:true
+  },
+  {
+    id:52,
+    img:img_52,
+    name:'Jagran Solutions',
+    location:'New Delhi',
+    isFav:true
+  },
+  {
+    id:53,
+    img:img_53,
+    name:'Nectar Life Sciences',
+    location:'Hyderabad',
+    isFav:true
+  },
+  {
+    id:54,
+    img:img_54,
+    name:'Bajaj Finserv',
+    location:'Pune',
     isFav:true
   },
 ]

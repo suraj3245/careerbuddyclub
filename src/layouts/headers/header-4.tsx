@@ -1,17 +1,27 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-// internal
 import Menus from "./component/menus";
 import logo from "@/assets/images/logo/logo4.png";
 import useSticky from "@/hooks/use-sticky";
 import LoginModal from "@/app/components/common/popup/login-modal";
-import RegisterModal from "@/app/components/common/popup/register-modal";
-import ApplyModal from "@/app/components/common/popup/apply-modal";
 import PhoneModal from "@/app/components/common/popup/phone-modal";
-import MagicModal from "@/app/components/common/popup/magic-modal";
-import { ToastContainer, toast } from "react-toastify";
+import ScheduleModal from "@/app/components/common/popup/schedule";
+import img_1 from "@/assets/images/assets/user-icon.png";
+import dynamic from "next/dynamic";
+import { usePathname } from "next/navigation";
+import axios from "axios";
+import { useEffect } from "react";
+
+// Import ApplyModal with SSR disabled
+const ApplyModal = dynamic(
+  () => import("@/app/components/common/popup/apply-modal"),
+  {
+    ssr: false,
+  }
+);
+
 import "react-toastify/dist/ReactToastify.css";
 
 interface HeaderFourProps {
@@ -21,10 +31,61 @@ interface HeaderFourProps {
   onLogout: () => void;
   key: number;
 }
+
 const HeaderFour: React.FC<HeaderFourProps> = ({ user, key, onLogout }) => {
   const { sticky } = useSticky();
-  const isUserLoggedIn = user && user.value;
+  const isUserLoggedIn = Boolean(user.value); // user.value will be false if null or empty
+  const [showDropdown, setShowDropdown] = useState(false);
+  const [userName, setUserName] = useState("");
+  const pathname = usePathname();
 
+  const fetchUserData = async () => {
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+      // Handle the case where the token is not available
+      return;
+    }
+
+    // Check if username is already in localStorage
+    const storedUserName = localStorage.getItem("username");
+    if (storedUserName) {
+      setUserName(storedUserName);
+      return;
+    }
+
+    const options = {
+      method: "POST",
+      url: "https://test.careerbuddyclub.com:8080/api/students/getstudentsprofile",
+      headers: {
+        Accept: "*/*",
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+      data: {},
+    };
+
+    try {
+      const response = await axios.request(options);
+      const data = response.data;
+
+      if (data.student && data.student.name) {
+        localStorage.setItem("username", data.student.name); // Store username in localStorage
+        setUserName(data.student.name);
+      } else {
+        setUserName("No Name Available");
+      }
+    } catch (error) {
+      console.error(error);
+      setUserName("No Name Available");
+    }
+  };
+
+  useEffect(() => {
+    fetchUserData();
+  }, []);
+  const getInitials = (userName: string) =>
+    userName && userName.length > 0 ? userName[0].toUpperCase() : "?";
   return (
     <>
       <header
@@ -73,14 +134,55 @@ const HeaderFour: React.FC<HeaderFourProps> = ({ user, key, onLogout }) => {
                 )}
                 {isUserLoggedIn && (
                   <ul className="d-flex align-items-center style-none">
-                    <li>
+                    <li className="nav-item dropdown">
                       <a
-                        href="/"
-                        className=" btn-five fw-500 text-white"
-                        onClick={onLogout}
+                        className="nav-link "
+                        href="#"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        data-bs-auto-close="outside"
+                        aria-expanded="false"
                       >
-                        Logout
+                        <div
+                          className="avatar-placeholder rounded-circle d-flex align-items-center justify-content-center"
+                          style={{
+                            width: "50px",
+                            height: "50px",
+                            backgroundColor: "#007bff",
+                            color: "white",
+                            fontSize: "30px",
+                          }}
+                        >
+                          {getInitials(userName)}
+                        </div>
                       </a>
+                      <ul className="dropdown-menu">
+                        <li>
+                          <Link
+                            href="/dashboard/candidate-dashboard/profile"
+                            className="dropdown-item"
+                          >
+                            Student Dashboard
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            href="/dashboard/candidate-dashboard/setting"
+                            className="dropdown-item"
+                          >
+                            Set Password
+                          </Link>
+                        </li>
+                        <li>
+                          <a
+                            href="/"
+                            className="dropdown-item"
+                            onClick={onLogout}
+                          >
+                            Logout
+                          </a>
+                        </li>
+                      </ul>
                     </li>
                   </ul>
                 )}
@@ -111,9 +213,14 @@ const HeaderFour: React.FC<HeaderFourProps> = ({ user, key, onLogout }) => {
                     {/* menus end */}
                     {!isUserLoggedIn && (
                       <li className="d-md-none mt-5">
-                        <Link href="/register" className="btn-five w-100">
-                          Register
-                        </Link>
+                        <a
+                          href="#"
+                          className="fw-500 btn-five"
+                          data-bs-toggle="modal"
+                          data-bs-target="#ApplyModal"
+                        >
+                          Apply Now
+                        </a>
                       </li>
                     )}
                   </ul>
@@ -127,9 +234,8 @@ const HeaderFour: React.FC<HeaderFourProps> = ({ user, key, onLogout }) => {
       {/* login modal start */}
       <ApplyModal />
       <LoginModal />
-      <RegisterModal />
       <PhoneModal />
-      <MagicModal />
+      <ScheduleModal />
       {/* login modal end */}
     </>
   );

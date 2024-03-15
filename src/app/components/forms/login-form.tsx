@@ -56,7 +56,7 @@ const LoginForm = () => {
     // Set up the request options for axios
     const options = {
       method: "POST",
-      url: "http://54.224.161.134:8080/api/students/login", // Replace with your API's URL
+      url: "https://test.careerbuddyclub.com:8080/api/students/login", // Replace with your API's URL
       headers: {
         "Content-Type": "application/json",
       },
@@ -90,7 +90,7 @@ const LoginForm = () => {
           theme: "light",
         });
         setTimeout(() => {
-          window.location.href = "/";
+          window.location.href = "/dashboard/candidate-dashboard/profile";
         }, 1000);
       })
       .catch((error) => {
@@ -113,37 +113,13 @@ const LoginForm = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="mt-10">
-      <ToastContainer
-        position="top-left"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-      />
-      <ToastContainer
-        position="bottom-left"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-      />
       <div className="row">
         <div className="col-12">
           <div className="input-group-meta position-relative mb-25">
             <label style={{ color: "black" }}>Email*</label>
             <input
               type="email"
-              placeholder="Enter Email"
+              placeholder="E-mail"
               {...register("email", { required: `Email is required!` })}
               name="email"
             />
@@ -157,7 +133,7 @@ const LoginForm = () => {
             <label style={{ color: "black" }}>Password*</label>
             <input
               type={`${showPass ? "text" : "password"}`}
-              placeholder="Enter Password"
+              placeholder="Password"
               className="pass_log_id"
               {...register("password", { required: `Password is required!` })}
               name="password"
@@ -187,19 +163,7 @@ const LoginForm = () => {
             </a>
           </div>
         </div>
-        <div className="col-12">
-          <div className="agreement-checkbox d-flex justify-content-between align-items-center pb-30">
-            <a
-              href="#"
-              className="fw-500"
-              data-bs-toggle="modal"
-              data-bs-target="#MagicModal"
-              style={{ color: "blueviolet" }}
-            >
-              Login using Magic Link!
-            </a>
-          </div>
-        </div>
+
         <div className="col-12">
           <div className="agreement-checkbox d-flex justify-content-between align-items-center">
             <a

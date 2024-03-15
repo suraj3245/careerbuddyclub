@@ -6,6 +6,9 @@ import FooterOne from "@/layouts/footers/footer-one";
 import MapArea from "../components/contact/map-area";
 import ContactArea from "../components/contact/contact-area";
 import HeaderFour from "@/layouts/headers/header-4";
+import PricingOne from "../components/pricing/pricing-one";
+import Privacyone from "../components/contact/Privacy-area";
+import Termone from "../components/contact/term & condition";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -21,12 +24,10 @@ const ContactPage = () => {
 
         {/*MapArea start */}
         <MapArea />
-        {/*MapArea end */}
-
         {/* contact area start */}
         <ContactArea />
         {/* contact area end */}
-
+      
         {/* footer start */}
         <FooterOne />
         {/* footer end */}

@@ -5,17 +5,16 @@ import ErrorMsg from "../common/error-msg";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useRouter } from "next/navigation";
 
 // form data type
 type IFormData = {
-  mobile: number;
+  mobile: string;
   verificationCode: string;
 };
 
 const PhoneForm = () => {
   const [isVerificationSent, setIsVerificationSent] = useState<boolean>(false);
-  const [countdown, setCountdown] = useState(60);
+  const [countdown, setCountdown] = useState(30);
   const [showResend, setShowResend] = useState(false);
 
   const {
@@ -26,13 +25,14 @@ const PhoneForm = () => {
     getValues,
   } = useForm<IFormData>({});
 
-  const requestOTP = (data: { country_code: string; mobile: number }) => {
+  const requestOTP = (data: { country_code: string; mobile: string }) => {
+    setIsVerificationSent(true);
     axios
-      .post("http://54.224.161.134:8080/api/students/getwhatsappotp", data)
+      .post(
+        "https://test.careerbuddyclub.com:8080/api/students/loginwithphonewpotpsend",
+        data
+      )
       .then((response) => {
-        console.log(response.data);
-        // Notify user that OTP is sent
-
         toast.info("Otp sent 🚀", {
           position: "top-left",
           autoClose: 1000,
@@ -43,10 +43,9 @@ const PhoneForm = () => {
           progress: undefined,
           theme: "light",
         });
-        setIsVerificationSent(true); // To show OTP input field
       })
       .catch((error) => {
-        toast.error("Error sending OTP or Number is already registered 😵‍💫", {
+        toast.error("Error sending OTP !😵‍💫", {
           position: "top-left",
           autoClose: 1000,
           hideProgressBar: false,
@@ -71,28 +70,26 @@ const PhoneForm = () => {
   }, [isVerificationSent, countdown]);
   const onSubmit = (data: IFormData) => {
     // Destructure the required fields from data
+    const country_code = "91";
     const { mobile, verificationCode: otp } = data;
 
     // Set up the request options for axios
     const options = {
       method: "POST",
-      // url: '${process.env.REACT_APP_API_URL}students/register', // Replace with your API's URL
-      url: "http://54.224.161.134:8080/api/students/loginNumber", // Replace with your API's URL
+      url: "https://test.careerbuddyclub.com:8080/api/students/loginwithphone", // Replace with your API's URL
       headers: {
         "Content-Type": "application/json",
       },
-      data: { mobile, otp }, // Send only the required data
+      data: { mobile, otp, country_code }, // Send only the required data
     };
 
     // Make the POST request using axios
     axios
       .request(options)
       .then((response) => {
-        // Handle the response here, e.g., notify the user of success
         localStorage.setItem("token", response.data.access_token);
-
         console.log("Registration successful", response.data);
-        toast.success("Your Account is created 🚀", {
+        toast.success("Login successful 🚀", {
           position: "top-left",
           autoClose: 1000,
           hideProgressBar: false,
@@ -103,12 +100,12 @@ const PhoneForm = () => {
           theme: "light",
         });
         setTimeout(() => {
-          window.location.href = "/";
+          window.location.href = "/dashboard/candidate-dashboard/profile";
         }, 1000);
       })
       .catch((error) => {
         console.error("Registration error:", error);
-        toast.error("Unsucessful Registration Already a User 😵‍💫", {
+        toast.error("Unsucessful Login 😵‍💫", {
           position: "top-left",
           autoClose: 1000,
           hideProgressBar: false,
@@ -125,38 +122,12 @@ const PhoneForm = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <ToastContainer
-        position="top-left"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-      />
-      <ToastContainer
-        position="bottom-left"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-      />
-
       <div className="col-12">
         <div className="input-group-meta position-relative mb-25 mt-30">
-          <label style={{ color: "black" }}>Phone Number</label>
           <div style={{ display: "flex", alignItems: "center" }}>
             <input
               type="tel"
-              placeholder="+91"
+              placeholder="Mobile Number"
               {...register("mobile", {
                 required: `Phone Number is required!`,
               })}
@@ -185,7 +156,7 @@ const PhoneForm = () => {
               }}
             >
               {!isVerificationSent
-                ? "Send OTP"
+                ? "Whatsapp OTP"
                 : showResend
                 ? "Resend"
                 : `Wait for ${countdown} sec`}
@@ -200,10 +171,9 @@ const PhoneForm = () => {
       {isVerificationSent && (
         <div className="col-12">
           <div className="input-group-meta position-relative mb-15">
-            <label style={{ color: "black" }}>Verification Code*</label>
             <input
               type="text"
-              placeholder="Enter the code sent to your mobile"
+              placeholder="Whatsapp OTP"
               {...register("verificationCode", {
                 required: `Verification Code is required!`,
               })}
@@ -228,19 +198,7 @@ const PhoneForm = () => {
           </a>
         </div>
       </div>
-      <div className="col-12">
-        <div className="agreement-checkbox d-flex justify-content-between align-items-center pb-30">
-          <a
-            href="#"
-            className="fw-500"
-            data-bs-toggle="modal"
-            data-bs-target="#MagicModal"
-            style={{ color: "blueviolet" }}
-          >
-            Login using Magic Link!
-          </a>
-        </div>
-      </div>
+
       <div className="col-12">
         <div className="agreement-checkbox d-flex justify-content-between align-items-center">
           <a

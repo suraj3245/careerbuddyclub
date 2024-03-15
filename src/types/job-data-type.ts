@@ -16,3 +16,9 @@ export interface IJobType {
   english_fluency: string;
   overview: string;
 }
+export interface IgalType {
+  id: number;
+  logo: StaticImageData;
+  category: string[];
+  
+}

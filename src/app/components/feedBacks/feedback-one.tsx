@@ -7,6 +7,7 @@ import logo_3 from "@/assets/images/logo/media_10.webp";
 import logo_white from "@/assets/images/logo/Unknown.webp";
 import Image, { StaticImageData } from "next/image";
 import PartnersSlider from "../partners/partners-slider";
+import PartnersSlider2 from "../partners/partners-slider2";
 
 // slider_setting
 const slider_setting = {
@@ -194,7 +195,7 @@ const FeedbackOne = ({
             } pt-150 xl-pt-120 md-pt-80 sm-pt-40 pb-80 md-pb-40`}
           >
             {/* partners slider start */}
-            <PartnersSlider />
+            <PartnersSlider2 />
             {/* partners slider end */}
           </div>
         )}

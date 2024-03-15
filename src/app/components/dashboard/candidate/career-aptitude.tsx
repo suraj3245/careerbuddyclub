@@ -4,48 +4,80 @@ import DashboardHeader from "./dashboard-header";
 import React, { useRef, useState, useEffect } from "react";
 import Link from "next/link";
 import axios from "axios";
-import { Chart as ChartJS } from "chart.js/auto";
-import Confetti from "react-confetti";
-import { ToastContainer, toast } from "react-toastify";
+import dynamic from "next/dynamic";
 import "react-toastify/dist/ReactToastify.css";
 import TopCareer from "../../top-company/top-career";
 import YourCareer from "../../top-company/Your-career";
+import { jsPDF } from "jspdf";
+import html2canvas from "html2canvas";
 
+import { ApexOptions } from "apexcharts";
+const ReactApexChart = dynamic(() => import("react-apexcharts"), {
+  ssr: false,
+});
 // props type
 type IProps = {
   setIsOpenSidebar: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-type Question = {
-  id: number;
-  question: string;
-  type: string;
-};
-
-const defaultOptions = ["Dislike", "Neutral", "Enjoy"];
-
 const DashboardResult = ({ setIsOpenSidebar }: IProps) => {
-  const [questions, setQuestions] = useState<Question[]>([]);
-  const [answers, setAnswers] = useState<{ [key: number]: string }>({});
-  const [currentPage, setCurrentPage] = useState(0);
-  const [isSubmitted, setIsSubmitted] = useState(false);
   const [results, setResults] = useState<any | null>(null);
-  const [token, setToken] = useState<string | null>(null);
   const [testStatus, setTestStatus] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
+  const [showLoader, setShowLoader] = useState(true);
+
+  const barColors = [
+    "#FF4560",
+    "#00E396",
+    "#008FFB",
+    "#775DD0",
+    "#FEB019",
+    "#FF4560",
+    "#00E396",
+    "#008FFB",
+    "#775DD0",
+    "#FEB019",
+  ];
+  const downloadResultsAsPDF = async () => {
+    const input = document.getElementById("resultsContainer");
+    if (!(input instanceof HTMLElement)) return; // Type check
+
+    const canvas = await html2canvas(input, {
+      scale: 1, // Adjust scale as needed
+      scrollY: -window.scrollY, // Adjust for page scrolling
+    });
+
+    const imgData = canvas.toDataURL("image/png");
+    const pdf = new jsPDF({
+      orientation: "portrait",
+      unit: "px",
+      format: [canvas.width, canvas.height],
+    });
+
+    pdf.addImage(imgData, "PNG", 0, 0, canvas.width, canvas.height);
+    pdf.save("Career-Aptitude-test.pdf");
+  };
 
   const fetchCatResult = async () => {
     const token = localStorage.getItem("token");
+    const storedResults = localStorage.getItem("catResults");
+
+    // Use stored results if available
+    if (storedResults) {
+      setResults(JSON.parse(storedResults));
+      return;
+    }
+
     if (!token) {
-      // Handle the case where the token is not available
+      console.error("Token not found.");
       return;
     }
 
     const options = {
       method: "POST",
-      url: "http://54.224.161.134:8080/api/students/getcatresult",
+      url: "https://test.careerbuddyclub.com:8080/api/students/getcatresult",
       headers: {
         Accept: "*/*",
-        "User-Agent": "Thunder Client (https://www.thunderclient.com)",
         Authorization: `Bearer ${token}`,
       },
     };
@@ -53,26 +85,33 @@ const DashboardResult = ({ setIsOpenSidebar }: IProps) => {
     try {
       const response = await axios.request(options);
       const resultData = response.data;
-
-      // Update the results state with the fetched data
+      localStorage.setItem("catResults", JSON.stringify(resultData)); // Store the results
       setResults(resultData);
     } catch (error) {
       console.error("Error fetching cat result:", error);
     }
   };
 
-  useEffect(() => {
-    fetchCatResult();
-  }, []);
-
   const checkTestStatus = () => {
-    const token = localStorage.getItem("token"); // or however you get your token
+    const token = localStorage.getItem("token");
+    const storedTestStatus = localStorage.getItem("testStatus");
+
+    // Use stored status if available
+    if (storedTestStatus) {
+      setTestStatus(storedTestStatus);
+      return;
+    }
+
+    if (!token) {
+      console.error("Token not found.");
+      return;
+    }
+
     const options = {
       method: "POST",
-      url: "http://54.224.161.134:8080/api/students/checkcareerteststatus",
+      url: "https://test.careerbuddyclub.com:8080/api/students/checkcareerteststatus",
       headers: {
         Accept: "*/*",
-        "User-Agent": "Thunder Client (https://www.thunderclient.com)",
         Authorization: `Bearer ${token}`,
       },
     };
@@ -81,216 +120,132 @@ const DashboardResult = ({ setIsOpenSidebar }: IProps) => {
       .request(options)
       .then((response) => {
         setTestStatus(response.data.message);
-        // Store the result for the user
-        // You can use localStorage or a state management solution
+        localStorage.setItem("testStatus", response.data.message); // Store the test status
       })
       .catch((error) => {
         console.error(error);
-        // Handle error
       });
   };
 
-  useEffect(() => {
-    checkTestStatus();
-  }, []);
+  type TransformedResultType = {
+    category: string;
+    score: number;
+  };
+  const getTopThreeCategoryNames = () => {
+    if (!results) return [];
+    const transformedResults = Object.entries(results).map(([key, value]) => ({
+      category:
+        key.charAt(0).toUpperCase() + key.slice(1).replace("_score", ""),
+      score: typeof value === "number" ? value : 0,
+    }));
+    return transformedResults
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 3)
+      .map((result) => result.category);
+  };
+  const getTopThreeScores = () => {
+    if (!results) return [];
 
-  const chartRef = useRef<HTMLCanvasElement>(null);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const temptoken = localStorage.getItem("token");
-
-      setToken(temptoken);
-
-      const options = {
-        method: "POST",
-        url: "http://54.224.161.134:8080/api/students/getallcatquestions",
-        headers: {
-          Accept: "*/*",
-          Authorization: `Bearer ${temptoken}`,
-          "Content-Type": "application/json",
-        },
-        data: {},
+    // Transform the results
+    const transformedResults: TransformedResultType[] = Object.entries(
+      results
+    ).map(([key, value]) => {
+      return {
+        category:
+          key.charAt(0).toUpperCase() + key.slice(1).replace("_score", ""),
+        score: typeof value === "number" ? value : 0, // Ensure that the value is a number
       };
-
-      try {
-        const response = await axios.request(options);
-        setQuestions(
-          response.data.map((item: any) => ({
-            id: item.id,
-            question: item.question,
-            type: item.type,
-          }))
-        );
-        console.log(response.data);
-        // Update this according to the actual response structure
-      } catch (error) {
-        console.error("Error fetching questions:", error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  useEffect(() => {
-    if (results && chartRef.current) {
-      const ctx = chartRef.current.getContext("2d");
-      if (ctx) {
-        const chartLabels = Object.keys(results).map((key) => {
-          switch (key) {
-            case "R":
-              return "Realistic";
-            case "I":
-              return "Investigative";
-            case "A":
-              return "Artistic";
-            case "S":
-              return "Social";
-            case "E":
-              return "Enterprising";
-            case "C":
-              return "Conventional";
-            default:
-              return key;
-          }
-        });
-
-        const chart = new ChartJS(ctx, {
-          type: "bar",
-          data: {
-            labels: chartLabels,
-            datasets: [
-              {
-                label: "Score",
-                data: Object.values(results),
-                backgroundColor: [
-                  "rgba(255, 99, 132, 0.2)", // Red
-                  "rgba(54, 162, 235, 0.2)", // Blue
-                  "rgba(255, 206, 86, 0.2)", // Yellow
-                  "rgba(75, 192, 192, 0.2)", // Green
-                  "rgba(153, 102, 255, 0.2)", // Purple
-                  "rgba(255, 159, 64, 0.2)", // Orange
-                ],
-                borderColor: [
-                  "rgba(255, 99, 132, 1)", // Red
-                  "rgba(54, 162, 235, 1)", // Blue
-                  "rgba(255, 206, 86, 1)", // Yellow
-                  "rgba(75, 192, 192, 1)", // Green
-                  "rgba(153, 102, 255, 1)", // Purple
-                  "rgba(255, 159, 64, 1)", // Orange
-                ],
-                borderWidth: 2,
-              },
-            ],
-          },
-          options: {
-            scales: {
-              y: {
-                beginAtZero: true,
-              },
-            },
-          },
-        });
-
-        return () => {
-          chart.destroy();
-        };
-      }
-    }
-  }, [results]);
-
-  const questionsPerPage = 5;
-  const totalPages = Math.ceil(questions.length / questionsPerPage);
-
-  const progress = ((currentPage + 1) / totalPages) * 100;
-
-  const handleOptionChange = (
-    event: React.ChangeEvent<HTMLInputElement>,
-    questionId: number
-  ) => {
-    setAnswers({
-      ...answers,
-      [questionId]: event.target.value,
     });
+
+    // Sort and get the top three scores
+    return transformedResults.sort((a, b) => b.score - a.score).slice(0, 3);
   };
-  const areAllQuestionsAnsweredOnPage = () => {
-    return questions
-      .slice(
-        currentPage * questionsPerPage,
-        (currentPage + 1) * questionsPerPage
-      )
-      .every((question) => answers.hasOwnProperty(question.id));
+  type ResultType = {
+    [key: string]: number;
   };
-  const goToPreviousPage = () => {
-    if (currentPage > 0) {
-      setCurrentPage(currentPage - 1);
-    }
-  };
+  const transformResultsToChartData = (): {
+    series: ApexAxisChartSeries | [];
+    options: ApexOptions | {};
+  } => {
+    if (!results || Object.keys(results).length === 0)
+      return { series: [], options: {} };
 
-  const goToNextPage = () => {
-    if (!areAllQuestionsAnsweredOnPage()) {
-      toast.error("answer all question to go to next page", {
-        position: "top-left",
-        autoClose: 1000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
-      return;
-    }
-    setCurrentPage(currentPage + 1);
-  };
-
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-
-    if (!areAllQuestionsAnsweredOnPage()) {
-      return;
-    }
-
-    try {
-      const defaultOptions = ["Dislike", "Neutral", "Enjoy"];
-
-      const formattedAnswers = Object.entries(answers).map(
-        ([questionId, answer]) => ({
-          questionId: parseInt(questionId, 10),
-          score: defaultOptions.indexOf(answer),
-          type:
-            questions.find(
-              (question) => question.id === parseInt(questionId, 10)
-            )?.type || "R",
-        })
-      );
-
-      const submitOptions = {
-        method: "POST",
-        url: "http://54.224.161.134:8080/api/students/submitcatanswers",
-        headers: {
-          Accept: "*/*",
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
-        },
-        data: {
-          answers: formattedAnswers,
-        },
+    // Ensure that all necessary data points are numbers and defined
+    const categories = Object.keys(results).map(
+      (key) => key.charAt(0).toUpperCase() + key.slice(1).replace("_score", "")
+    );
+    const dataPoints = categories.map((category, index) => {
+      const key = category.toLowerCase() + "_score";
+      const value = results[key];
+      return {
+        x: category,
+        y: Number(value),
+        fillColor: barColors[index % barColors.length],
       };
+    });
 
-      const response = await axios.request(submitOptions);
-
-      // Handle the response from the server as needed
-      console.log("Submit Response:", response.data);
-      setResults(response.data);
-      setIsSubmitted(true);
-      // localStorage.setItem("quizSubmitted", "true");
-    } catch (error) {
-      console.error("Error submitting answers:", error);
-    }
+    return {
+      series: [{ name: "Score", data: dataPoints }],
+      options: {
+        chart: {
+          type: "bar",
+          height: 350,
+        },
+        plotOptions: {
+          bar: {
+            borderRadius: 4,
+            horizontal: true,
+          },
+        },
+        dataLabels: {
+          enabled: false,
+        },
+        xaxis: {
+          categories: categories,
+        },
+        colors: barColors,
+      },
+    };
   };
-  const isLastPage = currentPage === totalPages - 1;
-  const [isVideoOpen, setIsVideoOpen] = useState<boolean>(false);
+  useEffect(() => {
+    setIsLoading(true); // Ensure loading state is set before starting async operations
+    Promise.all([fetchCatResult(), checkTestStatus()])
+      .then(() => {
+        setIsLoading(false); // Set loading to false when both functions have completed
+      })
+      .catch((error) => {
+        console.error("An error occurred:", error);
+        setIsLoading(false); // Ensure loading state is updated even if there's an error
+      });
+    const timer = setTimeout(() => {
+      setShowLoader(false); // Hide loader after 3 seconds
+    }, 3000);
+
+    // Cleanup timeout if component unmounts before timeout completes
+    return () => clearTimeout(timer);
+  }, []);
+
+  const chartData = transformResultsToChartData();
+
+  if (showLoader || isLoading) {
+    return (
+      <div
+        className="dashboard-body"
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh",
+        }}
+      >
+        <iframe
+          src="https://lottie.host/embed/2478cb97-84dc-485a-bb0d-bfd5b7566b46/jOw87Lncdm.json"
+          style={{ width: "300px", height: "300px" }} // Adjust size as needed
+        ></iframe>
+      </div>
+    );
+  }
+
   return (
     <>
       <div className="dashboard-body">
@@ -305,40 +260,26 @@ const DashboardResult = ({ setIsOpenSidebar }: IProps) => {
               zIndex: 0,
             }}
           >
-            {isSubmitted && (
-              <div
-                style={{
-                  position: "fixed",
-                  top: 0,
-                  left: 0,
-                  width: "100vw",
-                  height: "100vh",
-                  zIndex: -1,
-                }}
-              >
-                <Confetti
-                  width={window.innerWidth}
-                  height={window.innerHeight}
-                />
-              </div>
-            )}
-            {!isSubmitted && testStatus !== "Test completed" ? (
+            {testStatus !== "Test completed" ? (
               <>
                 <div className="d-flex align-items-center justify-content-between">
                   <div className="text-center" style={{ flex: 1 }}>
                     <h2
-                      className="mb-6 pb-10 pt-80"
-                      style={{ color: "#13ADBD" }}
+                      className="mb-6 pb-10"
+                      style={{ color: "#13ADBD", fontSize: "50px" }}
                     >
                       Career Aptitude Test
                     </h2>
                     {/* Centered Header */}
                     <div className="text-center">
-                      <h2 className="mb-6 pb-25" style={{ color: "#13ADBD" }}>
+                      <h2
+                        className="mb-6 pb-25"
+                        style={{ color: "#13ADBD", fontSize: "40px" }}
+                      >
                         Please Give The Test
                       </h2>
-                      <Link href="/careerapt">
-                        <button className="btn-apti pt-50">
+                      <Link href="/aptitudetest">
+                        <button className="dash-btn-two tran3s me-3">
                           Take Your Test Now
                         </button>
                       </Link>
@@ -347,54 +288,72 @@ const DashboardResult = ({ setIsOpenSidebar }: IProps) => {
                 </div>
               </>
             ) : (
-              <div style={{ position: "relative", zIndex: 1 }}>
-                <div className="d-flex align-items-center justify-content-between">
-                  <div className="text-center" style={{ flex: 1 }}>
-                    <h2
-                      className="mb-6 pb-10 pt-80"
-                      style={{ color: "#13ADBD" }}
-                    >
-                      Career Aptitude Test
-                    </h2>
-                    {/* Centered Header */}
-                  </div>
-                </div>
-                <div className="text-center">
-                  <h2 className="mb-6 pb-25" style={{ color: "#13ADBD" }}>
-                    Quiz Results
-                  </h2>
-                  {/* Display the results here using the `results` state */}
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                    }}
-                  >
-                    <div>
-                      <canvas
-                        ref={chartRef}
-                        style={{ height: "370px", width: "370px" }}
-                      />
+              <>
+                <div
+                  id="resultsContainer"
+                  style={{ position: "relative", zIndex: 1 }}
+                >
+                  <div className="d-flex align-items-center justify-content-between">
+                    <div className="text-center" style={{ flex: 1 }}>
+                      <h2 className="mb-6 pb-10" style={{ fontSize: "50px" }}>
+                        Career Aptitude Test
+                      </h2>
+                      {/* Centered Header */}
                     </div>
                   </div>
+                  <div className="text-center">
+                    <h2 className="mb-6 pb-25" style={{ fontSize: "40px" }}>
+                      Quiz Results
+                    </h2>
+                    {/* Display the results here using the `results` state */}
 
-                  <TopCareer />
-                  <YourCareer />
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      paddingTop: "30px",
-                    }}
-                  >
-                    <Link href="/dashboard/candidate-dashboard/profile">
-                      <button className="btn-apti pt-50">Next Steps</button>
-                    </Link>
+                    <div className="row">
+                      <div className="chart-container  col-12 col-md-8">
+                        {results && (
+                          <ReactApexChart
+                            options={chartData.options}
+                            series={chartData.series}
+                            type="bar"
+                            width={"100%"}
+                            height={350}
+                          />
+                        )}
+                      </div>
+                      <div className="top-scores col-12 col-md-4">
+                        <h3>Top Scores</h3>
+                        {getTopThreeScores().map((result, index) => (
+                          <p
+                            key={index}
+                          >{`${result.category}: ${result.score}`}</p>
+                        ))}
+                      </div>
+                    </div>
+
+                    <TopCareer topCategories={getTopThreeCategoryNames()} />
+                    <YourCareer />
                   </div>
                 </div>
-              </div>
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    paddingTop: "30px",
+                  }}
+                >
+                  <button
+                    className="dash-btn-two tran3s me-3"
+                    onClick={downloadResultsAsPDF}
+                  >
+                    Download Results
+                  </button>
+                  <Link href="/dashboard/candidate-dashboard/profile">
+                    <button className="dash-btn-two tran3s me-3">
+                      Next Steps
+                    </button>
+                  </Link>
+                </div>
+              </>
             )}
           </div>
         </div>

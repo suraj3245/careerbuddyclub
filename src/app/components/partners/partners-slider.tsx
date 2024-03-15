@@ -61,6 +61,11 @@ const logos: StaticImageData[] = [
 const PartnersSlider = () => {
   return (
     <>
+    <div className="text-center mt-4">
+    <h3 className="mt-40 md-mt-20 mb-40 md-mb-20" style={{ color: "#14adbd" }}>
+      Corporate Partners
+    </h3>
+    </div>
       <Slider {...slider_setting} className="partner-slider">
         {logos.map((logo, i) => (
           <div key={i} className="item">

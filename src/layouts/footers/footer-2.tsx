@@ -16,7 +16,13 @@ const FooterTwo = () => {
             <div className="col-xl-4 col-lg-3 footer-intro mb-15">
               <div className="logo mb-25">
                 <Link href="/" className="d-flex align-items-center">
-                  <Image src={logo} alt="logo" priority />
+                  <Image
+                    src={logo}
+                    width={125} // Set width to 125 pixels
+                    height={75} // Set height to 75 pixels
+                    alt="logo"
+                    priority
+                  />
                 </Link>
               </div>
               <a href="#" className="email fw-500">
@@ -49,7 +55,7 @@ const FooterTwo = () => {
             <div className="col-lg-4 order-lg-1 mb-15">
               <ul className="d-flex style-none bottom-nav justify-content-center justify-content-lg-start">
                 <li>
-                  <Link href="/contact">Privacy & Terms.</Link>
+                  <Link href="/privacy-policy">Privacy & Terms.</Link>
                 </li>
                 <li>
                   <Link href="/contact"> Contact Us</Link>

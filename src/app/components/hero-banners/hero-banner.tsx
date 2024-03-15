@@ -35,11 +35,10 @@ const HeroBanner = () => {
                 Job Guarantee <span style={{ color: "#eee30d" }}> Degree</span>
               </h1>
               <p
-                className="text-lg text-black mt-40 md-mt-30 mb-50 md-mb-30 wow fadeInUp"
+                className="text-lg text-black mt-10 md-mt-30 mb-50 md-mb-30 wow fadeInUp"
                 data-wow-delay="0.4s"
               >
-                Enroll in a job guaranteed degree from one of our shortlisted
-                colleges. 100% Refund if not placed*.
+                <br/>Explore our job-guaranteed degree programs designed to secure your future. With a job-guaranteed degree from us, you'll be on the path to a successful and fulfilling career.
               </p>
               <Link
                 href="/dashboard/candidate-dashboard/profile"
@@ -48,7 +47,7 @@ const HeroBanner = () => {
                 onClick={handleAdmissionClick}
                 {...(!isLoggedIn && {
                   "data-bs-toggle": "modal",
-                  "data-bs-target": "#loginModal",
+                  "data-bs-target": "#ApplyModal",
                 })}
               >
                 Apply Now

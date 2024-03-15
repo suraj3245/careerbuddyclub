@@ -9,6 +9,9 @@ import company_5 from "@/assets/images/logo/artist.png";
 import company_6 from "@/assets/images/logo/social-media.png";
 
 // company data
+interface TopCareerProps {
+  topCategories: string[]; // Define 'topCategories' as an array of strings
+}
 const company_data: {
   id: number;
   icon: StaticImageData;
@@ -53,35 +56,57 @@ const company_data: {
   },
 ];
 
-const TopCareer = () => {
+const TopCareer: React.FC<TopCareerProps> = ({ topCategories }) => {
+  const filteredCompanyData = company_data.filter((item) =>
+    topCategories.includes(item.name)
+  );
+  const headingStyle = {
+    fontSize: "24px", // Adjust this value as needed
+  };
+
+  const textStyle = {
+    fontSize: "14px", // Adjust this value as needed
+  };
+  const textStyleh = {
+    fontSize: "15 px", // Adjust this value as needed
+  };
   return (
-    <section className="top-company-section pt-50 lg-pt-50 pb-50 lg-pb-50 mt-50 xl-mt-50">
+    <section className="top-company-section pt-20 lg-pt-20 pb-20 lg-pb-20 mt-20 xl-mt-20">
       <div className="container">
-        <div className="row justify-content-between align-items-center pb-40 lg-pb-10">
+        <div className="row justify-content-between align-items-center pb-20 lg-pb-10">
           <div className="col-sm-7">
             <div className="title-one">
-              <h2 className="main-font wow fadeInUp" data-wow-delay="0.3s">
-                Personality Traits
+              <h2
+                className="main-font wow fadeInUp"
+                data-wow-delay="0.3s"
+                style={headingStyle}
+              >
+                Personality Traits According To Your Score
               </h2>
             </div>
           </div>
         </div>
 
         <div className="row">
-          {company_data.map((item) => (
+          {filteredCompanyData.map((item) => (
             <div key={item.id} className="col-lg-4 col-md-6 col-sm-6">
-              <div className="card-style-nine text-center tran3s mt-25 wow fadeInUp">
+              <div className="card-style-nine text-center tran3s mt-20 wow fadeInUp">
                 <Image
                   src={item.icon}
                   alt="logo"
                   className="lazy-img m-auto"
-                  width={85}
-                  height={85}
+                  width={60}
+                  height={60}
                 />
-                <div className="text-lg fw-500 text-dark mt-15 mb-30">
+                <div
+                  className="text-lg fw-500 text-dark mt-10 mb-10"
+                  style={textStyleh}
+                >
                   {item.name}
                 </div>
-                <p className="mb-20">{item.desc}</p>
+                <p className="" style={textStyle}>
+                  {item.desc}
+                </p>
               </div>
             </div>
           ))}

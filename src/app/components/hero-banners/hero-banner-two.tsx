@@ -1,18 +1,18 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-// internal
-import shape_1 from "@/assets/images/shape/shape_15.svg";
+// internalc
 import shape_2 from "@/assets/images/shape/shape_16.svg";
 import shape_3 from "@/assets/images/shape/shape_17.svg";
 import shape_4 from "@/assets/images/shape/shape_18.svg";
 import shape_5 from "@/assets/images/shape/shape_19.svg";
 import shape_6 from "@/assets/images/shape/shape_20.svg";
-import screen_1 from "@/assets/images/assets/screen_04.png";
-import screen_2 from "@/assets/images/assets/screen_05.png";
-import screen_3 from "@/assets/images/assets/screen_06.png";
-import main_img from "@/assets/images/assets/img_10.png";
+import screen_1 from "@/assets/images/logo/WEB-removebg-preview.png";
+import screen_2 from "@/assets/images/logo/img_pg-removebg-preview.png";
+import screen_3 from "@/assets/images/logo/img1-removebg-preview.png";
+import main_img from "@/assets/images/logo/imgb.png";
 import useSearchFormSubmit from "@/hooks/use-search-form-submit";
+import { ReactTyped } from "react-typed";
 
 const HeroBannerTwo = () => {
   const { handleSubmit, setSearchText } = useSearchFormSubmit();
@@ -26,55 +26,29 @@ const HeroBannerTwo = () => {
         <div className="position-relative pt-225 xl-pt-200 lg-pt-150 pb-80 lg-pb-60">
           <div className="row">
             <div className="col-lg-6 col-md-8">
-              <h1 className="wow fadeInUp" data-wow-delay="0.3s">
-                Find & Hire <br /> Top 3% of expert on Career Buddy Club.
+              <h1
+                className="wow fadeInUp"
+                data-wow-delay="0.3s"
+                style={{ color: "#05A9C7", textShadow: "2px 2px 4px #125125" }}
+              >
+                How Can We Assist You?
               </h1>
-              <p
-                className="text-md mt-35 mb-50 lg-mb-30 pe-xxl-5 wow fadeInUp"
+              <div
+                className="text-md mt-35 mb-20 lg-mb-30 pe-xxl-5 wow fadeInUp"
                 data-wow-delay="0.4s"
               >
-                With the largest professional creative community online, simply
-                search through from our website
-              </p>
-            </div>
-          </div>
-          <div className="position-relative">
-            <div className="row">
-              <div className="col-lg-6 col-md-8">
-                <div
-                  className="job-search-two position-relative me-xxl-5 wow fadeInUp"
-                  data-wow-delay="0.5s"
-                >
-                  <form
-                    onSubmit={handleSubmit}
-                    className="d-flex align-items-center justify-content-between"
-                  >
-                    <input
-                      onChange={handleSearchInput}
-                      type="text"
-                      placeholder="Search job, title etc...."
-                    />
-                    <button type="submit" className="btn-five h-100">
-                      Search
-                    </button>
-                  </form>
-                  <ul className="filter-tags d-flex flex-wrap style-none mt-25">
-                    <li className="fw-500 text-dark me-2">Populer:</li>
-                    <li>
-                      <a href="#">Design</a>
-                    </li>
-                    <li>
-                      <a href="#">Art</a>
-                    </li>
-                    <li>
-                      <a href="#">Business</a>
-                    </li>
-                    <li>
-                      <a href="#">Video Editing</a>
-                    </li>
-                  </ul>
-                </div>
-                {/* /.job-search-two */}
+                <ReactTyped
+                  strings={[
+                    "50% of students regret choosing the wrong career path.",
+                    "Only 1 in 4 college graduates secure a job in their field of study.",
+                    "98% of students pursue conventional career options without considering their personal interests.",
+                  ]}
+                  typeSpeed={70}
+                  loop
+                  backSpeed={20}
+                  cursorChar=""
+                  showCursor={true}
+                />
               </div>
             </div>
           </div>
@@ -98,6 +72,7 @@ const HeroBannerTwo = () => {
           className="lazy-img shapes screen_02 wow fadeInLeft"
         />
       </div>
+
       {/* /.img-box */}
       <div className="rating-box position-relative">
         <div className="d-sm-flex justify-content-end">
@@ -109,35 +84,22 @@ const HeroBannerTwo = () => {
                 className="lazy-img me-2 me-lg-4"
               />
               <div>
-                <div className="text-lg fw-500 text-dark">18k+</div>
-                <span>Individual Freelancer</span>
+                <div className="text-lg fw-500 text-dark">1000+</div>
+                <span>Career Guided</span>
               </div>
             </div>
           </div>
           <div>
-            <div className="text-lg fw-500 text-dark mb-10">A+ Rating</div>
+            <div className="text-lg fw-500 text-dark mb-10">
+              Best Career Guidance
+            </div>
             <ul className="d-flex align-items-center style-none rating">
-              <li>
-                <i className="bi bi-star-fill"></i>
-              </li>
-              <li>
-                <i className="bi bi-star-fill"></i>
-              </li>
-              <li>
-                <i className="bi bi-star-fill"></i>
-              </li>
-              <li>
-                <i className="bi bi-star-fill"></i>
-              </li>
-              <li>
-                <i className="bi bi-star-fill"></i>
-              </li>
-              <li>4.78 (300k+) </li>
+              <li>100+ Partners</li>
             </ul>
           </div>
         </div>
       </div>
-      <Image src={shape_1} alt="shape" className="lazy-img shapes shape_01" />
+
       <Image src={shape_2} alt="shape" className="lazy-img shapes shape_02" />
       <Image src={shape_3} alt="shape" className="lazy-img shapes shape_03" />
       <Image src={shape_4} alt="shape" className="lazy-img shapes shape_04" />

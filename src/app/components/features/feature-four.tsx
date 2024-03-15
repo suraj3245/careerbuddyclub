@@ -44,7 +44,7 @@ const FeatureFour = () => {
 spanning 26 industries and 5000 job roles.We offer a comprehensive Career Aptitude Test designed to help students like you explore and understand your strengths, interests, and aspirations.
 "
                   parent="accordionOne"
-                  path="/careerapt"
+                  path="/career-aptitude"
                   bdesc="Career Aptitude"
                 />
                 <AccordionItemTwo
@@ -56,7 +56,7 @@ spanning 26 industries and 5000 job roles.We offer a comprehensive Career Aptitu
 Our aptitude test goes beyond traditional assessments, providing a personalized and in-depth analysis of your potential career options.
 "
                   parent="accordionOne"
-                  path="/addmission"
+                  path="/admission"
                   bdesc="Courses Available"
                 />
                 <AccordionItemTwo

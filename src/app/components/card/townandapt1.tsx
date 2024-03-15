@@ -7,7 +7,7 @@ import img3 from "@/assets/images/assets/test4.webp";
 import img4 from "@/assets/images/assets/test-6.png";
 import { StaticImageData } from "next/image";
 import Link from "next/link";
-import {useRouter} from "next/navigation";
+import { useRouter } from "next/navigation";
 // Uncomment the line below and replace 'useRouter' with the actual import
 // import { useRouter } from 'next/router';
 
@@ -46,7 +46,7 @@ const Card: React.FC<CardProps> = ({ flip, frontImage, backImage }) => {
     backfaceVisibility: "hidden",
     height: "100%",
     width: "100%",
-    transform: 'rotateY(180deg)',
+    transform: "rotateY(180deg)",
   };
 
   const frontStyle: React.CSSProperties = {
@@ -135,7 +135,7 @@ const FlipCardone: React.FC = () => {
         style={containerStyle}
         onMouseEnter={() => setIsFlippedTwo(true)}
         onMouseLeave={() => setIsFlippedTwo(false)}
-        onClick={() => redirectToPage("/careerapt")}
+        onClick={() => redirectToPage("/career-aptitude")}
       >
         <Card flip={isFlippedTwo} frontImage={img2} backImage={img3} />
       </div>

@@ -11,6 +11,7 @@ import FeatureThree from "../components/features/feature-three";
 import ContactArea from "../components/contact/contact-area";
 import FeedbackTwo from "../components/feedBacks/feedback-two";
 import FancyBannerEight from "../components/fancy-banner/fancy-banner-8";
+import PartnersSlider2 from "../components/partners/partners-slider2";
 
 export const metadata: Metadata = {
   title: "corporate",
@@ -22,7 +23,7 @@ const corporate = () => {
       <div className="main-page-wrapper">
         <HeroBannerSix />
         <div className="partner-logos bg-color border-0 pt-100 pb-45 ps-3 pe-3">
-          <PartnersSlider />
+          <PartnersSlider2 />
         </div>
         <FeatureNine />
         <FeatureThree />
@@ -43,7 +44,6 @@ const corporate = () => {
           </div>
         </section>
         <FeedbackTwo />
-        <ContactArea />
         <FooterOne />
       </div>
     </Wrapper>

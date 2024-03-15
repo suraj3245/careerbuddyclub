@@ -15,7 +15,8 @@ const FancyBannerNine = () => {
                 <div className="text-wrapper wow fadeInRight">
                   <div className="title-one mb-45 lg-mb-30">
                     <h2 className="text-white">
-                      We ensure that you find the job of your dreams through our...
+                      We ensure that you find the job of your dreams through
+                      our...
                     </h2>
                   </div>
                   <p className="text-white text-md mb-55 lg-mb-30">
@@ -24,12 +25,12 @@ const FancyBannerNine = () => {
                     <br />
                     - Placement Support
                     <br />
-                    - Buddy Assistance 
-                    <br />- Skill Enhancement Sessions 
+                    - Buddy Assistance
+                    <br />- Skill Enhancement Sessions
                     <br />- Industry Networking
                   </p>
                   <Link
-                    href="/job-list-v1"
+                    href="/company-v1"
                     className="find-job-btn d-flex align-items-center text-white"
                   >
                     <span className="fw-500">Find your job.</span>
