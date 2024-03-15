@@ -1,7 +1,6 @@
 import React from "react";
 import { Metadata } from "next";
 import Wrapper from "@/layouts/wrapper";
-import JobPortalIntro from "../components/job-portal-intro/job-portal-intro";
 import CandidateProfileBreadcrumb from "../components/candidate-details/profile-bredcrumb";
 import FooterOne from "@/layouts/footers/footer-one";
 import FeatureEleven from "../components/features/feature-eleven";
@@ -50,20 +49,19 @@ const AboutUsPage = () => {
         <FeedbackSix />
         <FeedbackSeven />
         {/* feedback one start */}
-       
+
         {/* feedback one end */}
         <FeatureFour />
         <ExpertSectionTwo />
         {/* job portal intro start */}
-       <ExpertSectionOne /> 
-       
-         <JobListTwo /> 
+        <ExpertSectionOne />
+
+        <JobListTwo />
 
         {/* job portal intro end */}
         <div className="partner-logos bg-color border-0 pt-45 pb-45 ps-3 pe-3 mt-50px">
-        <PartnersSlider2 />
-
-      </div>
+          <PartnersSlider2 />
+        </div>
         {/* footer start */}
         <FooterOne />
         {/* footer end */}

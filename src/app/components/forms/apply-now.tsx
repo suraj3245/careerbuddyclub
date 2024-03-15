@@ -187,6 +187,7 @@ const ApplyForm = () => {
   }, [isVerificationSent, countdown]);
   const onSubmit = (data: IFormData) => {
     // Destructure the required fields from data
+    const from = localStorage.getItem("location") || "";
     const {
       name,
       email,
@@ -196,8 +197,24 @@ const ApplyForm = () => {
       level,
       stream,
     } = data;
+    const payload = {
+      name,
+      email,
+      mobile,
+      otp,
+      password,
+      level,
+      stream,
+      from,
+      utm_source: utmParams.utm_source,
+      utm_medium: utmParams.utm_medium,
+      utm_campaign: utmParams.utm_campaign,
+      utm_id: utmParams.utm_id,
+      utm_term: utmParams.utm_term,
+      utm_content: utmParams.utm_content,
+    };
 
-    console.log("Form Data:", data);
+    console.log("Form Data:", payload);
 
     // Set up the request options for axios
     const options = {
@@ -207,7 +224,7 @@ const ApplyForm = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      data: { name, email, mobile, otp, password, level, stream }, // Send only the required data
+      data: payload, // Send only the required data
     };
 
     // Make the POST request using axios
@@ -218,6 +235,7 @@ const ApplyForm = () => {
         localStorage.setItem("token", response.data.access_token);
         localStorage.setItem("username", name);
         console.log("Registration successful", response.data);
+        console.log("Form Data:", payload);
         toast.success("Your Account is created ! please check your email. 🚀", {
           position: "top-left",
           autoClose: 1000,
@@ -229,7 +247,8 @@ const ApplyForm = () => {
           theme: "light",
         });
         setTimeout(() => {
-          window.location.href = "/dashboard/candidate-dashboard/profile";
+          window.location.href =
+            "/dashboard/candidate-dashboard/career-aptitude";
         }, 1000);
       })
       .catch((error) => {

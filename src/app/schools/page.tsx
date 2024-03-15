@@ -10,6 +10,7 @@ import ContactSchoolArea from "../components/contactSchools/contactSchools-area"
 import Aptibannerthree from "../components/fancy-banner/apti-banner";
 import FlipCard from "../components/card/townandapt";
 import HeroBannerThree from "../components/hero-banners/hero-banner-three";
+import FeatureFour from "../components/features/feature-four";
 
 export const metadata: Metadata = {
   title: "Schools",
@@ -28,6 +29,7 @@ const schools = () => {
 
       <FeatureSix />
       <ContactSchoolArea />
+
       <FooterOne />
       {/* footer end */}
     </Wrapper>
