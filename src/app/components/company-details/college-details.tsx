@@ -81,70 +81,72 @@ const CollegeDetailsArea = ({ details }: { details: IcollegeType }) => {
         <div className="inner-content position-relative">
           <div className="top-header">
             <div className="d-flex align-items-center">
-              <nav className="navbar navbar-expand-lg p0 me-lg-auto ms-3 ms-lg-5 order-lg-1">
-                <div className="collapse navbar-collapse" id="navbarNav">
-                  <ul className="navbar-nav">
-                    {/* menus start */}
-                    <li className="nav-item">
-                      <a className="nav-link" href="#overview" role="button">
-                        Overview
-                      </a>
-                    </li>
-                    <li className="nav-item">
-                      <a className="nav-link" href="#courses" role="button">
-                        Courses and Fees
-                      </a>
-                    </li>
-                    <li className="nav-item">
-                      <a className="nav-link" href="#admission" role="button">
-                        Admission
-                      </a>
-                    </li>
-                    <li className="nav-item">
-                      <a className="nav-link" href="#placement" role="button">
-                        Placement
-                      </a>
-                    </li>
-                    <li className="nav-item">
-                      <a
-                        className="nav-link"
-                        href="#opportunities"
-                        role="button"
-                      >
-                        Opportunities
-                      </a>
-                    </li>
-                    <li className="nav-item">
-                      <a className="nav-link" href="#hostel" role="button">
-                        Hostel
-                      </a>
-                    </li>
-                    <li className="nav-item">
-                      <a className="nav-link" href="#awards" role="button">
-                        Awards
-                      </a>
-                    </li>
-
-                    <li className="nav-item">
-                      <a className="nav-link" href="#ranking" role="button">
-                        Ranking
-                      </a>
-                    </li>
-                    <li className="nav-item">
-                      <a className="nav-link" href="#alumini" role="button">
-                        Alumini Reviews
-                      </a>
-                    </li>
-                    {/* menus end */}
-                  </ul>
-                </div>
-              </nav>
+             
             </div>
           </div>
         </div>
       </header>
 
-      <section className="company-details pt-110 lg-pt-80 pb-160 xl-pb-150 lg-pb-80">
+      <section className="company-details  lg-pt-80 pb-30 xl-pb-150 lg-pb-80">
+
+      <div className="navbar navbar-expand-lg p0 me-lg-auto ms-3 ms-lg-5 order-lg-1">
+      <div className="collapse navbar-collapse" id="navbarNav">
+        <ul className="navbar-nav">
+          {/* menus start */}
+          <li className="nav-item">
+            <a className="nav-link" href="#overview" role="button">
+              Overview
+            </a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link" href="#courses" role="button">
+              Courses and Fees
+            </a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link" href="#admission" role="button">
+              Admission
+            </a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link" href="#placement" role="button">
+              Placement
+            </a>
+          </li>
+          <li className="nav-item">
+            <a
+              className="nav-link" href="#opportunities" role="button"
+            >
+              Opportunities
+            </a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link" href="#hostel" role="button">
+              Hostel
+            </a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link" href="#awards" role="button">
+              Awards
+            </a>
+          </li>
+
+          <li className="nav-item">
+            <a className="nav-link" href="#ranking" role="button">
+              Ranking
+            </a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link" href="#alumini" role="button">
+              Alumini Reviews
+            </a>
+          </li>
+          {/* menus end */}
+        </ul>
+      </div>
+    </div>
+
+
         <div className="container">
           <div className="row">
             <div className="col-xxl-3 col-xl-4 order-xl-last">
@@ -219,7 +221,7 @@ const CollegeDetailsArea = ({ details }: { details: IcollegeType }) => {
                 <Table aria-label="Courses and Fees Table">
                 <TableHeader>
                   <TableColumn>Institute Name</TableColumn>
-                  <TableColumn>Guru Nanak College Dehradun</TableColumn>
+                  <TableColumn>{details.college}</TableColumn>
                 </TableHeader>
                 <TableBody>
                       {details.overviewtable.map((overview, index) => (
@@ -385,7 +387,7 @@ const CollegeDetailsArea = ({ details }: { details: IcollegeType }) => {
                   <Table aria-label="Courses and Fees Table">
                     <TableHeader>
                       <TableColumn>Faculty Name</TableColumn>
-                      <TableColumn>Qualification</TableColumn>
+                      <TableColumn>Department</TableColumn>
                       <TableColumn>Experience</TableColumn>
                       <TableColumn>Specialization</TableColumn>
                     </TableHeader>
