@@ -10,6 +10,7 @@ import { useRouter, usePathname } from "next/navigation";
 import Script from "next/script";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import HeaderTop from "@/layouts/headers/header-top";
 const gordita = localFont({
   src: [
     {
@@ -134,7 +135,7 @@ export default function RootLayout({
             style={{ display: "none", visibility: "hidden" }}
           ></iframe>
         </noscript>
-
+        <HeaderTop />
         {!isRedirectPage &&
           !isAptitudeTestPage &&
           !isCandidateDashboardPage &&
