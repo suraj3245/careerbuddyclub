@@ -253,8 +253,20 @@ const ApplyForm = () => {
       })
       .catch((error) => {
         // Handle any errors here, e.g., notify the user of the failure
-        console.error("Registration error:", error);
-        toast.error("Registration Failed 😵‍💫", {
+        let errorMessage = "Registration Failed 😵‍💫";
+
+        // Check if the error response contains a specific message for mobile or email
+        if (error.response && error.response.data) {
+          if (error.response.data.mobile && error.response.data.email) {
+            errorMessage = "Email and mobile number is already taken";
+          } else if (error.response.data.email) {
+            errorMessage = error.response.data.email[0];
+          } else if (error.response.data.mobile) {
+            errorMessage = error.response.data.mobile[0];
+          }
+        }
+
+        toast.error(errorMessage, {
           position: "top-left",
           autoClose: 1000,
           hideProgressBar: false,
