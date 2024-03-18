@@ -7,7 +7,7 @@ import FooterOne from "@/layouts/footers/footer-one";
 import career_details from "@/data/career-details";
 import CareerDetailsArea from "../components/company-details/career-details-area";
 
-export const CareerDetailsPage = () => {
+const CareerDetailsPage = () => {
   const details = career_details[0];
 
   return (

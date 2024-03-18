@@ -33,9 +33,10 @@ const AptiBanner = () => {
           </div>
         </div>
         {/* Conditionally render button or link based on login status */}
+        <div className="col-lg-5 col-md-6 d-flex justify-content-start ">
         {isLoggedIn ? (
           <button
-            className="btn-five wow fadeInUp"
+            className="btn-five wow fadeInUp me-3"
             onClick={() => router.push("/aptitudetest")}
             data-wow-delay="0.6s"
           >
@@ -44,13 +45,23 @@ const AptiBanner = () => {
         ) : (
           <a
             href="#"
-            className="btn-five wow fadeInUp"
+            className="btn-five wow fadeInUp me-3"
             data-bs-toggle="modal"
             data-bs-target="#loginModal"
           >
             Begin your free test
           </a>
+          
         )}
+       
+        <button
+        className="btn-five wow fadeInUp "
+        onClick={() => router.push("/personalitytraits")} 
+      >
+       Career Personality Traits
+      </button>
+    </div>
+
       </div>
       <div className="img-meta">
         <Image

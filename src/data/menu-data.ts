@@ -185,11 +185,34 @@ const menu_data: IMenuData[] = [
     id: 6,
     link: "/",
     title: "Services",
-    sub_menus: [
-      { title: "For School", link: "/schools" },
-      { title: "For Corporate", link: "/corporate" },
-      { title: "For College/ University", link: "/campus" },
-    ],
+    mega_menus: [
+          {
+            id: 1,
+            title: "",
+            sub_menus: [
+              { title: "For Schools", link: "/schools" },
+             
+            ],
+          },
+          {
+            id: 2,
+            title: "",
+            sub_menus: [
+              { title: "For Corporate", link: "/corporate" },
+            
+            ],
+          },
+          {
+            id: 3,
+            title: "",
+            sub_menus: [
+              { title: "For College/ University", link: "/campus" },
+              { title: "UPES Dehradun", link: "/college-details/3" },
+              { title: "Uttaranchal University", link: "/college-details/4" },
+             
+            ],
+          },
+        ],
   },
   {
     id: 7,

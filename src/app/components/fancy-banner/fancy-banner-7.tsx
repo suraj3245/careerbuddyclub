@@ -29,7 +29,7 @@ const FancyBannerSeven = () => {
                       action="#"
                       className="upload-btn position-relative d-flex align-items-center justify-content-center"
                     >
-                      <Image src={icon} alt="" className="lazy-img" />{" "}
+                      {/*  <Image src={icon} alt="" className="lazy-img" />{" "} */}
                       <a
                         href="#"
                         className="fw-500 btn-five"
