@@ -421,11 +421,7 @@ const CollegeDetailsArea = ({ details }: { details: IcollegeType }) => {
                           </div>
                           <blockquote>{item.desc}</blockquote>
                           <div className="d-flex align-items-center">
-                            <Image
-                              src={item.user}
-                              alt="user"
-                              className="author-img rounded-circle"
-                            />
+                           
                             <div className="ms-3">
                               <div className="name fw-500 text-dark">
                                 {item.name}

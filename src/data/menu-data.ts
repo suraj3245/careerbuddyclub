@@ -209,6 +209,8 @@ const menu_data: IMenuData[] = [
               { title: "For College/ University", link: "/campus" },
               { title: "UPES Dehradun", link: "/college-details/3" },
               { title: "Uttaranchal University", link: "/college-details/4" },
+              { title: "GNC Dehradun", link: "/college-details/1" },
+              { title: "BFIT Dehradun", link: "/college-details/2" },
              
             ],
           },
