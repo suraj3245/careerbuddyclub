@@ -90,8 +90,9 @@ const HeaderFour: React.FC<HeaderFourProps> = ({ user, key, onLogout }) => {
     <>
       <header
         className={`theme-main-menu menu-overlay sticky-menu ${
-          sticky ? "fixed" : ""
+          sticky ? "fixed" : " "
         }`}
+        style={{ marginTop: "30px" }}
       >
         <div className="inner-content position-relative">
           <div className="top-header">

@@ -26,9 +26,9 @@ const Menus = () => {
             <ul className="dropdown-menu">
               {menu.sub_menus.map((s, i) => (
                 <li key={i}>
-                  <Link href={s.link} className="dropdown-item">
+                  <a href={s.link} className="dropdown-item">
                     <span>{s.title}</span>
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
@@ -54,9 +54,9 @@ const Menus = () => {
                       <ul className="style-none mega-dropdown-list">
                         {m.sub_menus.map((ms, i) => (
                           <li key={i}>
-                            <Link href={ms.link} className="dropdown-item">
+                            <a href={ms.link} className="dropdown-item">
                               <span>{ms.title}</span>
-                            </Link>
+                            </a>
                           </li>
                         ))}
                       </ul>
@@ -68,9 +68,9 @@ const Menus = () => {
           </li>
         ) : (
           <li key={menu.id} className="nav-item">
-            <Link className="nav-link" href={menu.link} role="button">
+            <a className="nav-link" href={menu.link} role="button">
               {menu.title}
-            </Link>
+            </a>
           </li>
         )
       )}

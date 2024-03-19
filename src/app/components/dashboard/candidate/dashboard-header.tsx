@@ -22,7 +22,7 @@ const DashboardHeader = ({ setIsOpenSidebar }: IProps) => {
   }
   return (
     <>
-      <header className="dashboard-header">
+      <header className="dashboard-header" style={{ paddingTop: "35px" }}>
         <div className="d-flex align-items-center justify-content-end">
           <button
             onClick={handleOpen}

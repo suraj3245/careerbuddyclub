@@ -1,5 +1,4 @@
-"use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import shape from "@/assets/images/shape/shape_29.svg";
 import useSearchFormSubmit from "@/hooks/use-search-form-submit";
@@ -8,10 +7,17 @@ import { ToastContainer, toast } from "react-toastify";
 
 const AptiBanner = () => {
   const router = useRouter();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    // This code now runs on client-side only, ensuring no mismatch during hydration
+    const token = localStorage.getItem("token");
+    setIsLoggedIn(!!token);
+  }, []);
 
   // Assuming localStorage is directly accessible; in Next.js, consider using useEffect to manage state based on localStorage due to SSR.
-  const isLoggedIn =
-    typeof window !== "undefined" && localStorage.getItem("token");
+  // const isLoggedIn =
+  //   typeof window !== "undefined" && localStorage.getItem("token");
 
   return (
     <div className="hero-banner-five position-relative pt-150 lg-pt-150 pb-30">
@@ -33,10 +39,9 @@ const AptiBanner = () => {
           </div>
         </div>
         {/* Conditionally render button or link based on login status */}
-        <div className="col-lg-5 col-md-6 d-flex justify-content-start ">
         {isLoggedIn ? (
           <button
-            className="btn-five wow fadeInUp me-3"
+            className="btn-five wow fadeInUp"
             onClick={() => router.push("/aptitudetest")}
             data-wow-delay="0.6s"
           >
@@ -45,23 +50,13 @@ const AptiBanner = () => {
         ) : (
           <a
             href="#"
-            className="btn-five wow fadeInUp me-3"
+            className="btn-five wow fadeInUp"
             data-bs-toggle="modal"
             data-bs-target="#loginModal"
           >
             Begin your free test
           </a>
-          
         )}
-       
-        <button
-        className="btn-five wow fadeInUp "
-        onClick={() => router.push("/personalitytraits")} 
-      >
-       Career Personality Traits
-      </button>
-    </div>
-
       </div>
       <div className="img-meta">
         <Image

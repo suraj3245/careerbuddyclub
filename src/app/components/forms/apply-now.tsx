@@ -187,6 +187,7 @@ const ApplyForm = () => {
   }, [isVerificationSent, countdown]);
   const onSubmit = (data: IFormData) => {
     // Destructure the required fields from data
+    const from = localStorage.getItem("location") || "";
     const {
       name,
       email,
@@ -196,8 +197,24 @@ const ApplyForm = () => {
       level,
       stream,
     } = data;
+    const payload = {
+      name,
+      email,
+      mobile,
+      otp,
+      password,
+      level,
+      stream,
+      from,
+      utm_source: utmParams.utm_source,
+      utm_medium: utmParams.utm_medium,
+      utm_campaign: utmParams.utm_campaign,
+      utm_id: utmParams.utm_id,
+      utm_term: utmParams.utm_term,
+      utm_content: utmParams.utm_content,
+    };
 
-    console.log("Form Data:", data);
+    console.log("Form Data:", payload);
 
     // Set up the request options for axios
     const options = {
@@ -207,7 +224,7 @@ const ApplyForm = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      data: { name, email, mobile, otp, password, level, stream }, // Send only the required data
+      data: payload, // Send only the required data
     };
 
     // Make the POST request using axios
@@ -218,6 +235,7 @@ const ApplyForm = () => {
         localStorage.setItem("token", response.data.access_token);
         localStorage.setItem("username", name);
         console.log("Registration successful", response.data);
+        console.log("Form Data:", payload);
         toast.success("Your Account is created ! please check your email. 🚀", {
           position: "top-left",
           autoClose: 1000,
@@ -229,13 +247,26 @@ const ApplyForm = () => {
           theme: "light",
         });
         setTimeout(() => {
-          window.location.href = "/dashboard/candidate-dashboard/profile";
+          window.location.href =
+            "/dashboard/candidate-dashboard/career-aptitude";
         }, 1000);
       })
       .catch((error) => {
         // Handle any errors here, e.g., notify the user of the failure
-        console.error("Registration error:", error);
-        toast.error("Registration Failed 😵‍💫", {
+        let errorMessage = "Registration Failed 😵‍💫";
+
+        // Check if the error response contains a specific message for mobile or email
+        if (error.response && error.response.data) {
+          if (error.response.data.mobile && error.response.data.email) {
+            errorMessage = "Email and mobile number is already taken";
+          } else if (error.response.data.email) {
+            errorMessage = error.response.data.email[0];
+          } else if (error.response.data.mobile) {
+            errorMessage = error.response.data.mobile[0];
+          }
+        }
+
+        toast.error(errorMessage, {
           position: "top-left",
           autoClose: 1000,
           hideProgressBar: false,

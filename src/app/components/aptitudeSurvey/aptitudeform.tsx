@@ -493,10 +493,13 @@ const QuizForm: React.FC = () => {
           </div>
         </form>
       ) : (
-        <div style={{ position: "relative", zIndex: 1 }}>
+        <div id="resultsContainer" style={{ position: "relative", zIndex: 1 }}>
           <div className="d-flex align-items-center justify-content-between">
             <div className="text-center" style={{ flex: 1 }}>
-              <h2 className="mb-6 pb-10 pt-20" style={{ color: "#13ADBD" }}>
+              <h2
+                className="mb-6 pb-10 pt-20"
+                style={{ color: "#13ADBD", paddingTop: "40px" }}
+              >
                 Career Aptitude Test
               </h2>
               {/* Centered Header */}
