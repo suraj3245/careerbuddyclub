@@ -15,6 +15,7 @@ const HeaderTwo = () => {
         className={`theme-main-menu menu-overlay sticky-menu ${
           sticky ? "fixed" : ""
         }`}
+        style={{ paddingTop: "35px" }}
       >
         <div className="inner-content position-relative">
           <div className="top-header">
