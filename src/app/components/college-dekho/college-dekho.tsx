@@ -17,7 +17,7 @@ const LayoutContainer = styled.div`
 const FixedContent = styled.div`
   flex: 0 0 35%;
   padding: 20px;
-  background: #f0f0f0;
+  background: #eed30d;
   height: 100%; // Full height
   display: flex;
   flex-direction: column;
@@ -115,7 +115,7 @@ const steps = [
 const Collegedekhocomp = () => {
   return (
     <LayoutContainer>
-      <FixedContent>
+      <FixedContent >
         {/* Fixed content goes here */}
         <div style={{ textAlign: "center" }}>
           {/* Centered content */}

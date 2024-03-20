@@ -5,7 +5,11 @@ export interface IMenuData {
   sub_menus?: {
       link: string;
       title: string;
-  }[];
+     sub_menus_sub_menus?: {
+          link:string;
+          title:string;
+      }[];
+  }[]
   mega_menus?: {
     id: number;
     title: string;

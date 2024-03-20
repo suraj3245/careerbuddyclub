@@ -15,19 +15,20 @@ type IExpertType = {
 const expert_data:IExpertType[] = [
  
   {
-    id:2,
-    img:img_7,
-    name:'Sunil Kumar Malik',
-    designation:'Vice President (VP)-Campus Relations',
-    description: "",
-  },
-  {
     id:1,
     img:img_4,
     name:'Anupam Singh',
     designation:'Vice President (VP)-Marketing',
     description: "",
   },
+  {
+    id:2,
+    img:img_7,
+    name:'Sunil Kumar Malik',
+    designation:'Vice President (VP)-Campus Relations',
+    description: "",
+  },
+  
   {
     id:3,
     img:img_5,

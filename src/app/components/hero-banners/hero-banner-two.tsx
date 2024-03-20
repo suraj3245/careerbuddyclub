@@ -33,6 +33,7 @@ const HeroBannerTwo = () => {
               >
                 How Can We Assist You?
               </h1>
+           
               <div
                 className="text-md mt-35 mb-20 lg-mb-30 pe-xxl-5 wow fadeInUp"
                 data-wow-delay="0.4s"
@@ -50,6 +51,7 @@ const HeroBannerTwo = () => {
                   showCursor={true}
                 />
               </div>
+              
             </div>
           </div>
         </div>

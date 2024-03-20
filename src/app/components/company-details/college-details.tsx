@@ -32,60 +32,88 @@ const slider_setting = {
   ],
 };
 
-const CollegeDetailsArea = ({ details }: { details: IcollegeType }) => {
-  const [isVideoOpen, setIsVideoOpen] = useState<boolean>(false);
-  const { sticky } = useSticky();
-  const [headerTop, setHeaderTop] = useState<string>("275px");
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollPos = window.pageYOffset;
-      setHeaderTop(currentScrollPos > 50 ? "0px" : "275px"); // Change '50' to the scroll position you desire
-    };
+type VideoCardProps = {
+  videoId: string;
+};
 
-    window.addEventListener("scroll", handleScroll);
+const VideoCard: React.FC<VideoCardProps> = ({ videoId }) => {
+  const [windowWidth, setWindowWidth] = useState<number | undefined>(undefined);
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-    // const handleResize = () => {
-    //   if (typeof window !== "undefined") {
-    //     setHeaderTop(window.innerWidth < 1200 ? "225px" : "275px");
-    //   }
-    // };
 
-    // // Add event listeners for resize and initial check
-    // if (typeof window !== "undefined") {
-    //   window.addEventListener("resize", handleResize);
-    //   handleResize(); // Initial check
+  const useSticky = () => {
+    const [sticky, setSticky] = useState<boolean>(false);
+    const [headerTop, setHeaderTop] = useState<number>(0);
+  
 
-    //   const navLinks = document.querySelectorAll(".theme-main-menu .nav-link");
-    // }
+    useEffect(() => {
+      // Your logic for determining sticky state and headerTop value
+      // For example, you might listen for scroll events to determine the headerTop value
+  
+      const handleScroll = () => {
+        const currentScroll = window.pageYOffset;
+        setSticky(currentScroll > 100); // Example condition for setting sticky
+        setHeaderTop(currentScroll); // Example of setting headerTop to current scroll position
+      };
+  
+      window.addEventListener('scroll', handleScroll);
+  
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+      };
+    }, []);
+  
+    return { sticky, headerTop };
+  };
 
-    // // Clean up event listeners on component unmount
-    // return () => {
-    //   if (typeof window !== "undefined") {
-    //     window.removeEventListener("resize", handleResize);
-    //   }
-    // };
-  }, []);
+  // Styles for the video container to maintain aspect ratio
+  const isSmallScreen = windowWidth !== undefined && windowWidth < 768; // Define your breakpoint for smaller screens
+
+  const videoWrapperStyle: React.CSSProperties = isSmallScreen
+    ? {
+        position: "relative",
+        paddingTop: "56.25%", // 16:9 aspect ratio for smaller screens
+        paddingLeft: "10px",
+      }
+    : {
+        position: "relative",
+        width: "896px", // Fixed width for larger screens
+        height: "442px", // Fixed height for larger screens
+        marginLeft: "auto",
+        marginRight: "auto",
+      };
+
+  // Styles for the iframe to make it responsive
+  const iframeStyle: React.CSSProperties = {
+    position: "absolute",
+    top: 0,
+    left: "10px", // To account for the padding on the container
+    right: "10px", // To account for the padding on the container
+    width: "calc(100% - 20px)", // Subtracting the left and right padding
+    height: "100%",
+    border: "0", // If you prefer no border
+  };
 
   return (
+    <div className="video-card" style={videoWrapperStyle}>
+      <iframe
+        style={iframeStyle}
+        src={`https://www.youtube.com/embed/${videoId}`}
+        title="YouTube video player"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+      ></iframe>
+    </div>
+  );
+};
+const CollegeDetailsArea = ({ details }: { details: IcollegeType }) => {
+  const videoId = details.videoid;
+  const { sticky } = useSticky();
+  const [headerTop, setHeaderTop] = useState<string>("275px");
+  
+  return (
     <>
-      <header
-        className={`theme-main-menu menu-overlay sticky-menu ${
-          sticky ? "fixed" : ""
-        }`}
-        style={{ top: headerTop }}
-      >
-        <div className="inner-content position-relative">
-          <div className="top-header">
-            <div className="d-flex align-items-center">
-             
-            </div>
-          </div>
-        </div>
-      </header>
+    
 
       <section className="company-details  lg-pt-80 pb-30 xl-pb-150 lg-pb-80">
 
@@ -103,28 +131,14 @@ const CollegeDetailsArea = ({ details }: { details: IcollegeType }) => {
               Courses and Fees
             </a>
           </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#admission" role="button">
-              Admission
-            </a>
-          </li>
+        
           <li className="nav-item">
             <a className="nav-link" href="#placement" role="button">
               Placement
             </a>
           </li>
-          <li className="nav-item">
-            <a
-              className="nav-link" href="#opportunities" role="button"
-            >
-              Opportunities
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#hostel" role="button">
-              Hostel
-            </a>
-          </li>
+         
+         
           <li className="nav-item">
             <a className="nav-link" href="#awards" role="button">
               Awards
@@ -137,8 +151,8 @@ const CollegeDetailsArea = ({ details }: { details: IcollegeType }) => {
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#alumini" role="button">
-              Alumini Reviews
+            <a className="nav-link" href="#alumni" role="button">
+              Alumni Reviews
             </a>
           </li>
           {/* menus end */}
@@ -182,13 +196,9 @@ const CollegeDetailsArea = ({ details }: { details: IcollegeType }) => {
                         <a href={details.email}>{details.email}</a>
                       </div>
                     </li>
-                    <li className="col-12">
-                      <span>Founded: </span>
-                      <div>{details.date}</div>
-                    </li>
 
                     <li className="col-12">
-                      <span>Category: </span>
+                      <span>For admission related enquiry: </span>
                       <div>{details.category[0]}</div>{" "}
                       <div>{details.category[1]}</div>{" "}
                     </li>
@@ -217,6 +227,11 @@ const CollegeDetailsArea = ({ details }: { details: IcollegeType }) => {
               <div className="details-post-data me-xxl-5 pe-xxl-4">
                 <h3 id="overview">Overview</h3>
                 <p>{details.overviewsection}</p>
+
+                <div className="col-lg-7 pb-80">
+                <VideoCard videoId={videoId} />
+              </div>
+
                 <div className="details-post-data me-xxl-5 pe-xxl-4 mt-4 mb-4 border border-gray-300 rounded-lg overflow-auto ">
                 <Table aria-label="Courses and Fees Table">
                 <TableHeader>
@@ -233,47 +248,41 @@ const CollegeDetailsArea = ({ details }: { details: IcollegeType }) => {
                     </TableBody>
                   </Table>
                 </div>
+
+               
+
+
                 <h3 id="courses">Courses and Fees</h3>
                 <p>{details.courses}</p>
                 <div className="details-post-data me-xxl-5 pe-xxl-4 mt-4 border border-gray-300 rounded-lg overflow-auto ">
                   <Table aria-label="Courses and Fees Table">
                     <TableHeader>
+                      <TableColumn>Courses</TableColumn>
                       <TableColumn>Specialization</TableColumn>
-                      <TableColumn>Annual Fee</TableColumn>
+                      <TableColumn>Annual Fees</TableColumn>
+                      <TableColumn>Selection Criteria</TableColumn>
                       <TableColumn>Eligibility Criteria</TableColumn>
                     </TableHeader>
                     <TableBody>
                       {details.coursesAndFees.map((course, index) => (
                         <TableRow key={index}>
+                        <TableCell>{course.course}</TableCell>
                           <TableCell>{course.specialization}</TableCell>
                           <TableCell>{course.annualFee}</TableCell>
+                          <TableCell>{course.duration}</TableCell>
                           <TableCell>{course.eligibility}</TableCell>
                         </TableRow>
                       ))}
                     </TableBody>
                   </Table>
                 </div>
-                <h3 className="pt-50" id="admission">
-                  Admission Dates 
-                </h3>
-                <p>{details.admission}</p>
 
-                <div className="details-post-data me-xxl-5 pe-xxl-4 mt-4 border border-gray-300 rounded-lg overflow-auto ">
-                  <Table aria-label="Admission Dates Table">
-                    <TableHeader>
-                      <TableColumn>Event</TableColumn>
-                      <TableColumn>Date</TableColumn>
-                    </TableHeader>
-                    <TableBody>
-                      {details.admissionDates.map((event, index) => (
-                        <TableRow key={index}>
-                          <TableCell>{event.name}</TableCell>
-                          <TableCell>{event.date}</TableCell>
-                        </TableRow>
-                      ))}
-                    </TableBody>
-                  </Table>
-                </div>
+
+
+
+               
+
+
                 <div className="position-relative">
                   <h3 className="pt-50" id="placement">
                     Placements 
@@ -318,48 +327,11 @@ const CollegeDetailsArea = ({ details }: { details: IcollegeType }) => {
                       </TableBody>
                     </Table>
                   </div>
-                  <h3 className="pt-50" id="opportunities">
-                    Opportunities
-                  </h3>
-                  <p>{details.opportunities}</p>
+                 
+                 
 
-                  <div className="details-post-data me-xxl-5 pe-xxl-4 mt-4 border border-gray-300 rounded-lg overflow-auto ">
-                    <Table aria-label="Admission Dates Table">
-                      <TableHeader>
-                        <TableColumn>opportunities</TableColumn>
-                        <TableColumn>Details</TableColumn>
-                      </TableHeader>
-                      <TableBody>
-                        {details.opportunitiesinfo.map((event, index) => (
-                          <TableRow key={index}>
-                            <TableCell>{event.name}</TableCell>
-                            <TableCell>{event.info}</TableCell>
-                          </TableRow>
-                        ))}
-                      </TableBody>
-                    </Table>
-                  </div>
-                  <h3 className="pt-50" id="hostel">
-                    Hostel
-                  </h3>
-                  <p>{details.hostel}</p>
 
-                  <div className="details-post-data me-xxl-5 pe-xxl-4 mt-4 border border-gray-300 rounded-lg overflow-auto ">
-                    <Table aria-label="Admission Dates Table">
-                      <TableHeader>
-                        <TableColumn>Hostel Type (Girls/ Boys)</TableColumn>
-                        <TableColumn>Both</TableColumn>
-                      </TableHeader>
-                      <TableBody>
-                        {details.hostelinfo.map((event, index) => (
-                          <TableRow key={index}>
-                            <TableCell>{event.name}</TableCell>
-                            <TableCell>{event.info}</TableCell>
-                          </TableRow>
-                        ))}
-                      </TableBody>
-                    </Table>
-                  </div>
+                 
                   <h3 className="pt-50" id="awards">
                     Awards
                   </h3>
@@ -369,40 +341,19 @@ const CollegeDetailsArea = ({ details }: { details: IcollegeType }) => {
                     <Table aria-label="Admission Dates Table">
                       <TableHeader>
                         <TableColumn>Name of Awards</TableColumn>
-                        <TableColumn>Awarding Body</TableColumn>
+                        
                       </TableHeader>
                       <TableBody>
                         {details.awardsinfo.map((event, index) => (
                           <TableRow key={index}>
                             <TableCell>{event.name}</TableCell>
-                            <TableCell>{event.info}</TableCell>
+                           
                           </TableRow>
                         ))}
                       </TableBody>
                     </Table>
                   </div>
-                  <h3 id="courses">Faculty</h3>
-                <p>{details.faculty}</p>
-                <div className="details-post-data me-xxl-5 pe-xxl-4 mt-4 mb-4 border border-gray-300 rounded-lg overflow-auto ">
-                  <Table aria-label="Courses and Fees Table">
-                    <TableHeader>
-                      <TableColumn>Faculty Name</TableColumn>
-                      <TableColumn>Department</TableColumn>
-                      <TableColumn>Experience</TableColumn>
-                      <TableColumn>Specialization</TableColumn>
-                    </TableHeader>
-                    <TableBody>
-                      {details.facultytable.map((faculty, index) => (
-                        <TableRow key={index}>
-                          <TableCell>{faculty.name}</TableCell>
-                          <TableCell>{faculty.Qualification}</TableCell>
-                          <TableCell>{faculty.Experience}</TableCell>
-                          <TableCell>{faculty.Specialization}</TableCell>
-                        </TableRow>
-                      ))}
-                    </TableBody>
-                  </Table>
-                </div>
+                 
                   <h3 className="pt-50" id="ranking">
                     Ranking
                   </h3>
@@ -424,8 +375,8 @@ const CollegeDetailsArea = ({ details }: { details: IcollegeType }) => {
                       </TableBody>
                     </Table>
                   </div>
-                  <h3 className="pt-50" id="alumini">
-                    Alumini Reviews
+                  <h3 className="pt-50" id="alumni">
+                    Alumni Reviews
                   </h3>
 
                   {/* CompanyReviews */}
@@ -470,11 +421,7 @@ const CollegeDetailsArea = ({ details }: { details: IcollegeType }) => {
                           </div>
                           <blockquote>{item.desc}</blockquote>
                           <div className="d-flex align-items-center">
-                            <Image
-                              src={item.user}
-                              alt="user"
-                              className="author-img rounded-circle"
-                            />
+                           
                             <div className="ms-3">
                               <div className="name fw-500 text-dark">
                                 {item.name}
@@ -516,11 +463,7 @@ const CollegeDetailsArea = ({ details }: { details: IcollegeType }) => {
         </div>
       </section>
       {/* video modal start */}
-      <VideoPopup
-        isVideoOpen={isVideoOpen}
-        setIsVideoOpen={setIsVideoOpen}
-        videoId={details.videoid}
-      />
+      
       {/* video modal end */}
     </>
   );

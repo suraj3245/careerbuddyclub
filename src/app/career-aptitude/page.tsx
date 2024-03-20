@@ -21,10 +21,10 @@ import Component from "../components/how-it-works/how-it-works-4";
 // };
 
 const statistics = [
-  { icon: <FaUserGraduate />, number: "10,000+", label: "Students taken Test" },
-  { icon: <FaChartLine />, number: "4,000+", label: "Students Counseled" },
+  { icon: <FaUserGraduate />, number: "1,00,000+", label: "Students taken Test" },
+  { icon: <FaChartLine />, number: "10,000+", label: "Students Counseled" },
   { icon: <FaUserTie />, number: "100+", label: "Expert Counsellors" },
-  { icon: <FaSchool />, number: "1,000+", label: "Admissions taken" },
+  { icon: <FaSchool />, number: "5,000+", label: "Admissions taken" },
 ];
 
 const campus = () => {
