@@ -290,13 +290,13 @@
     font-size: 15px;
     font-weight: 500;
     letter-spacing: -0.15px;
-    color: $color-five;
+    color: #fff;
     border-radius: 7px;
     line-height: 40px;
     padding: 0 15px;
     min-width: 135px;
     text-align: center;
-    background: rgba($color: #3f634d, $alpha: 0.2);
+    background: rgba($color: #13adbd, $alpha: 0.9);
     @include transition(0.2s);
     i {
       font-size: 1.5em;

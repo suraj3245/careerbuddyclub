@@ -52,7 +52,7 @@ const AptiBanner = () => {
             href="#"
             className="btn-five wow fadeInUp"
             data-bs-toggle="modal"
-            data-bs-target="#loginModal"
+            data-bs-target="#ApplyModal"
           >
             Begin your free test
           </a>
