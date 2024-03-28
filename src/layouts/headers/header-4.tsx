@@ -83,7 +83,7 @@ const HeaderFour: React.FC<HeaderFourProps> = ({ user, key, onLogout }) => {
 
   useEffect(() => {
     fetchUserData();
-    if (!isUserLoggedIn) {
+    if (!localStorage.getItem("username")) {
       setTimeout(() => {
         const event = new Event("click");
         const applyNowButton = document.querySelector(
