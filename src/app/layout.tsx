@@ -84,6 +84,8 @@ export default function RootLayout({
     localStorage.removeItem("testStatus"); // Clear the stored test status
     localStorage.removeItem("catResults");
     localStorage.removeItem("username");
+    localStorage.removeItem("location");
+
     setUser({ value: null }); // Update the user state to reflect logout
     // Any additional logout logic goes here
 
@@ -96,10 +98,7 @@ export default function RootLayout({
   const isCandidateDashboardPage = pathname.startsWith(
     "/dashboard/candidate-dashboard/"
   );
-  const isapplynow = pathname.startsWith(
-    "/apply-now"
-  );
-
+  const isapplynow = pathname.startsWith("/apply-now");
 
   // const isCollegeDetailsPage = pathname.startsWith("/college-details");
   return (
@@ -142,7 +141,8 @@ export default function RootLayout({
         <HeaderTop />
         {!isRedirectPage &&
           !isAptitudeTestPage &&
-          !isCandidateDashboardPage && !isapplynow && (
+          !isCandidateDashboardPage &&
+          !isapplynow && (
             <HeaderFour user={user} onLogout={handleLogout} key={key} />
           )}
 

@@ -83,7 +83,18 @@ const HeaderFour: React.FC<HeaderFourProps> = ({ user, key, onLogout }) => {
 
   useEffect(() => {
     fetchUserData();
-  }, []);
+    if (!localStorage.getItem("username")) {
+      setTimeout(() => {
+        const event = new Event("click");
+        const applyNowButton = document.querySelector(
+          '[data-bs-target="#ApplyModal"]'
+        );
+        if (applyNowButton) {
+          applyNowButton.dispatchEvent(event);
+        }
+      }, 1000);
+    }
+  }, [isUserLoggedIn]);
   const getInitials = (userName: string) =>
     userName && userName.length > 0 ? userName[0].toUpperCase() : "?";
   return (
@@ -237,6 +248,7 @@ const HeaderFour: React.FC<HeaderFourProps> = ({ user, key, onLogout }) => {
       <LoginModal />
       <PhoneModal />
       <ScheduleModal />
+
       {/* login modal end */}
     </>
   );

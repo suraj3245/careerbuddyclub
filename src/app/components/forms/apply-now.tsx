@@ -114,9 +114,9 @@ const ApplyForm = () => {
     // Parse UTM parameters from the URL
     const searchParams = new URLSearchParams(window.location.search);
     const newUtmParams: UTMParams = {
-      utm_source: searchParams.get("utm_source"),
-      utm_medium: searchParams.get("utm_medium"),
-      utm_campaign: searchParams.get("utm_campaign"),
+      utm_source: searchParams.get("utm_source") || "directapplicationform",
+      utm_medium: searchParams.get("utm_medium") || "DigitalOrganic",
+      utm_campaign: searchParams.get("utm_campaign") || "Website",
       utm_id: searchParams.get("utm_id"),
       utm_term: searchParams.get("utm_term"),
       utm_content: searchParams.get("utm_content"),

@@ -255,6 +255,7 @@ const QuizForm: React.FC = () => {
       console.log("Submit Response:", response.data);
       setResults(response.data);
       setIsSubmitted(true);
+      localStorage.setItem("testStatus", "Test completed");
       localStorage.setItem("quizSubmitted", "true");
     } catch (error) {
       console.error("Error submitting answers:", error);
