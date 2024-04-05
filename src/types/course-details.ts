@@ -73,6 +73,10 @@ export interface IcoursesEntrance {
   TExams: string;
   MExams: string;
 }
+export interface Itopcareer {
+  career:string;
+
+}
 export interface IcourseType {
   id: number;
   logo: StaticImageData;
@@ -84,7 +88,7 @@ export interface IcourseType {
   coursesoverviewtable: Icoursesoverview[];
   whychoose: string;
   whychoosepoints: string[];
-  
+  careertable: Itopcareer[];
   image: StaticImageData;
   // entrance: string;
   // EntranceExamination: IExamination[];

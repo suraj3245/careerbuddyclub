@@ -119,6 +119,13 @@ const CoursesDetailsArea = ({ details }: { details: IcourseType }) => {
                     Description
                   </a>
                 </li>
+ 
+                <li className="nav-item">
+                <a className="nav-link" href="#career" role="button">
+                Careers
+                </a>
+              </li>
+
                 <li className="nav-item">
                   <a className="nav-link" href="#entrance" role="button">
                     Entrance Exams
@@ -158,7 +165,7 @@ const CoursesDetailsArea = ({ details }: { details: IcourseType }) => {
                 </div>
       
 
-                <div className="details-post-data me-xxl-5 pe-xxl-4 mt-4 border border-gray-300 rounded-lg overflow-auto ">
+                <div className="details-post-data job-company-info me-xxl-5 pe-xxl-4 mt-4 border border-gray-300 rounded-lg overflow-auto ">
                   <Table aria-label="Courses and Fees Table">
                     <TableHeader>
                       <TableColumn>Particulars</TableColumn>
@@ -189,10 +196,33 @@ const CoursesDetailsArea = ({ details }: { details: IcourseType }) => {
                     </ul>
                   ))}
 
+
+
+                  <h3 id="career">Career</h3>
+                
+                  <div className="details-post-data job-company-info me-xxl-5 pe-xxl-4 mt-4 mb-4 border border-gray-300 rounded-lg overflow-auto ">
+                  <Table aria-label="Top career">
+                    <TableHeader>
+                      <TableColumn>Career</TableColumn>
+                    
+                    </TableHeader>
+                    <TableBody>
+                      {details.careertable.map((course, index) => (
+                        <TableRow key={index}>
+                          <TableCell>{course.career}</TableCell>
+                      
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </div>
+
+
+
                   <div className="details-post-data me-xxl-5 pe-xxl-4 mt-4">
                   <h3 id="entrance">{details.coursename} Entrance Examination</h3>
                   <p>{details.courseexam}</p>
-                  <div className="details-post-data me-xxl-5 pe-xxl-4 mt-4 border border-gray-300 rounded-lg overflow-auto ">
+                  <div className="details-post-data job-company-info me-xxl-5 pe-xxl-4 mt-4 border border-gray-300 rounded-lg overflow-auto ">
                     <Table aria-label="Courses and Fees Table">
                       <TableHeader>
                         <TableColumn>Exams</TableColumn>

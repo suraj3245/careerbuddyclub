@@ -167,6 +167,8 @@
     }
     p {
         margin-bottom: 40px;
+        text-align: justify;
+        font-size: .9rem;
     }
     .video-post {
         background: url(../images/assets/img_45.jpg) no-repeat center;
@@ -210,3 +212,7 @@
 .company-open-position {
     background: $light-bg;
 }
+
+.table-body-cell {
+    font-size: 0.9rem;
+  }

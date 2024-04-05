@@ -2,48 +2,13 @@ import { StaticImageData } from "next/image";
 
 export interface ICourse {
   course: string;
-  specialization: string;
   annualFee: string;
   duration: string;
   eligibility: string;
 }
-
 export interface Ioverview {
   specialization: string;
   annualfee: string;
-}
-
-export interface IAdmissionDate {
-  name: string;
-  date: string;
-}
-
-export interface IPlacement {
-  name: string;
-  info: string;
-}
-export interface ICampus {
-  name: string;
-  info: string;
-}
-export interface Iopportunity {
-  name: string;
-  info: string;
-}
-export interface Ihostel {
-  name: string;
-  info: string;
-}
-export interface Iranking {
-  name: string;
-  info: string;
-}
-
-export interface Ifaculty {
-  name: string;
-  Qualification: string;
-  Experience: string;
-  Specialization: string;
 }
 
 export interface Ireview {
@@ -54,8 +19,15 @@ export interface Ireview {
   name: string;
   location: string;
 }
+export interface Iimagetype {
+  img: StaticImageData;
+}
+export interface Iimagetype1 {
+  img1: StaticImageData;
+}
 
-export interface IcollegeType {
+export interface IuniversityType {
+   
   id: number;
   logo: StaticImageData;
   type: string;
@@ -72,8 +44,6 @@ export interface IcollegeType {
   feild: string[];
   overviewsection: string;
   overviewtable:Ioverview[];
-  faculty: string;
-  facultytable:Ifaculty[];
   duration: string;
   date: string;
   college: string;
@@ -88,7 +58,7 @@ export interface IcollegeType {
   courses: string;
   ranking: string;
   awards: string;
-  hostel: string;
+  
   opportunities: string;
   campus: string;
   placement: string;
@@ -99,14 +69,15 @@ export interface IcollegeType {
   instagram: string;
   twitter: string;
   linkedin: string;
+
+  image: Iimagetype[];
+  image1: Iimagetype1[];
+
   
-  coursesAndFees: ICourse[];
-  admissionDates: IAdmissionDate[];
-  placementinformation: IPlacement[];
-  campusinfo: ICampus[];
-  opportunitiesinfo: Iopportunity[]; // Added this line for admission dates
-  awardsinfo: string[]; // Added this line for admission dates
-  hostelinfo: Ihostel[]; // Added this line for admission dates
-  rankinginfo: Iranking[];
+  whychoosepoints: string[];
+  whystudypoints: string[];
+  
+
+  coursesAndFees: ICourse[]; 
   reviewinfo: Ireview[];
 }
