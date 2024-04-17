@@ -3,7 +3,7 @@ import React from "react";
 import Image from "next/image";
 // internalc
 import shape_2 from "@/assets/images/shape/shape_16.svg";
-import shape_3 from "@/assets/images/shape/shape_17.svg";
+import shape_3 from "@/assets/images/shape/shape_17.svg"; 
 import shape_4 from "@/assets/images/shape/shape_18.svg";
 import shape_5 from "@/assets/images/shape/shape_19.svg";
 import shape_6 from "@/assets/images/shape/shape_20.svg";

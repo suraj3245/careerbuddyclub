@@ -139,12 +139,34 @@ const courses_details: IcourseType[] = [
       "When speaking about BTech jobs, there is a lot of abundance in the facilities as the BTech is very diverse. One can opt for jobs in private and public sector undertakings too, depending on the criteria met by the company",
     ],
    
+  
     
-    
-   
+    careertable: [
+      {
+        career: "Civil Engineer",
+      },
+      {
+        career: "Software Development",
+      },
+     
+      {
+        career: "Biomedical Engineer",
+      },
+      {
+        career: "Network Engineer",
+      },
+      {
+        career: "Electrical Engineer",
+      },
+      {
+        career: "Aerospace Engineer",
+      },
+
+    ],
     
     courseexam:"There are numerous exams in India, divided into national, state level, and university levels. The national level top B Tech exams are JEE Main, JEE Advanced state-level BTech exams include WBJEE, and MHT CET; university-level exams include BITSAT, VITEEE, and SRMJEEE. To know more about these exams that aid in access to BTech and their important dates, read the following.",
-    coursesEntrance: [
+   
+ coursesEntrance: [
           {
             Exams:"JEE Main",
             Entrance:"Conducted by NTA at a national level for Engineering candidates all over the India. The mode of the exam is online mode.",
@@ -181,7 +203,7 @@ const courses_details: IcourseType[] = [
             TExams:"State Level	",
             MExams:"Online - Computer Based Test (CBT)",
           },
-          
+
     ],
 
 
@@ -284,6 +306,25 @@ const courses_details: IcourseType[] = [
     
     
    
+    
+    careertable: [
+      {
+        career: "Project Architect",
+      },
+      {
+        career: "Design Architect",
+      },
+      {
+        career: "Project Manager",
+      },
+      {
+        career: "Landscape Architect",
+      },
+      {
+        career: "Interior Architect",
+      },
+
+    ],
     
     courseexam:"There are numerous exams in India, divided into national, state level, and university levels. The national level top B Tech exams are JEE Main, JEE Advanced state-level BTech exams include WBJEE, and MHT CET; university-level exams include BITSAT, VITEEE, and SRMJEEE. To know more about these exams that aid in access to BTech and their important dates, read the following.",
     coursesEntrance: [
@@ -399,6 +440,25 @@ const courses_details: IcourseType[] = [
     
    
     
+    careertable: [
+      {
+        career: "Educational Administrator",
+      },
+      {
+        career: "Education Consultant",
+      },
+      {
+        career: "Corporate Trainer",
+      },
+      {
+        career: "School Teacher",
+      },
+      {
+        career: "Tutoring and Private Coaching",
+      },
+
+    ],
+    
     courseexam:"B Ed entrance exams are your gateway to prestigious B.Ed courses across India. But navigating the landscape of these diverse exams can be overwhelming. This guide will provide you with the knowledge and resources to confidently embark on your B Ed journey in 2024.",
     coursesEntrance: [
           {
@@ -505,6 +565,25 @@ const courses_details: IcourseType[] = [
     
     
    
+    
+    careertable: [
+      {
+        career: "Graphic Designer",
+      },
+      {
+        career: "Design Managers",
+      },
+      {
+        career: "Textile Designer",
+      },
+      {
+        career: "Fashion Forecasters",
+      },
+      {
+        career: "Interior Designer Entrepreneur",
+      },
+
+    ],
     
     courseexam:"As mentioned above, students interested in studying B.Des should clear the required entrance exam in order to be considered for admission. Some of the top and most popular BDes entrance exams are as follows:",
     coursesEntrance: [
@@ -619,6 +698,25 @@ const courses_details: IcourseType[] = [
     
    
     
+    careertable: [
+      {
+        career: "Physical Education Teacher",
+      },
+      {
+        career: "Gym trainer",
+      },
+      {
+        career: "Coach",
+      },
+      {
+        career: "Sports trainer",
+      },
+      {
+        career: "Yoga trainer",
+      },
+
+    ],
+    
     courseexam:"The best entrance examinations for obtaining a B PEd are national-level or state-level education entrance exams that are administered by testing organizations or by state education boards. The following are some of the popular B.P.Ed entrance exams:",
     coursesEntrance: [
           {
@@ -728,6 +826,25 @@ const courses_details: IcourseType[] = [
     
    
     
+    careertable: [
+      {
+        career: "Business Analyst	",
+      },
+      {
+        career: "Chief Financial Officer",
+      },
+      {
+        career: "Management Consulting	",
+      },
+      {
+        career: "Operations Manager",
+      },
+      {
+        career: "Asset Manager",
+      },
+
+    ],
+    
     courseexam:"Mentioned below are some of the top national, state, and university-level MBA entrance exams required to make a cut into the MBA colleges.",
     coursesEntrance: [
           {
@@ -832,9 +949,34 @@ const courses_details: IcourseType[] = [
       "Greate Earning Opportunities",
     ],
    
-    
-    
+  
    
+    
+    careertable: [
+      {
+        career: "Biological Technician",
+      },
+      {
+        career: "Wildlife Biologist",
+      },
+
+      {
+        career: "Healthcare Scientist",
+      },
+
+      {
+        career: "	Industrial Microbiologist",
+      },
+
+      {
+        career: "Hardware Developer",
+      },
+      {
+        career: "Software Developer",
+      },
+
+
+    ],
     
     courseexam:"For BSc admission, various colleges/universities hold an entrance exam. The following is a list of BSc entrance exams required for admission to this course, along with their descriptions:",
     coursesEntrance: [
@@ -941,6 +1083,25 @@ const courses_details: IcourseType[] = [
     
     
    
+    
+    careertable: [
+      {
+        career: "Lab Technician",
+      },
+      {
+        career: "Project Manager",
+      },
+      {
+        career: "Microbiologists",
+      },
+      {
+        career: "Epidemiologists",
+      },
+      {
+        career: "Biotech Analyst",
+      },
+
+    ],
     
     courseexam:"BSc Biotechnology entrance exam is conducted by many famous colleges/universities offer in BSc Biotechnology admission . There are some entrance exams taken at the state as well as national level such as the KCET entrance exam, SAAT entrance exam, CUET entrance exam, and KIITEE entrance exam. The candidates need to prepare well for the exam and crack the entrance exam to get admission to the top colleges.     ",
     coursesEntrance: [
@@ -1051,6 +1212,31 @@ const courses_details: IcourseType[] = [
     
    
     
+    careertable: [
+      {
+        career: "Big Data Analyst",
+      },
+      {
+        career: "User Experience (UX) Designer/Developer",
+      },
+      {
+        career: "AI Engineer",
+      },
+      {
+        career: "Software Engineer",
+      },
+      {
+        career: "Data Mining and Analysis",
+      },
+      {
+        career: "Computer Vision Engineer",
+      },
+      {
+        career: "Robotics Engineer",
+      },
+
+    ],
+    
     courseexam:"The major entrance examinations that are required for admission to BTech in Artificial Intelligence are JEE Main and JEE Advanced. Top B. Tech AI colleges are SRM University, IIT Hyderabad, NIT Surathkal and Jamia Hamdard, New Delhi.",
     coursesEntrance: [
           {
@@ -1160,6 +1346,25 @@ const courses_details: IcourseType[] = [
     
    
     
+    careertable: [
+      {
+        career: "Agriculture Officer",
+      },
+      {
+        career: "Assistant Plantation Manager",
+      },
+      {
+        career: "Seed Technologist",
+      },
+      {
+        career: "Food Safety Officer	",
+      },
+      {
+        career: "Research Assistant",
+      },
+
+    ],
+    
     courseexam:" ICAR-AIEEA, KEAM, KCET, AP EAMCET, TJEE, and others are among the top BSc Agriculture Entrance Exam 2023. ICAR-AIEEA: The Indian Council of Agricultural Research (ICAR) is the primary organisation in charge of the ICAR-AIEEA (UG).",
     coursesEntrance: [
           {
@@ -1268,6 +1473,31 @@ const courses_details: IcourseType[] = [
     
    
     
+    careertable: [
+      {
+        career: " Chartered Accountant (CA)",
+      },
+      {
+        career: "Investment Banker",
+      },
+      {
+        career: "Chartered Financial Analyst (CFA)",
+      },
+      {
+        career: "Sales Manager",
+      },
+      {
+        career: "Budget Analyst ",
+      },
+      {
+        career: "Stock Broker ",
+      },
+      {
+        career: "Statistician ",
+      },
+
+    ],
+    
     courseexam:"The top entrance exams for BCom are IPU CET, CUET, Christ University Entrance Test, DUET, etc. Some of the top colleges are SRCC, Ramjas College, Christ University, Hindu College, Hansraj College, etc.",
     coursesEntrance: [
           {
@@ -1375,6 +1605,31 @@ const courses_details: IcourseType[] = [
     
    
     
+    careertable: [
+      {
+        career: "Legal Associate/Advisor",
+      },
+      {
+        career: "Litigation Lawyer",
+      },
+      {
+        career: "Legal Secretary",
+      },
+      {
+        career: "Law Clerk",
+      },
+      {
+        career: " Legal Analyst",
+      },
+      {
+        career: "Judge",
+      },
+      {
+        career: " Paralegal",
+      },
+
+    ],
+    
     courseexam:"In India, aspirant lawyers could choose to embark on fulfilling their BA LLB ambitions through different top-notch entrance exams.Here are the most prestigious and widely accepted options:",
     coursesEntrance: [
           {
@@ -1481,6 +1736,28 @@ const courses_details: IcourseType[] = [
     
    
     
+    careertable: [
+      {
+        career: "Quality Food Technologist",
+      },
+      {
+        career: "Product Development Manager",
+      },
+      {
+        career: "Application Technologist",
+      },
+      {
+        career: "Application Technologist",
+      },
+      {
+        career: "Operations Manager for Food Manufacturing",
+      },
+      {
+        career: "Food Scientist",
+      },
+   
+    ],
+    
     courseexam:"Some colleges in India may need applicants to take an entrance exam to be accepted into the BSc Food Technology programme. These tests are intended to evaluate a student's knowledge and abilities in a range of courses, with a focus on the Science stream. While the majority of educational institutions admit students based on their performance in the 10+2 exams, some could need applicants to pass additional entrance exams. Common national, state, and university entry tests that may be pertinent for a BSc in food technology include the following:",
     coursesEntrance: [
           {
@@ -1585,6 +1862,33 @@ const courses_details: IcourseType[] = [
     
     
    
+    
+    careertable: [
+      {
+        career: "Research Scientist",
+      },
+    
+      {
+        career: "Professor",
+      },
+
+      {
+        career: "Forensic expert",
+      },
+
+      {
+        career: "Research Associate",
+      },
+
+      {
+        career: "Biologist",
+      },
+
+      {
+        career: "Plant breeder",
+      },
+
+    ],
     
     courseexam:"Some colleges in India may need applicants to take an entrance exam to be accepted into the BSc Food Technology programme. These tests are intended to evaluate a student's knowledge and abilities in a range of courses, with a focus on the Science stream. While the majority of educational institutions admit students based on their performance in the 10+2 exams, some could need applicants to pass additional entrance exams. Common national, state, and university entry tests that may be pertinent for a BSc in food technology include the following:",
     coursesEntrance: [
@@ -1691,6 +1995,22 @@ const courses_details: IcourseType[] = [
     
    
     
+    careertable: [
+      {
+        career: "Nutrition Expert",
+      },
+      {
+        career: "Health Care Worker",
+      },
+      {
+        career: "Child Care-taker",
+      },
+      {
+        career: "Community Representative",
+      },
+
+    ],
+    
     courseexam:"The entrance exam is required for admission to the top government and private BSc Home Science colleges in India. Since colleges release the final student list based on exam results, exams are the main criteria for selecting students. The common entrance exam for BSc Home Science is:",
     coursesEntrance: [
           
@@ -1783,8 +2103,29 @@ const courses_details: IcourseType[] = [
     ],
    
     
-    
    
+    
+    careertable: [
+      {
+        career: "Security Analyst",
+      },
+      {
+        career: "Ethical Hacker/Penetration Tester",
+      },
+      {
+        career: "Security Engineer",
+      },
+      {
+        career: "Cybersecurity Architect",
+      },
+      {
+        career: "Security Consultant",
+      },
+      {
+        career: "Information Security Analyst",
+      },
+
+    ],
     
     courseexam:"BSc Data Science admissions are provided on the basis of marks scored by the candidates in various exams. Following is the list of BSc Data Science Entrance Exams:",
     coursesEntrance: [
@@ -1882,6 +2223,28 @@ const courses_details: IcourseType[] = [
     
     
    
+    
+    careertable: [
+      {
+        career: "Medical Laboratory Technologist/Technician",
+      },
+      {
+        career: "Laboratory Manager/Supervisor",
+      },
+      {
+        career: "Research Scientist",
+      },
+      {
+        career: "Quality Assurance/Quality Control Officer",
+      },
+      {
+        career: "Healthcare Educator/Trainer",
+      },
+      {
+        career: "Phlebotomist",
+      },
+
+    ],
     
     courseexam:"BSc Data Science admissions are provided on the basis of marks scored by the candidates in various exams. Following is the list of BSc Data Science Entrance Exams:",
     coursesEntrance: [
@@ -1986,6 +2349,23 @@ const courses_details: IcourseType[] = [
     
    
     
+    careertable: [
+      {
+        career: "Radiographer",
+      },
+      {
+        career: "X-Ray technician",
+      },
+      {
+        career: "MRI Technician",
+      },
+      {
+        career: "Ultrasound Technician",
+      },
+     
+
+    ],
+    
     courseexam:"BSc Data Science admissions are provided on the basis of marks scored by the candidates in various exams. Following is the list of BSc Data Science Entrance Exams:",
     coursesEntrance: [
           
@@ -2083,6 +2463,28 @@ const courses_details: IcourseType[] = [
     
     
    
+    
+    careertable: [
+      {
+        career: "Anaesthetist",
+      },
+      {
+        career: "Consultant",
+      },
+      {
+        career: "Lab Technician",
+      },
+      {
+        career: "Neurosurgery",
+      },
+      {
+        career: "Operating theatre teacher",
+      },
+      {
+        career: "Surgical Assistant",
+      },
+
+    ],
     
     courseexam:"BSc Data Science admissions are provided on the basis of marks scored by the candidates in various exams. Following is the list of BSc Data Science Entrance Exams:",
     coursesEntrance: [
@@ -2182,6 +2584,28 @@ const courses_details: IcourseType[] = [
     
    
     
+    careertable: [
+      {
+        career: "",
+      },
+      {
+        career: "",
+      },
+      {
+        career: "",
+      },
+      {
+        career: "",
+      },
+      {
+        career: "",
+      },
+      {
+        career: "",
+      },
+
+    ],
+    
     courseexam:"BSc Data Science admissions are provided on the basis of marks scored by the candidates in various exams. Following is the list of BSc Data Science Entrance Exams:",
     coursesEntrance: [
           
@@ -2279,6 +2703,13 @@ const courses_details: IcourseType[] = [
     
     
    
+    
+    careertable: [
+      {
+        career: "abc",
+      },
+
+    ],
     
     courseexam:"Candidates need to qualify entrance exams in order to get BSc Optometry admission in various colleges in India. Below mentioned are some of the important exams that are conducted in order to provide BSc Optometry admission to the eligible candidates:",
     coursesEntrance: [
@@ -2385,6 +2816,13 @@ const courses_details: IcourseType[] = [
     
    
     
+    careertable: [
+      {
+        career: "abc",
+      },
+
+    ],
+    
     courseexam:"Candidates need to qualify entrance exams in order to get Diploma in Dialysis Technology admission in various colleges in India. Below mentioned are some of the important exams that are conducted in order to provide Diploma in Dialysis Technologyy admission to the eligible candidates:",
     coursesEntrance: [
           
@@ -2483,6 +2921,13 @@ const courses_details: IcourseType[] = [
     
     
    
+    
+    careertable: [
+      {
+        career: "abc",
+      },
+
+    ],
     
     courseexam:"",
     coursesEntrance: [
@@ -2583,6 +3028,13 @@ const courses_details: IcourseType[] = [
     
    
     
+    careertable: [
+      {
+        career: "abc",
+      },
+
+    ],
+    
     courseexam:"",
     coursesEntrance: [
           
@@ -2679,6 +3131,13 @@ const courses_details: IcourseType[] = [
       "Job Satisfaction: One of the most important reasons behind choosing to study BSc in Nursing and joining the nursing profession is job satisfaction. ",
     ],
    
+    
+    careertable: [
+      {
+        career: "abc",
+      },
+
+    ],
     
     courseexam:"",
     coursesEntrance: [
@@ -2779,6 +3238,13 @@ const courses_details: IcourseType[] = [
     
    
     
+    careertable: [
+      {
+        career: "abc",
+      },
+
+    ],
+    
     courseexam:"",
     coursesEntrance: [
           
@@ -2878,6 +3344,13 @@ const courses_details: IcourseType[] = [
     
    
     
+    careertable: [
+      {
+        career: "abc",
+      },
+
+    ],
+    
     courseexam:"Mentioned below are the list of entrance examinations that the candidates can appear in for Master of Public Health admission:",
     coursesEntrance: [
           
@@ -2975,6 +3448,13 @@ const courses_details: IcourseType[] = [
     
     
    
+    
+    careertable: [
+      {
+        career: "abc",
+      },
+
+    ],
     
     courseexam:"Mentioned below are the list of entrance examinations that the candidates can appear in for Master of Public Health admission:",
     coursesEntrance: [
@@ -3074,6 +3554,13 @@ const courses_details: IcourseType[] = [
     
    
     
+    careertable: [
+      {
+        career: "abc",
+      },
+
+    ],
+    
     courseexam:"",
     coursesEntrance: [
           
@@ -3170,6 +3657,13 @@ const courses_details: IcourseType[] = [
     
     
    
+    
+    careertable: [
+      {
+        career: "abc",
+      },
+
+    ],
     
     courseexam:"",
     coursesEntrance: [
@@ -3268,6 +3762,13 @@ const courses_details: IcourseType[] = [
     
    
     
+    careertable: [
+      {
+        career: "abc",
+      },
+
+    ],
+    
     courseexam:"",
     coursesEntrance: [
           
@@ -3365,6 +3866,13 @@ const courses_details: IcourseType[] = [
     
    
     
+    careertable: [
+      {
+        career: "abc",
+      },
+
+    ],
+    
     courseexam:"Admission in most of the institutes is considered on merit basis i.e candidates performance in the qualifying examination is considered for admission in M.Sc Horticulture course. ",
     coursesEntrance: [
           
@@ -3454,6 +3962,13 @@ const courses_details: IcourseType[] = [
     
     
    
+    
+    careertable: [
+      {
+        career: "abc",
+      },
+
+    ],
     
     courseexam:"",
     coursesEntrance: [
@@ -3551,6 +4066,13 @@ const courses_details: IcourseType[] = [
     
    
     
+    careertable: [
+      {
+        career: "abc",
+      },
+
+    ],
+    
     courseexam:"",
     coursesEntrance: [
           
@@ -3646,6 +4168,13 @@ const courses_details: IcourseType[] = [
     
    
     
+    careertable: [
+      {
+        career: "abc",
+      },
+
+    ],
+    
     courseexam:"",
     coursesEntrance: [
           
@@ -3740,6 +4269,13 @@ const courses_details: IcourseType[] = [
     
     
    
+    
+    careertable: [
+      {
+        career: "abc",
+      },
+
+    ],
     
     courseexam:"Admission to the majority of BCA colleges in India is primarily done through an applicant’s 10+2 scores. For BCA lateral entry, admissions are offered based on the candidate’s diploma scores or a certification course equivalent to it. However, most popular private institutions also conduct their entrance test to decide on an applicant’s caliber. Further, there are several other national-level and state-level BCA entrance exams conducted for admission as listed below:     ",
     coursesEntrance: [
@@ -3842,6 +4378,13 @@ const courses_details: IcourseType[] = [
     
    
     
+    careertable: [
+      {
+        career: "abc",
+      },
+
+    ],
+    
     courseexam:"Students who want to pursue a Bachelor of Fine Arts degree should take the required entrance exam. Admission to specific Bachelor of Fine Arts colleges is determined by entrance exams, which are followed by counselling. CUET, UPSEE, and are among the various entrance exams held by BFA colleges to enrol students in BFA degree programmes.",
     coursesEntrance: [
           
@@ -3936,6 +4479,13 @@ const courses_details: IcourseType[] = [
     
     
    
+    
+    careertable: [
+      {
+        career: "abc",
+      },
+
+    ],
     
     courseexam:"Only a few colleges offer this course in India. The mode of exams can be online or offline depending upon the colleges.",
     coursesEntrance: [
@@ -4032,6 +4582,13 @@ const courses_details: IcourseType[] = [
     
    
     
+    careertable: [
+      {
+        career: "abc",
+      },
+
+    ],
+    
     courseexam:"",
     coursesEntrance: [
           
@@ -4125,6 +4682,13 @@ const courses_details: IcourseType[] = [
     
     
    
+    
+    careertable: [
+      {
+        career: "abc",
+      },
+
+    ],
     
     courseexam:"While some top event management colleges in India offer direct admission, others require students to take entrance exams. However, for postgraduate courses or advanced studies like MBA in Event Management, colleges and universities conduct their admission based on the scores of exams like CAT, MAT, NMAT by GMAC, etc. Given below are some event management entrance exams that prospective students may need to sit for based on their preferred college’s requirements.",
     coursesEntrance: [
@@ -4222,6 +4786,13 @@ const courses_details: IcourseType[] = [
     
     
    
+    
+    careertable: [
+      {
+        career: "abc",
+      },
+
+    ],
     
     courseexam:"There are various types of exams that students consider depending on the college. The following are some of the entrance exams for a Diploma in Nursing course that are held across the country.",
     coursesEntrance: [
@@ -4321,6 +4892,13 @@ const courses_details: IcourseType[] = [
     
     
    
+    
+    careertable: [
+      {
+        career: "abc",
+      },
+
+    ],
     
     courseexam:"There are many entrance exams for the Diploma in Fashion Designing course in India that the students can attend. Appearing for entrance exams is an essential criterion and a good merit score from the 10+2 education. The students can grab a seat for the course in a reputed college or university. Some of the very best and mandatory Diploma in Fashion Designing entrance exams are:",
     coursesEntrance: [
@@ -4422,6 +5000,13 @@ const courses_details: IcourseType[] = [
     
    
     
+    careertable: [
+      {
+        career: "abc",
+      },
+
+    ],
+    
     courseexam:"",
     coursesEntrance: [
           
@@ -4521,6 +5106,13 @@ const courses_details: IcourseType[] = [
     
     
    
+    
+    careertable: [
+      {
+        career: "abc",
+      },
+
+    ],
     
     courseexam:"",
     coursesEntrance: [
@@ -4623,6 +5215,13 @@ const courses_details: IcourseType[] = [
     
    
     
+    careertable: [
+      {
+        career: "abc",
+      },
+
+    ],
+    
     courseexam:"",
     coursesEntrance: [
           
@@ -4712,6 +5311,13 @@ const courses_details: IcourseType[] = [
     
     
    
+    
+    careertable: [
+      {
+        career: "abc",
+      },
+
+    ],
     
     courseexam:"Entrance examinations for B.Sc Microbiology programs may vary depending on the institution offering the course. Some common entrance exams for undergraduate microbiology programs in India, for instance, include:",
     coursesEntrance: [
@@ -4809,6 +5415,13 @@ const courses_details: IcourseType[] = [
     
    
     
+    careertable: [
+      {
+        career: "abc",
+      },
+
+    ],
+    
     courseexam:"Entrance examinations for B.Sc Geology programs may vary by institution. Common exams include Joint Entrance Examination (JEE) for IITs and state-level entrance tests like CET. These exams typically assess proficiency in mathematics, physics, and chemistry. It's crucial to check specific requirements of institutions offering B.Sc Geology programs for their entrance exams.",
     coursesEntrance: [
           
@@ -4904,6 +5517,13 @@ const courses_details: IcourseType[] = [
     
    
     
+    careertable: [
+      {
+        career: "abc",
+      },
+
+    ],
+    
     courseexam:"Entrance examinations for M.Sc in Microbiology programs vary by institution. Common exams include Graduate Record Examination (GRE) or university-specific tests assessing proficiency in microbiology, biology, chemistry, and related subjects. These exams typically evaluate candidates' academic aptitude and readiness for advanced studies in microbiology.",
     coursesEntrance: [
           
@@ -4998,6 +5618,13 @@ const courses_details: IcourseType[] = [
     
     
    
+    
+    careertable: [
+      {
+        career: "abc",
+      },
+
+    ],
     
     courseexam:"Entrance examinations for M.Sc in Biotechnology programs vary by institution. Common exams may include Graduate Record Examination (GRE), Graduate Aptitude Test in Engineering (GATE), or university-specific tests assessing proficiency in biology, chemistry, and related subjects. These exams typically evaluate candidates' aptitude for advanced studies in biotechnology.",
     coursesEntrance: [
@@ -5095,6 +5722,13 @@ const courses_details: IcourseType[] = [
     
    
     
+    careertable: [
+      {
+        career: "abc",
+      },
+
+    ],
+    
     courseexam:"Entrance examinations for M.Sc in Biotechnology programs vary by institution. Common exams may include Graduate Record Examination (GRE), Graduate Aptitude Test in Engineering (GATE), or university-specific tests assessing proficiency in biology, chemistry, and related subjects. These exams typically evaluate candidates' aptitude for advanced studies in biotechnology.",
     coursesEntrance: [
           
@@ -5191,6 +5825,13 @@ const courses_details: IcourseType[] = [
     
    
     
+    careertable: [
+      {
+        career: "abc",
+      },
+
+    ],
+    
     courseexam:"Entrance examinations for M.Sc in Zoology programs vary by institution. Common exams may include Graduate Record Examination (GRE), university-specific tests assessing proficiency in biology, ecology, and related subjects, evaluating candidates' readiness for advanced studies in zoology. It's essential to check the specific admission requirements of the institutions where you intend to apply.",
     coursesEntrance: [
           
@@ -5280,6 +5921,13 @@ const courses_details: IcourseType[] = [
     
     
    
+    
+    careertable: [
+      {
+        career: "abc",
+      },
+
+    ],
     
     courseexam:"To acquire admissions in the MSc Biochemistry course you have to appear for National and College-level entrance exams like BHU-PET, GSAT, Amity JEE, AIIMS Biochemistry entrance exams, and other exams.",
     coursesEntrance: [
@@ -5376,6 +6024,13 @@ const courses_details: IcourseType[] = [
     
    
     
+    careertable: [
+      {
+        career: "abc",
+      },
+
+    ],
+    
     courseexam:"",
     coursesEntrance: [
           
@@ -5471,6 +6126,13 @@ const courses_details: IcourseType[] = [
     
    
     
+    careertable: [
+      {
+        career: "abc",
+      },
+
+    ],
+    
     courseexam:"To get MSc admission, candidates must keep in mind that they need to sit for some of the entrance exams that are conducted by some of the universities in India to enrol the candidates in MSc admission. The entrance exams for MSc admission are CUET PG, ICAR AIEEA, BHU PET, WBJEE, IIT JAM, AMU Entrance Exam etc",
         coursesEntrance: [
           
@@ -5565,6 +6227,13 @@ const courses_details: IcourseType[] = [
     
     
    
+    
+    careertable: [
+      {
+        career: "abc",
+      },
+
+    ],
     
     courseexam:"",
         coursesEntrance: [
