@@ -8,8 +8,6 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/navigation";
-import Image from "next/image";
-import icon from "@/assets/images/icon/icon_60.svg";
 
 interface IOption {
   value: string;
@@ -56,8 +54,44 @@ const ApplyForm = () => {
   const [isVerificationSent, setIsVerificationSent] = useState<boolean>(false);
   const [countdown, setCountdown] = useState(30);
   const [showResend, setShowResend] = useState(false);
-  const [levelOptions, setLevelOptions] = useState<IOption[]>([]);
-  const [streamOptions, setStreamOptions] = useState<IOption[]>([]);
+  const [streamOptions, setStreamOptions] = useState<IOption[]>([
+    { value: "1", label: "Arts & Humanities" },
+    { value: "2", label: "Business & Management" },
+    { value: "3", label: "Engineering & Technology" },
+    { value: "4", label: "Life Sciences & Medicine" },
+    { value: "5", label: "Natural Sciences" },
+    { value: "6", label: "Social Sciences & Management" },
+    { value: "7", label: "Computer Science & IT" },
+    { value: "8", label: "Law" },
+    { value: "9", label: "Education & Training" },
+    { value: "10", label: "Creative Arts & Design" },
+    { value: "11", label: "Applied Sciences & Professions" },
+    { value: "12", label: "Agriculture & Forestry" },
+    { value: "13", label: "Environmental Studies & Earth Sciences" },
+    { value: "14", label: "Hospitality, Leisure & Sports" },
+    { value: "15", label: "Journalism & Media" },
+    { value: "16", label: "General Studies & Classics" },
+    { value: "17", label: "Health & Medicine" },
+    { value: "18", label: "Performing Arts" },
+    { value: "19", label: "Physical Sciences & Mathematics" },
+    { value: "20", label: "Psychology & Counseling" },
+    { value: "21", label: "Fashion & Beauty" },
+    { value: "22", label: "Veterinary Medicine" },
+    { value: "23", label: "Religious Studies & Theology" },
+    { value: "24", label: "Philosophy & Ethics" },
+    { value: "25", label: "Languages & Literature" },
+    { value: "26", label: "Culinary Arts" },
+    { value: "27", label: "Anthropology" },
+    { value: "28", label: "Archaeology" },
+    { value: "29", label: "History" },
+    { value: "30", label: "Political Science & International Relations" },
+    { value: "31", label: "Sociology" },
+    { value: "32", label: "Economics" },
+    { value: "33", label: "Urban Planning & Architecture" },
+    { value: "34", label: "Music" },
+    { value: "35", label: "Film, Television & Theater" },
+    { value: "36", label: "Graphic Design & Visual Arts" },
+  ]);
   const router = useRouter();
   const [utmParams, setUtmParams] = useState<UTMParams>({
     utm_source: null,
@@ -67,56 +101,21 @@ const ApplyForm = () => {
     utm_term: null,
     utm_content: null,
   });
+  const [levelOptions, setLevelOptions] = useState<IOption[]>([
+    { value: "1", label: "Not Known" },
+    { value: "9", label: "Undergraduate (UG)" },
+    { value: "10", label: "Postgraduate (PG)" },
+    { value: "8", label: "Diploma" },
+    { value: "235", label: "Doctorate (PhD)" },
+  ]);
 
-  const fetchLevelOptions = async () => {
-    try {
-      const response = await axios({
-        method: "POST",
-        url: "https://test.careerbuddyclub.com:8080/api/students/getalllevels",
-        headers: {
-          Accept: "*/*",
-        },
-      });
-      const streamData = response.data.map((level: { title: any }) => ({
-        value: level.title,
-        label: level.title,
-      }));
-      setLevelOptions(streamData);
-    } catch (error) {
-      console.error(error);
-      // Handle error, e.g., set some state to show an error message
-    }
-  };
-  const fetchStreamOptions = async () => {
-    try {
-      const response = await axios({
-        method: "POST",
-        url: "https://test.careerbuddyclub.com:8080/api/students/getallstreams",
-        headers: {
-          Accept: "*/*",
-        },
-      });
-      const streamData = response.data.map((stream: { title: any }) => ({
-        value: stream.title,
-        label: stream.title,
-      }));
-
-      setStreamOptions(streamData);
-    } catch (error) {
-      console.error(error);
-      // Handle error, e.g., set some state to show an error message
-    }
-  };
   useEffect(() => {
-    fetchStreamOptions();
-    fetchLevelOptions();
-
     // Parse UTM parameters from the URL
     const searchParams = new URLSearchParams(window.location.search);
     const newUtmParams: UTMParams = {
-      utm_source: searchParams.get("utm_source") || "directapplicationform",
-      utm_medium: searchParams.get("utm_medium") || "DigitalOrganic",
-      utm_campaign: searchParams.get("utm_campaign") || "Website",
+      utm_source: searchParams.get("utm_source"),
+      utm_medium: searchParams.get("utm_medium"),
+      utm_campaign: searchParams.get("utm_campaign"),
       utm_id: searchParams.get("utm_id"),
       utm_term: searchParams.get("utm_term"),
       utm_content: searchParams.get("utm_content"),
@@ -188,6 +187,7 @@ const ApplyForm = () => {
   const onSubmit = (data: IFormData) => {
     // Destructure the required fields from data
     const from = localStorage.getItem("location") || "";
+    // const Center = localStorage.getItem("location") || "";
     const {
       name,
       email,
@@ -206,12 +206,8 @@ const ApplyForm = () => {
       level,
       stream,
       from,
-      utm_source: utmParams.utm_source,
-      utm_medium: utmParams.utm_medium,
-      utm_campaign: utmParams.utm_campaign,
-      utm_id: utmParams.utm_id,
-      utm_term: utmParams.utm_term,
-      utm_content: utmParams.utm_content,
+      // Center,
+      LeadCampaign: utmParams.utm_campaign,
     };
 
     console.log("Form Data:", payload);
