@@ -1,8 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import ApplyForm from "../forms/apply-now";
-import img1 from "@/assets/images/assets/imgbanner.jpg";
-import img2 from "@/assets/images/assets/imgbanner1.jpg";
+import img1 from "@/assets/images/assets/imgbanner1.jpg";
 
 const ApplyArea = () => {
   return (
