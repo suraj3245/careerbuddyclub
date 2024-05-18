@@ -1,4 +1,4 @@
-// Categpry Section One
+// Category Section One
 .category-section-one {
   background: #fff;
   &.bg-color {
@@ -478,3 +478,454 @@
     padding: 17px 26px;
   }
 }
+
+//fancyMid css ///////////////////////////
+
+.hero-section {
+  display: flex; 
+  justify-content: space-evenly;
+  
+ 
+  
+  .sticky {
+    position: sticky;
+    top: 11rem; 
+    z-index: 100; 
+    left: 3rem;
+    
+    
+
+    .apply-btn{
+      display: flex;
+      background-color: #5fffb4;
+      color: #262626;
+      width: 100%;
+      min-height: 60px;
+      padding: 0;
+      border-radius: 5px;
+
+    .span-text {
+      width: calc(100% - 90px);
+      text-align: center;
+      font-weight: 600;
+      padding: 15px;
+    }
+
+    .span-arrow {
+      width: 90px;
+      background-color: #dffff4;
+      position: relative;
+      border-radius: 0 5px 5px 0;
+      
+    }
+    .span-arrow::after{
+      content: '';
+      width: 39px;
+      height: 14px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background-image: url(https://io-academy.uk/wp-content/themes/ioacademy/img/squiggle-right-dark.svg);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center center;
+      cursor: pointer;
+    }
+
+    
+   }
+
+    .sticky-ul {
+      list-style: none;
+      padding: 0 18px;
+      background-color: #f3f6fa;
+      margin-top: 20px;
+      border-radius: 5px;
+      width: 280px; 
+       
+      
+
+      li {
+        display: flex;
+        margin-top: 20px;
+        border-bottom: 2px solid #fff;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        
+
+        p{
+          color: #262626;
+          
+          
+        }
+
+        .sticky-icons{
+          width: 80px;
+        }
+        
+      }
+    }
+  }
+
+  .hero-container {
+    max-width: 1080px;
+    margin-left: 20px; 
+    padding: 20px; 
+    display: block;
+  
+
+  .content-container{
+   
+    p{
+      font-size: 16px;
+    }
+
+    h3{
+      font-weight: 500;
+      color: #743dfb;
+    }
+
+    h1{
+      font-size: 44px;
+      color: #0f0028;
+      font-weight: 500;
+      letter-spacing: .01em;
+    }
+
+    
+    
+  }
+  .course-block{
+    margin-top: 4rem;
+
+    h1{
+      font-size: 44px;
+      color: #0f0028;
+      font-weight: 500;
+      letter-spacing: .01em;
+    }
+  
+    .course-block-ul {
+      margin-top: 3rem;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px; 
+  
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+  
+    li {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      height: 180px; 
+      padding: 20px; 
+      box-sizing: border-box; 
+      
+
+      .icons{
+        width:90px !important;
+      }
+    }
+
+     
+  }
+}
+
+.industry-block {
+  margin-top: 4rem;
+
+  h1 {
+    font-size: 44px;
+    color: #0f0028;
+    font-weight: 500;
+    letter-spacing: .01em;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-size: 16px;
+    margin-bottom: 2rem;
+  }
+
+  .industry-block-ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      display: flex;
+      flex-direction: row; 
+      justify-content: space-evenly;
+      align-items: center;
+      text-align: center;
+      height: 100px;
+      padding: 20px;
+      box-sizing: border-box;
+      border-radius: 10px;
+      border: 1px solid #fff;
+      background-color: #f3f6fa;
+
+      .li-img {
+        width:50%;
+        height: auto;
+        
+      .img{
+        width: 100%;
+        object-fit: cover;
+        mix-blend-mode: multiply;
+
+       }
+      
+      }
+
+    
+    }
+  }
+
+  .slider{
+    display: none;
+  }
+
+  
+}
+
+
+
+  .culture-block{
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+
+    h1{
+      font-size: 44px;
+      color: #0f0028;
+      font-weight: 500;
+      letter-spacing: .01em;
+    }
+
+    p{
+      font-size: 16px;
+    }
+
+    
+  }
+
+  .team-block{
+    display: flex;
+    max-width: 1024px;
+    position: relative;
+    justify-content: space-between;
+    
+
+    .team-block-content{
+      width: 50%;
+      
+
+      h3{
+        color: rgb(19, 105, 181);
+      }
+
+      h2{
+      font-size: 35px;
+      color: #0f0028;
+      font-weight: 500;
+      letter-spacing: .01em;
+      }
+
+      
+
+      p{
+        font-size: 16px;
+        font-weight: 400;
+      
+      }
+    }
+
+    .team-img{
+      margin-top: 3rem;
+      
+    }
+
+
+
+    .team-img::before{
+    content: "";
+    width: 388px;
+    height: 239px;
+    background-image: url(https://io-academy.uk/wp-content/themes/ioacademy/img/shapes/student-testimonial-group-top.svg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: -24px;
+    right: 39px;
+    z-index: 1;
+
+    }
+
+    .team-img::after{
+    content: "";
+    position: absolute;
+    width: 120px;
+    height: 206px;
+    right: -21px;
+    background-image: url(https://io-academy.uk/wp-content/themes/ioacademy/img/shapes/student-testimonial-group-bottom.svg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    bottom: 40px;
+    z-index: 1;
+    }
+  }
+
+
+ }
+}
+
+
+// Feature-fancy-two//////////////////////////////
+
+.feature-cont{
+  padding-top: 3rem;
+
+
+
+ .feature-row-1{
+   width: 90%;
+   margin: 0 auto;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-color: #f3f1ff;
+   border-radius: 40px;
+   overflow: hidden;
+   padding-left: 40px;
+   transition: transform 0.3s ease-in-out;
+   
+
+   
+   .feature-row-content{
+    width: 40%;
+
+    h2{
+      font-size: 44px;
+
+      span{
+        color: #6548ee;
+      }
+    }
+
+   }
+
+   .feature-row-img{
+    width: 60%;
+
+    img{
+    margin-left: 2rem;
+   }
+  }
+  
+}
+
+.feature-row-1:hover{
+  transform: scale(1.02);
+}
+
+  .feature-row-2{
+    
+    width: 90%;
+    margin: 2rem auto;
+    gap: 2rem;
+    
+
+
+    .feature-col-1{
+    max-width: 30%;
+    position: relative;
+    height: 15rem;
+    display: flex;
+    justify-content: center;
+    background-color: #e5f1fc;
+    border-radius: 25px;
+    padding-top: 2rem;
+    transition: transform .3s ease-in-out;
+   }
+
+   .feature-col-1:hover{
+    transform: scale(1.02);
+    cursor: pointer;
+   }
+
+    .feature-col-1::before{
+    content: "";
+    width: 272px;
+    height: 168px;
+    position: absolute;
+    bottom: 0;
+    background: url(https://d8it4huxumps7.cloudfront.net/uploads/images/654dcdc4c6fcd_frame_1000012422_2.png?d=616x336);
+    background-size: contain;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    }
+
+    .feature-col-2{
+      width: 70%;
+      margin: 0 auto;
+      position: relative;
+      background-color: #fff1cc;
+      overflow: hidden;
+      border-radius: 25px;
+      padding-top: 2rem;
+      transition: transform 0.3s ease-in-out;
+      
+      
+    }
+
+    .feature-col-2:hover{
+      transform: scale(1.02);
+      cursor: pointer;
+    }
+
+    .feature-col-2::before{
+    content:"";
+    position:absolute;
+    bottom: 0;
+    right: 0;
+    width: 334px;
+    height: 275px;
+    background: url(https://d8it4huxumps7.cloudfront.net/uploads/images/654d1ee417460_frame_1000010322.png?d=744x550);
+    background-size: contain;
+    z-index:3;
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    }
+
+
+    .feature-col-2::after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 290px;
+    width: 328px;
+    height: 160px;
+    background-image: url(https://d8it4huxumps7.cloudfront.net/uploads/images/654dbd061d8c8_frame_1000010334_1.png?d=656x320);
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: 2;
+    }
+
+    }
+  }
+
+

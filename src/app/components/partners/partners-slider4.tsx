@@ -16,7 +16,7 @@ import logo_10 from "@/assets/images/logo/media_03.webp";
 // slider setting
 const slider_setting = {
   dots: false,
-  arrows: true,
+  arrows: false,
   centerPadding: "0px",
   slidesToShow: 6,
   slidesToScroll: 1,
@@ -58,14 +58,32 @@ const logos: StaticImageData[] = [
   logo_10,
 ];
 
-const PartnersSlider2 = () => {
+const PartnersSlider4 = () => {
   return (
     <>
+      <div className="text-center mt-4">
+        <h3 className="mt-40 md-mt-20 mb-40 md-mb-20" style={{ color: "#14adbd" }}>
+          Corporate Partners
+        </h3>
+      </div>
       <Slider {...slider_setting} className="partner-slider">
         {logos.map((logo, i) => (
           <div key={i} className="item">
-            <div className="logo d-flex align-items-center">
-              <Image src={logo} alt="logo" style={{ height: "auto" }} />
+            <div
+              className="logo d-flex align-items-center"
+              style={{
+                width: '100%',
+                aspectRatio: '3 / 2',
+                position: 'relative',
+                overflow: 'hidden'
+              }}
+            >
+              <Image
+                src={logo}
+                alt="logo"
+                layout="fill"
+                objectFit="contain"
+              />
             </div>
           </div>
         ))}
@@ -74,4 +92,4 @@ const PartnersSlider2 = () => {
   );
 };
 
-export default PartnersSlider2;
+export default PartnersSlider4;

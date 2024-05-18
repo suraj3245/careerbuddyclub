@@ -19,7 +19,8 @@ const useSearchFormSubmit = () => {
 
     if (locationVal) {
       queryParams.push(`location=${locationVal}`);
-    }
+    
+      }
 
     if (searchText) {
       queryParams.push(`search=${searchText}`);

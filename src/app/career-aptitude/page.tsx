@@ -21,10 +21,10 @@ import Component from "../components/how-it-works/how-it-works-4";
 // };
 
 const statistics = [
-  { icon: <FaUserGraduate />, number: "1,00,000+", label: "Students taken Test" },
-  { icon: <FaChartLine />, number: "10,000+", label: "Students Counseled" },
-  { icon: <FaUserTie />, number: "100+", label: "Expert Counsellors" },
-  { icon: <FaSchool />, number: "5,000+", label: "Admissions taken" },
+  { icon: <FaUserGraduate/>, number: "1,00,000+", label: "Students taken Test" },
+  { icon: <FaChartLine/>, number: "10,000+", label: "Students Counseled" },
+  { icon: <FaUserTie/>, number: "100+", label: "Expert Counsellors" },
+  { icon: <FaSchool/>, number: "5,000+", label: "Admissions taken" },
 ];
 
 const campus = () => {
@@ -40,7 +40,7 @@ const campus = () => {
     // Check if the location exists and save it to local storage
     if (gpslocation) {
       localStorage.setItem("location", gpslocation);
-    }
+      }
   });
   return (
     <Wrapper>
@@ -51,10 +51,10 @@ const campus = () => {
         {/* hero banner start */}
         <AptiBanner />
         {/* hero banner end */}
-        <StatisticsCard statistics={statistics} />
+        <StatisticsCard statistics={statistics}/>
         <FeatureSection />
         <HowItWorksThree />
-        <Component />
+        <Component/>
 
         <AptiFeature />
         {/* how it works start */}

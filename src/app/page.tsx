@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 const main = () => {
   return (
     <>
-      <HomeTwo />
+      <HomeTwo/>
     </>
   );
 };
