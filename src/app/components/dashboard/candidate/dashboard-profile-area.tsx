@@ -12,6 +12,50 @@ import Link from "next/link";
 type IProps = {
   setIsOpenSidebar: React.Dispatch<React.SetStateAction<boolean>>;
 };
+type Location = "Dehradun" | "Russia" | "Dubai";
+// interface CollegeInfo {
+//   name: string;
+//   fees: string;
+// }
+const collegesData = [
+  { name: "Guru Nanak", location: "Dehradun", feeRange: "Less than 3 Lakhs" },
+  { name: "BFIT", location: "Dehradun", feeRange: "Less than 3 Lakhs" },
+  {
+    name: "Dev Bhoomi College",
+    location: "Dehradun",
+    feeRange: "Less than 6 Lakhs",
+  },
+  { name: "JBIT", location: "Dehradun", feeRange: "Less than 6 Lakhs" },
+  {
+    name: "Uttaranchal University",
+    location: "Dehradun",
+    feeRange: "Less than 10 Lakhs",
+  },
+  {
+    name: "Doon Business",
+    location: "Dehradun",
+    feeRange: "Less than 15 Lakhs",
+  },
+  { name: "UPES", location: "Dehradun", feeRange: "Less than 20 Lakhs" },
+  {
+    name: "International University",
+    location: "Russia",
+    feeRange: "Less than 30 Lakhs",
+  },
+  { name: "OSMU", location: "Russia", feeRange: "Less than 30 Lakhs" },
+  {
+    name: "Mari State University",
+    location: "Russia",
+    feeRange: "Less than 30 Lakhs",
+  },
+  {
+    name: "Prem State Medical University",
+    location: "Russia",
+    feeRange: "Less than 30 Lakhs",
+  },
+
+  // Add more colleges as needed
+];
 
 const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
   const [formData, setFormData] = useState({
@@ -28,7 +72,7 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
     stream: "",
     level: "",
     special: "",
-    location: "",
+    location: "" as Location,
     collegeType: "",
     course: "",
     feeRange: "",
@@ -41,7 +85,9 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
   const [coursesOptions, setcoursesOptions] = useState([]);
   const [collegesOptions, setCollegesOptions] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [filteredFees, setFilteredFees] = useState<string[]>([]);
   const [showLoader, setShowLoader] = useState(true);
+
   const fetchUserData = async () => {
     const token = localStorage.getItem("token");
 
@@ -377,6 +423,42 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
       // Handle error, e.g., set some state to show an error message
     }
   };
+  // const locationToColleges: Record<Location, string[]> = {
+  //   Dehradun: [
+  //     "Guru Nanak",
+  //     "BFIT",
+  //     "Doon Business",
+  //     "JBIT",
+  //     "Uttaranchal University",
+  //     "Dev Bhoomi College",
+  //     "UPES",
+  //   ],
+  //   Russia: ["University of Russia", "Moscow State University"],
+  //   Dubai: [
+  //     "American University in Dubai",
+  //     "University of Wollongong in Dubai",
+  //   ],
+  //   // Add more locations and colleges as needed
+  // };
+
+  // // Function to get colleges based on selected location
+  // const getCollegesByLocation = (location: Location) => {
+  //   return locationToColleges[location] || [];
+  // };
+
+  // const collegeOptions = getCollegesByLocation(formData.location).map(
+  //   (college: any) => ({
+  //     value: college,
+  //     label: college,
+  //   })
+  // );
+
+  // Get the selected college object
+  const filteredColleges = collegesData.filter(
+    (college) =>
+      college.location === formData.location &&
+      college.feeRange === formData.feeRange
+  );
 
   useEffect(() => {
     fetchStreamOptions(); // Fetch stream options when the component mounts
@@ -501,6 +583,16 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
   // useEffect(() => {
   //   fetchcolleges();
   // }, [formData.courses, formData.feeRange, formData.city]);
+
+  useEffect(() => {
+    const selectedLocation = formData.location;
+    const feesInSelectedLocation = collegesData
+      .filter((college) => college.location === selectedLocation)
+      .map((college) => college.feeRange);
+    const uniqueFees = [...new Set(feesInSelectedLocation)];
+    setFilteredFees(uniqueFees);
+  }, [formData.location]);
+
   if (showLoader || isLoading) {
     return (
       <div
@@ -560,6 +652,7 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
                 <div className="col-lg-3">
                   <div className="dash-input-wrapper mb-10">
                     <label htmlFor="">Social Category*</label>
+
                     <NiceSelect
                       options={[
                         { value: "", label: "Select Category" },
@@ -716,55 +809,59 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
               </div>
               <div className="col-lg-3">
                 <div className="dash-input-wrapper mb-10">
-                  <label htmlFor="">level*</label>
+                  <label htmlFor="">Level*</label>
                   <NiceSelect
                     options={levelOptions}
                     value={formData.level}
                     onChange={handleSelectChange}
                     name="level"
-                    placeholder="select level"
+                    placeholder="select Level"
                   />
                 </div>
               </div>
 
+              {/* <div className="col-lg-3">
+                  <div className="dash-input-wrapper mb-10">
+                    <label htmlFor="">Specialization*</label>
+                    <NiceSelect
+                      options={[
+                        { value: "", label: "select Specialization" },
+                        {
+                          value: "computer engineering",
+                          label: "computer engineering",
+                        },
+                        {
+                          value: "civil engineering",
+                          label: "civil engineering",
+                        },
+                        {
+                          value: "electrical engineering",
+                          label: "electrical engineering",
+                        },
+
+                        { value: "Others", label: "Others" },
+                      ]}
+                      value={formData.special}
+                      onChange={handleSelectChange}
+                      name="special"
+                      placeholder="Select Specialization"
+                    />
+                  </div>
+                </div> */}
               <div className="col-lg-3">
                 <div className="dash-input-wrapper mb-10">
-                  <label htmlFor="">Specialization*</label>
+                  <label htmlFor="">Location*</label>
+
                   <NiceSelect
                     options={[
-                      { value: "", label: "select Specialization" },
-                      {
-                        value: "computer engineering",
-                        label: "computer engineering",
-                      },
-                      {
-                        value: "civil engineering",
-                        label: "civil engineering",
-                      },
-                      {
-                        value: "electrical engineering",
-                        label: "electrical engineering",
-                      },
-
-                      { value: "Others", label: "Others" },
+                      { value: "", label: "Select Location" },
+                      { value: "Dehradun", label: "Dehradun" },
+                      { value: "Russia", label: "Russia" },
                     ]}
-                    value={formData.special}
-                    onChange={handleSelectChange}
-                    name="special"
-                    placeholder="Select Specialization"
-                  />
-                </div>
-              </div>
-              <div className="col-lg-3">
-                <div className="dash-input-wrapper mb-10">
-                  <label htmlFor="">location*</label>
-                  <input
-                    type="text"
-                    name="location"
-                    id="location"
-                    placeholder="location"
                     value={formData.location}
-                    onChange={handleChange}
+                    onChange={handleSelectChange}
+                    name="location"
+                    placeholder="Select Location"
                   />
                 </div>
               </div>
@@ -773,16 +870,14 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
                 <div className="dash-input-wrapper mb-10">
                   <label htmlFor="">Fee Range*</label>
                   <NiceSelect
-                    options={[
-                      { value: "", label: "select Fee Range" },
-                      { value: "100000-300000", label: "1-3Lakhs" },
-                      { value: "300000-600000", label: "3-6Lakhs" },
-                      { value: "600000-100000", label: "6-10Lakhs" },
-                      { value: "Others", label: "Others" },
-                    ]}
+                    options={filteredFees.map((fee) => ({
+                      value: fee,
+                      label: fee,
+                    }))}
                     value={formData.feeRange}
                     onChange={handleSelectChange}
                     name="feeRange"
+                    placeholder="Select Fee Range"
                   />
                 </div>
               </div>
@@ -790,20 +885,14 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
                 <div className="dash-input-wrapper mb-10">
                   <label htmlFor="">College*</label>
                   <NiceSelect
-                    options={[
-                      { value: "", label: "select Colleges" },
-                      { value: "Guru Nanak", label: "Guru Nanak" },
-                      { value: "BFIT", label: "BFIT" },
-                      { value: "Doon Business", label: "Doon Business" },
-                      {
-                        value: "University of Petroleum",
-                        label: "University of Petroleum",
-                      },
-                    ]}
+                    options={filteredColleges.map((college) => ({
+                      value: college.name,
+                      label: college.name,
+                    }))}
                     value={formData.collegePreference}
                     onChange={handleSelectChange}
                     name="collegePreference"
-                    placeholder="select college"
+                    placeholder="Select College"
                   />
                 </div>
               </div>

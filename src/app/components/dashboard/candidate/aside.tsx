@@ -65,13 +65,13 @@ const nav_data: {
     title: "Documents",
   },
 
-  // {
-  //   id: 6,
-  //   icon: nav_5,
-  //   icon_active: nav_5_active,
-  //   link: "/dashboard/candidate-dashboard/power-degree",
-  //   title: "Power Degree",
-  // },
+  {
+    id: 6,
+    icon: nav_5,
+    icon_active: nav_5_active,
+    link: "/dashboard/candidate-dashboard/power-degree",
+    title: "Power Degree",
+  },
 ];
 // props type
 type IProps = {

@@ -8,18 +8,21 @@ const CompanyGridItem = ({ item }: { item: ICompany }) => {
     <div
       className={`company-grid-layout ${item.isFav ? "favourite" : ""} mb-30`}
     >
-      <Link href={`/company-details/${item.id}`}
+      <Link
+        href={`/company-details/${item.id}`}
         className="company-logo me-auto ms-auto rounded-circle"
       >
         <Image src={item.img} alt="image" className="lazy-img rounded-circle" />
       </Link>
       <h5 className="text-center">
-        <Link href={`/company-details/${item.id}`} className="company-name tran3s">
+        <Link
+          href={`/company-details/${item.id}`}
+          className="company-name tran3s"
+        >
           {item.name}
         </Link>
       </h5>
       <p className="text-center mb-auto">{item.location}</p>
-     
     </div>
   );
 };
