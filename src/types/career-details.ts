@@ -7,7 +7,7 @@ export interface ITopcollege {
 }
 export interface ITopcourse {
     Courses:string;
-     College: string;
+     
  }
  export interface ITopcompany {
     Company:string;
@@ -24,7 +24,7 @@ export interface IPackage {
 
 export interface IcareerType {
     id: number;
-    image: StaticImageData;
+    
     careersection: string;
     careersection1: string;
     t1: string;

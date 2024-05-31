@@ -1,6 +1,5 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import Image from "next/image";
 import Slider from "react-slick";
 import { IcareerType } from "@/types/career-details";
 import useSticky from "@/hooks/use-sticky";
@@ -133,15 +132,7 @@ import {
                   <h3 id="introduction">Introduction</h3>
                   <p>{details.careersection}</p>
 
-                  <div className=" ms-xl-5 ms-xxl-0 lg-mb-50 mb-4">
-                  <Image
-                    src={details.image}
-                    alt="image"
-                    className="lazy-img m-auto"
-                    width={800}
-                    height={500}
-                  />
-                  </div>
+                  
                   <h3 id="description">Job Description</h3>
                   <p>{details.careersection1}</p>
 
@@ -198,13 +189,11 @@ import {
                   <Table aria-label="Top Courses">
                     <TableHeader>
                       <TableColumn>Courses</TableColumn>
-                      <TableColumn> College</TableColumn>
                     </TableHeader>
                     <TableBody>
                       {details.Topcourse.map((event, index) => (
                         <TableRow key={index}>
                           <TableCell>{event.Courses}</TableCell>
-                          <TableCell>{event.College}</TableCell>
                         </TableRow>
                       ))}
                     </TableBody>
