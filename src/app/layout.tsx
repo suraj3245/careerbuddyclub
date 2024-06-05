@@ -99,6 +99,7 @@ export default function RootLayout({
     "/dashboard/candidate-dashboard/"
   );
   const isapplynow = pathname.startsWith("/apply-now");
+  const isSchoolDashboard = pathname.startsWith("/dashboard/");
 
   // const isCollegeDetailsPage = pathname.startsWith("/college-details");
   return (
@@ -144,7 +145,8 @@ export default function RootLayout({
         {!isRedirectPage &&
           !isAptitudeTestPage &&
           !isCandidateDashboardPage &&
-          !isapplynow && (
+          !isapplynow &&
+          !isSchoolDashboard && (
             <HeaderFour user={user} onLogout={handleLogout} key={key} />
           )}
 
