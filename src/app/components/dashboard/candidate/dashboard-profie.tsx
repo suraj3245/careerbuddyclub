@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-
 import DashboardHeader from "./dashboard-header";
 import axios from "axios";
 import TopCard from "../../top-company/top-card";
@@ -85,8 +84,7 @@ const DashboardprofileArea = ({ setIsOpenSidebar, currentStep }: IProps) => {
 
           <div className="bg-white card-box border-20 mt-20">
             <div className="user-profile d-flex align-items-center">
-              <div
-                className="avatar-placeholder rounded-circle d-flex align-items-center justify-content-center"
+              <div className="avatar-placeholder rounded-circle d-flex align-items-center justify-content-center"
                 style={{
                   width: "50px",
                   height: "50px",

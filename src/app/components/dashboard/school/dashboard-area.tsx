@@ -1,13 +1,9 @@
 "use client";
 import React from "react";
 import Image, { StaticImageData } from "next/image";
-import job_data from "@/data/job-data";
-import icon_1 from "@/assets/dashboard/images/icon/icon_12.svg";
-import icon_2 from "@/assets/dashboard/images/icon/icon_13.svg";
-import icon_3 from "@/assets/dashboard/images/icon/icon_14.svg";
-import icon_4 from "@/assets/dashboard/images/icon/icon_15.svg";
-import main_graph from "@/assets/dashboard/images/main-graph.png";
 import DashboardHeader from "./dashboard-header";
+import StudentTable from "./dashboard-model";
+
 
 // card item
 export function CardItem({
@@ -35,19 +31,20 @@ export function CardItem({
     </div>
   );
 }
+
 // props type
 type IProps = {
   setIsOpenSidebar: React.Dispatch<React.SetStateAction<boolean>>;
 };
-const DashboardArea = ({ setIsOpenSidebar }: IProps) => {
-  const job_items = [...job_data.reverse().slice(0, 5)];
 
+const DashboardArea = ({ setIsOpenSidebar }: IProps) => {
   return (
-    <div className="dashboard-body">
+    <div className="dashboard-body" style={{ backgroundColor: "#f0f5f3", padding: "60px 55px 50px" }}>
       <div className="position-relative">
         {/* header start */}
         <DashboardHeader setIsOpenSidebar={setIsOpenSidebar} />
         {/* header end */}
+        <StudentTable />
       </div>
     </div>
   );

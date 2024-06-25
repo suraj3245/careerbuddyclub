@@ -1,8 +1,5 @@
 "use client";
 import React from "react";
-import Link from "next/link";
-import Image, { StaticImageData } from "next/image";
-
 import { useMediaQuery } from "react-responsive";
 import ScheduleModal from "../../common/popup/schedule";
 // notification item
@@ -33,7 +30,7 @@ const DashboardHeader = ({ setIsOpenSidebar }: IProps) => {
           <div></div>
         </div>
       </header>
-      <ScheduleModal />
+      <ScheduleModal/>
     </>
   );
 };

@@ -212,7 +212,7 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
       .catch((error) => {
         // Handle any errors here, e.g., notify the user of the failure
 
-        toast.error("Unsucessful submission😵‍💫", {
+        toast.error("Unsucessful submission", {
           position: "top-left",
           autoClose: 1000,
           hideProgressBar: false,
