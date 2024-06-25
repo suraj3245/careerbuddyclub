@@ -9,7 +9,6 @@ import FancyBanner14 from "../components/fancy-banner/fancy-banner-14";
 import FancyBanner15 from "../components/fancy-banner/fancy-banner-15";
 import HeroBannerTen from "../components/hero-banners/hero-banner-ten";
 
-
 export const metadata: Metadata = {
   title: "Speakers",
 };

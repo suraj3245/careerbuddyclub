@@ -6,7 +6,6 @@ import Menus from "./component/menus";
 import logo from "@/assets/images/logo/logo4.png";
 import useSticky from "@/hooks/use-sticky";
 import LoginModal from "@/app/components/common/popup/login-modal";
-
 const HeaderTwo = () => {
   const { sticky } = useSticky();
   return (

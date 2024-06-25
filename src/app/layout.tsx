@@ -36,7 +36,7 @@ const gordita = localFont({
   ],
   variable: "--gorditas-font",
 });
-
+1
 const garamond = EB_Garamond({
   weight: ["400", "500", "600", "700", "800"],
   subsets: ["latin"],

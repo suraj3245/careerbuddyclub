@@ -11,6 +11,35 @@ const menu_data: IMenuData[] = [
     id: 2,
     link: "/admission",
     title: "Admission",
+    mega_menus: [
+      {
+        id: 1,
+        title: "",
+        sub_menus: [
+          { title: "For College/University", link: ''},
+          { title: "GNC Dehradun", link: "/college-details/1" },
+          { title: "UPES Dehradun", link: "/college-details/3" },
+          { title: "Uttaranchal University", link: "/college-details/4" }, 
+          { title: "BFIT Dehradun", link: "/college-details/2" },
+          { title: "JBIT Dehradun", link: "/college-details/5" },
+        ],
+      },
+      {
+        id: 2,
+        title: "",
+        sub_menus: [
+          { title: "International University", link: "" },
+          { title: "OSMU", link: "university-details/1" },
+          { title: "Mari State University", link: "university-details/2" }, 
+          { title: "Perm State Medical University", link: "/university-details/3" },
+        ],
+      },
+          {
+            id: 3,
+            title: "",
+            sub_menus: [],
+          },
+        ],
   },
 
   {
@@ -185,47 +214,11 @@ const menu_data: IMenuData[] = [
     id: 6,
     link: "/",
     title: "Services",
-    mega_menus: [
-
-      {
-        id: 1,
-        title: "",
-        sub_menus: [
-          { title: "For College/ University", link: "/campus" },
-          { title: "GNC Dehradun", link: "/college-details/1" },
-          { title: "UPES Dehradun", link: "/college-details/3" },
-          { title: "Uttaranchal University", link: "/college-details/4" }, 
-          { title: "BFIT Dehradun", link: "/college-details/2" },
-          { title: "JBIT Dehradun", link: "/college-details/5" },
-         
-        ],
-      },
-      {
-        id: 2,
-        title: "",
-        sub_menus: [
-          { title: "International University", link: "" },
-          { title: "OSMU", link: "university-details/1" },
-          { title: "Mari State University", link: "university-details/2" }, 
-          { title: "Perm State Medical University", link: "/university-details/3" },
-          
-         
-        ],
-      },
-          {
-            id: 3,
-            title: "",
-            sub_menus: [
-              { title: "For Schools", link: "/schools" },
-              { title: "For Corporate", link: "/corporate" },
-             
-            ],
-          },
-         
-          
-
-         
-        ],
+    sub_menus: [
+      { title: "For College/ University", link: "/campus" },
+      { title: "For Schools", link: "/schools" },
+      { title: "For Corporate", link: "/corporate" },
+    ]
   },
   {
     id: 7,

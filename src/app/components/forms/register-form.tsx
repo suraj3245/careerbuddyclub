@@ -172,6 +172,7 @@ const RegisterForm = () => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="row">
         <div className="col-12">
+          <h3>hello</h3>
           <div className="input-group-meta position-relative mb-25">
             <label>Name*</label>
             <input
