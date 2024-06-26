@@ -295,6 +295,7 @@ const ApplyForm = () => {
                   color: "#ffffff",
                   border: "none",
                   padding: "7px 8px",
+                  
                   borderRadius: "5px",
                   cursor: "pointer",
                 }}
