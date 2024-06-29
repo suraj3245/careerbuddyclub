@@ -177,12 +177,23 @@ const ApplyForm = () => {
     // Make the POST request using axios
     axios
     .request(options)
-    .then((response) => {
+    .then((response: any) => {
       // Handle success
-      localStorage.setItem('School_name', response.data.School_name);
-      localStorage.setItem('token2', response.data.token);
+      localStorage.setItem("token", response.data.access_token);
+      localStorage.setItem("schoolName", School_name);
+      console.log('response', response);
       console.log("Registration successful", response.data);
-      // Other success handling logic
+      console.log("Form Data:", payload);
+      toast.success("Registration Successfull", {
+        position: "top-left",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
   
       // Example redirect after success
       setTimeout(() => {
@@ -295,6 +306,7 @@ const ApplyForm = () => {
                   color: "#ffffff",
                   border: "none",
                   padding: "7px 8px",
+                  
                   borderRadius: "5px",
                   cursor: "pointer",
                 }}

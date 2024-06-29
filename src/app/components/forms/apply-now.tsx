@@ -282,6 +282,7 @@ const ApplyForm = () => {
               />
               <button
                 type="button"
+                className="btn-whatsapp-otp"
                 onClick={() => {
                   if (!isVerificationSent || showResend) {
                     const formData = getValues();
