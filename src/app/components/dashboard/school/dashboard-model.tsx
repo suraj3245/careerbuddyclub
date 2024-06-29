@@ -479,4 +479,3 @@ const StudentTable: React.FC = () => {
 };
 
 export default StudentTable;
->>>>>>> 78fc79465d96b9c64df398297cfdde944a4c3a11
