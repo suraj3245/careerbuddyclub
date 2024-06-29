@@ -91,7 +91,7 @@ const SchoolAside = ({ isOpenSidebar, setIsOpenSidebar }: IProps) => {
                 className="user-name dropdown-toggle"
                 type="button"
                 id="profile-dropdown"
-                // data-bs-toggle="dropdown"
+                data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
                 {userName || "Name"}

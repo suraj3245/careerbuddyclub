@@ -1,18 +1,3 @@
-<<<<<<< HEAD
-
-import React from 'react'
-
-const StudentTable = () => {
-  return (
-    <div> 
-        
-        
-    </div>
-  )
-}
-
-export default StudentTable
-=======
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { Modal, Button, Spinner } from "react-bootstrap";
@@ -200,7 +185,7 @@ const StudentTable: React.FC = () => {
     <>
       {loading ? (
         <div
-          className=" student-table d-flex justify-content-center align-items-center"
+          className=" student-table d-flex justify-content-center align-items-center "
           style={{ height: "100vh" }}
         >
           <iframe
@@ -210,7 +195,7 @@ const StudentTable: React.FC = () => {
         </div>
       ) : (
         <>
-          <h2 className="mb-4">Student Table</h2>
+          <h2 className="mb-4 heading-table">Student Table</h2>
           <div className="row justify-content-between align-items-center p-4">
             <div className="col-lg-6 col-md-6 col-sm-12 d-flex align-items-center mb-3">
               <input
@@ -240,17 +225,17 @@ const StudentTable: React.FC = () => {
               <table className="table table-bordered">
                 <thead className="bg-primary text-white custom-thead text-primary">
                   <tr>
-                    <th>NO</th>
-                    <th>NAME</th>
-                    <th>EMAIL</th>
-                    <th>MOBILE</th>
-                    <th>REALISTIC</th>
-                    <th>INVESTIGATIVE</th>
-                    <th>ARTISTIC</th>
-                    <th>SOCIAL</th>
-                    <th>ENTERPRISING</th>
-                    <th>CONVENTIONAL</th>
-                    <th>Edit</th>
+                    <th className="bg-primary text-white">NO</th>
+                    <th className="bg-primary text-white">NAME</th>
+                    <th className="bg-primary text-white">EMAIL</th>
+                    <th className="bg-primary text-white">MOBILE</th>
+                    <th className="bg-primary text-white">REALISTIC</th>
+                    <th className="bg-primary text-white">INVESTIGATIVE</th>
+                    <th className="bg-primary text-white">ARTISTIC</th>
+                    <th className="bg-primary text-white">SOCIAL</th>
+                    <th className="bg-primary text-white">ENTERPRISING</th>
+                    <th className="bg-primary text-white">CONVENTIONAL</th>
+                    <th className="bg-primary text-white">Edit</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -286,12 +271,12 @@ const StudentTable: React.FC = () => {
                 <li
                   className={`page-item ${currentPage === 1 ? "disabled" : ""}`}
                 >
-                  <button
+                  {/* <button
                     className="page-link"
                     onClick={() => paginate(currentPage - 1)}
                   >
                     Previous
-                  </button>
+                  </button> */}
                 </li>
                 {Array.from({
                   length: Math.ceil(students.length / studentsPerPage),
@@ -317,18 +302,19 @@ const StudentTable: React.FC = () => {
                       : ""
                   }`}
                 >
-                  <button
+                  {/* <button
                     className="page-link"
                     onClick={() => paginate(currentPage + 1)}
                   >
                     Next
-                  </button>
+                  </button> */}
                 </li>
               </ul>
               <div className="pagination-info">
                 {students.length > 0 && (
                   <span>
-                    Showing {getPageRange()} of {students.length} students
+                    Showing{
+                    } of {students.length} students
                   </span>
                 )}
               </div>
@@ -493,4 +479,4 @@ const StudentTable: React.FC = () => {
 };
 
 export default StudentTable;
->>>>>>> 78fc79465d96b9c64df398297cfdde944a4c3a11
+
