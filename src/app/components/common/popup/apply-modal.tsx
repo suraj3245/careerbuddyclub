@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.bundle.min.js";
-import { useForm } from "react-hook-form";
-import axios from "axios";
 import ApplyForm from "../../forms/apply-now";
 import ApplyForm1 from "../../forms/apply-now1";
-
 const ApplyModal = () => {
+  // State to track the window width
   const [loginType, setLoginType] = useState<"student" | "school">("student");
   const [windowWidth, setWindowWidth] = useState(() => {
     if (typeof window !== "undefined") {
@@ -26,7 +22,6 @@ const ApplyModal = () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-
   return (
     <div
       className="modal fade"
@@ -37,17 +32,15 @@ const ApplyModal = () => {
       <div className="modal-dialog modal-xl modal-dialog-centered">
         <div className="container">
           <div className="user-data-form modal-content">
-            <div className="container">
-              <div className="">
-                <div>
-                <h3 className="text-center"><b>
+          <div> <h3 className="text-center"><b>
                           Take Control Of Your Career!
                           </b></h3>
                   <div
-                    className="nav nav-tabs mt-3"
+                    className="cont d-flex mt-3"
                     id="nav-tab"
                     role="tablist"
-                    style={{ border: "none" }}
+                    style={{ border: "none", backgroundColor: "rgb(240, 240, 240)",  borderRadius: '50px'
+                    }}
                   >
                    
                     <button
@@ -67,11 +60,12 @@ const ApplyModal = () => {
                           loginType === "student" ? "rgb(20, 173, 189)" : "",
                         color:
                           loginType === "student" ? "rgb(255, 255, 255)" : "",
-                        borderTopLeftRadius: "50px",
-                        borderBottomLeftRadius: "50px",
                         border: "none",
-                        padding: "20px 18px",
                         cursor: "pointer",
+                        transition: 'all 0.6s ease-out',
+                        padding: '10px',
+                        borderRadius: '50px',
+                       fontSize: '18px'
                       }}
                     >
                       Student
@@ -93,11 +87,11 @@ const ApplyModal = () => {
                           loginType === "school" ? "rgb(20, 173, 189)" : "",
                         color:
                           loginType === "school" ? "rgb(255, 255, 255)" : "",
-                        borderTopRightRadius: "50px",
-                        borderBottomRightRadius: "50px",
                         border: "none",
-                        padding: "20px 18px",
                         cursor: "pointer",
+                        transition: 'all 0.6s ease-out',
+                         borderRadius: '50px',
+                         fontSize: '18px'
                       }}
                     >
                       School
@@ -113,7 +107,7 @@ const ApplyModal = () => {
                     >
                        
                         <div className="container">
-                          <div className="row align-items-start">
+                          <div className="row align-items-start" style={{marginLeft: '5px'}}>
                             <div
                               className="col-lg-6 mt-2 d-none d-sm-block"
                               style={{
@@ -149,7 +143,7 @@ const ApplyModal = () => {
                                 marginRight: "10px",
                               }}
                             >
-                              <div className="form-wrapper m-auto">
+                              <div className="form-wrapper m-auto mt-2">
                                 <ApplyForm />
                               </div>
                             </div>
@@ -164,7 +158,7 @@ const ApplyModal = () => {
                       tabIndex={0}
                     >
                         <div className="container">
-                          <div className="row align-items-start">
+                          <div className="row align-items-start" style={{marginLeft: '5px'}}>
                             <div
                               className="col-lg-6 mt-2 d-none d-sm-block"
                               style={{
@@ -200,13 +194,11 @@ const ApplyModal = () => {
                                 marginRight: "10px",
                               }}
                             >
-                              <div className="form-wrapper m-auto">
+                              <div className="form-wrapper m-auto mt-2">
                                 <ApplyForm1/>
                               </div>
                             </div>
                           </div>
-                        </div>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -230,6 +222,6 @@ const ApplyModal = () => {
       </div>
     </div>
   );
-}
+};
 
 export default ApplyModal;

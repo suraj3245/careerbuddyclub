@@ -11,6 +11,8 @@ import nav_2 from "@/assets/dashboard/images/icon/icon_2.svg";
 import nav_2_active from "@/assets/dashboard/images/icon/icon_2_active.svg";
 import nav_3 from "@/assets/dashboard/images/icon/icon_3.svg";
 import nav_3_active from "@/assets/dashboard/images/icon/icon_3_active.svg";
+import { useEffect } from "react";
+import axios from "axios";
 
 // nav data
 const nav_data: {
@@ -53,6 +55,53 @@ const SchoolAside = ({ isOpenSidebar, setIsOpenSidebar }: IProps) => {
   const [userName, setUserName] = useState("");
   const pathname = usePathname();
 
+  const fetchUserData = async () => {
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+      return;
+    }
+
+    // Check if username is already in localStorage
+    const storedUserName = localStorage.getItem("username");
+    if (storedUserName) {
+      setUserName(storedUserName);
+      return;
+    }
+
+    const options = {
+      method: "POST",
+      url: "https://test.careerbuddyclub.com:8080/api/students/getstudentsprofile",
+      headers: {
+        Accept: "*/*",
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+      data: {},
+    };
+
+    try {
+      const response = await axios.request(options);
+      const data = response.data;
+
+      if (data.student && data.student.name) {
+        localStorage.setItem("username", data.student.name);
+        setUserName(data.student.name);
+      } else {
+        setUserName("No Name Available");
+      }
+    } catch (error) {
+      console.error(error);
+      setUserName("No Name Available");
+    }
+  };
+
+  useEffect(() => {
+    fetchUserData();
+  }, []);
+  const getInitials = (userName: string) =>
+    userName && userName.length > 0 ? userName[0].toUpperCase() : "?";
+
   return (
     <>
       <style jsx>{`
@@ -83,7 +132,7 @@ const SchoolAside = ({ isOpenSidebar, setIsOpenSidebar }: IProps) => {
                   fontSize: "40px",
                 }}
               >
-                {/* {getInitials(userName)} */}
+                {getInitials(userName)}
               </div>
             </div>
             <div className="user-name-data mt-2">
@@ -91,7 +140,7 @@ const SchoolAside = ({ isOpenSidebar, setIsOpenSidebar }: IProps) => {
                 className="user-name dropdown-toggle"
                 type="button"
                 id="profile-dropdown"
-                // data-bs-toggle="dropdown"
+                data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
                 {userName || "Name"}
