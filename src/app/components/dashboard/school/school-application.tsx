@@ -8,7 +8,7 @@ type IProps = {
   setIsOpenSidebar: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const SchoolProfileArea = ({ setIsOpenSidebar }: IProps) => {
+const SchoolApplicationForm: React.FC<IProps> = ({ setIsOpenSidebar }) => {
   const formik = useFormik({
     initialValues: {
       schoolName: "",
@@ -34,6 +34,8 @@ const SchoolProfileArea = ({ setIsOpenSidebar }: IProps) => {
       zipCode: Yup.string().required("Zip Code is required"),
       board: Yup.string().required("Board is required"),
     }),
+    validateOnBlur: false,
+    validateOnChange: false,
     onSubmit: (values) => {
       console.log(values);
     },
@@ -43,14 +45,20 @@ const SchoolProfileArea = ({ setIsOpenSidebar }: IProps) => {
     <>
       <DashboardHeader setIsOpenSidebar={setIsOpenSidebar} />
       <div className="container mt-5">
-        <h3 className="dash-title-three mt-40 text-center" style={{ color: "#14adbd" }}>
+        <h1
+          className="display-4 mt-40 text-center text-decoration-underline heading-1"
+          style={{ color: "#14adbd", letterSpacing: "0.0375em" }}
+        >
           School Application Form
-        </h3>
+        </h1>
         <div
-          className="bg-white card border-20 p-2 form-container neumorphism mt-15"
+          className="bg-white card border-10 p-4 form-container neumorphism mt-15"
           style={{ width: "100%", border: "1px solid white" }}
         >
-          <h4 className="dash-title-three" style={{ color: "#eed30d" }}>
+          <h4
+            className="dash-title-three"
+            style={{ color: "#eed30d", letterSpacing: "0.0987em" }}
+          >
             School Details
           </h4>
           <form onSubmit={formik.handleSubmit}>
@@ -63,13 +71,14 @@ const SchoolProfileArea = ({ setIsOpenSidebar }: IProps) => {
                     name="schoolName"
                     value={formik.values.schoolName}
                     onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
                     className="form-control"
                     placeholder="Enter Full School Name"
                     style={{ padding: "12px" }}
                   />
-                  {formik.touched.schoolName && formik.errors.schoolName ? (
-                    <div className="text-danger">{formik.errors.schoolName}</div>
+                  {formik.errors.schoolName ? (
+                    <div className="text-danger">
+                      {formik.errors.schoolName}
+                    </div>
                   ) : null}
                 </div>
               </div>
@@ -80,7 +89,6 @@ const SchoolProfileArea = ({ setIsOpenSidebar }: IProps) => {
                     name="board"
                     value={formik.values.board}
                     onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
                     className="form-control"
                     style={{ padding: "12px" }}
                   >
@@ -88,14 +96,17 @@ const SchoolProfileArea = ({ setIsOpenSidebar }: IProps) => {
                     <option value="ICSE">ICSE</option>
                     <option value="UK">UK</option>
                   </select>
-                  {formik.touched.board && formik.errors.board ? (
+                  {formik.errors.board ? (
                     <div className="text-danger">{formik.errors.board}</div>
                   ) : null}
                 </div>
               </div>
             </div>
 
-            <h4 className="dash-title-three mt-4" style={{ color: "#eed30d" }}>
+            <h4
+              className="dash-title-three mt-4"
+              style={{ color: "#eed30d", letterSpacing: "0.0987em" }}
+            >
               Contact Details
             </h4>
             <div className="row">
@@ -108,11 +119,10 @@ const SchoolProfileArea = ({ setIsOpenSidebar }: IProps) => {
                     placeholder="Enter your mobile number"
                     value={formik.values.mobileNumber}
                     onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
                     className="form-control"
                     style={{ padding: "12px" }}
                   />
-                  {formik.touched.mobileNumber && formik.errors.mobileNumber ? (
+                  {formik.errors.mobileNumber ? (
                     <div className="text-danger">
                       {formik.errors.mobileNumber}
                     </div>
@@ -128,18 +138,20 @@ const SchoolProfileArea = ({ setIsOpenSidebar }: IProps) => {
                     placeholder="Enter your email"
                     value={formik.values.email}
                     onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
                     className="form-control"
                     style={{ padding: "12px" }}
                   />
-                  {formik.touched.email && formik.errors.email ? (
+                  {formik.errors.email ? (
                     <div className="text-danger">{formik.errors.email}</div>
                   ) : null}
                 </div>
               </div>
             </div>
 
-            <h4 className="dash-title-three" style={{ color: "#eed30d" }}>
+            <h4
+              className="dash-title-three"
+              style={{ color: "#eed30d", letterSpacing: "0.0987em" }}
+            >
               Address & Location
             </h4>
             <div className="row">
@@ -152,11 +164,10 @@ const SchoolProfileArea = ({ setIsOpenSidebar }: IProps) => {
                     placeholder="Enter your address"
                     value={formik.values.address}
                     onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
                     className="form-control"
                     style={{ padding: "12px" }}
                   />
-                  {formik.touched.address && formik.errors.address ? (
+                  {formik.errors.address ? (
                     <div className="text-danger">{formik.errors.address}</div>
                   ) : null}
                 </div>
@@ -170,11 +181,10 @@ const SchoolProfileArea = ({ setIsOpenSidebar }: IProps) => {
                     placeholder="Enter your state"
                     value={formik.values.state}
                     onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
                     className="form-control"
                     style={{ padding: "12px" }}
                   />
-                  {formik.touched.state && formik.errors.state ? (
+                  {formik.errors.state ? (
                     <div className="text-danger">{formik.errors.state}</div>
                   ) : null}
                 </div>
@@ -190,11 +200,10 @@ const SchoolProfileArea = ({ setIsOpenSidebar }: IProps) => {
                     placeholder="Enter your city"
                     value={formik.values.city}
                     onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
                     className="form-control"
                     style={{ padding: "12px" }}
                   />
-                  {formik.touched.city && formik.errors.city ? (
+                  {formik.errors.city ? (
                     <div className="text-danger">{formik.errors.city}</div>
                   ) : null}
                 </div>
@@ -208,22 +217,17 @@ const SchoolProfileArea = ({ setIsOpenSidebar }: IProps) => {
                     placeholder="Enter your zip code"
                     value={formik.values.zipCode}
                     onChange={formik.handleChange}
-                   
-                    onBlur={formik.handleBlur}
                     className="form-control"
                     style={{ padding: "12px" }}
                   />
-                  {formik.touched.zipCode && formik.errors.zipCode ? (
+                  {formik.errors.zipCode ? (
                     <div className="text-danger">{formik.errors.zipCode}</div>
                   ) : null}
                 </div>
               </div>
             </div>
 
-            <button
-              type="submit"
-              className="btn btn-primary custom-btn mt-4"
-            >
+            <button type="submit" className="btn btn-primary btn-lg mt-4 buttn-save">
               Save
             </button>
           </form>
@@ -231,10 +235,11 @@ const SchoolProfileArea = ({ setIsOpenSidebar }: IProps) => {
       </div>
 
       <style jsx>{`
-        .custom-btn {
+        .buttn-save {
           background-color: #14adbd;
           border-color: #14adbd;
           color: white;
+          float:right;
         }
         .custom-btn:hover {
           background-color: #eed30d;
@@ -248,32 +253,17 @@ const SchoolProfileArea = ({ setIsOpenSidebar }: IProps) => {
         }
 
         .dash-title-three {
-          margin-top: 20px;
+          font-size: 16px;
+          text-transform: uppercase;
         }
 
-        @media only screen and (max-width: 768px) {
-          /* Mobile styles */
-          .form-container {
-            padding: 10px;
-          }
-        }
-
-        @media only screen and (min-width: 768px) and (max-width: 1024px) {
-          /* Tablet styles */
-          .form-container {
-            padding: 20px;
-          }
-        }
-
-        @media only screen and (min-width: 1024px) {
-          /* Desktop styles */
-          .form-container {
-            padding: 30px;
-          }
+        .heading-1 {
+          font-size: 36px;
+          font-weight: 700;
         }
       `}</style>
     </>
   );
 };
 
-export default SchoolProfileArea;
+export default SchoolApplicationForm;

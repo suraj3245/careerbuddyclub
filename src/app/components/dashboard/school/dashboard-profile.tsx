@@ -9,14 +9,14 @@ const SchoolProfile = () => {
     address: "(123 Main Street, Dehradun, Uttarakhand, India)",
     description: "It was always a dream of our beloved Rev. Late Sh. P. L. Kapoor ji to provide quality education which instilsin students values to be good human beings and to give the child a strong foundation early in life and a personality brimming with confidence and qualities of leadership; which makes him really Indian, truly modern and deeply human. In the endeavour to fulfilhis dream, The Gurukul is a step in that direction.",
     contact: {
-      phone: "+91 12345 67890",
+      phone: "+911234567890",
       email: "info@gurunanakcollege.com",
     },
   };
 
   return (
     
-    <div className="container mt-5 ">
+    <div className="container mt-5">
       <div className="d-flex align-items-center mb-4">
         <div>
           <Image src={schoolLogo} alt="School Logo" width={100} height={100} className="rounded-circle" />

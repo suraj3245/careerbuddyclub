@@ -1,11 +1,11 @@
 import React from "react";
 import Wrapper from "@/layouts/wrapper";
-import SchoolDashboardMain from "@/app/components/dashboard/school";
+import StudentTableDashboard from "@/app/components/dashboard/school/table";
 
 const SchoolDashboardPage = () => {
   return (
     <Wrapper>
-      <SchoolDashboardMain />
+      <StudentTableDashboard />
     </Wrapper>
   );
 };

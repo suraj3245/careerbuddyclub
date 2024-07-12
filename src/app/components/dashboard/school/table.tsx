@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import DashboardArea from "./dashboard-area";
 import SchoolAside from "./aside";
 
-const SchoolDashboardMain = () => {
+const StudentTableDashboard = () => {
   const [isOpenSidebar, setIsOpenSidebar] = useState<boolean>(false);
   return (
     <div className="main-page-wrapper">
@@ -21,4 +21,4 @@ const SchoolDashboardMain = () => {
   );
 };
 
-export default SchoolDashboardMain;
+export default StudentTableDashboard;
