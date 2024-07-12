@@ -226,7 +226,7 @@ const ApplyForm = () => {
             <input
               type="text"
               placeholder="Enter Student Name"
-              {...register("name", { required: `Name is required!` })}
+              {...register("School_name", { required: `Name is required!` })}
               name="name"
               style={{
                 backgroundColor: "white",
