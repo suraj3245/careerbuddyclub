@@ -8,9 +8,10 @@ import HeaderFour from "@/layouts/headers/header-4";
 import React, { useEffect, useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import Script from "next/script";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify"; 
 import "react-toastify/dist/ReactToastify.css";
 import HeaderTop from "@/layouts/headers/header-top";
+import CandidateAside from "./components/dashboard/candidate/aside";
 const gordita = localFont({
   src: [
     {
@@ -36,7 +37,7 @@ const gordita = localFont({
   ],
   variable: "--gorditas-font",
 });
-1
+1;
 const garamond = EB_Garamond({
   weight: ["400", "500", "600", "700", "800"],
   subsets: ["latin"],
@@ -85,12 +86,18 @@ export default function RootLayout({
     localStorage.removeItem("catResults");
     localStorage.removeItem("username");
     localStorage.removeItem("location");
+    localStorage.removeItem("School_name");
+    localStorage.removeItem("School_email");
 
     setUser({ value: null }); // Update the user state to reflect logout
     // Any additional logout logic goes here
 
     setKey(Math.random());
   };
+  // const handleLogout1 = () => {
+  //   localStorage.removeItem("token");
+  //   localStorage.removeItem("userName");
+  // }
   // Check if the current page is 'aptitudetest'
   const pathname = usePathname();
   const isRedirectPage = pathname.startsWith("/redirect");

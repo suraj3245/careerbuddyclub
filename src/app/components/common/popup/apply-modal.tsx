@@ -97,6 +97,7 @@ const ApplyModal = () => {
                       School
                     </button>
                   </div>
+                  
                   <div className="tab-content mt-3" id="nav-tabContent">
                     <div
                       className="tab-pane fade show active"
@@ -145,7 +146,7 @@ const ApplyModal = () => {
                             >
                               <div className="form-wrapper m-auto mt-2">
                                 <ApplyForm />
-                              </div>
+                              </div>``
                             </div>
                           </div>
                         </div>
@@ -200,7 +201,7 @@ const ApplyModal = () => {
                             </div>
                           </div>
                   </div>
-                </div>
+                 </div>
               </div>
               <button
                 type="button"

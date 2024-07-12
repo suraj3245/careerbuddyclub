@@ -48,7 +48,7 @@ const Menus = () => {
             <ul className="dropdown-menu">
               <li className="row gx-1">
                 {menu.mega_menus.map((m) => (
-                  <div key={m.id} className="col-md-4">
+                  <div key={m.id} className="col-md-6">
                     <div className="menu-column">
                       <h6 className="mega-menu-title">{m.title}</h6>
                       <ul className="style-none mega-dropdown-list">

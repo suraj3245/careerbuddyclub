@@ -104,7 +104,7 @@ const ApplyForm = () => {
         data
       )
       .then((response) => {
-        // Notify user that OTP is sent
+        // Notify user that OTP is senta
 
         toast.info("Otp sent 🚀", {
           position: "top-left",
@@ -142,6 +142,7 @@ const ApplyForm = () => {
     }
     return () => clearInterval(interval);
   }, [isVerificationSent, countdown]);
+
   const onSubmit = (data: IFormData) => {
     const from = localStorage.getItem("location") || "";
     const {

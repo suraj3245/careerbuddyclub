@@ -13,7 +13,9 @@ import dynamic from "next/dynamic";
 import { usePathname } from "next/navigation";
 import axios from "axios";
 import { useEffect } from "react";
-
+import SchoolPhoneFormModal from "@/app/components/common/popup/schoolphone-modal";
+import SchoolLoginFormModal from "@/app/components/common/popup/schoolloginmodal";
+import StudentFormModal from "@/app/components/common/popup/studentloginmodal";
 // Import ApplyModal with SSR disabled
 const ApplyModal = dynamic(
   () => import("@/app/components/common/popup/apply-modal"),
@@ -21,7 +23,6 @@ const ApplyModal = dynamic(
     ssr: false,
   }
 );
-
 import "react-toastify/dist/ReactToastify.css";
 
 interface HeaderFourProps {
@@ -95,8 +96,20 @@ const HeaderFour: React.FC<HeaderFourProps> = ({ user, key, onLogout }) => {
       }, 1000);
     }
   }, [isUserLoggedIn]);
+
+  useEffect(()=>{
+    const username = localStorage.getItem('username');
+    const schoolname = localStorage.getItem('School_name');
+    if (username) {
+      setUserType('student');
+    } else if (schoolname) {
+      setUserType('school');
+    }
+  }, []);
+
   const getInitials = (userName: string) =>
     userName && userName.length > 0 ? userName[0].toUpperCase() : "?";
+  const [userType, setUserType] = useState('');
   return (
     <>
       <header
@@ -127,7 +140,7 @@ const HeaderFour: React.FC<HeaderFourProps> = ({ user, key, onLogout }) => {
                         href="#"
                         className="fw-500 text-dark"
                         data-bs-toggle="modal"
-                        data-bs-target="#loginModal"
+                        data-bs-target="#loginModalstudent"
                       >
                         Login
                       </a>
@@ -168,33 +181,46 @@ const HeaderFour: React.FC<HeaderFourProps> = ({ user, key, onLogout }) => {
                           {getInitials(userName)}
                         </div>
                       </a>
-                      <ul className="dropdown-menu">
-                        <li>
-                          <Link
-                            href="/dashboard/candidate-dashboard/profile"
-                            className="dropdown-item"
-                          >
-                            Student Dashboard
-                          </Link>
-                        </li>
-                        <li>
-                          <Link
-                            href="/dashboard/candidate-dashboard/setting"
-                            className="dropdown-item"
-                          >
-                            Set Password
-                          </Link>
-                        </li>
-                        <li>
-                          <a
-                            href="/"
-                            className="dropdown-item"
-                            onClick={onLogout}
-                          >
-                            Logout
-                          </a>
-                        </li>
-                      </ul>
+                       <ul className="dropdown-menu">
+      {userType === 'student' && (
+        <>
+          <li>
+            <Link href="/dashboard/candidate-dashboard/profile" className="dropdown-item">
+              Student Dashboard
+            </Link>
+          </li>
+          <li>
+            <Link href="/dashboard/candidate-dashboard/setting" className="dropdown-item">
+              Set Password
+            </Link>
+          </li>
+          <li>
+            <a href="/" className="dropdown-item" onClick={onLogout}>
+              Logout
+            </a>
+          </li>
+        </>
+      )}
+      {userType === 'school' && (
+        <>
+          <li>
+            <Link href="/dashboard/school-dashboard/profile" className="dropdown-item">
+              School Dashboard
+            </Link>
+          </li>
+          <li>
+            <Link href="/dashboard/school-dashboard/setting" className="dropdown-item">
+              Set Password
+            </Link>
+          </li>
+          <li>
+            <a href="/" className="dropdown-item" onClick={onLogout}>
+              Logout
+            </a>
+          </li>
+        </>
+      )}
+    </ul>
                     </li>
                   </ul>
                 )}
@@ -248,10 +274,16 @@ const HeaderFour: React.FC<HeaderFourProps> = ({ user, key, onLogout }) => {
       <LoginModal />
       <PhoneModal />
       <ScheduleModal />
-
+      <SchoolPhoneFormModal/>
+      <SchoolLoginFormModal/>
+      <StudentFormModal/>
       {/* login modal end */}
     </>
   );
 };
 
 export default HeaderFour;
+function setUserType(arg0: string) {
+  throw new Error("Function not implemented.");
+}
+

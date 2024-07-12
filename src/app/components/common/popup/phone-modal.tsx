@@ -1,6 +1,5 @@
 import React from "react";
-import PhoneForm from "../../forms/phone-form";
-
+import StudentLoginForm from "../../forms/studentLoginForm";
 const PhoneModal = () => {
   return (
     <div
@@ -18,11 +17,11 @@ const PhoneModal = () => {
               data-bs-dismiss="modal"
               aria-label="Close"
             ></button>
-            <div className="text-center">
-              <h2>Hi, Welcome Back!</h2>
+            <div className="p-2">
+              <h2 className="text-center" style={{color: "rgb(20, 173, 189)", fontSize: '45px'}}>Hi, Welcome Back!</h2>
             </div>
             <div className="form-wrapper m-auto">
-              <PhoneForm />
+              <StudentLoginForm />
             </div>
           </div>
         </div>

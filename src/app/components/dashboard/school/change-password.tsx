@@ -3,7 +3,7 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const ChangePasswordArea = () => {
+const ChangePasswordAreaSchool = () => {
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
@@ -22,23 +22,26 @@ const ChangePasswordArea = () => {
     // More validations can be added here (e.g., password length, complexity)
 
     const token = localStorage.getItem("token");
+    const School_email = localStorage.getItem("School_email");
     const options = {
       method: "POST",
-      url: "https://test.careerbuddyclub.com:8080/api/students/setpassword",
+      url: "https://test.careerbuddyclub.com:8080/api/students/setpasswordschool",
       headers: {
         Accept: "*/*",
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
       },
       data: {
-        new_password: newPassword,
-        confirm_password: confirmPassword,
-      },
+          new_password: newPassword,
+          confirm_password: confirmPassword,
+          token: token,
+          School_email: School_email
+        },
     };
 
     axios
       .request(options)
-      .then((response) => {
+      .then((response) => {        
         toast.success("Password successfully updated 🚀", {
           position: "top-left",
           autoClose: 3000,
@@ -97,4 +100,4 @@ const ChangePasswordArea = () => {
   );
 };
 
-export default ChangePasswordArea;
+export default ChangePasswordAreaSchool;

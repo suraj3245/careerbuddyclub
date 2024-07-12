@@ -39,7 +39,7 @@ const HeroBannerThree = () => {
                 essential at the school level.
               </p>
 
-              <a
+              {/* <a
                 href="https://www.thecareertown.com"
                 target="_blank" // This opens the link in a new tab
                 rel="noopener noreferrer"
@@ -48,15 +48,30 @@ const HeroBannerThree = () => {
                 style={{ marginRight: "10px" }}
               >
                 Career Town
-              </a>
-
+              </a> */}
+                <button
+                        type="button"
+                        data-bs-toggle="modal"
+                        data-bs-target="#SchoolLoginFormModales"
+                        style={{backgroundColor: "rgb(20, 173, 189)",
+                          color: "rgb(255, 255, 255)",
+                          border: "none",
+                          cursor: "pointer",
+                          transition: 'all 0.6s ease-out',
+                          padding: '13px',
+                          borderRadius: '50px',
+                          fontSize: '18px',}}
+                      >
+                        School Login
+                      </button>
+{/* 
               <Link
                 href="/career-aptitude"
                 className="btn-five wow fadeInUp "
                 data-wow-delay="0.6s"
               >
-                Career Aptitude Test
-              </Link>
+                Career Aptitude Tests
+              </Link> */}
             </div>
           </div>
         </div>

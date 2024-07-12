@@ -20,5 +20,4 @@ const CandidateDashboardSettingPage = () => {
     </Wrapper>
   );
 };
-
 export default CandidateDashboardSettingPage;
