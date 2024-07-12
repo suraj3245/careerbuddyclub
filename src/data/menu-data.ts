@@ -14,9 +14,8 @@ const menu_data: IMenuData[] = [
     mega_menus: [
       {
         id: 1,
-        title: "",
+        title: "For College/University",
         sub_menus: [
-          { title: "For College/University", link: ''},
           { title: "GNC Dehradun", link: "/college-details/1" },
           { title: "UPES Dehradun", link: "/college-details/3" },
           { title: "Uttaranchal University", link: "/college-details/4" }, 
@@ -26,9 +25,8 @@ const menu_data: IMenuData[] = [
       },
       {
         id: 2,
-        title: "",
+        title: "International University",
         sub_menus: [
-          { title: "International University", link: "" },
           { title: "OSMU", link: "university-details/1" },
           { title: "Mari State University", link: "university-details/2" }, 
           { title: "Perm State Medical University", link: "/university-details/3" },
@@ -36,8 +34,14 @@ const menu_data: IMenuData[] = [
       },
           {
             id: 3,
-            title: "",
-            sub_menus: [],
+            title: "Dubai University",
+            sub_menus: [
+              {title: "De Montfort University", link: ''},
+              {title: "University of Europe", link: ''},
+              {title: "Manipal Academy of Higher Education Dubai", link: ''},
+              {title: "Rochester Institute of Technology Dubai", link: ''},
+              {title: "University of Debrecen Dubai", link: ''},
+            ],
           },
         ],
   },

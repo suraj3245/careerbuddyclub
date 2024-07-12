@@ -63,7 +63,7 @@ const SchoolAside = ({ isOpenSidebar, setIsOpenSidebar }: IProps) => {
     }
 
     // Check if username is already in localStorage
-    const storedUserName = localStorage.getItem("username");
+    const storedUserName = localStorage.getItem("School_name");
     if (storedUserName) {
       setUserName(storedUserName);
       return;
@@ -83,13 +83,6 @@ const SchoolAside = ({ isOpenSidebar, setIsOpenSidebar }: IProps) => {
     try {
       const response = await axios.request(options);
       const data = response.data;
-
-      if (data.student && data.student.name) {
-        localStorage.setItem("username", data.student.name);
-        setUserName(data.student.name);
-      } else {
-        setUserName("No Name Available");
-      }
     } catch (error) {
       console.error(error);
       setUserName("No Name Available");
@@ -101,6 +94,12 @@ const SchoolAside = ({ isOpenSidebar, setIsOpenSidebar }: IProps) => {
   }, []);
   const getInitials = (userName: string) =>
     userName && userName.length > 0 ? userName[0].toUpperCase() : "?";
+
+  function onLogout(){
+    localStorage.removeItem("token");
+    localStorage.removeItem("School_name");
+    localStorage.removeItem("School_email");
+  }
 
   return (
     <>
@@ -145,21 +144,9 @@ const SchoolAside = ({ isOpenSidebar, setIsOpenSidebar }: IProps) => {
               >
                 {userName || "Name"}
               </button>
-              <ul className="dropdown-menu" aria-labelledby="profile-dropdown">
-                <li>
-                  <Link
-                    className="dropdown-item d-flex align-items-center"
-                    href="/dashboard/candidate-dashboard/profile"
-                    style={{ textDecoration: "none" }}
-                  >
-                    <Image
-                      src={profile_icon_2}
-                      alt="icon"
-                      className="lazy-img me-2"
-                    />
-                    <span>Profile</span>
-                  </Link>
-                </li>
+              <ul className="dropdown-menu text-center">
+                <li><a href="/dashboard/school-dashboard/setting" className="dropdown-item">setPassword</a></li>
+                <li><a href="/" className="dropdown-item" onClick={onLogout}>logout</a></li>
               </ul>
             </div>
           </div>

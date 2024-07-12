@@ -14,8 +14,8 @@ const LoginAdmin = () => {
       <div className="modal-dialog modal-fullscreen modal-dialog-centered">
         <div className="container">
           <div className="user-data-form modal-content">
-            <div className="text-center">
-              <h2>Hi, Welcome Back!</h2>
+            <div className="p-2">
+              <h2 className="text-center" style={{color: "rgb(20, 173, 189)", fontSize: '45px'}}>Hi, Welcome Back!</h2>
             </div>
             <div className="form-wrapper m-auto">
               <AdminForm />

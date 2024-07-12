@@ -1,13 +1,10 @@
 import React from "react";
-import Image from "next/image";
-import Link from "next/link";
-import LoginForm from "../../forms/login-form";
-
-const LoginModal = () => {
+import SchoolLoginForm from "../../forms/schoollogin-form";
+const SchoolPhoneFormModal = () => {
   return (
     <div
       className="modal fade"
-      id="loginModalstudent"
+      id="SchoolPhoneFormModal"
       tabIndex={-1}
       aria-hidden="true"
     >
@@ -20,11 +17,11 @@ const LoginModal = () => {
               data-bs-dismiss="modal"
               aria-label="Close"
             ></button>
-            <div className="p-2">
-              <h2 className="text-center" style={{color: "rgb(20, 173, 189)", fontSize: '45px'}}>Hi, Welcome Back!</h2>
+            <div className="text-center p-2">
+              <h2 style={{color: "rgb(20, 173, 189)"}}>Hi, Welcome Back!</h2>
             </div>
             <div className="form-wrapper m-auto">
-              <LoginForm />
+              <SchoolLoginForm />
             </div>
           </div>
         </div>
@@ -33,4 +30,4 @@ const LoginModal = () => {
   );
 };
 
-export default LoginModal;
+export default SchoolPhoneFormModal;

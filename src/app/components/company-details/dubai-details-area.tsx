@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import VideoPopup from "../common/video-popup";
 import Slider from "react-slick";
-import { IuniversityType } from "@/types/university-details";
+import { IdubaiType } from "@/types/dubai-details";
 import useSticky from "@/hooks/use-sticky";
 
 import {
@@ -104,12 +104,12 @@ const VideoCard: React.FC<VideoCardProps> = ({ videoId }) => {
       ></iframe>
     </div>
   );
-};
-const UniversityDetailsArea = ({ details }: { details: IuniversityType }) => {
+};  
+const DubaiDetailsArea = ({ details }: { details: IdubaiType }) => {
   const videoId = details.videoid;
  
   
-  return (
+  return (  
     <>
     
 
@@ -156,6 +156,8 @@ const UniversityDetailsArea = ({ details }: { details: IuniversityType }) => {
         </ul>
       </div>
     </div>
+
+
         <div className="container ">
           <div className="row">
             <div className="col-xxl-3 col-xl-4 order-xl-last ">
@@ -170,7 +172,7 @@ const UniversityDetailsArea = ({ details }: { details: IuniversityType }) => {
                 <div className="text-md text-dark text-center mt-15 mb-20 lg-mb-10">
                   {details.college}
                 </div>
-                <div className="text-center">
+                <div className="text-center"> 
                   <a
                     href={details.link}
                     className="website-btn-two tran3s"
@@ -255,39 +257,27 @@ const UniversityDetailsArea = ({ details }: { details: IuniversityType }) => {
                 <div className="details-post-data me-xxl-9 pe-xxl-8 mt-4 border border-gray-300 rounded-lg overflow-auto ">
                 <Table aria-label="Courses and Fees Table">
                   <TableHeader>
-                    <TableColumn>Academic Year</TableColumn>
-                    <TableColumn>Tuition Fees(USD)</TableColumn>
-                    <TableColumn>Hostel Fees(USD)</TableColumn>
-                    <TableColumn>Mess Fees(USD)</TableColumn>
+                    
+                    <TableColumn>Course</TableColumn>
+                    <TableColumn>Duration</TableColumn>
+                    <TableColumn>Fees</TableColumn>
                   </TableHeader>
                   <TableBody>
                     {details.coursesAndFees.map((course, index) => (
                       <TableRow key={index}>
+                     
                       <TableCell className="table-body-cell">{course.course}</TableCell>
-                        
+                      <TableCell className="table-body-cell">{course.duration}</TableCell>
                         <TableCell className="table-body-cell">{course.annualFee}</TableCell>
-                        <TableCell className="table-body-cell">{course.duration}</TableCell>
-                        <TableCell className="table-body-cell">{course.eligibility}</TableCell>
+                        
+                        
                       </TableRow>
                     ))}
                   </TableBody>
                 </Table>
               </div>
 
-               
-
- 
-           <h3 className="pt-50" id="awards">
-           Eligibility Criteria For Admission in {details.college}
-         </h3>
-         <p>{details.awards}</p>
-
-        
-         {details.whychoosepoints.map((point, index) => (
-          <ul className="table-body-cell">
-            <li key={index}> {point}</li>
-          </ul>
-        ))}
+            
 
                 <div className="position-relative details-post-data">
                   <h3 className="pt-50" id="placement">
@@ -401,4 +391,4 @@ const UniversityDetailsArea = ({ details }: { details: IuniversityType }) => {
   );
 };
 
-export default UniversityDetailsArea;
+export default DubaiDetailsArea;

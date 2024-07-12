@@ -5,14 +5,15 @@ import ErrorMsg from "../common/error-msg";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import SchoolFormModal from "../common/popup/schoolphone-modal";
 
 // form data type
 type IFormData = {
-  mobile: string;
+  School_mobile: string;
   verificationCode: string;
 };
 
-const PhoneForm = () => {
+const SchoolPhoneForm = () => {
   const [isVerificationSent, setIsVerificationSent] = useState<boolean>(false);
   const [countdown, setCountdown] = useState(30);
   const [showResend, setShowResend] = useState(false);
@@ -25,11 +26,14 @@ const PhoneForm = () => {
     getValues,
   } = useForm<IFormData>({});
 
-  const requestOTP = (data: { country_code: string; mobile: string }) => {
+  const requestOTP = (data: {
+    country_code: string;
+    School_mobile: string;
+  }) => {
     setIsVerificationSent(true);
     axios
       .post(
-        "https://test.careerbuddyclub.com:8080/api/students/loginwithphonewpotpsend",
+       "https://test.careerbuddyclub.com:8080/api/students/loginwithphonewpotpschool",
         data
       )
       .then((response) => {
@@ -71,24 +75,25 @@ const PhoneForm = () => {
   const onSubmit = (data: IFormData) => {
     // Destructure the required fields from data
     const country_code = "91";
-    const { mobile, verificationCode: otp } = data;
+    const { School_mobile, verificationCode: otp } = data;
 
     // Set up the request options for axios
     const options = {
       method: "POST",
-      url: "https://test.careerbuddyclub.com:8080/api/students/loginwithphone", // Replace with your API's URL
+      url:  "https://test.careerbuddyclub.com:8080/api/students/loginwithphoneschool", // Replace with your API's URL
       headers: {
         "Content-Type": "application/json",
       },
-      data: { mobile, otp, country_code }, // Send only the required data
+      data: { School_mobile, otp, country_code }, // Send only the required data
     };
 
     // Make the POST request using axios
     axios
       .request(options)
-      .then((response) => {
+      .then((response) => {        
         localStorage.setItem("token", response.data.access_token);
-        console.log("Registration successful", response.data);
+        localStorage.setItem("School_name", response.data.details.School_name);
+        localStorage.setItem("School_email", response.data.details.School_email);
         toast.success("Login successful 🚀", {
           position: "top-left",
           autoClose: 1000,
@@ -100,7 +105,7 @@ const PhoneForm = () => {
           theme: "light",
         });
         setTimeout(() => {
-          window.location.href = "/dashboard/candidate-dashboard/profile";
+          window.location.href = "/dashboard/school-dashboard/dashboard";
         }, 1000);
       })
       .catch((error) => {
@@ -119,19 +124,18 @@ const PhoneForm = () => {
 
     reset();
   };
-
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="col-12" id="PhoneForm">
+      <div className="col-12">
         <div className="input-group-meta position-relative mb-25 mt-30">
           <div style={{ display: "flex", alignItems: "center" }}>
             <input
               type="tel"
-              placeholder="Mobile Number"
-              {...register("mobile", {
+              placeholder="Mobile Number school"
+              {...register("School_mobile", {
                 required: `Phone Number is required!`,
               })}
-              name="mobile"
+              name="School_mobile"
               style={{ flex: "1", marginRight: "10px" }}
             />
             <button
@@ -141,7 +145,7 @@ const PhoneForm = () => {
                   const formData = getValues();
                   requestOTP({
                     country_code: "91",
-                    mobile: formData.mobile,
+                    School_mobile: formData.School_mobile,
                   });
                 }
               }}
@@ -163,7 +167,7 @@ const PhoneForm = () => {
             </button>
           </div>
           <div className="help-block with-errors">
-            <ErrorMsg msg={errors.mobile?.message!} />
+            <ErrorMsg msg={errors.School_mobile?.message!} />
           </div>
         </div>
       </div>
@@ -192,7 +196,7 @@ const PhoneForm = () => {
             href="#"
             className="fw-500"
             data-bs-toggle="modal"
-            data-bs-target="#PhoneModal"
+            data-bs-target="#SchoolPhoneFormModal"
           >
             Login using Email!
           </a>
@@ -223,4 +227,4 @@ const PhoneForm = () => {
   );
 };
 
-export default PhoneForm;
+export default SchoolPhoneForm;

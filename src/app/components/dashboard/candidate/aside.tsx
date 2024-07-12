@@ -19,8 +19,6 @@ import nav_6 from "@/assets/dashboard/images/icon/icon_6.svg";
 import nav_6_active from "@/assets/dashboard/images/icon/icon_6_active.svg";
 import { useEffect } from "react";
 import axios from "axios";
-import logout from "@/assets/dashboard/images/icon/icon_9.svg";
-
 // nav data
 const nav_data: {
   id: number;
@@ -78,10 +76,14 @@ type IProps = {
   isOpenSidebar: boolean;
   setIsOpenSidebar: React.Dispatch<React.SetStateAction<boolean>>;
 };
-
+  
 const CandidateAside = ({ isOpenSidebar, setIsOpenSidebar }: IProps) => {
   const [userName, setUserName] = useState("");
   const pathname = usePathname();
+  function onLogout(){
+     localStorage.removeItem("token");
+     localStorage.removeItem("username");
+  }
 
   const fetchUserData = async () => {
     const token = localStorage.getItem("token");
@@ -96,7 +98,6 @@ const CandidateAside = ({ isOpenSidebar, setIsOpenSidebar }: IProps) => {
       setUserName(storedUserName);
       return;
     }
-
     const options = {
       method: "POST",
       url: "https://test.careerbuddyclub.com:8080/api/students/getstudentsprofile",
@@ -170,20 +171,9 @@ const CandidateAside = ({ isOpenSidebar, setIsOpenSidebar }: IProps) => {
               >
                 {userName || "Name"}
               </button>
-              <ul className="dropdown-menu" aria-labelledby="profile-dropdown">
-                <li>
-                  <Link
-                    className="dropdown-item d-flex align-items-center"
-                    href="/dashboard/candidate-dashboard/profile"
-                  >
-                    <Image
-                      src={profile_icon_2}
-                      alt="icon"
-                      className="lazy-img"
-                    />
-                    <span className="ms-2 ps-1">Profile</span>
-                  </Link>
-                </li>
+              <ul className="dropdown-menu text-center">
+                <li><a href="/dashboard/candidate-dashboard/setting" className="dropdown-item">setPassword</a></li>
+                <li><a href="/" className="dropdown-item" onClick={onLogout}>logout</a></li>
               </ul>
             </div>
           </div>

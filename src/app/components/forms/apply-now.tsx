@@ -284,7 +284,7 @@ const ApplyForm = () => {
           <div className="input-group-meta position-relative mb-15">
             <input
               type="text"
-              placeholder="Name"
+              placeholder="Enter Student Name"
               {...register("name", { required: `Name is required!` })}
               name="name"
               style={{
@@ -304,7 +304,7 @@ const ApplyForm = () => {
           <div className="input-group-meta position-relative mb-15">
             <input
               type="email"
-              placeholder="Email"
+              placeholder="Enter your Email"
               {...register("email", { required: `Email is required!` })}
               name="email"
               style={{
@@ -341,7 +341,6 @@ const ApplyForm = () => {
               />
               <button
                 type="button"
-                className="btn-whatsapp-otp"
                 onClick={() => {
                   if (!isVerificationSent || showResend) {
                     const formData = getValues();
