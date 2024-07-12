@@ -46,7 +46,7 @@ const YourCareer = () => {
                 data-wow-delay="0.3s"
                 style={headingStyle}
               >
-                Popular Career Choices According To Your Score
+                Popular Career Choices According To Your Score 
               </h2>
             </div>
           </div>

@@ -1,3 +1,4 @@
+/* Custom Table Styles */
 .custom-table {
   table-layout: fixed;
   width: 100%;
@@ -22,12 +23,14 @@
   text-align: center;
 }
 
+/* Button Focus and Active State */
 .btn-secondary:focus,
 .btn-secondary:active {
   box-shadow: none !important;
   outline: none !important;
 }
 
+/* Pagination Styles */
 .pagination {
   display: flex;
   gap: 1rem;
@@ -65,12 +68,6 @@
   border-color: #0d6efd;
 }
 
-.custom-thead th {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
 .pagination-button {
   margin: 0 2px;
   border-radius: 4px;
@@ -83,11 +80,12 @@
   color: white;
 }
 
+/* Table Responsiveness */
 .table-responsive {
   overflow-x: hidden;
 }
 
-/* Common styles */
+/* Common Styles */
 .student-table {
   padding: 2rem;
 }
@@ -113,10 +111,10 @@
 
 /* Styles for max-width: 325px */
 @media (max-width: 325px) {
-
-  .outer-cont{
+  .outer-cont {
     padding: 0 !important;
   }
+
   .student-table {
     padding: 0.5rem;
   }
@@ -126,7 +124,7 @@
     margin-bottom: 0.5rem;
   }
 
-  .btn-export{
+  .btn-export {
     padding: 6px 0px;
   }
 
@@ -139,7 +137,7 @@
     padding: 0.25rem;
   }
 
-  /* Additional styles */
+  /* Additional Styles */
   .container {
     flex-direction: column;
     align-items: center;
@@ -160,19 +158,18 @@
 
 /* Styles for max-width: 768px */
 @media (max-width: 768px) {
-
-  .outer-cont{
+  .outer-cont {
     padding: 0 !important;
   }
+
   .student-table {
     padding: 1rem;
   }
-  
-  .heading-table{
+
+  .heading-table {
     margin-top: 3rem;
     font-size: 36px;
   }
-  
 
   .btn-table {
     width: 100%;
@@ -196,7 +193,7 @@
     margin-bottom: 0.5rem;
   }
 
-  /* Additional styles */
+  /* Additional Styles */
   .container {
     flex-direction: column;
     align-items: center;
@@ -212,17 +209,16 @@
 
 /* Styles for max-width: 1024px */
 @media (max-width: 1024px) {
-
-  .outer-cont{
+  .outer-cont {
     padding: 0 !important;
   }
+
   .student-table {
     padding: 1.5rem;
   }
 
   .btn-table {
     margin-bottom: 1rem;
-    
   }
 
   .table-responsive {
@@ -238,7 +234,7 @@
     justify-content: center;
   }
 
-  /* Additional styles */
+  /* Additional Styles */
   .container {
     flex-direction: column;
   }

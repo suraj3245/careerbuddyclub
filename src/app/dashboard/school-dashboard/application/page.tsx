@@ -5,7 +5,7 @@ import ApplicationDashboard from "@/app/components/dashboard/school/application"
 const SchoolDashboardPage = () => {
   return (
     <Wrapper>
-      <ApplicationDashboard />
+      <ApplicationDashboard/>
     </Wrapper>
   );
 };

@@ -1,10 +1,14 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { Modal, Button, Spinner } from "react-bootstrap";
+import { Modal, Button, Form } from "react-bootstrap";
 import BorderColorIcon from "@mui/icons-material/BorderColor";
+import DownloadIcon from "@mui/icons-material/Download";
 import * as XLSX from "xlsx";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "react-toastify/dist/ReactToastify.css";
 import "./StudentTable.css";
+import { ToastContainer, toast } from "react-toastify";
+import StudentScoreModal from "./studentscore-modal"; // Import the new component
 
 const StudentTable: React.FC = () => {
   const [showModal, setShowModal] = useState(false);
@@ -14,39 +18,43 @@ const StudentTable: React.FC = () => {
   const [isEdit, setIsEdit] = useState(false);
   const [currentStudentId, setCurrentStudentId] = useState<number | null>(null);
   const [searchTerm, setSearchTerm] = useState("");
-
+  const [selectedStudent, setSelectedStudent] = useState<any | null>(null);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     mobile: "",
     from: "",
-    realistic_score: "",
-    investigative_score: "",
-    artistic_score: "",
-    social_score: "",
-    enterprising_score: "",
-    conventional_score: "",
+    realistic_score: "N/A",
+    investigative_score: "N/A",
+    artistic_score: "N/A",
+    social_score: "N/A",
+    enterprising_score: "N/A",
+    conventional_score: "N/A",
   });
 
   const handleCloseModal = () => {
     setShowModal(false);
     setIsEdit(false);
     setCurrentStudentId(null);
+    setSelectedStudent(null);
     setFormData({
       name: "",
       email: "",
       mobile: "",
       from: "",
-      realistic_score: "",
-      investigative_score: "",
-      artistic_score: "",
-      social_score: "",
-      enterprising_score: "",
-      conventional_score: "",
+      realistic_score: "N/A",
+      investigative_score: "N/A",
+      artistic_score: "N/A",
+      social_score: "N/A",
+      enterprising_score: "N/A",
+      conventional_score: "N/A",
     });
   };
 
-  const handleShowModal = () => setShowModal(true);
+  const handleShowModal = () => {
+    setShowModal(true);
+    setIsEdit(false);
+  };
 
   const fetchStudents = async () => {
     try {
@@ -54,9 +62,9 @@ const StudentTable: React.FC = () => {
         Accept: "*/*",
         "Content-Type": "application/json",
       };
-
+      const school=localStorage.getItem("schoolName");
       const bodyContent = JSON.stringify({
-        place: "dehradun",
+        place: school,
       });
 
       const response = await axios.post(
@@ -68,6 +76,7 @@ const StudentTable: React.FC = () => {
       setStudents(response.data);
     } catch (error) {
       console.error("Error fetching students:", error);
+      toast.error("Error fetching students");
     } finally {
       setLoading(false);
     }
@@ -80,18 +89,6 @@ const StudentTable: React.FC = () => {
   const studentsPerPage = 10;
   const indexOfLastStudent = currentPage * studentsPerPage;
   const indexOfFirstStudent = indexOfLastStudent - studentsPerPage;
-  const currentStudents = students.slice(
-    indexOfFirstStudent,
-    indexOfLastStudent
-  );
-
-  const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
-
-  const getPageRange = () => {
-    const start = (currentPage - 1) * studentsPerPage + 1;
-    const end = Math.min(currentPage * studentsPerPage, students.length);
-    return `${start}-${end}`;
-  };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { id, value } = e.target;
@@ -107,7 +104,17 @@ const StudentTable: React.FC = () => {
         "Content-Type": "application/json",
       };
 
-      const bodyContent = JSON.stringify(formData);
+      const {
+        realistic_score,
+        investigative_score,
+        artistic_score,
+        social_score,
+        enterprising_score,
+        conventional_score,
+        ...formDataToSend
+      } = formData;
+
+      const bodyContent = JSON.stringify(formDataToSend);
       let reqOptions;
 
       if (isEdit && currentStudentId !== null) {
@@ -126,13 +133,17 @@ const StudentTable: React.FC = () => {
         };
       }
 
+      console.log("Request Options:", reqOptions);
+
       const response = await axios.request(reqOptions);
-      console.log(response.data);
+      console.log("Response Data:", response.data);
 
       fetchStudents();
       handleCloseModal();
+      toast.success(`Student ${isEdit ? "updated" : "added"} successfully`);
     } catch (error) {
       console.error("Error adding or updating student:", error);
+      toast.error("Error adding or updating student");
     }
   };
 
@@ -140,7 +151,7 @@ const StudentTable: React.FC = () => {
     setFormData(student);
     setCurrentStudentId(student.id);
     setIsEdit(true);
-    handleShowModal();
+    setShowModal(true); // Show the modal immediately when editing
   };
 
   const handleSearchInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -151,12 +162,18 @@ const StudentTable: React.FC = () => {
     student.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+  const currentFilteredStudents = filteredStudents.slice(
+    indexOfFirstStudent,
+    indexOfLastStudent
+  );
+
+  const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
+
   const exportToExcel = async () => {
     try {
-      setLoading(true); // Show loading spinner
-      await fetchStudents(); // Fetch the latest student data
+      setLoading(true);
+      await fetchStudents();
 
-      // Map through students data to extract only required fields
       const filteredStudents = students.map((student) => ({
         name: student.name,
         email: student.email,
@@ -174,18 +191,37 @@ const StudentTable: React.FC = () => {
       const workbook = XLSX.utils.book_new();
       XLSX.utils.book_append_sheet(workbook, worksheet, "Students");
       XLSX.writeFile(workbook, "students_data.xlsx");
+      toast.success("Data exported successfully");
     } catch (error) {
       console.error("Error exporting data:", error);
+      toast.error("Error exporting data");
     } finally {
-      setLoading(false); // Hide loading spinner
+      setLoading(false);
     }
+  };
+
+  const handleDownload = (student: any) => {
+    const scores = [
+      { name: "Realistic", score: student.realistic_score },
+      { name: "Investigative", score: student.investigative_score },
+      { name: "Artistic", score: student.artistic_score },
+      { name: "Social", score: student.social_score },
+      { name: "Enterprising", score: student.enterprising_score },
+      { name: "Conventional", score: student.conventional_score },
+    ];
+
+    scores.sort((a, b) => b.score - a.score);
+    const topThreeScores = scores.slice(0, 3);
+
+    setSelectedStudent({ ...student, topThreeScores });
   };
 
   return (
     <>
+      <ToastContainer />
       {loading ? (
         <div
-          className=" student-table d-flex justify-content-center align-items-center "
+          className="student-table d-flex justify-content-center align-items-center"
           style={{ height: "100vh" }}
         >
           <iframe
@@ -205,7 +241,6 @@ const StudentTable: React.FC = () => {
                 value={searchTerm}
                 onChange={handleSearchInputChange}
               />
-              {/* <button className="btn btn-primary">Search</button> */}
             </div>
             <div className="col-lg-6 col-md-6 col-sm-12 text-lg-end text-md-end text-sm-start">
               <button
@@ -214,15 +249,21 @@ const StudentTable: React.FC = () => {
               >
                 Add New
               </button>
-              <button className="btn btn-info btn-table btn-export" onClick={exportToExcel}>
+              <button
+                className="btn btn-info btn-table btn-export"
+                onClick={exportToExcel}
+              >
                 Export Excel
               </button>
             </div>
           </div>
 
           <div className="container">
-            <div className="table-responsive" style={{ overflow: "auto" }}>
-              <table className="table table-bordered">
+            <div
+              className="table-responsive"
+              style={{ overflow: "auto", fontSize: "13px !important" }}
+            >
+              <table className="table card-table table-bordered table-vcenter text-nowrap table-striped">
                 <thead className="bg-primary text-white custom-thead text-primary">
                   <tr>
                     <th className="bg-primary text-white">NO</th>
@@ -236,244 +277,126 @@ const StudentTable: React.FC = () => {
                     <th className="bg-primary text-white">ENTERPRISING</th>
                     <th className="bg-primary text-white">CONVENTIONAL</th>
                     <th className="bg-primary text-white">Edit</th>
+                    <th className="bg-primary text-white">Results</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {filteredStudents
-                    .slice(indexOfFirstStudent, indexOfLastStudent)
-                    .map((student, index) => (
-                      <tr key={student.id}>
-                        <td>{indexOfFirstStudent + index + 1}</td>
-                        <td>{student.name}</td>
-                        <td>{student.email}</td>
-                        <td>{student.mobile}</td>
-                        <td>{student.realistic_score}</td>
-                        <td>{student.investigative_score}</td>
-                        <td>{student.artistic_score}</td>
-                        <td>{student.social_score}</td>
-                        <td>{student.enterprising_score}</td>
-                        <td>{student.conventional_score}</td>
-                        <td>
-                          <button
-                            className="btn btn-link"
-                            onClick={() => handleEdit(student)}
-                          >
-                            <BorderColorIcon />
-                          </button>
-                        </td>
-                      </tr>
-                    ))}
+                  {currentFilteredStudents.map((student, index) => (
+                    <tr key={student.id}>
+                      <td>{indexOfFirstStudent + index + 1}</td>
+                      <td>{student.name}</td>
+                      <td>{student.email}</td>
+                      <td>{student.mobile}</td>
+                      <td>{student.realistic_score}</td>
+                      <td>{student.investigative_score}</td>
+                      <td>{student.artistic_score}</td>
+                      <td>{student.social_score}</td>
+                      <td>{student.enterprising_score}</td>
+                      <td>{student.conventional_score}</td>
+                      <td>
+                        <BorderColorIcon
+                          onClick={() => handleEdit(student)}
+                          style={{ cursor: "pointer" }}
+                          color="primary"
+                        />
+                      </td>
+                      <td>
+                        <DownloadIcon
+                          onClick={() => handleDownload(student)}
+                          style={{ cursor: "pointer" }}
+                          color="primary"
+                        />
+                      </td>
+                    </tr>
+                  ))}
                 </tbody>
               </table>
             </div>
-            <div className="pagination-container">
-              <ul className="pagination justify-content-center">
-                <li
-                  className={`page-item ${currentPage === 1 ? "disabled" : ""}`}
-                >
-                  {/* <button
-                    className="page-link"
-                    onClick={() => paginate(currentPage - 1)}
-                  >
-                    Previous
-                  </button> */}
-                </li>
-                {Array.from({
-                  length: Math.ceil(students.length / studentsPerPage),
-                }).map((_, index) => (
-                  <li
-                    className={`page-item ${
-                      currentPage === index + 1 ? "active" : ""
-                    }`}
-                    key={index}
-                  >
-                    <button
-                      className="page-link"
-                      onClick={() => paginate(index + 1)}
-                    >
-                      {index + 1}
-                    </button>
-                  </li>
-                ))}
-                <li
-                  className={`page-item ${
-                    currentPage === Math.ceil(students.length / studentsPerPage)
-                      ? "disabled"
-                      : ""
-                  }`}
-                >
-                  {/* <button
-                    className="page-link"
-                    onClick={() => paginate(currentPage + 1)}
-                  >
-                    Next
-                  </button> */}
-                </li>
-              </ul>
-              <div className="pagination-info">
-                {students.length > 0 && (
-                  <span>
-                    Showing{
-                    } of {students.length} students
-                  </span>
-                )}
-              </div>
+            <div className="pagination justify-content-center">
+              <nav aria-label="Page navigation example">
+                <ul className="pagination">
+                  {Array.from(
+                    { length: Math.ceil(filteredStudents.length / studentsPerPage) },
+                    (_, i) => (
+                      <li
+                        key={i}
+                        className={`page-item ${
+                          currentPage === i + 1 ? "active" : ""
+                        }`}
+                      >
+                        <a
+                          className="page-link"
+                          href="#"
+                          onClick={() => paginate(i + 1)}
+                        >
+                          {i + 1}
+                        </a>
+                      </li>
+                    )
+                  )}
+                </ul>
+              </nav>
             </div>
           </div>
+
+          <Modal show={showModal} onHide={handleCloseModal}>
+            <Modal.Header closeButton>
+              <Modal.Title>
+                {isEdit ? "Edit Student" : "Add New Student"}
+              </Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <Form onSubmit={handleFormSubmit}>
+                <Form.Group controlId="name">
+                  <Form.Label>Name</Form.Label>
+                  <Form.Control
+                    type="text"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    required
+                  />
+                </Form.Group>
+                <Form.Group controlId="email">
+                  <Form.Label>Email</Form.Label>
+                  <Form.Control
+                    type="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required
+                  />
+                </Form.Group>
+                <Form.Group controlId="mobile">
+                  <Form.Label>Mobile</Form.Label>
+                  <Form.Control
+                    type="text"
+                    value={formData.mobile}
+                    onChange={handleInputChange}
+                    required
+                  />
+                </Form.Group>
+                <Form.Group controlId="from">
+                  <Form.Label>From</Form.Label>
+                  <Form.Control
+                    type="text"
+                    value={formData.from}
+                    onChange={handleInputChange}
+                    required
+                  />
+                </Form.Group>
+                <Button variant="primary" type="submit" className="mt-3">
+                  {isEdit ? "Update" : "Add"}
+                </Button>
+              </Form>
+            </Modal.Body>
+          </Modal>
+
+          <StudentScoreModal
+            show={Boolean(selectedStudent)}
+            student={selectedStudent}
+            onClose={() => setSelectedStudent(null)}
+          />
         </>
       )}
-
-      <Modal
-        show={showModal}
-        onHide={handleCloseModal}
-        centered
-        className="modal-dialog-scrollable"
-      >
-        <Modal.Header closeButton>
-          <Modal.Title>{isEdit ? "Edit Student" : "Add Student"}</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <form onSubmit={handleFormSubmit}>
-            <div className="row">
-              <div className="col-md-6 mb-3">
-                <label htmlFor="name" className="form-label">
-                  Name:
-                </label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="name"
-                  value={formData.name}
-                  onChange={handleInputChange}
-                  required
-                />
-              </div>
-              <div className="col-md-6 mb-3">
-                <label htmlFor="email" className="form-label">
-                  Email:
-                </label>
-                <input
-                  type="email"
-                  className="form-control"
-                  id="email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  required
-                />
-              </div>
-              <div className="col-md-6 mb-3">
-                <label htmlFor="mobile" className="form-label">
-                  Mobile:
-                </label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="mobile"
-                  value={formData.mobile}
-                  onChange={handleInputChange}
-                  required
-                />
-              </div>
-              <div className="col-md-6 mb-3">
-                <label htmlFor="from" className="form-label">
-                  From:
-                </label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="from"
-                  value={formData.from}
-                  onChange={handleInputChange}
-                  required
-                />
-              </div>
-              <div className="col-md-6 mb-3">
-                <label htmlFor="realistic_score" className="form-label">
-                  Realistic Score:
-                </label>
-                <input
-                  type="number"
-                  className="form-control"
-                  id="realistic_score"
-                  value={formData.realistic_score}
-                  onChange={handleInputChange}
-                  required
-                />
-              </div>
-              <div className="col-md-6 mb-3">
-                <label htmlFor="investigative_score" className="form-label">
-                  Investigative Score:
-                </label>
-                <input
-                  type="number"
-                  className="form-control"
-                  id="investigative_score"
-                  value={formData.investigative_score}
-                  onChange={handleInputChange}
-                  required
-                />
-              </div>
-              <div className="col-md-6 mb-3">
-                <label htmlFor="artistic_score" className="form-label">
-                  Artistic Score:
-                </label>
-                <input
-                  type="number"
-                  className="form-control"
-                  id="artistic_score"
-                  value={formData.artistic_score}
-                  onChange={handleInputChange}
-                  required
-                />
-              </div>
-              <div className="col-md-6 mb-3">
-                <label htmlFor="social_score" className="form-label">
-                  Social Score:
-                </label>
-                <input
-                  type="number"
-                  className="form-control"
-                  id="social_score"
-                  value={formData.social_score}
-                  onChange={handleInputChange}
-                  required
-                />
-              </div>
-              <div className="col-md-6 mb-3">
-                <label htmlFor="enterprising_score" className="form-label">
-                  Enterprising Score:
-                </label>
-                <input
-                  type="number"
-                  className="form-control"
-                  id="enterprising_score"
-                  value={formData.enterprising_score}
-                  onChange={handleInputChange}
-                  required
-                />
-              </div>
-              <div className="col-md-6 mb-3">
-                <label htmlFor="conventional_score" className="form-label">
-                  Conventional Score:
-                </label>
-                <input
-                  type="number"
-                  className="form-control"
-                  id="conventional_score"
-                  value={formData.conventional_score}
-                  onChange={handleInputChange}
-                  required
-                />
-              </div>
-            </div>
-            <div className="d-grid">
-              <button type="submit" className="btn btn-primary">
-                {isEdit ? "Update Student" : "Add Student"}
-              </button>
-            </div>
-          </form>
-        </Modal.Body>
-      </Modal>
     </>
   );
 };

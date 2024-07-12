@@ -306,10 +306,10 @@ const ApplyForm = () => {
                   color: "#ffffff",
                   border: "none",
                   padding: "7px 8px",
-                  
                   borderRadius: "5px",
                   cursor: "pointer",
                 }}
+
               >
                 {!isVerificationSent
                   ? "Whatsapp OTP"
@@ -348,7 +348,7 @@ const ApplyForm = () => {
           </div>
         )}
 
-<div className="col-12">
+       <div className="col-12">
           <div className="input-group-meta position-relative mb-15">
             <input
               type="text"
