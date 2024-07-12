@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import ApplyForm from "../../forms/apply-now";
 import ApplyForm1 from "../../forms/apply-now1";
-const ApplyModal = () => {
+const ApplyModalSchool = () => {
   // State to track the window width
-  const [loginType, setLoginType] = useState<"student" | "school">("student");
+  const [loginType, setLoginType] = useState<"student" | "school">("school");
   const [windowWidth, setWindowWidth] = useState(() => {
     if (typeof window !== "undefined") {
       return window.innerWidth;
@@ -25,7 +25,7 @@ const ApplyModal = () => {
   return (
     <div
       className="modal fade"
-      id="ApplyModal"
+      id="ApplyModalSchool"
       tabIndex={-1}
       aria-hidden="true"
     >
@@ -226,4 +226,4 @@ const ApplyModal = () => {
   );
 };
 
-export default ApplyModal;
+export default ApplyModalSchool;

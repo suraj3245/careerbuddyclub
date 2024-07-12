@@ -24,6 +24,7 @@ const ApplyModal = dynamic(
   }
 );
 import "react-toastify/dist/ReactToastify.css";
+import ApplyModalSchool from "@/app/components/common/popup/apply-modal2";
 
 interface HeaderFourProps {
   user: {
@@ -277,6 +278,7 @@ const HeaderFour: React.FC<HeaderFourProps> = ({ user, key, onLogout }) => {
       <SchoolPhoneFormModal/>
       <SchoolLoginFormModal/>
       <StudentFormModal/>
+      <ApplyModalSchool/>
       {/* login modal end */}
     </>
   );
