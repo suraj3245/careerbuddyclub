@@ -1,7 +1,8 @@
 "use client";
+
 import React, { useState, useEffect } from "react";
 import * as Yup from "yup";
-import { useForm } from "react-hook-form";
+import { Resolver, useForm } from "react-hook-form";
 import ErrorMsg from "../common/error-msg";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
@@ -23,14 +24,14 @@ type UTMParams = {
 };
 
 // form data type
-
 type IFormData = {
-  School_name: string;
-  School_email: string;
-  School_mobile: number;
+  name: string;
+  email: string;
+  mobile: number;
   verificationCode: string;
+  password: string;
   level: string;
-  Place: string;
+  stream: string;
   utm_source?: string | null;
   utm_medium?: string | null;
   utm_campaign?: string | null;
@@ -41,10 +42,10 @@ type IFormData = {
 
 // schema
 const schema = Yup.object().shape({
-  School_name: Yup.string().required().label("Name"),
-  School_email: Yup.string().required().email().label("Email"),
-  Place: Yup.string().required().label("Place"),
-  School_mobile: Yup.number().required().label("Phone Number"),
+  name: Yup.string().required().label("Name"),
+  email: Yup.string().required().email().label("Email"),
+  mobile: Yup.number().required().label("Phone Number"),
+  password: Yup.string().required().min(6).label("Password"),
   verificationCode: Yup.string().required().label("Verification Code"),
 });
 
@@ -53,6 +54,44 @@ const ApplyForm = () => {
   const [isVerificationSent, setIsVerificationSent] = useState<boolean>(false);
   const [countdown, setCountdown] = useState(30);
   const [showResend, setShowResend] = useState(false);
+  const [streamOptions, setStreamOptions] = useState<IOption[]>([
+    { value: "1", label: "Arts & Humanities" },
+    { value: "2", label: "Business & Management" },
+    { value: "3", label: "Engineering & Technology" },
+    { value: "4", label: "Life Sciences & Medicine" },
+    { value: "5", label: "Natural Sciences" },
+    { value: "6", label: "Social Sciences & Management" },
+    { value: "7", label: "Computer Science & IT" },
+    { value: "8", label: "Law" },
+    { value: "9", label: "Education & Training" },
+    { value: "10", label: "Creative Arts & Design" },
+    { value: "11", label: "Applied Sciences & Professions" },
+    { value: "12", label: "Agriculture & Forestry" },
+    { value: "13", label: "Environmental Studies & Earth Sciences" },
+    { value: "14", label: "Hospitality, Leisure & Sports" },
+    { value: "15", label: "Journalism & Media" },
+    { value: "16", label: "General Studies & Classics" },
+    { value: "17", label: "Health & Medicine" },
+    { value: "18", label: "Performing Arts" },
+    { value: "19", label: "Physical Sciences & Mathematics" },
+    { value: "20", label: "Psychology & Counseling" },
+    { value: "21", label: "Fashion & Beauty" },
+    { value: "22", label: "Veterinary Medicine" },
+    { value: "23", label: "Religious Studies & Theology" },
+    { value: "24", label: "Philosophy & Ethics" },
+    { value: "25", label: "Languages & Literature" },
+    { value: "26", label: "Culinary Arts" },
+    { value: "27", label: "Anthropology" },
+    { value: "28", label: "Archaeology" },
+    { value: "29", label: "History" },
+    { value: "30", label: "Political Science & International Relations" },
+    { value: "31", label: "Sociology" },
+    { value: "32", label: "Economics" },
+    { value: "33", label: "Urban Planning & Architecture" },
+    { value: "34", label: "Music" },
+    { value: "35", label: "Film, Television & Theater" },
+    { value: "36", label: "Graphic Design & Visual Arts" },
+  ]);
   const router = useRouter();
   const [utmParams, setUtmParams] = useState<UTMParams>({
     utm_source: null,
@@ -63,8 +102,11 @@ const ApplyForm = () => {
     utm_content: null,
   });
   const [levelOptions, setLevelOptions] = useState<IOption[]>([
-    { value: "High School", label: "High School" },
-    { value: "Intermediate", label: "Intermediate" },
+    { value: "1", label: "Not Known" },
+    { value: "9", label: "Undergraduate (UG)" },
+    { value: "10", label: "Postgraduate (PG)" },
+    { value: "8", label: "Diploma" },
+    { value: "235", label: "Doctorate (PhD)" },
   ]);
 
   useEffect(() => {
@@ -80,7 +122,6 @@ const ApplyForm = () => {
     };
     setUtmParams(newUtmParams);
   }, []);
-
   const {
     register,
     handleSubmit,
@@ -105,6 +146,8 @@ const ApplyForm = () => {
         data
       )
       .then((response) => {
+        // Notify user that OTP is sent
+
         toast.info("Otp sent 🚀", {
           position: "top-left",
           autoClose: 1000,
@@ -115,6 +158,7 @@ const ApplyForm = () => {
           progress: undefined,
           theme: "light",
         });
+        // To show OTP input field
       })
       .catch((error) => {
         toast.error("Error sending OTP 😵‍💫", {
@@ -129,9 +173,8 @@ const ApplyForm = () => {
         });
       });
   };
-
   useEffect(() => {
-    let interval: NodeJS.Timeout | undefined;
+    let interval: string | number | NodeJS.Timeout | undefined;
     if (isVerificationSent && countdown > 0) {
       interval = setInterval(() => {
         setCountdown((currentCountdown) => currentCountdown - 1);
@@ -141,48 +184,57 @@ const ApplyForm = () => {
     }
     return () => clearInterval(interval);
   }, [isVerificationSent, countdown]);
-
   const onSubmit = (data: IFormData) => {
+    // Destructure the required fields from data
     const from = localStorage.getItem("location") || "";
+    // const Center = localStorage.getItem("location") || "";
     const {
-      School_name,
-      School_email,
-      School_mobile,
+      name,
+      email,
+      mobile,
       verificationCode: otp,
+      password,
       level,
-      Place,
+      stream,
     } = data;
     const payload = {
-      School_name,
-      School_email,
-      School_mobile,
-      Place,
+      name,
+      email,
+      mobile,
       otp,
+      password,
       level,
+      stream,
+      from,
+      // Center,
       LeadCampaign: utmParams.utm_campaign,
     };
 
     console.log("Form Data:", payload);
 
+    // Set up the request options for axios
     const options = {
       method: "POST",
-      url: "https://test.careerbuddyclub.com:8080/api/students/registerschool",
+      // url: '${process.env.REACT_APP_API_URL}students/register', // Replace with your API's URL
+      url: "https://test.careerbuddyclub.com:8080/api/students/register", // Replace with your API's URL
       headers: {
         "Content-Type": "application/json",
       },
-      data: payload,
+      data: payload, // Send only the required data
     };
 
+    // Make the POST request using axios
     axios
       .request(options)
       .then((response) => {
-        localStorage.setItem("School_name", response.data.School_name);
-        localStorage.setItem("token2", response.data.token);
+        // Handle the response here, e.g., notify the user of success
+        localStorage.setItem("token", response.data.access_token);
+        localStorage.setItem("username", name);
         console.log("Registration successful", response.data);
-
-        toast.success("Registration successful", {
+        console.log("Form Data:", payload);
+        toast.success("Your Account is created ! please check your email. 🚀", {
           position: "top-left",
-          autoClose: 3000,
+          autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -190,22 +242,29 @@ const ApplyForm = () => {
           progress: undefined,
           theme: "light",
         });
-
         setTimeout(() => {
-          router.push("/dashboard/school-dashboard/application");
+          window.location.href =
+            "/dashboard/candidate-dashboard/career-aptitude";
         }, 1000);
       })
       .catch((error) => {
-        console.error("Registration failed", error);
-
+        // Handle any errors here, e.g., notify the user of the failure
         let errorMessage = "Registration Failed 😵‍💫";
+
+        // Check if the error response contains a specific message for mobile or email
         if (error.response && error.response.data) {
-          errorMessage = error.response.data.message || errorMessage;
+          if (error.response.data.mobile && error.response.data.email) {
+            errorMessage = "Email and mobile number is already taken";
+          } else if (error.response.data.email) {
+            errorMessage = error.response.data.email[0];
+          } else if (error.response.data.mobile) {
+            errorMessage = error.response.data.mobile[0];
+          }
         }
 
         toast.error(errorMessage, {
           position: "top-left",
-          autoClose: 3000,
+          autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -226,7 +285,7 @@ const ApplyForm = () => {
             <input
               type="text"
               placeholder="Enter Student Name"
-              {...register("School_name", { required: `Name is required!` })}
+              {...register("name", { required: `Name is required!` })}
               name="name"
               style={{
                 backgroundColor: "white",
@@ -236,7 +295,7 @@ const ApplyForm = () => {
               }}
             />
             <div className="help-block with-errors">
-              <ErrorMsg msg={errors.School_name?.message!} />
+              <ErrorMsg msg={errors.name?.message!} />
             </div>
           </div>
         </div>
@@ -246,8 +305,8 @@ const ApplyForm = () => {
             <input
               type="email"
               placeholder="Enter your Email"
-              {...register("School_email", { required: `Email is required!` })}
-              name="School_email"
+              {...register("email", { required: `Email is required!` })}
+              name="email"
               style={{
                 backgroundColor: "white",
                 padding: "8px 12px",
@@ -256,7 +315,7 @@ const ApplyForm = () => {
               }}
             />
             <div className="help-block with-errors">
-              <ErrorMsg msg={errors.School_email?.message!} />
+              <ErrorMsg msg={errors.email?.message!} />
             </div>
           </div>
         </div>
@@ -267,10 +326,10 @@ const ApplyForm = () => {
               <input
                 type="tel"
                 placeholder="Phone Number"
-                {...register("School_mobile", {
+                {...register("mobile", {
                   required: `Phone Number is required!`,
                 })}
-                name="School_mobile"
+                name="mobile"
                 style={{
                   flex: "1",
                   marginRight: "10px",
@@ -286,9 +345,9 @@ const ApplyForm = () => {
                   if (!isVerificationSent || showResend) {
                     const formData = getValues();
                     requestOTP({
-                      name: formData.School_name,
+                      name: formData.name,
                       country_code: "91",
-                      mobile: formData.School_mobile,
+                      mobile: formData.mobile,
                     });
                   }
                 }}
@@ -305,54 +364,64 @@ const ApplyForm = () => {
                 {!isVerificationSent
                   ? "Whatsapp OTP"
                   : showResend
-                  ? "Resend OTP"
-                  : `${countdown} s`}
+                  ? "Resend"
+                  : `Wait for ${countdown} sec`}
               </button>
             </div>
             <div className="help-block with-errors">
-              <ErrorMsg msg={errors.School_mobile?.message!} />
+              <ErrorMsg msg={errors.mobile?.message!} />
             </div>
           </div>
         </div>
 
+        {isVerificationSent && (
+          <div className="col-12">
+            <div className="input-group-meta position-relative mb-15">
+              <input
+                type="text"
+                placeholder="Whatsapp OTP"
+                {...register("verificationCode", {
+                  required: `Verification Code is required!`,
+                })}
+                name="verificationCode"
+                style={{
+                  backgroundColor: "white",
+                  padding: "8px 12px",
+                  fontSize: "14px",
+                  height: "40px",
+                }}
+              />
+              <div className="help-block with-errors">
+                <ErrorMsg msg={errors.verificationCode?.message!} />
+              </div>
+            </div>
+          </div>
+        )}
+
         <div className="col-12">
           <div className="input-group-meta position-relative mb-15">
-            <input
-              type="text"
-              placeholder="Enter Place"
-              {...register("Place", { required: `Place is required!` })}
-              name="Place"
+            <select
+              {...register("stream", { required: `Stream is required!` })}
+              name="stream"
               style={{
                 backgroundColor: "white",
                 padding: "8px 12px",
                 fontSize: "14px",
                 height: "40px",
+                width: "100%",
+                border: "1px solid #e3e3e3",
+                borderRadius: "4px",
               }}
-            />
+            >
+              <option value="">Stream</option>
+              {streamOptions.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
             <div className="help-block with-errors">
-              <ErrorMsg msg={errors.Place?.message!} />
-            </div>
-          </div>
-        </div>
-
-        <div className="col-12">
-          <div className="input-group-meta position-relative mb-15">
-            <input
-              type="text"
-              placeholder="Enter Verification Code"
-              {...register("verificationCode", {
-                required: `Verification Code is required!`,
-              })}
-              name="verificationCode"
-              style={{
-                backgroundColor: "white",
-                padding: "8px 12px",
-                fontSize: "14px",
-                height: "40px",
-              }}
-            />
-            <div className="help-block with-errors">
-              <ErrorMsg msg={errors.verificationCode?.message!} />
+              <ErrorMsg msg={errors.stream?.message!} />
             </div>
           </div>
         </div>
@@ -360,35 +429,54 @@ const ApplyForm = () => {
         <div className="col-12">
           <div className="input-group-meta position-relative mb-15">
             <select
-              {...register("level")}
+              {...register("level", { required: `Level is required!` })}
+              name="level"
               style={{
                 backgroundColor: "white",
                 padding: "8px 12px",
                 fontSize: "14px",
                 height: "40px",
+                width: "100%",
+                border: "1px solid #e3e3e3",
+                borderRadius: "4px",
               }}
             >
+              <option value="">Level</option>
               {levelOptions.map((option) => (
                 <option key={option.value} value={option.value}>
                   {option.label}
                 </option>
               ))}
             </select>
+            <div className="help-block with-errors">
+              <ErrorMsg msg={errors.level?.message!} />
+            </div>
           </div>
+        </div>
+
+        <div
+          className="agreement-checkbox d-flex justify-content-between align-items-center"
+          style={{ justifyContent: "center" }}
+        >
+          <a
+            href="#"
+            className="fw-500"
+            data-bs-toggle="modal"
+            data-bs-target="#loginModalstudent"
+          >
+            Already a User? login
+          </a>
         </div>
 
         <div className="col-12">
           <button
-            className="theme-btn-seven w-100"
             type="submit"
-            style={{ backgroundColor: "#14ADBD" }}
+            className="btn-eleven fw-500 tran3s d-block mt-10"
           >
-            Register
+            Apply Now!
           </button>
         </div>
       </div>
-
-      <ToastContainer />
     </form>
   );
 };

@@ -406,7 +406,7 @@ const ApplyForm = () => {
             href="#"
             className="fw-500"
             data-bs-toggle="modal"
-            data-bs-target="#loginModal"
+            data-bs-target="#SchoolLoginFormModales"
           >
             Already a User? login
           </a>
