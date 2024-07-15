@@ -51,6 +51,7 @@ const HeroBannerThree = () => {
               </a> */}
                 <button
                         type="button"
+                        className="col-lg-8"
                         data-bs-toggle="modal"
                         data-bs-target="#SchoolLoginFormModales"
                         style={{backgroundColor: "rgb(20, 173, 189)",

@@ -104,7 +104,6 @@ const ApplyModalSchool = () => {
                       id="nav-student"
                       role="tabpanel"
                       aria-labelledby="nav-student-tab"
-                      tabIndex={0}
                     >
                        
                         <div className="container">
@@ -157,7 +156,6 @@ const ApplyModalSchool = () => {
                       id="nav-school"
                       role="tabpanel"
                       aria-labelledby="nav-school-tab"
-                      tabIndex={0}
                     >
                         <div className="container">
                           <div className="row align-items-start" style={{marginLeft: '5px'}}>

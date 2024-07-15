@@ -17,6 +17,7 @@ import SchoolPhoneFormModal from "@/app/components/common/popup/schoolphone-moda
 import SchoolLoginFormModal from "@/app/components/common/popup/schoolloginmodal";
 import StudentFormModal from "@/app/components/common/popup/studentloginmodal";
 // Import ApplyModal with SSR disabled
+import ApplyModalSchool from "@/app/components/common/popup/apply-modal2";
 const ApplyModal = dynamic(
   () => import("@/app/components/common/popup/apply-modal"),
   {
@@ -24,7 +25,6 @@ const ApplyModal = dynamic(
   }
 );
 import "react-toastify/dist/ReactToastify.css";
-import ApplyModalSchool from "@/app/components/common/popup/apply-modal2";
 
 interface HeaderFourProps {
   user: {
@@ -34,7 +34,7 @@ interface HeaderFourProps {
   key: number;
 }
 
-const HeaderFour: React.FC<HeaderFourProps> = ({ user, key, onLogout }) => {
+const HeaderFour: React.FC<HeaderFourProps> = ({ user,  onLogout }) => {
   const { sticky } = useSticky();
   const isUserLoggedIn = Boolean(user.value); // user.value will be false if null or empty
   const [showDropdown, setShowDropdown] = useState(false);

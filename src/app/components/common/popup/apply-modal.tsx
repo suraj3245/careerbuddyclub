@@ -104,7 +104,6 @@ const ApplyModal = () => {
                       id="nav-student"
                       role="tabpanel"
                       aria-labelledby="nav-student-tab"
-                      tabIndex={0}
                     >
                        
                         <div className="container">

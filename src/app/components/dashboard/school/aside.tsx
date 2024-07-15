@@ -1,16 +1,16 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import Image, { StaticImageData } from "next/image";
 import { usePathname } from "next/navigation";
 import logo from "@/assets/dashboard/images/logo_01.png";
-import profile_icon_2 from "@/assets/dashboard/images/icon/icon_24.svg";
 import nav_1 from "@/assets/dashboard/images/icon/icon_1.svg";
 import nav_1_active from "@/assets/dashboard/images/icon/icon_1_active.svg";
 import nav_2 from "@/assets/dashboard/images/icon/icon_2.svg";
 import nav_2_active from "@/assets/dashboard/images/icon/icon_2_active.svg";
 import nav_3 from "@/assets/dashboard/images/icon/icon_3.svg";
 import nav_3_active from "@/assets/dashboard/images/icon/icon_3_active.svg";
+import { useEffect } from "react";
 import axios from "axios";
 
 // nav data
@@ -51,21 +51,54 @@ type IProps = {
 };
 
 const SchoolAside = ({ isOpenSidebar, setIsOpenSidebar }: IProps) => {
-  const [schoolName, setSchoolName] = useState<string | null>("");
+  const [userName, setUserName] = useState("");
   const pathname = usePathname();
 
-  useEffect(() => {
-    const storedSchoolName = localStorage.getItem("schoolName");
-    if (storedSchoolName) {
-      setSchoolName(storedSchoolName);
-    }
-  }, []);
+  const fetchUserData = async () => {
+    const token = localStorage.getItem("token");
 
-  const getInitials = (name: string | null) => {
-    if (!name) return "";
-    const initials = name.split(" ").map((word) => word.charAt(0)).join("");
-    return initials.toUpperCase();
+    if (!token) {
+      return;
+    }
+
+    // Check if username is already in localStorage
+    const storedUserName = localStorage.getItem("School_name");
+    if (storedUserName) {
+      setUserName(storedUserName);
+      return;
+    }
+
+    const options = {
+      method: "POST",
+      url: "https://test.careerbuddyclub.com:8080/api/students/getstudentsprofile",
+      headers: {
+        Accept: "*/*",
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+      data: {},
+    };
+
+    try {
+      const response = await axios.request(options);
+      const data = response.data;
+    } catch (error) {
+      console.error(error);
+      setUserName("No Name Available");
+    }
   };
+
+  useEffect(() => {
+    fetchUserData();
+  }, []);
+  const getInitials = (userName: string) =>
+    userName && userName.length > 0 ? userName[0].toUpperCase() : "?";
+
+  function onLogout(){
+    localStorage.removeItem("token");
+    localStorage.removeItem("School_name");
+    localStorage.removeItem("School_email");
+  }
 
   return (
     <>
@@ -73,6 +106,8 @@ const SchoolAside = ({ isOpenSidebar, setIsOpenSidebar }: IProps) => {
         .no-underline {
           text-decoration: none;
         }
+
+        
       `}</style>
       <aside className={`dash-aside-navbar ${isOpenSidebar ? "show" : ""}`}>
         <div className="position-relative">
@@ -95,7 +130,7 @@ const SchoolAside = ({ isOpenSidebar, setIsOpenSidebar }: IProps) => {
                   fontSize: "40px",
                 }}
               >
-                {getInitials(schoolName)}
+                {getInitials(userName)}
               </div>
             </div>
             <div className="user-name-data mt-2">
@@ -106,23 +141,11 @@ const SchoolAside = ({ isOpenSidebar, setIsOpenSidebar }: IProps) => {
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                {schoolName || "School Name"}
+                {userName || "Name"}
               </button>
-              <ul className="dropdown-menu" aria-labelledby="profile-dropdown">
-                <li>
-                  <Link
-                    className="dropdown-item d-flex align-items-center"
-                    href="/dashboard/candidate-dashboard/profile"
-                    style={{ textDecoration: "none" }}
-                  >
-                    <Image
-                      src={profile_icon_2}
-                      alt="icon"
-                      className="lazy-img me-2"
-                    />
-                    <span>Profile</span>
-                  </Link>
-                </li>
+              <ul className="dropdown-menu text-center">
+                <li><a href="/dashboard/school-dashboard/setting" className="dropdown-item">setPassword</a></li>
+                <li><a href="/" className="dropdown-item" onClick={onLogout}>logout</a></li>
               </ul>
             </div>
           </div>
