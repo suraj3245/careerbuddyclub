@@ -1,10 +1,19 @@
 "use client";
-import React, { useState } from "react";
-import DashboardArea from "./dashboard-area";
+import React, { useState,useEffect } from "react";
 import SchoolAside from "./aside";
+import DashboardStudent from "./dashboard-area-table";
 
-const StudentTableDashboard = () => {
+const StudentDetails = () => {
   const [isOpenSidebar, setIsOpenSidebar] = useState<boolean>(false);
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) {
+    return null;
+  }
   return (
     <div className="main-page-wrapper">
       {/* aside start */}
@@ -15,10 +24,10 @@ const StudentTableDashboard = () => {
       {/* aside end  */}
 
       {/* dashboard area start */}
-      <DashboardArea setIsOpenSidebar={setIsOpenSidebar} />
+      <DashboardStudent setIsOpenSidebar={setIsOpenSidebar} />
       {/* dashboard area end */}
     </div>
   );
 };
 
-export default StudentTableDashboard;
+export default StudentDetails;

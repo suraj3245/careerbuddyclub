@@ -1,13 +1,16 @@
-import React from "react";
+import dynamic from 'next/dynamic';
 import Wrapper from "@/layouts/wrapper";
-import StudentTableDashboard from "@/app/components/dashboard/school/table";
 
-const SchoolDashboardPage = () => {
+const StudentDetails = dynamic(() => import("@/app/components/dashboard/school/details"), {
+  ssr: false
+});
+
+const StudentDashboardPage = () => {
   return (
     <Wrapper>
-      <StudentTableDashboard />
+      <StudentDetails />
     </Wrapper>
   );
 };
 
-export default SchoolDashboardPage;
+export default StudentDashboardPage;

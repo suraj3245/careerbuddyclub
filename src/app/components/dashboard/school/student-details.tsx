@@ -6,9 +6,9 @@ import DownloadIcon from "@mui/icons-material/Download";
 import * as XLSX from "xlsx";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
-import "./StudentTable.css";
+import "./studentdetails.css";
 import { ToastContainer, toast } from "react-toastify";
-import StudentScoreModal from "./studentscore-modal"; // Import the new component
+import StudentScoreModal from "./studentscore-modal"; 
 
 const StudentTable: React.FC = () => {
   const [showModal, setShowModal] = useState(false);
@@ -64,7 +64,7 @@ const StudentTable: React.FC = () => {
       };
       const school=localStorage.getItem("schoolName");
       const bodyContent = JSON.stringify({
-        place: school,
+        place: "GIC CHARBA VIKASNAGAR",
       });
 
       const response = await axios.post(

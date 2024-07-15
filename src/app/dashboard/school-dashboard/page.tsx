@@ -1,13 +1,12 @@
 import React from 'react';
 import Wrapper from '@/layouts/wrapper';
-import ProfileDashboard from '@/app/components/dashboard/school/profile';
+import SchoolDashboardMain from '@/app/components/dashboard/school';
 
-const SchoolDashboardPage = () => {
+const SchoolDashboardPage: React.FC = () => {
   return (
     <Wrapper>
-      <ProfileDashboard/>
+      <SchoolDashboardMain/>
     </Wrapper>
-
   );
 };
 

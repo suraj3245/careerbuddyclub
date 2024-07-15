@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { useMediaQuery } from "react-responsive";
-import ScheduleModal from "../../common/popup/schedule";
+// import ScheduleModal from "../../common/popup/schedule";
 // notification item
 
 type IProps = {
@@ -30,7 +30,7 @@ const DashboardHeader = ({ setIsOpenSidebar }: IProps) => {
           <div></div>
         </div>
       </header>
-      <ScheduleModal/>
+      {/* <ScheduleModal/> */}
     </>
   );
 };
