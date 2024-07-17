@@ -15,7 +15,7 @@ const DashboardProfile = ({ setIsOpenSidebar }: IProps) => {
         {/* header start */}
         <DashboardHeader setIsOpenSidebar={setIsOpenSidebar} />
         {/* header end */}
-        <SchoolProfile />
+        <SchoolProfile/>
       </div>
     </div>
   );

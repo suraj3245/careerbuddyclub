@@ -64,7 +64,7 @@ const StudentTable: React.FC = () => {
       };
       const school=localStorage.getItem("schoolName");
       const bodyContent = JSON.stringify({
-        place: "GIC CHARBA VIKASNAGAR",
+        place: school,
       });
 
       const response = await axios.post(
