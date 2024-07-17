@@ -171,7 +171,7 @@ const SchoolLoginForm = () => {
               href="#"
               className="fw-500"
               data-bs-toggle="modal"
-              data-bs-target="#ApplyModalSchool"
+              data-bs-target="#ApplyModal"
             >
               Not a User? Apply
             </a>

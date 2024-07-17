@@ -17,7 +17,6 @@ import SchoolPhoneFormModal from "@/app/components/common/popup/schoolphone-moda
 import SchoolLoginFormModal from "@/app/components/common/popup/schoolloginmodal";
 import StudentFormModal from "@/app/components/common/popup/studentloginmodal";
 // Import ApplyModal with SSR disabled
-import ApplyModalSchool from "@/app/components/common/popup/apply-modal2";
 const ApplyModal = dynamic(
   () => import("@/app/components/common/popup/apply-modal"),
   {
@@ -42,7 +41,7 @@ const HeaderFour: React.FC<HeaderFourProps> = ({ user,  onLogout }) => {
   const pathname = usePathname();
 
   const fetchUserData = async () => {
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem("8");
 
     if (!token) {
       // Handle the case where the token is not available
@@ -57,7 +56,7 @@ const HeaderFour: React.FC<HeaderFourProps> = ({ user,  onLogout }) => {
     }
 
     const options = {
-      method: "POST",
+      method: "POST", 
       url: "https://test.careerbuddyclub.com:8080/api/students/getstudentsprofile",
       headers: {
         Accept: "*/*",
@@ -278,7 +277,6 @@ const HeaderFour: React.FC<HeaderFourProps> = ({ user,  onLogout }) => {
       <SchoolPhoneFormModal/>
       <SchoolLoginFormModal/>
       <StudentFormModal/>
-      <ApplyModalSchool/>
       {/* login modal end */}
     </>
   );

@@ -30,7 +30,7 @@ type IFormData = {
   School_mobile: number;
   verificationCode: string;
   level: string;
-  Place: string;
+  board: string;
   utm_source?: string | null;
   utm_medium?: string | null;
   utm_campaign?: string | null;
@@ -43,12 +43,12 @@ type IFormData = {
 const schema = Yup.object().shape({
   School_name: Yup.string().required().label("Name"),
   School_email: Yup.string().required().email().label("Email"),
-  place: Yup.string().required().email().label("Place"),
+  board: Yup.string().required().email().label("board"),
   School_mobile: Yup.number().required().label("Phone Number"),
   verificationCode: Yup.string().required().label("Verification Code"),
 });
 
-const ApplyForm = () => {
+const ApplyForm1 = () => {
   const [showPass, setShowPass] = useState<boolean>(false);
   const [isVerificationSent, setIsVerificationSent] = useState<boolean>(false);
   const [countdown, setCountdown] = useState(30);
@@ -66,6 +66,18 @@ const ApplyForm = () => {
     { value: "High School", label: "High School" },
     { value: "Intermediate", label: "Intermediate" },
   ]);
+
+  const [boardOption, setBoardoption] = useState<IOption[]>([
+    { value: "CBSE", label: "CBSE" },
+    { value: "ICSE", label: "ICSE" },
+    { value: "UK", label: "UK" },
+    { value: "UP", label: "UP" },
+    { value: "IB", label: "IB" },
+    { value: "NIOS", label: "NIOS" },
+    { value: "CAIE", label: "CAIE" },
+    { value: "CISCE", label: "CISCE" },
+  ]);
+
 
   useEffect(() => {
     // Parse UTM parameters from the URL
@@ -151,19 +163,17 @@ const ApplyForm = () => {
       School_mobile,
       verificationCode: otp,
       level,
-      Place
+      board,
     } = data;
     const payload = {
       School_name,
       School_email,
       School_mobile,
-      Place,
+      board,
       otp,
       level,
       LeadCampaign: utmParams.utm_campaign,
     };
-
-    console.log("Form Data:", payload);
 
     // Set up the request options for axios
     const options = {
@@ -179,7 +189,7 @@ const ApplyForm = () => {
     axios
     .request(options)
     .then((response: any) => {
-      // Handle success
+      // Handle success      
       localStorage.setItem("token", response.data.access_token);
       localStorage.setItem("schoolName", School_name);
       console.log('response', response);
@@ -349,7 +359,7 @@ const ApplyForm = () => {
           </div>
         )}
 
-       <div className="col-12">
+       {/* <div className="col-12">
           <div className="input-group-meta position-relative mb-15">
             <input
               type="text"
@@ -365,6 +375,34 @@ const ApplyForm = () => {
             />
             <div className="help-block with-errors">
               <ErrorMsg msg={errors.Place?.message!} />
+            </div>
+          </div>
+        </div> */}
+
+        <div className="col-12">
+          <div className="input-group-meta position-relative mb-15">
+            <select
+              {...register("board", { required: `board is required!` })}
+              name="board"
+              style={{
+                backgroundColor: "white",
+                padding: "8px 12px",
+                fontSize: "14px",
+                height: "40px",
+                width: "100%",
+                border: "1px solid #e3e3e3",
+                borderRadius: "4px",
+              }}
+            >
+              <option value="">Board</option>
+              {boardOption.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+            <div className="help-block with-errors">
+              <ErrorMsg msg={errors.board?.message!} />
             </div>
           </div>
         </div>
@@ -397,7 +435,6 @@ const ApplyForm = () => {
             </div>
           </div>
         </div>
-
         <div
           className="agreement-checkbox d-flex justify-content-between align-items-center"
           style={{ justifyContent: "center" }}
@@ -425,4 +462,4 @@ const ApplyForm = () => {
   );
 };
 
-export default ApplyForm;
+export default ApplyForm1;
