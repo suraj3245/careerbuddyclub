@@ -25,8 +25,6 @@ const AboutUsPage = () => {
   return (
     <Wrapper>
       <div className="main-page-wrapper">
-        {/* header start */}
-
         {/* header end */}
 
         {/* breadcrumb start */}
