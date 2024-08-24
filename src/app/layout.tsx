@@ -107,6 +107,7 @@ export default function RootLayout({
   );
   const isapplynow = pathname.startsWith("/apply-now");
   const isSchoolDashboard = pathname.startsWith("/dashboard/");
+  const dbsapplynow=pathname.startsWith("/dbs-apply-now");
 
   // const isCollegeDetailsPage = pathname.startsWith("/college-details");
   return (
@@ -153,7 +154,7 @@ export default function RootLayout({
           !isAptitudeTestPage &&
           !isCandidateDashboardPage &&
           !isapplynow &&
-          !isSchoolDashboard && (
+          !isSchoolDashboard && !dbsapplynow && (
             <HeaderFour user={user} onLogout={handleLogout} key={key} />
           )}
 

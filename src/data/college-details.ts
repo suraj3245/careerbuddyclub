@@ -8,6 +8,7 @@ import Image, { StaticImageData } from "next/image";
 import user_1 from "@/assets/images/assets/img_14.jpg";
 import user_2 from "@/assets/images/assets/img_15.jpg";
 import user_3 from "@/assets/images/assets/img_22.jpg";
+import job_img_6 from "@/assets/images/logo/dbs.webp";
 
 const college_details: IcollegeType[] = [
   {
@@ -4394,7 +4395,498 @@ const college_details: IcollegeType[] = [
     ],
   },
 
+  {
+    id: 6,
+    logo: job_img_6,
+    type: "Private",
+    establishmentyear: "2009",
+    Recognisedby: "UGC",
+    Approvedby: "",
+    state: "Uttarakhand",
+    city: "Dehradun",
+    Campusarea: "20+ acre",
+    link: "",
+    email: "",
+    founded: "",
+    phone: "",
+    feild: ["Education"],
+    overviewsection:
+      "Doon Business School is equipped with state-of-the-art educational and training facilities supervised and coordinated by highly trained coordinators. Many of our faculty members have had international business and teaching experience working in prestigious institutions such as Harvard business School, IIM, FMS, XLRI MIT Sloan, and many more. Our teaching faculty uses highly evolved methods to communicate with their students including role-plays, simulation exercises, case studies analysis and real-life project management and reporting. The basic idea of the entire endeavour is to impart knowledge and share experience that can help our students evolve into leaders in their respective fields.",
+    duration: "Fulltime",
+    date: "18 Jul 2019",
+    college: "Doon Business School",
+    location: "Dehradun, India",
+    category: ["+91 7456000100"],
+    experience: "Fresher",
+    salary: 900,
+    salary_duration: "Monthly",
+    tags: ["java", "developer"],
+    english_fluency: "Fluent",
+    overview:
+      "When team members told us they needed more flexibility around where and how they worked, we acted, creating two options to accommodate two different styles of work. One non-negotiable principle along the way? We had to retain our deep culture of collaboration, both among ourselves and with our clients. Introducing Work From Near and Work From Anywhere at WillowTree. Please indicate which location(s) you're interested.",
+    videoid: "jXsdeBwEzeo?si",
+    facebook: "",
+    instagram: "",
+    twitter: "",
+    linkedin: "",
+    courses:
 
+      "Doon Business School fees range from Rs 2,07,000 to Rs 87,71,000 for the entire course duration, depending on the degree level, duration and specialisation of the course. The college offers 12 courses at the undergraduate as well as postgraduate levels. The courses are available in different streams such as commerce, engineering, humanities, science, business administration, computer applications, management and more. Admission to Doon Business School courses are open for the academic year 2024-25. For admission the college conducts CBSE 12th. In addition to this, scores of CAT, CMAT, MAT are accepted by Doon Business School.",
+
+    ranking:
+      "DBS Global University (DBS Global University) is a renowned institution situated in the vibrant city of Dehradun, within the state of Uttarakhand. As a leading college in the field of Management, it has carved a niche for itself in the category. Admission to DBS Global University is highly competitive, primarily determined through the exam, ensuring that only the most dedicated and talented students become part of its community.",
+    awards:
+      "JB Institute of Technology (JBIT) Dehradun has been awarded as - The Best Upcoming Engineering College in North India by ASSOCHAM at New Delhi on 19.02.14 through the good hands of chief guest Padam Bhusan awardee Dr. Karan Singh Ji. This Mega Event was organized by ASSOCHAM with an association of National Skill Development Corporation, Planning Commission (Niti Ayog), Government of India.",
+    hostel:
+      "",
+    opportunities:
+      "",
+    campus:
+      "Business School (DBS) campus area is spread over 4 acres and surrounded by the mountains. The institute has an amazing infrastructure comparable to international standards and has 50 experienced faculty members to develop a learning environment that fosters conceptual clarity and underscore the applicability of theoretical inputs to a real-life situation.",
+    placement:
+      "As per Doon Business School placements statistics 2023, 300+ students were placed and 250+ companies visited the campus for placements. The highest package offered in 2023 was Rs 24 LPA. The top 20% of the students bagged a package of Rs 11.6 LPA and the top 80% of the students bagged a package of Rs 8.15 LPA. The average package offered was Rs 7-8 LPA. Some of the top recruiters that visited for Doon Business School placements 2023 are Deloitte, EY, Dabur, ITC, Asian Paints, HCL Technologies, ICICI Bank, Axis Bank, etc.",
+    admission:
+      "",
+    faculty:"",
+
+    overviewtable:[
+      {
+        specialization: "Short Name",
+        annualfee: "DBS",
+      },
+      {
+        specialization: "Institute Type - Public/ Private/ Govt",
+        annualfee: "Private",
+      },
+      {
+        specialization: "State",
+        annualfee: "Uttarakhand",
+      },
+      {
+        specialization: "City",
+        annualfee: "Dehradun",
+      },
+      {
+        specialization: "Location/ Address",
+        annualfee: "Mi-122, Behind Pharma City, Selaqui, Dehradun",
+      },
+     
+      {
+        specialization: "Phone Numbers",
+        annualfee: "+91 7456000100",
+      },
+      {
+        specialization: "Website",
+        annualfee: "www.doonbusinessschools.com",
+      },
+      {
+        specialization: "Email Address",
+        annualfee: "admission@careerbuddyclub.com",
+      }, 
+      {
+        specialization: "Area",
+        annualfee: "Education",
+      },
+    
+      {
+        specialization: "Accreditation",
+        annualfee: "A+ grade by NAAC",
+      },
+     
+    ],
+      coursesAndFees: [
+      {
+        course: "M.Tech",
+        specialization: "",
+        annualFee: "90,700",
+        duration: "GATE/ Personal Interview",
+        eligibility: "B. Tech /BE in Aerospace/ Aeronautical/ Mechanical/ Civil/ Chemical Eng. Or equivalent with minimum 60% marks. Gate / NET Qualified will be preferred.",
+      },
+      {
+        course: "MBA",
+        specialization: "",
+        annualFee: "90,700",
+        duration: "CAT/ XAT",
+        eligibility: "Minimum 50% marks in Class X, XII and Graduation. Graduation From a recognized University in any stream",
+      },
+
+       {
+        course: "B.Tech",
+        specialization: "",
+        annualFee: "89,700",
+        duration: "JEE Mains / Board Merit / SAT/ CUET",
+        eligibility: "Minimum 50% Marks in Class X and XII. Along with 50 % in PCM (Physics/Chemistry and Mathematics) in Class XII",
+      },  
+      {
+        course: "B.Tech(Lateral)",
+        specialization: "",
+        annualFee: "89,700",
+        duration: "JEE Mains / Board Merit / SAT/ CUET",
+        eligibility: "Minimum 50% Marks in Class X and XII. Along with 50 % in PCM (Physics/Chemistry and Mathematics) in Class XII/ Diploma",
+      },  
+      {
+        course: "Diploma (Engineering)",
+        specialization: "",
+        annualFee: "49,400",
+        duration: "Personal Interview",
+        eligibility: "Passed 10th examination with Science",
+      },  
+      {
+        course: "Diploma (Lateral)(Engineering)",
+        specialization: "",
+        annualFee: "49,400",
+        duration: "Personal Interview",
+        eligibility: "Passed 10th examination with Science",
+      },  
+      {
+        course: "",
+        specialization: "",
+        annualFee: "",
+        duration: "",
+        eligibility: "",
+      },
+      
+      {
+        course: "B.Pharma",
+        specialization: "",
+        annualFee: "89,700",
+        duration: "Board Merit",
+        eligibility: "Minimum 50% Marks at X & XII with Physics, Chemistry, Biology/ Math’s, and English as a Major Subject in XII",
+      },  
+      {
+        course: "B.Pharma (Lateral)",
+        specialization: "",
+        annualFee: "89,700",
+        duration: "Board Merit",
+        eligibility: "Minimum 50% Marks at X & XII with Physics, Chemistry, Biology/ Math’s, and English as a Major Subject in XII",
+      },  
+      {
+        course: "D.Pharma",
+        specialization: "",
+        annualFee: "59,400",
+        duration: "Personal Interview",
+        eligibility: "Passed 10th examination with Science",
+      }, 
+      
+      {
+        course: "",
+        specialization: "",
+        annualFee: "",
+        duration: "",
+        eligibility: "",
+      },
+
+      {
+        course: "B.Sc (Hons.) Agriculture",
+        specialization: "",
+        annualFee: "60,900",
+        duration: "Personal Interview",
+        eligibility: "Passed 10+2 examination",
+      },  
+      {
+        course: "BBA",
+        specialization: "",
+        annualFee: "50,900",
+        duration: "Personal Interview",
+        eligibility: "Passed 10+2 examination with PCM",
+      },  
+      {
+        course: "B.Sc(IT)",
+        specialization: "",
+        annualFee: "41,900",
+        duration: "Jee Main/CUT",
+        eligibility: "Passed 10+2 examination with PCM",
+      },  
+
+       
+      
+    ],
+    admissionDates: [
+      {
+        name: "Application Start Date",
+        date: "01-Mar-2024",
+      },
+      {
+        name: "Application End Date",
+        date: "30-Jul-2024",
+      },
+      {
+        name: "Date of Result Declaration",
+        date: "September 18, 2023",
+      },
+      {
+        name: "Last Date of Submission of Fee",
+        date: "September 28, 2023",
+      },
+      {
+        name: "Commencement of the Coursework",
+        date: "01-Aug-2024",
+      },
+    ],
+    campusinfo: [
+      {
+        name: "Registration Dates",
+        info: "Aug, 2024",
+      },
+      {
+        name: "Date of Entrance Test & Interview",
+        info: "Aug, 2024",
+      },
+  
+      {
+        name: "Commencement of the Coursework",
+        info: "October , 2024",
+      },
+    ],
+    placementinformation: [
+      {
+        name: "Placement Year",
+        info: "2023",
+      },
+      {
+        name: "Number of Students Placed",
+        info: "300+",
+      },
+      {
+        name: "Highest Package Offered",
+        info: "Rs 24 LPA	",
+      },
+      {
+        name: "Average Package Offered",
+        info: "Rs 7-8 LPA",
+      },
+      {
+        name: "Top 5 Recruiters",
+        info: "Deloitte, EY, Dabur, ITC, Asian Paints, HCL, etc.",
+      },
+      
+    ],
+    opportunitiesinfo: [
+      {
+        name: "Registration Dates",
+        info: "February 8 to September 15, 2023",
+      },
+      {
+        name: "Date of Entrance Test & Interview",
+        info: "September 17, 2023",
+      },
+      {
+        name: "Date of Result Declaration",
+        info: "September 18, 2023",
+      },
+      {
+        name: "Last Date of Submission of Fee",
+        info: "September 28, 2023",
+      },
+      {
+        name: "Commencement of the Coursework",
+        info: "October 3, 2023",
+      },
+    ],
+     
+    awardsinfo: [
+      "Most Promising Engineering & Management Institute in India Award.",
+      "Most Aware Campus of Uttarakhand Award.",
+      "Icon Award of Uttarakhand.",
+      "Top Private Engineering College In Uttarakhand.",
+      "NAAC A+",
+    ],
+   
+    facultytable: [
+      {
+        name: "Dr. Vishal",
+        Qualification: "Dept. of  Microbiology",
+        Experience: "22 year",
+        Specialization: "Agriculture microbiology, Biological Control, Plant growth promo. Rhizo bacteria, Fermentation Technology, Antimicrobial Activity of mediclinal plant, Microbial pathology.",
+      },
+      {
+        name: "Dr. RD Saklani",
+        Qualification: "Dept. of  Geology",
+        Experience: "10 year",
+        Specialization: "Sequence stratigraphy, Petroleum Geology, Ichnology, Disaster Management, Engg. Geology, Field Geology, Himalayan Geology & Western India (Kachchh & Rajasthan).",
+      },
+      {
+        name: "Mr. S K Thakur",
+        Qualification: "Dept. of  Statistics & Mathematics",
+        Experience: "35 year",
+        Specialization: "Statistics, International finance,  International Economics, Coorporates Law. ",
+      },
+      {
+        name: "Dr. Neelesh",
+        Qualification: "Dept. of  Microbiology",
+        Experience: "02 year",
+        Specialization: "Medical microbiology, General microbiology.",
+      },
+      {
+        name: "Mrs. Preeti Sood",
+        Qualification: "Dept. of  Hotel Management ",
+        Experience: "23 year",
+        Specialization: "Food and beverage,Front office, House Keeping, Kitchen.",
+      },
+      {
+        name: "Mr. Gurmeet singh",
+        Qualification: "Dept. of  Chemistry",
+        Experience: "03 year",
+        Specialization: "Waste Management, Water purification, Biofilms and filters, Polymers, Analytical Chemistry.",
+      },
+      {
+        name: "Mr. Kashif Hussain",
+        Qualification: "Dept. of  Pharmacy",
+        Experience: "12 year",
+        Specialization: "Pharmaceutical Chemistry.",
+      },
+      {
+        name: "Mr. Javed Siddiqui",
+        Qualification: "Dept. of  Paramedical ",
+        Experience: "14 year",
+        Specialization: "Clinical biochemistry, Pathology, Medical Microbiology.",
+      },
+      {
+        name: "Ms. Rohita",
+        Qualification: "Dept. of  Pharmacy",
+        Experience: "01 year",
+        Specialization: "Hospital and clinical pharmacy, Community pharmacy, Pharmacy practice, Social pharmacy.",
+      },
+      {
+        name: "Dr. Manisha Singh",
+        Qualification: "Dept. of  Paramedical ",
+        Experience: "01 year",
+        Specialization: "Orthopedics, Neurology.",
+      },
+      {
+        name: "Dr. Kiran",
+        Qualification: "Dept. of  Paramedical ",
+        Experience: "05 year",
+        Specialization: "Orthopedics",
+      },
+      {
+        name: "Dr. Nidhi Chatterjee",
+        Qualification: "Dept. of  Zoology",
+        Experience: "18 year",
+        Specialization: "Zoology, Fish and Fishries, Parasitology.",
+      },
+      {
+        name: "Ms. Susmita Bahuguna ",
+        Qualification: "Dept. of  Nursing",
+        Experience: "01 year",
+        Specialization: "Nursing fundamental, Social nursing",
+      },
+      {
+        name: "Ms. Oshin",
+        Qualification: "Dept. of  Nursing",
+        Experience: "01 year",
+        Specialization: "Psychology, Anatomy, Physiology",
+      },
+
+    ],
+    hostelinfo: [
+      {
+        name: "Capacity",
+        info: "1000",
+      },
+      {
+        name: "Hostel Fees",
+        info: "In-house Residential Accommodation (Optional) Charges (Note: - Hostel charges is per year which includes Vegetarian / Non-Vegetarian Food) ",
+      },
+      {
+        name: "",
+        info: "•	Standard Quad (Four Sharing Room) with Attached Toilet Rs.48000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "•	Deluxe Quad (Four Sharing Room) with Attached Toilet Rs.58000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "•	Standard (Three Sharing Room) with Attached Toilet Rs.68000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "•	Deluxe (Three Sharing Room) with Attached Toilet Rs.78000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "•	Standard (Two Sharing Room) with Attached Toilet Rs.73000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "•	Deluxe (Two Sharing Room) with Attached Toilet Rs.78000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "•	Super Deluxe (Two Sharing Room) with Attached Toilet Rs.88000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "•	Executive Room (TWO SHARING Room) with LCD + Tata Sky + Attached Toilet Rs.95000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "•	Executive Room (TWO SHARING Room) with A.C + LCD + Tata Sky + Attached Toilet Rs.105000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "•	Hostel Enrolment & Furnishing Fee: Rs.5000/-(To be paid Once) Laundry Charges: Rs.4800/-per Year",
+      },
+      {
+        name: "Mess Fees",
+        info: "Includes in Hostel Fees",
+      },
+      {
+        name: "Location (on-campus or off-campus)",
+        info: "On-Campus",
+      },
+      {
+        name: "Number of Rooms",
+        info: "300",
+      },
+      {
+        name: "Room Type (Occupancy basis)",
+        info: "Single Sharing, Two sharing, Three Sharing, Four Sharing",
+      },
+      {
+        name: "Hostel Facilities/ Amenities",
+        info: "Wi-Fi, CCTV Surveillance, Security Guards, Warden, Indoor Stadium, Outdoor Playground, Gymnasium, etc.",
+      },
+    ],
+    rankinginfo: [
+      {
+        name: "2021",
+        info: "#32 out of 178 in  India 2021",
+      },
+      {
+        name: "2021",
+        info: "#137 out of 268 in India 2021",
+      },
+      
+    ],
+    reviewinfo: [
+      {
+        id: 1,
+        rating: 4.7,
+        desc: "Faculty of my college are very higher educated . They are qualified for the best universities with best knowledge and gesture . They always treat students very well..",
+        user: user_1,
+        name: "",
+        location: "",
+      },
+      {
+        id: 2,
+        rating: 4.5,
+        desc: "The placement record is good, with companies like Aditya Birla, DBS Bank, ANZ Bank, HCL, ICICI BANK, ICICI Prudential, Wipro, Infosys, Zara, Decathlon visiting campus regularly.",
+        user: user_2,
+        name: "",
+        location: "",
+      },
+      {
+        id: 3,
+        rating: 4.8,
+        desc: "It was the good experience about my collage I were study past some year in this collage and I saw a major change in my communication skill and our department staf is also a good performence..",
+        user: user_3,
+        name: "",
+        location: "",
+      },
+    ],
+  },
 
 ];
 
