@@ -1,11 +1,11 @@
 import React from "react";
 import Image from "next/image";
 import ApplyForm from "../forms/apply-now";
-import img1 from "@/assets/images/assets/imgbanner1.jpg";
+import img1 from "@/assets/images/assets/CBC Wesite Poster_02.jpg";
 
 const ApplyArea = () => {
   return (
-    <div className="hero-banner-thirteen position-relative pt-100 md-pt-100  pb-80 lg-pb-20 ">
+    <div className="hero-banner-forteen position-relative pt-100 md-pt-100  pb-80 lg-pb-20 ">
       <div className="container">
         <div className="row align-items-center">
           <div className="col-lg-8 col-md-7">
