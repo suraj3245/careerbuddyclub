@@ -3884,11 +3884,6 @@ const college_details: IcollegeType[] = [
     ],
   },
 
-
-
-
-
-
   {
     id: 5,
     logo: job_img_5,
@@ -4431,7 +4426,7 @@ const college_details: IcollegeType[] = [
     linkedin: "",
     courses:
 
-      "Doon Business School fees range from Rs 2,07,000 to Rs 87,71,000 for the entire course duration, depending on the degree level, duration and specialisation of the course. The college offers 12 courses at the undergraduate as well as postgraduate levels. The courses are available in different streams such as commerce, engineering, humanities, science, business administration, computer applications, management and more. Admission to Doon Business School courses are open for the academic year 2024-25. For admission the college conducts CBSE 12th. In addition to this, scores of CAT, CMAT, MAT are accepted by Doon Business School.",
+      "Doon Business is best for the entire course duration, depending on the degree level, duration and specialisation of the course. The college offers 12 courses at the undergraduate as well as postgraduate levels. The courses are available in different streams such as commerce, engineering, humanities, science, business administration, computer applications, management and more. Admission to Doon Business School courses are open for the academic year 2024-25. For admission the college conducts CBSE 12th. In addition to this, scores of CAT, CMAT, MAT are accepted by Doon Business School.",
 
     ranking:
       "DBS Global University (DBS Global University) is a renowned institution situated in the vibrant city of Dehradun, within the state of Uttarakhand. As a leading college in the field of Management, it has carved a niche for itself in the category. Admission to DBS Global University is highly competitive, primarily determined through the exam, ensuring that only the most dedicated and talented students become part of its community.",
@@ -4483,15 +4478,9 @@ const college_details: IcollegeType[] = [
         specialization: "Email Address",
         annualfee: "admission@careerbuddyclub.com",
       }, 
-      {
-        specialization: "Area",
-        annualfee: "Education",
-      },
+  
     
-      {
-        specialization: "Accreditation",
-        annualfee: "A+ grade by NAAC",
-      },
+      
      
     ],
       coursesAndFees: [
