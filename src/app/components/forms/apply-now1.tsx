@@ -208,7 +208,7 @@ const ApplyForm1 = () => {
   
       // Example redirect after success
       setTimeout(() => {
-        window.location.href = "/dashboard/school-dashboard/application";
+        window.location.href = "/dashboard/school-dashboard/dashboard";
       }, 1000);
     })
     .catch((error) => {
