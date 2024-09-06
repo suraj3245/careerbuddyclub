@@ -28,13 +28,13 @@ const nav_data: {
     link: "/dashboard/school-dashboard/profile",
     title: "Profile",
   },
-  {
-    id: 2,
-    icon: nav_2,
-    icon_active: nav_2_active,
-    link: "/dashboard/school-dashboard/application",
-    title: "School Application",
-  },
+  // {
+  //   id: 2,
+  //   icon: nav_2,
+  //   icon_active: nav_2_active,
+  //   link: "/dashboard/school-dashboard/application",
+  //   title: "School Application",
+  // },
   {
     id: 3,
     icon: nav_3,

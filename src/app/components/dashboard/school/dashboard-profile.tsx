@@ -5,12 +5,12 @@ import schoolLogo from "@/assets/images/logo/School-Logo.png"; // Replace with t
 
 const SchoolProfile = () => {
   const schoolInfo = {
-    name: "The GURUKUL FOUNDATION SCHOOL",
-    address: "(123 Main Street, Dehradun, Uttarakhand, India)",
+    name: "GIC BACHHER DASHOLI",
+    address: "(Dasholi, Uttarakhand, India)",
     description: "It was always a dream of our beloved Rev. Late Sh. P. L. Kapoor ji to provide quality education which instilsin students values to be good human beings and to give the child a strong foundation early in life and a personality brimming with confidence and qualities of leadership; which makes him really Indian, truly modern and deeply human. In the endeavour to fulfilhis dream, The Gurukul is a step in that direction.",
     contact: {
       phone: "+911234567890",
-      email: "info@gurunanakcollege.com",
+      email: "info@gicbachherdasholi.com",
     },
   };
 
@@ -34,7 +34,7 @@ const SchoolProfile = () => {
         </div>
         <div className="mb-3">
           <strong>Overview:</strong>
-          <p className="mb-1">School of Guru Nanak curriculum is aligned with the K12 Program prescribed by the Department of Education. Learning needs such as functional literacy, life skills, self-development, and values are given priority to prepare students for higher education and the outside world..</p>
+          <p className="mb-1">School of GIC DASHOLI curriculum is aligned with the K12 Program prescribed by the Department of Education. Learning needs such as functional literacy, life skills, self-development, and values are given priority to prepare students for higher education and the outside world..</p>
         </div>
         <div className="mb-3">
           <strong>PRE-SCHOOL</strong>

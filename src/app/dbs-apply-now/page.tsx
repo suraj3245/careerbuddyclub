@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useEffect, useState, useRef } from "react";
 import { Metadata } from "next";
 import Head from "next/head";
@@ -8,7 +8,9 @@ import HeaderTwo from "@/layouts/headers/header-2";
 import college_details from "@/data/college-details";
 import CollegeDetailsArea from "../components/company-details/college-details-dbs";
 import JobListEleven from "../components/jobs/list/job-list-eleven";
-import { FaArrowUp } from "react-icons/fa"; // Importing the arrow icon
+import { FaArrowUp, FaPhone, FaCommentDots } from "react-icons/fa"; // Importing the icons
+import HeaderSeven from "@/layouts/headers/header-7";
+import ApplyAreaDbs from "../components/apply-now/apply-area-dbs";
 
 // export const metadata: Metadata = {
 //   title: "Apply now",
@@ -65,12 +67,12 @@ const RegisterPage = () => {
       </Head>
       <div className="main-page-wrapper">
         {/* header start */}
-        <HeaderTwo />
+        <HeaderSeven />
         {/* header end */}
 
         {/* Apply Area start */}
         <div ref={applyFormRef}>
-          <ApplyArea />
+          <ApplyAreaDbs/>
         </div>
         {/* Apply Area end */}
         
@@ -83,8 +85,8 @@ const RegisterPage = () => {
             onClick={scrollToTop}
             style={{
               position: "fixed",
-              bottom: "24px",
-              left: "20px", // Changed from right to left
+              bottom: "90px",
+              right: "30px", // Changed from right to left
               backgroundColor: "#007bff",
               color: "#fff",
               border: "none",
@@ -94,9 +96,47 @@ const RegisterPage = () => {
               zIndex: 1000,
             }}
           >
-            <FaArrowUp size={40} />
+            <FaArrowUp size={20} />
           </button>
         )}
+
+        {/* Call button on the left */}
+        <button
+          onClick={() => window.location.href = 'tel:+'}
+          style={{
+            position: "fixed",
+            bottom: "24px",
+            left: "20px", // Positioned on the left side
+            backgroundColor: "#28a745",
+            color: "#fff",
+            border: "none",
+            borderRadius: "50%",
+            padding: "10px",
+            cursor: "pointer",
+            zIndex: 1000,
+          }}
+        >
+          <FaPhone size={20} />
+        </button>
+
+        {/* Chat button on the right */}
+        <button
+          onClick={() => window.location.href = ''}
+          style={{
+            position: "fixed",
+            bottom: "70px",
+            left: "25px",
+            backgroundColor: "#17a2b8",
+            color: "#fff",
+            border: "none",
+            borderRadius: "50%",
+            padding: "10px",
+            cursor: "pointer",
+            zIndex: 1000,
+          }}
+        >
+          <FaCommentDots size={20} />
+        </button>
 
         {/* footer start */}
         {/* <FooterOne /> */}
