@@ -28,13 +28,13 @@ const nav_data: {
     link: "/dashboard/school-dashboard/profile",
     title: "Profile",
   },
-  // {
-  //   id: 2,
-  //   icon: nav_2,
-  //   icon_active: nav_2_active,
-  //   link: "/dashboard/school-dashboard/application",
-  //   title: "School Application",
-  // },
+  {
+    id: 2,
+    icon: nav_2,
+    icon_active: nav_2_active,
+    link: "/dashboard/school-dashboard/application",
+    title: "School Application",
+  },
   {
     id: 3,
     icon: nav_3,
@@ -61,8 +61,7 @@ const SchoolAside = ({ isOpenSidebar, setIsOpenSidebar }: IProps) => {
       return;
     }
 
-    // Check if username is already in localStorage
-    const storedUserName = localStorage.getItem("School_name");
+    const storedUserName = localStorage.getItem("schoolName");
     if (storedUserName) {
       setUserName(storedUserName);
       return;
@@ -96,7 +95,7 @@ const SchoolAside = ({ isOpenSidebar, setIsOpenSidebar }: IProps) => {
 
   function onLogout(){
     localStorage.removeItem("token");
-    localStorage.removeItem("School_name");
+    localStorage.removeItem("schoolName");
     localStorage.removeItem("School_email");
   }
 

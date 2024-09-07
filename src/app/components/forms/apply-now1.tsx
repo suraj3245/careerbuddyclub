@@ -189,9 +189,10 @@ const ApplyForm1 = () => {
     axios
     .request(options)
     .then((response: any) => {
+      console.log(response,'asdf');
       // Handle success      
       localStorage.setItem("token", response.data.access_token);
-      localStorage.setItem("schoolName", School_name);
+      localStorage.setItem("schoolName", response.data.school.School_name);
       console.log('response', response);
       console.log("Registration successful", response.data);
       console.log("Form Data:", payload);
@@ -208,7 +209,7 @@ const ApplyForm1 = () => {
   
       // Example redirect after success
       setTimeout(() => {
-        window.location.href = "/dashboard/school-dashboard/dashboard";
+        window.location.href = "/dashboard/school-dashboard/application";
       }, 1000);
     })
     .catch((error) => {

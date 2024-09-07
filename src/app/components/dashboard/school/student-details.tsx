@@ -8,7 +8,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
 import "./studentdetails.css";
 import { ToastContainer, toast } from "react-toastify";
-import StudentScoreModal from "./studentscore-modal";
+import StudentScoreModal from "./studentscore-modal"; 
 
 const StudentTable: React.FC = () => {
   const [showModal, setShowModal] = useState(false);
@@ -23,6 +23,7 @@ const StudentTable: React.FC = () => {
     name: "",
     email: "",
     mobile: "",
+    from: "",
     realistic_score: "N/A",
     investigative_score: "N/A",
     artistic_score: "N/A",
@@ -40,6 +41,7 @@ const StudentTable: React.FC = () => {
       name: "",
       email: "",
       mobile: "",
+      from: "",
       realistic_score: "N/A",
       investigative_score: "N/A",
       artistic_score: "N/A",
@@ -57,10 +59,10 @@ const StudentTable: React.FC = () => {
   const fetchStudents = async () => {
     try {
       const headersList = {
-        Accept: "/",
+        Accept: "*/*",
         "Content-Type": "application/json",
       };
-      const school = localStorage.getItem("schoolName");
+      const school=localStorage.getItem("schoolName");
       const bodyContent = JSON.stringify({
         place: school,
       });
@@ -95,13 +97,13 @@ const StudentTable: React.FC = () => {
 
   const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-  
+
     try {
       const headersList = {
-        Accept: "/",
+        Accept: "*/*",
         "Content-Type": "application/json",
       };
-  
+
       const {
         realistic_score,
         investigative_score,
@@ -111,19 +113,10 @@ const StudentTable: React.FC = () => {
         conventional_score,
         ...formDataToSend
       } = formData;
-  
-      const schoolName = localStorage.getItem("schoolName") || "";
-  
-      // Dynamically add the 'from' property
-      const updatedFormData = {
-        ...formDataToSend,
-        from: schoolName,
-      };
-  
-      const bodyContent = JSON.stringify(updatedFormData);
-  
+
+      const bodyContent = JSON.stringify(formDataToSend);
       let reqOptions;
-  
+
       if (isEdit && currentStudentId !== null) {
         reqOptions = {
           url: `https://test.careerbuddyclub.com:8080/api/students/studentupdate/${currentStudentId}`,
@@ -139,10 +132,12 @@ const StudentTable: React.FC = () => {
           data: bodyContent,
         };
       }
-  
+
+      console.log("Request Options:", reqOptions);
+
       const response = await axios.request(reqOptions);
       console.log("Response Data:", response.data);
-  
+
       fetchStudents();
       handleCloseModal();
       toast.success(`Student ${isEdit ? "updated" : "added"} successfully`);
@@ -379,7 +374,7 @@ const StudentTable: React.FC = () => {
                     required
                   />
                 </Form.Group>
-                {/* { <Form.Group controlId="from">
+                <Form.Group controlId="from">
                   <Form.Label>From</Form.Label>
                   <Form.Control
                     type="text"
@@ -387,7 +382,7 @@ const StudentTable: React.FC = () => {
                     onChange={handleInputChange}
                     required
                   />
-                </Form.Group> } */}
+                </Form.Group>
                 <Button variant="primary" type="submit" className="mt-3">
                   {isEdit ? "Update" : "Add"}
                 </Button>

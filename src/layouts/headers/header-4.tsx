@@ -1,5 +1,5 @@
-"use client";
-import React, { useState } from "react";
+// Import necessary modules and components
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Menus from "./component/menus";
@@ -12,43 +12,39 @@ import img_1 from "@/assets/images/assets/user-icon.png";
 import dynamic from "next/dynamic";
 import { usePathname } from "next/navigation";
 import axios from "axios";
-import { useEffect } from "react";
 import SchoolPhoneFormModal from "@/app/components/common/popup/schoolphone-modal";
 import SchoolLoginFormModal from "@/app/components/common/popup/schoolloginmodal";
 import StudentFormModal from "@/app/components/common/popup/studentloginmodal";
-// Import ApplyModal with SSR disabled
-const ApplyModal = dynamic(
-  () => import("@/app/components/common/popup/apply-modal"),
-  {
-    ssr: false,
-  }
-);
+import ApplyModal from "@/app/components/common/popup/apply-modal";
+import ApplyModalSchool from "@/app/components/common/popup/apply-modal2";
 import "react-toastify/dist/ReactToastify.css";
 
+// Interface defining props for HeaderFour component
 interface HeaderFourProps {
   user: {
     value: string | null;
   };
   onLogout: () => void;
-  key: number;
+  index: number; // Changed 'key' to 'index'
 }
 
-const HeaderFour: React.FC<HeaderFourProps> = ({ user,  onLogout }) => {
+// HeaderFour component definition
+const HeaderFour: React.FC<HeaderFourProps> = ({ user, index, onLogout }) => {
   const { sticky } = useSticky();
-  const isUserLoggedIn = Boolean(user.value); // user.value will be false if null or empty
+  const isUserLoggedIn = Boolean(user.value);
   const [showDropdown, setShowDropdown] = useState(false);
   const [userName, setUserName] = useState("");
+  const [userType, setUserType] = useState("");
   const pathname = usePathname();
 
+  // Function to fetch user data
   const fetchUserData = async () => {
-    const token = localStorage.getItem("8");
+    const token = localStorage.getItem("token");
 
     if (!token) {
-      // Handle the case where the token is not available
       return;
     }
 
-    // Check if username is already in localStorage
     const storedUserName = localStorage.getItem("username");
     if (storedUserName) {
       setUserName(storedUserName);
@@ -56,7 +52,7 @@ const HeaderFour: React.FC<HeaderFourProps> = ({ user,  onLogout }) => {
     }
 
     const options = {
-      method: "POST", 
+      method: "POST",
       url: "https://test.careerbuddyclub.com:8080/api/students/getstudentsprofile",
       headers: {
         Accept: "*/*",
@@ -71,7 +67,7 @@ const HeaderFour: React.FC<HeaderFourProps> = ({ user,  onLogout }) => {
       const data = response.data;
 
       if (data.student && data.student.name) {
-        localStorage.setItem("username", data.student.name); // Store username in localStorage
+        localStorage.setItem("username", data.student.name);
         setUserName(data.student.name);
       } else {
         setUserName("No Name Available");
@@ -82,9 +78,10 @@ const HeaderFour: React.FC<HeaderFourProps> = ({ user,  onLogout }) => {
     }
   };
 
+  // Effect to fetch user data and simulate click on Apply Modal
   useEffect(() => {
     fetchUserData();
-    if (!localStorage.getItem("username")) {
+    if (!localStorage.getItem("token")) {
       setTimeout(() => {
         const event = new Event("click");
         const applyNowButton = document.querySelector(
@@ -97,24 +94,31 @@ const HeaderFour: React.FC<HeaderFourProps> = ({ user,  onLogout }) => {
     }
   }, [isUserLoggedIn]);
 
-  useEffect(()=>{
-    const username = localStorage.getItem('username');
-    const schoolname = localStorage.getItem('School_name');
+  // Effect to determine user type based on stored data
+  useEffect(() => {
+    const username = localStorage.getItem("username");
+    const schoolname = localStorage.getItem("schoolName");
     if (username) {
-      setUserType('student');
+      setUserType("student");
     } else if (schoolname) {
-      setUserType('school');
+      setUserType("school");
     }
   }, []);
 
-  const getInitials = (userName: string) =>
-    userName && userName.length > 0 ? userName[0].toUpperCase() : "?";
-  const [userType, setUserType] = useState('');
+  // Function to get initials from username
+  const getInitials = ((userNames: string) =>{
+    const username = localStorage.getItem("username");
+    const schoolName = localStorage.getItem("schoolName");
+    const nameToUse = username || schoolName || "";
+    return nameToUse.length > 0 ? nameToUse[0].toUpperCase() : "?"; 
+  })
+
+  
   return (
     <>
       <header
         className={`theme-main-menu menu-overlay sticky-menu ${
-          sticky ? "fixed" : " "
+          sticky ? "fixed" : ""
         }`}
         style={{ marginTop: "30px" }}
       >
@@ -123,13 +127,7 @@ const HeaderFour: React.FC<HeaderFourProps> = ({ user,  onLogout }) => {
             <div className="d-flex align-items-center justify-content-between">
               <div className="logo order-lg-0">
                 <Link href="/" className="d-flex align-items-center">
-                  <Image
-                    src={logo}
-                    alt="logo"
-                    width="125"
-                    height="75"
-                    priority
-                  />
+                  <Image src={logo} alt="logo" width="125" height="75" priority />
                 </Link>
               </div>
               <div className="right-widget ms-auto ms-lg-0 order-lg-2">
@@ -161,7 +159,7 @@ const HeaderFour: React.FC<HeaderFourProps> = ({ user,  onLogout }) => {
                   <ul className="d-flex align-items-center style-none">
                     <li className="nav-item dropdown">
                       <a
-                        className="nav-link "
+                        className="nav-link"
                         href="#"
                         role="button"
                         data-bs-toggle="dropdown"
@@ -181,46 +179,58 @@ const HeaderFour: React.FC<HeaderFourProps> = ({ user,  onLogout }) => {
                           {getInitials(userName)}
                         </div>
                       </a>
-                       <ul className="dropdown-menu">
-      {userType === 'student' && (
-        <>
-          <li>
-            <Link href="/dashboard/candidate-dashboard/profile" className="dropdown-item">
-              Student Dashboard
-            </Link>
-          </li>
-          <li>
-            <Link href="/dashboard/candidate-dashboard/setting" className="dropdown-item">
-              Set Password
-            </Link>
-          </li>
-          <li>
-            <a href="/" className="dropdown-item" onClick={onLogout}>
-              Logout
-            </a>
-          </li>
-        </>
-      )}
-      {userType === 'school' && (
-        <>
-          <li>
-            <Link href="/dashboard/school-dashboard/profile" className="dropdown-item">
-              School Dashboard
-            </Link>
-          </li>
-          <li>
-            <Link href="/dashboard/school-dashboard/setting" className="dropdown-item">
-              Set Password
-            </Link>
-          </li>
-          <li>
-            <a href="/" className="dropdown-item" onClick={onLogout}>
-              Logout
-            </a>
-          </li>
-        </>
-      )}
-    </ul>
+                      <ul className="dropdown-menu">
+                        {userType === "student" && (
+                          <>
+                            <li>
+                              <Link
+                                href="/dashboard/candidate-dashboard/profile"
+                                className="dropdown-item"
+                              >
+                                Student Dashboard
+                              </Link>
+                            </li>
+                            <li>
+                              <Link
+                                href="/dashboard/candidate-dashboard/setting"
+                                className="dropdown-item"
+                              >
+                                Set Password
+                              </Link>
+                            </li>
+                            <li>
+                              <a href="/" className="dropdown-item" onClick={onLogout}>
+                                Logout
+                              </a>
+                            </li>
+                          </>
+                        )}
+                        {userType === "school" && (
+                          <>
+                            <li>
+                              <Link
+                                href="/dashboard/school-dashboard/profile"
+                                className="dropdown-item"
+                              >
+                                School Dashboard
+                              </Link>
+                            </li>
+                            <li>
+                              <Link
+                                href="/dashboard/school-dashboard/setting"
+                                className="dropdown-item"
+                              >
+                                Set Password
+                              </Link>
+                            </li>
+                            <li>
+                              <a href="/" className="dropdown-item" onClick={onLogout}>
+                                Logout
+                              </a>
+                            </li>
+                          </>
+                        )}
+                      </ul>
                     </li>
                   </ul>
                 )}
@@ -269,21 +279,17 @@ const HeaderFour: React.FC<HeaderFourProps> = ({ user,  onLogout }) => {
         </div>
       </header>
 
-      {/* login modal start */}
+      {/* Modals */}
       <ApplyModal />
       <LoginModal />
       <PhoneModal />
       <ScheduleModal />
-      <SchoolPhoneFormModal/>
-      <SchoolLoginFormModal/>
-      <StudentFormModal/>
-      {/* login modal end */}
+      <SchoolPhoneFormModal />
+      <SchoolLoginFormModal />
+      <StudentFormModal />
+      <ApplyModalSchool />
     </>
   );
 };
 
 export default HeaderFour;
-function setUserType(arg0: string) {
-  throw new Error("Function not implemented.");
-}
-

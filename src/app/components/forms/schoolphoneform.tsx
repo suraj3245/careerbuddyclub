@@ -13,7 +13,7 @@ type IFormData = {
   verificationCode: string;
 };
 
-const SchoolPhoneForm = () => {
+const   SchoolPhoneForm = () => {
   const [isVerificationSent, setIsVerificationSent] = useState<boolean>(false);
   const [countdown, setCountdown] = useState(30);
   const [showResend, setShowResend] = useState(false);
@@ -92,7 +92,7 @@ const SchoolPhoneForm = () => {
       .request(options)
       .then((response) => {        
         localStorage.setItem("token", response.data.access_token);
-        localStorage.setItem("School_name", response.data.details.School_name);
+        localStorage.setItem("schoolName", response.data.details.School_name);
         localStorage.setItem("School_email", response.data.details.School_email);
         toast.success("Login successful 🚀", {
           position: "top-left",
@@ -209,7 +209,7 @@ const SchoolPhoneForm = () => {
             href="#"
             className="fw-500"
             data-bs-toggle="modal"
-            data-bs-target="#ApplyModal"
+            data-bs-target="#ApplyModalSchool"
           >
             Not a User? Apply
           </a>

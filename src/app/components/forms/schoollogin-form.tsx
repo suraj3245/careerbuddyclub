@@ -76,7 +76,7 @@ const SchoolLoginForm = () => {
         // );
         localStorage.setItem("token", response.data.access_token);
         localStorage.setItem("School_email", School_email);
-        localStorage.setItem("School_name", response.data.school.School_name);
+        localStorage.setItem("schoolName", response.data.school.School_name);
 
         console.log("Login successful", response.data.access_token);
         toast.success("Successfully logged in 🎉", {
@@ -171,7 +171,7 @@ const SchoolLoginForm = () => {
               href="#"
               className="fw-500"
               data-bs-toggle="modal"
-              data-bs-target="#ApplyModal"
+              data-bs-target="#ApplyModalSchool"
             >
               Not a User? Apply
             </a>

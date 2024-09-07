@@ -86,7 +86,7 @@ export default function RootLayout({
     localStorage.removeItem("catResults");
     localStorage.removeItem("username");
     localStorage.removeItem("location");
-    localStorage.removeItem("School_name");
+    localStorage.removeItem("schoolName");
     localStorage.removeItem("School_email");
 
     setUser({ value: null }); // Update the user state to reflect logout
@@ -155,7 +155,7 @@ export default function RootLayout({
           !isCandidateDashboardPage &&
           !isapplynow &&
           !isSchoolDashboard && !dbsapplynow && (
-            <HeaderFour user={user} onLogout={handleLogout} key={key} />
+            <HeaderFour user={user} onLogout={handleLogout} key={key} index={0} />
           )}
 
         <Providers>{children}</Providers>
