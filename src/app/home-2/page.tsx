@@ -10,6 +10,7 @@ import FancyBannerSeven from "../components/fancy-banner/fancy-banner-7";
 import BlogOne from "../components/blogs/blog-one";
 import FeatureEleven from "../components/features/feature-eleven";
 import Collegedekhocomp from "../components/college-dekho/college-dekho";
+import FancyBanner16 from "../components/fancy-banner/fancy-banner-16";
 
 export const metadata: Metadata = {
   title: "Home two",
@@ -35,6 +36,9 @@ const HomeTwo = () => {
         <Collegedekhocomp />
         <BlogOne />
         <FeatureEleven />
+        <div className="container">
+        <FancyBanner16/>
+        </div>
         <FancyBannerSeven />
         <FooterOne />
         {/* footer end */}

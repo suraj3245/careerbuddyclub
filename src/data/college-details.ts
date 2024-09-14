@@ -12,7 +12,9 @@ import job_img_6 from "@/assets/images/logo/dbs.webp";
 
 const college_details: IcollegeType[] = [
   {
-    id: 1,
+    id: "guru-nanak-college-dehradun",
+    pageTitle: "Career Buddy Club | Guru Nanak College, Dehradun",
+    metaDescription: "Guru Nanak College, Dehradun—a prestigious center of higher education specializing in pharmacy and paramedical sciences.",
     logo: job_img_1,
     type: "Private",
     establishmentyear: "2009",
@@ -852,13 +854,914 @@ const college_details: IcollegeType[] = [
       },
     ],
   },
-
-
-
-
-
   {
-    id: 2,
+    id: "Uttaranchal-University",
+    pageTitle: "Career Buddy Club | Uttaranchal University",
+    metaDescription: "Uttaranchal University—an academic cum research institution located in Dehradun, Uttarakhand. Accredited with an NAAC A+ Grade, it ranks among the top 5% of higher education institutions in India.",
+    logo: job_img_4,
+    type: "Private",
+    establishmentyear: "2009",
+    Recognisedby: "UGC",
+    Approvedby: "",
+    state: "Uttarakhand",
+    city: "Dehradun",
+    Campusarea: "20+ acre",
+    link: "",
+    email: "university@uttaranchaluniversity.ac.in",
+    founded: "",
+    phone: "",
+    feild: ["Education"],
+    overviewsection:
+      "The Uttaranchal University placement highlights that over 490 companies visited during the placement drive and the highest package offered to one of the BTech CSE students (internationally) was Rs 1.24 Crore.Uttaranchal University courses include 100+ multidisciplinary programmes from the fields of engineering, management, law, applied sciences, agriculture, nursing and more. Students can check the Uttaranchal University course and fee details from this page. Moreover, Uttaranchal University scholarships are awarded to qualified candidates based on performance in the last qualifying examination. Uttaranchal University was established in the year 2013 and has been granted recognition by the UGC. Uttaranchal University NIRF Ranking in the engineering category was between 151 - 200 band in 2022 and has been awarded with  by NAAC. The AICTE, BCI ICAR and PCI have provided approval to Uttaranchal University.",
+    duration: "Fulltime",
+    date: "18 Jul 2019",
+    college: "Uttaranchal University",
+    location: "Dehradun, India",
+    category: ["+91 7456000100"],
+    experience: "Fresher",
+    salary: 900,
+    salary_duration: "Monthly",
+    tags: ["java", "developer"],
+    english_fluency: "Fluent",
+    overview:
+      "When team members told us they needed more flexibility around where and how they worked, we acted, creating two options to accommodate two different styles of work. One non-negotiable principle along the way? We had to retain our deep culture of collaboration, both among ourselves and with our clients. Introducing Work From Near and Work From Anywhere at WillowTree. Please indicate which location(s) you're interested.",
+    videoid: "1lOGlxngJHQ?si",
+    facebook: "",
+    instagram: "",
+    twitter: "",
+    linkedin: "",
+    courses:
+      " Uttaranchal University courses are offered at undergraduate, postgraduate and doctoral levels. The university also offers certificate and diploma courses. Courses at Uttaranchal University cover diverse domains like engineering, management, pharmacy, paramedical & allied sciences, law, agriculture etc. Uttaranchal University courses are offered in regular mode and some of the popular courses offered are B.Tech, BCA, B.Pharm, BA LLB, M.Tech, MBA, LLM, M.Sc etc. Uttaranchal University fee structure is different for each programme and can also vary for each specialisation. For more information about Uttaranchal University courses, students can check out the table given below containing the course details, duration and eligibility criteria. ",
+
+    ranking:
+      "Uttaranchal University is a premier university that is many students’ choice. Rankings from established and nationally recognised authorities represent an institution's quality and standards. Uttaranchal University was ranked 53rd in The Week Hansa Research Survey 2023's category of Multidisciplinary Universities. The university was presented with the Jagran Excellence Award for Education in 2022. It is the first university in Uttarakhand to receive a NAAC A+ rating. Listed below are some categories in which Uttaranchal University has managed to rank high.",
+    awards:
+      "Our institution takes pride in its accolades, having received recognition for excellence in education and innovation. These awards underscore our commitment to delivering high-quality academic programs, fostering research, and promoting an inclusive learning environment. We have been honored for our contributions to the community and advancements in education methodology. These accolades motivate us to continually strive for excellence, ensuring that our students receive a world-class education and graduate well-prepared for their future endeavors.",
+    hostel:
+      "Our institution ensures a comfortable and secure living environment for students with separate hostel facilities for both male and female students. The hostels are well-equipped with modern amenities, providing a conducive atmosphere for focused study and recreation. Trained staff maintains discipline, and safety measures are prioritized. The hostel experience fosters a sense of community, facilitating cultural exchange and lifelong friendships. With a commitment to student welfare, we aim to create a home away from home, ensuring a positive and enriching residential experience during the academic journey.",
+    opportunities:
+      "Our institution provides a myriad of opportunities for students to thrive. Beyond academic excellence, we offer extensive career support, industry collaborations, and leadership programs. A vibrant campus life, enriched with cultural events, sports, and global exposure, fosters holistic development. The Career Resource Centre ensures students are well-prepared for professional success through internships and placement assistance. Research opportunities and collaborations with leading institutions further broaden horizons. We aim to empower our students with a diverse range of opportunities, equipping them for a dynamic and successful future.",
+    campus:
+      "Our campus provides an ideal environment for academic and personal growth. Sprawling greenery and state-of-the-art infrastructure create a conducive atmosphere for learning. Well-equipped classrooms, modern laboratories, and a resource-rich library foster a dynamic educational experience. The campus is Wi-Fi enabled, promoting seamless connectivity for research and collaborative projects. Recreational facilities, including sports amenities and cultural spaces, encourage a balanced student life. Additionally, our commitment to safety and security ensures a peaceful environment. The vibrant campus life, coupled with engaging extracurricular activities, enriches the overall student experience, fostering a sense of community and camaraderie.",
+    placement:
+      "Every year, the final year students can take part in the Uttaranchal University placements. Students can register themselves through the placement cell known as the Corporate Resource Centre (CRC). The CRC is responsible for executing the Uttaranchal University placement. Students and future employers both benefit from this department's efforts to bridge the gap between academics and industry. The Uttaranchal University placement data for the year 2023 is available now. During Uttaranchal University placement, a student of B.Tech Computer Science and Engineering course obtained the highest package from Citibank, which was Rs 1.24 CPA. Over 147 local and international recruiters attended the placement drive, and 100 students received job offers. On the other hand, the Uttaranchal University highest MBA package was Rs 26.4 LPA. Students can check the details of Uttaranchal University placement below. ",
+    admission:
+      "Uttaranchal University admission is offered in UG, PG and doctoral programmes. Uttaranchal University course admission process varies for each programme. The university accepts merit-based and entrance exam-based admission. Uttaranchal University admission in B.Tech courses are given on the basis of candidates' performance in JEE Main. The university accepts CUET scores for BBA, B.Com, B.Sc, BA LLB, BBA LLB, B.Pharm, BA, BCA, and BHMCT programme admission. At the postgraduate level, GATE scores are considered for Uttaranchal University M.Tech admission. The university accepts scores from a variety of entrance tests for enrollment in its programmes, including JEE Main, CUET, GATE, UGC NET, CAT, and MAT.",
+    faculty:"Our institution boasts a distinguished faculty drawn from premier institutions across India, setting high academic standards. With a significant number holding Master's and Ph.D. qualifications, they actively contribute to both teaching and research. Their expertise ensures a rigorous and insightful learning experience for students. The faculty's commitment to excellence extends beyond the classroom, guiding students in research endeavors and preparing them for real-world challenges. Their collective knowledge and dedication contribute significantly to the academic vibrancy of our institution, shaping the future leaders of tomorrow. ",
+
+    overviewtable:[
+      {
+        specialization: "Short Name",
+        annualfee: "UU",
+      },
+      {
+        specialization: "Institute Type - Public/ Private/ Govt",
+        annualfee: "Private",
+      },
+      {
+        specialization: "State",
+        annualfee: "Uttarakhand",
+      },
+      {
+        specialization: "City",
+        annualfee: "Dehradun",
+      },
+      {
+        specialization: "Location/ Address",
+        annualfee: "Arcadia Grant, Chandanwari, Prem Nagar, Dehradun, Uttarakhand 248007",
+      },
+     
+      {
+        specialization: "Phone Numbers",
+        annualfee: "0135-2770300",
+      },
+      {
+        specialization: "Website",
+        annualfee: "uudoon.in",
+      },
+      {
+        specialization: "Email Address",
+        annualfee: "university@uttaranchaluniversity.ac.in and admission@uumail.in ",
+      },
+      
+      {
+        specialization: "Area",
+        annualfee: "Education",
+      },
+      {
+        specialization: "Approved by",
+        annualfee: "AICTE (All India Council for Technical Education), BCI (Bar Council of India), PCI (Pharmacy Council of India) and India Council of Agricultural Research (ICAR)",
+      },
+      {
+        specialization: "Accreditation",
+        annualfee: "A+ grade by NAAC",
+      },
+     
+    ],
+      coursesAndFees: [
+      {
+        course: "B.Tech (CSE)",
+        specialization: "Cloud Computing",
+        annualFee: "",
+        duration: "",
+        eligibility: "",
+      },
+      {
+        course: "",
+        specialization: "Big Data Analytics",
+        annualFee: "",
+        duration: "",
+        eligibility: "",
+      },
+      {
+        course: "",
+        specialization: "Cyber Security",
+        annualFee: "2,71,000",
+        duration: "JEE Mains/UKSEE",
+        eligibility: "Passed 10+2 examination with PCM",
+      },
+      {
+        course: "",
+        specialization: "AI/ML",
+        annualFee: "",
+        duration: "",
+        eligibility: "",
+      },
+      {
+        course: "B.tech ",
+        specialization: "Civil Engineering",
+        annualFee: "1,48,000",
+        duration: "JEE Mains/UKSEE",
+        eligibility: "Passed 10+2 examination with PCM",
+      },
+     
+      {
+        course: "",
+        specialization: " Mechanical Engineering",
+        annualFee: "1,48,000",
+        duration: "JEE Mains/UKSEE",
+        eligibility: "Passed 10+2 examination with PCM",
+      },
+      {
+        course: "",
+        specialization: "Aerospace Engineering ",
+        annualFee: "1,76,000",
+        duration: "JEE Mains/UKSEE",
+        eligibility: "Passed 10+2 examination with PCM",
+      },
+      {
+        course: "BBA",
+        specialization: "HR",
+        annualFee: "",
+        duration: "",
+        eligibility: "",
+      },
+      {
+        course: "",
+        specialization: "Banking & Finance",
+        annualFee: "",
+        duration: "",
+        eligibility: "",
+      },
+      {
+        course: "",
+        specialization: "Digital Marketing",
+        annualFee: "1,10,000",
+        duration: "Personal Interview",
+        eligibility: "Passed 10+2 examination with PCM",
+      },
+      {
+        course: "",
+        specialization: "Aviation",
+        annualFee: "",
+        duration: "",
+        eligibility: "",
+      },
+      {
+        course: "",
+        specialization: "Tourism & Event Mgmt.",
+        annualFee: "",
+        duration: "",
+        eligibility: "",
+      },
+      {
+        course: "B.Com",
+        specialization: "",
+        annualFee: "1,00,000",
+        duration: "Personal Interview",
+        eligibility: "Passed 10+2 examination with PCM",
+      },
+      {
+        course: "B.Sc",
+        specialization: "IT",
+        annualFee: "90,000",
+        duration: "Personal Interview",
+        eligibility: "Passed 10+2 examination with PCM",
+      },
+      {
+        course: "B.A. LLB/ BBA LL.B",
+        specialization: "",
+        annualFee: "2,31,400",
+        duration: "CLAT/ULET",
+        eligibility: "Passed 10+2 examination with PCM/PCB",
+      },
+      {
+        course: "D. Pharma",
+        specialization: "",
+        annualFee: "85,000",
+        duration: "Personal Interview",
+        eligibility: "Passed 10th  examination with Science",
+      },
+      {
+        course: "B.A. Journalism & Mass Comm.",
+        specialization: "",
+        annualFee: "86,000",
+        duration: "Personal Interview",
+        eligibility: "Passed 10+2 examination with PCM/PCB",
+      },
+      {
+        course: "B.Sc (Hons.) Agriculture",
+        specialization: "",
+        annualFee: "1,20,000",
+        duration: "Personal Interview",
+        eligibility: "Passed 10+2 examination ",
+      },
+      {
+        course: "B.Sc. ",
+        specialization: "Physics",
+        annualFee: "",
+        duration: "",
+        eligibility: "Passed 10+2 examination with PCM/PCB",
+      },
+      {
+        course: "",
+        specialization: "Chemistry",
+        annualFee: "70,000",
+        duration: "Personal Interview",
+        eligibility: "Passed 10+2 examination with PCM/PCB",
+      },
+      {
+        course: "",
+        specialization: "Maths",
+        annualFee: "",
+        duration: "",
+        eligibility: "Passed 10+2 examination with PCM",
+      },
+      {
+        course: "B.Sc",
+        specialization: "Forensic Science",
+        annualFee: "1,10,000",
+        duration: "Personal Interview",
+        eligibility: "Passed 10+2 examination with PCM/PCB",
+      },
+      {
+        course: "",
+        specialization: "Data Science",
+        annualFee: "1,10,000",
+        duration: "Personal Interview",
+        eligibility: "Passed 10+2 examination with PCM",
+      },
+      {
+        course: "B.Sc. Animation & Gaming",
+        specialization: "",
+        annualFee: "1,20,000",
+        duration: "Personal Interview",
+        eligibility: "Passed 10+2 examination with PCM",
+      },
+      {
+        course: "B.Sc",
+        specialization: "Microbiology",
+        annualFee: "",
+        duration: "",
+        eligibility: "",
+      },
+      {
+        course: "",
+        specialization: "Food Technology",
+        annualFee: "91,000",
+        duration: "Personal Interview",
+        eligibility: "Passed 10+2 examination with PCB",
+      },
+      {
+        course: "",
+        specialization: "Biotechnology",
+        annualFee: "",
+        duration: "",
+        eligibility: "Passed 10+2 examination with PCB",
+      },
+      {
+        course: "Bachelor of Hotel Mgmt.",
+        specialization: "",
+        annualFee: "90,000",
+        duration: "Personal Interview",
+        eligibility: "Passed 10+2 examination with any stream",
+      },
+      {
+        course: "B.Sc Hotel & Hospitality Mgmt.",
+        specialization: "",
+        annualFee: "90,000",
+        duration: "",
+        eligibility: "Passed 10+2 examination with any stream",
+      },
+       {
+        course: "Diploma in Hotel Mgmt.",
+        specialization: "",
+        annualFee: "60,000",
+        duration: "Personal Interview",
+        eligibility: "Passed 10th examination ",
+      },
+      {
+        course: "Certificate in Hotel Management",
+        specialization: "",
+        annualFee: "40,500",
+        duration: "Personal Interview",
+        eligibility: "Passed 10+2 examination with any stream",
+      },
+      {
+        course: "B.A.",
+        specialization: "",
+        annualFee: "66,000",
+        duration: "Personal Interview",
+        eligibility: "Passed 10+2 examination with any stream",
+      },
+      {
+        course: "BA English/Psyhcology",
+        specialization: "",
+        annualFee: "72,000",
+        duration: "Personal Interview",
+        eligibility: "Passed 10+2 examination ",
+      },
+      {
+        course: "B.Sc (CBZ/PCM)",
+        specialization: "",
+        annualFee: "60,000",
+        duration: "Personal Interview",
+        eligibility: "Passed 10+2 examination with PCM/PCB",
+      },
+      {
+        course: "BCA",
+        specialization: "Data Analytics",
+        annualFee: "1,10,000",
+        duration: "Personal Interview",
+        eligibility: "Passed 10+2 examination with PCM",
+      },
+      {
+        course: "",
+        specialization: "Cyber Security",
+        annualFee: "1,10,000",
+        duration: "Personal Interview",
+        eligibility: "Passed 10+2 examination with PCM",
+      },
+      {
+        course: "MBA",
+        specialization: "IT",
+        annualFee: "",
+        duration: "",
+        eligibility: "",
+      },
+      {
+        course: "",
+        specialization: "Business",
+        annualFee: "",
+        duration: "",
+        eligibility: "",
+      },
+      {
+        course: "",
+        specialization: "Analytics",
+        annualFee: "2,21,000",
+        duration: "CAT/XAT/MAT",
+        eligibility: "Graduation From a recognized University",
+      },
+      {
+        course: "",
+        specialization: "Digital Marketing",
+        annualFee: "",
+        duration: "",
+        eligibility: "",
+      },
+      {
+        course: "",
+        specialization: "IB",
+        annualFee: "",
+        duration: "",
+        eligibility: "",
+      },
+
+      {
+        course: "MBA Logistic & SupplyChain Mgmt.",
+        specialization: "",
+        annualFee: "2,21,000",
+        duration: "CAT/XAT/MAT",
+        eligibility: "Graduation From a recognized University",
+      },
+      {
+        course: "MCA",
+        specialization: "",
+        annualFee: "1,20,000",
+        duration: "Personal Interview",
+        eligibility: "Graduation From a recognized University",
+      },
+      {
+        course: "MCA",
+        specialization: "Cloud Computing",
+        annualFee: "1,25,000",
+        duration: "Personal Interview",
+        eligibility: "Graduation From a recognized University",
+      },
+      {
+        course: "MAJMC",
+        specialization: "",
+        annualFee: "86,000",
+        duration: "Personal Interview",
+        eligibility: "Graduation From a recognized University",
+      },
+      {
+        course: "M.Sc Ag.",
+        specialization: "",
+        annualFee: "91,000",
+        duration: "Personal Interview",
+        eligibility: "Graduation From a recognized University",
+      },
+      {
+        course: "M.Sc.",
+        specialization: "Physics",
+        annualFee: "",
+        duration: "",
+        eligibility: "",
+      },
+      {
+        course: "",
+        specialization: "Chemistry",
+        annualFee: "",
+        duration: "",
+        eligibility: "",
+      },
+      {
+        course: "",
+        specialization: "Maths",
+        annualFee: "",
+        duration: "",
+        eligibility: "",
+      },
+      {
+        course: "",
+        specialization: "Industrial Chemistry",
+        annualFee: "61,000",
+        duration: "Personal Interview",
+        eligibility: "Graduation From a recognized University",
+      },
+      {
+        course: "",
+        specialization: "Zoology",
+        annualFee: "",
+        duration: "",
+        eligibility: "",
+      },
+      {
+        course: "",
+        specialization: "Botany",
+        annualFee: "",
+        duration: "",
+        eligibility: "",
+      },
+      {
+        course: "",
+        specialization: "EVS",
+        annualFee: "",
+        duration: "",
+        eligibility: "",
+      },
+      {
+        course: "M.Tech",
+        specialization: "CSE",
+        annualFee: "",
+        duration: "",
+        eligibility: "",
+      },
+      {
+        course: "",
+        specialization: "Thermal Engg.",
+        annualFee: "",
+        duration: "",
+        eligibility: "",
+      },
+      {
+        course: "",
+        specialization: "Environ. Engg.",
+        annualFee: "1,01,000",
+        duration: "",
+        eligibility: "Graduation From a recognized University",
+      },
+      {
+        course: "",
+        specialization: "Energy Mgmt.",
+        annualFee: "",
+        duration: "",
+        eligibility: "",
+      },
+      {
+        course: "",
+        specialization: "Construction Tech & Mgmt.",
+        annualFee: "",
+        duration: "",
+        eligibility: "",
+      },
+      {
+        course: "Paramedical",
+        specialization: "BMLT",
+        annualFee: "",
+        duration: "",
+        eligibility: "",
+      },
+      {
+        course: "",
+        specialization: "BMRIT",
+        annualFee: "90,000",
+        duration: "Personal Interview",
+        eligibility: "Graduation From a recognized University",
+      },
+      {
+        course: "",
+        specialization: "Opreration Theatre & optometry",
+        annualFee: "",
+        duration: "",
+        eligibility: "",
+      },
+      {
+        course: "M.A.",
+        specialization: "English",
+        annualFee: "",
+        duration: "",
+        eligibility: "",
+      },
+      {
+        course: "",
+        specialization: "Political Science",
+        annualFee: "71,000",
+        duration: "Personal Interview",
+        eligibility: "Graduation From a recognized University",
+      },
+      {
+        course: "",
+        specialization: "Clinical psychology",
+        annualFee: " ",
+        duration: "",
+        eligibility: "",
+      },
+      {
+        course: "M.Sc Food Tech",
+        specialization: "",
+        annualFee: "91,000",
+        duration: "Personal Interview",
+        eligibility: "Graduation From a recognized University",
+      },
+
+      {
+        course: "MCA",
+        specialization: "AI/ML",
+        annualFee: "1,30,000",
+        duration: "Personal Interview",
+        eligibility: "Graduation From a recognized University",
+      },
+      {
+        course: "M.Sc. Biotechonolgy",
+        specialization: "",
+        annualFee: "91,000",
+        duration: "Personal Interview",
+        eligibility: "Graduation From a recognized University",
+      },
+      {
+        course: "M.Sc Food Nutrition & Dietetics",
+        specialization: "",
+        annualFee: "91,000",
+        duration: "Personal Interview",
+        eligibility: "Graduation From a recognized University",
+      },
+      {
+        course: "M.Sc",
+        specialization: "Data Science",
+        annualFee: " ",
+        duration: "",
+        eligibility: "",
+      },
+      {
+        course: "",
+        specialization: "Forensic Science",
+        annualFee: "1,20,000",
+        duration: "Personal Interview",
+        eligibility: "Graduation From a recognized University",
+      },
+      
+      
+    ],
+    admissionDates: [
+      {
+        name: "Application Start Date",
+        date: "01-Mar-2024",
+      },
+      {
+        name: "Application End Date",
+        date: "30-Jul-2024",
+      },
+      {
+        name: "Date of Result Declaration",
+        date: "September 18, 2023",
+      },
+      {
+        name: "Last Date of Submission of Fee",
+        date: "September 28, 2023",
+      },
+      {
+        name: "Commencement of the Coursework",
+        date: "01-Aug-2024",
+      },
+    ],
+    campusinfo: [
+      {
+        name: "Registration Dates",
+        info: "February  , 2024",
+      },
+      {
+        name: "Date of Entrance Test & Interview",
+        info: "April, 2024",
+      },
+      {
+        name: "Date of Result Declaration",
+        info: "May , 2024",
+      },
+      {
+        name: "Commencement of the Coursework",
+        info: "October , 2024",
+      },
+    ],
+    placementinformation: [
+      {
+        name: "Placement Year",
+        info: "2023",
+      },
+      {
+        name: "Number of Companies Participated",
+        info: "490+",
+      },
+      {
+        name: "Number of Students",
+        info: "1200+",
+      },
+      {
+        name: "Highest Package",
+        info: "INR 1.24 CPA",
+      },
+      {
+        name: "Top Recruiters",
+        info: "Forma, Decathlon, Outlook, Uniqlo, Bajaj Finserv",
+      },
+     
+      
+    ],
+    opportunitiesinfo: [
+      {
+        name: "Registration Dates",
+        info: "February 8 to September 15, 2023",
+      },
+      {
+        name: "Date of Entrance Test & Interview",
+        info: "September 17, 2023",
+      },
+      {
+        name: "Date of Result Declaration",
+        info: "September 18, 2023",
+      },
+      {
+        name: "Last Date of Submission of Fee",
+        info: "September 28, 2023",
+      },
+      {
+        name: "Commencement of the Coursework",
+        info: "October 3, 2023",
+      },
+    ],
+
+    awardsinfo: [
+      "NAAC A+",
+      "Top Private Law College In Uttarakhand.",
+      "Most Promising Engineering & Management Institute in India Award.",
+      "Most Aware Campus of Uttarakhand Award.",
+      "Icon Award of Uttarakhand.",
+      
+     
+    ],
+   
+    facultytable: [
+      {
+        name: "Dr. Vishal",
+        Qualification: "Dept. of  Microbiology",
+        Experience: "22 year",
+        Specialization: "Agriculture microbiology, Biological Control, Plant growth promo. Rhizo bacteria, Fermentation Technology, Antimicrobial Activity of mediclinal plant, Microbial pathology.",
+      },
+      {
+        name: "Dr. RD Saklani",
+        Qualification: "Dept. of  Geology",
+        Experience: "10 year",
+        Specialization: "Sequence stratigraphy, Petroleum Geology, Ichnology, Disaster Management, Engg. Geology, Field Geology, Himalayan Geology & Western India (Kachchh & Rajasthan).",
+      },
+      {
+        name: "Mr. S K Thakur",
+        Qualification: "Dept. of  Statistics & Mathematics",
+        Experience: "35 year",
+        Specialization: "Statistics, International finance,  International Economics, Coorporates Law. ",
+      },
+      {
+        name: "Dr. Neelesh",
+        Qualification: "Dept. of  Microbiology",
+        Experience: "02 year",
+        Specialization: "Medical microbiology, General microbiology.",
+      },
+      {
+        name: "Mrs. Preeti Sood",
+        Qualification: "Dept. of  Hotel Management ",
+        Experience: "23 year",
+        Specialization: "Food and beverage,Front office, House Keeping, Kitchen.",
+      },
+      {
+        name: "Mr. Gurmeet singh",
+        Qualification: "Dept. of  Chemistry",
+        Experience: "03 year",
+        Specialization: "Waste Management, Water purification, Biofilms and filters, Polymers, Analytical Chemistry.",
+      },
+      {
+        name: "Mr. Kashif Hussain",
+        Qualification: "Dept. of  Pharmacy",
+        Experience: "12 year",
+        Specialization: "Pharmaceutical Chemistry.",
+      },
+      {
+        name: "Mr. Javed Siddiqui",
+        Qualification: "Dept. of  Paramedical ",
+        Experience: "14 year",
+        Specialization: "Clinical biochemistry, Pathology, Medical Microbiology.",
+      },
+      {
+        name: "Ms. Rohita",
+        Qualification: "Dept. of  Pharmacy",
+        Experience: "01 year",
+        Specialization: "Hospital and clinical pharmacy, Community pharmacy, Pharmacy practice, Social pharmacy.",
+      },
+      {
+        name: "Dr. Manisha Singh",
+        Qualification: "Dept. of  Paramedical ",
+        Experience: "01 year",
+        Specialization: "Orthopedics, Neurology.",
+      },
+      {
+        name: "Dr. Kiran",
+        Qualification: "Dept. of  Paramedical ",
+        Experience: "05 year",
+        Specialization: "Orthopedics",
+      },
+      {
+        name: "Dr. Nidhi Chatterjee",
+        Qualification: "Dept. of  Zoology",
+        Experience: "18 year",
+        Specialization: "Zoology, Fish and Fishries, Parasitology.",
+      },
+      {
+        name: "Ms. Susmita Bahuguna ",
+        Qualification: "Dept. of  Nursing",
+        Experience: "01 year",
+        Specialization: "Nursing fundamental, Social nursing",
+      },
+      {
+        name: "Ms. Oshin",
+        Qualification: "Dept. of  Nursing",
+        Experience: "01 year",
+        Specialization: "Psychology, Anatomy, Physiology",
+      },
+
+    ],
+    hostelinfo: [
+      {
+        name: "Capacity",
+        info: "1000",
+      },
+      {
+        name: "Hostel Fees",
+        info: "In-house Residential Accommodation (Optional) Charges (Note: - Hostel charges is per year which includes Vegetarian / Non-Vegetarian Food) ",
+      },
+      {
+        name: "",
+        info: "•	Standard Quad (Four Sharing Room) with Attached Toilet Rs.48000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "•	Deluxe Quad (Four Sharing Room) with Attached Toilet Rs.58000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "•	Standard (Three Sharing Room) with Attached Toilet Rs.68000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "•	Deluxe (Three Sharing Room) with Attached Toilet Rs.78000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "•	Standard (Two Sharing Room) with Attached Toilet Rs.73000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "•	Deluxe (Two Sharing Room) with Attached Toilet Rs.78000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "•	Super Deluxe (Two Sharing Room) with Attached Toilet Rs.88000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "•	Executive Room (TWO SHARING Room) with LCD + Tata Sky + Attached Toilet Rs.95000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "•	Executive Room (TWO SHARING Room) with A.C + LCD + Tata Sky + Attached Toilet Rs.105000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "•	Hostel Enrolment & Furnishing Fee: Rs.5000/-(To be paid Once) Laundry Charges: Rs.4800/-per Year",
+      },
+      {
+        name: "Mess Fees",
+        info: "Includes in Hostel Fees",
+      },
+      {
+        name: "Location (on-campus or off-campus)",
+        info: "On-Campus",
+      },
+      {
+        name: "Number of Rooms",
+        info: "300",
+      },
+      {
+        name: "Room Type (Occupancy basis)",
+        info: "Single Sharing, Two sharing, Three Sharing, Four Sharing",
+      },
+      {
+        name: "Hostel Facilities/ Amenities",
+        info: "Wi-Fi, CCTV Surveillance, Security Guards, Warden, Indoor Stadium, Outdoor Playground, Gymnasium, etc.",
+      },
+    ],
+    rankinginfo: [
+      {
+        name: "6384(University)",
+        info: "The World, 2022",
+      },
+      {
+        name: "2390(University)",
+        info: "The Asia, 2022",
+      },
+      {
+        name: "350(University)",
+        info: "The India, 2022",
+      },
+      {
+        name: "9(University)",
+        info: "The Uttarakhand, 2022",
+      },
+      {
+        name: "4(University)",
+        info: "Dehradun, 2022",
+      },
+    ],
+    reviewinfo: [
+      {
+        id: 1,
+        rating: 4.7,
+        desc: "Faculty of my college are very higher educated . They are qualified for the best universities with best knowledge and gesture . They always treat students very well..",
+        user: user_1,
+        name: "",
+        location: "",
+      },
+      {
+        id: 2,
+        rating: 4.5,
+        desc: "With a 90% placement rate, your college demonstrates a strong commitment to preparing its students for successful careers..",
+        user: user_2,
+        name: "",
+        location: "",
+      },
+      {
+        id: 3,
+        rating: 4.8,
+        desc: "It was the good experience about my collage I were study past some year in this collage and I saw a major change in my communication skill and our department staf is also a good performence..",
+        user: user_3,
+        name: "",
+        location: "",
+      },
+    ],
+  },
+  {
+    id: "BFIT-Dehradun",
+    pageTitle: "Career Buddy Club | BFIT Dehradun",
+    metaDescription: ": BFIT Dehradun—a world where education transcends the classroom. We blend tradition with innovation, fostering an environment where aspirations take flight.",
     logo: job_img_2,
     type: "Private",
     establishmentyear: "2009",
@@ -1782,7 +2685,9 @@ const college_details: IcollegeType[] = [
 
 
   {
-    id: 3,
+    id: "UPES-dehradun",
+    pageTitle: "Career Buddy Club | University of Petroleum & Energies Study (UPES) Dehradun",
+    metaDescription: "UPES—a vibrant institution fostering innovative ideas, global perspectives, and personalized learning. Ranked #1 in Academic Reputation, UPES offers multidisciplinary programs, top placements, and a dynamic campus life.",
     logo: job_img_3,
     type: "Private",
     establishmentyear: "2003",
@@ -2981,911 +3886,11 @@ const college_details: IcollegeType[] = [
     ],
   },
 
-  {
-    id: 4,
-    logo: job_img_4,
-    type: "Private",
-    establishmentyear: "2009",
-    Recognisedby: "UGC",
-    Approvedby: "",
-    state: "Uttarakhand",
-    city: "Dehradun",
-    Campusarea: "20+ acre",
-    link: "",
-    email: "university@uttaranchaluniversity.ac.in",
-    founded: "",
-    phone: "",
-    feild: ["Education"],
-    overviewsection:
-      "The Uttaranchal University placement highlights that over 490 companies visited during the placement drive and the highest package offered to one of the BTech CSE students (internationally) was Rs 1.24 Crore.Uttaranchal University courses include 100+ multidisciplinary programmes from the fields of engineering, management, law, applied sciences, agriculture, nursing and more. Students can check the Uttaranchal University course and fee details from this page. Moreover, Uttaranchal University scholarships are awarded to qualified candidates based on performance in the last qualifying examination. Uttaranchal University was established in the year 2013 and has been granted recognition by the UGC. Uttaranchal University NIRF Ranking in the engineering category was between 151 - 200 band in 2022 and has been awarded with  by NAAC. The AICTE, BCI ICAR and PCI have provided approval to Uttaranchal University.",
-    duration: "Fulltime",
-    date: "18 Jul 2019",
-    college: "Uttaranchal University",
-    location: "Dehradun, India",
-    category: ["+91 7456000100"],
-    experience: "Fresher",
-    salary: 900,
-    salary_duration: "Monthly",
-    tags: ["java", "developer"],
-    english_fluency: "Fluent",
-    overview:
-      "When team members told us they needed more flexibility around where and how they worked, we acted, creating two options to accommodate two different styles of work. One non-negotiable principle along the way? We had to retain our deep culture of collaboration, both among ourselves and with our clients. Introducing Work From Near and Work From Anywhere at WillowTree. Please indicate which location(s) you're interested.",
-    videoid: "1lOGlxngJHQ?si",
-    facebook: "",
-    instagram: "",
-    twitter: "",
-    linkedin: "",
-    courses:
-      " Uttaranchal University courses are offered at undergraduate, postgraduate and doctoral levels. The university also offers certificate and diploma courses. Courses at Uttaranchal University cover diverse domains like engineering, management, pharmacy, paramedical & allied sciences, law, agriculture etc. Uttaranchal University courses are offered in regular mode and some of the popular courses offered are B.Tech, BCA, B.Pharm, BA LLB, M.Tech, MBA, LLM, M.Sc etc. Uttaranchal University fee structure is different for each programme and can also vary for each specialisation. For more information about Uttaranchal University courses, students can check out the table given below containing the course details, duration and eligibility criteria. ",
-
-    ranking:
-      "Uttaranchal University is a premier university that is many students’ choice. Rankings from established and nationally recognised authorities represent an institution's quality and standards. Uttaranchal University was ranked 53rd in The Week Hansa Research Survey 2023's category of Multidisciplinary Universities. The university was presented with the Jagran Excellence Award for Education in 2022. It is the first university in Uttarakhand to receive a NAAC A+ rating. Listed below are some categories in which Uttaranchal University has managed to rank high.",
-    awards:
-      "Our institution takes pride in its accolades, having received recognition for excellence in education and innovation. These awards underscore our commitment to delivering high-quality academic programs, fostering research, and promoting an inclusive learning environment. We have been honored for our contributions to the community and advancements in education methodology. These accolades motivate us to continually strive for excellence, ensuring that our students receive a world-class education and graduate well-prepared for their future endeavors.",
-    hostel:
-      "Our institution ensures a comfortable and secure living environment for students with separate hostel facilities for both male and female students. The hostels are well-equipped with modern amenities, providing a conducive atmosphere for focused study and recreation. Trained staff maintains discipline, and safety measures are prioritized. The hostel experience fosters a sense of community, facilitating cultural exchange and lifelong friendships. With a commitment to student welfare, we aim to create a home away from home, ensuring a positive and enriching residential experience during the academic journey.",
-    opportunities:
-      "Our institution provides a myriad of opportunities for students to thrive. Beyond academic excellence, we offer extensive career support, industry collaborations, and leadership programs. A vibrant campus life, enriched with cultural events, sports, and global exposure, fosters holistic development. The Career Resource Centre ensures students are well-prepared for professional success through internships and placement assistance. Research opportunities and collaborations with leading institutions further broaden horizons. We aim to empower our students with a diverse range of opportunities, equipping them for a dynamic and successful future.",
-    campus:
-      "Our campus provides an ideal environment for academic and personal growth. Sprawling greenery and state-of-the-art infrastructure create a conducive atmosphere for learning. Well-equipped classrooms, modern laboratories, and a resource-rich library foster a dynamic educational experience. The campus is Wi-Fi enabled, promoting seamless connectivity for research and collaborative projects. Recreational facilities, including sports amenities and cultural spaces, encourage a balanced student life. Additionally, our commitment to safety and security ensures a peaceful environment. The vibrant campus life, coupled with engaging extracurricular activities, enriches the overall student experience, fostering a sense of community and camaraderie.",
-    placement:
-      "Every year, the final year students can take part in the Uttaranchal University placements. Students can register themselves through the placement cell known as the Corporate Resource Centre (CRC). The CRC is responsible for executing the Uttaranchal University placement. Students and future employers both benefit from this department's efforts to bridge the gap between academics and industry. The Uttaranchal University placement data for the year 2023 is available now. During Uttaranchal University placement, a student of B.Tech Computer Science and Engineering course obtained the highest package from Citibank, which was Rs 1.24 CPA. Over 147 local and international recruiters attended the placement drive, and 100 students received job offers. On the other hand, the Uttaranchal University highest MBA package was Rs 26.4 LPA. Students can check the details of Uttaranchal University placement below. ",
-    admission:
-      "Uttaranchal University admission is offered in UG, PG and doctoral programmes. Uttaranchal University course admission process varies for each programme. The university accepts merit-based and entrance exam-based admission. Uttaranchal University admission in B.Tech courses are given on the basis of candidates' performance in JEE Main. The university accepts CUET scores for BBA, B.Com, B.Sc, BA LLB, BBA LLB, B.Pharm, BA, BCA, and BHMCT programme admission. At the postgraduate level, GATE scores are considered for Uttaranchal University M.Tech admission. The university accepts scores from a variety of entrance tests for enrollment in its programmes, including JEE Main, CUET, GATE, UGC NET, CAT, and MAT.",
-    faculty:"Our institution boasts a distinguished faculty drawn from premier institutions across India, setting high academic standards. With a significant number holding Master's and Ph.D. qualifications, they actively contribute to both teaching and research. Their expertise ensures a rigorous and insightful learning experience for students. The faculty's commitment to excellence extends beyond the classroom, guiding students in research endeavors and preparing them for real-world challenges. Their collective knowledge and dedication contribute significantly to the academic vibrancy of our institution, shaping the future leaders of tomorrow. ",
-
-    overviewtable:[
-      {
-        specialization: "Short Name",
-        annualfee: "UU",
-      },
-      {
-        specialization: "Institute Type - Public/ Private/ Govt",
-        annualfee: "Private",
-      },
-      {
-        specialization: "State",
-        annualfee: "Uttarakhand",
-      },
-      {
-        specialization: "City",
-        annualfee: "Dehradun",
-      },
-      {
-        specialization: "Location/ Address",
-        annualfee: "Arcadia Grant, Chandanwari, Prem Nagar, Dehradun, Uttarakhand 248007",
-      },
-     
-      {
-        specialization: "Phone Numbers",
-        annualfee: "0135-2770300",
-      },
-      {
-        specialization: "Website",
-        annualfee: "uudoon.in",
-      },
-      {
-        specialization: "Email Address",
-        annualfee: "university@uttaranchaluniversity.ac.in and admission@uumail.in ",
-      },
-      
-      {
-        specialization: "Area",
-        annualfee: "Education",
-      },
-      {
-        specialization: "Approved by",
-        annualfee: "AICTE (All India Council for Technical Education), BCI (Bar Council of India), PCI (Pharmacy Council of India) and India Council of Agricultural Research (ICAR)",
-      },
-      {
-        specialization: "Accreditation",
-        annualfee: "A+ grade by NAAC",
-      },
-     
-    ],
-      coursesAndFees: [
-      {
-        course: "B.Tech (CSE)",
-        specialization: "Cloud Computing",
-        annualFee: "",
-        duration: "",
-        eligibility: "",
-      },
-      {
-        course: "",
-        specialization: "Big Data Analytics",
-        annualFee: "",
-        duration: "",
-        eligibility: "",
-      },
-      {
-        course: "",
-        specialization: "Cyber Security",
-        annualFee: "2,71,000",
-        duration: "JEE Mains/UKSEE",
-        eligibility: "Passed 10+2 examination with PCM",
-      },
-      {
-        course: "",
-        specialization: "AI/ML",
-        annualFee: "",
-        duration: "",
-        eligibility: "",
-      },
-      {
-        course: "B.tech ",
-        specialization: "Civil Engineering",
-        annualFee: "1,48,000",
-        duration: "JEE Mains/UKSEE",
-        eligibility: "Passed 10+2 examination with PCM",
-      },
-     
-      {
-        course: "",
-        specialization: " Mechanical Engineering",
-        annualFee: "1,48,000",
-        duration: "JEE Mains/UKSEE",
-        eligibility: "Passed 10+2 examination with PCM",
-      },
-      {
-        course: "",
-        specialization: "Aerospace Engineering ",
-        annualFee: "1,76,000",
-        duration: "JEE Mains/UKSEE",
-        eligibility: "Passed 10+2 examination with PCM",
-      },
-      {
-        course: "BBA",
-        specialization: "HR",
-        annualFee: "",
-        duration: "",
-        eligibility: "",
-      },
-      {
-        course: "",
-        specialization: "Banking & Finance",
-        annualFee: "",
-        duration: "",
-        eligibility: "",
-      },
-      {
-        course: "",
-        specialization: "Digital Marketing",
-        annualFee: "1,10,000",
-        duration: "Personal Interview",
-        eligibility: "Passed 10+2 examination with PCM",
-      },
-      {
-        course: "",
-        specialization: "Aviation",
-        annualFee: "",
-        duration: "",
-        eligibility: "",
-      },
-      {
-        course: "",
-        specialization: "Tourism & Event Mgmt.",
-        annualFee: "",
-        duration: "",
-        eligibility: "",
-      },
-      {
-        course: "B.Com",
-        specialization: "",
-        annualFee: "1,00,000",
-        duration: "Personal Interview",
-        eligibility: "Passed 10+2 examination with PCM",
-      },
-      {
-        course: "B.Sc",
-        specialization: "IT",
-        annualFee: "90,000",
-        duration: "Personal Interview",
-        eligibility: "Passed 10+2 examination with PCM",
-      },
-      {
-        course: "B.A. LLB/ BBA LL.B",
-        specialization: "",
-        annualFee: "2,31,400",
-        duration: "CLAT/ULET",
-        eligibility: "Passed 10+2 examination with PCM/PCB",
-      },
-      {
-        course: "D. Pharma",
-        specialization: "",
-        annualFee: "85,000",
-        duration: "Personal Interview",
-        eligibility: "Passed 10th  examination with Science",
-      },
-      {
-        course: "B.A. Journalism & Mass Comm.",
-        specialization: "",
-        annualFee: "86,000",
-        duration: "Personal Interview",
-        eligibility: "Passed 10+2 examination with PCM/PCB",
-      },
-      {
-        course: "B.Sc (Hons.) Agriculture",
-        specialization: "",
-        annualFee: "1,20,000",
-        duration: "Personal Interview",
-        eligibility: "Passed 10+2 examination ",
-      },
-      {
-        course: "B.Sc. ",
-        specialization: "Physics",
-        annualFee: "",
-        duration: "",
-        eligibility: "Passed 10+2 examination with PCM/PCB",
-      },
-      {
-        course: "",
-        specialization: "Chemistry",
-        annualFee: "70,000",
-        duration: "Personal Interview",
-        eligibility: "Passed 10+2 examination with PCM/PCB",
-      },
-      {
-        course: "",
-        specialization: "Maths",
-        annualFee: "",
-        duration: "",
-        eligibility: "Passed 10+2 examination with PCM",
-      },
-      {
-        course: "B.Sc",
-        specialization: "Forensic Science",
-        annualFee: "1,10,000",
-        duration: "Personal Interview",
-        eligibility: "Passed 10+2 examination with PCM/PCB",
-      },
-      {
-        course: "",
-        specialization: "Data Science",
-        annualFee: "1,10,000",
-        duration: "Personal Interview",
-        eligibility: "Passed 10+2 examination with PCM",
-      },
-      {
-        course: "B.Sc. Animation & Gaming",
-        specialization: "",
-        annualFee: "1,20,000",
-        duration: "Personal Interview",
-        eligibility: "Passed 10+2 examination with PCM",
-      },
-      {
-        course: "B.Sc",
-        specialization: "Microbiology",
-        annualFee: "",
-        duration: "",
-        eligibility: "",
-      },
-      {
-        course: "",
-        specialization: "Food Technology",
-        annualFee: "91,000",
-        duration: "Personal Interview",
-        eligibility: "Passed 10+2 examination with PCB",
-      },
-      {
-        course: "",
-        specialization: "Biotechnology",
-        annualFee: "",
-        duration: "",
-        eligibility: "Passed 10+2 examination with PCB",
-      },
-      {
-        course: "Bachelor of Hotel Mgmt.",
-        specialization: "",
-        annualFee: "90,000",
-        duration: "Personal Interview",
-        eligibility: "Passed 10+2 examination with any stream",
-      },
-      {
-        course: "B.Sc Hotel & Hospitality Mgmt.",
-        specialization: "",
-        annualFee: "90,000",
-        duration: "",
-        eligibility: "Passed 10+2 examination with any stream",
-      },
-       {
-        course: "Diploma in Hotel Mgmt.",
-        specialization: "",
-        annualFee: "60,000",
-        duration: "Personal Interview",
-        eligibility: "Passed 10th examination ",
-      },
-      {
-        course: "Certificate in Hotel Management",
-        specialization: "",
-        annualFee: "40,500",
-        duration: "Personal Interview",
-        eligibility: "Passed 10+2 examination with any stream",
-      },
-      {
-        course: "B.A.",
-        specialization: "",
-        annualFee: "66,000",
-        duration: "Personal Interview",
-        eligibility: "Passed 10+2 examination with any stream",
-      },
-      {
-        course: "BA English/Psyhcology",
-        specialization: "",
-        annualFee: "72,000",
-        duration: "Personal Interview",
-        eligibility: "Passed 10+2 examination ",
-      },
-      {
-        course: "B.Sc (CBZ/PCM)",
-        specialization: "",
-        annualFee: "60,000",
-        duration: "Personal Interview",
-        eligibility: "Passed 10+2 examination with PCM/PCB",
-      },
-      {
-        course: "BCA",
-        specialization: "Data Analytics",
-        annualFee: "1,10,000",
-        duration: "Personal Interview",
-        eligibility: "Passed 10+2 examination with PCM",
-      },
-      {
-        course: "",
-        specialization: "Cyber Security",
-        annualFee: "1,10,000",
-        duration: "Personal Interview",
-        eligibility: "Passed 10+2 examination with PCM",
-      },
-      {
-        course: "MBA",
-        specialization: "IT",
-        annualFee: "",
-        duration: "",
-        eligibility: "",
-      },
-      {
-        course: "",
-        specialization: "Business",
-        annualFee: "",
-        duration: "",
-        eligibility: "",
-      },
-      {
-        course: "",
-        specialization: "Analytics",
-        annualFee: "2,21,000",
-        duration: "CAT/XAT/MAT",
-        eligibility: "Graduation From a recognized University",
-      },
-      {
-        course: "",
-        specialization: "Digital Marketing",
-        annualFee: "",
-        duration: "",
-        eligibility: "",
-      },
-      {
-        course: "",
-        specialization: "IB",
-        annualFee: "",
-        duration: "",
-        eligibility: "",
-      },
-
-      {
-        course: "MBA Logistic & SupplyChain Mgmt.",
-        specialization: "",
-        annualFee: "2,21,000",
-        duration: "CAT/XAT/MAT",
-        eligibility: "Graduation From a recognized University",
-      },
-      {
-        course: "MCA",
-        specialization: "",
-        annualFee: "1,20,000",
-        duration: "Personal Interview",
-        eligibility: "Graduation From a recognized University",
-      },
-      {
-        course: "MCA",
-        specialization: "Cloud Computing",
-        annualFee: "1,25,000",
-        duration: "Personal Interview",
-        eligibility: "Graduation From a recognized University",
-      },
-      {
-        course: "MAJMC",
-        specialization: "",
-        annualFee: "86,000",
-        duration: "Personal Interview",
-        eligibility: "Graduation From a recognized University",
-      },
-      {
-        course: "M.Sc Ag.",
-        specialization: "",
-        annualFee: "91,000",
-        duration: "Personal Interview",
-        eligibility: "Graduation From a recognized University",
-      },
-      {
-        course: "M.Sc.",
-        specialization: "Physics",
-        annualFee: "",
-        duration: "",
-        eligibility: "",
-      },
-      {
-        course: "",
-        specialization: "Chemistry",
-        annualFee: "",
-        duration: "",
-        eligibility: "",
-      },
-      {
-        course: "",
-        specialization: "Maths",
-        annualFee: "",
-        duration: "",
-        eligibility: "",
-      },
-      {
-        course: "",
-        specialization: "Industrial Chemistry",
-        annualFee: "61,000",
-        duration: "Personal Interview",
-        eligibility: "Graduation From a recognized University",
-      },
-      {
-        course: "",
-        specialization: "Zoology",
-        annualFee: "",
-        duration: "",
-        eligibility: "",
-      },
-      {
-        course: "",
-        specialization: "Botany",
-        annualFee: "",
-        duration: "",
-        eligibility: "",
-      },
-      {
-        course: "",
-        specialization: "EVS",
-        annualFee: "",
-        duration: "",
-        eligibility: "",
-      },
-      {
-        course: "M.Tech",
-        specialization: "CSE",
-        annualFee: "",
-        duration: "",
-        eligibility: "",
-      },
-      {
-        course: "",
-        specialization: "Thermal Engg.",
-        annualFee: "",
-        duration: "",
-        eligibility: "",
-      },
-      {
-        course: "",
-        specialization: "Environ. Engg.",
-        annualFee: "1,01,000",
-        duration: "",
-        eligibility: "Graduation From a recognized University",
-      },
-      {
-        course: "",
-        specialization: "Energy Mgmt.",
-        annualFee: "",
-        duration: "",
-        eligibility: "",
-      },
-      {
-        course: "",
-        specialization: "Construction Tech & Mgmt.",
-        annualFee: "",
-        duration: "",
-        eligibility: "",
-      },
-      {
-        course: "Paramedical",
-        specialization: "BMLT",
-        annualFee: "",
-        duration: "",
-        eligibility: "",
-      },
-      {
-        course: "",
-        specialization: "BMRIT",
-        annualFee: "90,000",
-        duration: "Personal Interview",
-        eligibility: "Graduation From a recognized University",
-      },
-      {
-        course: "",
-        specialization: "Opreration Theatre & optometry",
-        annualFee: "",
-        duration: "",
-        eligibility: "",
-      },
-      {
-        course: "M.A.",
-        specialization: "English",
-        annualFee: "",
-        duration: "",
-        eligibility: "",
-      },
-      {
-        course: "",
-        specialization: "Political Science",
-        annualFee: "71,000",
-        duration: "Personal Interview",
-        eligibility: "Graduation From a recognized University",
-      },
-      {
-        course: "",
-        specialization: "Clinical psychology",
-        annualFee: " ",
-        duration: "",
-        eligibility: "",
-      },
-      {
-        course: "M.Sc Food Tech",
-        specialization: "",
-        annualFee: "91,000",
-        duration: "Personal Interview",
-        eligibility: "Graduation From a recognized University",
-      },
-
-      {
-        course: "MCA",
-        specialization: "AI/ML",
-        annualFee: "1,30,000",
-        duration: "Personal Interview",
-        eligibility: "Graduation From a recognized University",
-      },
-      {
-        course: "M.Sc. Biotechonolgy",
-        specialization: "",
-        annualFee: "91,000",
-        duration: "Personal Interview",
-        eligibility: "Graduation From a recognized University",
-      },
-      {
-        course: "M.Sc Food Nutrition & Dietetics",
-        specialization: "",
-        annualFee: "91,000",
-        duration: "Personal Interview",
-        eligibility: "Graduation From a recognized University",
-      },
-      {
-        course: "M.Sc",
-        specialization: "Data Science",
-        annualFee: " ",
-        duration: "",
-        eligibility: "",
-      },
-      {
-        course: "",
-        specialization: "Forensic Science",
-        annualFee: "1,20,000",
-        duration: "Personal Interview",
-        eligibility: "Graduation From a recognized University",
-      },
-      
-      
-    ],
-    admissionDates: [
-      {
-        name: "Application Start Date",
-        date: "01-Mar-2024",
-      },
-      {
-        name: "Application End Date",
-        date: "30-Jul-2024",
-      },
-      {
-        name: "Date of Result Declaration",
-        date: "September 18, 2023",
-      },
-      {
-        name: "Last Date of Submission of Fee",
-        date: "September 28, 2023",
-      },
-      {
-        name: "Commencement of the Coursework",
-        date: "01-Aug-2024",
-      },
-    ],
-    campusinfo: [
-      {
-        name: "Registration Dates",
-        info: "February  , 2024",
-      },
-      {
-        name: "Date of Entrance Test & Interview",
-        info: "April, 2024",
-      },
-      {
-        name: "Date of Result Declaration",
-        info: "May , 2024",
-      },
-      {
-        name: "Commencement of the Coursework",
-        info: "October , 2024",
-      },
-    ],
-    placementinformation: [
-      {
-        name: "Placement Year",
-        info: "2023",
-      },
-      {
-        name: "Number of Companies Participated",
-        info: "490+",
-      },
-      {
-        name: "Number of Students",
-        info: "1200+",
-      },
-      {
-        name: "Highest Package",
-        info: "INR 1.24 CPA",
-      },
-      {
-        name: "Top Recruiters",
-        info: "Forma, Decathlon, Outlook, Uniqlo, Bajaj Finserv",
-      },
-     
-      
-    ],
-    opportunitiesinfo: [
-      {
-        name: "Registration Dates",
-        info: "February 8 to September 15, 2023",
-      },
-      {
-        name: "Date of Entrance Test & Interview",
-        info: "September 17, 2023",
-      },
-      {
-        name: "Date of Result Declaration",
-        info: "September 18, 2023",
-      },
-      {
-        name: "Last Date of Submission of Fee",
-        info: "September 28, 2023",
-      },
-      {
-        name: "Commencement of the Coursework",
-        info: "October 3, 2023",
-      },
-    ],
-
-    awardsinfo: [
-      "NAAC A+",
-      "Top Private Law College In Uttarakhand.",
-      "Most Promising Engineering & Management Institute in India Award.",
-      "Most Aware Campus of Uttarakhand Award.",
-      "Icon Award of Uttarakhand.",
-      
-     
-    ],
-   
-    facultytable: [
-      {
-        name: "Dr. Vishal",
-        Qualification: "Dept. of  Microbiology",
-        Experience: "22 year",
-        Specialization: "Agriculture microbiology, Biological Control, Plant growth promo. Rhizo bacteria, Fermentation Technology, Antimicrobial Activity of mediclinal plant, Microbial pathology.",
-      },
-      {
-        name: "Dr. RD Saklani",
-        Qualification: "Dept. of  Geology",
-        Experience: "10 year",
-        Specialization: "Sequence stratigraphy, Petroleum Geology, Ichnology, Disaster Management, Engg. Geology, Field Geology, Himalayan Geology & Western India (Kachchh & Rajasthan).",
-      },
-      {
-        name: "Mr. S K Thakur",
-        Qualification: "Dept. of  Statistics & Mathematics",
-        Experience: "35 year",
-        Specialization: "Statistics, International finance,  International Economics, Coorporates Law. ",
-      },
-      {
-        name: "Dr. Neelesh",
-        Qualification: "Dept. of  Microbiology",
-        Experience: "02 year",
-        Specialization: "Medical microbiology, General microbiology.",
-      },
-      {
-        name: "Mrs. Preeti Sood",
-        Qualification: "Dept. of  Hotel Management ",
-        Experience: "23 year",
-        Specialization: "Food and beverage,Front office, House Keeping, Kitchen.",
-      },
-      {
-        name: "Mr. Gurmeet singh",
-        Qualification: "Dept. of  Chemistry",
-        Experience: "03 year",
-        Specialization: "Waste Management, Water purification, Biofilms and filters, Polymers, Analytical Chemistry.",
-      },
-      {
-        name: "Mr. Kashif Hussain",
-        Qualification: "Dept. of  Pharmacy",
-        Experience: "12 year",
-        Specialization: "Pharmaceutical Chemistry.",
-      },
-      {
-        name: "Mr. Javed Siddiqui",
-        Qualification: "Dept. of  Paramedical ",
-        Experience: "14 year",
-        Specialization: "Clinical biochemistry, Pathology, Medical Microbiology.",
-      },
-      {
-        name: "Ms. Rohita",
-        Qualification: "Dept. of  Pharmacy",
-        Experience: "01 year",
-        Specialization: "Hospital and clinical pharmacy, Community pharmacy, Pharmacy practice, Social pharmacy.",
-      },
-      {
-        name: "Dr. Manisha Singh",
-        Qualification: "Dept. of  Paramedical ",
-        Experience: "01 year",
-        Specialization: "Orthopedics, Neurology.",
-      },
-      {
-        name: "Dr. Kiran",
-        Qualification: "Dept. of  Paramedical ",
-        Experience: "05 year",
-        Specialization: "Orthopedics",
-      },
-      {
-        name: "Dr. Nidhi Chatterjee",
-        Qualification: "Dept. of  Zoology",
-        Experience: "18 year",
-        Specialization: "Zoology, Fish and Fishries, Parasitology.",
-      },
-      {
-        name: "Ms. Susmita Bahuguna ",
-        Qualification: "Dept. of  Nursing",
-        Experience: "01 year",
-        Specialization: "Nursing fundamental, Social nursing",
-      },
-      {
-        name: "Ms. Oshin",
-        Qualification: "Dept. of  Nursing",
-        Experience: "01 year",
-        Specialization: "Psychology, Anatomy, Physiology",
-      },
-
-    ],
-    hostelinfo: [
-      {
-        name: "Capacity",
-        info: "1000",
-      },
-      {
-        name: "Hostel Fees",
-        info: "In-house Residential Accommodation (Optional) Charges (Note: - Hostel charges is per year which includes Vegetarian / Non-Vegetarian Food) ",
-      },
-      {
-        name: "",
-        info: "•	Standard Quad (Four Sharing Room) with Attached Toilet Rs.48000/-per Year.        ",
-      },
-      {
-        name: "",
-        info: "•	Deluxe Quad (Four Sharing Room) with Attached Toilet Rs.58000/-per Year.        ",
-      },
-      {
-        name: "",
-        info: "•	Standard (Three Sharing Room) with Attached Toilet Rs.68000/-per Year.        ",
-      },
-      {
-        name: "",
-        info: "•	Deluxe (Three Sharing Room) with Attached Toilet Rs.78000/-per Year.        ",
-      },
-      {
-        name: "",
-        info: "•	Standard (Two Sharing Room) with Attached Toilet Rs.73000/-per Year.        ",
-      },
-      {
-        name: "",
-        info: "•	Deluxe (Two Sharing Room) with Attached Toilet Rs.78000/-per Year.        ",
-      },
-      {
-        name: "",
-        info: "•	Super Deluxe (Two Sharing Room) with Attached Toilet Rs.88000/-per Year.        ",
-      },
-      {
-        name: "",
-        info: "•	Executive Room (TWO SHARING Room) with LCD + Tata Sky + Attached Toilet Rs.95000/-per Year.        ",
-      },
-      {
-        name: "",
-        info: "•	Executive Room (TWO SHARING Room) with A.C + LCD + Tata Sky + Attached Toilet Rs.105000/-per Year.        ",
-      },
-      {
-        name: "",
-        info: "•	Hostel Enrolment & Furnishing Fee: Rs.5000/-(To be paid Once) Laundry Charges: Rs.4800/-per Year",
-      },
-      {
-        name: "Mess Fees",
-        info: "Includes in Hostel Fees",
-      },
-      {
-        name: "Location (on-campus or off-campus)",
-        info: "On-Campus",
-      },
-      {
-        name: "Number of Rooms",
-        info: "300",
-      },
-      {
-        name: "Room Type (Occupancy basis)",
-        info: "Single Sharing, Two sharing, Three Sharing, Four Sharing",
-      },
-      {
-        name: "Hostel Facilities/ Amenities",
-        info: "Wi-Fi, CCTV Surveillance, Security Guards, Warden, Indoor Stadium, Outdoor Playground, Gymnasium, etc.",
-      },
-    ],
-    rankinginfo: [
-      {
-        name: "6384(University)",
-        info: "The World, 2022",
-      },
-      {
-        name: "2390(University)",
-        info: "The Asia, 2022",
-      },
-      {
-        name: "350(University)",
-        info: "The India, 2022",
-      },
-      {
-        name: "9(University)",
-        info: "The Uttarakhand, 2022",
-      },
-      {
-        name: "4(University)",
-        info: "Dehradun, 2022",
-      },
-    ],
-    reviewinfo: [
-      {
-        id: 1,
-        rating: 4.7,
-        desc: "Faculty of my college are very higher educated . They are qualified for the best universities with best knowledge and gesture . They always treat students very well..",
-        user: user_1,
-        name: "",
-        location: "",
-      },
-      {
-        id: 2,
-        rating: 4.5,
-        desc: "With a 90% placement rate, your college demonstrates a strong commitment to preparing its students for successful careers..",
-        user: user_2,
-        name: "",
-        location: "",
-      },
-      {
-        id: 3,
-        rating: 4.8,
-        desc: "It was the good experience about my collage I were study past some year in this collage and I saw a major change in my communication skill and our department staf is also a good performence..",
-        user: user_3,
-        name: "",
-        location: "",
-      },
-    ],
-  },
 
   {
-    id: 5,
+    id: "JBIT-Dehradun",
+    pageTitle: "Career Buddy Club | JBIT Dehradun",
+    metaDescription: "JBIT Dehradun—a private technical institute affiliated with Uttarakhand Board of Technical Education and Uttarakhand Technical University. Offering undergraduate, postgraduate, and diploma courses in engineering, applied sciences, and management.",
     logo: job_img_5,
     type: "Private",
     establishmentyear: "2009",
@@ -4390,492 +4395,492 @@ const college_details: IcollegeType[] = [
     ],
   },
 
-  {
-    id: 6,
-    logo: job_img_6,
-    type: "Private",
-    establishmentyear: "2009",
-    Recognisedby: "UGC",
-    Approvedby: "",
-    state: "Uttarakhand",
-    city: "Dehradun",
-    Campusarea: "20+ acre",
-    link: "",
-    email: "",
-    founded: "",
-    phone: "",
-    feild: ["Education"],
-    overviewsection:
-      "Doon Business School is equipped with state-of-the-art educational and training facilities supervised and coordinated by highly trained coordinators. Many of our faculty members have had international business and teaching experience working in prestigious institutions such as Harvard business School, IIM, FMS, XLRI MIT Sloan, and many more. Our teaching faculty uses highly evolved methods to communicate with their students including role-plays, simulation exercises, case studies analysis and real-life project management and reporting. The basic idea of the entire endeavour is to impart knowledge and share experience that can help our students evolve into leaders in their respective fields.",
-    duration: "Fulltime",
-    date: "18 Jul 2019",
-    college: "Doon Business School",
-    location: "Dehradun, India",
-    category: ["+91 7456000100"],
-    experience: "Fresher",
-    salary: 900,
-    salary_duration: "Monthly",
-    tags: ["java", "developer"],
-    english_fluency: "Fluent",
-    overview:
-      "When team members told us they needed more flexibility around where and how they worked, we acted, creating two options to accommodate two different styles of work. One non-negotiable principle along the way? We had to retain our deep culture of collaboration, both among ourselves and with our clients. Introducing Work From Near and Work From Anywhere at WillowTree. Please indicate which location(s) you're interested.",
-    videoid: "jXsdeBwEzeo?si",
-    facebook: "",
-    instagram: "",
-    twitter: "",
-    linkedin: "",
-    courses:
+  // {
+  //   id: 6,
+  //   logo: job_img_6,
+  //   type: "Private",
+  //   establishmentyear: "2009",
+  //   Recognisedby: "UGC",
+  //   Approvedby: "",
+  //   state: "Uttarakhand",
+  //   city: "Dehradun",
+  //   Campusarea: "20+ acre",
+  //   link: "",
+  //   email: "",
+  //   founded: "",
+  //   phone: "",
+  //   feild: ["Education"],
+  //   overviewsection:
+  //     "Doon Business School is equipped with state-of-the-art educational and training facilities supervised and coordinated by highly trained coordinators. Many of our faculty members have had international business and teaching experience working in prestigious institutions such as Harvard business School, IIM, FMS, XLRI MIT Sloan, and many more. Our teaching faculty uses highly evolved methods to communicate with their students including role-plays, simulation exercises, case studies analysis and real-life project management and reporting. The basic idea of the entire endeavour is to impart knowledge and share experience that can help our students evolve into leaders in their respective fields.",
+  //   duration: "Fulltime",
+  //   date: "18 Jul 2019",
+  //   college: "Doon Business School",
+  //   location: "Dehradun, India",
+  //   category: ["+91 7456000100"],
+  //   experience: "Fresher",
+  //   salary: 900,
+  //   salary_duration: "Monthly",
+  //   tags: ["java", "developer"],
+  //   english_fluency: "Fluent",
+  //   overview:
+  //     "When team members told us they needed more flexibility around where and how they worked, we acted, creating two options to accommodate two different styles of work. One non-negotiable principle along the way? We had to retain our deep culture of collaboration, both among ourselves and with our clients. Introducing Work From Near and Work From Anywhere at WillowTree. Please indicate which location(s) you're interested.",
+  //   videoid: "jXsdeBwEzeo?si",
+  //   facebook: "",
+  //   instagram: "",
+  //   twitter: "",
+  //   linkedin: "",
+  //   courses:
 
-      "Doon Business is best for the entire course duration, depending on the degree level, duration and specialisation of the course. The college offers 12 courses at the undergraduate as well as postgraduate levels. The courses are available in different streams such as commerce, engineering, humanities, science, business administration, computer applications, management and more. Admission to Doon Business School courses are open for the academic year 2024-25. For admission the college conducts CBSE 12th. In addition to this, scores of CAT, CMAT, MAT are accepted by Doon Business School.",
+  //     "Doon Business is best for the entire course duration, depending on the degree level, duration and specialisation of the course. The college offers 12 courses at the undergraduate as well as postgraduate levels. The courses are available in different streams such as commerce, engineering, humanities, science, business administration, computer applications, management and more. Admission to Doon Business School courses are open for the academic year 2024-25. For admission the college conducts CBSE 12th. In addition to this, scores of CAT, CMAT, MAT are accepted by Doon Business School.",
 
-    ranking:
-      "DBS Global University (DBS Global University) is a renowned institution situated in the vibrant city of Dehradun, within the state of Uttarakhand. As a leading college in the field of Management, it has carved a niche for itself in the category. Admission to DBS Global University is highly competitive, primarily determined through the exam, ensuring that only the most dedicated and talented students become part of its community.",
-    awards:
-      "JB Institute of Technology (JBIT) Dehradun has been awarded as - The Best Upcoming Engineering College in North India by ASSOCHAM at New Delhi on 19.02.14 through the good hands of chief guest Padam Bhusan awardee Dr. Karan Singh Ji. This Mega Event was organized by ASSOCHAM with an association of National Skill Development Corporation, Planning Commission (Niti Ayog), Government of India.",
-    hostel:
-      "",
-    opportunities:
-      "",
-    campus:
-      "Business School (DBS) campus area is spread over 4 acres and surrounded by the mountains. The institute has an amazing infrastructure comparable to international standards and has 50 experienced faculty members to develop a learning environment that fosters conceptual clarity and underscore the applicability of theoretical inputs to a real-life situation.",
-    placement:
-      "As per Doon Business School placements statistics 2023, 300+ students were placed and 250+ companies visited the campus for placements. The highest package offered in 2023 was Rs 24 LPA. The top 20% of the students bagged a package of Rs 11.6 LPA and the top 80% of the students bagged a package of Rs 8.15 LPA. The average package offered was Rs 7-8 LPA. Some of the top recruiters that visited for Doon Business School placements 2023 are Deloitte, EY, Dabur, ITC, Asian Paints, HCL Technologies, ICICI Bank, Axis Bank, etc.",
-    admission:
-      "",
-    faculty:"",
+  //   ranking:
+  //     "DBS Global University (DBS Global University) is a renowned institution situated in the vibrant city of Dehradun, within the state of Uttarakhand. As a leading college in the field of Management, it has carved a niche for itself in the category. Admission to DBS Global University is highly competitive, primarily determined through the exam, ensuring that only the most dedicated and talented students become part of its community.",
+  //   awards:
+  //     "JB Institute of Technology (JBIT) Dehradun has been awarded as - The Best Upcoming Engineering College in North India by ASSOCHAM at New Delhi on 19.02.14 through the good hands of chief guest Padam Bhusan awardee Dr. Karan Singh Ji. This Mega Event was organized by ASSOCHAM with an association of National Skill Development Corporation, Planning Commission (Niti Ayog), Government of India.",
+  //   hostel:
+  //     "",
+  //   opportunities:
+  //     "",
+  //   campus:
+  //     "Business School (DBS) campus area is spread over 4 acres and surrounded by the mountains. The institute has an amazing infrastructure comparable to international standards and has 50 experienced faculty members to develop a learning environment that fosters conceptual clarity and underscore the applicability of theoretical inputs to a real-life situation.",
+  //   placement:
+  //     "As per Doon Business School placements statistics 2023, 300+ students were placed and 250+ companies visited the campus for placements. The highest package offered in 2023 was Rs 24 LPA. The top 20% of the students bagged a package of Rs 11.6 LPA and the top 80% of the students bagged a package of Rs 8.15 LPA. The average package offered was Rs 7-8 LPA. Some of the top recruiters that visited for Doon Business School placements 2023 are Deloitte, EY, Dabur, ITC, Asian Paints, HCL Technologies, ICICI Bank, Axis Bank, etc.",
+  //   admission:
+  //     "",
+  //   faculty:"",
 
-    overviewtable:[
-      {
-        specialization: "Short Name",
-        annualfee: "DBS",
-      },
-      {
-        specialization: "Institute Type - Public/ Private/ Govt",
-        annualfee: "Private",
-      },
-      {
-        specialization: "State",
-        annualfee: "Uttarakhand",
-      },
-      {
-        specialization: "City",
-        annualfee: "Dehradun",
-      },
-      {
-        specialization: "Location/ Address",
-        annualfee: "Mi-122, Behind Pharma City, Selaqui, Dehradun",
-      },
+  //   overviewtable:[
+  //     {
+  //       specialization: "Short Name",
+  //       annualfee: "DBS",
+  //     },
+  //     {
+  //       specialization: "Institute Type - Public/ Private/ Govt",
+  //       annualfee: "Private",
+  //     },
+  //     {
+  //       specialization: "State",
+  //       annualfee: "Uttarakhand",
+  //     },
+  //     {
+  //       specialization: "City",
+  //       annualfee: "Dehradun",
+  //     },
+  //     {
+  //       specialization: "Location/ Address",
+  //       annualfee: "Mi-122, Behind Pharma City, Selaqui, Dehradun",
+  //     },
      
-      {
-        specialization: "Phone Numbers",
-        annualfee: "+91 7456000100",
-      },
-      {
-        specialization: "Website",
-        annualfee: "www.doonbusinessschools.com",
-      },
-      {
-        specialization: "Email Address",
-        annualfee: "admission@careerbuddyclub.com",
-      }, 
+  //     {
+  //       specialization: "Phone Numbers",
+  //       annualfee: "+91 7456000100",
+  //     },
+  //     {
+  //       specialization: "Website",
+  //       annualfee: "www.doonbusinessschools.com",
+  //     },
+  //     {
+  //       specialization: "Email Address",
+  //       annualfee: "admission@careerbuddyclub.com",
+  //     }, 
   
     
       
      
-    ],
-      coursesAndFees: [
-      {
-        course: "M.Tech",
-        specialization: "",
-        annualFee: "90,700",
-        duration: "GATE/ Personal Interview",
-        eligibility: "B. Tech /BE in Aerospace/ Aeronautical/ Mechanical/ Civil/ Chemical Eng. Or equivalent with minimum 60% marks. Gate / NET Qualified will be preferred.",
-      },
-      {
-        course: "MBA",
-        specialization: "",
-        annualFee: "90,700",
-        duration: "CAT/ XAT",
-        eligibility: "Minimum 50% marks in Class X, XII and Graduation. Graduation From a recognized University in any stream",
-      },
+  //   ],
+  //     coursesAndFees: [
+  //     {
+  //       course: "M.Tech",
+  //       specialization: "",
+  //       annualFee: "90,700",
+  //       duration: "GATE/ Personal Interview",
+  //       eligibility: "B. Tech /BE in Aerospace/ Aeronautical/ Mechanical/ Civil/ Chemical Eng. Or equivalent with minimum 60% marks. Gate / NET Qualified will be preferred.",
+  //     },
+  //     {
+  //       course: "MBA",
+  //       specialization: "",
+  //       annualFee: "90,700",
+  //       duration: "CAT/ XAT",
+  //       eligibility: "Minimum 50% marks in Class X, XII and Graduation. Graduation From a recognized University in any stream",
+  //     },
 
-       {
-        course: "B.Tech",
-        specialization: "",
-        annualFee: "89,700",
-        duration: "JEE Mains / Board Merit / SAT/ CUET",
-        eligibility: "Minimum 50% Marks in Class X and XII. Along with 50 % in PCM (Physics/Chemistry and Mathematics) in Class XII",
-      },  
-      {
-        course: "B.Tech(Lateral)",
-        specialization: "",
-        annualFee: "89,700",
-        duration: "JEE Mains / Board Merit / SAT/ CUET",
-        eligibility: "Minimum 50% Marks in Class X and XII. Along with 50 % in PCM (Physics/Chemistry and Mathematics) in Class XII/ Diploma",
-      },  
-      {
-        course: "Diploma (Engineering)",
-        specialization: "",
-        annualFee: "49,400",
-        duration: "Personal Interview",
-        eligibility: "Passed 10th examination with Science",
-      },  
-      {
-        course: "Diploma (Lateral)(Engineering)",
-        specialization: "",
-        annualFee: "49,400",
-        duration: "Personal Interview",
-        eligibility: "Passed 10th examination with Science",
-      },  
-      {
-        course: "",
-        specialization: "",
-        annualFee: "",
-        duration: "",
-        eligibility: "",
-      },
+  //      {
+  //       course: "B.Tech",
+  //       specialization: "",
+  //       annualFee: "89,700",
+  //       duration: "JEE Mains / Board Merit / SAT/ CUET",
+  //       eligibility: "Minimum 50% Marks in Class X and XII. Along with 50 % in PCM (Physics/Chemistry and Mathematics) in Class XII",
+  //     },  
+  //     {
+  //       course: "B.Tech(Lateral)",
+  //       specialization: "",
+  //       annualFee: "89,700",
+  //       duration: "JEE Mains / Board Merit / SAT/ CUET",
+  //       eligibility: "Minimum 50% Marks in Class X and XII. Along with 50 % in PCM (Physics/Chemistry and Mathematics) in Class XII/ Diploma",
+  //     },  
+  //     {
+  //       course: "Diploma (Engineering)",
+  //       specialization: "",
+  //       annualFee: "49,400",
+  //       duration: "Personal Interview",
+  //       eligibility: "Passed 10th examination with Science",
+  //     },  
+  //     {
+  //       course: "Diploma (Lateral)(Engineering)",
+  //       specialization: "",
+  //       annualFee: "49,400",
+  //       duration: "Personal Interview",
+  //       eligibility: "Passed 10th examination with Science",
+  //     },  
+  //     {
+  //       course: "",
+  //       specialization: "",
+  //       annualFee: "",
+  //       duration: "",
+  //       eligibility: "",
+  //     },
       
-      {
-        course: "B.Pharma",
-        specialization: "",
-        annualFee: "89,700",
-        duration: "Board Merit",
-        eligibility: "Minimum 50% Marks at X & XII with Physics, Chemistry, Biology/ Math’s, and English as a Major Subject in XII",
-      },  
-      {
-        course: "B.Pharma (Lateral)",
-        specialization: "",
-        annualFee: "89,700",
-        duration: "Board Merit",
-        eligibility: "Minimum 50% Marks at X & XII with Physics, Chemistry, Biology/ Math’s, and English as a Major Subject in XII",
-      },  
-      {
-        course: "D.Pharma",
-        specialization: "",
-        annualFee: "59,400",
-        duration: "Personal Interview",
-        eligibility: "Passed 10th examination with Science",
-      }, 
+  //     {
+  //       course: "B.Pharma",
+  //       specialization: "",
+  //       annualFee: "89,700",
+  //       duration: "Board Merit",
+  //       eligibility: "Minimum 50% Marks at X & XII with Physics, Chemistry, Biology/ Math’s, and English as a Major Subject in XII",
+  //     },  
+  //     {
+  //       course: "B.Pharma (Lateral)",
+  //       specialization: "",
+  //       annualFee: "89,700",
+  //       duration: "Board Merit",
+  //       eligibility: "Minimum 50% Marks at X & XII with Physics, Chemistry, Biology/ Math’s, and English as a Major Subject in XII",
+  //     },  
+  //     {
+  //       course: "D.Pharma",
+  //       specialization: "",
+  //       annualFee: "59,400",
+  //       duration: "Personal Interview",
+  //       eligibility: "Passed 10th examination with Science",
+  //     }, 
       
-      {
-        course: "",
-        specialization: "",
-        annualFee: "",
-        duration: "",
-        eligibility: "",
-      },
+  //     {
+  //       course: "",
+  //       specialization: "",
+  //       annualFee: "",
+  //       duration: "",
+  //       eligibility: "",
+  //     },
 
-      {
-        course: "B.Sc (Hons.) Agriculture",
-        specialization: "",
-        annualFee: "60,900",
-        duration: "Personal Interview",
-        eligibility: "Passed 10+2 examination",
-      },  
-      {
-        course: "BBA",
-        specialization: "",
-        annualFee: "50,900",
-        duration: "Personal Interview",
-        eligibility: "Passed 10+2 examination with PCM",
-      },  
-      {
-        course: "B.Sc(IT)",
-        specialization: "",
-        annualFee: "41,900",
-        duration: "Jee Main/CUT",
-        eligibility: "Passed 10+2 examination with PCM",
-      },  
+  //     {
+  //       course: "B.Sc (Hons.) Agriculture",
+  //       specialization: "",
+  //       annualFee: "60,900",
+  //       duration: "Personal Interview",
+  //       eligibility: "Passed 10+2 examination",
+  //     },  
+  //     {
+  //       course: "BBA",
+  //       specialization: "",
+  //       annualFee: "50,900",
+  //       duration: "Personal Interview",
+  //       eligibility: "Passed 10+2 examination with PCM",
+  //     },  
+  //     {
+  //       course: "B.Sc(IT)",
+  //       specialization: "",
+  //       annualFee: "41,900",
+  //       duration: "Jee Main/CUT",
+  //       eligibility: "Passed 10+2 examination with PCM",
+  //     },  
 
        
       
-    ],
-    admissionDates: [
-      {
-        name: "Application Start Date",
-        date: "01-Mar-2024",
-      },
-      {
-        name: "Application End Date",
-        date: "30-Jul-2024",
-      },
-      {
-        name: "Date of Result Declaration",
-        date: "September 18, 2023",
-      },
-      {
-        name: "Last Date of Submission of Fee",
-        date: "September 28, 2023",
-      },
-      {
-        name: "Commencement of the Coursework",
-        date: "01-Aug-2024",
-      },
-    ],
-    campusinfo: [
-      {
-        name: "Registration Dates",
-        info: "Aug, 2024",
-      },
-      {
-        name: "Date of Entrance Test & Interview",
-        info: "Aug, 2024",
-      },
+  //   ],
+  //   admissionDates: [
+  //     {
+  //       name: "Application Start Date",
+  //       date: "01-Mar-2024",
+  //     },
+  //     {
+  //       name: "Application End Date",
+  //       date: "30-Jul-2024",
+  //     },
+  //     {
+  //       name: "Date of Result Declaration",
+  //       date: "September 18, 2023",
+  //     },
+  //     {
+  //       name: "Last Date of Submission of Fee",
+  //       date: "September 28, 2023",
+  //     },
+  //     {
+  //       name: "Commencement of the Coursework",
+  //       date: "01-Aug-2024",
+  //     },
+  //   ],
+  //   campusinfo: [
+  //     {
+  //       name: "Registration Dates",
+  //       info: "Aug, 2024",
+  //     },
+  //     {
+  //       name: "Date of Entrance Test & Interview",
+  //       info: "Aug, 2024",
+  //     },
   
-      {
-        name: "Commencement of the Coursework",
-        info: "October , 2024",
-      },
-    ],
-    placementinformation: [
-      {
-        name: "Placement Year",
-        info: "2023",
-      },
-      {
-        name: "Number of Students Placed",
-        info: "300+",
-      },
-      {
-        name: "Highest Package Offered",
-        info: "Rs 24 LPA	",
-      },
-      {
-        name: "Average Package Offered",
-        info: "Rs 7-8 LPA",
-      },
-      {
-        name: "Top 5 Recruiters",
-        info: "Deloitte, EY, Dabur, ITC, Asian Paints, HCL, etc.",
-      },
+  //     {
+  //       name: "Commencement of the Coursework",
+  //       info: "October , 2024",
+  //     },
+  //   ],
+  //   placementinformation: [
+  //     {
+  //       name: "Placement Year",
+  //       info: "2023",
+  //     },
+  //     {
+  //       name: "Number of Students Placed",
+  //       info: "300+",
+  //     },
+  //     {
+  //       name: "Highest Package Offered",
+  //       info: "Rs 24 LPA	",
+  //     },
+  //     {
+  //       name: "Average Package Offered",
+  //       info: "Rs 7-8 LPA",
+  //     },
+  //     {
+  //       name: "Top 5 Recruiters",
+  //       info: "Deloitte, EY, Dabur, ITC, Asian Paints, HCL, etc.",
+  //     },
       
-    ],
-    opportunitiesinfo: [
-      {
-        name: "Registration Dates",
-        info: "February 8 to September 15, 2023",
-      },
-      {
-        name: "Date of Entrance Test & Interview",
-        info: "September 17, 2023",
-      },
-      {
-        name: "Date of Result Declaration",
-        info: "September 18, 2023",
-      },
-      {
-        name: "Last Date of Submission of Fee",
-        info: "September 28, 2023",
-      },
-      {
-        name: "Commencement of the Coursework",
-        info: "October 3, 2023",
-      },
-    ],
+  //   ],
+  //   opportunitiesinfo: [
+  //     {
+  //       name: "Registration Dates",
+  //       info: "February 8 to September 15, 2023",
+  //     },
+  //     {
+  //       name: "Date of Entrance Test & Interview",
+  //       info: "September 17, 2023",
+  //     },
+  //     {
+  //       name: "Date of Result Declaration",
+  //       info: "September 18, 2023",
+  //     },
+  //     {
+  //       name: "Last Date of Submission of Fee",
+  //       info: "September 28, 2023",
+  //     },
+  //     {
+  //       name: "Commencement of the Coursework",
+  //       info: "October 3, 2023",
+  //     },
+  //   ],
      
-    awardsinfo: [
-      "Most Promising Engineering & Management Institute in India Award.",
-      "Most Aware Campus of Uttarakhand Award.",
-      "Icon Award of Uttarakhand.",
-      "Top Private Engineering College In Uttarakhand.",
-      "NAAC A+",
-    ],
+  //   awardsinfo: [
+  //     "Most Promising Engineering & Management Institute in India Award.",
+  //     "Most Aware Campus of Uttarakhand Award.",
+  //     "Icon Award of Uttarakhand.",
+  //     "Top Private Engineering College In Uttarakhand.",
+  //     "NAAC A+",
+  //   ],
    
-    facultytable: [
-      {
-        name: "Dr. Vishal",
-        Qualification: "Dept. of  Microbiology",
-        Experience: "22 year",
-        Specialization: "Agriculture microbiology, Biological Control, Plant growth promo. Rhizo bacteria, Fermentation Technology, Antimicrobial Activity of mediclinal plant, Microbial pathology.",
-      },
-      {
-        name: "Dr. RD Saklani",
-        Qualification: "Dept. of  Geology",
-        Experience: "10 year",
-        Specialization: "Sequence stratigraphy, Petroleum Geology, Ichnology, Disaster Management, Engg. Geology, Field Geology, Himalayan Geology & Western India (Kachchh & Rajasthan).",
-      },
-      {
-        name: "Mr. S K Thakur",
-        Qualification: "Dept. of  Statistics & Mathematics",
-        Experience: "35 year",
-        Specialization: "Statistics, International finance,  International Economics, Coorporates Law. ",
-      },
-      {
-        name: "Dr. Neelesh",
-        Qualification: "Dept. of  Microbiology",
-        Experience: "02 year",
-        Specialization: "Medical microbiology, General microbiology.",
-      },
-      {
-        name: "Mrs. Preeti Sood",
-        Qualification: "Dept. of  Hotel Management ",
-        Experience: "23 year",
-        Specialization: "Food and beverage,Front office, House Keeping, Kitchen.",
-      },
-      {
-        name: "Mr. Gurmeet singh",
-        Qualification: "Dept. of  Chemistry",
-        Experience: "03 year",
-        Specialization: "Waste Management, Water purification, Biofilms and filters, Polymers, Analytical Chemistry.",
-      },
-      {
-        name: "Mr. Kashif Hussain",
-        Qualification: "Dept. of  Pharmacy",
-        Experience: "12 year",
-        Specialization: "Pharmaceutical Chemistry.",
-      },
-      {
-        name: "Mr. Javed Siddiqui",
-        Qualification: "Dept. of  Paramedical ",
-        Experience: "14 year",
-        Specialization: "Clinical biochemistry, Pathology, Medical Microbiology.",
-      },
-      {
-        name: "Ms. Rohita",
-        Qualification: "Dept. of  Pharmacy",
-        Experience: "01 year",
-        Specialization: "Hospital and clinical pharmacy, Community pharmacy, Pharmacy practice, Social pharmacy.",
-      },
-      {
-        name: "Dr. Manisha Singh",
-        Qualification: "Dept. of  Paramedical ",
-        Experience: "01 year",
-        Specialization: "Orthopedics, Neurology.",
-      },
-      {
-        name: "Dr. Kiran",
-        Qualification: "Dept. of  Paramedical ",
-        Experience: "05 year",
-        Specialization: "Orthopedics",
-      },
-      {
-        name: "Dr. Nidhi Chatterjee",
-        Qualification: "Dept. of  Zoology",
-        Experience: "18 year",
-        Specialization: "Zoology, Fish and Fishries, Parasitology.",
-      },
-      {
-        name: "Ms. Susmita Bahuguna ",
-        Qualification: "Dept. of  Nursing",
-        Experience: "01 year",
-        Specialization: "Nursing fundamental, Social nursing",
-      },
-      {
-        name: "Ms. Oshin",
-        Qualification: "Dept. of  Nursing",
-        Experience: "01 year",
-        Specialization: "Psychology, Anatomy, Physiology",
-      },
+  //   facultytable: [
+  //     {
+  //       name: "Dr. Vishal",
+  //       Qualification: "Dept. of  Microbiology",
+  //       Experience: "22 year",
+  //       Specialization: "Agriculture microbiology, Biological Control, Plant growth promo. Rhizo bacteria, Fermentation Technology, Antimicrobial Activity of mediclinal plant, Microbial pathology.",
+  //     },
+  //     {
+  //       name: "Dr. RD Saklani",
+  //       Qualification: "Dept. of  Geology",
+  //       Experience: "10 year",
+  //       Specialization: "Sequence stratigraphy, Petroleum Geology, Ichnology, Disaster Management, Engg. Geology, Field Geology, Himalayan Geology & Western India (Kachchh & Rajasthan).",
+  //     },
+  //     {
+  //       name: "Mr. S K Thakur",
+  //       Qualification: "Dept. of  Statistics & Mathematics",
+  //       Experience: "35 year",
+  //       Specialization: "Statistics, International finance,  International Economics, Coorporates Law. ",
+  //     },
+  //     {
+  //       name: "Dr. Neelesh",
+  //       Qualification: "Dept. of  Microbiology",
+  //       Experience: "02 year",
+  //       Specialization: "Medical microbiology, General microbiology.",
+  //     },
+  //     {
+  //       name: "Mrs. Preeti Sood",
+  //       Qualification: "Dept. of  Hotel Management ",
+  //       Experience: "23 year",
+  //       Specialization: "Food and beverage,Front office, House Keeping, Kitchen.",
+  //     },
+  //     {
+  //       name: "Mr. Gurmeet singh",
+  //       Qualification: "Dept. of  Chemistry",
+  //       Experience: "03 year",
+  //       Specialization: "Waste Management, Water purification, Biofilms and filters, Polymers, Analytical Chemistry.",
+  //     },
+  //     {
+  //       name: "Mr. Kashif Hussain",
+  //       Qualification: "Dept. of  Pharmacy",
+  //       Experience: "12 year",
+  //       Specialization: "Pharmaceutical Chemistry.",
+  //     },
+  //     {
+  //       name: "Mr. Javed Siddiqui",
+  //       Qualification: "Dept. of  Paramedical ",
+  //       Experience: "14 year",
+  //       Specialization: "Clinical biochemistry, Pathology, Medical Microbiology.",
+  //     },
+  //     {
+  //       name: "Ms. Rohita",
+  //       Qualification: "Dept. of  Pharmacy",
+  //       Experience: "01 year",
+  //       Specialization: "Hospital and clinical pharmacy, Community pharmacy, Pharmacy practice, Social pharmacy.",
+  //     },
+  //     {
+  //       name: "Dr. Manisha Singh",
+  //       Qualification: "Dept. of  Paramedical ",
+  //       Experience: "01 year",
+  //       Specialization: "Orthopedics, Neurology.",
+  //     },
+  //     {
+  //       name: "Dr. Kiran",
+  //       Qualification: "Dept. of  Paramedical ",
+  //       Experience: "05 year",
+  //       Specialization: "Orthopedics",
+  //     },
+  //     {
+  //       name: "Dr. Nidhi Chatterjee",
+  //       Qualification: "Dept. of  Zoology",
+  //       Experience: "18 year",
+  //       Specialization: "Zoology, Fish and Fishries, Parasitology.",
+  //     },
+  //     {
+  //       name: "Ms. Susmita Bahuguna ",
+  //       Qualification: "Dept. of  Nursing",
+  //       Experience: "01 year",
+  //       Specialization: "Nursing fundamental, Social nursing",
+  //     },
+  //     {
+  //       name: "Ms. Oshin",
+  //       Qualification: "Dept. of  Nursing",
+  //       Experience: "01 year",
+  //       Specialization: "Psychology, Anatomy, Physiology",
+  //     },
 
-    ],
-    hostelinfo: [
-      {
-        name: "Capacity",
-        info: "1000",
-      },
-      {
-        name: "Hostel Fees",
-        info: "In-house Residential Accommodation (Optional) Charges (Note: - Hostel charges is per year which includes Vegetarian / Non-Vegetarian Food) ",
-      },
-      {
-        name: "",
-        info: "•	Standard Quad (Four Sharing Room) with Attached Toilet Rs.48000/-per Year.        ",
-      },
-      {
-        name: "",
-        info: "•	Deluxe Quad (Four Sharing Room) with Attached Toilet Rs.58000/-per Year.        ",
-      },
-      {
-        name: "",
-        info: "•	Standard (Three Sharing Room) with Attached Toilet Rs.68000/-per Year.        ",
-      },
-      {
-        name: "",
-        info: "•	Deluxe (Three Sharing Room) with Attached Toilet Rs.78000/-per Year.        ",
-      },
-      {
-        name: "",
-        info: "•	Standard (Two Sharing Room) with Attached Toilet Rs.73000/-per Year.        ",
-      },
-      {
-        name: "",
-        info: "•	Deluxe (Two Sharing Room) with Attached Toilet Rs.78000/-per Year.        ",
-      },
-      {
-        name: "",
-        info: "•	Super Deluxe (Two Sharing Room) with Attached Toilet Rs.88000/-per Year.        ",
-      },
-      {
-        name: "",
-        info: "•	Executive Room (TWO SHARING Room) with LCD + Tata Sky + Attached Toilet Rs.95000/-per Year.        ",
-      },
-      {
-        name: "",
-        info: "•	Executive Room (TWO SHARING Room) with A.C + LCD + Tata Sky + Attached Toilet Rs.105000/-per Year.        ",
-      },
-      {
-        name: "",
-        info: "•	Hostel Enrolment & Furnishing Fee: Rs.5000/-(To be paid Once) Laundry Charges: Rs.4800/-per Year",
-      },
-      {
-        name: "Mess Fees",
-        info: "Includes in Hostel Fees",
-      },
-      {
-        name: "Location (on-campus or off-campus)",
-        info: "On-Campus",
-      },
-      {
-        name: "Number of Rooms",
-        info: "300",
-      },
-      {
-        name: "Room Type (Occupancy basis)",
-        info: "Single Sharing, Two sharing, Three Sharing, Four Sharing",
-      },
-      {
-        name: "Hostel Facilities/ Amenities",
-        info: "Wi-Fi, CCTV Surveillance, Security Guards, Warden, Indoor Stadium, Outdoor Playground, Gymnasium, etc.",
-      },
-    ],
-    rankinginfo: [
-      {
-        name: "2021",
-        info: "#32 out of 178 in  India 2021",
-      },
-      {
-        name: "2021",
-        info: "#137 out of 268 in India 2021",
-      },
+  //   ],
+  //   hostelinfo: [
+  //     {
+  //       name: "Capacity",
+  //       info: "1000",
+  //     },
+  //     {
+  //       name: "Hostel Fees",
+  //       info: "In-house Residential Accommodation (Optional) Charges (Note: - Hostel charges is per year which includes Vegetarian / Non-Vegetarian Food) ",
+  //     },
+  //     {
+  //       name: "",
+  //       info: "•	Standard Quad (Four Sharing Room) with Attached Toilet Rs.48000/-per Year.        ",
+  //     },
+  //     {
+  //       name: "",
+  //       info: "•	Deluxe Quad (Four Sharing Room) with Attached Toilet Rs.58000/-per Year.        ",
+  //     },
+  //     {
+  //       name: "",
+  //       info: "•	Standard (Three Sharing Room) with Attached Toilet Rs.68000/-per Year.        ",
+  //     },
+  //     {
+  //       name: "",
+  //       info: "•	Deluxe (Three Sharing Room) with Attached Toilet Rs.78000/-per Year.        ",
+  //     },
+  //     {
+  //       name: "",
+  //       info: "•	Standard (Two Sharing Room) with Attached Toilet Rs.73000/-per Year.        ",
+  //     },
+  //     {
+  //       name: "",
+  //       info: "•	Deluxe (Two Sharing Room) with Attached Toilet Rs.78000/-per Year.        ",
+  //     },
+  //     {
+  //       name: "",
+  //       info: "•	Super Deluxe (Two Sharing Room) with Attached Toilet Rs.88000/-per Year.        ",
+  //     },
+  //     {
+  //       name: "",
+  //       info: "•	Executive Room (TWO SHARING Room) with LCD + Tata Sky + Attached Toilet Rs.95000/-per Year.        ",
+  //     },
+  //     {
+  //       name: "",
+  //       info: "•	Executive Room (TWO SHARING Room) with A.C + LCD + Tata Sky + Attached Toilet Rs.105000/-per Year.        ",
+  //     },
+  //     {
+  //       name: "",
+  //       info: "•	Hostel Enrolment & Furnishing Fee: Rs.5000/-(To be paid Once) Laundry Charges: Rs.4800/-per Year",
+  //     },
+  //     {
+  //       name: "Mess Fees",
+  //       info: "Includes in Hostel Fees",
+  //     },
+  //     {
+  //       name: "Location (on-campus or off-campus)",
+  //       info: "On-Campus",
+  //     },
+  //     {
+  //       name: "Number of Rooms",
+  //       info: "300",
+  //     },
+  //     {
+  //       name: "Room Type (Occupancy basis)",
+  //       info: "Single Sharing, Two sharing, Three Sharing, Four Sharing",
+  //     },
+  //     {
+  //       name: "Hostel Facilities/ Amenities",
+  //       info: "Wi-Fi, CCTV Surveillance, Security Guards, Warden, Indoor Stadium, Outdoor Playground, Gymnasium, etc.",
+  //     },
+  //   ],
+  //   rankinginfo: [
+  //     {
+  //       name: "2021",
+  //       info: "#32 out of 178 in  India 2021",
+  //     },
+  //     {
+  //       name: "2021",
+  //       info: "#137 out of 268 in India 2021",
+  //     },
       
-    ],
-    reviewinfo: [
-      {
-        id: 1,
-        rating: 4.7,
-        desc: "Faculty of my college are very higher educated . They are qualified for the best universities with best knowledge and gesture . They always treat students very well..",
-        user: user_1,
-        name: "",
-        location: "",
-      },
-      {
-        id: 2,
-        rating: 4.5,
-        desc: "The placement record is good, with companies like Aditya Birla, DBS Bank, ANZ Bank, HCL, ICICI BANK, ICICI Prudential, Wipro, Infosys, Zara, Decathlon visiting campus regularly.",
-        user: user_2,
-        name: "",
-        location: "",
-      },
-      {
-        id: 3,
-        rating: 4.8,
-        desc: "It was the good experience about my collage I were study past some year in this collage and I saw a major change in my communication skill and our department staf is also a good performence..",
-        user: user_3,
-        name: "",
-        location: "",
-      },
-    ],
-  },
+  //   ],
+  //   reviewinfo: [
+  //     {
+  //       id: 1,
+  //       rating: 4.7,
+  //       desc: "Faculty of my college are very higher educated . They are qualified for the best universities with best knowledge and gesture . They always treat students very well..",
+  //       user: user_1,
+  //       name: "",
+  //       location: "",
+  //     },
+  //     {
+  //       id: 2,
+  //       rating: 4.5,
+  //       desc: "The placement record is good, with companies like Aditya Birla, DBS Bank, ANZ Bank, HCL, ICICI BANK, ICICI Prudential, Wipro, Infosys, Zara, Decathlon visiting campus regularly.",
+  //       user: user_2,
+  //       name: "",
+  //       location: "",
+  //     },
+  //     {
+  //       id: 3,
+  //       rating: 4.8,
+  //       desc: "It was the good experience about my collage I were study past some year in this collage and I saw a major change in my communication skill and our department staf is also a good performence..",
+  //       user: user_3,
+  //       name: "",
+  //       location: "",
+  //     },
+  //   ],
+  // },
 
 ];
 

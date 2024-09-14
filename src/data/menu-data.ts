@@ -16,12 +16,13 @@ const menu_data: IMenuData[] = [
         id: 1,
         title: "For College/University",
         sub_menus: [
-          { title: "GNC Dehradun", link: "/college-details/1" },
-          { title: "UPES Dehradun", link: "/college-details/3" },
-          { title: "Uttaranchal University", link: "/college-details/4" }, 
-          { title: "BFIT Dehradun", link: "/college-details/2" },
-          { title: "JBIT Dehradun", link: "/college-details/5" },
+          { title: "GNC Dehradun", link: "/college-details/guru-nanak-college-dehradun" },
+          { title: "BFIT Dehradun", link: "/college-details/BFIT-Dehradun" },
+          { title: "UPES Dehradun", link: "/college-details/UPES-dehradun" },
+          { title: "Uttaranchal University", link: "/college-details/Uttaranchal-University" }, 
+          { title: "JBIT Dehradun", link: "/college-details/JBIT-Dehradun" },
         ],
+       
       },
       {
         id: 2,

@@ -56,7 +56,9 @@ export interface Ireview {
 }
 
 export interface IcollegeType {
-  id: number;
+  id: String;
+  pageTitle: string;
+  metaDescription: string;
   logo: StaticImageData;
   type: string;
   establishmentyear: string;

@@ -14,7 +14,7 @@ import PartnersSlider from "../components/partners/partners-slider";
 import dotenv from "dotenv";
 
 export const metadata: Metadata = {
-  title: "Career Buddy Club",
+  title: "Career Buddy Club | Career Counselling | Career Guidance",
 };
 
 const MainHome = () => {

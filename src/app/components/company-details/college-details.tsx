@@ -15,6 +15,7 @@ import {
   TableCell,
 } from "@nextui-org/react";
 import { px } from "framer-motion";
+import { id } from "date-fns/locale";
 const slider_setting = {
   dots: true,
   arrows: false,
@@ -108,10 +109,7 @@ const CollegeDetailsArea = ({ details }: { details: IcollegeType }) => {
   
   return (
     <>
-    
-
       <section className="company-details  lg-pt-80 pb-30 xl-pb-150 lg-pb-80">
-
       <div className="navbar navbar-expand-lg p0 me-lg-auto ms-3 ms-lg-5 order-lg-1">
       <div className="collapse navbar-collapse" id="navbarNav">
         <ul className="navbar-nav">

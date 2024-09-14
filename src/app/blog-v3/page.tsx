@@ -20,7 +20,7 @@ const BlogV3Page = () => {
 
         {/*breadcrumb start */}
         <CompanyBreadcrumb
-          title="Career Buddy Club Media Presence"
+          title="Career Buddy Club Insights"
           subtitle=""
         />
         {/*breadcrumb end */}
@@ -30,7 +30,7 @@ const BlogV3Page = () => {
         {/* blog v3 end */}
 
         {/* job portal intro start */}
-        <JobPortalIntro top_border={true} />
+        {/* <JobPortalIntro top_border={true} /> */}
         {/* job portal intro end */}
 
         {/* footer start */}
@@ -41,4 +41,4 @@ const BlogV3Page = () => {
   );
 };
 
-export default BlogV3Page;
+export default BlogV3Page;

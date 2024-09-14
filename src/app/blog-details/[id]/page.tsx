@@ -7,13 +7,13 @@ import CompanyBreadcrumb from "../../components/common/common-breadcrumb";
 import FooterOne from "@/layouts/footers/footer-one";
 import BlogDetailsArea from "../../components/blogs/blog-details";
 import blog_data from "@/data/blog-data";
-
+import blog_data1 from "@/data/blog-data1";
 export const metadata: Metadata = {
   title: "Blog Details",
 };
 
 const BlogDetailsDynamicPage = ({ params }: { params: { id: string } }) => {
-  const blog = blog_data.find((b) => Number(b.id) === Number(params.id))!;
+  const blog = blog_data1.find((b) => Number(b.id) === Number(params.id))!;
   return (
     <Wrapper>
       <div className="main-page-wrapper">
@@ -23,7 +23,7 @@ const BlogDetailsDynamicPage = ({ params }: { params: { id: string } }) => {
 
         {/*breadcrumb start */}
         <CompanyBreadcrumb
-          title="Blog"
+          title="Insights"
           subtitle="Read our blog from top talents"
         />
         {/*breadcrumb end */}
