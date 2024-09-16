@@ -1,107 +1,106 @@
-import { textAlign } from 'html2canvas/dist/types/css/property-descriptors/text-align';
-import Link from 'next/link';
+"use client";
+
 import React from 'react';
+import Link from 'next/link'; 
 
-const FancyBanner16= () => {
+const images = [
+  {
+    src: '/assets/images/blog/blog_img_34.jpg',
+    title: 'Celebrating Ganesh Chaturthi',
+    link: '/blog-v3',
+  },
+  {
+    src: '/assets/images/blog/blog_img_36.jpg',
+    title: 'Career Buddy Club CEO Honored',
+    link: '/blog-v3',
+  },
+  {
+    src: '/assets/images/blog/blog_img_37.jpg',
+    title: 'UP NEET UG 2024 Counselling',
+    link: '/blog-v3',
+  },
+];
+
+const FancyBanner16 = () => {
+  const sliderStyles: React.CSSProperties = {
+    position: 'relative',
+    maxWidth: '100%',
+    margin: '4rem auto',
+    padding: '0 20px',
+    overflow: 'hidden',
+  };
+
+  const containerStyles: React.CSSProperties = {
+    display: 'flex',
+    justifyContent: 'space-evenly', 
+    flexWrap: 'wrap', 
+    gap: '20px', 
+    maxWidth: '1200px',
+    margin: '0 auto',
+  };
+
+  const cardStyles: React.CSSProperties = {
+    flex: '1 1 20%',
+    maxWidth: '400px',
+    minWidth: '280px',
+    display: 'flex',
+    flexDirection: 'column',
+    borderRadius: '10px',
+    overflow: 'hidden',
+    boxShadow: 'rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px', 
+    backgroundColor: '#fff',
+    border: 'none',
+    height: '100%',
+  };
+
+  const imageStyles: React.CSSProperties = {
+    width: '100%',
+    height: '200px',
+    objectFit: 'fill',
+  };
+
+  const contentStyles: React.CSSProperties = {
+    textAlign: 'center',
+    padding: '15px',
+    backgroundColor: '#f5f5f5',
+    flexGrow: 1, 
+  };
+
+  const titleStyles: React.CSSProperties = {
+    margin: '10px 0',
+    fontSize: '1.2rem',
+    fontWeight: 'bold',
+    color:'#14ADBD',
+  };
+
+  const linkStyles: React.CSSProperties = {
+    color: 'white',
+    textDecoration: 'none',
+    background: '#14ADBD', 
+    padding: '10px 20px',
+    borderRadius: '5px',
+    display: 'inline-block',
+  };
+
   return (
-    <div
-      className="carousel-container position-relative"
-      style={{
-        position: 'relative',
-        maxWidth: '100%', // Adjust the width of the carousel
-        margin: '4rem 0 0 auto',  // Center the carousel
-        
-      }}
-    >
-      <div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="carousel">
-        <div className="carousel-indicators">
-          <button
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide-to="0"
-            className="active"
-            aria-current="true"
-            aria-label="Slide 1"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide-to="1"
-            aria-label="Slide 2"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide-to="2"
-            aria-label="Slide 3"
-          ></button>
-        </div>
-        <div className="carousel-inner">
-          <div className="carousel-item active">
+    <div style={sliderStyles}>
+      <div style={containerStyles}>
+        {images.map((image, index) => (
+          <div key={index} style={cardStyles}>
             <img
-              src="assets/images/blog/blog_img_34.jpg"
-              className="d-block w-100"
-              alt="Slide 1"
-              style={{ maxHeight: '450px' }}
+              src={image.src}
+              alt={image.title}
+              style={imageStyles}
             />
+            <div style={contentStyles}>
+              <h2 style={titleStyles}>{image.title}</h2>
+              <Link href={image.link} style={linkStyles}>
+                View More
+              </Link>
+            </div>
           </div>
-          <div className="carousel-item">
-
-            <img
-              src="assets/images/blog/blog_img_36.jpg"
-              className="d-block w-100"
-              alt="Slide 2"
-              style={{ maxHeight: '450px'}}
-            />
-          </div>
-          <div className="carousel-item">
-            <img
-              src="assets/images/blog/blog_img_37.jpg"
-              className="d-block w-100"
-              alt="Slide 3"
-              style={{ maxHeight: '450px'}}
-            />
-          </div>
-        </div>
-        <button
-          className="carousel-control-prev"
-          type="button"
-          data-bs-target="#carouselExampleIndicators"
-          data-bs-slide="prev"
-        >
-          <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span className="visually-hidden">Previous</span>
-        </button>
-        <button
-          className="carousel-control-next"
-          type="button"
-          data-bs-target="#carouselExampleIndicators"
-          data-bs-slide="next"
-        >
-          <span className="carousel-control-next-icon" aria-hidden="true"></span>
-          <span className="visually-hidden">Next</span>
-        </button>
+        ))}
       </div>
-
-      {/* View More Link at the Bottom Right */}
-      <div
-        className="view-more-container position-absolute"
-        style={{
-          position: 'absolute',
-          bottom: '10px',
-          right: '10px',
-        }}
-      >
-    </div>
-    <div className="container d-flex justify-content-end">
-    <Link href="/blog-v3"
-        style={{
-            color: 'blue',
-            textDecoration: 'none',
-          }}>
-        View More...
-        </Link>
-    </div>
     </div>
   );
 };
