@@ -102,14 +102,26 @@ const FlipCardone: React.FC = () => {
 
   return (
     <div style={cardsContainerStyle}>
-
+      <a 
+        href="/assets/text/Career Town 2024 - 2025.pdf" 
+        download
+        style={{ 
+          textDecoration: 'none', 
+          color: 'inherit', 
+          display: 'block', 
+          width: '100%', 
+          margin: '0 2rem',
+        }}
+      >
+      
           <div
             style={containerStyle}
             onMouseEnter={() => setIsFlippedOne(true)}
             onMouseLeave={() => setIsFlippedOne(false)}
           >
-            <Card flip={isFlippedOne} frontImage={img1} backImage={img4} />
+          <Card flip={isFlippedOne} frontImage={img1} backImage={img4} />
           </div>
+          </a>   
         
           <div
             style={containerStyle}
@@ -118,6 +130,8 @@ const FlipCardone: React.FC = () => {
           >
             <Card flip={isFlippedTwo} frontImage={img2} backImage={img3} />
           </div>
+          
+          
     </div>
   );
 };

@@ -26,6 +26,8 @@ import blog_ceo_honored from "@/assets/images/blog/blog_img_36.jpg"
 import blog_up_neet from "@/assets/images/blog/blog_img_37.jpg"
 import blog_launchpad_tosuccess from "@/assets/images/blog/blog_img_38.webp"
 import blog_img_firstAidDay from "@/assets/images/blog/blog_img_39.jpg"
+import blog_img_BirthdayWish from "@/assets/images/blog/blog_img_41.jpg"
+
 // import blog_full_3 from "@/assets/images/blog/blog_img_26.jpg";
 // import blog_full_4 from "@/assets/images/blog/blog_img_27.jpg";
 // import blog_full_5 from "@/assets/images/blog/blog_img_28.jpg";
@@ -107,9 +109,21 @@ const blog_data: IBlogDataType[] = [
     date: "12 Sep, 2024",
     desc: "As we commemorate World First Aid Day, we honor the vital importance of lifesaving skills and their impact on communities worldwide. This special occasion serves as a platform to raise awareness, promote training, and celebrate the individuals who have used first aid to save lives. On behalf of the Career Buddy Club, we extend our warmest wishes to all members. May this day inspire us to learn and practice first aid, empowering ourselves to make a difference in emergency situations. Let us embrace the spirit of compassion and preparedness, encouraging one another to become first aid heroes. Together, let us make World First Aid Day a milestone, reaffirming our dedication to promoting lifesaving skills and creating a safer world for all. Happy World First Aid Day to all! May your knowledge and actions contribute to saving lives.",
     blog: "blog-one",
+  },
+  {
+    id: 7,
+    img: blog_6,
+    grid_img: blog_grid_2,
+    img_full: blog_img_BirthdayWish,
+    tags: ["Career Buddy Club "],
+    title: "Birthday Wishes to the Honorable Prime Minister from Career Buddy Club",
+    author: "upneet.gov.in.",
+    date: "17 Sep, 2024",
+    desc: "Dear Honorable Prime Minister of India,On behalf of the Career Buddy Club, we extend our heartfelt birthday wishes to you on your special day. We take this opportunity to recognize and celebrate the remarkable leadership and dedication you have shown in guiding our nation toward progress and prosperity.Your vision for a developed India inspires countless citizens, particularly the youth, to pursue their ambitions and contribute to the nation’s growth. Under your leadership, initiatives aimed at enhancing education, employment, and entrepreneurship have opened doors for millions, empowering them to realize their potential.On this special occasion, we express our deep gratitude for your unwavering commitment to fostering inclusivity and innovation throughout the country. Your adeptness at navigating complex challenges and rallying the nation during difficult times is a testament to your exceptional leadership.May this birthday bring you continued strength, wisdom, and the resolve to lead India to even greater heights. As members of the Career Buddy Club, we stand united in support of your vision for a brighter future.Happy Birthday, Honorable Prime Minister! Thank you for your dedicated service to our nation.",
+    blog: "blog-one",
   }
 
  
 ];
-
+              
 export default blog_data;

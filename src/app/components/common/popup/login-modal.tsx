@@ -24,7 +24,7 @@ const LoginModal = () => {
               <h2 className="text-center" style={{color: "rgb(20, 173, 189)", fontSize: '45px'}}>Hi, Welcome Back!</h2>
             </div>
             <div className="form-wrapper m-auto">
-              <LoginForm />
+              <LoginForm/>
             </div>
           </div>
         </div>

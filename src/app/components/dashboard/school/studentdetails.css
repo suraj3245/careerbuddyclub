@@ -108,6 +108,20 @@
     background-color: #007bff;
     color: white;
   }
+
+  .card_1{
+    border-radius: 7.335px;
+    background: #fff;
+    background-image: linear-gradient(to left, #72ea8a70, #7ff56229, #a4f7aa00);
+    box-shadow: 0 4px 10px #abababc9;
+    padding: 1%;
+    
+  }
+
+  .card_2{
+    box-shadow: 0 4px 10px #abababc9;
+    padding: 1%;
+  }
   
   /* Styles for max-width: 325px */
   @media (max-width: 325px) {

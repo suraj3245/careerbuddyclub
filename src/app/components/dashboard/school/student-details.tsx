@@ -70,7 +70,7 @@ const StudentTable: React.FC = () => {
         bodyContent,
         { headers: headersList }
       );
-
+      console.log("Response data:", response.data);
       setStudents(response.data);
     } catch (error) {
       console.error("Error fetching students:", error);
@@ -95,13 +95,13 @@ const StudentTable: React.FC = () => {
 
   const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-  
+
     try {
       const headersList = {
         Accept: "/",
         "Content-Type": "application/json",
       };
-  
+
       const {
         realistic_score,
         investigative_score,
@@ -111,19 +111,19 @@ const StudentTable: React.FC = () => {
         conventional_score,
         ...formDataToSend
       } = formData;
-  
+
       const schoolName = localStorage.getItem("schoolName") || "";
-  
+
       // Dynamically add the 'from' property
       const updatedFormData = {
         ...formDataToSend,
         from: schoolName,
       };
-  
+
       const bodyContent = JSON.stringify(updatedFormData);
-  
+
       let reqOptions;
-  
+
       if (isEdit && currentStudentId !== null) {
         reqOptions = {
           url: `https://test.careerbuddyclub.com:8080/api/students/studentupdate/${currentStudentId}`,
@@ -139,10 +139,10 @@ const StudentTable: React.FC = () => {
           data: bodyContent,
         };
       }
-  
+
       const response = await axios.request(reqOptions);
       console.log("Response Data:", response.data);
-  
+
       fetchStudents();
       handleCloseModal();
       toast.success(`Student ${isEdit ? "updated" : "added"} successfully`);
@@ -236,7 +236,9 @@ const StudentTable: React.FC = () => {
         </div>
       ) : (
         <>
-          <h2 className="mb-4 heading-table">Student Table</h2>
+        <div className="card mb-1 card_1">
+        <div className="card-body">
+          <h3 className="mb-0 heading-table styled-heading ms-4">Students Test Result </h3>
           <div className="row justify-content-between align-items-center p-4">
             <div className="col-lg-6 col-md-6 col-sm-12 d-flex align-items-center mb-3">
               <input
@@ -262,10 +264,12 @@ const StudentTable: React.FC = () => {
               </button>
             </div>
           </div>
+          </div>
+          </div>
 
-          <div className="container">
-            <div
-              className="table-responsive"
+          <div className="card mb-4 card_2">
+          <div className="card-body">
+            <div className="table-responsive"
               style={{ overflow: "auto", fontSize: "13px !important" }}
             >
               <table className="table card-table table-bordered table-vcenter text-nowrap table-striped">
@@ -317,11 +321,17 @@ const StudentTable: React.FC = () => {
                 </tbody>
               </table>
             </div>
+          </div>
+          
             <div className="pagination justify-content-center">
               <nav aria-label="Page navigation example">
                 <ul className="pagination">
                   {Array.from(
-                    { length: Math.ceil(filteredStudents.length / studentsPerPage) },
+                    {
+                      length: Math.ceil(
+                        filteredStudents.length / studentsPerPage
+                      ),
+                    },
                     (_, i) => (
                       <li
                         key={i}
