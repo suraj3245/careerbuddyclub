@@ -6,22 +6,24 @@ const FaqArea = () => {
   return (
     <section className="faq-section position-relative pt-100 lg-pt-80">
       <div className="container">
-        <ul
-          className="nav nav-tabs border-0 justify-content-center"
-          role="tablist"
-        >
-          <li className="nav-item" role="presentation">
-            <button
-              className="nav-link active"
-              data-bs-toggle="tab"
-              data-bs-target="#fc1"
-              role="tab"
+        {/* Align the heading for Career Buddy Club FAQ */}
+        <div className="row">
+          <div className="col-12">
+            <h3
+              style={{
+                fontSize: "1.75rem",  // Slightly larger size
+                fontWeight: "normal",  // No bold
+                textAlign: "left",     // Align to start of the card
+                marginBottom: "0",     // No margin, directly attached to the card
+                paddingBottom: "0"     // Ensure no extra padding either
+              }}
             >
-              All
-            </button>
-          </li>
-        </ul>
-        <div className="bg-wrapper mt-60 lg-mt-40">
+              Commonly Asked Questions about Career Buddy Club
+            </h3>
+          </div>
+        </div>
+
+        <div className="bg-wrapper mt-0 lg-mt-0">
           <div className="tab-content" id="myTabContent">
             <div className="tab-pane fade show active" role="tabpanel" id="fc1">
               <div className="accordion accordion-style-two" id="accordionTwo">
@@ -35,14 +37,13 @@ const FaqArea = () => {
                 <AccordionItem
                   id="two"
                   title="Who can benefit from CBC?"
-                  desc='CBC services are divided into four student categories. For Class 11th and 12th Students, CBC offers state of the art - <a href="/career-aptitude" style="color: blue;">Career Aptitude Test</a> to guide students about best career options and course options based on their personalities, strengths and interests. For Class XII students, CBC offers personalised admission services that helps students in getting into the best college based on their academic score, financial capability and college rankings. Apart from admissions, CBC also runs Job Guaranteed Degrees with some colleges where a student will have a guaranteed job after thier graduation. For Final Year Students, CBC organises several placement drives throughout the year and helps students get placed in their dream companies. For  educational institutions, schools can check our services here, colleges/universities can check our services here, employers can check our services here.'
+                  desc="CBC services are divided into four student categories..."
                   parent="accordionTwo"
                 />
-
                 <AccordionItem
                   id="four"
                   title="How can I be part of CBC?"
-                  desc='For Career Aptitude Test, <a href="/career-aptitude" style="color: blue;">click here.</a> For Admissions in Colleges/Universities, <a href="/admission" style="color: blue;">click here.</a> For Jobs, <a href="https://jobs.careerbuddyclub.com" style="color: blue;">click here.</a>. '
+                  desc='For Career Aptitude Test, <a href="/career-aptitude" style="color: blue;">click here.</a> For Admissions in Colleges/Universities, <a href="/admission" style="color: blue;">click here.</a> For Jobs, <a href="https://jobs.careerbuddyclub.com" style="color: blue;">click here.</a>.'
                   parent="accordionTwo"
                 />
                 <AccordionItem
@@ -56,9 +57,62 @@ const FaqArea = () => {
           </div>
         </div>
 
+        {/* Align the heading for Students FAQ */}
+        <div className="row mt-4">
+          <div className="col-12">
+            <h3
+              style={{
+                fontSize: "1.75rem",  // Slightly larger size
+                fontWeight: "normal",  // No bold
+                textAlign: "left",     // Align to start of the card
+                marginBottom: "0",     // No margin, directly attached to the card
+                paddingBottom: "0",
+                marginTop: "2rem",     // Ensure no extra padding either
+              }}
+            >
+              Commonly Asked Questions By Students
+            </h3>
+          </div>
+        </div>
+
+        <div className="bg-wrapper mt-0 lg-mt-0">
+          <div className="tab-content" id="myTabContent">
+            <div className="tab-pane fade show active" role="tabpanel" id="fc1">
+              <div className="accordion accordion-style-two" id="accordionTwo">
+                <AccordionItem
+                  isShow={true}
+                  id="one"
+                  title="Science, Arts, Commerce ke baad konsa course karun?"
+                  desc="Contact us by emailing us at help@careerbuddyclub.com or Call 7456000100."
+                  parent="accordionTwo"
+                />
+                <AccordionItem
+                  id="two"
+                  title="Konse industry mein easily successful ho skte hain?"
+                  desc="Contact us by emailing us at help@careerbuddyclub.com or Call 7456000100."
+                  parent="accordionTwo"
+                />
+                <AccordionItem
+                  id="four"
+                  title="Kis College Mein Placement Sabse Achhi Hai?"
+                  desc="Contact us by emailing us at help@careerbuddyclub.com or Call 7456000100."
+                  parent="accordionTwo"
+                />
+                <AccordionItem
+                  id="five"
+                  title="Top MNCs ke liye kaise taiyari karen?"
+                  desc="Contact us by emailing us at help@careerbuddyclub.com or Call 7456000100."
+                  parent="accordionTwo"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Contact Section */}
         <div className="text-center border-bottom pb-150 lg-pb-50 mt-60 lg-mt-40 wow fadeInUp">
           <div className="title-three mb-30">
-            <h2 className="fw-normal">Don’t get your answer?</h2>
+            <h2 className="fw-normal">Didn’t get your answer?</h2>
           </div>
           <Link href="/contact" className="btn-one">
             Contact Us

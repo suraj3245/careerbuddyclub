@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 const schools = () => {
   return (
     <Wrapper>
-      <HeroBannerThree />
+      <HeroBannerThree/>
       <FlipCard />
 
       <FeatureFive />
