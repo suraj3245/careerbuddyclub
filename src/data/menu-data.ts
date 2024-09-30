@@ -234,7 +234,7 @@ const menu_data: IMenuData[] = [
     id: 8,
     link: "/contact",
     title: "Contact us",
-  },
+  }
 ];
 
 export default menu_data;

@@ -45,6 +45,7 @@
     "lottie-web": "^5.12.2",
     "matter-js": "^0.20.0",
     "next": "^13.5.4",
+    "qrcode": "^1.5.4",
     "react": "^18.2.0",
     "react-apexcharts": "^1.4.1",
     "react-bootstrap": "^2.10.2",

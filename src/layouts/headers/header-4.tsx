@@ -18,7 +18,7 @@ import StudentFormModal from "@/app/components/common/popup/studentloginmodal";
 import ApplyModal from "@/app/components/common/popup/apply-modal";
 import ApplyModalSchool from "@/app/components/common/popup/apply-modal2";
 import "react-toastify/dist/ReactToastify.css";
-
+import { useLocation } from "react-use";
 // Interface defining props for HeaderFour component
 interface HeaderFourProps {
   user: {
@@ -36,7 +36,7 @@ const HeaderFour: React.FC<HeaderFourProps> = ({ user, index, onLogout }) => {
   const [userName, setUserName] = useState("");
   const [userType, setUserType] = useState("");
   const pathname = usePathname();
-
+  const location = useLocation();
   // Function to fetch user data
   const fetchUserData = async () => {
     const token = localStorage.getItem("token");
@@ -81,7 +81,7 @@ const HeaderFour: React.FC<HeaderFourProps> = ({ user, index, onLogout }) => {
   // Effect to fetch user data and simulate click on Apply Modal
   useEffect(() => {
     fetchUserData();
-    if (!localStorage.getItem("token")) {
+    if (!localStorage.getItem("token") && location.pathname !== '/schools') {
       setTimeout(() => {
         const event = new Event("click");
         const applyNowButton = document.querySelector(
@@ -93,6 +93,7 @@ const HeaderFour: React.FC<HeaderFourProps> = ({ user, index, onLogout }) => {
       }, 1000);
     }
   }, [isUserLoggedIn]);
+
 
   // Effect to determine user type based on stored data
   useEffect(() => {

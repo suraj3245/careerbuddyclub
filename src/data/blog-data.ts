@@ -5,7 +5,6 @@ import blog_3 from "@/assets/images/blog/media1.jpg";
 import blog_4 from "@/assets/images/blog/media2.jpg";
 import blog_5 from "@/assets/images/blog/media3.jpg";
 import blog_6 from "@/assets/images/blog/media4.jpg";
-
 import blog_11 from "@/assets/images/blog/blog_img_11.jpg";
 import blog_12 from "@/assets/images/blog/blog_img_12.jpg";
 import blog_13 from "@/assets/images/blog/blog_img_13.jpg";
@@ -27,7 +26,6 @@ import blog_full_5 from "@/assets/images/blog/blog_img_28.jpg";
 import blog_full_6 from "@/assets/images/blog/blog_img_29.jpg";
 import blog_full_7 from "@/assets/images/blog/blog_img_30.jpg";
 import blog_full_8 from "@/assets/images/blog/blog_img_31.jpg";
-
 const blog_data: IBlogDataType[] = [
   // blog one
   {

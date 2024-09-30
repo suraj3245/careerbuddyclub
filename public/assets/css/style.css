@@ -9644,3 +9644,7 @@ body.compensate-for-scrollbar {
 } /*# sourceMappingURL=style.css.map */
 
 /* apply now form button css */
+
+html {
+  scroll-behavior: smooth;
+}

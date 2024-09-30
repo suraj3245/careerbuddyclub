@@ -13,7 +13,7 @@ const ProfileDashboard = () => {
         setIsOpenSidebar={setIsOpenSidebar}
       />
       {/* aside end  */}
-
+          
       {/* dashboard area start */}
       <DashboardProfile setIsOpenSidebar={setIsOpenSidebar} />
       {/* dashboard area end */}

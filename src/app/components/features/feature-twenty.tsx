@@ -27,14 +27,14 @@ const FeatureTwenty = () => {
                 <AccordionItem
                   id="one"
                   isShow={true}
-                  title="2,00,000+ Students"
-                  desc="Counselling 2,00,000+ Class 12th and Grad Students for admissions cycle 2024-2025."
+                  title="3,00,000+ Students"
+                  desc="Counselling 3,00,000+ Class 12th and Grad Students for admissions cycle 2024-2025."
                   parent="accordionOne"
                 />
                 <AccordionItem
                   id="two"
-                  title="1200+ Schools"
-                  desc='Forming impactful partnerships with 1200+ Schools for <a href="/career-aptitude" style="color: blue;">Career Aptitude Test</a> & <a href="https:/thecareertown.com" style="color: blue;">Career Town</a>.'
+                  title="2000+ Schools"
+                  desc='Forming impactful partnerships with 2000+ Schools for <a href="/career-aptitude" style="color: blue;">Career Aptitude Test</a> & <a href="https:/thecareertown.com" style="color: blue;">Career Town</a>.'
                   parent="accordionOne"
                 />
                 <AccordionItem

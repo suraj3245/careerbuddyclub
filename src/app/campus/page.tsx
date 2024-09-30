@@ -5,12 +5,14 @@ import FooterOne from "@/layouts/footers/footer-one";
 import PartnersSlider from "../components/partners/partners-slider";
 import FeatureOne from "../components/features/feature-one";
 import CategorySectionThree from "../components/category/category-section-3";
+import CategorySectionNine from "../components/category/category-section-9";
 import FeatureNineteen from "../components/features/feaure-nineteen";
 import HeroBannerNine from "../components/hero-banners/hero-banner-nine";
 import FeatureTwenty from "../components/features/feature-twenty";
 import PartnersSlider3 from "../components/partners/parners-slider3";
 // import ContactCollegeArea from "../components/contactCollege/contactCollege-area";
 import ContactCollegeForm from "../components/forms/contactCollege-form";
+
 
 export const metadata: Metadata = {
   title: "College",
@@ -25,6 +27,10 @@ const campus = () => {
         <FeatureTwenty />
         <HeroBannerNine />
 
+        <div className="container">
+          <CategorySectionNine/>
+        </div>
+
         {/* hero banner end */}
         <div className="partner-logos border-0 pt-45 pb-45 ps-3 pe-3">
           <PartnersSlider />
@@ -32,6 +38,7 @@ const campus = () => {
         <div className="partner-logos border-0 pt-45 pb-45 ps-3 pe-3">
           <PartnersSlider3 />
         </div>
+     
 
         <FeatureOne />
 

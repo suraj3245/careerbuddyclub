@@ -121,7 +121,6 @@ const StudentTable: React.FC = () => {
       };
   
       const bodyContent = JSON.stringify(updatedFormData);
-  
       let reqOptions;
   
       if (isEdit && currentStudentId !== null) {
@@ -346,9 +345,11 @@ const StudentTable: React.FC = () => {
 
           <Modal show={showModal} onHide={handleCloseModal}>
             <Modal.Header closeButton>
+              <div className="container d-flex  f align-items-center">
               <Modal.Title>
                 {isEdit ? "Edit Student" : "Add New Student"}
               </Modal.Title>
+              </div>
             </Modal.Header>
             <Modal.Body>
               <Form onSubmit={handleFormSubmit}>
@@ -388,7 +389,7 @@ const StudentTable: React.FC = () => {
                     required
                   />
                 </Form.Group> } */}
-                <Button variant="primary" type="submit" className="mt-3">
+                <Button variant="primary" type="submit" className="mt-3 col-lg-12">
                   {isEdit ? "Update" : "Add"}
                 </Button>
               </Form>

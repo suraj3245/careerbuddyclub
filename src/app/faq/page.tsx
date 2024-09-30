@@ -7,7 +7,6 @@ import CompanyBreadcrumb from "../components/common/common-breadcrumb";
 import FooterOne from "@/layouts/footers/footer-one";
 import FaqArea from "../components/faqs/faq-area";
 import HeaderFour from "@/layouts/headers/header-4";
-
 export const metadata: Metadata = {
   title: "Faq",
 };

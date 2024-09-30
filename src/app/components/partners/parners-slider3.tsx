@@ -4,14 +4,17 @@ import Slider from "react-slick";
 import Image, { StaticImageData } from "next/image";
 import logo_1 from "@/assets/images/logo/s26.webp";
 import logo_2 from "@/assets/images/logo/s27.jpg";
-import logo_7 from "@/assets/images/logo/s28.png";
-import logo_4 from "@/assets/images/logo/s34.jpg";
+// import logo_7 from "@/assets/images/logo/s28.png"; parul university
+// import logo_4 from "@/assets/images/logo/s34.jpg"; GEU
 import logo_5 from "@/assets/images/logo/s30.png";
-import logo_6 from "@/assets/images/logo/s31.png";
+import logo_10 from "@/assets/images/logo/s31.png";
 import logo_3 from "@/assets/images/logo/s32.jpg";
-import logo_8 from "@/assets/images/logo/s33.jpg";
-
-
+// import logo_8 from "@/assets/images/logo/s33.jpg";DBS dehradun
+import logo_9 from "@/assets/images/logo/s37.jpeg";
+import logo_4 from "@/assets/images/logo/s38.jpg";
+import logo_6 from "@/assets/images/logo/s39.jpg";
+import logo_7 from "@/assets/images/logo/s40.png";
+import logo_8 from "@/assets/images/logo/s41.jpeg";
 // slider setting
 const slider_setting = {
   dots: false,
@@ -53,6 +56,8 @@ const logos: StaticImageData[] = [
   logo_6,
   logo_7,
   logo_8,
+  logo_9,
+  logo_10
 ];
 
 const PartnersSlider3 = () => {
@@ -66,8 +71,8 @@ const PartnersSlider3 = () => {
       <Slider {...slider_setting} className="partner-slider">
         {logos.map((logo, i) => (
           <div key={i} className="item">
-            <div className="logo d-flex align-items-center">
-              <Image src={logo} alt="logo" style={{ height: "150px" }} />
+            <div className="d-flex justify-content-center align-items-center">
+              <Image src={logo} alt="logo" style={{ height: "100px" }} />
             </div>
           </div>
         ))}

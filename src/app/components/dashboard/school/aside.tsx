@@ -21,13 +21,13 @@ const nav_data: {
   link: string;
   title: string;
 }[] = [
-  {
-    id: 1,
-    icon: nav_1,
-    icon_active: nav_1_active,
-    link: "/dashboard/school-dashboard/profile",
-    title: "Profile",
-  },
+  // {
+  //   id: 1,
+  //   icon: nav_1,
+  //   icon_active: nav_1_active,
+  //   link: "/dashboard/school-dashboard/profile",
+  //   title: "Profile",
+  // },
   // {
   //   id: 2,
   //   icon: nav_2,
