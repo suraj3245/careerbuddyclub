@@ -56,53 +56,19 @@ const CategorySectionNine = () => {
         <div className="row d-flex justify-content-center align-items-center">
            <div className="col-xl-7 col-lg-7 col-md-12 col-sm-12 col-12">
            <div className="container forImgbanner d-flex flex-column align-items-center justify-content-center">
-            <div className="img1 d-flex" onClick={() => scrollToSection(section1Ref)}>
-               <div className="row">
-                   <div className="col-lg-10">
-                   <Image src={img_01} className="img-fluid" alt="logo" style={{'height': '135px', width: '100%', cursor: 'pointer'}}/>
-                   </div>
-                   <div className="col-lg-2">
-                        <span>
-                   <MdKeyboardDoubleArrowRight style={{ color: '#14adbd', fontSize: '84px', cursor: 'pointer', }} />
-                   </span>
-                   </div>
+            <div className="img1" onClick={() => scrollToSection(section1Ref)}>
+                   <div className="col-lg-12">
+                   <Image src={img_01} className="img-fluid" alt="logo" style={{'height': '125px', width: '100%', cursor: 'pointer'}}/>
                </div>
             </div>
-            <div className="img1 d-flex" onClick={() => scrollToSection(section2Ref)}>
-               <div className="row">
-                   <div className="col-lg-10">
-                   <Image src={img_02} className="img-fluid" alt="logo" style={{'height': '135px', width: '95%', cursor: 'pointer'}}/>
-                   </div>
-                   <div className="col-lg-2">
-                        <span>
-                   <MdKeyboardDoubleArrowRight style={{ color: '#14adbd', fontSize: '84px', cursor: 'pointer' }} />
-                   </span>
-                   </div>
-               </div>
+            <div className="img1 mt-2" onClick={() => scrollToSection(section2Ref)}>
+                   <Image src={img_02} className="img-fluid" alt="logo" style={{'height': '128px', width: '95%', marginRight: '14px', cursor: 'pointer'}}/>
             </div>
-            <div className="img1 d-flex" onClick={() => scrollToSection(section3Ref)}>
-               <div className="row">
-                   <div className="col-lg-10">
-                   <Image src={img_03} className="img-fluid" alt="logo" style={{'height': '135px', width: '60%', cursor: 'pointer'}}/>
-                   </div>
-                   <div className="col-lg-2">
-                        <span>
-                   <MdKeyboardDoubleArrowRight style={{ color: '#14adbd', fontSize: '84px', cursor: 'pointer' }} />
-                   </span>
-                   </div>
-               </div>
+            <div className="img1 mt-2" onClick={() => scrollToSection(section3Ref)}>
+                   <Image src={img_03} className="img-fluid" alt="logo" style={{'height': '115px', width: '70%', marginLeft: '38px', cursor: 'pointer'}}/>
             </div>
-            <div className="img1 d-flex" onClick={() => scrollToSection(section4Ref)}>
-               <div className="row">
-                   <div className="col-lg-10">
-                   <Image src={img_04} className="img-fluid" alt="logo" style={{'height': '135px', width: '90%', cursor: 'pointer'}}/>
-                   </div>
-                   <div className="col-lg-2">
-                        <span>
-                   <MdKeyboardDoubleArrowRight style={{ color: '#14adbd', fontSize: '84px', cursor: 'pointer' }} />
-                   </span>
-                   </div>
-               </div>
+            <div className="img1 mt-2" onClick={() => scrollToSection(section4Ref)}>
+                   <Image src={img_04} className="img-fluid" alt="logo" style={{'height': '135px', width: '50%',marginLeft: '47px', cursor: 'pointer'}}/>
             </div>
           </div>
 
