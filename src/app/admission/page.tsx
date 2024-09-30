@@ -10,7 +10,7 @@ import Admissioncomp from "../components/admission/admissioncomp";
 const admission = () => {
   return (
     <>
-      <Admissioncomp />
+      <Admissioncomp/>
     </>
   );
 };

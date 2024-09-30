@@ -6,7 +6,6 @@ import img1 from "@/assets/images/assets/test2.png";
 import img3 from "@/assets/images/assets/test4.webp";
 import img4 from "@/assets/images/assets/test-7.png";
 import { StaticImageData } from "next/image";
-import Link from "next/link";
 
 interface CardProps {
   flip: boolean;
@@ -14,11 +13,7 @@ interface CardProps {
   backImage: StaticImageData;
 }
 
-const Card: React.FC<CardProps> = ({
-  flip,
-  frontImage,
-  backImage,
-}) => {
+const Card: React.FC<CardProps> = ({ flip, frontImage, backImage }) => {
   const cardStyle: React.CSSProperties = {
     height: "100%",
     width: "100%",
@@ -36,6 +31,7 @@ const Card: React.FC<CardProps> = ({
     height: "100%",
     width: "100%",
   };
+
   const backBackCommonStyles: React.CSSProperties = {
     borderRadius: "20px",
     boxShadow: "0 0 5px 2px rgba(50, 50, 50, 0.25)",
@@ -43,8 +39,9 @@ const Card: React.FC<CardProps> = ({
     backfaceVisibility: "hidden",
     height: "100%",
     width: "100%",
-    transform: 'rotateY(180deg)',
+    transform: "rotateY(180deg)",
   };
+
   const frontStyle: React.CSSProperties = {
     ...frontBackCommonStyles,
     backgroundImage: `url(${frontImage.src})`,
@@ -89,35 +86,55 @@ const FlipCardone: React.FC = () => {
     width: "100%",
     height: "600px",
     cursor: "pointer",
-    margin: isMobile ? "20px 0" : "0 40px",
+    margin: isMobile ? "20px 0" : "0 20px", // Adjust the margin for space between cards
   };
 
   const cardsContainerStyle: React.CSSProperties = {
     display: "flex",
     flexDirection: isMobile ? "column" : "row",
-    justifyContent: "center",
+    justifyContent: "space-between", // Ensure equal spacing between cards
     alignItems: "center",
+    width: isMobile ? "100%" : "90%", // Control width of container on different screen sizes
+    margin: "0 auto", // Center the cards in the container
     height: isMobile ? "1200px" : "100vh",
+  };
+
+  const anchorStyle: React.CSSProperties = {
+    textDecoration: "none",
+    color: "inherit",
+    display: "block",
+    width: isMobile ? "100%" : "45%", // Set card width based on screen size
   };
 
   return (
     <div style={cardsContainerStyle}>
+      <a
+        href="/assets/text/Career Town 2024-2025.pdf"
+        download
+        style={anchorStyle}
+      >
+        <div
+          style={containerStyle}
+          onMouseEnter={() => setIsFlippedOne(true)}
+          onMouseLeave={() => setIsFlippedOne(false)}
+        >
+          <Card flip={isFlippedOne} frontImage={img1} backImage={img4} />
+        </div>
+      </a>
 
-          <div
-            style={containerStyle}
-            onMouseEnter={() => setIsFlippedOne(true)}
-            onMouseLeave={() => setIsFlippedOne(false)}
-          >
-            <Card flip={isFlippedOne} frontImage={img1} backImage={img4} />
-          </div>
-        
-          <div
-            style={containerStyle}
-            onMouseEnter={() => setIsFlippedTwo(true)}
-            onMouseLeave={() => setIsFlippedTwo(false)}
-          >
-            <Card flip={isFlippedTwo} frontImage={img2} backImage={img3} />
-          </div>
+      <a
+        href="/assets/text/Career Aptitude Test.pdf"
+        download
+        style={anchorStyle}
+      >
+        <div
+          style={containerStyle}
+          onMouseEnter={() => setIsFlippedTwo(true)}
+          onMouseLeave={() => setIsFlippedTwo(false)}
+        >
+          <Card flip={isFlippedTwo} frontImage={img2} backImage={img3} />
+        </div>
+      </a>
     </div>
   );
 };
