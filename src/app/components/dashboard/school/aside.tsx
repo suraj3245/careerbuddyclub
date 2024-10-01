@@ -3,11 +3,11 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image, { StaticImageData } from "next/image";
 import { usePathname } from "next/navigation";
-import logo from "@/assets/dashboard/images/logo_01.png";
-import nav_1 from "@/assets/dashboard/images/icon/icon_1.svg";
-import nav_1_active from "@/assets/dashboard/images/icon/icon_1_active.svg";
-import nav_2 from "@/assets/dashboard/images/icon/icon_2.svg";
-import nav_2_active from "@/assets/dashboard/images/icon/icon_2_active.svg";
+// import logo from "@/assets/dashboard/images/logo_01.png";
+// import nav_1 from "@/assets/dashboard/images/icon/icon_1.svg";
+// import nav_1_active from "@/assets/dashboard/images/icon/icon_1_active.svg";
+// import nav_2 from "@/assets/dashboard/images/icon/icon_2.svg";
+// import nav_2_active from "@/assets/dashboard/images/icon/icon_2_active.svg";
 import nav_3 from "@/assets/dashboard/images/icon/icon_3.svg";
 import nav_3_active from "@/assets/dashboard/images/icon/icon_3_active.svg";
 import { useEffect } from "react";
@@ -111,9 +111,9 @@ const SchoolAside = ({ isOpenSidebar, setIsOpenSidebar }: IProps) => {
       <aside className={`dash-aside-navbar ${isOpenSidebar ? "show" : ""}`}>
         <div className="position-relative">
           <div className="logo text-md-center d-md-block d-flex align-items-center justify-content-between">
-            <Link href="/">
+            {/* <Link href="/">
               <Image src={logo} width={100} height={70} alt="logo" priority />
-            </Link>
+            </Link> */}
             <button
               onClick={() => setIsOpenSidebar(false)}
               className="btn-close d-block d-md-none"
