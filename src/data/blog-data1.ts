@@ -7,18 +7,11 @@ import blog_6 from "@/assets/images/blog/media4.jpg";
 import blog_grid_2 from "@/assets/images/blog/blog_img_19.jpg";
 import blog_full_2 from "@/assets/images/blog/blog_img_25.jpg";
 import blog_ganesh_celebration from "@/assets/images/blog/blog_img_34.jpg"
-import blog_adds_up from "@/assets/images/blog/blog_img_35.jpg"
-import blog_ceo_honored from "@/assets/images/blog/blog_img_36.jpg"
-import blog_up_neet from "@/assets/images/blog/blog_img_37.jpg"
-import blog_launchpad_tosuccess from "@/assets/images/blog/blog_img_38.webp"
-import blog_img_firstAidDay from "@/assets/images/blog/blog_img_39.jpg"
-// import blog_full_3 from "@/assets/images/blog/blog_img_26.jpg";
-// import blog_full_4 from "@/assets/images/blog/blog_img_27.jpg";
-// import blog_full_5 from "@/assets/images/blog/blog_img_28.jpg";
-// import blog_full_6 from "@/assets/images/blog/blog_img_29.jpg";
-// import blog_full_7 from "@/assets/images/blog/blog_img_30.jpg";
-// import blog_full_8 from "@/assets/images/blog/blog_img_31.jpg";
-
+import blog_adds_up from "@/assets/images/blog/blog_img_35.jpg";
+import blog_ceo_honored from "@/assets/images/blog/blog_img_36.jpg";
+import blog_up_neet from "@/assets/images/blog/blog_img_37.jpg";
+import blog_launchpad_tosuccess from "@/assets/images/blog/blog_img_38.webp";
+import blog_img_firstAidDay from "@/assets/images/blog/blog_img_39.jpg";
 const blog_data: IBlogDataType[] = [
   // blog one
   {

@@ -210,7 +210,7 @@ const HeaderFour: React.FC<HeaderFourProps> = ({ user, index, onLogout }) => {
                           <>
                             <li>
                               <Link
-                                href="/dashboard/school-dashboard/profile"
+                                href="/dashboard/school-dashboard/dashboard"
                                 className="dropdown-item"
                               >
                                 School Dashboard
