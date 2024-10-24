@@ -220,7 +220,7 @@ const StudentTable: React.FC = () => {
 
   return (
     <>
-      <ToastContainer />
+      <ToastContainer/>
       {loading ? (
         <div
           className="student-table d-flex justify-content-center align-items-center"
@@ -259,7 +259,7 @@ const StudentTable: React.FC = () => {
                 </div>
               </div>
 
-              <div className="table-responsive scrollable-vertical">
+              <div className="table-responsive" style={{'overflow': 'auto'}}>
                 <table className="table card-table table-bordered table-vcenter text-nowrap table-striped">
                   <thead className="table-light">
                     <tr>
@@ -292,19 +292,21 @@ const StudentTable: React.FC = () => {
                         <td>{student.enterprising_score}</td>
                         <td>{student.conventional_score}</td>
                         <td>
-                          <Button
+                        <Button
                             variant="outline-primary"
+                            size="sm"
                             onClick={() => handleEdit(student)}
                           >
-                            <BorderColorIcon />
+                            <BorderColorIcon/>
                           </Button>
                         </td>
                         <td>
-                          <Button
-                            variant="outline-primary"
+                        <Button
+                            variant="outline-primary me-2"
+                            size="sm"
                             onClick={() => handleDownload(student)}
                           >
-                            <DownloadIcon />
+                            View
                           </Button>
                         </td>
                       </tr>
@@ -312,28 +314,100 @@ const StudentTable: React.FC = () => {
                   </tbody>
                 </table>
               </div>
+
+              
               <nav>
-                <ul className="pagination justify-content-center">
-                  {Array.from({
-                    length: Math.ceil(filteredStudents.length / studentsPerPage),
-                  }).map((_, index) => (
-                    <li
-                      key={index}
-                      className={`page-item ${
-                        currentPage === index + 1 ? "active" : ""
-                      }`}
-                    >
-                      <a
-                        href="#!"
-                        className="page-link"
-                        onClick={() => paginate(index + 1)}
-                      >
-                        {index + 1}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </nav>
+  <ul className="pagination justify-content-center">
+    {/* Show the "Previous" button */}
+    <li className={`page-item ${currentPage === 1 ? "disabled" : ""}`}>
+      <a
+        href="#!"
+        className="page-link"
+        onClick={() => paginate(currentPage - 1)}
+      >
+        Previous
+      </a>
+    </li>
+
+    {/* If the first page isn't in view, show the first page and an ellipsis */}
+    {currentPage > 3 && (
+      <>
+        <li className={`page-item ${currentPage === 1 ? "active" : ""}`}>
+          <a href="#!" className="page-link" onClick={() => paginate(1)}>
+            1
+          </a>
+        </li>
+        <li className="page-item disabled">
+          <span className="page-link">...</span>
+        </li>
+      </>
+    )}
+
+    {/* Pages around the current page */}
+    {Array.from({ length: Math.min(5, Math.ceil(filteredStudents.length / studentsPerPage)) })
+      .map((_, index) => {
+        const pageIndex = Math.max(1, currentPage - 2) + index;
+        return (
+          <li
+            key={pageIndex}
+            className={`page-item ${currentPage === pageIndex ? "active" : ""}`}
+          >
+            <a
+              href="#!"
+              className="page-link"
+              onClick={() => paginate(pageIndex)}
+            >
+              {pageIndex}
+            </a>
+          </li>
+        );
+      })}
+
+    {/* If the last page isn't in view, show an ellipsis and the last page */}
+    {currentPage < Math.ceil(filteredStudents.length / studentsPerPage) - 2 && (
+      <>
+        <li className="page-item disabled">
+          <span className="page-link">...</span>
+        </li>
+        <li
+          className={`page-item ${
+            currentPage === Math.ceil(filteredStudents.length / studentsPerPage)
+              ? "active"
+              : ""
+          }`}
+        >
+          <a
+            href="#!"
+            className="page-link"
+            onClick={() =>
+              paginate(Math.ceil(filteredStudents.length / studentsPerPage))
+            }
+          >
+            {Math.ceil(filteredStudents.length / studentsPerPage)}
+          </a>
+        </li>
+      </>
+    )}
+
+    {/* Show the "Next" button */}
+    <li
+      className={`page-item ${
+        currentPage === Math.ceil(filteredStudents.length / studentsPerPage)
+          ? "disabled"
+          : ""
+      }`}
+    >
+      <a
+        href="#!"
+        className="page-link"
+        onClick={() => paginate(currentPage + 1)}
+      >
+        Next
+      </a>
+    </li>
+  </ul>
+</nav>
+
             </div>
           </div>
 
