@@ -201,7 +201,7 @@ const StudentScoreModal: React.FC<StudentScoreModalProps> = ({
                 </Card>
 
                 <div className="text-center">
-                  <Button ref={buttonRef} onClick={downloadChartAsPDF} variant="primary">
+                  <Button ref={buttonRef} onClick={downloadChartAsPDF} variant="primary" className="col-lg-12">
                     Download as PDF
                   </Button>
                 </div>

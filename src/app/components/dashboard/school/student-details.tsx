@@ -21,8 +21,7 @@ const StudentTable: React.FC = () => {
   const [selectedStudent, setSelectedStudent] = useState<any | null>(null);
   const [formData, setFormData] = useState({
     name: "",
-    email: "",
-    mobile: "",
+    class: "",
     realistic_score: "N/A",
     investigative_score: "N/A",
     artistic_score: "N/A",
@@ -38,8 +37,7 @@ const StudentTable: React.FC = () => {
     setSelectedStudent(null);
     setFormData({
       name: "",
-      email: "",
-      mobile: "",
+      class: "",
       realistic_score: "N/A",
       investigative_score: "N/A",
       artistic_score: "N/A",
@@ -121,7 +119,7 @@ const StudentTable: React.FC = () => {
       };
 
       const bodyContent = JSON.stringify(updatedFormData);
-  
+
       let reqOptions;
 
       if (isEdit && currentStudentId !== null) {
@@ -156,7 +154,7 @@ const StudentTable: React.FC = () => {
     setFormData(student);
     setCurrentStudentId(student.id);
     setIsEdit(true);
-    setShowModal(true); // Show the modal immediately when editing
+    setShowModal(true);
   };
 
   const handleSearchInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -181,8 +179,7 @@ const StudentTable: React.FC = () => {
 
       const filteredStudents = students.map((student) => ({
         name: student.name,
-        email: student.email,
-        mobile: student.mobile,
+        class: student.class,
         from: student.from,
         realistic_score: student.realistic_score,
         investigative_score: student.investigative_score,
@@ -236,136 +233,125 @@ const StudentTable: React.FC = () => {
         </div>
       ) : (
         <>
-        <div className="card mb-1 card_1">
-        <div className="card-body">
-          <h3 className="mb-0 heading-table styled-heading ms-4">Students Test Result </h3>
-          <div className="row justify-content-between align-items-center p-4">
-            <div className="col-lg-6 col-md-6 col-sm-12 d-flex align-items-center mb-3">
-              <input
-                type="text"
-                placeholder="Search by name"
-                className="form-control me-2"
-                value={searchTerm}
-                onChange={handleSearchInputChange}
-              />
-            </div>
-            <div className="col-lg-6 col-md-6 col-sm-12 text-lg-end text-md-end text-sm-start">
-              <button
-                className="btn btn-primary me-2 btn-table"
-                onClick={handleShowModal}
-              >
-                Add New
-              </button>
-              <button
-                className="btn btn-info btn-table btn-export"
-                onClick={exportToExcel}
-              >
-                Export Excel
-              </button>
-            </div>
-          </div>
-          </div>
-          </div>
+          <div className="card mb-1 card_1">
+            <div className="card-body">
+              <h3 className="mb-0 heading-table styled-heading ms-4 text-decoration-underline fw-bold">
+              Insight into Student Performance: Career Assesment Evaluation Test{" "}
+              </h3>
+              <div className="row justify-content-between align-items-center p-4">
+                <div className="col-lg-6 col-md-6 col-sm-12 d-flex align-items-center mb-3">
+                  <input
+                    type="text"
+                    placeholder="Search by name"
+                    className="form-control me-2"
+                    value={searchTerm}
+                    onChange={handleSearchInputChange}
+                  />
+                </div>
+                <div className="col-lg-6 col-md-6 col-sm-12 text-lg-end text-md-end text-sm-center align-items-center">
+                  <Button
+                    variant="outline-success"
+                    onClick={exportToExcel}
+                    className="mb-4"
+                  >
+                    Export Data <DownloadIcon />
+                  </Button>
+                </div>
+              </div>
 
-          <div className="card mb-4 card_2">
-          <div className="card-body">
-            <div className="table-responsive"
-              style={{ overflow: "auto", fontSize: "13px !important" }}
-            >
-              <table className="table card-table table-bordered table-vcenter text-nowrap table-striped">
-                <thead className="bg-primary text-white custom-thead text-primary">
-                  <tr>
-                    <th className="bg-primary text-white">NO</th>
-                    <th className="bg-primary text-white">NAME</th>
-                    <th className="bg-primary text-white">EMAIL</th>
-                    <th className="bg-primary text-white">MOBILE</th>
-                    <th className="bg-primary text-white">REALISTIC</th>
-                    <th className="bg-primary text-white">INVESTIGATIVE</th>
-                    <th className="bg-primary text-white">ARTISTIC</th>
-                    <th className="bg-primary text-white">SOCIAL</th>
-                    <th className="bg-primary text-white">ENTERPRISING</th>
-                    <th className="bg-primary text-white">CONVENTIONAL</th>
-                    <th className="bg-primary text-white">Edit</th>
-                    <th className="bg-primary text-white">Results</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {currentFilteredStudents.map((student, index) => (
-                    <tr key={student.id}>
-                      <td>{indexOfFirstStudent + index + 1}</td>
-                      <td>{student.name}</td>
-                      <td>{student.email}</td>
-                      <td>{student.mobile}</td>
-                      <td>{student.realistic_score}</td>
-                      <td>{student.investigative_score}</td>
-                      <td>{student.artistic_score}</td>
-                      <td>{student.social_score}</td>
-                      <td>{student.enterprising_score}</td>
-                      <td>{student.conventional_score}</td>
-                      <td>
-                        <BorderColorIcon
-                          onClick={() => handleEdit(student)}
-                          style={{ cursor: "pointer" }}
-                          color="primary"
-                        />
-                      </td>
-                      <td>
-                        <DownloadIcon
-                          onClick={() => handleDownload(student)}
-                          style={{ cursor: "pointer" }}
-                          color="primary"
-                        />
-                      </td>
+              <div className="table-responsive scrollable-vertical">
+                <table className="table card-table table-bordered table-vcenter text-nowrap table-striped">
+                  <thead className="table-light">
+                    <tr>
+                      <th>No.</th>
+                      <th>Name</th>
+                      {/* <th>Class</th> */}
+                      <th>School</th>
+                      <th>Realistic</th>
+                      <th>Investigative</th>
+                      <th>Artistic</th>
+                      <th>Social</th>
+                      <th>Enterprising</th>
+                      <th>Conventional</th>
+                      <th>Edit</th>
+                      <th>Download</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-          
-            <div className="pagination justify-content-center">
-              <nav aria-label="Page navigation example">
-                <ul className="pagination">
-                  {Array.from(
-                    {
-                      length: Math.ceil(
-                        filteredStudents.length / studentsPerPage
-                      ),
-                    },
-                    (_, i) => (
-                      <li
-                        key={i}
-                        className={`page-item ${
-                          currentPage === i + 1 ? "active" : ""
-                        }`}
+                  </thead>
+                  <tbody>
+                    {currentFilteredStudents.map((student, index) => (
+                       
+                      <tr key={student.id}>
+                      <td>{indexOfFirstStudent + index + 1}</td>
+                        <td>{student.name}</td>
+                        {/* <td>{student.class}</td> */}
+                        <td>{student.from}</td>
+                        <td>{student.realistic_score}</td>
+                        <td>{student.investigative_score}</td>
+                        <td>{student.artistic_score}</td>
+                        <td>{student.social_score}</td>
+                        <td>{student.enterprising_score}</td>
+                        <td>{student.conventional_score}</td>
+                        <td>
+                          <Button
+                            variant="outline-primary"
+                            onClick={() => handleEdit(student)}
+                          >
+                            <BorderColorIcon />
+                          </Button>
+                        </td>
+                        <td>
+                          <Button
+                            variant="outline-primary"
+                            onClick={() => handleDownload(student)}
+                          >
+                            <DownloadIcon />
+                          </Button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <nav>
+                <ul className="pagination justify-content-center">
+                  {Array.from({
+                    length: Math.ceil(filteredStudents.length / studentsPerPage),
+                  }).map((_, index) => (
+                    <li
+                      key={index}
+                      className={`page-item ${
+                        currentPage === index + 1 ? "active" : ""
+                      }`}
+                    >
+                      <a
+                        href="#!"
+                        className="page-link"
+                        onClick={() => paginate(index + 1)}
                       >
-                        <a
-                          className="page-link"
-                          href="#"
-                          onClick={() => paginate(i + 1)}
-                        >
-                          {i + 1}
-                        </a>
-                      </li>
-                    )
-                  )}
+                        {index + 1}
+                      </a>
+                    </li>
+                  ))}
                 </ul>
               </nav>
             </div>
           </div>
 
-          <Modal show={showModal} onHide={handleCloseModal}>
+          {/* Modal to Add / Edit Student */}
+          <Modal
+            show={showModal}
+            onHide={handleCloseModal}
+            className="custom-modal"
+          >
             <Modal.Header closeButton>
-              <div className="container d-flex  f align-items-center">
               <Modal.Title>
                 {isEdit ? "Edit Student" : "Add New Student"}
               </Modal.Title>
-              </div>
             </Modal.Header>
             <Modal.Body>
               <Form onSubmit={handleFormSubmit}>
-                <Form.Group controlId="name">
-                  <Form.Label>Name</Form.Label>
+                <Form.Group controlId="name" className="mb-3">
+                  <Form.Label>Name:</Form.Label>
                   <Form.Control
                     type="text"
                     value={formData.name}
@@ -373,45 +359,32 @@ const StudentTable: React.FC = () => {
                     required
                   />
                 </Form.Group>
-                <Form.Group controlId="email">
-                  <Form.Label>Email</Form.Label>
+
+                <Form.Group controlId="class" className="mb-3">
+                  <Form.Label>Class:</Form.Label>
                   <Form.Control
-                    type="email"
-                    value={formData.email}
+                    type="text"
+                    value={formData.class}
                     onChange={handleInputChange}
                     required
                   />
                 </Form.Group>
-                <Form.Group controlId="mobile">
-                  <Form.Label>Mobile</Form.Label>
-                  <Form.Control
-                    type="text"
-                    value={formData.mobile}
-                    onChange={handleInputChange}
-                    required
-                  />
-                </Form.Group>
-                {/* { <Form.Group controlId="from">
-                  <Form.Label>From</Form.Label>
-                  <Form.Control
-                    type="text"
-                    value={formData.from}
-                    onChange={handleInputChange}
-                    required
-                  />
-                </Form.Group> } */}
-                <Button variant="primary" type="submit" className="mt-3 col-lg-12">
-                  {isEdit ? "Update" : "Add"}
+
+                <Button variant="primary" type="submit">
+                  {isEdit ? "Update Student" : "Add Student"}
                 </Button>
               </Form>
             </Modal.Body>
           </Modal>
 
-          <StudentScoreModal
-            show={Boolean(selectedStudent)}
-            student={selectedStudent}
-            onClose={() => setSelectedStudent(null)}
-          />
+          {/* Student Score Modal */}
+          {selectedStudent && (
+        <StudentScoreModal
+          show={!!selectedStudent}
+          onClose={() => setSelectedStudent(null)}
+          student={selectedStudent}
+        />
+      )}
         </>
       )}
     </>

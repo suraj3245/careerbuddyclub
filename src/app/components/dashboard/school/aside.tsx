@@ -4,9 +4,9 @@ import Link from "next/link";
 import Image, { StaticImageData } from "next/image";
 import { usePathname } from "next/navigation";
 // import logo from "@/assets/dashboard/images/logo_01.png";
-// import nav_1 from "@/assets/dashboard/images/icon/icon_1.svg";
-// import nav_1_active from "@/assets/dashboard/images/icon/icon_1_active.svg";
-// import nav_2 from "@/assets/dashboard/images/icon/icon_2.svg";
+import nav_1 from "@/assets/dashboard/images/icon/icon_1.svg";
+import nav_1_active from "@/assets/dashboard/images/icon/icon_1_active.svg";
+import nav_2 from "@/assets/dashboard/images/icon/icon_2.svg";
 // import nav_2_active from "@/assets/dashboard/images/icon/icon_2_active.svg";
 import nav_3 from "@/assets/dashboard/images/icon/icon_3.svg";
 import nav_3_active from "@/assets/dashboard/images/icon/icon_3_active.svg";
@@ -93,7 +93,7 @@ const SchoolAside = ({ isOpenSidebar, setIsOpenSidebar }: IProps) => {
   const getInitials = (userName: string) =>
     userName && userName.length > 0 ? userName[0].toUpperCase() : "?";
 
-  function onLogout(){
+  function onLogout() {
     localStorage.removeItem("token");
     localStorage.removeItem("schoolName");
     localStorage.removeItem("School_email");
@@ -105,8 +105,6 @@ const SchoolAside = ({ isOpenSidebar, setIsOpenSidebar }: IProps) => {
         .no-underline {
           text-decoration: none;
         }
-
-        
       `}</style>
       <aside className={`dash-aside-navbar ${isOpenSidebar ? "show" : ""}`}>
         <div className="position-relative">
@@ -143,8 +141,19 @@ const SchoolAside = ({ isOpenSidebar, setIsOpenSidebar }: IProps) => {
                 {userName || "Name"}
               </button>
               <ul className="dropdown-menu text-center">
-                <li><a href="/dashboard/school-dashboard/setting" className="dropdown-item">setPassword</a></li>
-                <li><a href="/" className="dropdown-item" onClick={onLogout}>logout</a></li>
+                <li>
+                  <a
+                    href="/dashboard/school-dashboard/setting"
+                    className="dropdown-item"
+                  >
+                    setPassword
+                  </a>
+                </li>
+                <li>
+                  <a href="/" className="dropdown-item" onClick={onLogout}>
+                    logout
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
