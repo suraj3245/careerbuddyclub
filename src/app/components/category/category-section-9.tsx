@@ -68,7 +68,7 @@ const CategorySectionNine = () => {
                    <Image src={img_03} className="img-fluid" alt="logo" style={{'height': '115px', width: '70%', marginLeft: '38px', cursor: 'pointer'}}/>
             </div>
             <div className="img1 mt-2" onClick={() => scrollToSection(section4Ref)}>
-                   <Image src={img_04} className="img-fluid" alt="logo" style={{'height': '135px', width: '50%',marginLeft: '47px', cursor: 'pointer'}}/>
+                   <Image src={img_04} className="img-fluid" alt="logo" style={{'height': '110px', width: '68%',marginLeft: '10px', cursor: 'pointer'}}/>
             </div>
           </div>
 
