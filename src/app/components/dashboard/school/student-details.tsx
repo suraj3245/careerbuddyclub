@@ -10,7 +10,6 @@ import "./studentdetails.css";
 import { ToastContainer, toast } from "react-toastify";
 import StudentScoreModal from "./studentscore-modal";
 
-
 const StudentTable: React.FC = () => {
   const [showModal, setShowModal] = useState(false);
   const [students, setStudents] = useState<any[]>([]);
@@ -155,22 +154,28 @@ const StudentTable: React.FC = () => {
     setSearchTerm(e.target.value);
   };
 
-  const filteredStudents = students.map((student) => {
-    const scores = [
-      { name: "Realistic", score: student.realistic_score },
-      { name: "Investigative", score: student.investigative_score },
-      { name: "Artistic", score: student.artistic_score },
-      { name: "Social", score: student.social_score },
-      { name: "Enterprising", score: student.enterprising_score },
-      { name: "Conventional", score: student.conventional_score },
-    ];
+  const filteredStudents = students
+    .filter((student) =>
+      student.name.toLowerCase().includes(searchTerm.toLowerCase())
+    )
+    .map((student) => {
+      const scores = [
+        { name: "Realistic", score: student.realistic_score },
+        { name: "Investigative", score: student.investigative_score },
+        { name: "Artistic", score: student.artistic_score },
+        { name: "Social", score: student.social_score },
+        { name: "Enterprising", score: student.enterprising_score },
+        { name: "Conventional", score: student.conventional_score },
+      ];
 
-    scores.sort((a, b) => b.score - a.score);
-    const topThreeScores = scores.slice(0, 3);
+      scores.sort((a, b) => b.score - a.score);
+      const topThreeScores = scores.slice(0, 3);
 
-    const topThreeScoresAbbr = topThreeScores.map((s) => s.name.charAt(0)).join("");
-    return { ...student, topThreeScores, topThreeScoresAbbr };
-  });
+      const topThreeScoresAbbr = topThreeScores
+        .map((s) => s.name.charAt(0))
+        .join("");
+      return { ...student, topThreeScores, topThreeScoresAbbr };
+    });
 
   const currentFilteredStudents = filteredStudents.slice(
     indexOfFirstStudent,
@@ -183,7 +188,7 @@ const StudentTable: React.FC = () => {
     try {
       setLoading(true);
       await fetchStudents();
-  
+
       const filteredStudents = students.map((student) => {
         const scores = [
           { name: "Realistic", score: student.realistic_score },
@@ -193,16 +198,16 @@ const StudentTable: React.FC = () => {
           { name: "Enterprising", score: student.enterprising_score },
           { name: "Conventional", score: student.conventional_score },
         ];
-  
+
         // Sort scores in descending order and take the top three
         scores.sort((a, b) => b.score - a.score);
         const topThreeScores = scores.slice(0, 3);
-  
+
         // Get only the first letter of each score name
         const topThreeScoresFormatted = topThreeScores
-          .map((s) => s.name.charAt(0)) 
+          .map((s) => s.name.charAt(0))
           .join("");
-  
+
         return {
           Name: student.name,
           Class: student.class,
@@ -213,22 +218,28 @@ const StudentTable: React.FC = () => {
           Social_score: student.social_score,
           Enterprising_score: student.enterprising_score,
           Conventional_score: student.conventional_score,
-          Top_scores: topThreeScoresFormatted, 
+          Top_scores: topThreeScoresFormatted,
         };
       });
-  
-      
+
       const headers = [
-        "Name", "Class", "From", "Realistic Score", "Investigative Score", 
-        "Artistic Score", "Social Score", "Enterprising Score", 
-        "Conventional Score", "Top Scores"
+        "Name",
+        "Class",
+        "From",
+        "Realistic Score",
+        "Investigative Score",
+        "Artistic Score",
+        "Social Score",
+        "Enterprising Score",
+        "Conventional Score",
+        "Top Scores",
       ];
-  
+
       // Convert the filtered students to a worksheet
       const worksheet = XLSX.utils.json_to_sheet(filteredStudents);
       const workbook = XLSX.utils.book_new();
       XLSX.utils.book_append_sheet(workbook, worksheet, "Students");
-  
+
       // Write to file
       XLSX.writeFile(workbook, "students_data.xlsx");
       toast.success("Data exported successfully");
@@ -243,7 +254,7 @@ const StudentTable: React.FC = () => {
   const handleDownload = (student: any) => {
     setSelectedStudent(student);
   };
-  return(
+  return (
     <>
       <ToastContainer />
       {loading ? (
@@ -360,7 +371,6 @@ const StudentTable: React.FC = () => {
                       </a>
                     </li>
 
-                    
                     {currentPage > 3 && (
                       <>
                         <li
@@ -531,12 +541,3 @@ const StudentTable: React.FC = () => {
 };
 
 export default StudentTable;
-
-
-
-
-
-
-
-
-
