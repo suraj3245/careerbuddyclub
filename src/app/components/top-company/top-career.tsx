@@ -62,6 +62,7 @@ const TopCareer: React.FC<TopCareerProps> = ({ topCategories }) => {
   );
   const headingStyle = {
     fontSize: "24px", // Adjust this value as needed
+    fontWeight: "bold",
   };
 
   const textStyle = {
@@ -71,13 +72,16 @@ const TopCareer: React.FC<TopCareerProps> = ({ topCategories }) => {
     fontSize: "15 px", // Adjust this value as needed
   };
   return (
-    <section className="top-company-section pt-20 lg-pt-20 pb-20 lg-pb-20 mt-20 xl-mt-20">
+    <section
+      className="top-company-section pt-20 lg-pt-20 pb-30 lg-pb-20 mt-20 xl-mt-20 mb-50 px-5 lg-px-5 rounded-5"
+      style={{ backgroundColor: "#13adbd" }}
+    >
       <div className="container">
-        <div className="row justify-content-between align-items-center pb-20 lg-pb-10">
+        <div className="row justify-content-center align-items-center">
           <div className="col-sm-7">
             <div className="title-one">
               <h2
-                className="main-font wow fadeInUp"
+                className="main-font wow fadeInUp text-white text-uppercase"
                 data-wow-delay="0.3s"
                 style={headingStyle}
               >
@@ -90,7 +94,7 @@ const TopCareer: React.FC<TopCareerProps> = ({ topCategories }) => {
         <div className="row">
           {filteredCompanyData.map((item) => (
             <div key={item.id} className="col-lg-4 col-md-6 col-sm-6">
-              <div className="card-style-nine text-center tran3s mt-20 wow fadeInUp">
+              <div className="card-style-nine text-center tran3s mt-20 wow fadeInUp rounded-5">
                 <Image
                   src={item.icon}
                   alt="logo"
@@ -104,7 +108,7 @@ const TopCareer: React.FC<TopCareerProps> = ({ topCategories }) => {
                 >
                   {item.name}
                 </div>
-                <p className="" style={textStyle}>
+                <p className="text-dark" style={textStyle}>
                   {item.desc}
                 </p>
               </div>
