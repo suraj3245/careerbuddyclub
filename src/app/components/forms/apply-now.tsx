@@ -13,7 +13,7 @@ interface IOption {
   value: string;
   label: string;
 }
-
+ 
 type UTMParams = {
   utm_source: string | null;
   utm_medium: string | null;
@@ -26,6 +26,7 @@ type UTMParams = {
 // form data type
 type IFormData = {
   name: string;
+  from: string;
   email: string;
   mobile: number;
   verificationCode: string;
@@ -43,6 +44,7 @@ type IFormData = {
 // schema
 const schema = Yup.object().shape({
   name: Yup.string().required().label("Name"),
+  from: Yup.string().required().label("from"),
   email: Yup.string().required().email().label("Email"),
   mobile: Yup.number().required().label("Phone Number"),
   password: Yup.string().required().min(6).label("Password"),
@@ -55,42 +57,42 @@ const ApplyForm = () => {
   const [countdown, setCountdown] = useState(30);
   const [showResend, setShowResend] = useState(false);
   const [streamOptions, setStreamOptions] = useState<IOption[]>([
-    { value: "1", label: "Arts & Humanities" },
-    { value: "2", label: "Business & Management" },
-    { value: "3", label: "Engineering & Technology" },
-    { value: "4", label: "Life Sciences & Medicine" },
-    { value: "5", label: "Natural Sciences" },
-    { value: "6", label: "Social Sciences & Management" },
-    { value: "7", label: "Computer Science & IT" },
-    { value: "8", label: "Law" },
-    { value: "9", label: "Education & Training" },
-    { value: "10", label: "Creative Arts & Design" },
-    { value: "11", label: "Applied Sciences & Professions" },
-    { value: "12", label: "Agriculture & Forestry" },
-    { value: "13", label: "Environmental Studies & Earth Sciences" },
-    { value: "14", label: "Hospitality, Leisure & Sports" },
-    { value: "15", label: "Journalism & Media" },
-    { value: "16", label: "General Studies & Classics" },
-    { value: "17", label: "Health & Medicine" },
-    { value: "18", label: "Performing Arts" },
-    { value: "19", label: "Physical Sciences & Mathematics" },
-    { value: "20", label: "Psychology & Counseling" },
-    { value: "21", label: "Fashion & Beauty" },
-    { value: "22", label: "Veterinary Medicine" },
-    { value: "23", label: "Religious Studies & Theology" },
-    { value: "24", label: "Philosophy & Ethics" },
-    { value: "25", label: "Languages & Literature" },
-    { value: "26", label: "Culinary Arts" },
-    { value: "27", label: "Anthropology" },
-    { value: "28", label: "Archaeology" },
-    { value: "29", label: "History" },
-    { value: "30", label: "Political Science & International Relations" },
-    { value: "31", label: "Sociology" },
-    { value: "32", label: "Economics" },
-    { value: "33", label: "Urban Planning & Architecture" },
-    { value: "34", label: "Music" },
-    { value: "35", label: "Film, Television & Theater" },
-    { value: "36", label: "Graphic Design & Visual Arts" },
+    { value: "Arts & Humanities", label: "Arts & Humanities" },
+    { value: "Business & Management", label: "Business & Management" },
+    { value: "Engineering & Technology", label: "Engineering & Technology" },
+    { value: "Life Sciences & Medicine", label: "Life Sciences & Medicine" },
+    { value: "Natural Sciences", label: "Natural Sciences" },
+    { value: "Social Sciences & Management", label: "Social Sciences & Management" },
+    { value: "Computer Science & IT", label: "Computer Science & IT" },
+    { value: "Law", label: "Law" },
+    { value: "Education & Training", label: "Education & Training" },
+    { value: "Creative Arts & Design", label: "Creative Arts & Design" },
+    { value: "Applied Sciences & Professions", label: "Applied Sciences & Professions" },
+    { value: "Agriculture & Forestry", label: "Agriculture & Forestry" },
+    { value: "Environmental Studies & Earth Sciences", label: "Environmental Studies & Earth Sciences" },
+    { value: "Hospitality, Leisure & Sports", label: "Hospitality, Leisure & Sports" },
+    { value: "Journalism & Media", label: "Journalism & Media" },
+    { value: "General Studies & Classics", label: "General Studies & Classics" },
+    { value: "Health & Medicine", label: "Health & Medicine" },
+    { value: "Performing Arts", label: "Performing Arts" },
+    { value: "Physical Sciences & Mathematics", label: "Physical Sciences & Mathematics" },
+    { value: "Psychology & Counseling", label: "Psychology & Counseling" },
+    { value: "Fashion & Beauty", label: "Fashion & Beauty" },
+    { value: "Veterinary Medicine", label: "Veterinary Medicine" },
+    { value: "Religious Studies & Theology", label: "Religious Studies & Theology" },
+    { value: "Philosophy & Ethics", label: "Philosophy & Ethics" },
+    { value: "Languages & Literature", label: "Languages & Literature" },
+    { value: "Culinary Arts", label: "Culinary Arts" },
+    { value: "Anthropology", label: "Anthropology" },
+    { value: "Archaeology", label: "Archaeology" },
+    { value: "History", label: "History" },
+    { value: "Political Science & International Relations", label: "Political Science & International Relations" },
+    { value: "Sociology", label: "Sociology" },
+    { value: "Economics", label: "Economics" },
+    { value: "Urban Planning & Architecture", label: "Urban Planning & Architecture" },
+    { value: "Music", label: "Music" },
+    { value: "Film, Television & Theater", label: "Film, Television & Theater" },
+    { value: "Graphic Design & Visual Arts", label: "Graphic Design & Visual Arts" },
   ]);
   const router = useRouter();
   const [utmParams, setUtmParams] = useState<UTMParams>({
@@ -102,11 +104,15 @@ const ApplyForm = () => {
     utm_content: null,
   });
   const [levelOptions, setLevelOptions] = useState<IOption[]>([
-    { value: "1", label: "Not Known" },
-    { value: "9", label: "Undergraduate (UG)" },
-    { value: "10", label: "Postgraduate (PG)" },
-    { value: "8", label: "Diploma" },
-    { value: "235", label: "Doctorate (PhD)" },
+    { value: "Not known", label: "Not Known" },
+    { value: "UG", label: "Undergraduate (UG)" },
+    { value: "PG", label: "Postgraduate (PG)" },
+    { value: "Diploma", label: "Diploma" },
+    { value: "Doctorate (PhD)", label: "Doctorate (PhD)" },
+    { value: "9", label: "IX" },
+    { value: "10", label: "X" },
+    { value: "11", label: "XI" },
+    { value: "12", label: "XII" },
   ]);
 
   useEffect(() => {
@@ -185,11 +191,9 @@ const ApplyForm = () => {
     return () => clearInterval(interval);
   }, [isVerificationSent, countdown]);
   const onSubmit = (data: IFormData) => {
-    // Destructure the required fields from data
-    const from = localStorage.getItem("location") || "";
-    // const Center = localStorage.getItem("location") || "";
     const {
       name,
+      from,
       email,
       mobile,
       verificationCode: otp,
@@ -199,14 +203,13 @@ const ApplyForm = () => {
     } = data;
     const payload = {
       name,
+      from,
       email,
       mobile,
       otp,
       password,
       level,
       stream,
-      from,
-      // Center,
       LeadCampaign: utmParams.utm_campaign,
     };
 
@@ -230,8 +233,6 @@ const ApplyForm = () => {
         // Handle the response here, e.g., notify the user of success
         localStorage.setItem("token", response.data.access_token);
         localStorage.setItem("username", name);
-        console.log("Registration successful", response.data);
-        console.log("Form Data:", payload);
         toast.success("Your Account is created ! please check your email. 🚀", {
           position: "top-left",
           autoClose: 1000,
@@ -316,6 +317,25 @@ const ApplyForm = () => {
             />
             <div className="help-block with-errors">
               <ErrorMsg msg={errors.email?.message!} />
+            </div>
+          </div>
+        </div>
+        <div className="col-12">
+          <div className="input-group-meta position-relative mb-15">
+            <input
+              type="text"
+              placeholder="Enter School/College"
+              {...register("from", { required: `schoolName is required!` })}
+              name="from"
+              style={{
+                backgroundColor: "white",
+                padding: "8px 12px",
+                fontSize: "14px",
+                height: "40px",
+              }}
+            />
+            <div className="help-block with-errors">
+              <ErrorMsg msg={errors.from?.message!} />
             </div>
           </div>
         </div>

@@ -68,7 +68,6 @@ const StudentTable: React.FC = () => {
         bodyContent,
         { headers: headersList }
       );
-      console.log("Response data:", response.data);
       setStudents(response.data);
     } catch (error) {
       console.error("Error fetching students:", error);
@@ -93,7 +92,6 @@ const StudentTable: React.FC = () => {
 
   const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
     try {
       const headersList = {
         Accept: "/",
@@ -111,8 +109,6 @@ const StudentTable: React.FC = () => {
       } = formData;
 
       const schoolName = localStorage.getItem("schoolName") || "";
-
-      // Dynamically add the 'from' property
       const updatedFormData = {
         ...formDataToSend,
         from: schoolName,
@@ -121,7 +117,6 @@ const StudentTable: React.FC = () => {
       const bodyContent = JSON.stringify(updatedFormData);
 
       let reqOptions;
-
       if (isEdit && currentStudentId !== null) {
         reqOptions = {
           url: `https://test.careerbuddyclub.com:8080/api/students/studentupdate/${currentStudentId}`,
@@ -138,9 +133,7 @@ const StudentTable: React.FC = () => {
         };
       }
 
-      const response = await axios.request(reqOptions);
-      console.log("Response Data:", response.data);
-
+      await axios.request(reqOptions);
       fetchStudents();
       handleCloseModal();
       toast.success(`Student ${isEdit ? "updated" : "added"} successfully`);
@@ -161,9 +154,28 @@ const StudentTable: React.FC = () => {
     setSearchTerm(e.target.value);
   };
 
-  const filteredStudents = students.filter((student) =>
-    student.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const filteredStudents = students
+    .filter((student) =>
+      student.name.toLowerCase().includes(searchTerm.toLowerCase())
+    )
+    .map((student) => {
+      const scores = [
+        { name: "Realistic", score: student.realistic_score },
+        { name: "Investigative", score: student.investigative_score },
+        { name: "Artistic", score: student.artistic_score },
+        { name: "Social", score: student.social_score },
+        { name: "Enterprising", score: student.enterprising_score },
+        { name: "Conventional", score: student.conventional_score },
+      ];
+
+      scores.sort((a, b) => b.score - a.score);
+      const topThreeScores = scores.slice(0, 3);
+
+      const topThreeScoresAbbr = topThreeScores
+        .map((s) => s.name.charAt(0))
+        .join("");
+      return { ...student, topThreeScores, topThreeScoresAbbr };
+    });
 
   const currentFilteredStudents = filteredStudents.slice(
     indexOfFirstStudent,
@@ -177,21 +189,58 @@ const StudentTable: React.FC = () => {
       setLoading(true);
       await fetchStudents();
 
-      const filteredStudents = students.map((student) => ({
-        name: student.name,
-        class: student.class,
-        from: student.from,
-        realistic_score: student.realistic_score,
-        investigative_score: student.investigative_score,
-        artistic_score: student.artistic_score,
-        social_score: student.social_score,
-        enterprising_score: student.enterprising_score,
-        conventional_score: student.conventional_score,
-      }));
+      const filteredStudents = students.map((student) => {
+        const scores = [
+          { name: "Realistic", score: student.realistic_score },
+          { name: "Investigative", score: student.investigative_score },
+          { name: "Artistic", score: student.artistic_score },
+          { name: "Social", score: student.social_score },
+          { name: "Enterprising", score: student.enterprising_score },
+          { name: "Conventional", score: student.conventional_score },
+        ];
 
+        // Sort scores in descending order and take the top three
+        scores.sort((a, b) => b.score - a.score);
+        const topThreeScores = scores.slice(0, 3);
+
+        // Get only the first letter of each score name
+        const topThreeScoresFormatted = topThreeScores
+          .map((s) => s.name.charAt(0))
+          .join("");
+
+        return {
+          Name: student.name,
+          Class: student.class,
+          School: student.from,
+          Realistic_score: student.realistic_score,
+          Investigative_score: student.investigative_score,
+          Artistic_score: student.artistic_score,
+          Social_score: student.social_score,
+          Enterprising_score: student.enterprising_score,
+          Conventional_score: student.conventional_score,
+          Top_scores: topThreeScoresFormatted,
+        };
+      });
+
+      const headers = [
+        "Name",
+        "Class",
+        "From",
+        "Realistic Score",
+        "Investigative Score",
+        "Artistic Score",
+        "Social Score",
+        "Enterprising Score",
+        "Conventional Score",
+        "Top Scores",
+      ];
+
+      // Convert the filtered students to a worksheet
       const worksheet = XLSX.utils.json_to_sheet(filteredStudents);
       const workbook = XLSX.utils.book_new();
       XLSX.utils.book_append_sheet(workbook, worksheet, "Students");
+
+      // Write to file
       XLSX.writeFile(workbook, "students_data.xlsx");
       toast.success("Data exported successfully");
     } catch (error) {
@@ -203,24 +252,11 @@ const StudentTable: React.FC = () => {
   };
 
   const handleDownload = (student: any) => {
-    const scores = [
-      { name: "Realistic", score: student.realistic_score },
-      { name: "Investigative", score: student.investigative_score },
-      { name: "Artistic", score: student.artistic_score },
-      { name: "Social", score: student.social_score },
-      { name: "Enterprising", score: student.enterprising_score },
-      { name: "Conventional", score: student.conventional_score },
-    ];
-
-    scores.sort((a, b) => b.score - a.score);
-    const topThreeScores = scores.slice(0, 3);
-
-    setSelectedStudent({ ...student, topThreeScores });
+    setSelectedStudent(student);
   };
-
   return (
     <>
-      <ToastContainer/>
+      <ToastContainer />
       {loading ? (
         <div
           className="student-table d-flex justify-content-center align-items-center"
@@ -236,7 +272,7 @@ const StudentTable: React.FC = () => {
           <div className="card mb-1 card_1">
             <div className="card-body">
               <h3 className="mb-0 heading-table styled-heading ms-4 text-decoration-underline fw-bold">
-              Insight into Student Performance: Career Assesment Evaluation Test{" "}
+                Insight into Student Performance:Career Aptitude Test{" "}
               </h3>
               <div className="row justify-content-between align-items-center p-4">
                 <div className="col-lg-6 col-md-6 col-sm-12 d-flex align-items-center mb-3">
@@ -259,7 +295,7 @@ const StudentTable: React.FC = () => {
                 </div>
               </div>
 
-              <div className="table-responsive" style={{'overflow': 'auto'}}>
+              <div className="table-responsive" style={{ overflow: "auto" }}>
                 <table className="table card-table table-bordered table-vcenter text-nowrap table-striped">
                   <thead className="table-light">
                     <tr>
@@ -273,15 +309,15 @@ const StudentTable: React.FC = () => {
                       <th>Social</th>
                       <th>Enterprising</th>
                       <th>Conventional</th>
+                      <th>Top Scores</th>
                       <th>Edit</th>
                       <th>Download</th>
                     </tr>
                   </thead>
                   <tbody>
                     {currentFilteredStudents.map((student, index) => (
-                       
                       <tr key={student.id}>
-                      <td>{indexOfFirstStudent + index + 1}</td>
+                        <td>{indexOfFirstStudent + index + 1}</td>
                         <td>{student.name}</td>
                         {/* <td>{student.class}</td> */}
                         <td>{student.from}</td>
@@ -291,17 +327,18 @@ const StudentTable: React.FC = () => {
                         <td>{student.social_score}</td>
                         <td>{student.enterprising_score}</td>
                         <td>{student.conventional_score}</td>
+                        <td>{student.topThreeScoresAbbr}</td>
                         <td>
-                        <Button
+                          <Button
                             variant="outline-primary"
                             size="sm"
                             onClick={() => handleEdit(student)}
                           >
-                            <BorderColorIcon/>
+                            <BorderColorIcon />
                           </Button>
                         </td>
                         <td>
-                        <Button
+                          <Button
                             variant="outline-primary me-2"
                             size="sm"
                             onClick={() => handleDownload(student)}
@@ -314,100 +351,138 @@ const StudentTable: React.FC = () => {
                   </tbody>
                 </table>
               </div>
+              {currentFilteredStudents.length > 0 && (
+                <nav>
+                  <ul className="pagination justify-content-center">
+                    {/* Show the "Previous" button */}
+                    <li
+                      className={`page-item ${
+                        currentPage === 1 ? "disabled" : ""
+                      }`}
+                    >
+                      <a
+                        href="#!"
+                        className="page-link"
+                        onClick={() =>
+                          currentPage > 1 && paginate(currentPage - 1)
+                        }
+                      >
+                        Previous
+                      </a>
+                    </li>
 
-              
-              <nav>
-  <ul className="pagination justify-content-center">
-    {/* Show the "Previous" button */}
-    <li className={`page-item ${currentPage === 1 ? "disabled" : ""}`}>
-      <a
-        href="#!"
-        className="page-link"
-        onClick={() => paginate(currentPage - 1)}
-      >
-        Previous
-      </a>
-    </li>
+                    {currentPage > 3 && (
+                      <>
+                        <li
+                          className={`page-item ${
+                            currentPage === 1 ? "active" : ""
+                          }`}
+                        >
+                          <a
+                            href="#!"
+                            className="page-link"
+                            onClick={() => paginate(1)}
+                          >
+                            1
+                          </a>
+                        </li>
+                        <li className="page-item disabled">
+                          <span className="page-link">...</span>
+                        </li>
+                      </>
+                    )}
 
-    {/* If the first page isn't in view, show the first page and an ellipsis */}
-    {currentPage > 3 && (
-      <>
-        <li className={`page-item ${currentPage === 1 ? "active" : ""}`}>
-          <a href="#!" className="page-link" onClick={() => paginate(1)}>
-            1
-          </a>
-        </li>
-        <li className="page-item disabled">
-          <span className="page-link">...</span>
-        </li>
-      </>
-    )}
+                    {/* Pages around the current page */}
+                    {Array.from({
+                      length: Math.min(
+                        5,
+                        Math.ceil(filteredStudents.length / studentsPerPage)
+                      ),
+                    }).map((_, index) => {
+                      const pageIndex = Math.max(1, currentPage - 2) + index;
+                      return (
+                        pageIndex <=
+                          Math.ceil(
+                            filteredStudents.length / studentsPerPage
+                          ) && (
+                          <li
+                            key={pageIndex}
+                            className={`page-item ${
+                              currentPage === pageIndex ? "active" : ""
+                            }`}
+                          >
+                            <a
+                              href="#!"
+                              className="page-link"
+                              onClick={() => paginate(pageIndex)}
+                            >
+                              {pageIndex}
+                            </a>
+                          </li>
+                        )
+                      );
+                    })}
 
-    {/* Pages around the current page */}
-    {Array.from({ length: Math.min(5, Math.ceil(filteredStudents.length / studentsPerPage)) })
-      .map((_, index) => {
-        const pageIndex = Math.max(1, currentPage - 2) + index;
-        return (
-          <li
-            key={pageIndex}
-            className={`page-item ${currentPage === pageIndex ? "active" : ""}`}
-          >
-            <a
-              href="#!"
-              className="page-link"
-              onClick={() => paginate(pageIndex)}
-            >
-              {pageIndex}
-            </a>
-          </li>
-        );
-      })}
+                    {/* If the last page isn't in view, show an ellipsis and the last page */}
+                    {currentPage <
+                      Math.ceil(filteredStudents.length / studentsPerPage) -
+                        2 && (
+                      <>
+                        <li className="page-item disabled">
+                          <span className="page-link">...</span>
+                        </li>
+                        <li
+                          className={`page-item ${
+                            currentPage ===
+                            Math.ceil(filteredStudents.length / studentsPerPage)
+                              ? "active"
+                              : ""
+                          }`}
+                        >
+                          <a
+                            href="#!"
+                            className="page-link"
+                            onClick={() =>
+                              paginate(
+                                Math.ceil(
+                                  filteredStudents.length / studentsPerPage
+                                )
+                              )
+                            }
+                          >
+                            {Math.ceil(
+                              filteredStudents.length / studentsPerPage
+                            )}
+                          </a>
+                        </li>
+                      </>
+                    )}
 
-    {/* If the last page isn't in view, show an ellipsis and the last page */}
-    {currentPage < Math.ceil(filteredStudents.length / studentsPerPage) - 2 && (
-      <>
-        <li className="page-item disabled">
-          <span className="page-link">...</span>
-        </li>
-        <li
-          className={`page-item ${
-            currentPage === Math.ceil(filteredStudents.length / studentsPerPage)
-              ? "active"
-              : ""
-          }`}
-        >
-          <a
-            href="#!"
-            className="page-link"
-            onClick={() =>
-              paginate(Math.ceil(filteredStudents.length / studentsPerPage))
-            }
-          >
-            {Math.ceil(filteredStudents.length / studentsPerPage)}
-          </a>
-        </li>
-      </>
-    )}
-
-    {/* Show the "Next" button */}
-    <li
-      className={`page-item ${
-        currentPage === Math.ceil(filteredStudents.length / studentsPerPage)
-          ? "disabled"
-          : ""
-      }`}
-    >
-      <a
-        href="#!"
-        className="page-link"
-        onClick={() => paginate(currentPage + 1)}
-      >
-        Next
-      </a>
-    </li>
-  </ul>
-</nav>
-
+                    {/* Show the "Next" button */}
+                    <li
+                      className={`page-item ${
+                        currentPage ===
+                        Math.ceil(filteredStudents.length / studentsPerPage)
+                          ? "disabled"
+                          : ""
+                      }`}
+                    >
+                      <a
+                        href="#!"
+                        className="page-link"
+                        onClick={() =>
+                          currentPage <
+                            Math.ceil(
+                              filteredStudents.length / studentsPerPage
+                            ) && paginate(currentPage + 1)
+                        }
+                      >
+                        Next
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+              )}
             </div>
           </div>
 
@@ -453,12 +528,12 @@ const StudentTable: React.FC = () => {
 
           {/* Student Score Modal */}
           {selectedStudent && (
-        <StudentScoreModal
-          show={!!selectedStudent}
-          onClose={() => setSelectedStudent(null)}
-          student={selectedStudent}
-        />
-      )}
+            <StudentScoreModal
+              show={!!selectedStudent}
+              onClose={() => setSelectedStudent(null)}
+              student={selectedStudent}
+            />
+          )}
         </>
       )}
     </>
