@@ -50,6 +50,8 @@ const HeroBannerTwo = () => {
                   cursorChar=""
                   showCursor={true}
                 />
+
+                
               </div>
               
             </div>
@@ -73,6 +75,7 @@ const HeroBannerTwo = () => {
           alt="screen"
           className="lazy-img shapes screen_02 wow fadeInLeft"
         />
+        
       </div>
 
       {/* /.img-box */}

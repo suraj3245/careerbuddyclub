@@ -83,7 +83,7 @@ const YourCareer: React.FC<TopCareerProps> = ({ topCategories }) => {
                 style={{
                   backgroundColor: index % 2 === 0 ? "#13adbd" : "#eed30d",
                   color: index % 2 === 0 ? "white" : "black",
-                  width: "45%",
+                  width: "100%",
                 }}
               >
                 <div className="text-lg fw-500" style={{ fontSize: "24px" }}>
@@ -98,7 +98,7 @@ const YourCareer: React.FC<TopCareerProps> = ({ topCategories }) => {
                   <div className="text-lg fw-100 text-dark" style={{ flex: 1 }}>
                     Specific Domain:
                   </div>
-                  <div className="text-lg fw-500 text-dark" style={{ flex: 2 }}>
+                  <div className="text-lg fw-500 text-dark" style={{ flex: 2, fontSize: "17px" }}>
                     {item?.Domain}
                   </div>
                 </div>
@@ -106,7 +106,7 @@ const YourCareer: React.FC<TopCareerProps> = ({ topCategories }) => {
                   <div className="text-lg fw-100 text-dark" style={{ flex: 1 }}>
                     Average Package:
                   </div>
-                  <div className="text-lg fw-500 text-dark" style={{ flex: 2 }}>
+                  <div className="text-lg fw-500 text-dark" style={{ flex: 2, fontSize: "17px" }}>
                     <div>1. Freshers: {item?.Package?.Freshers || "N/A"}</div>
                     <div>
                       2. Experienced Professionals:{" "}
@@ -117,10 +117,10 @@ const YourCareer: React.FC<TopCareerProps> = ({ topCategories }) => {
                   </div>
                 </div>
                 <div style={textStyle}>
-                  <div className="text-lg fw-100 text-dark" style={{ flex: 1 }}>
+                  <div className="text-lg fw-100 text-dark" style={{ flex: 1, fontSize: "17px" }}>
                     Top 3 Hiring Companies:
                   </div>
-                  <div className="text-lg fw-500 text-dark" style={{ flex: 2 }}>
+                  <div className="text-lg fw-500 text-dark" style={{ flex: 2, fontSize: "17px" }}>
                     {item?.Companies?.map((company, idx) => (
                       <div key={idx}>
                         {idx + 1}. {company}
@@ -132,7 +132,7 @@ const YourCareer: React.FC<TopCareerProps> = ({ topCategories }) => {
                   <div className="text-lg fw-100 text-dark" style={{ flex: 1 }}>
                     Skills to Acquire:
                   </div>
-                  <div className="text-lg fw-500 text-dark" style={{ flex: 2 }}>
+                  <div className="text-lg fw-500 text-dark" style={{ flex: 2, fontSize: "17px" }}>
                     {item?.Skills?.map((skill, idx) => (
                       <div key={idx}>
                         {idx + 1}. {skill}
