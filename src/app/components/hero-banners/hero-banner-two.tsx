@@ -3,7 +3,7 @@ import React from "react";
 import Image from "next/image";
 // internalc
 import shape_2 from "@/assets/images/shape/shape_16.svg";
-import shape_3 from "@/assets/images/shape/shape_17.svg"; 
+import shape_3 from "@/assets/images/shape/shape_17.svg";
 import shape_4 from "@/assets/images/shape/shape_18.svg";
 import shape_5 from "@/assets/images/shape/shape_19.svg";
 import shape_6 from "@/assets/images/shape/shape_20.svg";
@@ -33,7 +33,7 @@ const HeroBannerTwo = () => {
               >
                 How Can We Assist You?
               </h1>
-           
+
               <div
                 className="text-md mt-35 mb-20 lg-mb-30 pe-xxl-5 wow fadeInUp"
                 data-wow-delay="0.4s"
@@ -50,15 +50,22 @@ const HeroBannerTwo = () => {
                   cursorChar=""
                   showCursor={true}
                 />
-
-                
               </div>
-              
             </div>
           </div>
         </div>
       </div>
-      <div className="img-box">
+      <div
+        id="ee-form-6"
+        style={{
+          position: "absolute", // Relative to the parent container
+          top: "58%", // Center it vertically within the parent
+          right: "10%", // Place it 20px from the right side
+          transform: "translateY(-50%)", // Adjust for perfect vertical centering
+        }}
+      ></div>
+
+      {/* <div className="img-box">
         <Image
           src={main_img}
           alt="main-img"
@@ -75,11 +82,10 @@ const HeroBannerTwo = () => {
           alt="screen"
           className="lazy-img shapes screen_02 wow fadeInLeft"
         />
-        
-      </div>
+      </div> */}
 
       {/* /.img-box */}
-      <div className="rating-box position-relative">
+      {/* <div className="rating-box position-relative">
         <div className="d-sm-flex justify-content-end">
           <div className="me-sm-5 pe-xxl-4">
             <div className="d-flex align-items-center">
@@ -103,13 +109,13 @@ const HeroBannerTwo = () => {
             </ul>
           </div>
         </div>
-      </div>
+      </div> */}
 
-      <Image src={shape_2} alt="shape" className="lazy-img shapes shape_02" />
+      {/* <Image src={shape_2} alt="shape" className="lazy-img shapes shape_02" />
       <Image src={shape_3} alt="shape" className="lazy-img shapes shape_03" />
       <Image src={shape_4} alt="shape" className="lazy-img shapes shape_04" />
       <Image src={shape_5} alt="shape" className="lazy-img shapes shape_05" />
-      <Image src={shape_6} alt="shape" className="lazy-img shapes shape_06" />
+      <Image src={shape_6} alt="shape" className="lazy-img shapes shape_06" /> */}
     </div>
   );
 };
