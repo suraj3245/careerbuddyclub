@@ -4,17 +4,23 @@ import data from "@/assets/text/career_choices.json";
 
 type CareerChoiceKeys = keyof typeof data;
 
-interface TopCareerProps {
-  topCategories: string[]; // Define 'topCategories' as an array of strings
+interface YourCareerProps {
+  code: CareerChoiceKeys; // Now expecting the code directly
 }
 
-const YourCareer: React.FC<TopCareerProps> = ({ topCategories }) => {
+const YourCareer: React.FC<YourCareerProps> = ({ code }) => {
   const [companyData, setCompanyData] = useState([]);
+  const [careerChoices, setCareerChoices] = useState<
+    (typeof data)[CareerChoiceKeys] | null
+  >(null);
 
-  const topCatCode = topCategories
-    ?.map((cat) => cat[0])
-    .join("") as CareerChoiceKeys;
-  const career_choices = data?.[topCatCode];
+  useEffect(() => {
+    if (code && data[code]) {
+      setCareerChoices(data[code]); // Fetch data directly using the code
+    } else {
+      setCareerChoices(null); // Reset if no valid code is provided
+    }
+  }, [code]);
 
   useEffect(() => {
     // Make a request to get the career choices from Thunder Client
@@ -76,7 +82,7 @@ const YourCareer: React.FC<TopCareerProps> = ({ topCategories }) => {
         </div>
 
         <div className="row justify-content-center m-5">
-          {career_choices?.map((item, index) => (
+          {careerChoices?.map((item, index) => (
             <div key={index}>
               <div
                 className="text-center tran3s mt-10 wow fadeInUp rounded-4 p-3"
@@ -98,7 +104,10 @@ const YourCareer: React.FC<TopCareerProps> = ({ topCategories }) => {
                   <div className="text-lg fw-100 text-dark" style={{ flex: 1 }}>
                     Specific Domain:
                   </div>
-                  <div className="text-lg fw-500 text-dark" style={{ flex: 2, fontSize: "17px" }}>
+                  <div
+                    className="text-lg fw-500 text-dark"
+                    style={{ flex: 2, fontSize: "17px" }}
+                  >
                     {item?.Domain}
                   </div>
                 </div>
@@ -106,7 +115,10 @@ const YourCareer: React.FC<TopCareerProps> = ({ topCategories }) => {
                   <div className="text-lg fw-100 text-dark" style={{ flex: 1 }}>
                     Average Package:
                   </div>
-                  <div className="text-lg fw-500 text-dark" style={{ flex: 2, fontSize: "17px" }}>
+                  <div
+                    className="text-lg fw-500 text-dark"
+                    style={{ flex: 2, fontSize: "17px" }}
+                  >
                     <div>1. Freshers: {item?.Package?.Freshers || "N/A"}</div>
                     <div>
                       2. Experienced Professionals:{" "}
@@ -117,10 +129,16 @@ const YourCareer: React.FC<TopCareerProps> = ({ topCategories }) => {
                   </div>
                 </div>
                 <div style={textStyle}>
-                  <div className="text-lg fw-100 text-dark" style={{ flex: 1, fontSize: "17px" }}>
+                  <div
+                    className="text-lg fw-100 text-dark"
+                    style={{ flex: 1, fontSize: "17px" }}
+                  >
                     Top 3 Hiring Companies:
                   </div>
-                  <div className="text-lg fw-500 text-dark" style={{ flex: 2, fontSize: "17px" }}>
+                  <div
+                    className="text-lg fw-500 text-dark"
+                    style={{ flex: 2, fontSize: "17px" }}
+                  >
                     {item?.Companies?.map((company, idx) => (
                       <div key={idx}>
                         {idx + 1}. {company}
@@ -132,7 +150,10 @@ const YourCareer: React.FC<TopCareerProps> = ({ topCategories }) => {
                   <div className="text-lg fw-100 text-dark" style={{ flex: 1 }}>
                     Skills to Acquire:
                   </div>
-                  <div className="text-lg fw-500 text-dark" style={{ flex: 2, fontSize: "17px" }}>
+                  <div
+                    className="text-lg fw-500 text-dark"
+                    style={{ flex: 2, fontSize: "17px" }}
+                  >
                     {item?.Skills?.map((skill, idx) => (
                       <div key={idx}>
                         {idx + 1}. {skill}

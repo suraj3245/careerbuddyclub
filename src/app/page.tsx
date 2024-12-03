@@ -18,7 +18,7 @@ const main = () => {
   return (
     <>
       <HomeTwo />
-      <script src="https://eeconfigstaticfiles.blob.core.windows.net/staticfiles/cbclub/ee-form-widget/form-6/widget.js"></script>
+      {/* <script src="https://eeconfigstaticfiles.blob.core.windows.net/staticfiles/cbclub/ee-form-widget/form-6/widget.js"></script> */}
     </>
   );
 };

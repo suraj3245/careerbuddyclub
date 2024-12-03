@@ -565,7 +565,7 @@ const QuizForm: React.FC = () => {
             </div>
             <TopCareer topCategories={getTopThreeCategoryNames()} />
 
-            <YourCareer topCategories={getTopThreeCategoryNames()} />
+            <YourCareer code={results?.letters} />
             <div
               style={{
                 display: "flex",

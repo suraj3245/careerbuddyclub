@@ -330,8 +330,7 @@ const DashboardResult = ({ setIsOpenSidebar }: IProps) => {
 
                     <TopCareer topCategories={getTopThreeCategoryNames()} />
                     {/* <YourCareer /> */}
-                    <YourCareer topCategories={getTopThreeCategoryNames()} />
-
+                    <YourCareer code={results?.letters} />
                   </div>
                 </div>
                 <div

@@ -55,7 +55,7 @@ const HeroBannerTwo = () => {
           </div>
         </div>
       </div>
-      <div
+      {/* <div
         id="ee-form-6"
         style={{
           position: "absolute", // Relative to the parent container
@@ -63,9 +63,9 @@ const HeroBannerTwo = () => {
           right: "10%", // Place it 20px from the right side
           transform: "translateY(-50%)", // Adjust for perfect vertical centering
         }}
-      ></div>
+      ></div> */}
 
-      {/* <div className="img-box">
+      <div className="img-box">
         <Image
           src={main_img}
           alt="main-img"
@@ -82,10 +82,10 @@ const HeroBannerTwo = () => {
           alt="screen"
           className="lazy-img shapes screen_02 wow fadeInLeft"
         />
-      </div> */}
+      </div>
 
       {/* /.img-box */}
-      {/* <div className="rating-box position-relative">
+      <div className="rating-box position-relative">
         <div className="d-sm-flex justify-content-end">
           <div className="me-sm-5 pe-xxl-4">
             <div className="d-flex align-items-center">
@@ -109,13 +109,13 @@ const HeroBannerTwo = () => {
             </ul>
           </div>
         </div>
-      </div> */}
+      </div>
 
-      {/* <Image src={shape_2} alt="shape" className="lazy-img shapes shape_02" />
+      <Image src={shape_2} alt="shape" className="lazy-img shapes shape_02" />
       <Image src={shape_3} alt="shape" className="lazy-img shapes shape_03" />
       <Image src={shape_4} alt="shape" className="lazy-img shapes shape_04" />
       <Image src={shape_5} alt="shape" className="lazy-img shapes shape_05" />
-      <Image src={shape_6} alt="shape" className="lazy-img shapes shape_06" /> */}
+      <Image src={shape_6} alt="shape" className="lazy-img shapes shape_06" />
     </div>
   );
 };
