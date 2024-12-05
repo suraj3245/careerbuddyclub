@@ -92,7 +92,7 @@ const ApplyModal = () => {
                             >
                               <div className="form-wrapper m-auto mt-2">
                                 <ApplyForm />
-                              </div>``
+                              </div>
                             </div>
                           </div>
                         </div>

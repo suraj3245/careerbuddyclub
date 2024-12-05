@@ -13,6 +13,7 @@ import { ApexOptions } from "apexcharts";
 import dynamic from "next/dynamic";
 import { jsPDF } from "jspdf";
 import html2canvas from "html2canvas";
+import { isUserLoggedIn } from "@/utils/auth";
 
 const ReactApexChart = dynamic(() => import("react-apexcharts"), {
   ssr: false,
@@ -26,6 +27,7 @@ type Question = {
 const defaultOptions = ["Dislike", "Neutral", "Enjoy"];
 
 const QuizForm: React.FC = () => {
+  isUserLoggedIn();
   const [questions, setQuestions] = useState<Question[]>([]);
   const [answers, setAnswers] = useState<{ [key: number]: string }>({});
   const [currentPage, setCurrentPage] = useState(0);
