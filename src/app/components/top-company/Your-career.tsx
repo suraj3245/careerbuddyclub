@@ -39,7 +39,7 @@ const YourCareer: React.FC<YourCareerProps> = ({ code }) => {
       .request(options)
       .then((response) => {
         // Update the state with the received data
-        console.log(response.data);
+        // console.log(response.data);
         setCompanyData(response.data);
       })
       .catch((error) => {
