@@ -12112,6 +12112,574 @@
       ]
     }
   ],
+  "RIS": [
+    {
+      "Research letter": "RIS",
+      "Career": "B.Sc. Nursing, OTT, Diploma in ANM / GNM",
+      "Domain": "",
+      "Package": {
+        "Freshers": "₹3 to 5 LPA",
+        "Experienced Professionals": "₹5 to 12 LPA+ (varies based on experience and specialization)"
+      },
+      "Companies": ["Fortis Healthcare", "Apollo Hospitals", "Max Healthcare"],
+      "Skills": [
+        "Proficient in evaluating patients' conditions and vital signs",
+        "Knowledge of life-saving procedures and equipment",
+        "Ability to work effectively within a multidisciplinary healthcare team"
+      ]
+    },
+    {
+      "Research letter": "RIS",
+      "Career": "B.Sc. / M.Sc. in Exercise Science / Kinesiology, Physical Education, Physiotherapy, Diploma in Exercise Science, Physiotherapy",
+      "Domain": "",
+      "Package": {
+        "Freshers": "₹3 to 6 LPA",
+        "Experienced Professionals": "₹6 to 12 LPA+ (varies based on experience and specialization)"
+      },
+      "Companies": ["Apollo Hospitals", "Fortis Healthcare", "Max Healthcare"],
+      "Skills": [
+        "Proficient in designing and implementing exercise programs for various populations",
+        "Strong knowledge of human physiology and exercise science",
+        "Excellent communication skills for educating clients on fitness and health"
+      ]
+    },
+    {
+      "Research letter": "RIS",
+      "Career": "B.Sc. / M.Sc. In Nursing, Physiotherapy, OTT, Anesthetics",
+      "Domain": "",
+      "Package": {
+        "Freshers": "₹4 to 7 LPA",
+        "Experienced Professionals": "₹8 to 15 LPA+ (varies based on experience and specialization)"
+      },
+      "Companies": ["Apollo Hospitals", "Fortis Healthcare", "Max Healthcare"],
+      "Skills": [
+        "Proficient in administering anesthesia and monitoring patient vitals",
+        "Strong understanding of pharmacology related to anesthetics",
+        "Excellent communication skills for coordinating with surgical teams and patients"
+      ]
+    },
+    {
+      "Research letter": "RIS",
+      "Career": "BDS, MDS, Diploma in Oral and Maxillofacial Surgery",
+      "Domain": "",
+      "Package": {
+        "Freshers": "₹6 to 10 LPA",
+        "Experienced Professionals": "₹12 to 25 LPA+ (varies based on experience and specialization)"
+      },
+      "Companies": [
+        "Apollo Hospitals",
+        "Fortis Healthcare",
+        "Manipal Hospitals"
+      ],
+      "Skills": [
+        "Proficient in surgical techniques for dental and facial procedures",
+        "Strong understanding of facial anatomy and pathology",
+        "Excellent communication skills for patient interaction and education"
+      ]
+    },
+    {
+      "Research letter": "RIS",
+      "Career": "MD/DM in Anesthetics, OTT, B.Sc. / M.Sc. In Nursing, Physiotherapy",
+      "Domain": "",
+      "Package": {
+        "Freshers": "₹8 to 12 LPA",
+        "Experienced Professionals": "₹15 to 35 LPA+ (varies based on experience and specialization)"
+      },
+      "Companies": ["Apollo Hospitals", "Fortis Healthcare", "Max Healthcare"],
+      "Skills": [
+        "Expertise in administering anesthesia and monitoring patients",
+        "Strong knowledge of pharmacology and patient safety protocols",
+        "Excellent communication skills for collaborating with surgical teams and explaining procedures to patients"
+      ]
+    },
+    {
+      "Research letter": "RIS",
+      "Career": "BDS, MDS (Supplemental/ Optional)",
+      "Domain": "",
+      "Package": {
+        "Freshers": "₹3 to 6 LPA",
+        "Experienced Professionals": "₹7 to 15 LPA+ (varies based on experience and specialization)"
+      },
+      "Companies": [
+        "Apollo Hospitals",
+        "Fortis Healthcare",
+        "Colgate-Palmolive India Ltd."
+      ],
+      "Skills": [
+        "Proficient in diagnosing and treating dental conditions",
+        "Strong interpersonal skills for effective patient communication",
+        "Knowledge of dental procedures, tools, and sterilization techniques"
+      ]
+    },
+    {
+      "Research letter": "RIS",
+      "Career": "B.Sc. / M.Sc. In Nursing (Anesthesia Specialization), Physiotherapy, OTT, Anesthetics",
+      "Domain": "",
+      "Package": {
+        "Freshers": "₹5 to 8 LPA",
+        "Experienced Professionals": "₹10 to 18 LPA+ (varies based on experience and specialization)"
+      },
+      "Companies": ["Apollo Hospitals", "Fortis Healthcare", "Max Healthcare"],
+      "Skills": [
+        "Expertise in administering anesthesia and monitoring patient responses",
+        "Strong assessment skills for evaluating patient health and readiness",
+        "Effective communication for collaborating with surgical teams and educating patients"
+      ]
+    },
+    {
+      "Research letter": "RIS",
+      "Career": "BDS, MDS (Specialization in Orthodontics)",
+      "Domain": "",
+      "Package": {
+        "Freshers": "₹6 to 10 LPA",
+        "Experienced Professionals": "₹10 to 25 LPA+ (varies based on experience and specialization)"
+      },
+      "Companies": [
+        "Smile India Dental Clinics",
+        "Apollo Hospitals",
+        "Fortis Healthcare"
+      ],
+      "Skills": [
+        "Proficiency in orthodontic assessment and treatment planning",
+        "Expertise in using braces and aligners effectively",
+        "Strong communication skills for patient education and follow-up care"
+      ]
+    },
+    {
+      "Research letter": "RIS",
+      "Career": "Radiology (BMLT, BMRIT, OTT)",
+      "Domain": "",
+      "Package": {
+        "Freshers": "₹8 to 12 LPA",
+        "Experienced Professionals": "₹12 to 30 LPA+ (varies based on experience and specialization)"
+      },
+      "Companies": ["Apollo Hospitals", "Fortis Healthcare", "Max Healthcare"],
+      "Skills": [
+        "Proficient in interpreting medical images (X-rays, MRIs, CT scans)",
+        "Strong knowledge of radiologic technology and safety protocols",
+        "Excellent communication skills for collaborating with healthcare teams and explaining findings to patients"
+      ]
+    },
+    {
+      "Research letter": "RIS",
+      "Career": "B.Sc./M.Sc. / Diploma in Acupuncture",
+      "Domain": "",
+      "Package": {
+        "Freshers": "₹2 to 4 LPA",
+        "Experienced Professionals": "₹4 to 10 LPA+ (varies based on experience and practice setting)"
+      },
+      "Companies": [
+        "Yogic Health Center",
+        "Sanjivani Clinic",
+        "Dr. Dhanvantari Clinic"
+      ],
+      "Skills": [
+        "Proficient in various acupuncture techniques and modalities",
+        "Strong understanding of anatomy and physiology related to acupuncture points",
+        "Excellent patient assessment and communication skills"
+      ]
+    },
+    {
+      "Research letter": "RIS",
+      "Career": "B.Sc. / M.Sc. Sports Science, Physiotherapy, Certifications in Fitness/Personal training",
+      "Domain": "",
+      "Package": {
+        "Freshers": "₹3 to 5 LPA",
+        "Experienced Professionals": "₹5 to 10 LPA+ (varies based on experience and specialization)"
+      },
+      "Companies": [
+        "Fortis Healthcare",
+        "Apollo Hospitals",
+        "Indian Sports Authority"
+      ],
+      "Skills": [
+        "Expertise in injury prevention and rehabilitation techniques",
+        "Strong knowledge of sports medicine and physiology",
+        "Effective communication and teamwork skills to collaborate with athletes and coaches"
+      ]
+    },
+    {
+      "Research letter": "RIS",
+      "Career": "BPO/MPO/DPO",
+      "Domain": "",
+      "Package": {
+        "Freshers": "₹3 to 5 LPA",
+        "Experienced Professionals": "₹5 to 10 LPA+ (varies based on experience and specialization)"
+      },
+      "Companies": ["MediSew", "Sankalp Orthopaedic Clinic", "OrthoCare India"],
+      "Skills": [
+        "Proficient in designing and fitting orthotic and prosthetic devices",
+        "Strong understanding of biomechanics and anatomy",
+        "Excellent patient assessment and communication skills"
+      ]
+    },
+    {
+      "Research letter": "RIS",
+      "Career": "MBBS, MD (Specialization in Immunology and Allergy Science)",
+      "Domain": "",
+      "Package": {
+        "Freshers": "₹8 to 12 LPA",
+        "Experienced Professionals": "₹12 to 25 LPA+ (varies based on experience and specialization)"
+      },
+      "Companies": ["Fortis Healthcare", "Apollo Hospitals", "Max Healthcare"],
+      "Skills": [
+        "Expertise in diagnosing and treating allergic conditions",
+        "Proficient in allergy testing and immunotherapy",
+        "Strong patient communication and counseling skills"
+      ]
+    },
+    {
+      "Research letter": "RIS",
+      "Career": "MBBS, MD (Dermatology, Venereology / Leprosy, Diploma in Dermatological Sciences)",
+      "Domain": "",
+      "Package": {
+        "Freshers": "₹6 to 10 LPA",
+        "Experienced Professionals": "₹10 to 25 LPA+ (varies based on experience and specialization)"
+      },
+      "Companies": ["Fortis Healthcare", "Apollo Hospitals", "Max Healthcare"],
+      "Skills": [
+        "Proficient in diagnosing and treating skin disorders",
+        "Expertise in cosmetic dermatology procedures",
+        "Strong communication skills for patient education and counseling"
+      ]
+    },
+    {
+      "Research letter": "RIS",
+      "Career": "MBBS, MD (General Medicine)",
+      "Domain": "",
+      "Package": {
+        "Freshers": "₹8 to 12 LPA",
+        "Experienced Professionals": "₹12 to 25 LPA+ (varies based on experience and specialization)"
+      },
+      "Companies": ["Fortis Healthcare", "Apollo Hospitals", "Max Healthcare"],
+      "Skills": [
+        "Proficient in diagnosing and managing various medical conditions",
+        "Strong interpersonal and communication skills for patient interaction",
+        "Ability to work collaboratively with multidisciplinary teams for comprehensive care"
+      ]
+    },
+    {
+      "Research letter": "RIS",
+      "Career": "MBBS, MD (General Medicine / Pediatrics, DM (Neurology)",
+      "Domain": "",
+      "Package": {
+        "Freshers": "₹8 to 12 LPA",
+        "Experienced Professionals": "₹12 to 25 LPA+ (varies based on experience and specialization)"
+      },
+      "Companies": ["Apollo Hospitals", "Fortis Healthcare", "Max Healthcare"],
+      "Skills": [
+        "Expertise in diagnosing and treating neurological disorders",
+        "Proficient in conducting and interpreting neurological examinations and tests",
+        "Strong communication skills to explain complex medical information to patients and families"
+      ]
+    },
+    {
+      "Research letter": "RIS",
+      "Career": "MBBS, MD (Obstetrics and Gynaecology), DNB (Obstetrics and Gynaecology)",
+      "Domain": "",
+      "Package": {
+        "Freshers": "₹8 to 12 LPA",
+        "Experienced Professionals": "₹12 to 30 LPA+ (varies based on experience and specialization)"
+      },
+      "Companies": ["Apollo Hospitals", "Fortis Healthcare", "Max Healthcare"],
+      "Skills": [
+        "Proficient in managing pregnancy, childbirth, and postpartum care",
+        "Expertise in diagnosing and treating gynecological disorders",
+        "Strong communication skills for patient education and counseling"
+      ]
+    },
+    {
+      "Research letter": "RIS",
+      "Career": "MBBS, MD/MS in Ophthalmology",
+      "Domain": "",
+      "Package": {
+        "Freshers": "₹6 to 10 LPA",
+        "Experienced Professionals": "₹10 to 25 LPA+ (varies based on experience, specialization, and location)"
+      },
+      "Companies": [
+        "Apollo Hospitals",
+        "Fortis Healthcare",
+        "Manipal Hospitals"
+      ],
+      "Skills": [
+        "Proficient in diagnosing and treating eye conditions and diseases",
+        "Ability to perform complex eye surgeries, including cataract and refractive surgeries",
+        "Strong skills in explaining procedures and treatments to patients effectively"
+      ]
+    },
+    {
+      "Research letter": "RIS",
+      "Career": "B.Sc. and M.Sc. in Optometrist",
+      "Domain": "",
+      "Package": {
+        "Freshers": "₹2.5 to 4 LPA",
+        "Experienced Professionals": "₹4 to 10 LPA+ (varies based on experience and location)"
+      },
+      "Companies": [
+        "Lenskart",
+        "Vision Express",
+        "Tata Consultancy Services (TCS)"
+      ],
+      "Skills": [
+        "Proficient in conducting eye exams and assessing visual acuity",
+        "Skilled in fitting and recommending contact lenses based on patient needs",
+        "Ability to educate patients about eye health, care, and corrective measures"
+      ]
+    },
+    {
+      "Research letter": "RIS",
+      "Career": "B.Sc. and M.Sc. in Orthoptists",
+      "Domain": "",
+      "Package": {
+        "Freshers": "₹2.5 to 4 LPA",
+        "Experienced Professionals": "₹4 to 8 LPA+ (varies based on experience and location)"
+      },
+      "Companies": [
+        "Apollo Hospitals",
+        "Fortis Healthcare",
+        "Sankara Nethralaya"
+      ],
+      "Skills": [
+        "Expertise in assessing and treating visual disorders, particularly in children",
+        "Proficient in conducting orthoptic evaluations and tests",
+        "Ability to develop and implement personalized treatment plans for patients"
+      ]
+    },
+    {
+      "Research letter": "RIS",
+      "Career": "MBBS, MD/DNB in Physical Medicine and Rehabilitation Physicians",
+      "Domain": "",
+      "Package": {
+        "Freshers": "₹6 to 8 LPA",
+        "Experienced Professionals": "₹10 to 20 LPA+ (varies based on experience and location)"
+      },
+      "Companies": ["Apollo Hospitals", "Fortis Healthcare", "Max Healthcare"],
+      "Skills": [
+        "Expertise in diagnosing and managing rehabilitation needs of patients with physical disabilities",
+        "Proficient in developing customized treatment plans and rehabilitation programs",
+        "Strong communication skills for educating patients and collaborating with multidisciplinary teams"
+      ]
+    },
+    {
+      "Research letter": "RIS",
+      "Career": "Podiatrists",
+      "Domain": "B.Sc. in Podiatry, D.P.M. (Diploma in Podiatric Medicine)",
+      "Package": {
+        "Freshers": "₹3 to 5 LPA",
+        "Experienced Professionals": "₹6 to 12 LPA+ (varies based on experience and location)"
+      },
+      "Companies": ["Apollo Hospitals", "Max Healthcare", "Fortis Healthcare"],
+      "Skills": [
+        "Proficient in diagnosing and treating foot and ankle conditions",
+        "Skilled in performing podiatric surgeries and administering foot care treatments",
+        "Strong patient communication skills for educating patients on foot health and prevention"
+      ]
+    },
+    {
+      "Research letter": "RIS",
+      "Career": "Sports Medicine Physicians",
+      "Domain": "MBBS, MD/DNB in Sports Medicine",
+      "Package": {
+        "Freshers": "₹5 to 8 LPA",
+        "Experienced Professionals": "₹10 to 20 LPA+ (varies based on experience and specialization)"
+      },
+      "Companies": ["Fortis Healthcare", "Apollo Hospitals", "Max Healthcare"],
+      "Skills": [
+        "Expertise in diagnosing and treating sports-related injuries",
+        "Proficient in developing rehabilitation programs for athletes",
+        "Strong knowledge of exercise physiology and sports nutrition"
+      ]
+    },
+    {
+      "Research letter": "RIS",
+      "Career": "Urologists",
+      "Domain": "MBBS, MS in General Surgery, DNB/MCh in Urology",
+      "Package": {
+        "Freshers": "₹8 to 12 LPA",
+        "Experienced Professionals": "₹15 to 30 LPA+ (varies based on experience and specialization)"
+      },
+      "Companies": ["Apollo Hospitals", "Fortis Healthcare", "Max Healthcare"],
+      "Skills": [
+        "Proficient in diagnosing and treating urinary tract disorders",
+        "Expertise in performing urological surgeries and procedures",
+        "Strong understanding of male reproductive health and urodynamics"
+      ]
+    },
+    {
+      "Research letter": "RIS",
+      "Career": "Agricultural Sciences Teachers, Postsecondary",
+      "Domain": "B.Sc. / M.Sc. in Agricultural Sciences, Professional Exams like NET/ICAR Eligible or having any professional degree (Preferrably with B.Ed.)",
+      "Package": {
+        "Freshers": "₹4 to 6 LPA",
+        "Experienced Professionals": "₹6 to 12 LPA+ (varies based on experience and institution)"
+      },
+      "Companies": [
+        "Indian Council of Agricultural Research (ICAR)",
+        "National Agricultural Research Institutes",
+        "State Agricultural Universities"
+      ],
+      "Skills": [
+        "Proficient in agricultural sciences and related disciplines",
+        "Ability to develop and deliver effective curriculum and lectures",
+        "Strong research skills and knowledge of current farming practices and technologies"
+      ]
+    },
+    {
+      "Research letter": "RIS",
+      "Career": "Chemistry Teachers, Postsecondary",
+      "Domain": "B.Sc. / M.Sc. in Chemistry/Chemical Sciences, Professional Exams like NET/GATE Eligible or having any professional degree (Preferrably with B.Ed.)",
+      "Package": {
+        "Freshers": "₹4 to 6 LPA",
+        "Experienced Professionals": "₹6 to 12 LPA+ (varies based on experience and institution)"
+      },
+      "Companies": [
+        "Indian Institutes of Technology (IITs)",
+        "National Institutes of Technology (NITs)",
+        "Universities and Colleges affiliated with UGC"
+      ],
+      "Skills": [
+        "Strong understanding of chemistry concepts and principles",
+        "Ability to design and deliver engaging lectures and laboratory sessions",
+        "Ability to design and deliver engaging lectures and laboratory sessions"
+      ]
+    },
+    {
+      "Research letter": "RIS",
+      "Career": "Chiropractors",
+      "Domain": "A Bachelor’s or Doctor of Chiropractic degree",
+      "Package": {
+        "Freshers": "₹3 to 6 LPA",
+        "Experienced Professionals": "₹6 to 12 LPA+ (varies based on experience and location)"
+      },
+      "Companies": [
+        "Chiropractic Clinics (various)",
+        "Rehabilitation Centers",
+        "Sports Medicine Clinics"
+      ],
+      "Skills": [
+        "Proficient in spinal manipulation and adjustment techniques",
+        "Strong understanding of anatomy and physiology",
+        "Excellent communication and patient management skills"
+      ]
+    },
+    {
+      "Research letter": "RIS",
+      "Career": "Engineering Teachers, Postsecondary",
+      "Domain": "M.Sc. / PhD in Engineering",
+      "Package": {
+        "Freshers": "₹3 to 6 LPA",
+        "Experienced Professionals": "₹6 to 12 LPA+ (varies based on experience and institution)"
+      },
+      "Companies": [
+        "Indian Institutes of Technology (IITs)",
+        "National Institutes of Technology (NITs)",
+        "Private Engineering Colleges (various)"
+      ],
+      "Skills": [
+        "In-depth knowledge of engineering principles and practices",
+        "Effective teaching and presentation skills",
+        "Strong research and academic writing abilities"
+      ]
+    },
+    {
+      "Research letter": "RIS",
+      "Career": "Forestry and Conservation Science Teachers, Postsecondary",
+      "Domain": "M.Sc. / PhD in Forestry/EVS",
+      "Package": {
+        "Freshers": "₹4 to 7 LPA",
+        "Experienced Professionals": "₹7 to 15 LPA+ (varies based on experience and institution)"
+      },
+      "Companies": [
+        "Indian Institutes of Forestry and Environmental Sciences",
+        "State Agricultural Universities",
+        "Research Institutes (like Forest Research Institute)"
+      ],
+      "Skills": [
+        "Strong understanding of forestry and conservation principles",
+        "Effective teaching and communication skills",
+        "Research and data analysis capabilities in environmental science"
+      ]
+    },
+    {
+      "Research letter": "RIS",
+      "Career": "Low Vision Therapists, Orientation and Mobility Specialists, and Vision Rehabilitation Therapists",
+      "Domain": "M.Sc. in Rehabilitation Therapy (Preferred with any professional degree)",
+      "Package": {
+        "Freshers": "₹3 to 5 LPA",
+        "Experienced Professionals": "₹5 to 10 LPA+ (varies based on experience and location)"
+      },
+      "Companies": [
+        "Eye hospitals and clinics (like LV Prasad Eye Institute)",
+        "Non-governmental organizations (NGOs) focused on visual impairment",
+        "Educational institutions for the visually impaired"
+      ],
+      "Skills": [
+        "Expertise in vision assessment and rehabilitation techniques",
+        "Proficiency in mobility training for individuals with visual impairments",
+        "Ability to design and implement individualized therapy programs"
+      ]
+    },
+    {
+      "Research letter": "RIS",
+      "Career": "Nurse Practitioners",
+      "Domain": "B.Sc. Nursing, ANM, GNM",
+      "Package": {
+        "Freshers": "₹3 to 6 LPA",
+        "Experienced Professionals": "₹6 to 15 LPA+ (varies based on experience and specialization)"
+      },
+      "Companies": ["Apollo Hospitals", "Fortis Healthcare", "Max Healthcare"],
+      "Skills": [
+        "Advanced patient assessment and clinical decision-making skills",
+        "Proficiency in managing chronic and acute health conditions",
+        "Ability to collaborate effectively with healthcare teams and communicate with patients"
+      ]
+    },
+    {
+      "Research letter": "RIS",
+      "Career": "Physical Therapists",
+      "Domain": "BPT and MPT",
+      "Package": {
+        "Freshers": "₹2.5 to 5 LPA",
+        "Experienced Professionals": "₹5 to 12 LPA+ (varies based on experience and specialization)"
+      },
+      "Companies": ["Apollo Hospitals", "Fortis Healthcare", "Max Healthcare"],
+      "Skills": [
+        "Proficiency in assessing and diagnosing physical conditions",
+        "Expertise in developing and implementing rehabilitation programs",
+        "Strong communication and interpersonal skills for patient interaction"
+      ]
+    },
+    {
+      "Research letter": "RIS",
+      "Career": "Physician Assistants",
+      "Domain": "BPT and MPT (Preferred with a professional degree)",
+      "Package": {
+        "Freshers": "₹3 to 6 LPA",
+        "Experienced Professionals": "₹6 to 12 LPA+ (varies based on experience and specialization)"
+      },
+      "Companies": ["Apollo Hospitals", "Fortis Healthcare", "Max Healthcare"],
+      "Skills": [
+        "Proficiency in conducting patient assessments and physical examinations",
+        "Ability to assist in surgical procedures and provide pre- and post-operative care",
+        "Strong communication skills for patient education and collaboration with healthcare teams"
+      ]
+    },
+    {
+      "Research letter": "RIS",
+      "Career": "Preventive Medicine Physicians",
+      "Domain": "MBBS, MD in Preventive and Social Medicine",
+      "Package": {
+        "Freshers": "₹6 to 10 LPA",
+        "Experienced Professionals": "₹10 to 20 LPA+ (varies based on experience and specialization)"
+      },
+      "Companies": ["Apollo Hospitals", "Max Healthcare", "Fortis Healthcare"],
+      "Skills": [
+        "Expertise in disease prevention and health promotion strategies",
+        "Ability to analyze public health data and assess health risks",
+        "Strong communication skills for educating patients and communities on health practices"
+      ]
+    }
+  ],
   "RSE": [
     {
       "Research letter": "RSE",
