@@ -11578,6 +11578,292 @@
       ]
     }
   ],
+  "RIA": [
+    {
+      "Research letter": "RIA",
+      "Career": "Geographers",
+      "Domain": "B.A / M.A Geography, B.SC. / M.Sc. Geography, B.Sc. / M.Sc. Geology",
+      "Package": {
+        "Freshers": "₹3 - 5 lakhs per annum",
+        "Experienced Professionals": "₹6 - 12 lakhs per annum (varies based on expertise and industry)"
+      },
+      "Companies": [
+        "National Remote Sensing Centre (NRSC)",
+        "Survey of India",
+        "ESRI India Technologies Ltd."
+      ],
+      "Skills": [
+        "Proficiency in Geographic Information Systems (GIS)",
+        "Strong analytical and spatial data interpretation abilities",
+        "Knowledge of cartography and remote sensing techniques"
+      ]
+    },
+    {
+      "Research letter": "RIA",
+      "Career": "Marine Engineers and Naval Architects",
+      "Domain": "Engineering (Civil, Architech, Marine and Naval Engineer)",
+      "Package": {
+        "Freshers": "₹4 - 7 lakhs per annum",
+        "Experienced Professionals": "₹8 - 15 lakhs per annum (depending on expertise and role)"
+      },
+      "Companies": [
+        "Cochin Shipyard Limited",
+        "Mazagon Dock Shipbuilders Limited",
+        "Larsen & Toubro (L&T) Shipbuilding"
+      ],
+      "Skills": [
+        "Proficiency in CAD software for ship design",
+        "Strong analytical and problem-solving abilities",
+        "Knowledge of marine systems and propulsion mechanics"
+      ]
+    },
+    {
+      "Research letter": "RIA",
+      "Career": "Landscape Architects",
+      "Domain": "Architecture and Engineering (B.Arch, MLA, MPLAN)",
+      "Package": {
+        "Freshers": "₹3 - 6 lakhs per annum",
+        "Experienced Professionals": "₹7 - 15 lakhs per annum (based on experience and project scope)"
+      },
+      "Companies": [
+        "Sahara Global Design",
+        "Prabhakar B. Bhagwat Landscape Architects",
+        "Oracles Landscape"
+      ],
+      "Skills": [
+        "Proficiency in design software (AutoCAD, SketchUp)",
+        "Strong creative and visualization skills",
+        "Knowledge of environmental sustainability practices"
+      ]
+    },
+    {
+      "Research letter": "RIA",
+      "Career": "MBBS (Bachelor of Medicine and Bachelor of Surgery)",
+      "Domain": "MBBS + 1 Year House Surgeon/ Internship",
+      "Package": {
+        "Freshers": "₹6 - 12 lakhs per annum",
+        "Experienced Professionals": "₹15 - 30 lakhs per annum (can go higher with specialization and expertise)"
+      },
+      "Companies": [
+        "Apollo Hospitals",
+        "Fortis Healthcare",
+        "AIIMS (All India Institute of Medical Sciences)"
+      ],
+      "Skills": [
+        "Strong diagnostic and clinical skills",
+        "Excellent patient communication abilities",
+        "Ability to work under high-pressure situations"
+      ]
+    },
+    {
+      "Research letter": "RIA",
+      "Career": "Biomedical Science",
+      "Domain": "B.Sc / M.Sc. Biomedical Sciences, B.Sc. / M.Sc. in Biotechnology, Microbiology, Genetics and its related field",
+      "Package": {
+        "Freshers": "₹3 - 5 lakhs per annum",
+        "Experienced Professionals": "₹6 - 10 lakhs per annum (depending on role and specialization)"
+      },
+      "Companies": ["Biocon", "Dr. Reddy's Laboratories", "Medtronic"],
+      "Skills": [
+        "Proficiency in laboratory techniques and data analysis",
+        "Strong problem-solving abilities",
+        "Knowledge of biomedical research methods"
+      ]
+    },
+    {
+      "Research letter": "RIA",
+      "Career": "Medical Biotechnology",
+      "Domain": "B.Sc. / M.Sc. Medical Biotechnology",
+      "Package": {
+        "Freshers": "₹3 - 8 lakhs per annum",
+        "Experienced Professionals": "₹7 - 15 lakhs per annum (depending on expertise and role)"
+      },
+      "Companies": [
+        "Serum Institute of India",
+        "Panacea Biotech",
+        "Zydus Cadila"
+      ],
+      "Skills": [
+        "Expertise in biotechnology techniques",
+        "Strong analytical and research skills",
+        "Knowledge of molecular biology principles"
+      ]
+    },
+    {
+      "Research letter": "RIA",
+      "Career": "Clinical Research",
+      "Domain": "B.Sc / M.Sc. in Clinical Research/ Diploma in Clinical research",
+      "Package": {
+        "Freshers": "₹3 - 6 lakhs per annum",
+        "Experienced Professionals": "₹7 - 12 lakhs per annum (depending on role and experience)"
+      },
+      "Companies": ["Cognizant", "Parexel", "IQVIA"],
+      "Skills": [
+        "Proficiency in clinical trial management",
+        "Strong analytical and data interpretation skills",
+        "Knowledge of Good Clinical Practice (GCP) guidelines"
+      ]
+    },
+    {
+      "Research letter": "RIA",
+      "Career": "MD/MS (Doctor of Medicine / Master of Surgery)",
+      "Domain": "MBBS, MD, MS",
+      "Package": {
+        "Freshers": "₹10 - 18 lakhs per annum",
+        "Experienced Professionals": "₹20 - 40 lakhs per annum (higher for specialists and super-specialists)"
+      },
+      "Companies": [
+        "Apollo Hospitals",
+        "Fortis Healthcare",
+        "Manipal Hospitals"
+      ],
+      "Skills": [
+        "Advanced clinical and surgical skills",
+        "Expertise in patient diagnosis and treatment",
+        "Ability to make critical decisions under pressure"
+      ]
+    },
+    {
+      "Research letter": "RIA",
+      "Career": "Microbiology / Biochemistry / Physiology / Anatomy / Pharmacology/Biotechnology",
+      "Domain": "B.Sc. / M.Sc. in Microbiology, Biotechnology, Physiology, Anatomy, Pharmacology, Zoology, Biochemistry, Bioinformatics (Biostatistics and Biophysics)/ MBBS",
+      "Package": {
+        "Freshers": "₹3 - 6 lakhs per annum",
+        "Experienced Professionals": "₹7 - 12 lakhs per annum (varies based on specialization and industry)"
+      },
+      "Companies": [
+        "Biocon",
+        "Dr. Reddy's Laboratories",
+        "Piramal Enterprises"
+      ],
+      "Skills": [
+        "Proficiency in laboratory techniques and instrumentation",
+        "Strong analytical and research skills",
+        "Knowledge of molecular biology and biochemistry principles"
+      ]
+    },
+    {
+      "Research letter": "RIA",
+      "Career": "Diploma in Medical Laboratory Technology (DMLT)",
+      "Domain": "DMLT",
+      "Package": {
+        "Freshers": "₹2.5 - 4 lakhs per annum",
+        "Experienced Professionals": "₹5 - 8 lakhs per annum (varies based on experience and location)"
+      },
+      "Companies": ["Apollo Hospitals", "Max Healthcare", "Narayana Health"],
+      "Skills": [
+        "Proficiency in laboratory techniques and equipment",
+        "Strong analytical and problem-solving skills",
+        "Knowledge of quality control and safety standards in laboratories"
+      ]
+    },
+    {
+      "Research letter": "RIA",
+      "Career": "PG Diploma in Clinical Research",
+      "Domain": "Clinical Research",
+      "Package": {
+        "Freshers": "₹3 - 6 lakhs per annum",
+        "Experienced Professionals": "₹7 - 12 lakhs per annum (depending on role and specialization)"
+      },
+      "Companies": ["Cognizant", "Quintiles (IQVIA)", "Parexel"],
+      "Skills": [
+        "Proficiency in clinical trial protocols and management",
+        "Strong data analysis and statistical skills",
+        "Knowledge of regulatory compliance and Good Clinical Practice (GCP)"
+      ]
+    },
+    {
+      "Research letter": "RIA",
+      "Career": "Molecular and Cellular Biologists",
+      "Domain": "Biotechnology, Biochemistry, Molecular Biology, Cellular Biology",
+      "Package": {
+        "Freshers": "₹3 - 6 lakhs per annum",
+        "Experienced Professionals": "₹7 - 15 lakhs per annum (varies based on specialization and industry)"
+      },
+      "Companies": [
+        "Biocon",
+        "Dr. Reddy's Laboratories",
+        "Thermo Fisher Scientific"
+      ],
+      "Skills": [
+        "Expertise in molecular techniques (e.g., PCR, cloning)",
+        "Strong analytical and problem-solving abilities",
+        "Knowledge of cell culture and experimental design"
+      ]
+    },
+    {
+      "Research letter": "RIA",
+      "Career": "Anthropologists and Archeologists",
+      "Domain": "Anthropology and Archeology",
+      "Package": {
+        "Freshers": "₹3 - 5 lakhs per annum",
+        "Experienced Professionals": "₹6 - 12 lakhs per annum (varies based on experience and sector)"
+      },
+      "Companies": [
+        "Archaeological Survey of India (ASI)",
+        "National Museum",
+        "Cultural Resource and Management Firms"
+      ],
+      "Skills": [
+        "Strong research and analytical skills",
+        "Proficiency in fieldwork techniques and methodologies",
+        "Knowledge of cultural and historical contexts"
+      ]
+    },
+    {
+      "Research letter": "RIA",
+      "Career": "Astronomers",
+      "Domain": "Astrophysics/ Astronomy",
+      "Package": {
+        "Freshers": "₹5 - 10 lakhs per annum",
+        "Experienced Professionals": "₹12 - 25 lakhs per annum (varies based on research and industry)"
+      },
+      "Companies": [
+        "Indian Space Research Organisation (ISRO)",
+        "Tata Institute of Fundamental Research (TIFR)",
+        "National Centre for Radio Astrophysics (NCRA)"
+      ],
+      "Skills": [
+        "Proficiency in data analysis and simulation software",
+        "Strong mathematical and analytical skills",
+        "Knowledge of observational techniques and instrumentation"
+      ]
+    },
+    {
+      "Research letter": "RIA",
+      "Career": "Biochemists and Biophysicists",
+      "Domain": "Biophysics and Biochemistry",
+      "Package": {
+        "Freshers": "₹3 - 6 lakhs per annum",
+        "Experienced Professionals": "₹7 - 15 lakhs per annum (depending on specialization and industry)"
+      },
+      "Companies": ["Biocon", "Dr. Reddy's Laboratories", "Cipla"],
+      "Skills": [
+        "Proficiency in laboratory techniques (e.g., chromatography, spectroscopy)",
+        "Strong analytical and problem-solving abilities",
+        "Knowledge of molecular biology and biophysical methods"
+      ]
+    },
+    {
+      "Research letter": "RIA",
+      "Career": "Geneticists",
+      "Domain": "Genetics, Zoology, Biotechnology",
+      "Package": {
+        "Freshers": "₹4 - 8 lakhs per annum",
+        "Experienced Professionals": "₹10 - 20 lakhs per annum (varies based on expertise and role)"
+      },
+      "Companies": [
+        "Genetic Solutions Pvt. Ltd.",
+        "Syngenta India Ltd.",
+        "Indian Council of Medical Research (ICMR)"
+      ],
+      "Skills": [
+        "Ability to interpret genetic data",
+        "Conducting experiments and studies",
+        "Precision in genetic analysis"
+      ]
+    }
+  ],
   "RIE": [
     {
       "Research letter": "RIE",
