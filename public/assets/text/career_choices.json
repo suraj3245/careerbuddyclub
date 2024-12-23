@@ -10015,6 +10015,1569 @@
       ]
     }
   ],
+  "RCI": [
+    {
+      "Research letter": "RCI",
+      "Career": "Fish and Game Wardens",
+      "Domain": "B.Sc. in Forestry, Wildlife Biology, and Environmental Science",
+      "Package": {
+        "Freshers": "₹3-5 lakhs per annum",
+        "Experienced Professionals": "₹6-10 lakhs per annum (varies with expertise and role)"
+      },
+      "Companies": [
+        "Wildlife Crime Control Bureau (WCCB)",
+        "Forest Department (State Government)",
+        "Wildlife Institute of India"
+      ],
+      "Skills": [
+        "Knowledge of wildlife laws and regulations",
+        "Strong observational and analytical skills",
+        "Physical fitness and endurance"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Geodetic Surveyors",
+      "Domain": "B.Tech in Civil Engineering, Diploma in Land Surveying, M.Sc. in Geoinformatics/ Geography",
+      "Package": {
+        "Freshers": "₹4-6 lakhs per annum",
+        "Experienced Professionals": "₹8-12 lakhs per annum (depending on expertise and project experience)"
+      },
+      "Companies": [
+        "Survey of India",
+        "Larsen & Toubro (L&T)",
+        "National Remote Sensing Centre (NRSC)"
+      ],
+      "Skills": [
+        "Proficiency in Geographic Information Systems (GIS) and mapping software",
+        "Strong mathematical and analytical skills",
+        "Attention to detail and precision in measurements"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Geological Technicians, Except Hydrologic Technicians",
+      "Domain": "B.Sc. in Geology, Diploma in Applied Geology, M.Sc. in Earth Science",
+      "Package": {
+        "Freshers": "₹3-5 lakhs per annum",
+        "Experienced Professionals": "₹6-9 lakhs per annum (based on specialization and industry experience)"
+      },
+      "Companies": [
+        "Oil and Natural Gas Corporation (ONGC)",
+        "Geological Survey of India (GSI)",
+        "Reliance Industries Limited"
+      ],
+      "Skills": [
+        "Knowledge of geological tools and laboratory equipment",
+        "Data analysis and interpretation skills",
+        "Data analysis and interpretation skills"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Remote Sensing Technicians",
+      "Domain": "B.Sc. in Remote Sensing, M.Tech/M.Sc in Geoinformatics, Diploma in Geographic Information Systems (GIS), M.Sc. in Geography",
+      "Package": {
+        "Freshers": "₹3-6 lakhs per annum",
+        "Experienced Professionals": "₹7-12 lakhs per annum (depending on expertise and project involvement)"
+      },
+      "Companies": [
+        "Indian Space Research Organisation (ISRO)",
+        "National Remote Sensing Centre (NRSC)",
+        "Tata Consultancy Services (TCS)"
+      ],
+      "Skills": [
+        "Proficiency in Geographic Information Systems (GIS) and remote sensing software",
+        "Data analysis and image interpretation skills",
+        "Attention to detail and spatial awareness"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Automotive Engineers",
+      "Domain": "B.Tech in Mechanical Engineering, B.Tech in Automobile Engineering, M.Tech in Automotive Engineering",
+      "Package": {
+        "Freshers": "₹4-8 lakhs per annum",
+        "Experienced Professionals": "₹10-20 lakhs per annum (based on skills and industry experience)"
+      },
+      "Companies": ["Tata Motors", "Mahindra & Mahindra", "Maruti Suzuki"],
+      "Skills": [
+        "Strong knowledge of automotive design and engineering principles",
+        "Proficiency in CAD (Computer-Aided Design) software",
+        "Problem-solving and analytical skills"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Biological Technicians",
+      "Domain": "B.Sc. in Biotechnology, B.Sc. in Microbiology, M.Sc. in Life Sciences, DMLT, MLT, BMRIT, B.Sc. OTT",
+      "Package": {
+        "Freshers": "₹2.5-5 lakhs per annum",
+        "Experienced Professionals": "₹6-10 lakhs per annum (depending on specialization and research experience)"
+      },
+      "Companies": [
+        "Biocon",
+        "Dr. Reddy's Laboratories",
+        "Indian Council of Medical Research (ICMR)"
+      ],
+      "Skills": [
+        "Laboratory and research skills",
+        "Attention to detail and precision in experiments",
+        "Data analysis and documentation skills"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Chemical Engineers",
+      "Domain": "B.Tech in Chemical Engineering, M.Tech in Chemical Engineering, Diploma in Chemical Engineering",
+      "Package": {
+        "Freshers": "₹4-8 lakhs per annum",
+        "Experienced Professionals": "₹10-20 lakhs per annum (based on expertise and industry experience)"
+      },
+      "Companies": [
+        "Reliance Industries Limited",
+        "Indian Oil Corporation Limited (IOCL)",
+        "Tata Chemicals"
+      ],
+      "Skills": [
+        "Strong knowledge of chemical processes and engineering principles",
+        "Proficiency in process simulation software",
+        "Problem-solving and analytical skills"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Civil Engineers",
+      "Domain": "B.Tech in Civil Engineering, M.Tech in Civil Engineering, Diploma in Civil Engineering",
+      "Package": {
+        "Freshers": "₹4-8 lakhs per annum",
+        "Experienced Professionals": "₹10-20 lakhs per annum (based on expertise and industry experience)"
+      },
+      "Companies": [
+        "Reliance Industries Limited",
+        "Indian Oil Corporation Limited (IOCL)",
+        "Tata Chemicals"
+      ],
+      "Skills": [
+        "Strong knowledge of chemical processes and engineering principles",
+        "Proficiency in process simulation software",
+        "Problem-solving and analytical skills"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Computer Hardware Engineers",
+      "Domain": "B.Tech in Computer Engineering, B.Tech in Computer Science and Engineering, B.Sc. in Computer Hardware Engineering, Diploma in Computer Hardware and Networking, M.Tech in Computer Science and Engineering.",
+      "Package": {
+        "Freshers": "₹3-6 lakhs per annum",
+        "Experienced Professionals": "₹8-15 lakhs per annum (varies based on specialization and project experience)"
+      },
+      "Companies": [
+        "Larsen & Toubro (L&T)",
+        "Tata Projects",
+        "Hindustan Construction Company (HCC)"
+      ],
+      "Skills": [
+        "Proficiency in civil engineering design software (e.g., AutoCAD, SAP2000)",
+        "Strong project management skills",
+        "Knowledge of building codes and regulations"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Electrical Engineers",
+      "Domain": "B.Tech in Electrical Engineering, B.Tech in Electronics and Communication Engineering, M.Tech in Electrical Engineering, Diploma in Electrical Engineering, B.Sc. in Electrical and Electronics.",
+      "Package": {
+        "Freshers": "₹3-6 lakhs per annum",
+        "Experienced Professionals": "₹8-15 lakhs per annum (varies with specialization and industry experience)"
+      },
+      "Companies": ["Tata Power", "Siemens India", "ABB India"],
+      "Skills": [
+        "Strong understanding of electrical systems and circuits",
+        "Proficiency in software tools for circuit simulation (e.g., MATLAB, PSpice)",
+        "Problem-solving and analytical skills"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Electronics Engineers, Except Computer",
+      "Domain": "B.Tech in Electronics and Communication Engineering, B.Tech in Electronics Engineering, M.Tech in Electronics and Communication, Diploma in Electronics Engineering, B.Sc. in Electronics.",
+      "Package": {
+        "Freshers": "₹3-6 lakhs per annum",
+        "Experienced Professionals": "₹7-12 lakhs per annum (based on expertise and industry experience)"
+      },
+      "Companies": ["Texas Instruments", "Bosch", "Honeywell"],
+      "Skills": [
+        "Proficiency in circuit design and analysis",
+        "Knowledge of embedded systems and microcontrollers",
+        "Strong troubleshooting and problem-solving skills"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Energy Engineers, Except Wind and Solar",
+      "Domain": "B.Tech in Energy Engineering, B.Tech in Power Engineering, M.Tech in Energy Systems, Diploma in Electrical and Energy Engineering, B.Sc. in Energy Science.",
+      "Package": {
+        "Freshers": "₹4-7 lakhs per annum",
+        "Experienced Professionals": "₹8-15 lakhs per annum (varies based on specialization and industry experience)"
+      },
+      "Companies": ["Tata Power", "NTPC Limited", "Siemens India"],
+      "Skills": [
+        "Strong knowledge of energy systems and efficiency",
+        "Proficiency in energy modeling and simulation software",
+        "Analytical and problem-solving skills"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Environmental Engineering Technologists and Technicians",
+      "Domain": "B.Tech in Environmental Engineering, B.Sc. in Environmental Science, Diploma in Environmental Engineering, M.Tech in Environmental Engineering, B.Sc. in Environmental Management.",
+      "Package": {
+        "Freshers": "₹3-5 lakhs per annum",
+        "Experienced Professionals": "₹6-10 lakhs per annum (depending on expertise and project involvement)"
+      },
+      "Companies": [
+        "Tata Consulting Engineers",
+        "WSP Global",
+        "Environmental Engineering firms (like JMC Projects)"
+      ],
+      "Skills": [
+        "Knowledge of environmental regulations and compliance",
+        "Proficiency in data collection and analysis",
+        "Strong problem-solving and critical-thinking skills"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Fire-Prevention and Protection Engineers",
+      "Domain": "B.Tech in Fire Engineering, B.Sc. in Fire and Safety Engineering, Diploma in Fire and Safety Engineering, M.Tech in Fire Safety Engineering, B.Sc. in Fire Technology and Safety Management.",
+      "Package": {
+        "Freshers": "₹4-7 lakhs per annum",
+        "Experienced Professionals": "₹8-15 lakhs per annum (varies based on expertise and industry experience)"
+      },
+      "Companies": ["Tata Projects", "Johnson Controls", "Siemens India"],
+      "Skills": [
+        "Strong knowledge of fire protection systems and safety regulations",
+        "Proficiency in risk assessment and hazard analysis",
+        "Problem-solving and analytical skills"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Foresters",
+      "Domain": "B.Sc. in Forestry, B.Tech in Forestry and Wildlife Engineering, M.Sc. in Forestry, Diploma in Forestry, B.Sc. in Horticulture and Forestry.",
+      "Package": {
+        "Freshers": "₹3-5 lakhs per annum",
+        "Experienced Professionals": "₹6-10 lakhs per annum (varies based on specialization and project experience)"
+      },
+      "Companies": [
+        "Forest Research Institute (FRI)",
+        "National Forestry Commission",
+        "State Forest Departments"
+      ],
+      "Skills": [
+        "Knowledge of forestry management and ecology",
+        "Proficiency in surveying and mapping techniques",
+        "Strong analytical and problem-solving skills"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Fuel Cell Engineers",
+      "Domain": "B.Tech in Energy Engineering, B.Tech in Chemical Engineering, M.Tech in Fuel Cell Technology, B.Sc. in Applied Chemistry, Diploma in Renewable Energy Technology.",
+      "Package": {
+        "Freshers": "₹4-7 lakhs per annum",
+        "Experienced Professionals": "₹8-15 lakhs per annum (depending on expertise and project involvement)"
+      },
+      "Companies": [
+        "Reliance Industries Limited",
+        "Tata Power",
+        "FuelCell Energy"
+      ],
+      "Skills": [
+        "Strong understanding of fuel cell technology and electrochemistry",
+        "Proficiency in design and simulation software",
+        "Analytical and problem-solving skills"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Manufacturing Engineers",
+      "Domain": "B.Tech in Manufacturing Engineering, B.Tech in Mechanical Engineering, M.Tech in Manufacturing Technology, Diploma in Manufacturing Engineering, B.Sc. in Production Engineering.",
+      "Package": {
+        "Freshers": "₹3-6 lakhs per annum",
+        "Experienced Professionals": "₹8-15 lakhs per annum (varies with specialization and industry experience)"
+      },
+      "Companies": ["Tata Steel", "Mahindra & Mahindra", "Bosch India"],
+      "Skills": [
+        "Proficiency in manufacturing processes and technology",
+        "Knowledge of CAD/CAM software",
+        "Strong problem-solving and analytical skills"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Marine Engineers and Naval Architects",
+      "Domain": "B.Tech in Marine Engineering, B.Tech in Naval Architecture and Ocean Engineering, M.Tech in Marine Engineering, Diploma in Marine Engineering, B.Sc. in Nautical Science.",
+      "Package": {
+        "Freshers": "₹5-8 lakhs per annum",
+        "Experienced Professionals": "₹10-20 lakhs per annum (varies based on specialization and project experience)"
+      },
+      "Companies": [
+        "Cochin Shipyard Limited",
+        "Mazagon Dock Shipbuilders Limited",
+        "L&T Shipbuilding"
+      ],
+      "Skills": [
+        "Strong understanding of marine engineering and ship design principles",
+        "Proficiency in naval architecture software (e.g., AutoCAD, Rhino)",
+        "Problem-solving and analytical skills"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Materials Engineers",
+      "Domain": "B.Tech in Materials Engineering, B.Tech in Metallurgical Engineering, M.Tech in Materials Science and Engineering, Diploma in Materials Engineering, B.Sc. in Polymer Science and Technology.",
+      "Package": {
+        "Freshers": "₹3-6 lakhs per annum",
+        "Experienced Professionals": "₹8-15 lakhs per annum (varies with specialization and industry experience)"
+      },
+      "Companies": [
+        "Tata Steel",
+        "Hindalco Industries",
+        "Reliance Industries Limited"
+      ],
+      "Skills": [
+        "Strong knowledge of material properties and applications",
+        "Proficiency in material testing and analysis techniques",
+        "Problem-solving and analytical skills"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Mechanical Engineers",
+      "Domain": "B.Tech in Mechanical Engineering, M.Tech in Mechanical Engineering, Diploma in Mechanical Engineering, B.Sc. in Mechanical Engineering, B.Tech in Production Engineering.",
+      "Package": {
+        "Freshers": "₹3-6 lakhs per annum",
+        "Experienced Professionals": "₹8-15 lakhs per annum (varies based on specialization and industry experience)"
+      },
+      "Companies": [
+        "Tata Motors",
+        "Larsen & Toubro (L&T)",
+        "Mahindra & Mahindra"
+      ],
+      "Skills": [
+        "Proficiency in CAD (Computer-Aided Design) software",
+        "Strong understanding of thermodynamics and fluid mechanics",
+        "Problem-solving and analytical skills"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Mechatronics Engineers",
+      "Domain": "B.Tech in Mechatronics Engineering, M.Tech in Mechatronics, Diploma in Mechatronics Engineering, B.Sc. in Mechatronics, B.Tech in Robotics Engineering.",
+      "Package": {
+        "Freshers": "₹4-7 lakhs per annum",
+        "Experienced Professionals": "₹8-15 lakhs per annum (varies based on specialization and industry experience)"
+      },
+      "Companies": ["Bosch", "Siemens", "ABB India"],
+      "Skills": [
+        "Strong knowledge of robotics and automation systems",
+        "Proficiency in control systems and programming",
+        "Problem-solving and analytical skills"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Mining and Geological Engineers, Including Mining Safety Engineers",
+      "Domain": "B.Tech in Mining Engineering, B.Tech in Geological Engineering, M.Tech in Mining Engineering, Diploma in Mining Engineering, B.Sc. in Geology.",
+      "Package": {
+        "Freshers": "₹3-5 lakhs per annum",
+        "Experienced Professionals": "₹8-15 lakhs per annum (varies based on specialization and industry experience)"
+      },
+      "Companies": [
+        "Coal India Limited",
+        "Tata Steel",
+        "Hindustan Zinc Limited"
+      ],
+      "Skills": [
+        "Strong understanding of mining processes and safety regulations",
+        "Proficiency in geological mapping and analysis",
+        "Problem-solving and risk assessment skills"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Nanotechnology Engineering Technologists and Technicians",
+      "Domain": "B.Tech in Nanotechnology, M.Tech in Nanotechnology, Diploma in Nanotechnology, B.Sc. in Nanoscience, B.Sc. in Applied Nanotechnology.",
+      "Package": {
+        "Freshers": "₹3-6 lakhs per annum",
+        "Experienced Professionals": "₹7-12 lakhs per annum (depending on specialization and industry experience)"
+      },
+      "Companies": [
+        "Tata Nano",
+        "Nanotechnology Research Centre",
+        "Reliance Industries Limited"
+      ],
+      "Skills": [
+        "Strong knowledge of nanomaterials and their applications",
+        "Proficiency in characterization and analytical techniques",
+        "Problem-solving and critical-thinking skills"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Petroleum Engineers",
+      "Domain": "B.Tech in Petroleum Engineering, M.Tech in Petroleum Engineering, Diploma in Petroleum Engineering, B.Sc. in Petroleum Technology, B.Sc. in Oil and Gas Engineering.",
+      "Package": {
+        "Freshers": "₹5-8 lakhs per annum",
+        "Experienced Professionals": "₹12-25 lakhs per annum (varies based on expertise and industry experience)"
+      },
+      "Companies": [
+        "Oil and Natural Gas Corporation (ONGC)",
+        "Reliance Industries Limited",
+        "Cairn Oil & Gas"
+      ],
+      "Skills": [
+        "Strong understanding of drilling and production techniques",
+        "Proficiency in reservoir engineering and simulation software",
+        "Analytical and problem-solving skills"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Robotics Engineers",
+      "Domain": "B.Tech in Flight Engineer Course (Preferably in Mechanical/Aeronautical Engineering), PPL, CPL.",
+      "Package": {
+        "Freshers": "₹4-8 lakhs per annum",
+        "Experienced Professionals": "₹10-20 lakhs per annum (varies based on specialization and industry experience)"
+      },
+      "Companies": ["ABB India", "Siemens", "Boston Dynamics"],
+      "Skills": [
+        "Strong knowledge of control systems and programming",
+        "Proficiency in CAD and simulation software",
+        "Problem-solving and analytical skills"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Solar Energy Systems Engineers",
+      "Domain": "B.Tech in Solar Energy Engineering, M.Tech in Solar Energy, Diploma in Solar Energy Technology, B.Sc. in Renewable Energy, B.Sc. in Solar Energy Systems.",
+      "Package": {
+        "Freshers": "₹4-7 lakhs per annum",
+        "Experienced Professionals": "₹8-15 lakhs per annum (varies based on specialization and project experience)"
+      },
+      "Companies": ["Tata Power Solar", "Adani Solar", "Vikram Solar"],
+      "Skills": [
+        "Strong understanding of solar energy technologies and systems",
+        "Proficiency in photovoltaic (PV) design software",
+        "Problem-solving and analytical skills"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Transportation Engineers",
+      "Domain": "B.Tech in Transportation Engineering, M.Tech in Transportation Engineering, Diploma in Transportation Engineering, B.Sc. in Civil Engineering, B.Sc. in Transport Management.",
+      "Package": {
+        "Freshers": "₹3-6 lakhs per annum",
+        "Experienced Professionals": "₹8-12 lakhs per annum (varies based on specialization and industry experience)"
+      },
+      "Companies": ["AECOM", "Jacobs Engineering", "Tata Consulting Engineers"],
+      "Skills": [
+        "Strong knowledge of transportation systems and infrastructure design",
+        "Proficiency in traffic simulation and analysis software",
+        "Problem-solving and analytical skills"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Water/Wastewater Engineers",
+      "Domain": "B.Tech in Water Resources Engineering, M.Tech in Water Resources Management, Diploma in Water Engineering, B.Sc. in Environmental Engineering, B.Sc. in Water Management.",
+      "Package": {
+        "Freshers": "₹3-6 lakhs per annum",
+        "Experienced Professionals": "₹7-12 lakhs per annum (varies based on specialization and industry experience)"
+      },
+      "Companies": [
+        "Tata Consulting Engineers",
+        "WSP Global",
+        "Veolia Water Technologies"
+      ],
+      "Skills": [
+        "Strong understanding of water treatment processes and technologies",
+        "Proficiency in hydraulic modeling and simulation software",
+        "Problem-solving and analytical skills"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Wind Energy Engineers",
+      "Domain": "B.Tech in Wind Energy Engineering, M.Tech in Wind Energy, Diploma in Wind Energy Technology, B.Sc. in Renewable Energy, B.Sc. in Wind Energy Systems.",
+      "Package": {
+        "Freshers": "₹4-8 lakhs per annum",
+        "Experienced Professionals": "₹10-18 lakhs per annum (varies based on specialization and industry experience)"
+      },
+      "Companies": ["Suzlon Energy", "Siemens Gamesa", "Vestas Wind Systems"],
+      "Skills": [
+        "Strong knowledge of wind energy systems and turbine design",
+        "Proficiency in renewable energy simulation software",
+        "Problem-solving and analytical skills"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Network and Computer Systems Administrators",
+      "Domain": "B.Tech in Computer Science and Engineering, B.Tech in Information Technology, Diploma in Network Engineering, B.Sc. in Computer Science, B.Sc. in Information Technology.",
+      "Package": {
+        "Freshers": "₹3-6 lakhs per annum",
+        "Experienced Professionals": "₹7-15 lakhs per annum (depending on expertise and industry experience)"
+      },
+      "Companies": ["Wipro", "Infosys", "HCL Technologies"],
+      "Skills": [
+        "Strong understanding of network infrastructure and protocols",
+        "Proficiency in system administration and server management",
+        "Troubleshooting and problem-solving skills"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Radio Frequency Identification Device Specialists",
+      "Domain": "B.Tech in Flight Engineer Course (Preferably in Mechanical/Aeronautical Engineer), PPL, CPL",
+      "Package": {
+        "Freshers": "₹4-7 lakhs per annum",
+        "Experienced Professionals": "₹8-15 lakhs per annum (depending on expertise and project involvement)"
+      },
+      "Companies": ["Zebra Technologies", "Honeywell", "Siemens"],
+      "Skills": [
+        "Strong knowledge of RFID technology and wireless communication systems",
+        "Proficiency in RFID software and hardware integration",
+        "Analytical and problem-solving skills"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Surveyors",
+      "Domain": "B.Tech in Civil Engineering, B.Tech in Surveying Engineering, Diploma in Surveying, B.Sc. in Land Surveying, B.Sc. in Geomatics Engineering",
+      "Package": {
+        "Freshers": "₹3-5 lakhs per annum",
+        "Experienced Professionals": "₹6-12 lakhs per annum (varies based on specialization and industry experience)"
+      },
+      "Companies": [
+        "L&T Construction",
+        "Shapoorji Pallonji",
+        "Reliance Infrastructure"
+      ],
+      "Skills": [
+        "Proficiency in surveying techniques and equipment",
+        "Strong knowledge of GIS (Geographic Information Systems) and mapping software",
+        "Attention to detail and analytical skills"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Aerospace Engineers",
+      "Domain": "B.Tech in Aerospace Engineering, M.Tech in Aerospace Engineering, B.Tech in Aeronautical Engineering, Diploma in Aerospace Engineering, B.Sc. in Aviation Engineering",
+      "Package": {
+        "Freshers": "₹5-8 lakhs per annum",
+        "Experienced Professionals": "₹10-20 lakhs per annum (varies based on specialization and experience)"
+      },
+      "Companies": [
+        "Hindustan Aeronautics Limited (HAL)",
+        "Boeing India",
+        "Airbus Group"
+      ],
+      "Skills": [
+        "Strong understanding of aerodynamics and propulsion systems",
+        "Proficiency in CAD and simulation software",
+        "Problem-solving and analytical skills"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Agricultural Engineers",
+      "Domain": "B.Tech in Agricultural Engineering, M.Tech in Agricultural Engineering, Diploma in Agricultural Engineering, B.Sc. in Agricultural Science, B.Sc. in Horticulture",
+      "Package": {
+        "Freshers": "₹3-6 lakhs per annum",
+        "Experienced Professionals": "₹7-12 lakhs per annum (varies based on specialization and industry experience)"
+      },
+      "Companies": ["John Deere", "Mahindra Agribusiness", "Escorts Group"],
+      "Skills": [
+        "Knowledge of agricultural machinery and equipment",
+        "Understanding of soil and water conservation techniques",
+        "Problem-solving and analytical skills"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Atmospheric and Space Scientists",
+      "Domain": "B.Sc. in Atmospheric Science, B.Tech in Space Technology, M.Sc. in Meteorology, B.Tech in Aerospace Engineering, M.Sc. in Environmental Science",
+      "Package": {
+        "Freshers": "₹4-8 lakhs per annum",
+        "Experienced Professionals": "₹10-18 lakhs per annum (varies based on specialization and industry experience)"
+      },
+      "Companies": [
+        "Indian Space Research Organisation (ISRO)",
+        "Indian Meteorological Department (IMD)",
+        "National Aerospace Laboratories (NAL)"
+      ],
+      "Skills": [
+        "Strong knowledge of meteorology and atmospheric science",
+        "Proficiency in data analysis and weather modeling software",
+        "Research and analytical skills"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Chemists",
+      "Domain": "B.Sc. in Chemistry, M.Sc. in Chemistry, B.Tech in Chemical Engineering, Diploma in Chemical Engineering, B.Sc. in Applied Chemistry",
+      "Package": {
+        "Freshers": "₹3-5 lakhs per annum",
+        "Experienced Professionals": "₹6-12 lakhs per annum (varies based on specialization and industry experience)"
+      },
+      "Companies": [
+        "Dr. Reddy's Laboratories",
+        "Cipla",
+        "Lupin Pharmaceuticals"
+      ],
+      "Skills": [
+        "Strong understanding of chemical analysis and laboratory techniques",
+        "Proficiency in using analytical instruments like spectrometers and chromatographs",
+        "Attention to detail and problem-solving skills"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Conservation Scientists",
+      "Domain": "B.Sc. in Environmental Science, B.Sc. in Forestry, M.Sc. in Conservation Biology, B.Sc. in Wildlife Science, Diploma in Environmental Conservation",
+      "Package": {
+        "Freshers": "₹3-6 lakhs per annum",
+        "Experienced Professionals": "₹7-15 lakhs per annum (varies based on specialization and experience)"
+      },
+      "Companies": [
+        "Wildlife Institute of India",
+        "World Wildlife Fund (WWF) India",
+        "The Energy and Resources Institute (TERI)"
+      ],
+      "Skills": [
+        "Knowledge of environmental laws and conservation techniques",
+        "Proficiency in data analysis and ecological assessment",
+        "Field research and analytical skills"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Cytogenetic Technologists",
+      "Domain": "B.Sc. in Biotechnology, B.Sc. in Genetics, M.Sc. in Cytogenetics, B.Sc. in Microbiology, Diploma in Medical Laboratory Technology",
+      "Package": {
+        "Freshers": "₹3-5 lakhs per annum",
+        "Experienced Professionals": "₹6-10 lakhs per annum (varies based on specialization and industry experience)"
+      },
+      "Companies": [
+        "Metropolis Healthcare",
+        "SRL Diagnostics",
+        "Dr. Lal PathLabs"
+      ],
+      "Skills": [
+        "Knowledge of genetic testing and chromosome analysis",
+        "Proficiency in laboratory techniques and microscopy",
+        "Attention to detail and analytical skills"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Environmental Engineers",
+      "Domain": "B.Tech in Environmental Engineering, M.Tech in Environmental Engineering, B.Sc. in Environmental Science, Diploma in Environmental Engineering, B.Sc. in Civil Engineering",
+      "Package": {
+        "Freshers": "₹3-6 lakhs per annum",
+        "Experienced Professionals": "₹7-15 lakhs per annum (varies based on specialization and industry experience)"
+      },
+      "Companies": ["Tata Consulting Engineers", "WSP Global", "AECOM"],
+      "Skills": [
+        "Strong understanding of environmental regulations and compliance",
+        "Proficiency in environmental impact assessment and remediation techniques",
+        "Problem-solving and analytical skills"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Environmental Science and Protection Technicians, Including Health",
+      "Domain": "B.Sc. in Environmental Science, B.Sc. in Environmental Management, Diploma in Environmental Science and Technology, B.Sc. in Health and Safety Management, M.Sc. in Environmental Health",
+      "Package": {
+        "Freshers": "₹3-5 lakhs per annum",
+        "Experienced Professionals": "₹6-10 lakhs per annum (varies based on specialization and industry experience)"
+      },
+      "Companies": ["AECOM", "Tata Consulting Engineers", "Bureau Veritas"],
+      "Skills": [
+        "Knowledge of environmental monitoring and testing procedures",
+        "Proficiency in laboratory techniques and data analysis",
+        "Strong attention to detail and problem-solving skills"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Environmental Scientists and Specialists, Including Health",
+      "Domain": "B.Sc. in Environmental Science, M.Sc. in Environmental Science, B.Sc. in Environmental Studies, M.Sc. in Environmental Management, B.Tech in Environmental Engineering.",
+      "Package": {
+        "Freshers": "₹4-7 lakhs per annum",
+        "Experienced Professionals": "₹8-15 lakhs per annum (varies based on specialization and industry experience)"
+      },
+      "Companies": ["Tata Consultancy Services (TCS)", "AECOM", "WSP Global"],
+      "Skills": [
+        "Strong understanding of environmental regulations and health standards",
+        "Proficiency in data analysis and environmental impact assessments",
+        "Research and analytical skills"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Food Scientists and Technologists",
+      "Domain": "B.Sc. in Food Science and Technology, M.Sc. in Food Technology, B.Tech in Food Technology, Diploma in Food Science, B.Sc. in Nutrition and Dietetics.",
+      "Package": {
+        "Freshers": "₹3-6 lakhs per annum",
+        "Experienced Professionals": "₹7-12 lakhs per annum (varies based on specialization and industry experience)"
+      },
+      "Companies": ["Nestle India", "ITC Limited", "Britannia Industries"],
+      "Skills": [
+        "Knowledge of food safety and quality standards",
+        "Proficiency in food processing and preservation techniques",
+        "Strong analytical and problem-solving skills"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Health and Safety Engineers, Except Mining Safety Engineers and Inspectors",
+      "Domain": "B.Tech in Health and Safety Engineering, M.Tech in Occupational Health and Safety, B.Sc. in Environmental Health, Diploma in Industrial Safety, B.Sc. in Safety Engineering.",
+      "Package": {
+        "Freshers": "₹4-7 lakhs per annum",
+        "Experienced Professionals": "₹8-15 lakhs per annum (varies based on specialization and industry experience)"
+      },
+      "Companies": ["Siemens", "L&T Construction", "Honeywell"],
+      "Skills": [
+        "Knowledge of safety regulations and compliance standards",
+        "Proficiency in risk assessment and hazard analysis",
+        "Strong problem-solving and analytical skills"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Histotechnologists",
+      "Domain": "B.Sc. in Medical Laboratory Technology, B.Sc. in Histopathology, Diploma in Histotechnology, M.Sc. in Clinical Laboratory Science, B.Sc. in Biotechnology.",
+      "Package": {
+        "Freshers": "₹3-5 lakhs per annum",
+        "Experienced Professionals": "₹6-10 lakhs per annum (varies based on specialization and industry experience)"
+      },
+      "Companies": [
+        "SRL Diagnostics",
+        "Dr. Lal PathLabs",
+        "Metropolis Healthcare"
+      ],
+      "Skills": [
+        "Knowledge of tissue processing and staining techniques",
+        "Proficiency in using laboratory equipment and microscopes",
+        "Attention to detail and precision in sample analysis"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Medical and Clinical Laboratory Technologists",
+      "Domain": "B.Sc. in Medical Laboratory Technology, B.Sc. in Clinical Laboratory Science, M.Sc. in Clinical Laboratory Technology, Diploma in Medical Laboratory Technology, B.Sc. in Biotechnology.",
+      "Package": {
+        "Freshers": "₹3-6 lakhs per annum",
+        "Experienced Professionals": "₹7-12 lakhs per annum (varies based on specialization and industry experience)"
+      },
+      "Companies": [
+        "Dr. Lal PathLabs",
+        "Metropolis Healthcare",
+        "Apollo Diagnostics"
+      ],
+      "Skills": [
+        "Knowledge of laboratory testing and diagnostic procedures",
+        "Proficiency in using lab equipment and handling samples",
+        "Attention to detail and accuracy in data analysis"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Nuclear Engineers",
+      "Domain": "B.Tech in Nuclear Engineering, M.Tech in Nuclear Engineering, B.Sc. in Nuclear Science, Diploma in Nuclear Technology, M.Sc. in Radiation Physics.",
+      "Package": {
+        "Freshers": "₹6-10 lakhs per annum",
+        "Experienced Professionals": "₹12-20 lakhs per annum (varies based on specialization and industry experience)"
+      },
+      "Companies": [
+        "Nuclear Power Corporation of India Limited (NPCIL)",
+        "Bharat Heavy Electricals Limited (BHEL)",
+        "Larsen & Toubro (L&T)"
+      ],
+      "Skills": [
+        "Strong understanding of nuclear physics and reactor design",
+        "Proficiency in safety protocols and radiation protection",
+        "Analytical and problem-solving skills"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Photonics Engineers",
+      "Domain": "B.Tech in Photonics Engineering, M.Tech in Photonics, B.Sc. in Optoelectronics, Diploma in Photonics Technology, B.Sc. in Applied Physics.",
+      "Package": {
+        "Freshers": "₹5-8 lakhs per annum",
+        "Experienced Professionals": "₹10-18 lakhs per annum (varies based on specialization and industry experience)"
+      },
+      "Companies": ["Tejas Networks", "Sterlite Technologies", "Tata Elxsi"],
+      "Skills": [
+        "Knowledge of optics and photonics principles",
+        "Proficiency in laser technologies and optical system design",
+        "Analytical and problem-solving skills"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Remote Sensing Scientists and Technologists",
+      "Domain": "B.Sc. in Remote Sensing, M.Sc. in Remote Sensing and GIS, B.Tech in Geoinformatics, Diploma in Remote Sensing Technology, B.Sc. in Environmental Science.",
+      "Package": {
+        "Freshers": "₹4-7 lakhs per annum",
+        "Experienced Professionals": "₹8-15 lakhs per annum (varies based on specialization and industry experience)"
+      },
+      "Companies": [
+        "Indian Space Research Organisation (ISRO)",
+        "National Remote Sensing Centre (NRSC)",
+        "Tata Consultancy Services (TCS)"
+      ],
+      "Skills": [
+        "Proficiency in remote sensing technologies and geospatial data analysis",
+        "Knowledge of GIS software and satellite imagery interpretation",
+        "Strong analytical and problem-solving skills"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Water Resource Specialists",
+      "Domain": "B.Tech in Flight Engineer Course (Preferably in Mechanical/Aeronautical Engineering), PPL, CPL",
+      "Package": {
+        "Freshers": "₹4-8 lakhs per annum",
+        "Experienced Professionals": "₹9-16 lakhs per annum (varies based on specialization and industry experience)"
+      },
+      "Companies": [
+        "WAPCOS Limited",
+        "L&T Construction",
+        "Jacobs Engineering Group"
+      ],
+      "Skills": [
+        "Knowledge of hydrology and water management techniques",
+        "Proficiency in data analysis and modeling tools",
+        "Problem-solving and project management skills"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Cartographers and Photogrammetrists",
+      "Domain": "B.Tech in Geomatics Engineering, B.Sc. in Geography, Diploma in Cartography, M.Sc. in Geographical Information Science, B.Sc. in Remote Sensing and GIS.",
+      "Package": {
+        "Freshers": "₹3-6 lakhs per annum",
+        "Experienced Professionals": "₹7-12 lakhs per annum (varies based on specialization and industry experience)"
+      },
+      "Companies": [
+        "National Remote Sensing Centre (NRSC)",
+        "Rolta India Limited",
+        "ESRI India"
+      ],
+      "Skills": [
+        "Proficiency in GIS and mapping software",
+        "Knowledge of photogrammetry and remote sensing techniques",
+        "Attention to detail and spatial analysis skills"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Computer Network Support Specialists",
+      "Domain": "B.Tech in Computer Science and Engineering, B.Tech in Information Technology, Diploma in Networking, B.Sc. in Computer Science, B.Sc. in Information Technology.",
+      "Package": {
+        "Freshers": "₹3-5 lakhs per annum",
+        "Experienced Professionals": "₹6-10 lakhs per annum (varies based on specialization and industry experience)"
+      },
+      "Companies": ["Infosys", "Wipro", "Tata Consultancy Services (TCS)"],
+      "Skills": [
+        "Strong understanding of network protocols and configurations",
+        "Troubleshooting and problem-solving skills",
+        "Knowledge of network security practices and tools"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Environmental Compliance Inspectors",
+      "Domain": "B.Sc. in Environmental Science, B.Tech in Environmental Engineering, Diploma in Environmental Management, M.Sc. in Environmental Studies, B.Sc. in Occupational Health and Safety.",
+      "Package": {
+        "Freshers": "₹3-6 lakhs per annum",
+        "Experienced Professionals": "₹7-12 lakhs per annum (varies based on specialization and industry experience)"
+      },
+      "Companies": [
+        "Central Pollution Control Board (CPCB)",
+        "WSP India",
+        "AECOM"
+      ],
+      "Skills": [
+        "Knowledge of environmental laws and regulations",
+        "Strong analytical and observational skills",
+        "Proficiency in report writing and data interpretation"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Geographic Information Systems Technologists and Technicians",
+      "Domain": "B.Sc. in Geomatics, B.Tech in Geographic Information Systems, Diploma in GIS Technology, M.Sc. in Geographical Information Science, B.Sc. in Geography.",
+      "Package": {
+        "Freshers": "₹3-5 lakhs per annum",
+        "Experienced Professionals": "₹6-10 lakhs per annum (varies based on specialization and industry experience)"
+      },
+      "Companies": ["ESRI India", "Cyient", "RMSI"],
+      "Skills": [
+        "Proficiency in GIS software and spatial data analysis",
+        "Knowledge of cartography and map design principles",
+        "Data visualization and problem-solving skills"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Industrial Engineers",
+      "Domain": "B.Tech in Industrial Engineering, M.Tech in Industrial Engineering, Diploma in Industrial Engineering, B.Sc. in Production Engineering, B.Sc. in Manufacturing Engineering.",
+      "Package": {
+        "Freshers": "₹4-7 lakhs per annum",
+        "Experienced Professionals": "₹8-15 lakhs per annum (varies based on specialization and industry experience)"
+      },
+      "Companies": [
+        "Tata Consultancy Services (TCS)",
+        "Wipro",
+        "Mahindra & Mahindra"
+      ],
+      "Skills": [
+        "Proficiency in process optimization and efficiency improvement",
+        "Strong analytical and problem-solving skills",
+        "Knowledge of project management and quality control methodologies"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Information Security Engineers",
+      "Domain": "B.Tech in Cyber Security, B.Tech in Information Technology, M.Tech in Information Security, Diploma in Cyber Security, B.Sc. in Computer Science.",
+      "Package": {
+        "Freshers": "₹4-8 lakhs per annum",
+        "Experienced Professionals": "₹10-18 lakhs per annum (varies based on specialization and industry experience)"
+      },
+      "Companies": ["IBM India", "Wipro", "Infosys"],
+      "Skills": [
+        "Strong understanding of cybersecurity protocols and tools",
+        "Proficiency in risk assessment and management",
+        "Knowledge of network security and encryption techniques"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Logistics Engineers",
+      "Domain": "B.Tech in Logistics Engineering, B.Sc. in Logistics and Supply Chain Management, M.Tech in Logistics and Supply Chain Management, Diploma in Logistics Management, B.Com in Logistics and Shipping Management.",
+      "Package": {
+        "Freshers": "₹3-6 lakhs per annum",
+        "Experienced Professionals": "₹7-12 lakhs per annum (varies based on specialization and industry experience)"
+      },
+      "Companies": ["Amazon", "DHL", "Flipkart"],
+      "Skills": [
+        "Proficiency in supply chain management and optimization",
+        "Strong analytical and problem-solving skills",
+        "Knowledge of logistics software and tools"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Security Management Specialists",
+      "Domain": "B.Sc. in Security Management, B.Tech in Security Systems, Diploma in Security Management, M.Sc. in Criminal Justice, B.A. in Public Safety and Security.",
+      "Package": {
+        "Freshers": "₹4-6 lakhs per annum",
+        "Experienced Professionals": "₹8-15 lakhs per annum (varies based on specialization and industry experience)"
+      },
+      "Companies": [
+        "G4S Secure Solutions",
+        "Securitas",
+        "Tata Advanced Systems"
+      ],
+      "Skills": [
+        "Knowledge of risk assessment and security protocols",
+        "Strong analytical and problem-solving skills",
+        "Proficiency in crisis management and emergency response"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Bioinformatics Technicians",
+      "Domain": "B.Sc. in Bioinformatics, M.Sc. in Bioinformatics, B.Tech in Biotechnology, Diploma in Bioinformatics, B.Sc. in Computational Biology.",
+      "Package": {
+        "Freshers": "₹3-5 lakhs per annum",
+        "Experienced Professionals": "₹6-10 lakhs per annum (varies based on specialization and industry experience)"
+      },
+      "Companies": ["Biocon", "Roche", "Genpact"],
+      "Skills": [
+        "Proficiency in bioinformatics software and tools",
+        "Strong analytical and data interpretation skills",
+        "Knowledge of molecular biology and genetics"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Computer Network Architects",
+      "Domain": "B.Tech in Flight Engineer Course (Preferably in Mechanical/Aeronautical Engineer), PPL, CPL.",
+      "Package": {
+        "Freshers": "₹4-7 lakhs per annum",
+        "Experienced Professionals": "₹10-20 lakhs per annum (varies based on specialization and industry experience)"
+      },
+      "Companies": ["Cisco Systems", "Infosys", "Wipro"],
+      "Skills": [
+        "Expertise in network design and architecture",
+        "Strong understanding of networking protocols and technologies",
+        "Proficiency in security measures and network management"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Computer Systems Engineers/Architects",
+      "Domain": "B.Tech in Computer Engineering, B.Tech in Computer Science and Engineering, M.Tech in Computer Systems, B.Sc. in Computer Science, Diploma in Computer Engineering.",
+      "Package": {
+        "Freshers": "₹4-6 lakhs per annum",
+        "Experienced Professionals": "₹8-15 lakhs per annum (varies based on specialization and industry experience)"
+      },
+      "Companies": ["TCS (Tata Consultancy Services)", "IBM", "Accenture"],
+      "Skills": [
+        "Strong knowledge of system architecture and design",
+        "Proficiency in programming languages and software development",
+        "Expertise in hardware and software integration"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Occupational Health and Safety Specialists",
+      "Domain": "B.Sc. in Occupational Health and Safety, M.Sc. in Environmental Health and Safety, B.Tech in Safety Engineering, Diploma in Industrial Safety, B.Sc. in Environmental Science.",
+      "Package": {
+        "Freshers": "₹3-5 lakhs per annum",
+        "Experienced Professionals": "₹6-12 lakhs per annum (varies based on industry and experience level)"
+      },
+      "Companies": ["Tata Steel", "L&T (Larsen & Toubro)", "Godrej Group"],
+      "Skills": [
+        "Knowledge of health and safety regulations and standards",
+        "Risk assessment and management skills",
+        "Strong communication and training abilities"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Penetration Testers",
+      "Domain": "B.Tech in Cyber Security, B.Sc. in Information Technology, M.Tech in Information Security, Diploma in Ethical Hacking, B.Sc. in Computer Science.",
+      "Package": {
+        "Freshers": "₹4-7 lakhs per annum",
+        "Experienced Professionals": "₹10-20 lakhs per annum (varies based on skills and certifications)"
+      },
+      "Companies": ["IBM", "Infosys", "Wipro"],
+      "Skills": [
+        "Strong understanding of network and application security",
+        "Proficiency in penetration testing tools and methodologies",
+        "Knowledge of programming languages like Python or Java"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Software Developers",
+      "Domain": "B.Tech in Computer Science and Engineering, B.Sc. in Software Engineering, B.Tech in Information Technology, M.Tech in Software Engineering, Diploma in Software Development.",
+      "Package": {
+        "Freshers": "₹3-6 lakhs per annum",
+        "Experienced Professionals": "₹8-15 lakhs per annum (higher for specialized roles)"
+      },
+      "Companies": ["TCS", "Infosys", "Accenture"],
+      "Skills": [
+        "Proficiency in programming languages (e.g., Java, Python, C++)",
+        "Strong problem-solving and analytical skills",
+        "Knowledge of software development methodologies (e.g., Agile, DevOps)"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Software Quality Assurance Analysts and Testers",
+      "Domain": "B.Tech in Computer Science and Engineering, B.Sc. in Software Engineering, Diploma in Software Testing, M.Tech in Software Quality Assurance, B.Sc. in Information Technology.",
+      "Package": {
+        "Freshers": "₹3-5 lakhs per annum",
+        "Experienced Professionals": "₹6-12 lakhs per annum (can be higher for senior roles)"
+      },
+      "Companies": ["Wipro", "Cognizant", "Capgemini"],
+      "Skills": [
+        "Attention to detail and analytical skills",
+        "Knowledge of testing methodologies (e.g., manual, automation)",
+        "Proficiency in testing tools (e.g., Selenium, JIRA)"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Validation Engineers",
+      "Domain": "B.Tech in Biotechnology, B.Tech in Chemical Engineering, B.Sc. in Life Sciences, M.Tech in Quality Assurance, Diploma in Validation Engineering.",
+      "Package": {
+        "Freshers": "₹4-6 lakhs per annum",
+        "Experienced Professionals": "₹8-15 lakhs per annum (can be higher for senior roles)"
+      },
+      "Companies": ["Cipla", "Dr. Reddy's Laboratories", "Sun Pharma"],
+      "Skills": [
+        "Knowledge of validation protocols and regulations",
+        "Analytical and problem-solving skills",
+        "Strong documentation and technical writing abilities"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Cytotechnologists",
+      "Domain": "B.Sc. in Cytotechnology, B.Sc. in Medical Laboratory Technology, M.Sc. in Cytogenetics, B.Sc. in Clinical Laboratory Science, Diploma in Cytotechnology.",
+      "Package": {
+        "Freshers": "₹3-5 lakhs per annum",
+        "Experienced Professionals": "₹6-10 lakhs per annum (depending on expertise and location)"
+      },
+      "Companies": [
+        "SRL Diagnostics",
+        "Metropolis Healthcare",
+        "Dr. Lal PathLabs"
+      ],
+      "Skills": [
+        "Microscopic analysis skills",
+        "Knowledge of laboratory techniques",
+        "Attention to detail and accuracy in diagnosis"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Environmental Restoration Planners",
+      "Domain": "B.Sc. in Environmental Science, M.Sc. in Environmental Management, B.Tech in Environmental Engineering, Diploma in Environmental Restoration, B.A. in Geography.",
+      "Package": {
+        "Freshers": "₹4-6 lakhs per annum",
+        "Experienced Professionals": "₹7-12 lakhs per annum (depending on expertise and location)"
+      },
+      "Companies": ["AECOM", "Jacobs Engineering Group", "WSP Global"],
+      "Skills": [
+        "Environmental impact assessment",
+        "Project management",
+        "Ecological restoration techniques"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Geoscientists, Except Hydrologists and Geographers",
+      "Domain": "B.Sc. in Geology, M.Sc. in Geosciences, B.Tech in Applied Geology, M.Sc. in Earth Sciences, Diploma in Geology.",
+      "Package": {
+        "Freshers": "₹5-8 lakhs per annum",
+        "Experienced Professionals": "₹10-18 lakhs per annum (depending on expertise and industry)"
+      },
+      "Companies": [
+        "Schlumberger",
+        "ONGC (Oil and Natural Gas Corporation)",
+        "Reliance Industries"
+      ],
+      "Skills": [
+        "Geological data analysis",
+        "Field mapping and surveying",
+        "Mineral exploration techniques"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Human Factors Engineers and Ergonomists",
+      "Domain": "B.Tech in Industrial Engineering, M.Sc. in Ergonomics, B.Sc. in Human Factors Engineering, M.Tech in Human-Computer Interaction, Diploma in Occupational Health and Safety.",
+      "Package": {
+        "Freshers": "₹4-7 lakhs per annum",
+        "Experienced Professionals": "₹8-15 lakhs per annum (depending on expertise and industry)"
+      },
+      "Companies": ["Tata Consultancy Services (TCS)", "Infosys", "Accenture"],
+      "Skills": [
+        "User experience (UX) design",
+        "Human-computer interaction (HCI)",
+        "Ergonomic assessment techniques"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Hydrologists",
+      "Domain": "B.Sc. in Hydrology, M.Sc. in Water Resources Management, B.Tech in Civil Engineering with a specialization in Water Resources, M.Sc. in Environmental Science, Diploma in Hydrology.",
+      "Package": {
+        "Freshers": "₹5-8 lakhs per annum",
+        "Experienced Professionals": "₹10-18 lakhs per annum (depending on specialization and location)"
+      },
+      "Companies": [
+        "National Geographic",
+        "WAPCOS Limited",
+        "Indian Meteorological Department (IMD)"
+      ],
+      "Skills": [
+        "Data analysis and modeling",
+        "Geographic Information Systems (GIS)",
+        "Environmental impact assessment"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Industrial Ecologists",
+      "Domain": "B.Sc. in Environmental Science, M.Sc. in Industrial Ecology, B.Tech in Environmental Engineering, M.Tech in Sustainable Engineering, Diploma in Environmental Management.",
+      "Package": {
+        "Freshers": "₹4-7 lakhs per annum",
+        "Experienced Professionals": "₹8-15 lakhs per annum (based on expertise and location)"
+      },
+      "Companies": [
+        "Tata Sustainability Group",
+        "WSP Global Inc.",
+        "Environmental Resources Management (ERM)"
+      ],
+      "Skills": [
+        "Life cycle assessment (LCA)",
+        "Sustainability analysis",
+        "Environmental policy and regulations knowledge"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Materials Scientists",
+      "Domain": "B.Tech in Materials Science and Engineering, B.Sc. in Physics (Specialization in Materials Science), M.Tech in Nanotechnology, M.Sc. in Materials Science, B.Tech in Metallurgical Engineering, Ph.D. in Materials Science and Engineering, M.Tech in Polymer Science and Technology, M.Sc. in Applied Chemistry with Materials Science",
+      "Package": {
+        "Freshers": "₹5-8 lakhs per annum",
+        "Experienced Professionals": "₹10-20 lakhs per annum (based on experience and role)"
+      },
+      "Companies": ["Tata Steel", "3M India", "Reliance Industries Limited"],
+      "Skills": [
+        "Materials characterization",
+        "Analytical techniques",
+        "Research and development (R&D) skills"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Medical Scientists, Except Epidemiologists",
+      "Domain": "B.Sc. in Biomedical Science, B.Sc. in Microbiology, B.Sc. in Biochemistry, M.Sc. in Molecular Biology, M.Sc. in Biotechnology, M.Sc. in Pharmacology, Ph.D. in Biomedical Science, M.D. in Medical Genetics, M.Sc. in Clinical Research, M.Tech in Biomedical Engineering",
+      "Package": {
+        "Freshers": "₹6-9 lakhs per annum",
+        "Experienced Professionals": "₹12-25 lakhs per annum (based on experience and role)"
+      },
+      "Companies": ["Dr. Reddy's Laboratories", "Biocon", "Cipla"],
+      "Skills": ["Clinical research", "Data analysis", "Scientific writing"]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Microbiologists",
+      "Domain": "B.Sc. in Microbiology, B.Sc. in Biotechnology, M.Sc. in Microbiology, M.Sc. in Applied Microbiology, M.Sc. in Medical Microbiology, Ph.D. in Microbiology, B.Tech in Biotechnology, M.Tech in Microbial Technology, M.Sc. in Industrial Microbiology, M.Sc. in Environmental Microbiology",
+      "Package": {
+        "Freshers": "₹3-6 lakhs per annum",
+        "Experienced Professionals": "₹8-15 lakhs per annum (based on experience and role)"
+      },
+      "Companies": [
+        "Bharat Biotech",
+        "Serum Institute of India",
+        "Syngene International"
+      ],
+      "Skills": ["Laboratory techniques", "Data analysis", "Research skills"]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Microsystems Engineers",
+      "Domain": "B.Tech in Flight Engineer Course (Preferably in Mechanical/Aeronautical Engineering), PPL, CPL",
+      "Package": {
+        "Freshers": "₹4-7 lakhs per annum",
+        "Experienced Professionals": "₹10-20 lakhs per annum (based on experience and role)"
+      },
+      "Companies": ["Bosch", "STMicroelectronics", "Analog Devices"],
+      "Skills": [
+        "Microfabrication techniques",
+        "Circuit design",
+        "Problem-solving skills"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Molecular and Cellular Biologists",
+      "Domain": "B.Sc. in Molecular Biology, B.Sc. in Biotechnology, B.Sc. in Genetics, M.Sc. in Molecular and Cellular Biology, M.Sc. in Biotechnology, M.Sc. in Genetics, M.Sc. in Biochemistry, Ph.D. in Molecular Biology, M.Sc. in Life Sciences (Specialization in Molecular Biology), M.Sc. in Cell Biology",
+      "Package": {
+        "Freshers": "₹3-6 lakhs per annum",
+        "Experienced Professionals": "₹8-15 lakhs per annum (based on expertise and role)"
+      },
+      "Companies": [
+        "Biocon",
+        "Dr. Reddy's Laboratories",
+        "Serum Institute of India"
+      ],
+      "Skills": [
+        "Molecular biology techniques",
+        "Data analysis",
+        "Critical thinking skills"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Nanosystems Engineers",
+      "Domain": "B.Tech in Nanotechnology, B.Sc. in Nanoscience, M.Tech in Nanotechnology, M.Sc. in Nanoscience and Technology, M.Tech in Materials Science and Nanotechnology, Ph.D. in Nanotechnology, M.Sc. in Nanobiotechnology, M.Tech in Nanomaterials, M.Sc. in Physics (Specialization in Nanoscience), M.Tech in Microsystems and Nanotechnology",
+      "Package": {
+        "Freshers": "₹4-8 lakhs per annum",
+        "Experienced Professionals": "₹10-20 lakhs per annum (depending on role and expertise)"
+      },
+      "Companies": [
+        "Tata Consultancy Services (TCS)",
+        "Reliance Industries",
+        "Intel Corporation"
+      ],
+      "Skills": [
+        "Nanotechnology design and fabrication",
+        "Analytical and problem-solving skills",
+        "Knowledge of material science and physics"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Orthodontists",
+      "Domain": "B.D.S. (Bachelor of Dental Surgery), M.D.S. in Orthodontics, Certificate Course in Orthodontics, Diploma in Orthodontics and Dentofacial Orthopedics, Ph.D. in Orthodontics",
+      "Package": {
+        "Freshers": "₹6-12 lakhs per annum",
+        "Experienced Professionals": "₹15-30 lakhs per annum (depending on location and experience)"
+      },
+      "Companies": [
+        "Apollo Hospitals",
+        "Manipal Hospitals",
+        "Fortis Healthcare"
+      ],
+      "Skills": [
+        "Orthodontic treatment planning and execution",
+        "Interpersonal and communication skills",
+        "Manual dexterity and precision"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Physicians, Pathologists",
+      "Domain": "M.B.B.S. (Bachelor of Medicine, Bachelor of Surgery), M.D. in General Medicine, M.D. in Pathology, DNB in General Medicine, DNB in Pathology, M.Sc. in Pathology, Diploma in Clinical Pathology, Ph.D. in Pathology, M.D. in Internal Medicine, M.D. in Clinical Pathology",
+      "Package": {
+        "Freshers": "₹8-15 lakhs per annum",
+        "Experienced Professionals": "₹20-40 lakhs per annum (depending on experience and specialization)"
+      },
+      "Companies": [
+        "Apollo Hospitals",
+        "AIIMS (All India Institute of Medical Sciences)",
+        "Fortis Healthcare"
+      ],
+      "Skills": [
+        "Diagnostic skills in pathology",
+        "Attention to detail and analytical thinking",
+        "Laboratory and research expertise"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "Physicists",
+      "Domain": "B.Sc. in Physics, B.Sc. in Applied Physics, M.Sc. in Physics, M.Sc. in Applied Physics, M.Tech in Engineering Physics, M.Sc. in Astrophysics, Ph.D. in Physics, M.Sc. in Theoretical Physics, M.Sc. in Nuclear Physics, M.Sc. in Condensed Matter Physics",
+      "Package": {
+        "Freshers": "₹6-12 lakhs per annum",
+        "Experienced Professionals": "₹15-30 lakhs per annum (depending on specialization and industry)"
+      },
+      "Companies": [
+        "Indian Space Research Organisation (ISRO)",
+        "Tata Institute of Fundamental Research (TIFR)",
+        "Defence Research and Development Organisation (DRDO)"
+      ],
+      "Skills": [
+        "Advanced mathematical and analytical skills",
+        "Problem-solving and critical thinking",
+        "Research and data analysis expertise"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "B.Tech in Flight Engineer Course (Preferably in Mechanical/Aeronautical Engineering), PPL, CPL",
+      "Domain": "Bioinformatics",
+      "Package": {
+        "Freshers": "₹4-8 lakhs per annum",
+        "Experienced Professionals": "₹10-20 lakhs per annum (depending on role and expertise)"
+      },
+      "Companies": [
+        "Thermo Fisher Scientific",
+        "Strand Life Sciences",
+        "Persistent Systems"
+      ],
+      "Skills": [
+        "Proficiency in bioinformatics software and tools",
+        "Data analysis and computational biology skills",
+        "Programming knowledge (e.g., Python, R)"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "B.Sc. in Biology, B.Sc. in Biological Sciences, B.Sc. in Life Sciences, M.Sc. in Biology, M.Sc. in Zoology, M.Sc. in Botany, M.Sc. in Microbiology, M.Sc. in Environmental Biology, M.Sc. in Biotechnology, Ph.D. in Biology",
+      "Domain": "Biology",
+      "Package": {
+        "Freshers": "₹3-6 lakhs per annum",
+        "Experienced Professionals": "₹8-15 lakhs per annum (depending on specialization and experience)"
+      },
+      "Companies": [
+        "Biocon",
+        "Dr. Reddy's Laboratories",
+        "Syngene International"
+      ],
+      "Skills": [
+        "Research and analytical skills",
+        "Laboratory techniques and equipment handling",
+        "Data interpretation and scientific writing skills"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "B.Tech in Computer Science and Engineering, B.Sc. in Computer Science, B.Sc. in Information Technology, M.Tech in Computer Science, M.Tech in Information Technology, M.Sc. in Computer Science, M.Sc. in Data Science, M.Sc. in Cybersecurity, Ph.D. in Computer Science, M.Sc. in Artificial Intelligence",
+      "Domain": "Computer Science and Information Technology",
+      "Package": {
+        "Freshers": "₹8-12 lakhs per annum",
+        "Experienced Professionals": "₹15-30 lakhs per annum (depending on expertise and domain)"
+      },
+      "Companies": ["IBM Research", "Google Research", "Microsoft Research"],
+      "Skills": [
+        "Machine learning and artificial intelligence",
+        "Programming languages (e.g., Python, Java, C++)",
+        "Data analysis and algorithm development skills"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "B.Sc. in Genetics, B.Sc. in Biotechnology, M.Sc. in Genetics, M.Sc. in Molecular Biology, M.Sc. in Applied Genetics, M.Tech in Genetic Engineering, Ph.D. in Genetics, M.Sc. in Human Genetics, M.Sc. in Plant Genetics, M.Sc. in Medical Genetics",
+      "Domain": "Genetics",
+      "Package": {
+        "Freshers": "₹5-10 lakhs per annum",
+        "Experienced Professionals": "₹12-25 lakhs per annum (depending on expertise and research contributions)"
+      },
+      "Companies": [
+        "MedGenome",
+        "Strand Life Sciences",
+        "Genotypic Technology"
+      ],
+      "Skills": [
+        "Molecular biology techniques",
+        "Data analysis and bioinformatics",
+        "Genetic research and experimental design skills"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "M.B.B.S. (Bachelor of Medicine, Bachelor of Surgery), M.D. in Radiology, DNB in Radiology, M.Sc. in Medical Imaging Technology, Diploma in Medical Radiodiagnosis, Ph.D. in Radiology, M.Sc. in Radiology and Imaging Technology, DMRD (Diploma in Medical Radio-Diagnosis)",
+      "Domain": "Radiology",
+      "Package": {
+        "Freshers": "₹12-20 lakhs per annum",
+        "Experienced Professionals": "₹25-50 lakhs per annum (or higher with specialization and expertise)"
+      },
+      "Companies": [
+        "Apollo Hospitals",
+        "Fortis Healthcare",
+        "Manipal Hospitals"
+      ],
+      "Skills": [
+        "Diagnostic imaging techniques (CT, MRI, X-ray, ultrasound)",
+        "Analytical and interpretation skills",
+        "Communication with patients and healthcare teams"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "BBA & MBA/ B.Com & M.Com with specialization in Finance, Economics and Accounts, B.Sc. & M.Sc. Management or Business Analytics, Post Graduate Diploma in Management (PGDM)",
+      "Domain": "Management",
+      "Package": {
+        "Freshers": "₹5-10 lakhs per annum",
+        "Experienced Professionals": "₹12-25 lakhs per annum (can increase with experience and industry expertise)"
+      },
+      "Companies": ["Deloitte", "KPMG", "PwC (PricewaterhouseCoopers)"],
+      "Skills": [
+        "Analytical and problem-solving skills",
+        "Data interpretation and presentation",
+        "Strong communication and consulting abilities"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "B.Com, M.Com (Focused on commerce, finance, accounting principles, and business management), BBA & MBA (Specialization in Finance or Accounting), B.Sc. & M.Sc. in Finance & Accounting",
+      "Domain": "Accounting and Auditing",
+      "Package": {
+        "Freshers": "₹3-6 lakhs per annum",
+        "Experienced Professionals": "₹8-15 lakhs per annum"
+      },
+      "Companies": ["Deloitte India", "PwC India", "KPMG India"],
+      "Skills": [
+        "Proficiency in accounting software and financial reporting",
+        "Strong analytical and numerical skills",
+        "Attention to detail and compliance knowledge"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "B.Com, M.Com (Focused on accounting, finance, and business management), BBA & MBA (Focused on general business management principles, including financial management), B.Sc. & M.Sc. (Focused on Economics or Finance)",
+      "Domain": "Budgeting and Finance",
+      "Package": {
+        "Freshers": "₹3-5 lakhs per annum",
+        "Experienced Professionals": "₹6-12 lakhs per annum"
+      },
+      "Companies": [
+        "Deloitte India",
+        "Ernst / Young (EY) India",
+        "Accenture India"
+      ],
+      "Skills": [
+        "Strong analytical and quantitative skills",
+        "Proficiency in financial modeling and forecasting",
+        "Excellent communication and presentation skills"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "B.A & M.A/ B.Sc. & M.Sc. in Physiology, Psychology with a Specialization in Industrial/Organizational Psychology, BBA & MBA in Human Resource Management, Post Graduate Diploma in Industrial Psychology",
+      "Domain": "Psychology",
+      "Package": {
+        "Freshers": "₹4-8 lakhs per annum",
+        "Experienced Professionals": "₹10-20 lakhs per annum (depending on experience and expertise)"
+      },
+      "Companies": [
+        "Deloitte India",
+        "Tata Consultancy Services (TCS)",
+        "Ernst / Young (EY)"
+      ],
+      "Skills": [
+        "Strong analytical and research skills",
+        "Proficiency in data analysis and psychological assessment",
+        "Excellent communication and interpersonal abilities"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "B.Sc. & M.Sc./ B.A & M.A/ B.Com & M.Com (Focused with Environmental Studies) in Economics, Environmental Science, BBA & MBA (Specialized in Sustainable Management or Environmental Management)",
+      "Domain": "Environmental Economics",
+      "Package": {
+        "Freshers": "₹4-6 lakhs per annum",
+        "Experienced Professionals": "₹8-12 lakhs per annum"
+      },
+      "Companies": [
+        "TERI (The Energy and Resources Institute)",
+        "Indian Institute of Forest Management (IIFM)",
+        "World Wide Fund for Nature (WWF) India"
+      ],
+      "Skills": [
+        "Knowledge of economic principles and environmental policies",
+        "Data analysis and statistical skills",
+        "Research and critical thinking abilities"
+      ]
+    },
+    {
+      "Research letter": "RCI",
+      "Career": "B.Mus. & M.Mus., B.A & M.A, B.Sc & M.Sc. in Music, Psychology or Music Therapy, Diploma in Music Therapy",
+      "Domain": "Music Therapy",
+      "Package": {
+        "Freshers": "₹3-5 lakhs per annum",
+        "Experienced Professionals": "₹6-10 lakhs per annum"
+      },
+      "Companies": [
+        "Hindustan Aeronautics Limited (HAL) - Music Wing",
+        "Bharatiya Vidya Bhavan",
+        "Singing Schools and Music Academies (various across India)"
+      ],
+      "Skills": [
+        "Musical proficiency in various instruments and vocal techniques",
+        "Pedagogical skills for teaching music theory and practice",
+        "Creativity and adaptability to develop engaging music curriculum and activities"
+      ]
+    }
+  ],
   "RIE": [
     {
       "Research letter": "RIE",
