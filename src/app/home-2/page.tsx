@@ -11,6 +11,7 @@ import BlogOne from "../components/blogs/blog-one";
 import FeatureEleven from "../components/features/feature-eleven";
 import Collegedekhocomp from "../components/college-dekho/college-dekho";
 import FancyBanner16 from "../components/fancy-banner/fancy-banner-16";
+import CollegeFinder from "../components/filters/collegefilter";
 
 export const metadata: Metadata = {
   title: "Home two",
@@ -30,6 +31,7 @@ const HomeTwo = () => {
         {/* hero banner end */}
         <HowItWorksTwo />
         <MainBanner />
+        <CollegeFinder />
 
         {/* feedback two start */}
         <FeedbackTwo />
