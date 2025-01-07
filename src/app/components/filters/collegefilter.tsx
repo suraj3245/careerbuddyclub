@@ -10,10 +10,14 @@ import {
   Stack,
   Tabs,
   Tab,
+  useTheme,
+  useMediaQuery,
 } from "@mui/material";
 
 const CollegeFinder: React.FC = () => {
   const [value, setValue] = React.useState(0);
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
@@ -65,13 +69,19 @@ const CollegeFinder: React.FC = () => {
     "Karnataka",
     "Andhra Pradesh",
     "Punjab",
+    "Maharashtra",
+    "Tamilnadu",
+    "Delhi",
+    "Karnataka",
+    "Andhra Pradesh",
+    "Punjab",
   ];
 
   return (
     <div className="container mt-80">
       {/* Header Section */}
       <Box sx={{ textAlign: "center", mb: 4 }}>
-        <Typography variant="h4" fontWeight="bold" gutterBottom>
+        <Typography variant={isSmallScreen ? "h5" : "h4"} fontWeight="bold" gutterBottom>
           Find The Perfect College For You
         </Typography>
         <Typography variant="subtitle1" color="textSecondary">
@@ -111,11 +121,11 @@ const CollegeFinder: React.FC = () => {
         </Box>
       </Box>
 
-      <Box sx={{ flexGrow: 1, p: 2, height: "50vh" }}>
+      <Box sx={{ flexGrow: 1, p: 2, height: { xs: "auto", md: "50vh" } }}>
         <Grid container spacing={2} sx={{ height: "100%" }}>
           {/* First Column */}
           {/* Featured Colleges */}
-          <Grid item xs={12} md={4} sx={{ height: "100%" }}>
+          <Grid item xs={12} md={4} sx={{ height: { xs: "auto", md: "100%" } }}>
             <Card
               sx={{
                 height: "100%",
@@ -175,133 +185,142 @@ const CollegeFinder: React.FC = () => {
             item
             xs={12}
             md={4}
-            sx={{ height: "100%",overflowY: "auto" }}
-            style={{ paddingTop: "0px", paddingBottom: "0px" }}
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              height: { xs: "auto", md: "100%" },
+            }}
           >
+            {/* First Row - Top Hiring Companies */}
             <Grid
-              container
-              spacing={2}
-              direction="column"
-              sx={{ height: "100%", marginTop: "0px", marginBottom: "0px" }}
+              item
+              sx={{
+                flex: "1 1 50%",
+                overflowY: "auto",
+                paddingBottom: 1,
+              }}
             >
-              {/* Top Card */}
-              {/* Important Exams */}
-              <Grid item sx={{ height: "50%" }}>
-                <Card
+              <Card
+                sx={{
+                  height: "100%",
+                  display: "flex",
+                  flexDirection: "column",
+                  overflow: "hidden",
+                  backgroundColor: "#f0f8ff",
+                  padding: "7px",
+                }}
+              >
+                <Typography
+                  variant="h6"
                   sx={{
-                    height: "100%",
+                    textAlign: "left",
                     display: "flex",
-                    flexDirection: "column",
-                    overflow: "hidden",
-                    backgroundColor: "#f0f8ff",
-                    padding: "7px",
+                    justifyContent: "space-between",
+                    marginX: 2,
                   }}
                 >
-                  <Typography
-                    variant="h6"
+                  Top Hiring Companies
+                  <Button variant="text" size="small">
+                    View All
+                  </Button>
+                </Typography>
+                <CardContent sx={{ flex: 1, overflowY: "auto" }}>
+                  <Box
                     sx={{
-                      textAlign: "left",
                       display: "flex",
-                      justifyContent: "space-between",
-                      marginX: 2,
+                      flexWrap: { xs: "nowrap", md: "wrap" },
+                      gap: 1,
+                      padding: 1,
+                      overflowX: { xs: "auto", md: "hidden" },
+                      whiteSpace: "nowrap",
                     }}
                   >
-                    Top Hiring Companies
-                    <Button variant="text" size="small">
-                      View All
-                    </Button>
-                  </Typography>
-                  <CardContent sx={{ flex: 1, overflowY: "auto" }}>
-                    <Box
-                      sx={{
-                        display: "flex",
-                        flexWrap: { xs: "nowrap", md: "wrap" },
-                        gap: 1,
-                        padding: 1,
-                        overflowX: { xs: "auto", md: "hidden" },
-                        whiteSpace: "nowrap",
-                      }}
-                    >
-                      {importantExams.map((exam, index) => (
-                        <Button
-                          key={index}
-                          variant="outlined"
-                          sx={{
-                            flex: "1 0 auto",
-                            minWidth: "120px",
-                            fontSize: ".7rem",
-                            whiteSpace: "nowrap",
-                          }}
-                        >
-                          {exam}
-                        </Button>
-                      ))}
-                    </Box>
-                  </CardContent>
-                </Card>
-              </Grid>
+                    {importantExams.map((exam, index) => (
+                      <Button
+                        key={index}
+                        variant="outlined"
+                        sx={{
+                          flex: "1 0 auto",
+                          minWidth: "120px",
+                          fontSize: ".7rem",
+                          whiteSpace: "nowrap",
+                        }}
+                      >
+                        {exam}
+                      </Button>
+                    ))}
+                  </Box>
+                </CardContent>
+              </Card>
+            </Grid>
 
-              {/* Related Courses */}
-              <Grid item sx={{ height: "50%" }}>
-                <Card
+            {/* Second Row - Top Careers */}
+            <Grid
+              item
+              sx={{
+                flex: "1 1 50%",
+                overflowY: "auto",
+                paddingTop: 1,
+              }}
+            >
+              <Card
+                sx={{
+                  height: "100%",
+                  display: "flex",
+                  flexDirection: "column",
+                  overflow: "hidden",
+                  backgroundColor: "#f0f8ff",
+                  padding: "7px",
+                }}
+              >
+                <Typography
+                  variant="h6"
                   sx={{
-                    height: "100%",
+                    textAlign: "left",
                     display: "flex",
-                    flexDirection: "column",
-                    overflow: "hidden",
-                    backgroundColor: "#f0f8ff",
-                    padding: "7px",
+                    justifyContent: "space-between",
+                    marginX: 2,
                   }}
                 >
-                  <Typography
-                    variant="h6"
+                  Top Careers
+                  <Button variant="text" size="small">
+                    View All
+                  </Button>
+                </Typography>
+                <CardContent sx={{ flex: 1, overflowY: "auto" }}>
+                  <Box
                     sx={{
-                      textAlign: "left",
                       display: "flex",
-                      justifyContent: "space-between",
-                      marginX: 2,
+                      flexWrap: { xs: "nowrap", md: "wrap" },
+                      gap: 1,
+                      padding: 1,
+                      overflowX: { xs: "auto", md: "hidden" },
+                      whiteSpace: "nowrap",
                     }}
                   >
-                    Top Careers
-                    <Button variant="text" size="small">
-                      View All
-                    </Button>
-                  </Typography>
-                  <CardContent sx={{ flex: 1, overflowY: "auto" }}>
-                    <Box
-                      sx={{
-                        display: "flex",
-                        flexWrap: { xs: "nowrap", md: "wrap" },
-                        gap: 1,
-                        padding: 1,
-                        overflowX: { xs: "auto", md: "hidden" },
-                        whiteSpace: "nowrap",
-                      }}
-                    >
-                      {relatedCourses.map((course, index) => (
-                        <Button
-                          key={index}
-                          variant="outlined"
-                          sx={{
-                            flex: "1 0 auto",
-                            minWidth: "120px",
-                            fontSize: ".7rem",
-                            whiteSpace: "nowrap",
-                          }}
-                        >
-                          {course}
-                        </Button>
-                      ))}
-                    </Box>
-                  </CardContent>
-                </Card>
-              </Grid>
+                    {relatedCourses.map((course, index) => (
+                      <Button
+                        key={index}
+                        variant="outlined"
+                        sx={{
+                          flex: "1 0 auto",
+                          minWidth: "120px",
+                          fontSize: ".7rem",
+                          whiteSpace: "nowrap",
+                        }}
+                      >
+                        {course}
+                      </Button>
+                    ))}
+                  </Box>
+                </CardContent>
+              </Card>
             </Grid>
           </Grid>
 
           {/* Third Column */}
-          {/* Top States */}
-          <Grid item xs={12} md={4} sx={{ height: "100%" }}>
+          {/* Related Courses */}
+          <Grid item xs={12} md={4} sx={{ height: { xs: "auto", md: "100%" } }}>
             <Card
               sx={{
                 height: "100%",
