@@ -7,7 +7,6 @@ import {
   Card,
   CardContent,
   Button,
-  Stack,
   Tabs,
   Tab,
   useTheme,
@@ -23,7 +22,7 @@ const CollegeFinder: React.FC = () => {
     setValue(newValue);
   };
 
-  const categories = [
+  const streams = [
     "Engineering",
     "Management",
     "Commerce and Banking",
@@ -40,7 +39,7 @@ const CollegeFinder: React.FC = () => {
     "Information Technology",
   ];
 
-  const featuredColleges = [
+  const colleges = [
     "Parul University",
     "Lovely Professional University",
     "Chandigarh University",
@@ -51,37 +50,48 @@ const CollegeFinder: React.FC = () => {
     "Jagannath University NCR Haryana",
   ];
 
-  const importantExams = ["GPAT", "LPUNEST", "HPCET", "TS EAMCET", "OJEE"];
-
-  const relatedCourses = [
-    "B Pharm + MBA Integrated",
-    "M Pharm in Pharmaceutics",
-    "B Pharm Hons.",
-    "B Pharm Unani",
-    "Pharmacy Courses",
-    "Pharmacology",
+  const companies = [
+    "Infosys",
+    "TCS",
+    "Wipro",
+    "Cognizant",
+    "Accenture",
+    "Capgemini",
+    "HCL",
+    "Tech Mahindra",
   ];
 
-  const topStates = [
-    "Maharashtra",
-    "Tamilnadu",
-    "Delhi",
-    "Karnataka",
-    "Andhra Pradesh",
-    "Punjab",
-    "Maharashtra",
-    "Tamilnadu",
-    "Delhi",
-    "Karnataka",
-    "Andhra Pradesh",
-    "Punjab",
+  const careers = [
+    "Software Engineer",
+    "Data Analyst",
+    "Business Analyst",
+    "Web Developer",
+    "Digital Marketing",
+    "HR",
+  ];
+
+  const courses = [
+    "B.Tech",
+    "M.Tech",
+    "BBA",
+    "MBA",
+    "B.Com",
+    "M.Com",
+    "B.Sc",
+    "M.Sc",
+    "B.A",
+    "M.A",
   ];
 
   return (
     <div className="container mt-80">
       {/* Header Section */}
       <Box sx={{ textAlign: "center", mb: 4 }}>
-        <Typography variant={isSmallScreen ? "h5" : "h4"} fontWeight="bold" gutterBottom>
+        <Typography
+          variant={isSmallScreen ? "h5" : "h4"}
+          fontWeight="bold"
+          gutterBottom
+        >
           Find The Perfect College For You
         </Typography>
         <Typography variant="subtitle1" color="textSecondary">
@@ -104,10 +114,10 @@ const CollegeFinder: React.FC = () => {
             scrollButtons="auto"
             TabIndicatorProps={{ style: { backgroundColor: "#13adbd" } }}
           >
-            {categories.map((category, index) => (
+            {streams.map((stream, index) => (
               <Tab
                 key={index}
-                label={category}
+                label={stream}
                 sx={{
                   fontWeight: "bold",
                   color: "text.secondary",
@@ -161,7 +171,7 @@ const CollegeFinder: React.FC = () => {
                     whiteSpace: "nowrap",
                   }}
                 >
-                  {featuredColleges.map((college, index) => (
+                  {colleges.map((college, index) => (
                     <Button
                       key={index}
                       variant="outlined"
@@ -235,7 +245,7 @@ const CollegeFinder: React.FC = () => {
                       whiteSpace: "nowrap",
                     }}
                   >
-                    {importantExams.map((exam, index) => (
+                    {companies.map((company, index) => (
                       <Button
                         key={index}
                         variant="outlined"
@@ -246,7 +256,7 @@ const CollegeFinder: React.FC = () => {
                           whiteSpace: "nowrap",
                         }}
                       >
-                        {exam}
+                        {company}
                       </Button>
                     ))}
                   </Box>
@@ -298,7 +308,7 @@ const CollegeFinder: React.FC = () => {
                       whiteSpace: "nowrap",
                     }}
                   >
-                    {relatedCourses.map((course, index) => (
+                    {careers.map((career, index) => (
                       <Button
                         key={index}
                         variant="outlined"
@@ -309,7 +319,7 @@ const CollegeFinder: React.FC = () => {
                           whiteSpace: "nowrap",
                         }}
                       >
-                        {course}
+                        {career}
                       </Button>
                     ))}
                   </Box>
@@ -356,7 +366,7 @@ const CollegeFinder: React.FC = () => {
                     whiteSpace: "nowrap",
                   }}
                 >
-                  {topStates.map((state, index) => (
+                  {courses.map((course, index) => (
                     <Button
                       key={index}
                       variant="outlined"
@@ -367,7 +377,7 @@ const CollegeFinder: React.FC = () => {
                         whiteSpace: "nowrap",
                       }}
                     >
-                      {state}
+                      {course}
                     </Button>
                   ))}
                 </Box>
