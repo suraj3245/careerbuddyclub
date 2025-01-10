@@ -7,9 +7,11 @@ import { usePathname } from "next/navigation";
 import nav_1 from "@/assets/dashboard/images/icon/icon_1.svg";
 import nav_1_active from "@/assets/dashboard/images/icon/icon_1_active.svg";
 import nav_2 from "@/assets/dashboard/images/icon/icon_2.svg";
-// import nav_2_active from "@/assets/dashboard/images/icon/icon_2_active.svg";
+import nav_2_active from "@/assets/dashboard/images/icon/icon_2_active.svg";
 import nav_3 from "@/assets/dashboard/images/icon/icon_3.svg";
 import nav_3_active from "@/assets/dashboard/images/icon/icon_3_active.svg";
+import nav_39 from "@/assets/dashboard/images/icon/icon_39.svg";
+import nav_39_active from "@/assets/dashboard/images/icon/icon_39_active.svg";
 import { useEffect } from "react";
 import axios from "axios";
 
@@ -184,6 +186,49 @@ const SchoolAside = ({ isOpenSidebar, setIsOpenSidebar }: IProps) => {
                   </li>
                 );
               })}
+              <li className="nav-item mb-2">
+                <div
+                  className="d-flex align-items-center p-2 rounded text-dark"
+                  style={{ textDecoration: "none", cursor: "pointer" }}
+                  data-bs-toggle="collapse"
+                  data-bs-target="#add-student-submenu"
+                  aria-expanded="false"
+                  aria-controls="add-student-submenu"
+                >
+                  <Image
+                    src= {nav_39}
+                    alt="icon"
+                    className="lazy-img me-2"
+                  />
+                  <span>Add Student Details</span>
+                </div>
+                <ul
+                  id="add-student-submenu"
+                  className="collapse list-unstyled ms-3"
+                  style={{ paddingLeft: "15px" }}
+                >
+                  <li className="nav-item">
+                    <Link
+                      href="/dashboard/school-dashboard/add-student-details/with-cat"
+                      className="d-flex align-items-center p-2 rounded text-dark"
+                      style={{ textDecoration: "none" }}
+                      onClick={() => setIsOpenSidebar(false)}
+                    >
+                      With CAT Result
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link
+                      href="/dashboard/school-dashboard/add-student-details/without-cat"
+                      className="d-flex align-items-center p-2 rounded text-dark"
+                      style={{ textDecoration: "none" }}
+                      onClick={() => setIsOpenSidebar(false)}
+                    >
+                      Without CAT Result
+                    </Link>
+                  </li>
+                </ul>
+              </li>
             </ul>
           </nav>
         </div>
