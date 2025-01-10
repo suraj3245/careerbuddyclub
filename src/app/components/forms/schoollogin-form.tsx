@@ -77,6 +77,7 @@ const SchoolLoginForm = () => {
         localStorage.setItem("token", response.data.access_token);
         localStorage.setItem("School_email", School_email);
         localStorage.setItem("schoolName", response.data.school.School_name);
+        localStorage.setItem("School_id", response.data.school.School_id);
 
         console.log("Login successful", response.data.access_token);
         toast.success("Successfully logged in 🎉", {

@@ -58,13 +58,13 @@ const StudentTable: React.FC = () => {
         Accept: "/",
         "Content-Type": "application/json",
       };
-      const school = localStorage.getItem("schoolName");
+      const School_id = localStorage.getItem("School_id");
       const bodyContent = JSON.stringify({
-        place: school,
+        School_id,
       });
 
       const response = await axios.post(
-        "https://test.careerbuddyclub.com:8080/api/students/getstudentsbyplace",
+        "https://test.careerbuddyclub.com:8080/api/students/getstudentsbyschool",
         bodyContent,
         { headers: headersList }
       );
@@ -301,8 +301,8 @@ const StudentTable: React.FC = () => {
                     <tr>
                       <th>No.</th>
                       <th>Name</th>
-                      {/* <th>Class</th> */}
-                      <th>School</th>
+                      <th>Class</th>
+                      {/* <th>School</th> */}
                       <th>Realistic</th>
                       <th>Investigative</th>
                       <th>Artistic</th>
@@ -319,8 +319,8 @@ const StudentTable: React.FC = () => {
                       <tr key={student.id}>
                         <td>{indexOfFirstStudent + index + 1}</td>
                         <td>{student.name}</td>
-                        {/* <td>{student.class}</td> */}
-                        <td>{student.from}</td>
+                        <td>{student.class}</td>
+                        {/* <td>{student.from}</td> */}
                         <td>{student.realistic_score}</td>
                         <td>{student.investigative_score}</td>
                         <td>{student.artistic_score}</td>

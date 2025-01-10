@@ -15,12 +15,17 @@ type IFormData = {
 
 const StudentWithOutCatForm: React.FC = () => {
   const [token, setToken] = useState<string | null>(null);
+  const [School_id, setSchool_id] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchToken = async () => {
       const fetchedToken = localStorage.getItem("token");
       if (fetchedToken) {
         setToken(fetchedToken);
+      }
+      const School_id = localStorage.getItem("School_id");
+      if (School_id) {
+        setSchool_id(School_id);
       }
     };
 
@@ -47,6 +52,7 @@ const StudentWithOutCatForm: React.FC = () => {
         email: values.email,
         from: values.from,
         class: values.class,
+        School_id: School_id,
       },
     };
 
@@ -80,7 +86,6 @@ const StudentWithOutCatForm: React.FC = () => {
           progress: undefined,
           theme: "light",
         });
-        formik.resetForm();
       });
   };
 

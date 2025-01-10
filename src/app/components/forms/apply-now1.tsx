@@ -193,6 +193,7 @@ const ApplyForm1 = () => {
       // Handle success      
       localStorage.setItem("token", response.data.access_token);
       localStorage.setItem("schoolName", response.data.school.School_name);
+      localStorage.setItem("School_id", response.data.school.School_id);
       console.log('response', response);
       console.log("Registration successful", response.data);
       console.log("Form Data:", payload);
