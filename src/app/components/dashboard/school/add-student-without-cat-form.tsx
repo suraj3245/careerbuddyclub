@@ -1,9 +1,89 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import axios from "axios";
+import { toast } from "react-toastify";
+
+type IFormData = {
+  name: string;
+  mobile: string;
+  email: string;
+  from: string;
+  class: string;
+};
 
 const StudentWithOutCatForm: React.FC = () => {
+  const [token, setToken] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchToken = async () => {
+      const fetchedToken = localStorage.getItem("token");
+      if (fetchedToken) {
+        setToken(fetchedToken);
+      }
+    };
+
+    fetchToken();
+  }, []);
+  console.log("token", token);
+
+  const addStudent = async (token: string, values: IFormData) => {
+    if (!token) {
+      return;
+    }
+
+    const options = {
+      method: "POST",
+      url: "https://test.careerbuddyclub.com:8080/api/students/addstudentwithoutcat",
+      headers: {
+        Accept: "*/*",
+
+        Authorization: `Bearer ${token}`,
+      },
+      data: {
+        name: values.name,
+        mobile: values.mobile,
+        email: values.email,
+        from: values.from,
+        class: values.class,
+      },
+    };
+
+    axios
+      .request(options)
+      .then((response) => {
+        toast.success("Student added successfully", {
+          position: "top-left",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+        setTimeout(() => {
+          window.location.href = "/dashboard/school-dashboard/dashboard";
+        }, 1000);
+      })
+      .catch((error) => {
+        // Handle any errors here, e.g., notify the user of the failure
+        console.error("Error:", error);
+        toast.error("Something went wrong", {
+          position: "top-left",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+        formik.resetForm();
+      });
+  };
+
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -26,7 +106,7 @@ const StudentWithOutCatForm: React.FC = () => {
     validateOnBlur: false,
     validateOnChange: false,
     onSubmit: (values) => {
-      console.log(values);
+      addStudent(token!, values);
     },
   });
 
@@ -128,7 +208,7 @@ const StudentWithOutCatForm: React.FC = () => {
                     Mobile Number <span style={{ color: "red" }}>*</span>
                   </label>
                   <input
-                    type="number"
+                    type="text"
                     name="mobile"
                     placeholder="Enter student's mobile number"
                     value={formik.values.mobile}

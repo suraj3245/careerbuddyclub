@@ -1,9 +1,101 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import axios from "axios";
+import { toast } from "react-toastify";
+
+type IFormData = {
+  name: string;
+  mobile: string;
+  email: string;
+  from: string;
+  realistic_score: string;
+  social_score: string;
+  investigative_score: string;
+  artistic_score: string;
+  enterprising_score: string;
+  conventional_score: string;
+  class: string;
+};
 
 const StudentWithCatForm: React.FC = () => {
+  const [token, setToken] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchToken = async () => {
+      const fetchedToken = localStorage.getItem("token");
+      if (fetchedToken) {
+        setToken(fetchedToken);
+      }
+    };
+
+    fetchToken();
+  }, []);
+  console.log("token", token);
+
+  const addStudent = async (token: string, values: IFormData) => {
+    if (!token) {
+      return;
+    }
+
+    const options = {
+      method: "POST",
+      url: "https://test.careerbuddyclub.com:8080/api/students/addstudentwithcat",
+      headers: {
+        Accept: "*/*",
+
+        Authorization: `Bearer ${token}`,
+      },
+      data: {
+        name: values.name,
+        mobile: values.mobile,
+        email: values.email,
+        from: values.from,
+        realistic_score: values.realistic_score,
+        social_score: values.social_score,
+        investigative_score: values.investigative_score,
+        artistic_score: values.artistic_score,
+        enterprising_score: values.enterprising_score,
+        conventional_score: values.conventional_score,
+        class: values.class,
+      },
+    };
+
+    axios
+      .request(options)
+      .then((response) => {
+        toast.success("Student Added Successfully", {
+          position: "top-left",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+        setTimeout(() => {
+          window.location.href = "/dashboard/school-dashboard/dashboard";
+        }, 1000);
+      })
+      .catch((error) => {
+        // Handle any errors here, e.g., notify the user of the failure
+        console.error("Error:", error);
+        toast.error("Something went wrong", {
+          position: "top-left",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+        formik.resetForm();
+      });
+  };
+
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -20,10 +112,11 @@ const StudentWithCatForm: React.FC = () => {
     },
     validationSchema: Yup.object({
       name: Yup.string().required("School Name is required"),
-      mobile: Yup.string()
-        .matches(/^[0-9]{10}$/, "Mobile Number must be 10 digits"),
-      email: Yup.string()
-        .email("Invalid email address"),
+      mobile: Yup.string().matches(
+        /^[0-9]{10}$/,
+        "Mobile Number must be 10 digits"
+      ),
+      email: Yup.string().email("Invalid email address"),
       from: Yup.string().required("Place is required"),
       realistic_score: Yup.number().required("Realistic Score is required"),
       social_score: Yup.number().required("Social Score is required"),
@@ -42,7 +135,7 @@ const StudentWithCatForm: React.FC = () => {
     validateOnBlur: false,
     validateOnChange: false,
     onSubmit: (values) => {
-      console.log(values);
+      addStudent(token!, values);
     },
   });
 
@@ -121,9 +214,7 @@ const StudentWithCatForm: React.FC = () => {
             <div className="row">
               <div className="col-md-4">
                 <div className="form-group mb-3">
-                  <label htmlFor="email">
-                    Email
-                  </label>
+                  <label htmlFor="email">Email</label>
                   <input
                     type="email"
                     name="email"
@@ -140,11 +231,9 @@ const StudentWithCatForm: React.FC = () => {
               </div>
               <div className="col-md-4">
                 <div className="form-group mb-3">
-                  <label htmlFor="mobile">
-                    Mobile Number
-                  </label>
+                  <label htmlFor="mobile">Mobile Number</label>
                   <input
-                    type="number"
+                    type="text"
                     name="mobile"
                     placeholder="Enter student's mobile number"
                     value={formik.values.mobile}
