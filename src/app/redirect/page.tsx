@@ -24,7 +24,7 @@ const Redirect = () => {
         });
         if (response.data && response.data.token) {
           localStorage.setItem("token", response.data.token);
-          console.log("Token stored:", response.data.token);
+          console.log("Token stored");
         } else {
           console.error("Token not found in response");
         }
