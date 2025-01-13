@@ -37,7 +37,6 @@ const StudentWithCatForm: React.FC = () => {
 
     fetchToken();
   }, []);
-  console.log("token", token);
 
   const addStudent = async (token: string, values: IFormData) => {
     if (!token) {
