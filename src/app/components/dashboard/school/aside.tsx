@@ -111,7 +111,7 @@ const SchoolAside = ({ isOpenSidebar, setIsOpenSidebar }: IProps) => {
       <aside className={`dash-aside-navbar ${isOpenSidebar ? "show" : ""}`}>
         <div className="position-relative">
           <div className="logo text-md-center d-md-block d-flex align-items-center justify-content-between">
-            {/* <Link href="/">
+            {/* <Link href="/schools">
               <Image src={logo} width={100} height={70} alt="logo" priority />
             </Link> */}
             <button
@@ -152,7 +152,7 @@ const SchoolAside = ({ isOpenSidebar, setIsOpenSidebar }: IProps) => {
                   </a>
                 </li>
                 <li>
-                  <a href="/" className="dropdown-item" onClick={onLogout}>
+                  <a href="/schools" className="dropdown-item" onClick={onLogout}>
                     logout
                   </a>
                 </li>
