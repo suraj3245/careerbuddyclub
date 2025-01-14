@@ -4,7 +4,10 @@ import { Modal, Button, Row, Col, Card } from "react-bootstrap";
 import ReactApexChart from "react-apexcharts";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
-import './studentscore-modal.css'; 
+import "./studentscore-modal.css";
+import { ApexOptions } from "apexcharts";
+import TopCareer from "../../top-company/top-career";
+import YourCareer from "../../top-company/Your-career";
 
 interface StudentScore {
   name: string;
@@ -12,6 +15,7 @@ interface StudentScore {
 }
 
 interface Student {
+  id: number;
   name: string;
   realistic_score: number | "N/A";
   investigative_score: number;
@@ -34,183 +38,291 @@ const StudentScoreModal: React.FC<StudentScoreModalProps> = ({
   onClose,
 }) => {
   const modalContentRef = useRef<HTMLDivElement>(null);
-  const buttonRef = useRef<HTMLButtonElement>(null);
-  const [skills, setSkills] = useState<string[]>([]);
+  const [results, setResults] = useState<any | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [showLoader, setShowLoader] = useState(true);
 
-  const fetchSkills = async (letters: string) => {
+  const barColors = [
+    "#FF4560",
+    "#00E396",
+    "#008FFB",
+    "#775DD0",
+    "#FEB019",
+    "#FF4560",
+    "#00E396",
+    "#008FFB",
+    "#775DD0",
+    "#FEB019",
+  ];
+  const downloadResultsAsPDF = async () => {
+    const input = document.getElementById("resultsContainer");
+    if (!(input instanceof HTMLElement)) return; // Type check
+
+    const canvas = await html2canvas(input, {
+      scale: 1, // Adjust scale as needed
+      scrollY: -window.scrollY, // Adjust for page scrolling
+    });
+
+    const imgData = canvas.toDataURL("image/png");
+    const pdf = new jsPDF({
+      orientation: "portrait",
+      unit: "px",
+      format: [canvas.width, canvas.height],
+    });
+
+    pdf.addImage(imgData, "PNG", 0, 0, canvas.width, canvas.height);
+    pdf.save(`CAT_Results_${student?.name}.pdf`);
+  };
+
+  const fetchCatResult = async () => {
     const token = localStorage.getItem("token");
-    const headersList = {
-      Accept: "*/*",
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
-    };
+    if (!token) {
+      console.error("Token not found.");
+      return;
+    }
 
-    const bodyContent = JSON.stringify({ letters });
-
-    const reqOptions = {
-      url: "https://test.careerbuddyclub.com:8080/api/students/getskillsbyletters",
+    const options = {
       method: "POST",
-      headers: headersList,
-      data: bodyContent,
+      url: "https://test.careerbuddyclub.com:8080/api/students/getcatresultbyid",
+      headers: {
+        Accept: "*/*",
+        Authorization: `Bearer ${token}`,
+      },
+      data: { studentId: student?.id },
     };
 
     try {
-      const response = await axios.request(reqOptions);
-      console.log("Skills response:", response.data);
-      if (response.data && Array.isArray(response.data)) {
-        return response.data;
-      } else {
-        console.error("No skills found in response or response format is incorrect");
-        return [];
-      }
-    } catch (error: any) {
-      console.error("Error fetching skills:", error.message);
-      return [];
+      const response = await axios.request(options);
+      const resultData = response.data;
+      setResults(resultData);
+    } catch (error) {
+      console.error("Error fetching cat result:", error);
     }
   };
 
-  const fetchTopSkills = async () => {
-    if (student?.topThreeScores) {
-      const topLetters = student.topThreeScores
-        .map((score: StudentScore) => score.name[0])
-        .join("");
-      console.log("Top letters for API call:", topLetters);
+  type TransformedResultType = {
+    category: string;
+    score: number;
+  };
+  const getTopThreeCategoryNames = () => {
+    if (!results) return [];
+    const transformedResults = Object.entries(results).map(([key, value]) => ({
+      category:
+        key.charAt(0).toUpperCase() + key.slice(1).replace("_score", ""),
+      score: typeof value === "number" ? value : 0,
+    }));
+    return transformedResults
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 3)
+      .map((result) => result.category);
+  };
+  const getTopThreeScores = () => {
+    if (!results) return [];
 
-      const skills = await fetchSkills(topLetters);
-      console.log("Fetched skills:", skills); // Debug statement
-      setSkills(skills.slice(0, 12)); // Limit to 12 skills
-    } else {
-      console.error("No top three scores available.");
-    }
+    // Transform the results
+    const transformedResults: TransformedResultType[] = Object.entries(
+      results
+    ).map(([key, value]) => {
+      return {
+        category:
+          key.charAt(0).toUpperCase() + key.slice(1).replace("_score", ""),
+        score: typeof value === "number" ? value : 0, // Ensure that the value is a number
+      };
+    });
+
+    // Sort and get the top three scores
+    return transformedResults.sort((a, b) => b.score - a.score).slice(0, 3);
   };
 
-  useEffect(() => {
-    if (show && student?.realistic_score !== "N/A" && student?.topThreeScores) {
-      fetchTopSkills();
-    }
-  }, [show, student]);
+  const transformResultsToChartData = (): {
+    series: ApexAxisChartSeries | [];
+    options: ApexOptions | {};
+  } => {
+    if (!results || Object.keys(results).length === 0)
+      return { series: [], options: {} };
 
-  const downloadChartAsPDF = () => {
-    if (modalContentRef.current) {
-      // Hide the button before capturing
-      if (buttonRef.current) buttonRef.current.style.display = "none";
+    // Ensure that all necessary data points are numbers and defined
+    const categories = Object.keys(results)
+      .filter((key) => key.toLowerCase() !== "letters") // Exclude 'letters'
+      .map(
+        (key) =>
+          key.charAt(0).toUpperCase() + key.slice(1).replace("_score", "")
+      );
 
-      html2canvas(modalContentRef.current).then((canvas) => {
-        const imgData = canvas.toDataURL("image/png");
-        const pdf = new jsPDF("p", "pt", "a4");
-        const width = pdf.internal.pageSize.getWidth();
-        const height = pdf.internal.pageSize.getHeight();
-        pdf.addImage(imgData, "PNG", 0, 0, width, height);
-        pdf.save("student_scores.pdf");
-
-        // Show the button after capturing
-        if (buttonRef.current) buttonRef.current.style.display = "block";
+    const dataPoints = categories
+      .filter((category) => category.toLowerCase() !== "letters")
+      .map((category, index) => {
+        const key = category.toLowerCase() + "_score";
+        const value = results[key];
+        return {
+          x: category,
+          y: Number(value),
+          fillColor: barColors[index % barColors.length],
+        };
       });
-    }
+
+    return {
+      series: [{ name: "Score", data: dataPoints }],
+      options: {
+        chart: {
+          type: "bar",
+          height: 350,
+        },
+        plotOptions: {
+          bar: {
+            borderRadius: 4,
+            horizontal: true,
+          },
+        },
+        dataLabels: {
+          enabled: false,
+        },
+        xaxis: {
+          categories: categories,
+        },
+        colors: barColors,
+      },
+    };
   };
+  useEffect(() => {
+    setIsLoading(true); // Ensure loading state is set before starting async operations
+    Promise.all([fetchCatResult()])
+      .then(() => {
+        setIsLoading(false); // Set loading to false when both functions have completed
+      })
+      .catch((error) => {
+        console.error("An error occurred:", error);
+        setIsLoading(false); // Ensure loading state is updated even if there's an error
+      });
+    const timer = setTimeout(() => {
+      setShowLoader(false); // Hide loader after 3 seconds
+    }, 3000);
+
+    // Cleanup timeout if component unmounts before timeout completes
+    return () => clearTimeout(timer);
+  }, []);
+
+  const chartData = transformResultsToChartData();
+
+  if (showLoader || isLoading) {
+    return (
+      <div
+        className="dashboard-body"
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh",
+        }}
+      >
+        <iframe
+          src="https://lottie.host/embed/2478cb97-84dc-485a-bb0d-bfd5b7566b46/jOw87Lncdm.json"
+          style={{ width: "300px", height: "300px" }} // Adjust size as needed
+        ></iframe>
+      </div>
+    );
+  }
 
   return (
-    <Modal show={show} onHide={onClose} size="lg">
-      <Modal.Header closeButton>
-        <Modal.Title className="text-center text-primary w-100">Career Aptitude Test Results</Modal.Title>
-      </Modal.Header>
+    <Modal show={show} onHide={onClose} size="xl">
+      <Modal.Header closeButton></Modal.Header>
       <Modal.Body>
         <div ref={modalContentRef}>
           {student ? (
             student.realistic_score !== "N/A" ? (
               <>
-                <Card className="mb-4 general-card">
-                  <Card.Body>
-                    <Card.Title className="text-center text-primary">{student.name}'s Scores</Card.Title>
-                    <ReactApexChart
-                      options={{
-                        chart: {
-                          type: "bar",
-                        },
-                        xaxis: {
-                          categories: [
-                            "Realistic",
-                            "Investigative",
-                            "Artistic",
-                            "Social",
-                            "Enterprising",
-                            "Conventional",
-                          ],
-                        },
-                        plotOptions: {
-                          bar: {
-                            distributed: true,
-                          },
-                        },
-                        colors: [
-                          "#FF5733", // Realistic
-                          "#33FF57", // Investigative
-                          "#3357FF", // Artistic
-                          "#FF33A1", // Social
-                          "#FF8C33", // Enterprising
-                          "#8C33FF", // Conventional
-                        ],
-                      }}
-                      series={[
-                        {
-                          name: "Score",
-                          data: [
-                            student.realistic_score,
-                            student.investigative_score,
-                            student.artistic_score,
-                            student.social_score,
-                            student.enterprising_score,
-                            student.conventional_score,
-                          ],
-                        },
-                      ]}
-                      type="bar"
-                      height={350}
-                    />
-                  </Card.Body>
-                </Card>
+                <div
+                  id="resultsContainer"
+                  style={{ position: "relative", zIndex: 1 }}
+                >
+                  <div className="d-flex align-items-center justify-content-between">
+                    <div className="text-center" style={{ flex: 1 }}>
+                      <h2 className="mb-4 pb-6" style={{ fontSize: "40px" }}>
+                        Career Aptitude Test
+                      </h2>
+                      {/* Centered Header */}
+                    </div>
+                  </div>
+                  <div className="text-center">
+                    <h2 className="mb-6 pb-20" style={{ fontSize: "30px" }}>
+                      Quiz Results of {student?.name}
+                    </h2>
+                    {/* Display the results here using the `results` state */}
 
-                {student.topThreeScores && (
-                  <Card className="mb-4 general-card">
-                    <Card.Body>
-                      <Card.Title className="text-center text-primary">Top 3 Scores</Card.Title>
-                      <ul className="list-unstyled text-center">
-                        {student.topThreeScores.map((score, index) => (
-                          <li key={index}>
-                            {score.name}: {score.score}
-                          </li>
+                    <div className="row">
+                      <div className="chart-container  col-12 col-md-8">
+                        {results && (
+                          <ReactApexChart
+                            options={chartData.options}
+                            series={chartData.series}
+                            type="bar"
+                            width={"100%"}
+                            height={350}
+                          />
+                        )}
+                      </div>
+                      <div className="top-scores col-12 col-md-4">
+                        <h3>Top Scores</h3>
+                        {getTopThreeScores().map((result, index) => (
+                          <p
+                            key={index}
+                          >{`${result.category}: ${result.score}`}</p>
                         ))}
-                      </ul>
-                    </Card.Body>
-                  </Card>
-                )}
+                      </div>
+                    </div>
 
-                <Card className="mb-4">
-                  <Card.Body>
-                    <Card.Title className="text-center text-primary mt-2 mb-2">Popular Career Choices</Card.Title>
-                    <Row>
-                      {skills.map((item, index) => (
-                        <Col key={index} lg={3} md={4} sm={6} className="mb-3">
-                          <Card className="text-center popular-career-choices-card shadow-sm">
-                            <Card.Body>{item}</Card.Body>
-                          </Card>
-                        </Col>
-                      ))}
-                    </Row>
-                  </Card.Body>
-                </Card>
-
-                <div className="text-center">
-                  <Button ref={buttonRef} onClick={downloadChartAsPDF} variant="primary" className="col-lg-12">
-                    Download as PDF
-                  </Button>
+                    <TopCareer topCategories={getTopThreeCategoryNames()} />
+                    {/* <YourCareer /> */}
+                    <YourCareer code={results?.letters} />
+                  </div>
+                </div>
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    paddingTop: "30px",
+                  }}
+                >
+                  <button
+                    className="download-btn tran3s me-3"
+                    onClick={downloadResultsAsPDF}
+                  >
+                    Download Results
+                  </button>
                 </div>
               </>
             ) : (
-              <div className="text-center text-primary">Haven't Applied for the CAT Exam Yet?</div>
+              <div
+                id="resultsContainer"
+                style={{ position: "relative", zIndex: 1 }}
+              >
+                <div className="d-flex align-items-center justify-content-between">
+                  <div className="text-center" style={{ flex: 1 }}>
+                    <h2 className="mb-4 pb-6" style={{ fontSize: "40px" }}>
+                      Career Aptitude Test
+                    </h2>
+                    {/* Centered Header */}
+                  </div>
+                </div>
+                <div className="text-center">
+                  <h2 className="mb-6 pb-20" style={{ fontSize: "30px" }}>
+                    Quiz Results of {student?.name}
+                  </h2>
+                </div>
+                <div
+                  className="text-center text-primary"
+                  style={{ fontSize: "20px" }}
+                >
+                  Career aptitude test data is unavailable. Please ensure the
+                  student completes the test. Thank you.
+                </div>
+              </div>
             )
           ) : (
-            <div className="text-center text-primary">No student data available</div>
+            <div className="text-center text-primary">
+              No student data available
+            </div>
           )}
         </div>
       </Modal.Body>
