@@ -78,7 +78,6 @@ const TopCareer: React.FC<TopCareerProps> = ({ topCategories }) => {
     >
       <div className="container">
         <div className="row justify-content-center align-items-center">
-          <div className="col-sm-7">
             <div className="title-one">
               <h2
                 className="main-font wow fadeInUp text-white text-uppercase"
@@ -88,7 +87,6 @@ const TopCareer: React.FC<TopCareerProps> = ({ topCategories }) => {
                 Personality Traits According To Your Score
               </h2>
             </div>
-          </div>
         </div>
 
         <div className="row">

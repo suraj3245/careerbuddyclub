@@ -27,6 +27,7 @@ import nav_9 from "@/assets/dashboard/images/icon/icon_40.svg";
 import nav_9_active from "@/assets/dashboard/images/icon/icon_40_active.svg";
 import nav_8 from "@/assets/dashboard/images/icon/icon_8.svg";
 import LogoutModal from "../../common/popup/logout-modal";
+import { isUserLoggedIn } from "@/utils/auth";
 
 // nav data
 const nav_data: {
@@ -100,6 +101,7 @@ type IProps = {
 };
 const EmployAside = ({ isOpenSidebar, setIsOpenSidebar }: IProps) => {
   const pathname = usePathname();
+  isUserLoggedIn();
   return (
     <>
       <aside className={`dash-aside-navbar ${isOpenSidebar ? "show" : ""}`}>

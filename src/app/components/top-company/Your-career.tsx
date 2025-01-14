@@ -47,7 +47,7 @@ const YourCareer: React.FC<YourCareerProps> = ({ code }) => {
       });
   }, []);
   const headingStyle = {
-    fontSize: "26px", // Adjust this value as needed
+    fontSize: "22px",
     fontWeight: "bold",
     marginTop: "-35px",
     backgroundColor: "#eed30d",

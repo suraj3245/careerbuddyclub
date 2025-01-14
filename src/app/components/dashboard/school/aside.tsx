@@ -14,6 +14,7 @@ import nav_39 from "@/assets/dashboard/images/icon/icon_39.svg";
 import nav_39_active from "@/assets/dashboard/images/icon/icon_39_active.svg";
 import { useEffect } from "react";
 import axios from "axios";
+import { isUserLoggedIn } from "@/utils/auth";
 
 // nav data
 const nav_data: {
@@ -55,6 +56,7 @@ type IProps = {
 const SchoolAside = ({ isOpenSidebar, setIsOpenSidebar }: IProps) => {
   const [userName, setUserName] = useState("");
   const pathname = usePathname();
+  isUserLoggedIn();
 
   const fetchUserData = async () => {
     const token = localStorage.getItem("token");
@@ -111,7 +113,7 @@ const SchoolAside = ({ isOpenSidebar, setIsOpenSidebar }: IProps) => {
       <aside className={`dash-aside-navbar ${isOpenSidebar ? "show" : ""}`}>
         <div className="position-relative">
           <div className="logo text-md-center d-md-block d-flex align-items-center justify-content-between">
-            {/* <Link href="/">
+            {/* <Link href="/schools">
               <Image src={logo} width={100} height={70} alt="logo" priority />
             </Link> */}
             <button
@@ -152,7 +154,7 @@ const SchoolAside = ({ isOpenSidebar, setIsOpenSidebar }: IProps) => {
                   </a>
                 </li>
                 <li>
-                  <a href="/" className="dropdown-item" onClick={onLogout}>
+                  <a href="/schools" className="dropdown-item" onClick={onLogout}>
                     logout
                   </a>
                 </li>
