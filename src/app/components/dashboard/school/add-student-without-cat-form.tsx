@@ -9,7 +9,7 @@ type IFormData = {
   name: string;
   mobile: string;
   email: string;
-  from: string;
+  // from: string;
   class: string;
 };
 
@@ -50,7 +50,7 @@ const StudentWithOutCatForm: React.FC = () => {
         name: values.name,
         mobile: values.mobile,
         email: values.email,
-        from: values.from,
+        // from: values.from,
         class: values.class,
         School_id: School_id,
       },
@@ -94,7 +94,7 @@ const StudentWithOutCatForm: React.FC = () => {
       name: "",
       mobile: "",
       email: "",
-      from: "",
+      // from: "",
       class: "",
     },
     validationSchema: Yup.object({
@@ -105,7 +105,7 @@ const StudentWithOutCatForm: React.FC = () => {
       email: Yup.string()
         .email("Invalid email address")
         .required("Email is required"),
-      from: Yup.string().required("Place is required"),
+      // from: Yup.string().required("Place is required"),
       class: Yup.string().required("Class is required"),
     }),
     validateOnBlur: false,
@@ -188,7 +188,7 @@ const StudentWithOutCatForm: React.FC = () => {
               Contact Details
             </h4>
             <div className="row">
-              <div className="col-md-4">
+              <div className="col-md-6">
                 <div className="form-group mb-3">
                   <label htmlFor="email">
                     Email <span style={{ color: "red" }}>*</span>
@@ -207,7 +207,7 @@ const StudentWithOutCatForm: React.FC = () => {
                   ) : null}
                 </div>
               </div>
-              <div className="col-md-4">
+              <div className="col-md-6">
                 <div className="form-group mb-3">
                   <label htmlFor="mobile">
                     Mobile Number <span style={{ color: "red" }}>*</span>
@@ -226,7 +226,7 @@ const StudentWithOutCatForm: React.FC = () => {
                   ) : null}
                 </div>
               </div>
-              <div className="col-md-4">
+              {/* <div className="col-md-4">
                 <div className="form-group mb-3">
                   <label htmlFor="from">
                     Place <span style={{ color: "red" }}>*</span>
@@ -244,7 +244,7 @@ const StudentWithOutCatForm: React.FC = () => {
                     <div className="text-danger">{formik.errors.from}</div>
                   ) : null}
                 </div>
-              </div>
+              </div> */}
             </div>
 
             <button

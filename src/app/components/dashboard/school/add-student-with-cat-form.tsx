@@ -9,7 +9,7 @@ type IFormData = {
   name: string;
   mobile: string;
   email: string;
-  from: string;
+  // from: string;
   realistic_score: string;
   social_score: string;
   investigative_score: string;
@@ -55,7 +55,7 @@ const StudentWithCatForm: React.FC = () => {
         name: values.name,
         mobile: values.mobile,
         email: values.email,
-        from: values.from,
+        // from: values.from,
         realistic_score: values.realistic_score,
         social_score: values.social_score,
         investigative_score: values.investigative_score,
@@ -105,7 +105,7 @@ const StudentWithCatForm: React.FC = () => {
       name: "",
       mobile: "",
       email: "",
-      from: "",
+      // from: "",
       realistic_score: "",
       social_score: "",
       investigative_score: "",
@@ -121,7 +121,7 @@ const StudentWithCatForm: React.FC = () => {
         "Mobile Number must be 10 digits"
       ),
       email: Yup.string().email("Invalid email address"),
-      from: Yup.string().required("Place is required"),
+      // from: Yup.string().required("Place is required"),
       realistic_score: Yup.number().required("Realistic Score is required"),
       social_score: Yup.number().required("Social Score is required"),
       investigative_score: Yup.number().required(
@@ -216,7 +216,7 @@ const StudentWithCatForm: React.FC = () => {
               Contact Details
             </h4>
             <div className="row">
-              <div className="col-md-4">
+              <div className="col-md-6">
                 <div className="form-group mb-3">
                   <label htmlFor="email">Email</label>
                   <input
@@ -233,7 +233,7 @@ const StudentWithCatForm: React.FC = () => {
                   ) : null}
                 </div>
               </div>
-              <div className="col-md-4">
+              <div className="col-md-6">
                 <div className="form-group mb-3">
                   <label htmlFor="mobile">Mobile Number</label>
                   <input
@@ -250,7 +250,7 @@ const StudentWithCatForm: React.FC = () => {
                   ) : null}
                 </div>
               </div>
-              <div className="col-md-4">
+              {/* <div className="col-md-4">
                 <div className="form-group mb-3">
                   <label htmlFor="from">
                     Place <span style={{ color: "red" }}>*</span>
@@ -268,7 +268,7 @@ const StudentWithCatForm: React.FC = () => {
                     <div className="text-danger">{formik.errors.from}</div>
                   ) : null}
                 </div>
-              </div>
+              </div> */}
             </div>
 
             <h4
