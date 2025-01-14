@@ -14,6 +14,7 @@ import nav_39 from "@/assets/dashboard/images/icon/icon_39.svg";
 import nav_39_active from "@/assets/dashboard/images/icon/icon_39_active.svg";
 import { useEffect } from "react";
 import axios from "axios";
+import { isUserLoggedIn } from "@/utils/auth";
 
 // nav data
 const nav_data: {
@@ -55,6 +56,7 @@ type IProps = {
 const SchoolAside = ({ isOpenSidebar, setIsOpenSidebar }: IProps) => {
   const [userName, setUserName] = useState("");
   const pathname = usePathname();
+  isUserLoggedIn();
 
   const fetchUserData = async () => {
     const token = localStorage.getItem("token");
