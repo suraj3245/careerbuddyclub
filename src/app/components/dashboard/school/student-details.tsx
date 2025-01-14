@@ -22,6 +22,8 @@ const StudentTable: React.FC = () => {
   const [formData, setFormData] = useState({
     name: "",
     class: "",
+    email: "",
+    mobile: "",
     realistic_score: "N/A",
     investigative_score: "N/A",
     artistic_score: "N/A",
@@ -38,6 +40,8 @@ const StudentTable: React.FC = () => {
     setFormData({
       name: "",
       class: "",
+      email: "",
+      mobile: "",
       realistic_score: "N/A",
       investigative_score: "N/A",
       artistic_score: "N/A",
@@ -87,7 +91,10 @@ const StudentTable: React.FC = () => {
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { id, value } = e.target;
-    setFormData({ ...formData, [id]: value });
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [id]: value,
+    }));
   };
 
   const handleFormSubmit = async (e: React.FormEvent) => {
@@ -509,14 +516,38 @@ const StudentTable: React.FC = () => {
                   />
                 </Form.Group>
 
+                <Form.Group controlId="email" className="mb-3">
+                  <Form.Label>Email:</Form.Label>
+                  <Form.Control
+                    type="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                  />
+                </Form.Group>
+
+                <Form.Group controlId="mobile" className="mb-3">
+                  <Form.Label>Mobile:</Form.Label>
+                  <Form.Control
+                    type="text"
+                    value={formData.mobile}
+                    onChange={handleInputChange}
+                  />
+                </Form.Group>
+
                 <Form.Group controlId="class" className="mb-3">
                   <Form.Label>Class:</Form.Label>
                   <Form.Control
-                    type="text"
-                    value={formData.class}
+                    as="select"
+                    value={formData.class || ""}
                     onChange={handleInputChange}
-                    required
-                  />
+                  >
+                    <option value="" disabled={!!formData.class}>
+                      Select Class
+                    </option>
+                    <option value="10th">10th</option>
+                    <option value="11th">11th</option>
+                    <option value="12th">12th</option>
+                  </Form.Control>
                 </Form.Group>
 
                 <Button variant="primary" type="submit">
