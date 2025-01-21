@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Box,
   Typography,
@@ -12,32 +12,47 @@ import {
   useTheme,
   useMediaQuery,
 } from "@mui/material";
+import { useRouter } from "next/navigation";
+import axios from "axios";
+
+interface Stream {
+  id: number;
+  title: string;
+  description: string | null;
+}
 
 const CollegeFinder: React.FC = () => {
-  const [value, setValue] = React.useState(0);
+  const [streamId, setStreamId] = useState(1);
+  const [streams, setStreams] = useState<Stream[]>([]);
   const theme = useTheme();
+  const router = useRouter();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-    setValue(newValue);
+    setStreamId(newValue);
   };
 
-  const streams = [
-    "Engineering",
-    "Management",
-    "Commerce and Banking",
-    "Medical",
-    "Science",
-    "Hotel Management",
-    "Information Technology",
-    "Engineering",
-    "Management",
-    "Commerce and Banking",
-    "Medical",
-    "Science",
-    "Hotel Management",
-    "Information Technology",
-  ];
+  const fetchStreams = async () => {
+    try {
+      const response = await axios({
+        method: "POST",
+        url: "https://test.careerbuddyclub.com:8080/api/students/getallstreams",
+        headers: {
+          Accept: "*/*",
+        },
+      });
+      console.log(response.data, "response");
+
+      setStreams(response?.data);
+    } catch (error) {
+      console.error(error);
+      // Handle error, e.g., set some state to show an error message
+    }
+  };
+
+  useEffect(() => {
+    fetchStreams();
+  }, []);
 
   const colleges = [
     "Parul University",
@@ -108,16 +123,17 @@ const CollegeFinder: React.FC = () => {
           }}
         >
           <Tabs
-            value={value}
+            value={streamId}
             onChange={handleChange}
             variant="scrollable"
             scrollButtons="auto"
             TabIndicatorProps={{ style: { backgroundColor: "#13adbd" } }}
           >
-            {streams.map((stream, index) => (
+            {streams.map((stream) => (
               <Tab
-                key={index}
-                label={stream}
+                key={stream.id}
+                label={stream.title}
+                value={stream.id}
                 sx={{
                   fontWeight: "bold",
                   color: "text.secondary",
@@ -156,7 +172,11 @@ const CollegeFinder: React.FC = () => {
                 }}
               >
                 Featured Colleges
-                <Button variant="text" size="small">
+                <Button
+                  variant="text"
+                  size="small"
+                  onClick={() => router.push(`/college-details`)}
+                >
                   View All
                 </Button>
               </Typography>
@@ -181,6 +201,7 @@ const CollegeFinder: React.FC = () => {
                         fontSize: ".7rem",
                         whiteSpace: "nowrap",
                       }}
+                      onClick={() => router.push(`/college-details/${college}`)}
                     >
                       {college}
                     </Button>
@@ -230,7 +251,11 @@ const CollegeFinder: React.FC = () => {
                   }}
                 >
                   Top Hiring Companies
-                  <Button variant="text" size="small">
+                  <Button
+                    variant="text"
+                    size="small"
+                    onClick={() => router.push(`/company-details`)}
+                  >
                     View All
                   </Button>
                 </Typography>
@@ -255,6 +280,9 @@ const CollegeFinder: React.FC = () => {
                           fontSize: ".7rem",
                           whiteSpace: "nowrap",
                         }}
+                        onClick={() =>
+                          router.push(`/company-details/${company}`)
+                        }
                       >
                         {company}
                       </Button>
@@ -293,7 +321,11 @@ const CollegeFinder: React.FC = () => {
                   }}
                 >
                   Top Careers
-                  <Button variant="text" size="small">
+                  <Button
+                    variant="text"
+                    size="small"
+                    onClick={() => router.push(`/career-details`)}
+                  >
                     View All
                   </Button>
                 </Typography>
@@ -318,6 +350,7 @@ const CollegeFinder: React.FC = () => {
                           fontSize: ".7rem",
                           whiteSpace: "nowrap",
                         }}
+                        onClick={() => router.push(`/career-details/${career}`)}
                       >
                         {career}
                       </Button>
@@ -351,7 +384,11 @@ const CollegeFinder: React.FC = () => {
                 }}
               >
                 Related Courses
-                <Button variant="text" size="small">
+                <Button
+                  variant="text"
+                  size="small"
+                  onClick={() => router.push(`/courses-details`)}
+                >
                   View All
                 </Button>
               </Typography>
@@ -376,6 +413,7 @@ const CollegeFinder: React.FC = () => {
                         fontSize: ".7rem",
                         whiteSpace: "nowrap",
                       }}
+                      onClick={() => router.push(`/courses-details/${course}`)}
                     >
                       {course}
                     </Button>
