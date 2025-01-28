@@ -24,13 +24,13 @@ const campus = () => {
       <div className="main-page-wrapper">
         {/* header start */}
         {/* hero banner start */}
+        <div className="container-fluid" style={{'marginTop': '8rem'}}>
         <FeatureTwenty />
+        </div>
         <HeroBannerNine />
-
         <div className="container">
           <CategorySectionNine/>
         </div>
-
         {/* hero banner end */}
         <div className="partner-logos border-0 pt-45 pb-45 ps-3 pe-3">
           <PartnersSlider />

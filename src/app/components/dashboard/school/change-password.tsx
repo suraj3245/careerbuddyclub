@@ -18,9 +18,6 @@ const ChangePasswordAreaSchool = () => {
       });
       return;
     }
-
-    // More validations can be added here (e.g., password length, complexity)
-
     const token = localStorage.getItem("token");
     const School_email = localStorage.getItem("School_email");
     const options = {

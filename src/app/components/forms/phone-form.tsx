@@ -16,7 +16,6 @@ const PhoneForm = () => {
   const [isVerificationSent, setIsVerificationSent] = useState<boolean>(false);
   const [countdown, setCountdown] = useState(30);
   const [showResend, setShowResend] = useState(false);
-
   const {
     register,
     handleSubmit,
@@ -88,7 +87,7 @@ const PhoneForm = () => {
       .request(options)
       .then((response) => {
         localStorage.setItem("token", response.data.access_token);
-        console.log("Registration successful", response.data);
+        localStorage.setItem("token", response.data.School_email);
         toast.success("Login successful 🚀", {
           position: "top-left",
           autoClose: 1000,
@@ -187,6 +186,7 @@ const PhoneForm = () => {
       )}
 
       <div className="col-12">
+        
         <div className="agreement-checkbox d-flex justify-content-between align-items-center pb-30">
           <a
             href="#"

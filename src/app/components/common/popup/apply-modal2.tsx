@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import ApplyForm from "../../forms/apply-now";
 import ApplyForm1 from "../../forms/apply-now1";
 const ApplyModalSchool = () => {
-  // State to track the window width
-  // const [loginType, setLoginType] = useState<"student" | "school">("school");
   const [windowWidth, setWindowWidth] = useState(() => {
     if (typeof window !== "undefined") {
       return window.innerWidth;
@@ -42,60 +40,6 @@ const ApplyModalSchool = () => {
                     style={{ border: "none", backgroundColor: "rgb(240, 240, 240)",  borderRadius: '50px'
                     }}
                   >
-                   
-                    {/* <button
-                      className={`nav-link flex-grow-1 text-center ${
-                        loginType === "student" ? "active" : ""
-                      }`}
-                      id="nav-student-tab"
-                      data-bs-toggle="tab"
-                      data-bs-target="#nav-student"
-                      type="button"
-                      role="tab"
-                      aria-controls="nav-student"
-                      aria-selected={loginType === "student"}
-                      onClick={() => setLoginType("student")}
-                      style={{
-                        backgroundColor:
-                          loginType === "student" ? "rgb(20, 173, 189)" : "",
-                        color:
-                          loginType === "student" ? "rgb(255, 255, 255)" : "",
-                        border: "none",
-                        cursor: "pointer",
-                        transition: 'all 0.6s ease-out',
-                        padding: '10px',
-                        borderRadius: '50px',
-                       fontSize: '18px'
-                      }}
-                    >
-                      Student
-                    </button> */}
-                    {/* <button
-                      className={`nav-link flex-grow-1 text-center ${
-                        loginType === "school" ? "active" : ""
-                      }`}
-                      id="nav-school-tab"
-                      data-bs-toggle="tab"
-                      data-bs-target="#nav-school"
-                      type="button"
-                      role="tab"
-                      aria-controls="nav-school"
-                      aria-selected={loginType === "school"}
-                      onClick={() => setLoginType("school")}
-                      style={{
-                        backgroundColor:
-                          loginType === "school" ? "rgb(20, 173, 189)" : "",
-                        color:
-                          loginType === "school" ? "rgb(255, 255, 255)" : "",
-                        border: "none",
-                        cursor: "pointer",
-                        transition: 'all 0.6s ease-out',
-                         borderRadius: '50px',
-                         fontSize: '18px'
-                      }}
-                    >
-                      School
-                    </button> */}
                   </div>
                   
                   <div className="tab-content mt-3" id="nav-tabContent">

@@ -162,6 +162,7 @@ const ApplyFormDbs = () => {
         // Handle the response here, e.g., notify the user of success
         localStorage.setItem("token", response.data.access_token);
         localStorage.setItem("username", name);
+        localStorage.setItem("School_email", email);
         console.log("Registration successful", response.data);
         console.log("Form Data:", payload);
         toast.success("Your Account is created ! please check your email. 🚀", {

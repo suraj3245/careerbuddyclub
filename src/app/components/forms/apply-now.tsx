@@ -212,10 +212,6 @@ const ApplyForm = () => {
       stream,
       LeadCampaign: utmParams.utm_campaign,
     };
-
-    console.log("Form Data:", payload);
-
-    // Set up the request options for axios
     const options = {
       method: "POST",
       // url: '${process.env.REACT_APP_API_URL}students/register', // Replace with your API's URL
@@ -230,9 +226,10 @@ const ApplyForm = () => {
     axios
       .request(options)
       .then((response) => {
-        // Handle the response here, e.g., notify the user of success
+        // Handle the response here, e.g., notify the user of success        
         localStorage.setItem("token", response.data.access_token);
         localStorage.setItem("username", name);
+        localStorage.setItem("School_email", email);
         toast.success("Your Account is created ! please check your email. 🚀", {
           position: "top-left",
           autoClose: 1000,

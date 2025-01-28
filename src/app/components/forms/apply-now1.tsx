@@ -21,7 +21,6 @@ type UTMParams = {
   utm_term: string | null;
   utm_content: string | null;
 };
-
 // form data type4
 
 type IFormData = {
@@ -38,7 +37,6 @@ type IFormData = {
   utm_term?: string | null;
   utm_content?: string | null;
 };
-
 // schema
 const schema = Yup.object().shape({
   School_name: Yup.string().required().label("Name"),
@@ -46,8 +44,7 @@ const schema = Yup.object().shape({
   board: Yup.string().required().email().label("board"),
   School_mobile: Yup.number().required().label("Phone Number"),
   verificationCode: Yup.string().required().label("Verification Code"),
-});
-
+})
 const ApplyForm1 = () => {
   const [showPass, setShowPass] = useState<boolean>(false);
   const [isVerificationSent, setIsVerificationSent] = useState<boolean>(false);
@@ -63,7 +60,8 @@ const ApplyForm1 = () => {
     utm_content: null,
   });
   const [levelOptions, setLevelOptions] = useState<IOption[]>([
-    { value: "High School", label: "High School" },
+    { value: "11", label: "XI" },     
+    { value: "High School", label: "High School" },     
     { value: "Intermediate", label: "Intermediate" },
   ]);
 
@@ -116,8 +114,6 @@ const ApplyForm1 = () => {
         data
       )
       .then((response) => {
-        // Notify user that OTP is senta
-
         toast.info("Otp sent 🚀", {
           position: "top-left",
           autoClose: 1000,
@@ -128,7 +124,6 @@ const ApplyForm1 = () => {
           progress: undefined,
           theme: "light",
         });
-        // To show OTP input field
       })
       .catch((error) => {
         toast.error("Error sending OTP 😵‍💫", {
@@ -154,9 +149,7 @@ const ApplyForm1 = () => {
     }
     return () => clearInterval(interval);
   }, [isVerificationSent, countdown]);
-
   const onSubmit = (data: IFormData) => {
-    const from = localStorage.getItem("location") || "";
     const {
       School_name,
       School_email,
@@ -174,28 +167,20 @@ const ApplyForm1 = () => {
       level,
       LeadCampaign: utmParams.utm_campaign,
     };
-
-    // Set up the request options for axios
     const options = {
       method: "POST",
       url: "https://test.careerbuddyclub.com:8080/api/students/registerschool",
       headers: {
         "Content-Type": "application/json",
       },
-      data: payload, // Send only the required data
+      data: payload,
     };
-
-    // Make the POST request using axios
     axios
     .request(options)
-    .then((response: any) => {
-      console.log(response,'asdf');
-      // Handle success      
+    .then((response: any) => {    
       localStorage.setItem("token", response.data.access_token);
       localStorage.setItem("schoolName", response.data.school.School_name);
-      console.log('response', response);
-      console.log("Registration successful", response.data);
-      console.log("Form Data:", payload);
+      localStorage.setItem("School_email", response.data.school.School_email);
       toast.success("Registration Successfull", {
         position: "top-left",
         autoClose: 1000,
@@ -206,22 +191,16 @@ const ApplyForm1 = () => {
         progress: undefined,
         theme: "light",
       });
-  
-      // Example redirect after success
       setTimeout(() => {
         window.location.href = "/dashboard/school-dashboard/dashboard";
       }, 1000);
     })
     .catch((error) => {
-      // Handle error
-      console.error("Registration failed", error);
-  
       let errorMessage = "Registration Failed 😵‍💫";
       if (error.response && error.response.data) {
         // Customize error message based on server response
         errorMessage = error.response.data.message || errorMessage;
       }
-  
       toast.error(errorMessage, {
         position: "top-left",
         autoClose: 3000,
@@ -233,8 +212,6 @@ const ApplyForm1 = () => {
         theme: "light",
       });
     });
-  
-
     reset();
   };
 

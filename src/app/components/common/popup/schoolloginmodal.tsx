@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import SchoolPhoneForm from "../../forms/schoolphoneform";
 import PhoneForm from "../../forms/phone-form";
-// SchoolPhoneForm
 const SchoolLoginFormModal = () => {
 
     return (

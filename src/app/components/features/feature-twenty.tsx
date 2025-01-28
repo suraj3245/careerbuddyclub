@@ -9,11 +9,10 @@ import AccordionItem from "../accordion/accordion-item";
 
 const FeatureTwenty = () => {
   return (
-    <section className="text-feature-three position-relative pt-180 md-mt-50 xl-pt-200 lg-pt-200 md-pt-50">
+    <section className="container-fluid">
       <div className="container">
-        <div className="row">
-          <div className="col-lg-5 order-lg-last ms-auto">
-            <div className="wow fadeInRight">
+        <div className="row d-flex justify-content-between align-items-center">
+          <div className="col-lg-6 col-md-6 col-sm-12">
               <div className="title-two">
                 <div className="sub-title"></div>
                 <h2 className="fw-600" style={{ color: "#14adbd" }}>
@@ -50,18 +49,16 @@ const FeatureTwenty = () => {
                   parent="accordionOne"
                 />
               </div>
-            </div>
           </div>
-          <div className="col-lg-6 order-lg-first">
-            <div className="img-box position-relative rounded-circle d-flex align-items-center justify-content-center wow fadeInLeft">
+          <div className="col-lg-5 col-md-6 col-sm-12">
+              <span style={{'margin': 'auto'}}>
               <Image
                 src={screen_1}
                 alt="screen"
-                className="lazy-img "
-                layout="fill"
-                objectFit="cover"
+                className="text-center"
+                style={{'width': '60vh', 'height': 'auto'}}
               />
-            </div>
+              </span>
           </div>
         </div>
       </div>

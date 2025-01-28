@@ -74,6 +74,7 @@ const StudentLoginForm = () => {
         //   })
         // );
         localStorage.setItem("token", response.data.access_token);
+        localStorage.setItem("School_email", email);
 
         // console.log("Login successful", response.data.access_token);
         toast.success("Successfully logged in 🎉", {
