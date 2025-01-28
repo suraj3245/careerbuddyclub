@@ -170,18 +170,24 @@ const DashboardResult = ({ setIsOpenSidebar }: IProps) => {
       return { series: [], options: {} };
 
     // Ensure that all necessary data points are numbers and defined
-    const categories = Object.keys(results).map(
-      (key) => key.charAt(0).toUpperCase() + key.slice(1).replace("_score", "")
-    );
-    const dataPoints = categories.map((category, index) => {
-      const key = category.toLowerCase() + "_score";
-      const value = results[key];
-      return {
-        x: category,
-        y: Number(value),
-        fillColor: barColors[index % barColors.length],
-      };
-    });
+    const categories = Object.keys(results)
+      .filter((key) => key.toLowerCase() !== "letters") // Exclude 'letters'
+      .map(
+        (key) =>
+          key.charAt(0).toUpperCase() + key.slice(1).replace("_score", "")
+      );
+
+    const dataPoints = categories
+      .filter((category) => category.toLowerCase() !== "letters")
+      .map((category, index) => {
+        const key = category.toLowerCase() + "_score";
+        const value = results[key];
+        return {
+          x: category,
+          y: Number(value),
+          fillColor: barColors[index % barColors.length],
+        };
+      });
 
     return {
       series: [{ name: "Score", data: dataPoints }],
@@ -329,7 +335,8 @@ const DashboardResult = ({ setIsOpenSidebar }: IProps) => {
                     </div>
 
                     <TopCareer topCategories={getTopThreeCategoryNames()} />
-                    <YourCareer />
+                    {/* <YourCareer /> */}
+                    <YourCareer code={results?.letters} />
                   </div>
                 </div>
                 <div

@@ -19,6 +19,7 @@ import nav_6 from "@/assets/dashboard/images/icon/icon_6.svg";
 import nav_6_active from "@/assets/dashboard/images/icon/icon_6_active.svg";
 import { useEffect } from "react";
 import axios from "axios";
+import { isUserLoggedIn } from "@/utils/auth";
 // nav data
 const nav_data: {
   id: number;
@@ -76,10 +77,15 @@ type IProps = {
   isOpenSidebar: boolean;
   setIsOpenSidebar: React.Dispatch<React.SetStateAction<boolean>>;
 };
-  
+
 const CandidateAside = ({ isOpenSidebar, setIsOpenSidebar }: IProps) => {
   const [userName, setUserName] = useState("");
   const pathname = usePathname();
+  isUserLoggedIn();
+
+  function onLogout() {
+    localStorage.removeItem("token");
+    localStorage.removeItem("username");
   function onLogout(){
      localStorage.removeItem("token");
      localStorage.removeItem("username");
@@ -173,8 +179,19 @@ const CandidateAside = ({ isOpenSidebar, setIsOpenSidebar }: IProps) => {
                 {userName || "Name"}
               </button>
               <ul className="dropdown-menu text-center">
-                <li><a href="/dashboard/candidate-dashboard/setting" className="dropdown-item">setPassword</a></li>
-                <li><a href="/" className="dropdown-item" onClick={onLogout}>logout</a></li>
+                <li>
+                  <a
+                    href="/dashboard/candidate-dashboard/setting"
+                    className="dropdown-item"
+                  >
+                    setPassword
+                  </a>
+                </li>
+                <li>
+                  <a href="/" className="dropdown-item" onClick={onLogout}>
+                    logout
+                  </a>
+                </li>
               </ul>
             </div>
           </div>

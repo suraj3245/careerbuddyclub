@@ -1,0 +1,431 @@
+"use client";
+import React, { useEffect, useState } from "react";
+import {
+  Box,
+  Typography,
+  Grid,
+  Card,
+  CardContent,
+  Button,
+  Tabs,
+  Tab,
+  useTheme,
+  useMediaQuery,
+} from "@mui/material";
+import { useRouter } from "next/navigation";
+import axios from "axios";
+
+interface Stream {
+  id: number;
+  title: string;
+  description: string | null;
+}
+
+const CollegeFinder: React.FC = () => {
+  const [streamId, setStreamId] = useState(1);
+  const [streams, setStreams] = useState<Stream[]>([]);
+  const theme = useTheme();
+  const router = useRouter();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+
+  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+    setStreamId(newValue);
+  };
+
+  const fetchStreams = async () => {
+    try {
+      const response = await axios({
+        method: "POST",
+        url: "https://test.careerbuddyclub.com:8080/api/students/getallstreams",
+        headers: {
+          Accept: "*/*",
+        },
+      });
+      console.log(response.data, "response");
+
+      setStreams(response?.data);
+    } catch (error) {
+      console.error(error);
+      // Handle error, e.g., set some state to show an error message
+    }
+  };
+
+  useEffect(() => {
+    fetchStreams();
+  }, []);
+
+  const colleges = [
+    "Parul University",
+    "Lovely Professional University",
+    "Chandigarh University",
+    "K. R. Mangalam University",
+    "NIMS University",
+    "Lingaya's Vidyapeeth",
+    "Jagannath University, Jaipur",
+    "Jagannath University NCR Haryana",
+  ];
+
+  const companies = [
+    "Infosys",
+    "TCS",
+    "Wipro",
+    "Cognizant",
+    "Accenture",
+    "Capgemini",
+    "HCL",
+    "Tech Mahindra",
+  ];
+
+  const careers = [
+    "Software Engineer",
+    "Data Analyst",
+    "Business Analyst",
+    "Web Developer",
+    "Digital Marketing",
+    "HR",
+  ];
+
+  const courses = [
+    "B.Tech",
+    "M.Tech",
+    "BBA",
+    "MBA",
+    "B.Com",
+    "M.Com",
+    "B.Sc",
+    "M.Sc",
+    "B.A",
+    "M.A",
+  ];
+
+  return (
+    <div className="container mt-80">
+      {/* Header Section */}
+      <Box sx={{ textAlign: "center", mb: 4 }}>
+        <Typography
+          variant={isSmallScreen ? "h5" : "h4"}
+          fontWeight="bold"
+          gutterBottom
+        >
+          Find The Perfect College For You
+        </Typography>
+        <Typography variant="subtitle1" color="textSecondary">
+          Discover top colleges, exams, and opportunities in your preferred
+          field.
+        </Typography>
+        <Box
+          sx={{
+            mt: 2,
+            display: "flex",
+            justifyContent: "center",
+            gap: 2,
+            flexWrap: "wrap",
+          }}
+        >
+          <Tabs
+            value={streamId}
+            onChange={handleChange}
+            variant="scrollable"
+            scrollButtons="auto"
+            TabIndicatorProps={{ style: { backgroundColor: "#13adbd" } }}
+          >
+            {streams.map((stream) => (
+              <Tab
+                key={stream.id}
+                label={stream.title}
+                value={stream.id}
+                sx={{
+                  fontWeight: "bold",
+                  color: "text.secondary",
+                  "&.Mui-selected": {
+                    color: "#13adbd",
+                  },
+                }}
+              />
+            ))}
+          </Tabs>
+        </Box>
+      </Box>
+
+      <Box sx={{ flexGrow: 1, p: 2, height: { xs: "auto", md: "50vh" } }}>
+        <Grid container spacing={2} sx={{ height: "100%" }}>
+          {/* First Column */}
+          {/* Featured Colleges */}
+          <Grid item xs={12} md={4} sx={{ height: { xs: "auto", md: "100%" } }}>
+            <Card
+              sx={{
+                height: "100%",
+                display: "flex",
+                flexDirection: "column",
+                overflow: "hidden",
+                backgroundColor: "#f0f8ff",
+                padding: "7px",
+              }}
+            >
+              <Typography
+                variant="h6"
+                sx={{
+                  textAlign: "left",
+                  display: "flex",
+                  justifyContent: "space-between",
+                  marginX: 2,
+                }}
+              >
+                Featured Colleges
+                <Button
+                  variant="text"
+                  size="small"
+                  onClick={() => router.push(`/college-details`)}
+                >
+                  View All
+                </Button>
+              </Typography>
+              <CardContent sx={{ flex: 1, overflowY: "auto" }}>
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexWrap: { xs: "nowrap", md: "wrap" },
+                    gap: 1,
+                    padding: 1,
+                    overflowX: { xs: "auto", md: "hidden" },
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  {colleges.map((college, index) => (
+                    <Button
+                      key={index}
+                      variant="outlined"
+                      sx={{
+                        flex: "1 0 auto",
+                        minWidth: "120px",
+                        fontSize: ".7rem",
+                        whiteSpace: "nowrap",
+                      }}
+                      onClick={() => router.push(`/college-details/${college}`)}
+                    >
+                      {college}
+                    </Button>
+                  ))}
+                </Box>
+              </CardContent>
+            </Card>
+          </Grid>
+
+          {/* Middle Column with 2 Rows */}
+          <Grid
+            item
+            xs={12}
+            md={4}
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              height: { xs: "auto", md: "100%" },
+            }}
+          >
+            {/* First Row - Top Hiring Companies */}
+            <Grid
+              item
+              sx={{
+                flex: "1 1 50%",
+                overflowY: "auto",
+                paddingBottom: 1,
+              }}
+            >
+              <Card
+                sx={{
+                  height: "100%",
+                  display: "flex",
+                  flexDirection: "column",
+                  overflow: "hidden",
+                  backgroundColor: "#f0f8ff",
+                  padding: "7px",
+                }}
+              >
+                <Typography
+                  variant="h6"
+                  sx={{
+                    textAlign: "left",
+                    display: "flex",
+                    justifyContent: "space-between",
+                    marginX: 2,
+                  }}
+                >
+                  Top Hiring Companies
+                  <Button
+                    variant="text"
+                    size="small"
+                    onClick={() => router.push(`/company-details`)}
+                  >
+                    View All
+                  </Button>
+                </Typography>
+                <CardContent sx={{ flex: 1, overflowY: "auto" }}>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      flexWrap: { xs: "nowrap", md: "wrap" },
+                      gap: 1,
+                      padding: 1,
+                      overflowX: { xs: "auto", md: "hidden" },
+                      whiteSpace: "nowrap",
+                    }}
+                  >
+                    {companies.map((company, index) => (
+                      <Button
+                        key={index}
+                        variant="outlined"
+                        sx={{
+                          flex: "1 0 auto",
+                          minWidth: "120px",
+                          fontSize: ".7rem",
+                          whiteSpace: "nowrap",
+                        }}
+                        onClick={() =>
+                          router.push(`/company-details/${company}`)
+                        }
+                      >
+                        {company}
+                      </Button>
+                    ))}
+                  </Box>
+                </CardContent>
+              </Card>
+            </Grid>
+
+            {/* Second Row - Top Careers */}
+            <Grid
+              item
+              sx={{
+                flex: "1 1 50%",
+                overflowY: "auto",
+                paddingTop: 1,
+              }}
+            >
+              <Card
+                sx={{
+                  height: "100%",
+                  display: "flex",
+                  flexDirection: "column",
+                  overflow: "hidden",
+                  backgroundColor: "#f0f8ff",
+                  padding: "7px",
+                }}
+              >
+                <Typography
+                  variant="h6"
+                  sx={{
+                    textAlign: "left",
+                    display: "flex",
+                    justifyContent: "space-between",
+                    marginX: 2,
+                  }}
+                >
+                  Top Careers
+                  <Button
+                    variant="text"
+                    size="small"
+                    onClick={() => router.push(`/career-details`)}
+                  >
+                    View All
+                  </Button>
+                </Typography>
+                <CardContent sx={{ flex: 1, overflowY: "auto" }}>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      flexWrap: { xs: "nowrap", md: "wrap" },
+                      gap: 1,
+                      padding: 1,
+                      overflowX: { xs: "auto", md: "hidden" },
+                      whiteSpace: "nowrap",
+                    }}
+                  >
+                    {careers.map((career, index) => (
+                      <Button
+                        key={index}
+                        variant="outlined"
+                        sx={{
+                          flex: "1 0 auto",
+                          minWidth: "120px",
+                          fontSize: ".7rem",
+                          whiteSpace: "nowrap",
+                        }}
+                        onClick={() => router.push(`/career-details/${career}`)}
+                      >
+                        {career}
+                      </Button>
+                    ))}
+                  </Box>
+                </CardContent>
+              </Card>
+            </Grid>
+          </Grid>
+
+          {/* Third Column */}
+          {/* Related Courses */}
+          <Grid item xs={12} md={4} sx={{ height: { xs: "auto", md: "100%" } }}>
+            <Card
+              sx={{
+                height: "100%",
+                display: "flex",
+                flexDirection: "column",
+                overflow: "hidden",
+                backgroundColor: "#f0f8ff",
+                padding: "7px",
+              }}
+            >
+              <Typography
+                variant="h6"
+                sx={{
+                  textAlign: "left",
+                  display: "flex",
+                  justifyContent: "space-between",
+                  marginX: 2,
+                }}
+              >
+                Related Courses
+                <Button
+                  variant="text"
+                  size="small"
+                  onClick={() => router.push(`/courses-details`)}
+                >
+                  View All
+                </Button>
+              </Typography>
+              <CardContent sx={{ flex: 1, overflowY: "auto" }}>
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexWrap: { xs: "nowrap", md: "wrap" },
+                    gap: 1,
+                    padding: 1,
+                    overflowX: { xs: "auto", md: "hidden" },
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  {courses.map((course, index) => (
+                    <Button
+                      key={index}
+                      variant="outlined"
+                      sx={{
+                        flex: "1 0 auto",
+                        minWidth: "120px",
+                        fontSize: ".7rem",
+                        whiteSpace: "nowrap",
+                      }}
+                      onClick={() => router.push(`/courses-details/${course}`)}
+                    >
+                      {course}
+                    </Button>
+                  ))}
+                </Box>
+              </CardContent>
+            </Card>
+          </Grid>
+        </Grid>
+      </Box>
+    </div>
+  );
+};
+
+export default CollegeFinder;

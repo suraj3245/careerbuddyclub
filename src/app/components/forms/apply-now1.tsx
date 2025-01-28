@@ -180,7 +180,10 @@ const ApplyForm1 = () => {
     .then((response: any) => {    
       localStorage.setItem("token", response.data.access_token);
       localStorage.setItem("schoolName", response.data.school.School_name);
-      localStorage.setItem("School_email", response.data.school.School_email);
+      localStorage.setItem("School_id", response.data.school.School_id);
+      console.log('response', response);
+      console.log("Registration successful", response.data);
+      console.log("Form Data:", payload);
       toast.success("Registration Successfull", {
         position: "top-left",
         autoClose: 1000,

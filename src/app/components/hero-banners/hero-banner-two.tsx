@@ -3,7 +3,7 @@ import React from "react";
 import Image from "next/image";
 // internalc
 import shape_2 from "@/assets/images/shape/shape_16.svg";
-import shape_3 from "@/assets/images/shape/shape_17.svg"; 
+import shape_3 from "@/assets/images/shape/shape_17.svg";
 import shape_4 from "@/assets/images/shape/shape_18.svg";
 import shape_5 from "@/assets/images/shape/shape_19.svg";
 import shape_6 from "@/assets/images/shape/shape_20.svg";
@@ -33,7 +33,7 @@ const HeroBannerTwo = () => {
               >
                 How Can We Assist You?
               </h1>
-           
+
               <div
                 className="text-md mt-35 mb-20 lg-mb-30 pe-xxl-5 wow fadeInUp"
                 data-wow-delay="0.4s"
@@ -51,11 +51,20 @@ const HeroBannerTwo = () => {
                   showCursor={true}
                 />
               </div>
-              
             </div>
           </div>
         </div>
       </div>
+      {/* <div
+        id="ee-form-6"
+        style={{
+          position: "absolute", // Relative to the parent container
+          top: "58%", // Center it vertically within the parent
+          right: "10%", // Place it 20px from the right side
+          transform: "translateY(-50%)", // Adjust for perfect vertical centering
+        }}
+      ></div> */}
+
       <div className="img-box">
         <Image
           src={main_img}

@@ -13,6 +13,7 @@ import { ApexOptions } from "apexcharts";
 import dynamic from "next/dynamic";
 import { jsPDF } from "jspdf";
 import html2canvas from "html2canvas";
+import { isUserLoggedIn } from "@/utils/auth";
 
 const ReactApexChart = dynamic(() => import("react-apexcharts"), {
   ssr: false,
@@ -26,6 +27,7 @@ type Question = {
 const defaultOptions = ["Dislike", "Neutral", "Enjoy"];
 
 const QuizForm: React.FC = () => {
+  isUserLoggedIn();
   const [questions, setQuestions] = useState<Question[]>([]);
   const [answers, setAnswers] = useState<{ [key: number]: string }>({});
   const [currentPage, setCurrentPage] = useState(0);
@@ -307,18 +309,24 @@ const QuizForm: React.FC = () => {
       return { series: [], options: {} };
 
     // Ensure that all necessary data points are numbers and defined
-    const categories = Object.keys(results).map(
-      (key) => key.charAt(0).toUpperCase() + key.slice(1).replace("_score", "")
-    );
-    const dataPoints = categories.map((category, index) => {
-      const key = category.toLowerCase() + "_score";
-      const value = results[key];
-      return {
-        x: category,
-        y: Number(value),
-        fillColor: barColors[index % barColors.length],
-      };
-    });
+    const categories = Object.keys(results)
+      .filter((key) => key.toLowerCase() !== "letters") // Exclude 'letters'
+      .map(
+        (key) =>
+          key.charAt(0).toUpperCase() + key.slice(1).replace("_score", "")
+      );
+
+    const dataPoints = categories
+      .filter((category) => category.toLowerCase() !== "letters")
+      .map((category, index) => {
+        const key = category.toLowerCase() + "_score";
+        const value = results[key];
+        return {
+          x: category,
+          y: Number(value),
+          fillColor: barColors[index % barColors.length],
+        };
+      });
 
     return {
       series: [{ name: "Score", data: dataPoints }],
@@ -339,6 +347,15 @@ const QuizForm: React.FC = () => {
         xaxis: {
           categories: categories,
         },
+        // yaxis: {
+        //   labels: {
+        //     offsetX: 30,
+        //     align: "right",
+        //     style: {
+        //       colors: "#fff",
+        //     },
+        //   },
+        // },
         colors: barColors,
       },
     };
@@ -346,9 +363,7 @@ const QuizForm: React.FC = () => {
   const chartData = transformResultsToChartData();
 
   return (
-    <div
-      style={{ backgroundColor: "#cfeef1", position: "relative", zIndex: 0 }}
-    >
+    <div style={{ backgroundColor: "white", position: "relative", zIndex: 0 }}>
       {isSubmitted && (
         <div
           style={{
@@ -494,12 +509,16 @@ const QuizForm: React.FC = () => {
           </div>
         </form>
       ) : (
-        <div id="resultsContainer" style={{ position: "relative", zIndex: 1 }}>
+        <div
+          id="resultsContainer"
+          style={{ position: "relative", zIndex: 1 }}
+          className="container mx-auto"
+        >
           <div className="d-flex align-items-center justify-content-between">
             <div className="text-center" style={{ flex: 1 }}>
               <h2
-                className="mb-6 pb-10 pt-20"
-                style={{ color: "#13ADBD", paddingTop: "40px" }}
+                className="mb-6 pb-10 pt-20 text-uppercase"
+                style={{ color: "#13adbd", paddingTop: "40px" }}
               >
                 Career Aptitude Test
               </h2>
@@ -509,13 +528,19 @@ const QuizForm: React.FC = () => {
           <div className="text-center">
             <h2
               className="mb-6 pb-25"
-              style={{ color: "#13ADBD", fontSize: "40px" }}
+              style={{ color: "black", fontSize: "40px" }}
             >
-              Quiz Results
+              Quiz Result
             </h2>
             {/* Display the results here using the `results` state */}
-            <div className="row">
-              <div className="chart-container  col-12 col-md-8">
+            <div
+              className="row rounded-5 d-flex flex-row justify-content-center align-items-center"
+              style={{ border: "1px solid black" }}
+            >
+              <div
+                className="chart-container"
+                style={{ flex: 2, minWidth: "300px" }}
+              >
                 {results && (
                   <ReactApexChart
                     options={chartData.options}
@@ -526,8 +551,21 @@ const QuizForm: React.FC = () => {
                   />
                 )}
               </div>
-              <div className="top-scores col-12 col-md-4">
-                <h3>Top Scores</h3>
+              <div
+                className="top-scores rounded-5 fw-500 m-5"
+                style={{
+                  flex: 1,
+                  minWidth: "200px",
+                  border: "1px solid grey",
+                  fontSize: "24px",
+                }}
+              >
+                <h3
+                  className="text-uppercase"
+                  style={{ color: "#13adbd", borderBottom: "1px solid grey" }}
+                >
+                  Top Scores
+                </h3>
                 {getTopThreeScores().map((result, index) => (
                   <p key={index}>{`${result.category}: ${result.score}`}</p>
                 ))}
@@ -535,7 +573,7 @@ const QuizForm: React.FC = () => {
             </div>
             <TopCareer topCategories={getTopThreeCategoryNames()} />
 
-            <YourCareer />
+            <YourCareer code={results?.letters} />
             <div
               style={{
                 display: "flex",
@@ -546,10 +584,10 @@ const QuizForm: React.FC = () => {
               }}
             >
               <button
-                className="dash-btn-two tran3s me-3"
+                className="dash-btn-two tran3s me-3 fw-bold"
                 onClick={downloadResultsAsPDF}
               >
-                Download Results
+                Download Your Result
               </button>
               <Link href="/dashboard/candidate-dashboard/profile">
                 <button className="btn-five tran3s me-3">Next Steps</button>

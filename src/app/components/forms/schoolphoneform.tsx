@@ -93,6 +93,7 @@ const   SchoolPhoneForm = () => {
       .then((response) => {        
         localStorage.setItem("token", response.data.access_token);
         localStorage.setItem("schoolName", response.data.details.School_name);
+        localStorage.setItem("School_id", response.data.school.School_id);
         localStorage.setItem("School_email", response.data.details.School_email);
         toast.success("Login successful 🚀", {
           position: "top-left",

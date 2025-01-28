@@ -8,8 +8,11 @@ import nav_1_active from "@/assets/dashboard/images/icon/icon_1_active.svg";
 import nav_2 from "@/assets/dashboard/images/icon/icon_2.svg";
 import nav_3 from "@/assets/dashboard/images/icon/icon_3.svg";
 import nav_3_active from "@/assets/dashboard/images/icon/icon_3_active.svg";
+import nav_39 from "@/assets/dashboard/images/icon/icon_39.svg";
+import nav_39_active from "@/assets/dashboard/images/icon/icon_39_active.svg";
 import { useEffect } from "react";
 import axios from "axios";
+import { isUserLoggedIn } from "@/utils/auth";
 
 // nav data
 const nav_data: {
@@ -51,6 +54,7 @@ type IProps = {
 const SchoolAside = ({ isOpenSidebar, setIsOpenSidebar }: IProps) => {
   const [userName, setUserName] = useState("");
   const pathname = usePathname();
+  isUserLoggedIn();
 
   const fetchUserData = async () => {
     const token = localStorage.getItem("token");
@@ -107,7 +111,7 @@ const SchoolAside = ({ isOpenSidebar, setIsOpenSidebar }: IProps) => {
       <aside className={`dash-aside-navbar ${isOpenSidebar ? "show" : ""}`}>
         <div className="position-relative">
           <div className="logo text-md-center d-md-block d-flex align-items-center justify-content-between">
-            {/* <Link href="/">
+            {/* <Link href="/schools">
               <Image src={logo} width={100} height={70} alt="logo" priority />
             </Link> */}
             <button
@@ -148,7 +152,7 @@ const SchoolAside = ({ isOpenSidebar, setIsOpenSidebar }: IProps) => {
                   </a>
                 </li>
                 <li>
-                  <a href="/" className="dropdown-item" onClick={onLogout}>
+                  <a href="/schools" className="dropdown-item" onClick={onLogout}>
                     logout
                   </a>
                 </li>
@@ -182,6 +186,101 @@ const SchoolAside = ({ isOpenSidebar, setIsOpenSidebar }: IProps) => {
                   </li>
                 );
               })}
+              <li className="nav-item mb-2">
+                <div
+                  className="d-flex align-items-center p-2 rounded text-dark"
+                  style={{ textDecoration: "none", cursor: "pointer" }}
+                  data-bs-toggle="collapse"
+                  data-bs-target="#add-student-submenu"
+                  aria-expanded="false"
+                  aria-controls="add-student-submenu"
+                >
+                  <Image src={nav_39} alt="icon" className="lazy-img me-2" />
+                  <span>Add Student Details</span>
+                </div>
+                <ul
+                  id="add-student-submenu"
+                  className="collapse list-unstyled ms-3"
+                  style={{ paddingLeft: "15px" }}
+                >
+                  <li className="nav-item">
+                    <div
+                      className="d-flex align-items-center p-2 rounded text-dark"
+                      style={{ textDecoration: "none", cursor: "pointer" }}
+                      data-bs-toggle="collapse"
+                      data-bs-target="#with-cat-submenu"
+                      aria-expanded="false"
+                      aria-controls="with-cat-submenu"
+                    >
+                      With CAT Result
+                    </div>
+                    <ul
+                      id="with-cat-submenu"
+                      className="collapse list-unstyled ms-3"
+                      style={{ paddingLeft: "15px" }}
+                    >
+                      <li className="nav-item">
+                        <Link
+                          href="/dashboard/school-dashboard/add-student-details/with-cat"
+                          className="d-flex align-items-center p-2 rounded text-dark"
+                          style={{ textDecoration: "none" }}
+                          onClick={() => setIsOpenSidebar(false)}
+                        >
+                          Add Student
+                        </Link>
+                      </li>
+                      <li className="nav-item">
+                        <Link
+                          href="/dashboard/school-dashboard/import-student-details/with-cat"
+                          className="d-flex align-items-center p-2 rounded text-dark"
+                          style={{ textDecoration: "none" }}
+                          onClick={() => setIsOpenSidebar(false)}
+                        >
+                          Import Students
+                        </Link>
+                      </li>
+                    </ul>
+                  </li>
+                  <li className="nav-item">
+                    <div
+                      className="d-flex align-items-center p-2 rounded text-dark"
+                      style={{ textDecoration: "none", cursor: "pointer" }}
+                      data-bs-toggle="collapse"
+                      data-bs-target="#without-cat-submenu"
+                      aria-expanded="false"
+                      aria-controls="without-cat-submenu"
+                    >
+                      Without CAT Result
+                    </div>
+                    <ul
+                      id="without-cat-submenu"
+                      className="collapse list-unstyled ms-3"
+                      style={{ paddingLeft: "15px" }}
+                    >
+                      <li className="nav-item">
+                        <Link
+                          href="/dashboard/school-dashboard/add-student-details/without-cat"
+                          className="d-flex align-items-center p-2 rounded text-dark"
+                          style={{ textDecoration: "none" }}
+                          onClick={() => setIsOpenSidebar(false)}
+                        >
+                          Add Student
+                        </Link>
+                      </li>
+                      <li className="nav-item">
+                        <Link
+                          href="/dashboard/school-dashboard/import-student-details/without-cat"
+                          className="d-flex align-items-center p-2 rounded text-dark"
+                          style={{ textDecoration: "none" }}
+                          onClick={() => setIsOpenSidebar(false)}
+                        >
+                          Import Students
+                        </Link>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
             </ul>
           </nav>
         </div>
