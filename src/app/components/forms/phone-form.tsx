@@ -87,7 +87,7 @@ const PhoneForm = () => {
       .request(options)
       .then((response) => {
         localStorage.setItem("token", response.data.access_token);
-        localStorage.setItem("token", response.data.School_email);
+        localStorage.setItem("School_email", response.data.School_email);
         toast.success("Login successful 🚀", {
           position: "top-left",
           autoClose: 1000,
