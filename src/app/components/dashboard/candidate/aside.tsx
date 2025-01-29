@@ -86,10 +86,7 @@ const CandidateAside = ({ isOpenSidebar, setIsOpenSidebar }: IProps) => {
   function onLogout() {
     localStorage.removeItem("token");
     localStorage.removeItem("username");
-  function onLogout(){
-     localStorage.removeItem("token");
-     localStorage.removeItem("username");
-     localStorage.removeItem("School_email");
+    localStorage.removeItem("School_email");
   }
 
   const fetchUserData = async () => {
