@@ -21,7 +21,7 @@ const resolver: Resolver<IFormData> = async (values) => {
     values: values.School_email ? values : {},
     errors: !values.School_email
       ? {
-        School_email: {
+          School_email: {
             type: "required",
             message: "Email is required.",
           },
@@ -64,7 +64,6 @@ const SchoolLoginForm = () => {
     axios
       .request(options)
       .then((response) => {
-        console.log(response,'asdfasdf')
         // Handle the response here, e.g., notify the user of success
         // res.setHeader(
         //   "Set-Cookie",
@@ -96,17 +95,31 @@ const SchoolLoginForm = () => {
       })
       .catch((error) => {
         // Handle any errors here, e.g., notify the user of the failure
-        console.error("Login error:", error);
-        toast.error("Invalid Credentials! 😵‍💫", {
-          position: "top-left",
-          autoClose: 1000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
+        if (error?.response) {
+          // Show the message returned from the backend
+          toast.error(error?.response?.data?.message, {
+            position: "top-left",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+        } else {
+          // Handle network or other errors
+          toast.error("Something went wrong! Please try again.", {
+            position: "top-left",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+        }
       });
 
     reset();
@@ -114,57 +127,61 @@ const SchoolLoginForm = () => {
 
   return (
     <>
-    <form onSubmit={handleSubmit(onSubmit)} className="mt-10">
-      <div className="row">
-        <div className="col-12">
-          <div className="input-group-meta position-relative mb-25">
-            <label style={{ color: "black" }}>Email*</label>
-            <input
-              type="email"
-              placeholder="Enter your E-mail"
-              {...register("School_email", { required: `Email is required!` })}
-              name="School_email"
-            />
-            <div className="help-block with-errors">
-              <ErrorMsg msg={errors.School_email?.message!} />
+      <form onSubmit={handleSubmit(onSubmit)} className="mt-10">
+        <div className="row">
+          <div className="col-12">
+            <div className="input-group-meta position-relative mb-25">
+              <label style={{ color: "black" }}>Email*</label>
+              <input
+                type="email"
+                placeholder="Enter your E-mail"
+                {...register("School_email", {
+                  required: `Email is required!`,
+                })}
+                name="School_email"
+              />
+              <div className="help-block with-errors">
+                <ErrorMsg msg={errors.School_email?.message!} />
+              </div>
             </div>
           </div>
-        </div>
-        <div className="col-12">
-          <div className="input-group-meta position-relative mb-20">
-            <label style={{ color: "black" }}>Password*</label>
-            <input
-              type={`${showPass ? "text" : "password"}`}
-              placeholder="Enter Password"
-              className="pass_log_id"
-              {...register("School_password", { required: `Password is required!` })}
-              name="School_password"
-            />
-            <span
-              className="placeholder_icon"
-              onClick={() => setShowPass(!showPass)}
-            >
-              <span className={`passVicon ${showPass ? "eye-slash" : ""}`}>
-                <Image src={icon} alt="icon" />
+          <div className="col-12">
+            <div className="input-group-meta position-relative mb-20">
+              <label style={{ color: "black" }}>Password*</label>
+              <input
+                type={`${showPass ? "text" : "password"}`}
+                placeholder="Enter Password"
+                className="pass_log_id"
+                {...register("School_password", {
+                  required: `Password is required!`,
+                })}
+                name="School_password"
+              />
+              <span
+                className="placeholder_icon"
+                onClick={() => setShowPass(!showPass)}
+              >
+                <span className={`passVicon ${showPass ? "eye-slash" : ""}`}>
+                  <Image src={icon} alt="icon" />
+                </span>
               </span>
-            </span>
-            <div className="help-block with-errors">
-              <ErrorMsg msg={errors.School_password?.message!} />
+              <div className="help-block with-errors">
+                <ErrorMsg msg={errors.School_password?.message!} />
+              </div>
             </div>
           </div>
-        </div>
-        <div className="col-12">
-          <div className="agreement-checkbox d-flex justify-content-between align-items-center mb-20">
-            <a
-              href="#"
-              className="fw-500"
-              data-bs-toggle="modal"
-              data-bs-target="#SchoolLoginFormModales"
-            >
-              Login using Phone Number!
-            </a>
+          <div className="col-12">
+            <div className="agreement-checkbox d-flex justify-content-between align-items-center mb-20">
+              <a
+                href="#"
+                className="fw-500"
+                data-bs-toggle="modal"
+                data-bs-target="#SchoolLoginFormModales"
+              >
+                Login using Phone Number!
+              </a>
+            </div>
           </div>
-        </div> 
         </div>
         <div className="col-12">
           <div className="agreement-checkbox d-flex justify-content-between align-items-center">
@@ -186,7 +203,7 @@ const SchoolLoginForm = () => {
             Login
           </button>
         </div>
-    </form>
+      </form>
     </>
   );
 };
