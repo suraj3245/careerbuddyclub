@@ -7,6 +7,7 @@ const ApplyModalSchool = () => {
     }
     return 0;
   });
+  const [isSuccess, setIsSuccess] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -19,6 +20,11 @@ const ApplyModalSchool = () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
+  const handleSuccess = () => {
+    setIsSuccess(true);
+  };
+
   return (
     <div
       className="modal fade"
@@ -41,7 +47,31 @@ const ApplyModalSchool = () => {
               </h2>
             </div>
             <div className="form-wrapper m-auto">
-              <ApplyForm1 />
+              {isSuccess ? (
+                // Show success message after submission
+                <div className="text-center">
+                  <h3>School registered successfully!</h3>
+                  <p>Your request will be processed within 24 hours.</p>
+                  <button
+                    className="btn btn-primary"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                    style={{
+                      backgroundColor: "#14ADBD",
+                      color: "#ffffff",
+                      border: "none",
+                      padding: "7px 8px",
+                      borderRadius: "5px",
+                      cursor: "pointer",
+                    }}
+                  >
+                    OK
+                  </button>
+                </div>
+              ) : (
+                // Show form before submission
+                <ApplyForm1 onSuccess={handleSuccess} />
+              )}
             </div>
           </div>
         </div>
