@@ -8,8 +8,18 @@ import {
   TextField,
   Chip,
   InputAdornment,
+  useMediaQuery,
+  Theme,
+  IconButton,
+  Drawer,
 } from "@mui/material";
-import { Search, ExpandMore, ExpandLess, Close } from "@mui/icons-material";
+import {
+  Search,
+  ExpandMore,
+  ExpandLess,
+  Close,
+  FilterList,
+} from "@mui/icons-material";
 
 interface FilterOption {
   name: string;
@@ -51,6 +61,9 @@ const filters = {
 };
 
 export default function FilterPanel() {
+  const isLargeScreen = useMediaQuery((theme: Theme) =>
+    theme.breakpoints.up("lg")
+  );
   const [openCategories, setOpenCategories] = useState<Set<string>>(
     new Set(["Location"])
   );
@@ -60,6 +73,7 @@ export default function FilterPanel() {
     "Kolkata",
   ]);
   const [searchQuery, setSearchQuery] = useState("");
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   const handleCategoryClick = (category: string) => {
     setOpenCategories((prev) => {
@@ -90,8 +104,88 @@ export default function FilterPanel() {
   };
 
   return (
-    <Box sx={{ width: "100%", maxWidth: 320, p: 2 }}>
-      {/* Header */}
+    <>
+      {/* Filter button for small screens */}
+      {!isLargeScreen && (
+        <IconButton onClick={() => setIsDrawerOpen(true)}>
+          <FilterList />
+        </IconButton>
+      )}
+
+      {/* Drawer for small screens */}
+      <Drawer
+        anchor="left"
+        open={isDrawerOpen}
+        onClose={() => setIsDrawerOpen(false)}
+      >
+        <Box sx={{ width: 320, p: 2 }}>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              mb: 2,
+            }}
+          >
+            <IconButton onClick={() => setIsDrawerOpen(false)}>
+              <Close />
+            </IconButton>
+          </Box>
+          <FilterContent
+            selectedFilters={selectedFilters}
+            handleRemoveFilter={handleRemoveFilter}
+            handleClearAll={handleClearAll}
+            openCategories={openCategories}
+            handleCategoryClick={handleCategoryClick}
+            handleFilterSelect={handleFilterSelect}
+            searchQuery={searchQuery}
+            setSearchQuery={setSearchQuery}
+          />
+        </Box>
+      </Drawer>
+
+      {/* Sidebar for large screens */}
+      {isLargeScreen && (
+        <Box sx={{ width: "100%", maxWidth: 320, p: 2 }}>
+          <FilterContent
+            selectedFilters={selectedFilters}
+            handleRemoveFilter={handleRemoveFilter}
+            handleClearAll={handleClearAll}
+            openCategories={openCategories}
+            handleCategoryClick={handleCategoryClick}
+            handleFilterSelect={handleFilterSelect}
+            searchQuery={searchQuery}
+            setSearchQuery={setSearchQuery}
+          />
+        </Box>
+      )}
+    </>
+  );
+}
+
+interface FilterContentProps {
+  selectedFilters: string[];
+  handleRemoveFilter: (filter: string) => void;
+  handleClearAll: () => void;
+  openCategories: Set<string>;
+  handleCategoryClick: (category: string) => void;
+  handleFilterSelect: (filter: string) => void;
+  searchQuery: string;
+  setSearchQuery: (query: string) => void;
+}
+
+function FilterContent({
+  selectedFilters,
+  handleRemoveFilter,
+  handleClearAll,
+  openCategories,
+  handleCategoryClick,
+  handleFilterSelect,
+  searchQuery,
+  setSearchQuery,
+}: FilterContentProps) {
+  return (
+    <>
       <Box
         sx={{
           display: "flex",
@@ -219,6 +313,6 @@ export default function FilterPanel() {
           )}
         </Box>
       ))}
-    </Box>
+    </>
   );
 }

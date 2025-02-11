@@ -6,7 +6,6 @@ import {
   Box,
   Card,
   CardContent,
-  Chip,
   Container,
   FormControl,
   Grid,
@@ -77,7 +76,6 @@ const FloatingButton = styled(Button)(({ theme }) => ({
 }));
 
 export default function CollegeListing() {
-  const [filters, setFilters] = useState(["2-3 Lakh", "Ahmedabad", "MCA"]);
   const [sortBy, setSortBy] = useState("Featured");
   const [dialogOpen, setDialogOpen] = useState(false);
   const isLargeScreen = useMediaQuery(theme.breakpoints.up("lg"));
@@ -146,67 +144,105 @@ export default function CollegeListing() {
             {[1, 2, 3, 4, 5].map((college) => (
               <CollegeCard key={college}>
                 <CardContent>
-                  <Grid container spacing={2}>
-                    <Grid item xs={12} sm={3}>
-                      <Box sx={{ position: "relative", height: 150 }}>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                      width: "100%",
+                      flexWrap: "wrap",
+                    }}
+                  >
+                    <Box
+                      sx={{
+                        display: "flex",
+                        alignItems: "center",
+                        flex: 1,
+                        minWidth: 0,
+                      }}
+                    >
+                      <Box
+                        sx={{
+                          position: "relative",
+                          width: 60,
+                          height: 60,
+                          mr: 2,
+                          flexShrink: 0,
+                        }}
+                      >
                         <Image
                           src="/placeholder.svg"
                           alt="College logo"
-                          fill
-                          style={{ objectFit: "contain" }}
+                          layout="fill"
+                          objectFit="contain"
                         />
                       </Box>
-                    </Grid>
-                    <Grid item xs={12} sm={9}>
-                      <Box
-                        sx={{
-                          display: "flex",
-                          justifyContent: "space-between",
-                        }}
-                      >
-                        <Typography variant="h6">
+                      <Box>
+                        <Typography variant="subtitle1">
                           IIM Ahmedabad (IIMA) : Indian Institute of Management
                         </Typography>
-                        <IconButton>
-                          <FavoriteBorder />
-                        </IconButton>
-                      </Box>
-                      <Box
-                        sx={{ display: "flex", alignItems: "center", mb: 1 }}
-                      >
-                        <LocationOn sx={{ mr: 1 }} />
-                        <Typography>Ahmedabad : Govt</Typography>
-                      </Box>
-                      <Grid container spacing={2}>
-                        <Grid item xs={12} sm={6}>
-                          <Typography variant="body2" color="text.secondary">
-                            Courses Offered
+                        <Box
+                          sx={{ display: "flex", alignItems: "center", mt: 1 }}
+                        >
+                          <LocationOn sx={{ mr: 1 }} />
+                          <Typography variant="body2">
+                            Ahmedabad : Govt
                           </Typography>
-                          <Typography>17 Courses | ⭐ 4.7</Typography>
-                        </Grid>
-                        <Grid item xs={12} sm={6}>
-                          <Typography variant="body2" color="text.secondary">
-                            Total Tuition Fees
-                          </Typography>
-                          <Typography>₹64 K - 4 L</Typography>
-                        </Grid>
+                        </Box>
+                      </Box>
+                    </Box>
+                    <IconButton sx={{ alignSelf: "flex-start" }}>
+                      <FavoriteBorder />
+                    </IconButton>
+                  </Box>
+
+                  {/* Details Section: full width */}
+                  <Box sx={{ mt: 2 }}>
+                    <Grid container spacing={2}>
+                      <Grid item xs={12} sm={4}>
+                        <Typography variant="body2" color="text.secondary">
+                          Courses Offered
+                        </Typography>
+                        <Typography>17 Courses | ⭐ 4.7</Typography>
+                        <Typography
+                          variant="body2"
+                          color="text.secondary"
+                          sx={{ mt: 1 }}
+                        >
+                          Exams Accepted
+                        </Typography>
+                        <Typography>CBSE, +2, ISE</Typography>
                       </Grid>
-                      <Typography
-                        variant="body2"
-                        color="text.secondary"
-                        sx={{ mt: 1 }}
-                      >
-                        Exams Accepted
-                      </Typography>
-                      <Typography>CBSE, +2, ISE</Typography>
-                      <Box sx={{ display: "flex", gap: 2, mt: 2 }}>
-                        <Button variant="outlined" startIcon={<Search />}>
-                          Compare
-                        </Button>
-                        <Button variant="contained">Brochure</Button>
-                      </Box>
+                      <Grid item xs={12} sm={4}>
+                        <Typography variant="body2" color="text.secondary">
+                          Total Tuition Fees
+                        </Typography>
+                        <Typography>₹64 K - 4 L</Typography>
+                        <Typography
+                          variant="body2"
+                          color="text.secondary"
+                          sx={{ mt: 1 }}
+                        >
+                          Average Salary
+                        </Typography>
+                        <Typography>₹1 L - 1.5 L</Typography>
+                      </Grid>
+                      <Grid item xs={12} sm={4}>
+                        <Box
+                          sx={{
+                            display: "flex",
+                            flexDirection: "column",
+                            gap: 2,
+                          }}
+                        >
+                          <Button variant="outlined" startIcon={<Search />}>
+                            Compare
+                          </Button>
+                          <Button variant="contained">Brochure</Button>
+                        </Box>
+                      </Grid>
                     </Grid>
-                  </Grid>
+                  </Box>
                 </CardContent>
               </CollegeCard>
             ))}
