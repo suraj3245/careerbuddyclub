@@ -9,32 +9,20 @@ import {
   Chip,
   Container,
   FormControl,
-  FormControlLabel,
-  Checkbox,
   Grid,
   IconButton,
-  InputAdornment,
   MenuItem,
-  Paper,
   Select,
-  TextField,
   Typography,
   Button,
   CssBaseline,
-  Fab,
   Dialog,
-  DialogContent,
   useMediaQuery,
 } from "@mui/material";
-import {
-  FavoriteBorder,
-  Search,
-  LocationOn,
-  Clear,
-  Person,
-} from "@mui/icons-material";
+import { FavoriteBorder, Search, LocationOn } from "@mui/icons-material";
 import Image from "next/image";
 import BlogSection from "./blog-section";
+import FilterPanel from "./filterpanel";
 
 // Custom theme
 const theme = createTheme({
@@ -65,24 +53,12 @@ const theme = createTheme({
   },
 });
 
-// Styled components
-const FilterChip = styled(Chip)(({ theme }) => ({
-  backgroundColor: theme.palette.primary.main,
-  color: "white",
-  "& .MuiChip-deleteIcon": {
-    color: "white",
-  },
-}));
-
 const CollegeCard = styled(Card)({
   marginBottom: "16px",
   backgroundColor: "rgb(186, 230, 243)",
 });
 
 const RegisterBanner = styled(Box)(({ theme }) => ({
-  backgroundColor: "#FFD700",
-  padding: theme.spacing(3),
-  borderRadius: theme.spacing(2),
   position: "sticky",
   top: theme.spacing(2),
   [theme.breakpoints.down("lg")]: {
@@ -90,11 +66,10 @@ const RegisterBanner = styled(Box)(({ theme }) => ({
   },
 }));
 
-const FloatingButton = styled(Fab)(({ theme }) => ({
+const FloatingButton = styled(Button)(({ theme }) => ({
   position: "fixed",
-  top: "50%",
+  bottom: 20,
   right: 20,
-  transform: "translateY(-50%)",
   zIndex: 1000,
   [theme.breakpoints.up("lg")]: {
     display: "none",
@@ -107,12 +82,8 @@ export default function CollegeListing() {
   const [dialogOpen, setDialogOpen] = useState(false);
   const isLargeScreen = useMediaQuery(theme.breakpoints.up("lg"));
 
-  const handleRemoveFilter = (filter: string) => {
-    setFilters(filters.filter((f) => f !== filter));
-  };
-
   const RegisterContent = () => (
-    <>
+    <Box sx={{ p: 3, bgcolor: "#FFD700", borderRadius: 2 }}>
       <Typography variant="h6" gutterBottom>
         Get personalised college recommendations
       </Typography>
@@ -132,7 +103,7 @@ export default function CollegeListing() {
       >
         Register
       </Button>
-    </>
+    </Box>
   );
 
   return (
@@ -142,80 +113,36 @@ export default function CollegeListing() {
         {/* Add BlogSection at the top */}
         <BlogSection />
         <Grid container spacing={3}>
-          {/* Filters Header */}
-          <Grid item xs={12}>
+          {/* Left Sidebar */}
+          <Grid item xs={12} md={3} lg={3}>
+            <FilterPanel />
+          </Grid>
+
+          {/* College Listings */}
+          <Grid item xs={12} md={9} lg={6}>
             <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
-              <Typography variant="h6" sx={{ mr: 2 }}>
-                All Filters
-              </Typography>
-              <Button
-                color="info"
-                onClick={() => setFilters([])}
-                sx={{ mr: 2 }}
-              >
-                Clear All
-              </Button>
-              <Typography sx={{ mr: 2 }}>1710 results</Typography>
               <Box sx={{ flexGrow: 1 }} />
-              <FormControl size="small" sx={{ minWidth: 120 }}>
+              <FormControl size="small" sx={{ minWidth: 200 }}>
                 <Select
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value as string)}
                   displayEmpty
-                  startAdornment={
-                    <Typography sx={{ mr: 1 }}>Sort By :</Typography>
-                  }
+                  sx={{
+                    borderRadius: "20px",
+                    "& .MuiOutlinedInput-notchedOutline": {
+                      borderColor: theme.palette.primary.main,
+                    },
+                    "&:hover .MuiOutlinedInput-notchedOutline": {
+                      borderColor: theme.palette.primary.dark,
+                    },
+                  }}
                 >
-                  <MenuItem value="Featured">Featured</MenuItem>
-                  <MenuItem value="Rating">Rating</MenuItem>
-                  <MenuItem value="Fees">Fees</MenuItem>
+                  <MenuItem value="Featured">Sort by: Featured</MenuItem>
+                  <MenuItem value="Rating">Sort by: Rating</MenuItem>
+                  <MenuItem value="Fees">Sort by: Fees</MenuItem>
                 </Select>
               </FormControl>
             </Box>
-            <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap", mb: 3 }}>
-              {filters.map((filter) => (
-                <FilterChip
-                  key={filter}
-                  label={filter}
-                  onDelete={() => handleRemoveFilter(filter)}
-                  deleteIcon={<Clear />}
-                />
-              ))}
-            </Box>
-          </Grid>
-
-          {/* Left Sidebar */}
-          <Grid item xs={12} md={3} lg={2}>
-            <Paper sx={{ p: 2 }}>
-              <Typography variant="h6" gutterBottom>
-                Specialization
-              </Typography>
-              <TextField
-                fullWidth
-                size="small"
-                placeholder="Specialization..."
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <Search />
-                    </InputAdornment>
-                  ),
-                }}
-                sx={{ mb: 2 }}
-              />
-              {["Digital Marketing", "Finance", "Psychology"].map((spec) => (
-                <FormControlLabel
-                  key={spec}
-                  control={<Checkbox />}
-                  label={spec}
-                  sx={{ display: "block" }}
-                />
-              ))}
-            </Paper>
-          </Grid>
-
-          {/* College Listings */}
-          <Grid item xs={12} md={9} lg={7}>
             {[1, 2, 3, 4, 5].map((college) => (
               <CollegeCard key={college}>
                 <CardContent>
@@ -295,9 +222,16 @@ export default function CollegeListing() {
 
         {/* Floating Button */}
         <FloatingButton
+          variant="contained"
           color="primary"
-          aria-label="register"
           onClick={() => setDialogOpen(true)}
+          sx={{
+            minWidth: "120px",
+            py: 1,
+            px: 2,
+            borderRadius: "8px",
+            boxShadow: "0 4px 10px rgba(0, 0, 0, 0.15)",
+          }}
         >
           Register
         </FloatingButton>
@@ -308,10 +242,14 @@ export default function CollegeListing() {
           onClose={() => setDialogOpen(false)}
           fullWidth
           maxWidth="xs"
+          PaperProps={{
+            style: {
+              backgroundColor: "transparent",
+              boxShadow: "none",
+            },
+          }}
         >
-          <DialogContent>
-            <RegisterContent />
-          </DialogContent>
+          <RegisterContent />
         </Dialog>
       </Container>
     </ThemeProvider>
