@@ -20,10 +20,31 @@ interface Stream {
   title: string;
   description: string | null;
 }
+interface College {
+  id: number;
+  college_full_name: string;
+}
+interface Company {
+  id: number;
+  name: string;
+}
+interface Career {
+  id: number;
+  title: string;
+}
+interface Course {
+  id: number;
+  name: string;
+}
 
 const CollegeFinder: React.FC = () => {
   const [streamId, setStreamId] = useState(1);
   const [streams, setStreams] = useState<Stream[]>([]);
+  const [colleges, setColleges] = useState<College[]>([]);
+  const [companies, setCompanies] = useState<Company[]>([]);
+  const [careers, setCareers] = useState<Career[]>([]);
+  const [courses, setCourses] = useState<Course[]>([]);
+
   const theme = useTheme();
   const router = useRouter();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
@@ -32,18 +53,20 @@ const CollegeFinder: React.FC = () => {
     setStreamId(newValue);
   };
 
-  const fetchStreams = async () => {
+  const fetchData = async () => {
     try {
       const response = await axios({
         method: "POST",
-        url: "https://test.careerbuddyclub.com:8080/api/students/getallstreams",
+        url: "https://test.careerbuddyclub.com:8080/api/students/getfilterationdata",
         headers: {
           Accept: "*/*",
         },
       });
-      console.log(response.data, "response");
-
-      setStreams(response?.data);
+      setStreams(response?.data?.streams);
+      setColleges(response?.data?.colleges);
+      setCompanies(response?.data?.companies);
+      setCareers(response?.data?.careers);
+      setCourses(response?.data?.courses);
     } catch (error) {
       console.error(error);
       // Handle error, e.g., set some state to show an error message
@@ -51,52 +74,8 @@ const CollegeFinder: React.FC = () => {
   };
 
   useEffect(() => {
-    fetchStreams();
+    fetchData();
   }, []);
-
-  const colleges = [
-    "Parul University",
-    "Lovely Professional University",
-    "Chandigarh University",
-    "K. R. Mangalam University",
-    "NIMS University",
-    "Lingaya's Vidyapeeth",
-    "Jagannath University, Jaipur",
-    "Jagannath University NCR Haryana",
-  ];
-
-  const companies = [
-    "Infosys",
-    "TCS",
-    "Wipro",
-    "Cognizant",
-    "Accenture",
-    "Capgemini",
-    "HCL",
-    "Tech Mahindra",
-  ];
-
-  const careers = [
-    "Software Engineer",
-    "Data Analyst",
-    "Business Analyst",
-    "Web Developer",
-    "Digital Marketing",
-    "HR",
-  ];
-
-  const courses = [
-    "B.Tech",
-    "M.Tech",
-    "BBA",
-    "MBA",
-    "B.Com",
-    "M.Com",
-    "B.Sc",
-    "M.Sc",
-    "B.A",
-    "M.A",
-  ];
 
   return (
     <div className="container mt-80">
@@ -129,7 +108,7 @@ const CollegeFinder: React.FC = () => {
             scrollButtons="auto"
             TabIndicatorProps={{ style: { backgroundColor: "#13adbd" } }}
           >
-            {streams.map((stream) => (
+            {streams?.map((stream) => (
               <Tab
                 key={stream.id}
                 label={stream.title}
@@ -175,7 +154,7 @@ const CollegeFinder: React.FC = () => {
                 <Button
                   variant="text"
                   size="small"
-                  onClick={() => router.push(`/college-details`)}
+                  onClick={() => router.push(`/find-colleges`)}
                 >
                   View All
                 </Button>
@@ -191,7 +170,7 @@ const CollegeFinder: React.FC = () => {
                     whiteSpace: "nowrap",
                   }}
                 >
-                  {colleges.map((college, index) => (
+                  {colleges?.map((college, index) => (
                     <Button
                       key={index}
                       variant="outlined"
@@ -201,9 +180,11 @@ const CollegeFinder: React.FC = () => {
                         fontSize: ".7rem",
                         whiteSpace: "nowrap",
                       }}
-                      onClick={() => router.push(`/college-details/${college}`)}
+                      onClick={() =>
+                        router.push(`/find-colleges/${college.id}`)
+                      }
                     >
-                      {college}
+                      {college.college_full_name}
                     </Button>
                   ))}
                 </Box>
@@ -254,7 +235,7 @@ const CollegeFinder: React.FC = () => {
                   <Button
                     variant="text"
                     size="small"
-                    onClick={() => router.push(`/company-details`)}
+                    onClick={() => router.push(`/find-colleges`)}
                   >
                     View All
                   </Button>
@@ -270,7 +251,7 @@ const CollegeFinder: React.FC = () => {
                       whiteSpace: "nowrap",
                     }}
                   >
-                    {companies.map((company, index) => (
+                    {companies?.map((company, index) => (
                       <Button
                         key={index}
                         variant="outlined"
@@ -281,10 +262,10 @@ const CollegeFinder: React.FC = () => {
                           whiteSpace: "nowrap",
                         }}
                         onClick={() =>
-                          router.push(`/company-details/${company}`)
+                          router.push(`/find-colleges/${company.id}`)
                         }
                       >
-                        {company}
+                        {company.name}
                       </Button>
                     ))}
                   </Box>
@@ -324,7 +305,7 @@ const CollegeFinder: React.FC = () => {
                   <Button
                     variant="text"
                     size="small"
-                    onClick={() => router.push(`/career-details`)}
+                    onClick={() => router.push(`/find-colleges`)}
                   >
                     View All
                   </Button>
@@ -340,7 +321,7 @@ const CollegeFinder: React.FC = () => {
                       whiteSpace: "nowrap",
                     }}
                   >
-                    {careers.map((career, index) => (
+                    {careers?.map((career, index) => (
                       <Button
                         key={index}
                         variant="outlined"
@@ -350,9 +331,11 @@ const CollegeFinder: React.FC = () => {
                           fontSize: ".7rem",
                           whiteSpace: "nowrap",
                         }}
-                        onClick={() => router.push(`/career-details/${career}`)}
+                        onClick={() =>
+                          router.push(`/find-colleges/${career.id}`)
+                        }
                       >
-                        {career}
+                        {career.title}
                       </Button>
                     ))}
                   </Box>
@@ -387,7 +370,7 @@ const CollegeFinder: React.FC = () => {
                 <Button
                   variant="text"
                   size="small"
-                  onClick={() => router.push(`/courses-details`)}
+                  onClick={() => router.push(`/find-colleges`)}
                 >
                   View All
                 </Button>
@@ -403,7 +386,7 @@ const CollegeFinder: React.FC = () => {
                     whiteSpace: "nowrap",
                   }}
                 >
-                  {courses.map((course, index) => (
+                  {courses?.map((course, index) => (
                     <Button
                       key={index}
                       variant="outlined"
@@ -413,9 +396,9 @@ const CollegeFinder: React.FC = () => {
                         fontSize: ".7rem",
                         whiteSpace: "nowrap",
                       }}
-                      onClick={() => router.push(`/courses-details/${course}`)}
+                      onClick={() => router.push(`/find-colleges/${course.id}`)}
                     >
-                      {course}
+                      {course.name}
                     </Button>
                   ))}
                 </Box>
