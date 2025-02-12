@@ -67,11 +67,7 @@ export default function FilterPanel() {
   const [openCategories, setOpenCategories] = useState<Set<string>>(
     new Set(["Location"])
   );
-  const [selectedFilters, setSelectedFilters] = useState<string[]>([
-    "Biotechnology Engineering",
-    "Finance",
-    "Kolkata",
-  ]);
+  const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 

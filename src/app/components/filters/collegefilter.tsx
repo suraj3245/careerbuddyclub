@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import {
   Box,
   Typography,
@@ -19,6 +19,10 @@ interface Stream {
   id: number;
   title: string;
   description: string | null;
+  colleges: College[];
+  companies: Company[];
+  careers: Career[];
+  courses: Course[];
 }
 interface College {
   id: number;
@@ -40,11 +44,6 @@ interface Course {
 const CollegeFinder: React.FC = () => {
   const [streamId, setStreamId] = useState(1);
   const [streams, setStreams] = useState<Stream[]>([]);
-  const [colleges, setColleges] = useState<College[]>([]);
-  const [companies, setCompanies] = useState<Company[]>([]);
-  const [careers, setCareers] = useState<Career[]>([]);
-  const [courses, setCourses] = useState<Course[]>([]);
-
   const theme = useTheme();
   const router = useRouter();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
@@ -53,7 +52,7 @@ const CollegeFinder: React.FC = () => {
     setStreamId(newValue);
   };
 
-  const fetchData = async () => {
+  const fetchStreams = async () => {
     try {
       const response = await axios({
         method: "POST",
@@ -63,10 +62,6 @@ const CollegeFinder: React.FC = () => {
         },
       });
       setStreams(response?.data?.streams);
-      setColleges(response?.data?.colleges);
-      setCompanies(response?.data?.companies);
-      setCareers(response?.data?.careers);
-      setCourses(response?.data?.courses);
     } catch (error) {
       console.error(error);
       // Handle error, e.g., set some state to show an error message
@@ -74,8 +69,26 @@ const CollegeFinder: React.FC = () => {
   };
 
   useEffect(() => {
-    fetchData();
+    fetchStreams();
   }, []);
+
+  // Filtered lists based on streamId
+  const colleges = useMemo(() => {
+    const selectedStream = streams.find((stream) => stream.id === streamId);
+    return selectedStream?.colleges || [];
+  }, [streamId, streams]);
+  const companies = useMemo(() => {
+    const selectedStream = streams.find((stream) => stream.id === streamId);
+    return selectedStream?.companies || [];
+  }, [streamId, streams]);
+  const careers = useMemo(() => {
+    const selectedStream = streams.find((stream) => stream.id === streamId);
+    return selectedStream?.careers || [];
+  }, [streamId, streams]);
+  const courses = useMemo(() => {
+    const selectedStream = streams.find((stream) => stream.id === streamId);
+    return selectedStream?.courses || [];
+  }, [streamId, streams]);
 
   return (
     <div className="container mt-80">
