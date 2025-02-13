@@ -13,7 +13,7 @@ type IFormData = {
   verificationCode: string;
 };
 
-const   SchoolPhoneForm = () => {
+const SchoolPhoneForm = () => {
   const [isVerificationSent, setIsVerificationSent] = useState<boolean>(false);
   const [countdown, setCountdown] = useState(30);
   const [showResend, setShowResend] = useState(false);
@@ -33,7 +33,7 @@ const   SchoolPhoneForm = () => {
     setIsVerificationSent(true);
     axios
       .post(
-       "https://test.careerbuddyclub.com:8080/api/students/loginwithphonewpotpschool",
+        "https://test.careerbuddyclub.com:8080/api/students/loginwithphonewpotpschool",
         data
       )
       .then((response) => {
@@ -80,7 +80,7 @@ const   SchoolPhoneForm = () => {
     // Set up the request options for axios
     const options = {
       method: "POST",
-      url:  "https://test.careerbuddyclub.com:8080/api/students/loginwithphoneschool", // Replace with your API's URL
+      url: "https://test.careerbuddyclub.com:8080/api/students/loginwithphoneschool", // Replace with your API's URL
       headers: {
         "Content-Type": "application/json",
       },
@@ -90,11 +90,14 @@ const   SchoolPhoneForm = () => {
     // Make the POST request using axios
     axios
       .request(options)
-      .then((response) => {        
+      .then((response) => {
         localStorage.setItem("token", response.data.access_token);
         localStorage.setItem("schoolName", response.data.details.School_name);
         localStorage.setItem("School_id", response.data.school.School_id);
-        localStorage.setItem("School_email", response.data.details.School_email);
+        localStorage.setItem(
+          "School_email",
+          response.data.details.School_email
+        );
         toast.success("Login successful 🚀", {
           position: "top-left",
           autoClose: 1000,
@@ -110,17 +113,32 @@ const   SchoolPhoneForm = () => {
         }, 1000);
       })
       .catch((error) => {
-        console.error("Registration error:", error);
-        toast.error("Unsucessful Login 😵‍💫", {
-          position: "top-left",
-          autoClose: 1000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
+        // Handle any errors here, e.g., notify the user of the failure
+        if (error?.response) {
+          // Show the message returned from the backend
+          toast.error(error?.response?.data?.message, {
+            position: "top-left",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+        } else {
+          // Handle network or other errors
+          toast.error("Something went wrong! Please try again.", {
+            position: "top-left",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+        }
       });
 
     reset();

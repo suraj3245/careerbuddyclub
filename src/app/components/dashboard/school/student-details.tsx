@@ -16,6 +16,7 @@ const StudentTable: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [isEdit, setIsEdit] = useState(false);
+  const [isEditingMobile, setIsEditingMobile] = useState(false);
   const [currentStudentId, setCurrentStudentId] = useState<number | null>(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedStudent, setSelectedStudent] = useState<any | null>(null);
@@ -54,6 +55,14 @@ const StudentTable: React.FC = () => {
   const handleShowModal = () => {
     setShowModal(true);
     setIsEdit(false);
+  };
+
+  const handleFocus = () => {
+    setIsEditingMobile(true); // Show full number when typing
+  };
+
+  const handleBlur = () => {
+    setIsEditingMobile(false); // Mask the number when losing focus
   };
 
   const fetchStudents = async () => {
@@ -530,8 +539,14 @@ const StudentTable: React.FC = () => {
                   <Form.Label>Mobile:</Form.Label>
                   <Form.Control
                     type="text"
-                    value={formData.mobile}
+                    value={
+                      isEditingMobile
+                        ? formData.mobile
+                        : formData.mobile.replace(/\d(?=\d{4})/g, "*") // Mask all but last 4 digits
+                    }
                     onChange={handleInputChange}
+                    onFocus={handleFocus}
+                    onBlur={handleBlur}
                   />
                 </Form.Group>
 

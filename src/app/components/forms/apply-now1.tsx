@@ -41,11 +41,11 @@ type IFormData = {
 const schema = Yup.object().shape({
   School_name: Yup.string().required().label("Name"),
   School_email: Yup.string().required().email().label("Email"),
-  board: Yup.string().required().email().label("board"),
+  board: Yup.string().required().label("board"),
   School_mobile: Yup.number().required().label("Phone Number"),
   verificationCode: Yup.string().required().label("Verification Code"),
-})
-const ApplyForm1 = () => {
+});
+const ApplyForm1 = ({ onSuccess }: { onSuccess: () => void }) => {
   const [showPass, setShowPass] = useState<boolean>(false);
   const [isVerificationSent, setIsVerificationSent] = useState<boolean>(false);
   const [countdown, setCountdown] = useState(30);
@@ -60,8 +60,8 @@ const ApplyForm1 = () => {
     utm_content: null,
   });
   const [levelOptions, setLevelOptions] = useState<IOption[]>([
-    { value: "11", label: "XI" },     
-    { value: "High School", label: "High School" },     
+    { value: "11", label: "XI" },
+    { value: "High School", label: "High School" },
     { value: "Intermediate", label: "Intermediate" },
   ]);
 
@@ -75,7 +75,6 @@ const ApplyForm1 = () => {
     { value: "CAIE", label: "CAIE" },
     { value: "CISCE", label: "CISCE" },
   ]);
-
 
   useEffect(() => {
     // Parse UTM parameters from the URL
@@ -109,10 +108,7 @@ const ApplyForm1 = () => {
   }) => {
     setIsVerificationSent(true);
     axios
-      .post(
-        "https://test.careerbuddyclub.com:8080/api/students/getwhatsappotp",
-        data
-      )
+      .post("https://test.careerbuddyclub.com:8080/api/students/getwhatsappotp", data)
       .then((response) => {
         toast.info("Otp sent 🚀", {
           position: "top-left",
@@ -176,45 +172,40 @@ const ApplyForm1 = () => {
       data: payload,
     };
     axios
-    .request(options)
-    .then((response: any) => {    
-      localStorage.setItem("token", response.data.access_token);
-      localStorage.setItem("schoolName", response.data.school.School_name);
-      localStorage.setItem("School_id", response.data.school.School_id);
-      console.log('response', response);
-      console.log("Registration successful", response.data);
-      console.log("Form Data:", payload);
-      toast.success("Registration Successfull", {
-        position: "top-left",
-        autoClose: 1000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
+      .request(options)
+      .then((response: any) => {
+        onSuccess();
+        toast.success(
+          "Registration Successfull, Your request will be processed within 24 hours",
+          {
+            position: "top-left",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          }
+        );
+      })
+      .catch((error) => {
+        let errorMessage = "Registration Failed 😵‍💫";
+        if (error.response && error.response.data) {
+          // Customize error message based on server response
+          errorMessage = error.response.data.message || errorMessage;
+        }
+        toast.error(errorMessage, {
+          position: "top-left",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
       });
-      setTimeout(() => {
-        window.location.href = "/dashboard/school-dashboard/dashboard";
-      }, 1000);
-    })
-    .catch((error) => {
-      let errorMessage = "Registration Failed 😵‍💫";
-      if (error.response && error.response.data) {
-        // Customize error message based on server response
-        errorMessage = error.response.data.message || errorMessage;
-      }
-      toast.error(errorMessage, {
-        position: "top-left",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
-    });
     reset();
   };
 
@@ -301,7 +292,6 @@ const ApplyForm1 = () => {
                   borderRadius: "5px",
                   cursor: "pointer",
                 }}
-
               >
                 {!isVerificationSent
                   ? "Whatsapp OTP"
@@ -340,7 +330,7 @@ const ApplyForm1 = () => {
           </div>
         )}
 
-       {/* <div className="col-12">
+        {/* <div className="col-12">
           <div className="input-group-meta position-relative mb-15">
             <input
               type="text"
@@ -387,7 +377,6 @@ const ApplyForm1 = () => {
             </div>
           </div>
         </div>
-
 
         <div className="col-12">
           <div className="input-group-meta position-relative mb-15">

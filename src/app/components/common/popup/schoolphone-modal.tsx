@@ -1,5 +1,6 @@
 import React from "react";
 import SchoolLoginForm from "../../forms/schoollogin-form";
+
 const SchoolPhoneFormModal = () => {
   return (
     <div
@@ -18,7 +19,7 @@ const SchoolPhoneFormModal = () => {
               aria-label="Close"
             ></button>
             <div className="text-center p-2">
-              <h2 style={{color: "rgb(20, 173, 189)"}}>Hi, Welcome Back!</h2>
+              <h2 style={{ color: "rgb(20, 173, 189)" }}>Hi, Welcome Back!</h2>
             </div>
             <div className="form-wrapper m-auto">
               <SchoolLoginForm />
