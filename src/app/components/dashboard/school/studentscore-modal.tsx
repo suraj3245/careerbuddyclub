@@ -237,20 +237,20 @@ const StudentScoreModal: React.FC<StudentScoreModalProps> = ({
                 >
                   <div className="d-flex align-items-center justify-content-between">
                     <div className="text-center" style={{ flex: 1 }}>
-                      <h2 className="mb-4 pb-6" style={{ fontSize: "40px" }}>
+                      <h2 className="mb-4 pb-6" style={{ fontSize: "28px" }}>
                         Career Aptitude Test
                       </h2>
                       {/* Centered Header */}
                     </div>
                   </div>
                   <div className="text-center">
-                    <h2 className="mb-6 pb-20" style={{ fontSize: "30px" }}>
+                    <h2 className="mb-6 pb-20" style={{ fontSize: "23px" }}>
                       Quiz Results of {student?.name}
                     </h2>
                     {/* Display the results here using the `results` state */}
 
-                    <div className="row">
-                      <div className="chart-container  col-12 col-md-8">
+                    <div className="row d-flex justify-content-center">
+                      <div className="chart-container col-lg-8 col-md-12">
                         {results && (
                           <ReactApexChart
                             options={chartData.options}
@@ -261,7 +261,7 @@ const StudentScoreModal: React.FC<StudentScoreModalProps> = ({
                           />
                         )}
                       </div>
-                      <div className="top-scores col-12 col-md-4">
+                      <div className="top-scores col-lg-4 col-md-6">
                         <h3>Top Scores</h3>
                         {getTopThreeScores().map((result, index) => (
                           <p

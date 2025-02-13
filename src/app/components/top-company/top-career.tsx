@@ -61,7 +61,7 @@ const TopCareer: React.FC<TopCareerProps> = ({ topCategories }) => {
     topCategories.includes(item.name)
   );
   const headingStyle = {
-    fontSize: "24px", // Adjust this value as needed
+    fontSize: "19px", // Adjust this value as needed
     fontWeight: "bold",
   };
 
@@ -73,14 +73,14 @@ const TopCareer: React.FC<TopCareerProps> = ({ topCategories }) => {
   };
   return (
     <section
-      className="top-company-section pt-20 lg-pt-20 pb-30 lg-pb-20 mt-20 xl-mt-20 mb-50 px-5 lg-px-5 rounded-5"
+      className="top-company-section rounded-5"
       style={{ backgroundColor: "#13adbd" }}
     >
       <div className="container">
         <div className="row justify-content-center align-items-center">
             <div className="title-one">
               <h2
-                className="main-font wow fadeInUp text-white text-uppercase"
+                className="main-font wow fadeInUp text-white text-uppercase mt-2"
                 data-wow-delay="0.3s"
                 style={headingStyle}
               >
@@ -89,10 +89,10 @@ const TopCareer: React.FC<TopCareerProps> = ({ topCategories }) => {
             </div>
         </div>
 
-        <div className="row">
+        <div className="container-fluid d-flex justify-content-between align-items-center flex-wrap mt-2" style={{marginBottom: '60px'}}>
           {filteredCompanyData.map((item) => (
-            <div key={item.id} className="col-lg-4 col-md-6 col-sm-6">
-              <div className="card-style-nine text-center tran3s mt-20 wow fadeInUp rounded-5">
+            <div key={item.id} className="col-lg-3 col-md-12 col-sm-12 mb-4">
+              <div className="card-style-nine text-center tran2s wow fadeInUp rounded-5">
                 <Image
                   src={item.icon}
                   alt="logo"
