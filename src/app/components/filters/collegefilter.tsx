@@ -14,24 +14,20 @@ import {
 } from "@mui/material";
 import { useRouter } from "next/navigation";
 import axios from "axios";
-
 interface Stream {
   id: number;
   title: string;
   description: string | null;
 }
-
 const CollegeFinder: React.FC = () => {
   const [streamId, setStreamId] = useState(1);
   const [streams, setStreams] = useState<Stream[]>([]);
   const theme = useTheme();
   const router = useRouter();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
-
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setStreamId(newValue);
   };
-
   const fetchStreams = async () => {
     try {
       const response = await axios({
@@ -41,8 +37,6 @@ const CollegeFinder: React.FC = () => {
           Accept: "*/*",
         },
       });
-      console.log(response.data, "response");
-
       setStreams(response?.data);
     } catch (error) {
       console.error(error);
