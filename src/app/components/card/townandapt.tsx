@@ -1,10 +1,10 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import img2 from "@/assets/images/assets/test.png";
-import img1 from "@/assets/images/assets/test2.png";
+import img2 from "@/assets/images/assets/test.webp";
+import img1 from "@/assets/images/assets/test2.webp";
 import img3 from "@/assets/images/assets/test4.webp";
-import img4 from "@/assets/images/assets/test-7.png";
+import img4 from "@/assets/images/assets/test-7.webp";
 import { StaticImageData } from "next/image";
 
 interface CardProps {
@@ -86,16 +86,16 @@ const FlipCardone: React.FC = () => {
     width: "100%",
     height: "600px",
     cursor: "pointer",
-    margin: isMobile ? "20px 0" : "0 20px", // Adjust the margin for space between cards
+    margin: isMobile ? "20px 0" : "0 20px", 
   };
 
   const cardsContainerStyle: React.CSSProperties = {
     display: "flex",
     flexDirection: isMobile ? "column" : "row",
-    justifyContent: "space-between", // Ensure equal spacing between cards
+    justifyContent: "space-between", 
     alignItems: "center",
-    width: isMobile ? "100%" : "90%", // Control width of container on different screen sizes
-    margin: "0 auto", // Center the cards in the container
+    width: isMobile ? "100%" : "90%", 
+    margin: "0 auto", 
     height: isMobile ? "1200px" : "100vh",
   };
 
@@ -103,7 +103,7 @@ const FlipCardone: React.FC = () => {
     textDecoration: "none",
     color: "inherit",
     display: "block",
-    width: isMobile ? "100%" : "45%", // Set card width based on screen size
+    width: isMobile ? "100%" : "45%", 
   };
 
   return (
