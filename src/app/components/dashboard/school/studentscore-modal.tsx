@@ -93,7 +93,7 @@ const StudentScoreModal: React.FC<StudentScoreModalProps> = ({
 
     try {
       const response = await axios.request(options);
-      const resultData = response.data;
+      const resultData = response.data;      
       setResults(resultData);
     } catch (error) {
       console.error("Error fetching cat result:", error);
