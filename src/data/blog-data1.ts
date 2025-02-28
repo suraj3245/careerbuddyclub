@@ -13,7 +13,7 @@ import blog_up_neet from "@/assets/images/blog/blog_img_37.jpg";
 import blog_launchpad_tosuccess from "@/assets/images/blog/blog_img_38.webp";
 import blog_img_firstAidDay from "@/assets/images/blog/blog_img_39.jpg";
 const blog_data: IBlogDataType[] = [
-  // blog one
+  // blog one 
   {
     id: 1,
     img: blog_3,

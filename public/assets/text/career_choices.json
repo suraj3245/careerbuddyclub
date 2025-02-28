@@ -13275,6 +13275,219 @@
       ]
     }
   ],
+  "RSC": [
+    {
+      "Research letter": "RSE",
+      "Career": "Home Health Aides",
+      "Domain": "Certificate or Diploma in Home Health Aide Training, Geriatric Care, Nursing Assistance, or Patient Care.",
+      "Package": {
+        "Freshers": "₹1.5 - 3 lakhs per annum",
+        "Experienced Professionals": "₹3.5 - 5 lakhs per annum."
+      },
+      "Companies": ["Portea Medical", "Nightingales Home Health Services", "Apollo HomeCare"],
+      "Skills": [
+        "Knowledge of basic medical care and hygiene practices.",
+        "Strong interpersonal and communication skills.",
+        "Ability to assist with daily activities such as bathing, dressing, and mobility."
+      ]
+    },
+    {
+      "Research letter": "RSE",
+      "Career": "Personal Care Aides",
+      "Domain": "Certificate or Diploma in Personal Care Assistance, Geriatric Care, Disability Support, or Patient Care Services.",
+      "Package": {
+        "Freshers": "₹1.2 - 2.5 lakhs per annum",
+        "Experienced Professionals": "₹2.5 - 4.5 lakhs per annum."
+      },  
+      "Companies": ["Portea Medical", "Care24", "India Home Healthcare"],
+      "Skills": [
+        "Ability to assist with daily living activities, including grooming, bathing, and meal preparation",
+        "Strong empathy, patience, and communication skills.",
+        "Knowledge of basic first aid and hygiene practices."
+      ]
+    },
+    {
+      "Research letter": "RSE",
+      "Career": "Radiation Therapists",
+      "Domain": "B.Sc. & M.Sc. in Radiation Therapy Technology, Medical Radiation Physics, or allied healthcare fields.",
+      "Package": {
+        "Freshers": "₹3 - 5 lakhs per annum",
+        "Experienced Professionals": "₹6 - 12 lakhs per annum."
+      },  
+      "Companies": ["Apollo Hospitals", "Fortis Healthcare", "Max Healthcare"],
+      "Skills": [
+        "Proficiency in operating radiation therapy equipment and software.",
+        "In-depth knowledge of human anatomy, oncology, and radiation safety protocols.",
+        "Strong interpersonal skills for patient care and collaboration with medical teams"
+      ]
+    },
+    {
+      "Research letter": "RSE",
+      "Career": "Skincare Specialists",
+      "Domain": "Diploma or Certification in Cosmetology, Aesthetic Dermatology, Skincare Therapy, or Beauty and Wellness.",
+      "Package": {
+        "Freshers": "₹2 - 4 lakhs per annum",
+        "Experienced Professionals": "₹5 - 10 lakhs per annum."
+      },  
+      "Companies": ["Kaya Skin Clinic", "VLCC", "Enrich Salon"],
+      "Skills": [
+        "Expertise in skin analysis and recommending suitable treatments or products.",
+        "Proficiency in performing facial treatments, chemical peels, and other skincare therapies.",
+        "Strong interpersonal skills and knowledge of hygiene and safety practices."
+      ]
+    },
+    {
+      "Research letter": "RSE",
+      "Career": "Surgical Assistants",
+      "Domain": "Diploma or Certification in Surgical Assistance, Operation Theatre Technology, or allied healthcare programs.",
+      "Package": {
+        "Freshers": "₹3 - 5 lakhs per annum",
+        "Experienced Professionals": "₹6 - 10 lakhs per annum."
+      },  
+      "Companies": ["Apollo Hospitals", "Fortis Healthcare", "Manipal Hospitals"],
+      "Skills": [
+        "Proficiency in sterilizing surgical instruments and maintaining a sterile environment.",
+        "Knowledge of assisting during surgical procedures and understanding anatomy.",
+        "Strong attention to detail and the ability to work effectively in high-pressure environments"
+      ]
+    },
+    {
+      "Research letter": "RSE",
+      "Career": "Surgical Technologists",
+      "Domain": "Diploma or Certification in Surgical Assistance, Operation Theatre Technology, or allied healthcare programs.",
+      "Package": {
+        "Freshers": "₹3 - 5 lakhs per annum",
+        "Experienced Professionals": "₹6 - 10 lakhs per annum."
+      },  
+      "Companies": ["Apollo Hospitals", "Fortis Healthcare", "Manipal Hospitals"],
+      "Skills": [
+        "Proficiency in sterilizing surgical instruments and maintaining a sterile environment.",
+        "Knowledge of assisting during surgical procedures and understanding anatomy.",
+        "Strong attention to detail and the ability to work effectively in high-pressure environments"
+      ]
+    },
+    {
+      "Research letter": "RSE",
+      "Career": "Dental Hygienists",
+      "Domain": "Diploma or Bachelor’s Degree in Dental Hygiene, Oral Health, or Dental Therapy.",
+      "Package": {
+        "Freshers": "₹2.5 - 4.5 lakhs per annum",
+        "Experienced Professionals": "₹5 - 8 lakhs per annum."
+      },  
+      "Companies": ["Clove Dental", "Apollo White Dental", "Manipal Hospitals"],
+      "Skills": [
+        "Expertise in cleaning teeth, removing plaque, and performing preventive oral care.",
+        "Knowledge of dental health education and promoting good oral hygiene practices.",
+        "Proficiency in using dental tools and maintaining patient comfort during procedures."
+      ]
+    },
+    {
+      "Research letter": "RSE",
+      "Career": "Dietetic Technicians",
+      "Domain": "Diploma or Bachelor’s Degree in Nutrition and Dietetics, Food Science, or Dietetic Technology.",
+      "Package": {
+        "Freshers": "₹2 - 4 lakhs per annum",
+        "Experienced Professionals": "₹5 - 8 lakhs per annum."
+      },  
+      "Companies": ["HealthifyMe", "Apollo Hospitals", "Fortis Healthcare"],
+      "Skills": [
+        "Knowledge of meal planning and nutritional assessments for individuals and groups.",
+        "Ability to assist dietitians in developing and implementing dietary programs.",
+        "Strong understanding of food safety, portion control, and patient-specific dietary needs."
+      ]
+    },
+    {
+      "Research letter": "RSE",
+      "Career": "Emergency Medical Technicians",
+      "Domain": "Diploma or Certification in Emergency Medical Technology, Paramedical Science, or Pre-Hospital Care.",
+      "Package": {
+        "Freshers": "₹2.5 - 4.5 lakhs per annum",
+        "Experienced Professionals": "₹5 - 8 lakhs per annum."
+      },  
+      "Companies": ["Ziqitza Health Care Limited", "Apollo Hospitals Emergency Services", "GVK Emergency Management and Research Institute (EMRI)"],
+      "Skills": [
+        "Proficiency in providing immediate medical care, including CPR and first aid.",
+        "Ability to operate and manage emergency medical equipment effectively.",
+        "Strong decision-making skills and calmness under high-pressure situations."
+      ]
+    },
+    {
+      "Research letter": "RSE",
+      "Career": "Licensed Practical and Licensed Vocational Nurses",
+      "Domain": "Diploma in Practical Nursing or Vocational Nursing, Certification in Nursing Care, or Allied Health Sciences.",
+      "Package": {
+        "Freshers": "₹2.5 - 4 lakhs per annum",
+        "Experienced Professionals": "₹5 - 8 lakhs per annum."
+      },  
+      "Companies": ["Apollo Hospitals", "Fortis Healthcare", "Max Healthcare"],
+      "Skills": [
+        "Proficiency in providing basic patient care, including monitoring vital signs and administering medications.",
+        "Ability to assist doctors and registered nurses during medical procedures.",
+        "Strong communication skills for interacting with patients and their families."
+      ]
+    },
+    {
+      "Research letter": "RSE",
+      "Career": "Massage Therapists",
+      "Domain": "Diploma or Certification in Massage Therapy, Spa Therapy, or Alternative Medicine.",
+      "Package": {
+        "Freshers": "₹2 - 3.5 lakhs per annum",
+        "Experienced Professionals": "₹4 - 7 lakhs per annum."
+      },  
+      "Companies": ["O2 Spa", "The Four Fountains Spa", "Banyan Tree Spa"],
+      "Skills": [
+        "Proficiency in various massage techniques such as Swedish, Deep Tissue, and Aromatherapy.",
+        "Knowledge of anatomy and physiology to address client needs effectively.",
+        "Strong interpersonal skills to provide a comfortable and relaxing environment for clients."
+      ]
+    },
+    {
+      "Research letter": "RSE",
+      "Career": "Nursing Assistants",
+      "Domain": "Diploma or Certification in Nursing Assistance, Geriatric Care, or Patient Care.",
+      "Package": {
+        "Freshers": "₹2 - 3.5 lakhs per annum",
+        "Experienced Professionals": "₹4 - 6 lakhs per annum."
+      },  
+      "Companies": ["Apollo Hospitals", "Fortis Healthcare", "Max Healthcare"],
+      "Skills": [
+        "Proficiency in assisting with basic patient care, including bathing, feeding, and mobility.",
+        "Knowledge of medical terminology and ability to assist in basic medical procedures.",
+        "Strong interpersonal skills to provide a comfortable and relaxing environment for clients."
+      ]
+    },
+    {
+      "Research letter": "RSE",
+      "Career": "Occupational Therapy Aides",
+      "Domain": "Diploma or Certification in Occupational Therapy Assistance, Rehabilitation Therapy, or allied healthcare programs.",
+      "Package": {
+        "Freshers": "₹2 - 3.5 lakhs per annum",
+        "Experienced Professionals": "₹4 - 6 lakhs per annum."
+      },  
+      "Companies": ["Apollo Hospitals", "Fortis Healthcare", "Care Institute of Rehabilitation"],
+      "Skills": [
+        "Ability to assist occupational therapists in implementing therapeutic activities.",
+        "Knowledge of basic rehabilitation techniques and therapeutic equipment.",
+        "Strong interpersonal skills to support patients with physical or developmental challenges."
+      ]
+    },
+    {
+      "Research letter": "RSE",
+      "Career": "Paramedic",
+      "Domain": "Diploma or Certification in Emergency Medical Services, Paramedical Science, or Pre-Hospital Care.",
+      "Package": {
+        "Freshers": "₹2.5 - 4 lakhs per annum",
+        "Experienced Professionals": "₹5 - 8 lakhs per annum."
+      },  
+      "Companies": ["Ziqitza Health Care Limited", "GVK EMRI (Emergency Management and Research Institute)", "Apollo Hospitals"],
+      "Skills": [
+        "Proficiency in emergency medical care, including CPR, first aid, and trauma care.",
+        "Knowledge of operating medical equipment like defibrillators and patient monitoring devices.",
+        "Ability to remain calm and make quick decisions in high-pressure emergency situations."
+      ]
+    }
+  ],
+
   "SAE": [
     {
       "Research letter": "SAE",
@@ -14017,6 +14230,341 @@
         "Strong analytical and critical thinking skills",
         "In-depth knowledge of Indian law and judicial processes",
         "Excellent written and verbal communication skills"
+      ]
+    }
+  ],
+  "AEC": [
+    {
+      "Research letter": "AEC",
+      "Career": "Public Relations Specialists",
+      "Domain": "B.A. in Public Relations, B.A. in Mass Communication, M.A. in Public Relations, Diploma in Public Relations and Corporate Communication, B.Com. in Marketing and Public Relations, M.Sc. in Media Studies, Certificate in Public Relations, BBA in Public Relations, M.A. in Communication Management, PG Diploma in Public Relations",
+      "Package": {
+        "Freshers": "₹3 - 6 lakhs per annum",
+        "Experienced Professionals": "₹10 - 25 lakhs per annum (varies based on experience and organization)"
+      },
+      "Companies": ["Adfactors PR", "Edelman" , "Weber Shandwick"],
+      "Skills": [
+        "Excellent communication and media relations skills",
+        "Strategic thinking and crisis management abilities",
+        "Strong writing and content creation skills"
+      ]
+    },
+    {
+      "Research letter": "AEC",
+      "Career": "Talent Directors",
+      "Domain": "B.A. in Theatre Arts, B.A. in Film Studies, Diploma in Acting and Direction, M.A. in Drama and Theatre Studies, B.Sc. in Performing Arts, M.A. in Film Direction, B.A. in Performing Arts (Specialization in Direction), PG Diploma in Direction and Production, B.F.A. in Theatre Production, M.A. in Arts Management",
+      "Package": {
+        "Freshers": "₹4 - 7 lakhs per annum",
+        "Experienced Professionals": "₹15 - 35 lakhs per annum (varies based on experience and organization)"
+      },
+      "Companies": ["Yash Raj Films", "Dharma Productions" , "Balaji Telefilms"],
+      "Skills": [
+        "Strong understanding of talent management and casting processes",
+        "Excellent networking and interpersonal skills",
+        "Creative vision and ability to assess talent potential"
+      ]
+    },
+    {
+      "Research letter": "AEC",
+      "Career": "Advertising and Promotions Managers",
+      "Domain": "BBA & MBA/ B.A & M.A in Marketing or Advertising, Mass Communication or Advertising, Post Graduate Diploma in Advertising and Public Relations",
+      "Package": {
+        "Freshers": "₹4 - 7 lakhs per annum",
+        "Experienced Professionals": "₹8 - 20 lakhs per annum (varies based on experience and organization)"
+      },
+      "Companies": ["Ogilvy India", "DDB Mudra Group" , "Wunderman Thompson India"],
+      "Skills": [
+        "Strong communication and interpersonal skills",
+        "Creative thinking and problem-solving abilities",
+        "Proficiency in digital marketing and advertising tools"
+      ]
+    },
+    {
+      "Research letter": "AEC",
+      "Career": "Advertising Sales Agents",
+      "Domain": "BBA & MBA/ B.A & M.A in Marketing or Sales, Mass Communication or Advertising, Post Graduate Diploma in Advertising and Marketing Communication",
+      "Package": {
+        "Freshers": "₹3 - 5 lakhs per annum",
+        "Experienced Professionals": "₹6 - 12 lakhs per annum (depending on expertise and project scale)"
+      },
+      "Companies": ["Times Group", "Hindustan Times Media" , "Network18"],
+      "Skills": [
+        "Strong sales and negotiation skills",
+        "Excellent communication and presentation abilities",
+        "Knowledge of advertising platforms and market trends"
+      ]
+    },
+    {
+      "Research letter": "AEC",
+      "Career": "Media Programming Directors",
+      "Domain": "B.A & M.A/B.Sc & M.Sc./ BBA & MBA in Mass Communication or Media Studies, Media and Communication or Digital Media, Media Management,  Media and Entertainment Management, Post Graduate Diploma in Radio and TV Production",
+      "Package": {
+        "Freshers": "₹4 - 6 lakhs per annum",
+        "Experienced Professionals": "₹10 - 20 lakhs per annum (depending on expertise and project scale)"
+      },
+      "Companies": ["Zee Entertainment Enterprises", "Sony Pictures Networks India" , "Star India (The Walt Disney Company India)"],
+      "Skills": [
+        "Strong understanding of media content and audience engagement",
+        "Excellent leadership and team management skills",
+        "Proficiency in programming software and analytics tools"
+      ]
+    },
+    {
+      "Research letter": "AEC",
+      "Career": "Art Directors",
+      "Domain": "B.Des. in Graphic Design or BFA (Bachelor of Fine Arts) in Applied Arts.",
+      "Package": {
+        "Freshers": "₹8 - 12 lakhs per annum",
+        "Experienced Professionals": "₹20 - 40 lakhs per annum  (varies based on seniority and industry)"
+      },
+      "Companies": ["Ogilvy", "DDB Mudra" , "Leo Burnett"],
+      "Skills": [
+        "Creative and conceptual thinking",
+        "Team leadership and collaboration",
+        "Expertise in visual design software (e.g., Adobe Creative Suite)"
+      ]
+    },
+    {
+      "Research letter": "AEC",
+      "Career": "Music Directors and Composers",
+      "Domain": "B.A. in Music or B.F.A. in Music Composition.",
+      "Package": {
+        "Freshers": "₹6 - 10 lakhs per annum",
+        "Experienced Professionals": "₹20 - 40 lakhs per annum  (varies based on seniority and industry)"
+      },
+      "Companies": ["T series", "Sony Music India" , "Yash Raj Films"],
+      "Skills": [
+        "Music composition and arrangement",
+        "Knowledge of digital audio workstations (DAWs)",
+        "Collaboration with musicians and producers"
+      ]
+    },
+    {
+      "Research letter": "AEC",
+      "Career": "Musicians and Singers",
+      "Domain": "B.A. in Performing Arts or B.F.A. in Music.",
+      "Package": {
+        "Freshers": "₹5 - 10 lakhs per annum",
+        "Experienced Professionals": "₹20 - 50 lakhs per annum  (varies based on popularity and contracts)"
+      },
+      "Companies": ["Saregama India", "Zee Music Company" , "Universal Music India"],
+      "Skills": [
+        "Vocal or instrumental proficiency",
+        "Stage presence and performance skills",
+        "Ability to collaborate with producers and musicians"
+      ]
+    },
+    {
+      "Research letter": "AEC",
+      "Career": "Producers and Directors",
+      "Domain": "B.A. in Film and Television Production.",
+      "Package": {
+        "Freshers": "₹12 - 15 lakhs per annum",
+        "Experienced Professionals": "₹25 - 50 lakhs per annum (varies based on seniority and project scale)"
+      },
+      "Companies": ["Dharma Productions", "Yash Raj Films" , "Balaji Telefilms"],
+      "Skills": [
+        "Strong creative vision and storytelling abilities",
+        "Leadership and team management",
+        "Knowledge of film, television, or multimedia production processes"
+      ]
+    },
+    {
+      "Research letter": "AEC",
+      "Career": "Writers and Authors",
+      "Domain": "B.A. in Creative Writing and English Literature.",
+      "Package": {
+        "Freshers": "₹12 - 15 lakhs per annum",
+        "Experienced Professionals": "₹25 - 50 lakhs per annum (varies based on experience and publication success)"
+      },
+      "Companies": ["Penguin Random House", "HarperCollins" , "Hachette India"],
+      "Skills": [
+        "Strong writing and storytelling abilities",
+        "Creativity and originality",
+        "Research and editing skills"
+      ]
+    },
+    {
+      "Research letter": "AEC",
+      "Career": "Editors",
+      "Domain": "B.A & M.A in English Literature or Journalism, Mass Communication or Media Studies, BJMC, MJMC, Post Graduate Diploma in Editing and Publishing",
+      "Package": {
+        "Freshers": "₹3 - 5 lakhs per annum",
+        "Experienced Professionals": "₹6 - 15 lakhs per annum"
+      },
+      "Companies": ["The Times Group", "Penguin Random House India" , "Hindustan Times"],
+      "Skills": [
+        "Strong grammar and language proficiency",
+        "Attention to detail",
+        "Editing and proofreading skills"
+      ]
+    },
+    {
+      "Research letter": "AEC",
+      "Career": "News Analysts, Reporters, and Journalists",
+      "Domain": "B.A & M.A/ B.Sc. & M.Sc. in Journalism and Mass Communication,  Mass Communication, Media Studies, Post Graduate Diploma in Journalism",
+      "Package": {
+        "Freshers": "₹2.5 - 5 lakhs per annum",
+        "Experienced Professionals": "₹6 - 15 lakhs per annum (depending on role and experience level)"
+      },
+      "Companies": ["Times of India Group", "NDTV (New Delhi Television)" , "The Hindu"],
+      "Skills": [
+        "Strong communication and writing skills",
+        "Analytical thinking and research abilities",
+        "Adaptability to work in high-pressure environments"
+      ]
+    },
+    {
+      "Research letter": "AEC",
+      "Career": "Video Game Designers",
+      "Domain": "B.Sc. & M.Sc./B.A & M.A in Game Design and Development, Game Art and Design, Animation and Multimedia, Post Graduate Diploma in Game Development",
+      "Package": {
+        "Freshers": "₹3 - 6 lakhs per annum",
+        "Experienced Professionals": "₹8 - 20 lakhs per annum (depending on experience and project portfolio)."
+      },
+      "Companies": ["Ubisoft India", "Rockstar Games India" , "Nazara Technologies"],
+      "Skills": [
+        "Creative storytelling and game design concepts",
+        "Proficiency in software like Unity and Unreal Engine",
+        "Strong problem-solving and analytical thinking skills"
+      ]
+    }
+  ],
+
+  "CAE": [
+    {
+      "Research letter": "CAE",
+      "Career": "Editors",
+      "Domain": "B.A & M.A in English Literature or Journalism, Mass Communication or Media Studies, BJMC, MJMC, Post Graduate Diploma in Editing and Publishing",
+      "Package": {
+        "Freshers": "₹3 - 5 lakhs per annum",
+        "Experienced Professionals": "₹6 - 15 lakhs per annum."
+      },
+      "Companies": ["The Times Group", "Penguin Random House India" , "Hindustan Times"],
+      "Skills": [
+        "Strong grammar and language proficiency",
+        "Attention to detail",
+        "Editing and proofreading skills"
+      ]
+    },
+    {
+      "Research letter": "CAE",
+      "Career": "Film and Video Editors",
+      "Domain": "B.A.& M.A in Film and Television Production, B.Sc. & M.Sc. in Multimedia and Animation, BFA, MFA, Post Graduate Diploma in Film Editing, Diploma in Digital Video Editing",
+      "Package": {
+        "Freshers": "₹3 - 6 lakhs per annum",
+        "Experienced Professionals": "₹8 - 20 lakhs per annum."
+      },
+      "Companies": ["Yash Raj Films", "Red Chillies Entertainment" , "Zee Studios"],
+      "Skills": [
+        "Proficiency in video editing software",
+        "Creative storytelling",
+        "Attention to detail and timing"
+      ]
+    },
+    {
+      "Research letter": "CAE",
+      "Career": "Interpreters and Translators",
+      "Domain": "B.A & M.A in Foreign Languages, English or Regional Languages, Translation Studies, Linguistics, Postgraduate Diploma in Translation and Interpretation",
+      "Package": {
+        "Freshers": "₹2 - 5 lakhs per annum",
+        "Experienced Professionals": "₹6 - 15 lakhs per annum."
+      },
+      "Companies": ["Lionbridge Technologies", "TransPerfect" , "SDL (RWS Group)"],
+      "Skills": [
+        "Proficiency in multiple languages",
+        "Strong understanding of cultural nuances.",
+        "Excellent listening and communication skills"
+      ]
+    },
+    {
+      "Research letter": "CAE",
+      "Career": "Proofreaders and Copy Markers",
+      "Domain": "B.A & M.A in English Literature, Journalism, Mass Communication or Media Studies, Post Graduate Diploma in Editing and Publishing",
+      "Package": {
+        "Freshers": "₹2 - 4 lakhs per annum",
+        "Experienced Professionals": "₹5 - 10 lakhs per annum."
+      },
+      "Companies": ["Times Group", "Hindustan Times" , "Nielsen"],
+      "Skills": [
+        "Attention to detail",
+        "Strong command of grammar and style",
+        "Ability to work under tight deadlines"
+      ]
+    },
+    {
+      "Research letter": "CAE",
+      "Career": "Technical Writers",
+      "Domain": "B.A & M.A/ B.Sc. & M.Sc. in English or Communication,  Technical Communication or Information Technology, Post Graduate Diploma in Technical Writing",
+      "Package": {
+        "Freshers": "₹3 - 5 lakhs per annum",
+        "Experienced Professionals": "₹6 - 12 lakhs per annum."
+      },
+      "Companies": ["TCS (Tata Consultancy Services)", "Infosys" , "Accenture"],
+      "Skills": [
+        "Excellent writing and communication skills",
+        "Proficiency in technical documentation tools (e.g., MadCap Flare, Adobe FrameMaker)",
+        "Strong analytical and research skills"
+      ]
+    },
+    {
+      "Research letter": "CAE",
+      "Career": "Web and Digital Interface Designers",
+      "Domain": "B.Des & M.Des/ B.Tech & M.Tech/ B.Sc. & M.Sc. in User Experience Design or Communication Design, Multimedia and Web Design, Computer Science and Engineering (Specialization in Web Development).",
+      "Package": {
+        "Freshers": "₹3 - 6 lakhs per annum",
+        "Experienced Professionals": "₹7 - 15 lakhs per annum."
+      },
+      "Companies": ["Wipro", "Infosys" , "HCL Technologies"],
+      "Skills": [
+        "Proficiency in design software (e.g., Adobe XD, Figma)",
+        "Strong understanding of user experience (UX) and user interface (UI) principles.",
+        "Ability to create responsive designs for various devices"
+      ]
+    },
+    {
+      "Research letter": "CAE",
+      "Career": "Advertising and Promotions Managers",
+      "Domain": "BBA & MBA/ B.A & M.A in Marketing or Advertising, Mass Communication or Advertising, Post Graduate Diploma in Advertising and Public Relations",
+      "Package": {
+        "Freshers": "₹4 - 7 lakhs per annum",
+        "Experienced Professionals": "₹8 - 20 lakhs per annum."
+      },
+      "Companies": ["Ogilvy India", "DDB Mudra Group" , "Wunderman Thompson India"],
+      "Skills": [
+        "Strong communication and interpersonal skills",
+        "Creative thinking and problem-solving abilities",
+        "Proficiency in digital marketing and advertising tools"
+      ]
+    },
+    {
+      "Research letter": "CAE",
+      "Career": "Advertising Sales Agents",
+      "Domain": "BBA & MBA/ B.A & M.A in Marketing or Sales, Mass Communication or Advertising, Post Graduate Diploma in Advertising and Marketing Communication.",
+      "Package": {
+        "Freshers": "₹3 - 5 lakhs per annum",
+        "Experienced Professionals": "₹6 - 12 lakhs per annum."
+      },
+      "Companies": ["Times Group", "Hindustan Times Media" , "Network18"],
+      "Skills": [
+        "Strong sales and negotiation skills ",
+        "Excellent communication and presentation abilities",
+        "Knowledge of advertising platforms and market trends"
+      ]
+    },
+    {
+      "Research letter": "CAE",
+      "Career": "Media Programming Directors",
+      "Domain": "B.A & M.A/B.Sc & M.Sc./ BBA & MBA in Mass Communication or Media Studies, Media and Communication or Digital Media, Media Management,  Media and Entertainment Management, Post Graduate Diploma in Radio and TV Production",
+      "Package": {
+        "Freshers": "₹4 - 6 lakhs per annum",
+        "Experienced Professionals": "₹10 - 20 lakhs per annum."
+      },
+      "Companies": ["Zee Entertainment Enterprises", "Sony Pictures Networks India" , "Star India (The Walt Disney Company India)"],
+      "Skills": [
+        "Strong understanding of media content and audience engagement",
+        "Excellent leadership and team management skills",
+        "Proficiency in programming software and analytics tools"
       ]
     }
   ]
