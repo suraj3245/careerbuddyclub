@@ -88,7 +88,7 @@ const VideoCard: React.FC<VideoCardProps> = ({ videoId }) => {
     right: "10px", // To account for the padding on the container
     width: "calc(100% - 20px)", // Subtracting the left and right padding
     height: "100%",
-    border: "0", // If you prefer no border
+    border: "0", 
   };
 
   return (

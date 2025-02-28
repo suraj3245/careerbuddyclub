@@ -21,6 +21,9 @@ const menu_data: IMenuData[] = [
           { title: "UPES Dehradun", link: "/college-details/UPES-dehradun" },
           { title: "Uttaranchal University", link: "/college-details/Uttaranchal-University" }, 
           { title: "JBIT Dehradun", link: "/college-details/JBIT-Dehradun" },
+          {title: "UDMRI Dehradun", link:"/college-details/UDMRI-Dehradun" },
+          {title:"VMM Dehradun" , link:"/college-details/VMM-Dehradun"},
+          
         ],
        
       },

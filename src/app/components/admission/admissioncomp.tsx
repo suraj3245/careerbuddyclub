@@ -9,7 +9,6 @@ import PartnersSlider2 from "../partners/partners-slider2";
 import { string } from "yup";
 import FeatureThirteen from "../features/feature-thirteen";
 import ExpertsOne from "../experts/experts-one";
-
 import HowItWorksFive from "../how-it-works/how-it-works-5";
 import Featurefifteen from "../features/feature-fifteen";
 import FeatureSixteen from "../features/feature-sixteen";

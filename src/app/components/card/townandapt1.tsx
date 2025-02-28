@@ -63,7 +63,6 @@ const Card: React.FC<CardProps> = ({ flip, frontImage, backImage }) => {
     backgroundPosition: "center",
   };
 
-  // Render the card
   return (
     <div style={cardStyle}>
       <div style={frontStyle} />
@@ -79,10 +78,10 @@ const FlipCardone: React.FC = () => {
   const [isFlippedTwo, setIsFlippedTwo] = useState<boolean>(false);
   const [isMobile, setIsMobile] = useState<boolean>(false);
 
-  // Uncomment the line below for actual navigation
+  
   const router = useRouter();
 
-  // Effect for handling window resize
+  
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);

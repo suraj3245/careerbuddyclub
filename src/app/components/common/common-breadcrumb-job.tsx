@@ -11,6 +11,7 @@ const CommonBreadcrumbjob = ({
     padding: "20px 0",
     paddingTop: "50px",
   };
+
   return (
     <div
       className="inner-banner-college position-relative"
@@ -21,13 +22,17 @@ const CommonBreadcrumbjob = ({
           <div className="row">
             <div className="col-xl-6 m-auto text-center">
               <div className="title-two">
-                <h2 className="text-black pt-40">{title}</h2>
+              <h2 className="text-black pt-40">{title}</h2>
               </div>
               <p className="text-lg text-black mt-30 lg-mt-20">{subtitle}</p>
             </div>
             <ul className="d-flex align-items-center justify-content-center style-none">
               <li>
-                <a href="#" className="fw-500  btn-five text-white">
+                <a
+                  href="/assets/text/udmri%20paramedical%20brochure.pdf" 
+                  className="fw-500 btn-five text-white"
+                  download="udmri_paramedical_brochure.pdf" 
+                >
                   Download Brochure
                 </a>
               </li>
