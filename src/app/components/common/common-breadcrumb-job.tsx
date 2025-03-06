@@ -1,4 +1,6 @@
+"use client"
 import React from "react";
+import { usePathname } from "next/navigation";
 
 const CommonBreadcrumbjob = ({
   title,
@@ -12,6 +14,27 @@ const CommonBreadcrumbjob = ({
     paddingTop: "50px",
   };
 
+  const pathname = usePathname();
+  const parts = pathname.split("/");
+  const id = parts[parts.length - 1];
+
+  const brochures:any = {
+    "UDMRI-Dehradun": '/assets/text/udmri_paramedical_brochure.pdf',
+     "Pal-College": '/assets/text/Pal_College_Brochure.pdf',
+     "VMM-College":'/assets/text/VMM_College_Brochure.pdf'
+     
+  };
+
+  const downloadBrochure = () => {
+    if (id && brochures[id]) {
+      const link = document.createElement("a");
+      link.href = brochures[id];
+      link.download = `${id}_brochures.pdf`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  };
   return (
     <div
       className="inner-banner-college position-relative"
@@ -22,16 +45,16 @@ const CommonBreadcrumbjob = ({
           <div className="row">
             <div className="col-xl-6 m-auto text-center">
               <div className="title-two">
-              <h2 className="text-black pt-40">{title}</h2>
+                <h2 className="text-black pt-40" style={{ marginTop: "3rem" }}>{title}</h2>
               </div>
               <p className="text-lg text-black mt-30 lg-mt-20">{subtitle}</p>
             </div>
             <ul className="d-flex align-items-center justify-content-center style-none">
               <li>
                 <a
-                  href="/assets/text/udmri%20paramedical%20brochure.pdf" 
                   className="fw-500 btn-five text-white"
-                  download="udmri_paramedical_brochure.pdf" 
+                  
+                  onClick={downloadBrochure}
                 >
                   Download Brochure
                 </a>
