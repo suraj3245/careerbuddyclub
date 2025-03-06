@@ -279,9 +279,9 @@ const ApplyForm = () => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="row">
         <div className="col-12">
-          <div className="input-group-meta position-relative mb-15">
             <input
               type="text"
+               className="form-control"
               placeholder="Enter Student Name"
               {...register("name", { required: `Name is required!` })}
               name="name"
@@ -295,13 +295,12 @@ const ApplyForm = () => {
             <div className="help-block with-errors">
               <ErrorMsg msg={errors.name?.message!} />
             </div>
-          </div>
         </div>
 
         <div className="col-12">
-          <div className="input-group-meta position-relative mb-15">
             <input
               type="email"
+              className="form-control mt-2"
               placeholder="Enter your Email"
               {...register("email", { required: `Email is required!` })}
               name="email"
@@ -315,12 +314,11 @@ const ApplyForm = () => {
             <div className="help-block with-errors">
               <ErrorMsg msg={errors.email?.message!} />
             </div>
-          </div>
         </div>
         <div className="col-12">
-          <div className="input-group-meta position-relative mb-15">
             <input
               type="text"
+              className="form-control mt-2"
               placeholder="Enter School/College"
               {...register("from", { required: `schoolName is required!` })}
               name="from"
@@ -334,14 +332,13 @@ const ApplyForm = () => {
             <div className="help-block with-errors">
               <ErrorMsg msg={errors.from?.message!} />
             </div>
-          </div>
         </div>
 
         <div className="col-12">
-          <div className="input-group-meta position-relative mb-15">
             <div style={{ display: "flex", alignItems: "center" }}>
               <input
                 type="tel"
+                className="form-control mt-2"
                 placeholder="Phone Number"
                 {...register("mobile", {
                   required: `Phone Number is required!`,
@@ -388,12 +385,10 @@ const ApplyForm = () => {
             <div className="help-block with-errors">
               <ErrorMsg msg={errors.mobile?.message!} />
             </div>
-          </div>
         </div>
 
         {isVerificationSent && (
           <div className="col-12">
-            <div className="input-group-meta position-relative mb-15">
               <input
                 type="text"
                 placeholder="Whatsapp OTP"
@@ -411,15 +406,14 @@ const ApplyForm = () => {
               <div className="help-block with-errors">
                 <ErrorMsg msg={errors.verificationCode?.message!} />
               </div>
-            </div>
           </div>
         )}
 
         <div className="col-12">
-          <div className="input-group-meta position-relative mb-15">
             <select
               {...register("stream", { required: `Stream is required!` })}
               name="stream"
+              className="form-select mt-2"
               style={{
                 backgroundColor: "white",
                 padding: "8px 12px",
@@ -440,14 +434,13 @@ const ApplyForm = () => {
             <div className="help-block with-errors">
               <ErrorMsg msg={errors.stream?.message!} />
             </div>
-          </div>
         </div>
 
         <div className="col-12">
-          <div className="input-group-meta position-relative mb-15">
             <select
               {...register("level", { required: `Level is required!` })}
               name="level"
+               className="form-select mt-2"
               style={{
                 backgroundColor: "white",
                 padding: "8px 12px",
@@ -468,11 +461,10 @@ const ApplyForm = () => {
             <div className="help-block with-errors">
               <ErrorMsg msg={errors.level?.message!} />
             </div>
-          </div>
         </div>
 
         <div
-          className="agreement-checkbox d-flex justify-content-between align-items-center"
+          className="agreement-checkbox d-flex justify-content-between align-items-center mt-2"
           style={{ justifyContent: "center" }}
         >
           <a

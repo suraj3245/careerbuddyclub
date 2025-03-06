@@ -31,7 +31,7 @@ const HomeTwo = () => {
         {/* hero banner end */}
         <HowItWorksTwo />
         <MainBanner />
-        <CollegeFinder />
+        {/* <CollegeFinder /> */}
 
         {/* feedback two start */}
         <FeedbackTwo />
