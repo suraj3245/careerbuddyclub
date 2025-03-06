@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-// internalc
 import shape_2 from "@/assets/images/shape/shape_16.svg";
 import shape_3 from "@/assets/images/shape/shape_17.svg";
 import shape_4 from "@/assets/images/shape/shape_18.svg";
@@ -55,16 +54,6 @@ const HeroBannerTwo = () => {
           </div>
         </div>
       </div>
-      {/* <div
-        id="ee-form-6"
-        style={{
-          position: "absolute", // Relative to the parent container
-          top: "58%", // Center it vertically within the parent
-          right: "10%", // Place it 20px from the right side
-          transform: "translateY(-50%)", // Adjust for perfect vertical centering
-        }}
-      ></div> */}
-
       <div className="img-box">
         <Image
           src={main_img}
@@ -83,7 +72,7 @@ const HeroBannerTwo = () => {
           className="lazy-img shapes screen_02 wow fadeInLeft"
         />
       </div>
-
+           
       {/* /.img-box */}
       <div className="rating-box position-relative">
         <div className="d-sm-flex justify-content-end">
@@ -120,4 +109,4 @@ const HeroBannerTwo = () => {
   );
 };
 
-export default HeroBannerTwo;
+export default HeroBannerTwo;

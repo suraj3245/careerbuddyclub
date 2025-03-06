@@ -6,12 +6,13 @@ import job_img_4 from "@/assets/images/logo/uu-logo.svg";
 import job_img_5 from "@/assets/images/logo/JBIT.webp";
 import job_img_7 from "@/assets/images/logo/udmri.webp";
 import job_img_8 from "@/assets/images/logo/VMM_College.webp";
+import job_img_9 from "@/assets/images/logo/pctmlogo.webp";
 
 import Image, { StaticImageData } from "next/image";
 import user_1 from "@/assets/images/assets/img_14.jpg";
 import user_2 from "@/assets/images/assets/img_15.jpg";
 import user_3 from "@/assets/images/assets/img_22.jpg";
-import job_img_6 from "@/assets/images/logo/dbs.webp";
+
 
 const college_details: IcollegeType[] = [
   {
@@ -2682,11 +2683,519 @@ const college_details: IcollegeType[] = [
     ],
   },
 
+ /////////JBIT DEHRADUN /////////////////////////////////////////////////////////////////////
+
+ {
+  id: "JBIT-Dehradun",
+  pageTitle: "Career Buddy Club | JBIT Dehradun",
+  metaDescription: "JBIT Dehradun—a private technical institute affiliated with Uttarakhand Board of Technical Education and Uttarakhand Technical University. Offering undergraduate, postgraduate, and diploma courses in engineering, applied sciences, and management.",
+  logo: job_img_5,
+  type: "Private",
+  establishmentyear: "2009",
+  Recognisedby: "UGC",
+  Approvedby: "",
+  state: "Uttarakhand",
+  city: "Dehradun",
+  Campusarea: "20+ acre",
+  link: "",
+  email: "",
+  founded: "",
+  phone: "",
+  feild: ["Education"],
+  overviewsection:
+    "JB Institute of Technology is a private technical institute established in 2009 at Uttarakhand. The institute is affiliated to the Uttarakhand Board of Technical Education, Roorkee & Uttarakhand Technical University. It is approved by the All India Council of Technical Education (AICTE) and Pharmacy Council of India (PCI). The JB Institute of Technology Dehradun courses are provided at diploma, undergraduate and postgraduate levels. Popular degrees include D.Pharma, B.Tech, BBA and MBA. The JBIT Dehradun fees for the courses range from Rs 50,250 to Rs 93,900 annually. Both previous academic merit along with valid entrance test scores are required for the JB Institute of Technology Dehradun course admissions. Exams such as JEE Main, GATE, JEEP, etc. are considered.",
+  duration: "Fulltime",
+  date: "18 Jul 2019",
+  college: "JB Institute of Technology",
+  location: "Dehradun, India",
+  category: ["+91 7456000100"],
+  experience: "Fresher",
+  salary: 900,
+  salary_duration: "Monthly",
+  tags: ["java", "developer"],
+  english_fluency: "Fluent",
+  overview:
+    "When team members told us they needed more flexibility around where and how they worked, we acted, creating two options to accommodate two different styles of work. One non-negotiable principle along the way? We had to retain our deep culture of collaboration, both among ourselves and with our clients. Introducing Work From Near and Work From Anywhere at WillowTree. Please indicate which location(s) you're interested.",
+  videoid: "ubDgjBKRBx8?si",
+  facebook: "",
+  instagram: "",
+  twitter: "",
+  linkedin: "",
+  courses:
+    "JBIT Dehradun offers a diverse array of courses at both undergraduate (UG) and postgraduate (PG) levels, covering a wide spectrum of disciplines including engineering, management, pharmacy, and more. Additionally, the institution provides diploma courses in pharmacy and engineering. The fee structure at JBIT Dehradun varies depending on the course, with annual fees ranging from Rs 50,250 to Rs 93,900. This variation is influenced by factors such as the duration and degree level of the program.",
+
+  ranking:
+    "In 2023, India Today ranked JB Institute of Technology (JBIT) in Dehradun 189 out of 281 colleges in India. In 2022, India Today ranked JBIT's B.Tech program 180 out of 238 colleges in India, and in 2023, it was ranked 157 out of 246 colleges in India. In 2020, the NIRF ranking placed JBIT 128th among engineering institutions in India, and 90th best for B.Tech",
+  awards:
+    "JB Institute of Technology (JBIT) Dehradun has been awarded as - The Best Upcoming Engineering College in North India by ASSOCHAM at New Delhi on 19.02.14 through the good hands of chief guest Padam Bhusan awardee Dr. Karan Singh Ji. This Mega Event was organized by ASSOCHAM with an association of National Skill Development Corporation, Planning Commission (Niti Ayog), Government of India.",
+  hostel:
+    "",
+  opportunities:
+    "",
+  campus:
+    "JB Institute of Technology (JBIT) Dehradun has all the required facilities for the convenience of staff and students. The virtual classrooms and video conferring facilities are the major highlights of academic facilities at JB Institute of Technology. The campus of JBIT is completely networked and interconnected. The JBIT campus has been interconnected through Wi-Fi networks. The central library at JBIT is one of the major highlights of the campus. The library has a huge collection of books on Engineering, Science, Technology, and Humanities. Students can also refer to the latest international and national journals, magazines, etc at the central library. ",
+  placement:
+    "JB Institute of Technology Dehradun placement 2023 data has not been published by the official authorities. However, the placement statistics for the year 2022 were released, according to which 257 job offers were made and 145 students were placed. The JB Institute of Technology placement rate was recorded at 96.69%. The top recruiting companies included Erricson, Tech Mahindra, Havells, Birla Soft, etc. The JB Institute of Technology Dehradun average package offered to the students was Rs 4 LPA. Throughout the years, 150+ MNCs have conducted Solo/ Off Campus/ Pool placement drives for the students of JBIT Dehradun. The placement cell ensures that all the students secure job opportunities in their preferred roles and companies. The JB Institute of Technology Dehradun highest package recorded was Rs 7 LPA. Other than this, summer internship placements are also provided for students to gain appropriate experience and knowledge through hands on training sessions.",
+  admission:
+    "",
+  faculty:"",
+
+  overviewtable:[
+    {
+      specialization: "Short Name",
+      annualfee: "JBIT",
+    },
+    {
+      specialization: "Institute Type - Public/ Private/ Govt",
+      annualfee: "Private",
+    },
+    {
+      specialization: "State",
+      annualfee: "Uttarakhand",
+    },
+    {
+      specialization: "City",
+      annualfee: "Dehradun",
+    },
+    {
+      specialization: "Location/ Address",
+      annualfee: "Milestone 23, NH-07, Chakrata Road, Dehradun, UK",
+    },
+   
+    {
+      specialization: "Phone Numbers",
+      annualfee: "+91 7456000100",
+    },
+    {
+      specialization: "Website",
+      annualfee: "www.jbitdoon.com",
+    },
+    {
+      specialization: "Email Address",
+      annualfee: "admission@careerbuddyclub.com",
+    }, 
+    {
+      specialization: "Area",
+      annualfee: "Education",
+    },
+    {
+      specialization: "Approved by",
+      annualfee: "AICTE (All India Council for Technical Education), BCI (Bar Council of India), PCI (Pharmacy Council of India) and India Council of Agricultural Research (ICAR)",
+    },
+    {
+      specialization: "Accreditation",
+      annualfee: "A+ grade by NAAC",
+    },
+   
+  ],
+    coursesAndFees: [
+    {
+      course: "M.Tech",
+      specialization: "",
+      annualFee: "90,700",
+      duration: "GATE/ Personal Interview",
+      eligibility: "B. Tech /BE in Aerospace/ Aeronautical/ Mechanical/ Civil/ Chemical Eng. Or equivalent with minimum 60% marks. Gate / NET Qualified will be preferred.",
+    },
+    {
+      course: "MBA",
+      specialization: "",
+      annualFee: "90,700",
+      duration: "CAT/ XAT",
+      eligibility: "Minimum 50% marks in Class X, XII and Graduation. Graduation From a recognized University in any stream",
+    },
+
+     {
+      course: "B.Tech",
+      specialization: "",
+      annualFee: "89,700",
+      duration: "JEE Mains / Board Merit / SAT/ CUET",
+      eligibility: "Minimum 50% Marks in Class X and XII. Along with 50 % in PCM (Physics/Chemistry and Mathematics) in Class XII",
+    },  
+    {
+      course: "B.Tech(Lateral)",
+      specialization: "",
+      annualFee: "89,700",
+      duration: "JEE Mains / Board Merit / SAT/ CUET",
+      eligibility: "Minimum 50% Marks in Class X and XII. Along with 50 % in PCM (Physics/Chemistry and Mathematics) in Class XII/ Diploma",
+    },  
+    {
+      course: "Diploma (Engineering)",
+      specialization: "",
+      annualFee: "49,400",
+      duration: "Personal Interview",
+      eligibility: "Passed 10th examination with Science",
+    },  
+    {
+      course: "Diploma (Lateral)(Engineering)",
+      specialization: "",
+      annualFee: "49,400",
+      duration: "Personal Interview",
+      eligibility: "Passed 10th examination with Science",
+    },  
+    {
+      course: "",
+      specialization: "",
+      annualFee: "",
+      duration: "",
+      eligibility: "",
+    },
+    
+    {
+      course: "B.Pharma",
+      specialization: "",
+      annualFee: "89,700",
+      duration: "Board Merit",
+      eligibility: "Minimum 50% Marks at X & XII with Physics, Chemistry, Biology/ Math’s, and English as a Major Subject in XII",
+    },  
+    {
+      course: "B.Pharma (Lateral)",
+      specialization: "",
+      annualFee: "89,700",
+      duration: "Board Merit",
+      eligibility: "Minimum 50% Marks at X & XII with Physics, Chemistry, Biology/ Math’s, and English as a Major Subject in XII",
+    },  
+    {
+      course: "D.Pharma",
+      specialization: "",
+      annualFee: "59,400",
+      duration: "Personal Interview",
+      eligibility: "Passed 10th examination with Science",
+    }, 
+    
+    {
+      course: "",
+      specialization: "",
+      annualFee: "",
+      duration: "",
+      eligibility: "",
+    },
+
+    {
+      course: "B.Sc (Hons.) Agriculture",
+      specialization: "",
+      annualFee: "60,900",
+      duration: "Personal Interview",
+      eligibility: "Passed 10+2 examination",
+    },  
+    {
+      course: "BBA",
+      specialization: "",
+      annualFee: "50,900",
+      duration: "Personal Interview",
+      eligibility: "Passed 10+2 examination with PCM",
+    },  
+    {
+      course: "B.Sc(IT)",
+      specialization: "",
+      annualFee: "41,900",
+      duration: "Jee Main/CUT",
+      eligibility: "Passed 10+2 examination with PCM",
+    },  
+
+     
+    
+  ],
+  admissionDates: [
+    {
+      name: "Application Start Date",
+      date: "01-Mar-2024",
+    },
+    {
+      name: "Application End Date",
+      date: "30-Jul-2024",
+    },
+    {
+      name: "Date of Result Declaration",
+      date: "September 18, 2023",
+    },
+    {
+      name: "Last Date of Submission of Fee",
+      date: "September 28, 2023",
+    },
+    {
+      name: "Commencement of the Coursework",
+      date: "01-Aug-2024",
+    },
+  ],
+  campusinfo: [
+    {
+      name: "Registration Dates",
+      info: "April, 2024",
+    },
+    {
+      name: "Date of Entrance Test & Interview",
+      info: "April, 2024",
+    },
+    {
+      name: "Date of Result Declaration",
+      info: "May , 2024",
+    },
+    {
+      name: "Commencement of the Coursework",
+      info: "October , 2024",
+    },
+  ],
+  placementinformation: [
+    {
+      name: "Placement Year",
+      info: "2023",
+    },
+    {
+      name: "Placement Percentage",
+      info: "85%",
+    },
+    {
+      name: "No.of Placements",
+      info: "9000+",
+    },
+    {
+      name: "Top Recruiters",
+      info: "Jaro Education, Amazon, Reliance Jio, Paytm, etc.",
+    },
+   
+    
+  ],
+  opportunitiesinfo: [
+    {
+      name: "Registration Dates",
+      info: "February 8 to September 15, 2023",
+    },
+    {
+      name: "Date of Entrance Test & Interview",
+      info: "September 17, 2023",
+    },
+    {
+      name: "Date of Result Declaration",
+      info: "September 18, 2023",
+    },
+    {
+      name: "Last Date of Submission of Fee",
+      info: "September 28, 2023",
+    },
+    {
+      name: "Commencement of the Coursework",
+      info: "October 3, 2023",
+    },
+  ],
+   
+  awardsinfo: [
+    "Most Promising Engineering & Management Institute in India Award.",
+    "Most Aware Campus of Uttarakhand Award.",
+    "Icon Award of Uttarakhand.",
+    "Top Private Engineering College In Uttarakhand.",
+    "NAAC A+",
+  ],
+ 
+  facultytable: [
+    {
+      name: "Dr. Vishal",
+      Qualification: "Dept. of  Microbiology",
+      Experience: "22 year",
+      Specialization: "Agriculture microbiology, Biological Control, Plant growth promo. Rhizo bacteria, Fermentation Technology, Antimicrobial Activity of mediclinal plant, Microbial pathology.",
+    },
+    {
+      name: "Dr. RD Saklani",
+      Qualification: "Dept. of  Geology",
+      Experience: "10 year",
+      Specialization: "Sequence stratigraphy, Petroleum Geology, Ichnology, Disaster Management, Engg. Geology, Field Geology, Himalayan Geology & Western India (Kachchh & Rajasthan).",
+    },
+    {
+      name: "Mr. S K Thakur",
+      Qualification: "Dept. of  Statistics & Mathematics",
+      Experience: "35 year",
+      Specialization: "Statistics, International finance,  International Economics, Coorporates Law. ",
+    },
+    {
+      name: "Dr. Neelesh",
+      Qualification: "Dept. of  Microbiology",
+      Experience: "02 year",
+      Specialization: "Medical microbiology, General microbiology.",
+    },
+    {
+      name: "Mrs. Preeti Sood",
+      Qualification: "Dept. of  Hotel Management ",
+      Experience: "23 year",
+      Specialization: "Food and beverage,Front office, House Keeping, Kitchen.",
+    },
+    {
+      name: "Mr. Gurmeet singh",
+      Qualification: "Dept. of  Chemistry",
+      Experience: "03 year",
+      Specialization: "Waste Management, Water purification, Biofilms and filters, Polymers, Analytical Chemistry.",
+    },
+    {
+      name: "Mr. Kashif Hussain",
+      Qualification: "Dept. of  Pharmacy",
+      Experience: "12 year",
+      Specialization: "Pharmaceutical Chemistry.",
+    },
+    {
+      name: "Mr. Javed Siddiqui",
+      Qualification: "Dept. of  Paramedical ",
+      Experience: "14 year",
+      Specialization: "Clinical biochemistry, Pathology, Medical Microbiology.",
+    },
+    {
+      name: "Ms. Rohita",
+      Qualification: "Dept. of  Pharmacy",
+      Experience: "01 year",
+      Specialization: "Hospital and clinical pharmacy, Community pharmacy, Pharmacy practice, Social pharmacy.",
+    },
+    {
+      name: "Dr. Manisha Singh",
+      Qualification: "Dept. of  Paramedical ",
+      Experience: "01 year",
+      Specialization: "Orthopedics, Neurology.",
+    },
+    {
+      name: "Dr. Kiran",
+      Qualification: "Dept. of  Paramedical ",
+      Experience: "05 year",
+      Specialization: "Orthopedics",
+    },
+    {
+      name: "Dr. Nidhi Chatterjee",
+      Qualification: "Dept. of  Zoology",
+      Experience: "18 year",
+      Specialization: "Zoology, Fish and Fishries, Parasitology.",
+    },
+    {
+      name: "Ms. Susmita Bahuguna ",
+      Qualification: "Dept. of  Nursing",
+      Experience: "01 year",
+      Specialization: "Nursing fundamental, Social nursing",
+    },
+    {
+      name: "Ms. Oshin",
+      Qualification: "Dept. of  Nursing",
+      Experience: "01 year",
+      Specialization: "Psychology, Anatomy, Physiology",
+    },
+
+  ],
+  hostelinfo: [
+    {
+      name: "Capacity",
+      info: "1000",
+    },
+    {
+      name: "Hostel Fees",
+      info: "In-house Residential Accommodation (Optional) Charges (Note: - Hostel charges is per year which includes Vegetarian / Non-Vegetarian Food) ",
+    },
+    {
+      name: "",
+      info: "•	Standard Quad (Four Sharing Room) with Attached Toilet Rs.48000/-per Year.        ",
+    },
+    {
+      name: "",
+      info: "•	Deluxe Quad (Four Sharing Room) with Attached Toilet Rs.58000/-per Year.        ",
+    },
+    {
+      name: "",
+      info: "•	Standard (Three Sharing Room) with Attached Toilet Rs.68000/-per Year.        ",
+    },
+    {
+      name: "",
+      info: "•	Deluxe (Three Sharing Room) with Attached Toilet Rs.78000/-per Year.        ",
+    },
+    {
+      name: "",
+      info: "•	Standard (Two Sharing Room) with Attached Toilet Rs.73000/-per Year.        ",
+    },
+    {
+      name: "",
+      info: "•	Deluxe (Two Sharing Room) with Attached Toilet Rs.78000/-per Year.        ",
+    },
+    {
+      name: "",
+      info: "•	Super Deluxe (Two Sharing Room) with Attached Toilet Rs.88000/-per Year.        ",
+    },
+    {
+      name: "",
+      info: "•	Executive Room (TWO SHARING Room) with LCD + Tata Sky + Attached Toilet Rs.95000/-per Year.        ",
+    },
+    {
+      name: "",
+      info: "•	Executive Room (TWO SHARING Room) with A.C + LCD + Tata Sky + Attached Toilet Rs.105000/-per Year.        ",
+    },
+    {
+      name: "",
+      info: "•	Hostel Enrolment & Furnishing Fee: Rs.5000/-(To be paid Once) Laundry Charges: Rs.4800/-per Year",
+    },
+    {
+      name: "Mess Fees",
+      info: "Includes in Hostel Fees",
+    },
+    {
+      name: "Location (on-campus or off-campus)",
+      info: "On-Campus",
+    },
+    {
+      name: "Number of Rooms",
+      info: "300",
+    },
+    {
+      name: "Room Type (Occupancy basis)",
+      info: "Single Sharing, Two sharing, Three Sharing, Four Sharing",
+    },
+    {
+      name: "Hostel Facilities/ Amenities",
+      info: "Wi-Fi, CCTV Surveillance, Security Guards, Warden, Indoor Stadium, Outdoor Playground, Gymnasium, etc.",
+    },
+  ],
+  rankinginfo: [
+    {
+      name: "Indiatoday (2023)",
+      info: "#189 out of 281",
+    },
+    {
+      name: "TOI (B.Tech)",
+      info: "#142 out of 170",
+    },
+    {
+      name: "Indiatoday (B.Tech)",
+      info: "#157 out of 246",
+    },
+    {
+      name: "Outlook (B.Tech)",
+      info: "#107 out of 160",
+    },
+    {
+      name: "",
+      info: "",
+    },
+  ],
+  reviewinfo: [
+    {
+      id: 1,
+      rating: 4.7,
+      desc: "Faculty of my college are very higher educated . They are qualified for the best universities with best knowledge and gesture . They always treat students very well..",
+      user: user_1,
+      name: "",
+      location: "",
+    },
+    {
+      id: 2,
+      rating: 4.5,
+      desc: "With a 90% placement rate, your college demonstrates a strong commitment to preparing its students for successful careers..",
+      user: user_2,
+      name: "",
+      location: "",
+    },
+    {
+      id: 3,
+      rating: 4.8,
+      desc: "It was the good experience about my collage I were study past some year in this collage and I saw a major change in my communication skill and our department staf is also a good performence..",
+      user: user_3,
+      name: "",
+      location: "",
+    },
+  ],
+},
 
 
 
-
-
+////////////////UPES_dehradun//////////////////////////////////////////
 
   {
     id: "UPES-dehradun",
@@ -3897,13 +4406,13 @@ const college_details: IcollegeType[] = [
     metaDescription: "Explore Uttaranchal Dental & Medical Research Institute (UDMRI) Dehradun, a premier medical institute affiliated with HNB Uttarakhand Medical Education University. Offering BDS, MDS, and paramedical courses, UDMRI is recognized by the Dental Council of India and known for its excellence in clinical training and research",
     logo: job_img_7,
     type: "Private",
-    establishmentyear: "2006",
+    establishmentyear: "2024",
     Recognisedby: "UGC",
     Approvedby: "Hemwati Nandan Bahuguna Uttarakhand Medical Education University",
     state: "Uttarakhand",
     city: "Dehradun",
     Campusarea: "20+ acre",
-    link: "",
+    link: "https://udmri.in/",
     email: "contact@udmri.in",
     founded: "",
     phone: "",
@@ -3913,7 +4422,7 @@ const college_details: IcollegeType[] = [
     
     duration: "Fulltime",
     date: "18 Jul 2019",
-    college: "Uttaranchal college of paramedical and allied sciences",
+    college: "Uttaranchal College of Paramedical & Allied Sciences",
     location: "Near Fun Valley, Mazri Grant, Dehradun",
     category: ["+91 7817987152, 9458353401"],
     experience: "Fresher",
@@ -3929,7 +4438,7 @@ const college_details: IcollegeType[] = [
     twitter: "",
     linkedin: "",
     courses:
-      "Uttaranchal College of Paramedical and Allied Sciences offers a diverse range of undergraduate (UG) and postgraduate (PG) programs in paramedical and allied health sciences. The courses include Bachelor of Physiotherapy (BPT), Medical Lab Technology (MLT), Radiology & Imaging Technology, Optometry, Operation Theatre Technology, and more. The institution also provides diploma and certificate programs in various allied healthcare fields. The fee structure varies depending on the course, ranging from ₹50,000 to ₹1,00,000 annually, influenced by factors such as course duration and specialization.",
+      "Uttaranchal College of Paramedical & Allied Sciences offers a variety of undergraduate programs in the field of science. These include the Bachelor of Medical Laboratory Technology (BMLT) and Bachelor of Medical Radiology & Imaging Technology (BMRIT), both of which are 3-year regular courses with an intake of 30 students each. Additionally, the college offers a 4-year BSc. Optometry program, also with 30 seats available. All courses are delivered through regular classroom sessions, and admissions are based on entrance exams.",
 
     ranking:
       "Uttaranchal College of Paramedical and Allied Sciences has gained recognition as one of the leading paramedical institutes in Uttarakhand, known for its high-quality education, research-driven approach, and excellent clinical training facilities. Though specific national rankings may not be available, the institute is well-regarded among paramedical institutions in the region.",
@@ -3940,7 +4449,7 @@ const college_details: IcollegeType[] = [
     opportunities:
       "",
     campus:
-      "The college boasts modern infrastructure, including fully-equipped labs, a central library, and simulation-based learning facilities. The digital classrooms and Wi-Fi-enabled campus enhance the learning experience. Additionally, the college has tie-ups with hospitals for practical training and clinical exposure. ",
+      "UCPAS offers a well-equipped campus with PhD-qualified faculty members who have over 10 years of medical experience. The campus features fully air-conditioned digital lecture halls, Wi-Fi connectivity, state-of-the-art laboratories, and an in-campus 100-bed hospital, providing students with practical exposure from the first year. Additionally, the college offers scholarships for underprivileged students, on-campus sports facilities (basketball, volleyball, badminton), and in-house cafes for convenience. Accommodation is provided through double-occupancy hostels within the campus, ensuring a comfortable living experience.",
     placement:
       "The placement cell at Uttaranchal College of Paramedical and Allied Sciences actively helps students secure jobs in hospitals, diagnostic labs, rehabilitation centers, and research institutes. In the past years, the institute has seen a placement success rate of over 90%, with students recruited by Fortis, Apollo, Max Healthcare, AIIMS, and other renowned healthcare organizations. The average salary package ranges from ₹3 LPA to ₹6 LPA, depending on the course and specialization. Internship placements are also offered as part of the curriculum to help students gain real-world experience",
     admission:
@@ -3971,7 +4480,7 @@ const college_details: IcollegeType[] = [
      
       {
         specialization: "Phone Numbers",
-        annualfee: "+91 7817987152, +91 9458353401",
+        annualfee: "+917817987152, +919458353401",
       },
       {
         specialization: "Website",
@@ -3987,12 +4496,12 @@ const college_details: IcollegeType[] = [
       },
       {
         specialization: "Approved by",
+        annualfee: "Uttarakhand Paramedical Council",
+      },
+      {
+        specialization: "University Affiliation",
         annualfee: "Hemwati Nandan Bahuguna Uttarakhand Medical Education University",
       },
-      // {
-      //   specialization: "Accreditation",
-      //   annualfee: "N/A",
-      // },
      
     ],
       coursesAndFees: [
@@ -4000,23 +4509,23 @@ const college_details: IcollegeType[] = [
         course: "BMLT(Bachelor of Medical Laboratory Technology)",
         specialization: "N/A",
         annualFee: "80,000",
-        duration: "Merit-based or entrance exam-based (NEET-UG, state-level paramedical entrance exams, or university-specific tests)",
-        eligibility: "10+2 (Intermediate) with Physics, Chemistry, and Biology (PCB) from a recognized board with a minimum of 45-50% marks. NEET-UG / State-Level Paramedical Entrance Exam Qualified",
+        duration: "Direct Admission",
+        eligibility: "12th (with science, if maths, then a bridge course of biology would be added by the university)",
       },
       {
         course: "BMRIT(Bachelor of Medical Radiology & Imaging Technology)",
         specialization: "N/A",
         annualFee: "80,000",
-        duration: "10+2 with PCB, NEET-UG or State-Level Paramedical Entrance Exams",
-        eligibility: "10+2 (Intermediate) with Physics, Chemistry, and Biology (PCB) from a recognized board with a minimum of 45-50% marks. NEET-UG / State-Level Paramedical Entrance Exam Qualified",
+        duration: "Direct Admission",
+        eligibility: "12th (with science, if maths, then a bridge course of biology would be added by the university)",
       },
 
        {
         course: "BSc. Optometry",
         specialization: "N/A",
         annualFee: "80,000",
-        duration: "(10+2 with PCB/PCM)/NEET-UG or State-Level Paramedical Entrance Exams.",
-        eligibility: "10+2 (Intermediate) with Physics, Chemistry, and Biology (PCB) or Physics, Chemistry, and Mathematics (PCM) from a recognized board with a minimum of 45-50% marks. NEET-UG / State-Level Paramedical Entrance Exam Qualifie",
+        duration: "Direct Admission",
+        eligibility: "12th (with science, if maths, then a bridge course of biology would be added by the university)",
       },  
      
       
@@ -4038,10 +4547,10 @@ const college_details: IcollegeType[] = [
         name: "N/A",
         date: "N/A",
       },
-      // {
-      //   name: "Application End Date",
-      //   date: "30-Jul-2024",
-      // },
+      {
+        name: "Application End Date",
+        date: "MAY 01, 2025",
+      },
       // {
       //   name: "Date of Result Declaration",
       //   date: "September 18, 2023",
@@ -4050,10 +4559,10 @@ const college_details: IcollegeType[] = [
       //   name: "Last Date of Submission of Fee",
       //   date: "September 28, 2023",
       // },
-      // {
-      //   name: "Commencement of the Coursework",
-      //   date: "01-Aug-2024",
-      // },
+      {
+        name: "Commencement of the Coursework",
+        date: "OCT 10, 2025",
+      },
     ],
     campusinfo: [
       {
@@ -4330,14 +4839,14 @@ const college_details: IcollegeType[] = [
       },
     ],
   },
-   /////////////////////// VMM DEHRADUN /////////////////////////////////////////////////////////////////////
+   /////////////////////// VMM-Dehradun /////////////////////////////////////////////////////////////////////
   {
-    id: "VMM-Dehradun",
+    id: "VMM-College",
     pageTitle: "Career Buddy Club | JBIT Dehradun",
     metaDescription: "JBIT Dehradun—a private technical institute affiliated with Uttarakhand Board of Technical Education and Uttarakhand Technical University. Offering undergraduate, postgraduate, and diploma courses in engineering, applied sciences, and management.",
     logo: job_img_8,
     type: "Private",
-    establishmentyear: "2006",
+    establishmentyear: "2022",
     Recognisedby: "UGC",
     Approvedby: "OM Sterling Global University",
     state: "Uttarakhand",
@@ -4349,10 +4858,10 @@ const college_details: IcollegeType[] = [
     phone: "+91 9803010803",
     feild: ["Education"],
     overviewsection:
-      "Vaidik Medical and Management College (VMM College), located in the serene and picturesque Himalayas on New Tehri Road, Buransbadi, Chamba, Tehri Garhwal, Uttarakhand, is dedicated to promoting paramedical education for deserving students. The college offers a cost-effective approach to education while focusing on making healthcare accessible to underserved communities. The College has built a strong reputation for providing quality education in the paramedical sector and emphasizes community health training in both rural and urban areas, allowing students to gain practical experience while contributing to the well-being of the community. The college offers specialized programs, including Bachelor of Vocation (B.Voc.) degrees in Medical Laboratory Technology, Operation Theatre Technology, and Medical Imaging Technology (X-Ray). It fosters an environment where students can nurture their aspirations and demonstrate the commitment required to achieve their goals. The learning experience combines intellectual growth with practical knowledge and hands-on field experience, preparing students to excel in the growing paramedical field and contribute meaningfully to the healthcare system. Through continuous academic and professional development, the College ensures that its students are equipped to meet the demands of the industry.",
+      "Vaidik Medical and Management College (VMM College), located in the serene and picturesque Himalayas on New Tehri Road, Buransbadi, Chamba, Tehri Garhwal, Uttarakhand, is dedicated to promoting paramedical education for deserving students. The college offers a cost-effective approach to education while focusing on making healthcare accessible to underserved communities. The College has built a strong reputation for providing quality education in the paramedical sector and emphasizes community health training in both rural and urban areas, allowing students to gain practical experience while contributing to the well-being of the community.The college offers specialized programs, including Bachelor of Vocation (B.Voc.) degrees in Medical Laboratory Technology, Operation Theatre Technology, and Medical Imaging Technology (X-Ray). It fosters an environment where students can nurture their aspirations and demonstrate the commitment required to achieve their goals. The learning experience combines intellectual growth with practical knowledge and hands-on field experience, preparing students to excel in the growing paramedical field and contribute meaningfully to the healthcare system. Through continuous academic and professional development, the College ensures that its students are equipped to meet the demands of the industry.",
     duration: "Fulltime",
     date: "18 Jul 2019",
-    college: "VMM College",
+    college: "Vaidik Medical and Management College",
     location: "New Tehri Road, Buransbadi, Chamba, Tehri Garhwal Uttarakhand, 249145",
     category: ["+91 9803010803"],
     experience: "Fresher",
@@ -4368,20 +4877,20 @@ const college_details: IcollegeType[] = [
     twitter: "",
     linkedin: "",
     courses:
-      "Vaidik Medical and Management College (VMM College), established in 2006, is a prominent institution located in Chamba, Tehri Garhwal, Uttarakhand. The college is dedicated to promoting and developing paramedical education, especially for students who may not have access to government medical colleges. VMM College aims to provide quality medical education and services to underserved communities, ensuring that medical aid reaches the weaker sections of society at their doorstep.",
+      "The College offers a range of Bachelor of Vocation (B.Voc) programs in the field of medical sciences. The college offers three specialized courses: Medical Laboratory Technology, Operation Theatre Technology, and Medical Image Technology (X-Ray), each with an intake of 50 students. These are 3-year regular courses, and admissions are based on merit. The programs provide students with in-depth knowledge and hands-on experience in their respective fields, preparing them for careers in the healthcare industry.",
 
     ranking:
       "Vaidik Medical and Management College (VMM College) has established itself as a reputed institution in the field of paramedical and management education. The college is recognized for its quality academic programs, industry-oriented training, and strong placement support.",
     awards:
-      "Vaidik Medical and Management College (VMM College) has been honored with multiple prestigious awards for its excellence in education, healthcare training, and overall contribution to the academic sector. ",
+      "The College has been recognized with several prestigious awards for its outstanding contributions. These include the Rashtriya Pratibha Samman from Worthy Wellness Foundation in 2024, the India Star of The Year Award in 2023, and the Pride of India Award from Socially Point India Foundation in 2023. Additionally, the college received the Swami Vivekananda Adarsh Ratna Samman from Worthy Wellness Foundation in 2024, further highlighting its commitment to excellence in education and social welfare. ",
     hostel:
       "",
     opportunities:
       "",
     campus:
-      "Vaidik Medical and Management College (VMM College) in Tehri Garhwal provides a well-rounded educational experience with a strong focus on academics, practical training, and personality development. Students are provided with essential resources such as uniforms, college bags, and access to smart classrooms that enhance the learning process. The institution conducts weekly mock tests to prepare students for exams and hosts guest lectures by industry experts to bridge the gap between education and real-world applications. Extracurricular activities, including sports, art, and cultural events, play a crucial role in student development. The college also offers computer training and English-speaking classes to improve communication skills and technical proficiency. To foster student engagement beyond academics, VMM College has various clubs and societies, including the Sports Club, Art & Craft Club, Literature Club, and Nature Club, which provide platforms for students to explore their interests, develop new skills, and build a vibrant campus community. ",
+      "Nestled in the serene and scenic Himalayas on New Tehri Road, Buransbadi, Chamba, Tehri Garhwal, Uttarakhand, the college is committed to delivering high-quality paramedical education. The college provides an affordable education model, focusing on making healthcare services accessible to underserved communities. VMM College has earned a strong reputation for excellence in paramedical training, offering students the opportunity to engage in community health initiatives in both rural and urban areas. This hands-on experience not only enriches their learning but also allows them to make meaningful contributions to public health and well-being.",
     placement:
-      "Vaidik Medical and Management College (VMM College) has a strong placement record, ensuring that students receive ample career opportunities in the healthcare sector. For the 2021-2022 placement year, a total of 40 diploma students registered for placements, out of which 36 secured job offers in reputed hospitals and diagnostic centers. The placement drive witnessed participation from top recruiters such as Max Lab, Kanishk Surgical and Super Speciality Hospital, Dr. Ahuja’s Pathology & Imaging Centre, Tata 1mg Labs, Baluni Hospital, CMI Hospital, and many more. The salary packages offered ranged from ₹1,20,000 per annum to ₹2,52,000 per annum, with an average monthly salary of ₹10,000. The college collaborates with leading healthcare institutions to provide internship opportunities, ensuring that students gain hands-on experience before stepping into the professional world.",
+      "Our College has a strong track record of successful placements for its students. The college’s robust industry connections ensure that students have access to various job opportunities in leading healthcare organizations. Students are placed in prominent hospitals, diagnostic centers, and laboratories, providing them with practical experience and career growth. With employers such as Max Lab, Kanishk Surgical & Super Speciality Hospital, Dr. Ahujas Pathology & Imaging Centre, and Tata 1mg Labs actively recruiting, students benefit from diverse and rewarding career paths in the medical field. The college’s focus on bridging the gap between education and industry ensures that students are well-prepared for their professional journeys.",
     admission:
       "",
     faculty:"",
@@ -4695,6 +5204,7 @@ const college_details: IcollegeType[] = [
         info: "Includes in Hostel Fees",
       },
       {
+        
         name: "Location (on-campus or off-campus)",
         info: "On-Campus",
       },
@@ -4738,6 +5248,501 @@ const college_details: IcollegeType[] = [
         id: 3,
         rating: 4.8,
         desc: "The campus environment is very student-friendly with well-equipped labs and a focus on practical learning. The college also conducts regular guest lectures, industry visits, and mock tests, which helped me gain confidence in my field.",
+        user: user_3,
+        name: "",
+        location: "",
+      },
+    ],
+  },
+
+  //////////////////////////PAL COllEGE////////////////////////////////////////////
+
+  {
+    id: "Pal-College",
+    pageTitle: "Career Buddy Club | Pal College of Technology And Management, Dehradun",
+    metaDescription: "Pal College of Technology and Management (PCTM), Haldwani—a premier institution offering diverse programs in management, education, and computer applications with strong industry placements.",
+    logo: job_img_9,
+    type: "Private",
+    establishmentyear: "2008",
+    Recognisedby: "UGC",
+    Approvedby: "All India Council for Technical Education",
+    state: "Uttarakhand",
+    city: "Haldwani",
+    Campusarea: "9 Acre",
+    link: "https://palcollege.ac.in/",
+    email: "admission@palcollege.ac.in",
+    founded: "",
+    phone: "+918393888271, +916395054442, +918393888273",
+    feild: ["Education"],
+    overviewsection:
+      "Pal College of Technology and Management (PCTM), Haldwani, is a prestigious institution operating under the esteemed Pal College Educational Society. The college offers a diverse range of undergraduate, postgraduate, and certification courses in various fields, including Management, Education, Computer Applications, and more. These programs are designed to equip students with both theoretical knowledge and practical skills, preparing them for successful careers in their chosen disciplines.Admissions to PCTM are based on merit as well as entrance exams, ensuring a fair and transparent selection process. The college is committed to the academic and professional growth of its students, offering a conducive learning environment and state-of-the-art facilities. PCTM is highly regarded for its dedicated placement assistance, with a remarkable record of providing 100% placement support to its graduates. The college has established strong relationships with top industry recruiters such as Wipro, HCL, Microsoft, Tech Mahindra, L&T, and Mindtree, among others, offering students exceptional career opportunities and a promising start to their professional journeys.",
+    duration: "Fulltime",
+    date: "18 Jul 2019",
+    college: "Pal College of Technology And Management",
+    location: "Haldwani, Shiv Puram Colony, Udailalpur, Uttarakhand 263139",
+    category: ["+918393888271, +916395054442, +918393888273"],
+    experience: "Fresher",
+    salary: 900,
+    salary_duration: "Monthly",
+    tags: ["java", "developer"],
+    english_fluency: "Fluent",
+    overview:
+      "",
+    videoid: "bnzpaz04zzQ",
+    facebook: "",
+    instagram: "",
+    twitter: "",
+    linkedin: "",
+    courses:
+      " Our College offers a wide array of undergraduate and postgraduate programs tailored to meet the diverse career aspirations of its students. From technology and business to hospitality and education, the college provides comprehensive courses such as BCA, BBA, BHM, B.Ed, B.Sc. in Biotechnology, B.Com Hons., and a Diploma in Hospitality Administration. Each program is designed to equip students with the knowledge and skills needed to excel in their respective fields, with a focus on practical learning, industry exposure, and internships. Whether you are looking to pursue a career in tech, business management, education, or hospitality, Pal College ensures a well-rounded education with top-notch resources and faculty, preparing students for success in today’s competitive job market.",
+
+    ranking:
+      "Our institution consistently secures impressive rankings, a testament to our unwavering commitment to academic excellence and holistic development. Recognized regionally and nationally, these rankings affirm our dedication to providing a top-notch education, encouraging cutting-edge research, and fostering an enriching learning environment for our students.",
+    awards:
+      "Our institution takes pride in its accolades, having received recognition for excellence in education and innovation. These awards underscore our commitment to delivering high-quality academic programs, fostering research, and promoting an inclusive learning environment. We have been honored for our contributions to the community and advancements in education methodology. These accolades motivate us to continually strive for excellence, ensuring that our students receive a world-class education and graduate well-prepared for their future endeavors.",
+    hostel:
+      "Our institution ensures a comfortable and secure living environment for students with separate hostel facilities for both male and female students. The hostels are well-equipped with modern amenities, providing a conducive atmosphere for focused study and recreation. Trained staff maintains discipline, and safety measures are prioritized. The hostel experience fosters a sense of community, facilitating cultural exchange and lifelong friendships. With a commitment to student welfare, we aim to create a home away from home, ensuring a positive and enriching residential experience during the academic journey.",
+    opportunities:
+      "Our institution provides a myriad of opportunities for students to thrive. Beyond academic excellence, we offer extensive career support, industry collaborations, and leadership programs. A vibrant campus life, enriched with cultural events, sports, and global exposure, fosters holistic development. The Career Resource Centre ensures students are well-prepared for professional success through internships and placement assistance. Research opportunities and collaborations with leading institutions further broaden horizons. We aim to empower our students with a diverse range of opportunities, equipping them for a dynamic and successful future.",
+    campus:
+      "Our college offers an enriching environment that fosters both academic excellence and personal growth. Surrounded by lush greenery, the campus is equipped with state-of-the-art infrastructure designed to enhance the learning experience. The modern classrooms, well-equipped laboratories, and a comprehensive library support a holistic educational journey. Students also enjoy a variety of recreational facilities, including sports complexes and cultural spaces, promoting a well-rounded student life. With a strong focus on safety and security, the college creates a secure atmosphere for all. The vibrant campus community, complemented by a wide range of extracurricular activities, nurtures personal development, teamwork, and a sense of belonging.",
+    placement:
+      "Pal College of Technology and Management, affiliated with Kumaon University and Uttaranchal Open University, has seen impressive placement outcomes. Out of 143 registered students, 75 have been successfully placed, with 75 offers made from 25 visiting companies. The minimum salary offered is ₹3.5 L, while the maximum salary stands at ₹7 L, with an average salary of ₹4.5 L. Notably, the college has attracted top-tier recruiters such as Nagarro, Vincular, Rubico, HIC Global Solutions, Courtyard by Marriott, Hyatt, Ramada, Lemon Tree, Bandhan Bank, and The Lalit, among others. Additionally, the college offers internship opportunities ranging from one to six months, with stipends of up to ₹17,000 per month",
+    admission:
+      "Admission to our esteemed institution follows a fair and transparent process. Prospective students can access detailed admission guidelines, ensuring clarity at every step. The selection criteria are merit-based, reflecting our commitment to academic excellence. Application procedures are streamlined, and information is readily available through our online portal. Our dedicated admission committee is always ready to assist and guide applicants through the process. With a focus on diversity and inclusivity, we welcome aspiring students to join our vibrant academic community, where they can embark on a journey of knowledge, skills, and personal growth.",
+    faculty:
+    "Our institution boasts a distinguished faculty drawn from premier institutions across India, setting high academic standards. With a significant number holding Master's and Ph.D. qualifications, they actively contribute to both teaching and research. Their expertise ensures a rigorous and insightful learning experience for students. The faculty's commitment to excellence extends beyond the classroom, guiding students in research endeavors and preparing them for real-world challenges. Their collective knowledge and dedication contribute significantly to the academic vibrancy of our institution, shaping the future leaders of tomorrow.",
+
+    overviewtable:[
+      {
+        specialization: "Short Name",
+        annualfee: "PCTM",
+      },
+      {
+        specialization: "Institute Type - Public/ Private/ Govt",
+        annualfee: "Private",
+      },
+      {
+        specialization: "State",
+        annualfee: "Uttarakhand",
+      },
+      {
+        specialization: "City",
+        annualfee: "Dehradun",
+      },
+      {
+        specialization: "Location/ Address",
+        annualfee: "Haldwani, Shiv Puram Colony, Udailalpur, Uttarakhand 263139",
+      },
+      {
+        specialization: "Latitude",
+        annualfee: "29.199680599132176",
+      },
+      {
+        specialization: "Longitude",
+        annualfee: "79.4735935232325",
+      },
+      {
+        specialization: "Phone Numbers",
+        annualfee: "+918393888271, +916395054442, +918393888273",
+      },
+      {
+        specialization: "Website",
+        annualfee: "https://palcollege.ac.in/",
+      },
+      {
+        specialization: "Email Address",
+        annualfee: "admission@palcollege.ac.in",
+      },
+      {
+        specialization: "University Affiliation",
+        annualfee: "Kumaun University",
+      },
+      {
+        specialization: "Approval",
+        annualfee: "Yes",
+      },
+      {
+        specialization: "Area",
+        annualfee: "Education",
+      },
+     
+    ],
+      coursesAndFees: [
+        {
+          course: "BCA (Bachelor Of Computer Applications)",
+          specialization: "NA",
+          annualFee: "78200 /- Along with Additional Charges.",
+          duration: "Direct Admission",
+          eligibility: "10+2 with Maths as a subject with min 45% marks.",
+        },
+        {
+          course: "BBA (Bachelor Of Business Administration)",
+          specialization: "NA",
+          annualFee: "78200 /- Along with Additional Charges ",
+          duration: "Direct Admission",
+          eligibility: "10+2 with min 45% marks.(Any stream)",
+        },
+        
+        {
+          course: "BHM (Bachelor Of Hotel Management)",
+          specialization: "NA",
+          annualFee: "88200 /- Along with Additional Charges",
+          duration: "Direct Admission",
+          eligibility: "10+2 with min 45% marks. (Any stream)",
+        },
+
+        {
+          course: "B.Sc. Biotech (Bachelor of Science in Biotechnology)",
+          specialization: "NA",
+          annualFee: "77800 /- Along with Additional Charges",
+          duration: "Direct Admission",
+          eligibility: "10+2 with Biology as a subject with min 50% marks.",
+        },
+
+        {
+          course: "B.Com Hons. (Bachelor of Commerce- Honours)",
+          specialization: "NA",
+          annualFee: "76200 /- Along with Additional Charges",
+          duration: "Direct Admission",
+          eligibility: "10+2 with min 45% marks. (Any stream)",
+        },
+  
+        {
+          course: "BCA (Bachelor Of Computer Applications) UOU",
+          specialization: "NA",
+          annualFee: "76200 /- Along with Additonal Charges",
+          duration: "Direct Admission",
+          eligibility: "10+2 with min 45% marks. (Any stream)",
+        },
+
+        {
+          course: "Diploma In Hospitality Administration",
+          specialization: "NA",
+          annualFee: "83000 /- Along With Additional Charges",
+          duration: "Direct Admission",
+          eligibility: "10+2 with min 40% marks. (Any stream)",
+        },
+
+  ],
+    admissionDates: [
+      {
+        name: "Application Start Date",
+        date: "01-Mar-2025",
+      },
+      {
+        name: "Application End Date",
+        date: "30-Jul-2025",
+      },
+      {
+        name: "Date of Result Declaration",
+        date: "September 18, 2025",
+      },
+      {
+        name: "Last Date of Submission of Fee",
+        date: "September 28, 2025",
+      },
+      {
+        name: "Commencement of the Coursework",
+        date: "01/08/2025",
+      },
+    ],
+    campusinfo: [
+      // {
+      //   name: "Registration Dates",
+      //   info: "NA",
+      // },
+    
+      // {
+      //   name: "Result Declaration",
+      //   info: "NA",
+      // },
+      {
+        name: "Commencement of the Coursework",
+        info: "01 Aug, 2025",
+      },
+    ],
+    placementinformation: [
+      {
+        name: "Placement Year",
+        info: "2024",
+      },
+      {
+        name: "Degree",
+        info: "KU & UOU",
+      },
+      {
+        name: "Number of Students Registered",
+        info: "143",
+      },
+      {
+        name: "Number of Companies Visited",
+        info: "25",
+      },
+      {
+        name: "Number of Students Placed",
+        info: "75",
+      },
+      {
+        name: "Number of Offers Made",
+        info: "75",
+      },
+      {
+        name: "Maximum Salary",
+        info: "7 LPA",
+      },
+      {
+        name: "Average Salary",
+        info: "4.5 LPA",
+      },
+      // {
+      //   name: "Maximum Salary (International, if applicable)",
+      //   info: "NA",
+      // },
+      // {
+      //   name: "Average Salary (International, if applicable)",
+      //   info: "NA",
+      // },
+      // {
+      //   name: "Average Salary Percentage for Last 3 Years",
+      //   info: "NA",
+      // },
+      {
+        name: "Recruiter List",
+        info: "Nagarro, Vincular, Rubico, HIC Global Solutions, crm solutions, Courtyard by Marriott, le meridien, Hyatt,Ramada, Lemon Tree, Bandhan Bank, The Lalit, Taj Palace, The Oberoi etc.",
+      },
+      {
+        name: " Internship Details",
+        info: "Yes- One month to Six months with a stipend up 17K/ month",
+      },
+    
+    ],                     
+    opportunitiesinfo: [
+      // {
+      //   name: "Registration Dates",
+      //   info: "February 8 to September 15, 2023",
+      // },
+      // {
+      //   name: "Date of Entrance Test & Interview",
+      //   info: "September 17, 2023",
+      // },
+      // {
+      //   name: "Date of Result Declaration",
+      //   info: "September 18, 2023",
+      // },
+      // {
+      //   name: "Last Date of Submission of Fee",
+      //   info: "September 28, 2023",
+      // },
+      // {
+      //   name: "Commencement of the Coursework",
+      //   info: "October 3, 2023",
+      // },
+    ],
+    awardsinfo: [
+         
+    ],
+   
+    facultytable: [
+      // {
+      //   name: "Dr. Vishal",
+      //   Qualification: "Dept. of  Microbiology",
+      //   Experience: "22 year",
+      //   Specialization: "Agriculture microbiology, Biological Control, Plant growth promo. Rhizo bacteria, Fermentation Technology, Antimicrobial Activity of mediclinal plant, Microbial pathology.",
+      // },
+      // {
+      //   name: "Dr. RD Saklani",
+      //   Qualification: "Dept. of  Geology",
+      //   Experience: "10 year",
+      //   Specialization: "Sequence stratigraphy, Petroleum Geology, Ichnology, Disaster Management, Engg. Geology, Field Geology, Himalayan Geology & Western India (Kachchh & Rajasthan).",
+      // },
+      // {
+      //   name: "Mr. S K Thakur",
+      //   Qualification: "Dept. of  Statistics & Mathematics",
+      //   Experience: "35 year",
+      //   Specialization: "Statistics, International finance,  International Economics, Coorporates Law. ",
+      // },
+      // {
+      //   name: "Dr. Neelesh",
+      //   Qualification: "Dept. of  Microbiology",
+      //   Experience: "02 year",
+      //   Specialization: "Medical microbiology, General microbiology.",
+      // },
+      // {
+      //   name: "Mrs. Preeti Sood",
+      //   Qualification: "Dept. of  Hotel Management ",
+      //   Experience: "23 year",
+      //   Specialization: "Food and beverage,Front office, House Keeping, Kitchen.",
+      // },
+      // {
+      //   name: "Mr. Gurmeet singh",
+      //   Qualification: "Dept. of  Chemistry",
+      //   Experience: "03 year",
+      //   Specialization: "Waste Management, Water purification, Biofilms and filters, Polymers, Analytical Chemistry.",
+      // },
+      // {
+      //   name: "Mr. Kashif Hussain",
+      //   Qualification: "Dept. of  Pharmacy",
+      //   Experience: "12 year",
+      //   Specialization: "Pharmaceutical Chemistry.",
+      // },
+      // {
+      //   name: "Mr. Javed Siddiqui",
+      //   Qualification: "Dept. of  Paramedical ",
+      //   Experience: "14 year",
+      //   Specialization: "Clinical biochemistry, Pathology, Medical Microbiology.",
+      // },
+      // {
+      //   name: "Ms. Rohita",
+      //   Qualification: "Dept. of  Pharmacy",
+      //   Experience: "01 year",
+      //   Specialization: "Hospital and clinical pharmacy, Community pharmacy, Pharmacy practice, Social pharmacy.",
+      // },
+      // {
+      //   name: "Dr. Manisha Singh",
+      //   Qualification: "Dept. of  Paramedical ",
+      //   Experience: "01 year",
+      //   Specialization: "Orthopedics, Neurology.",
+      // },
+      // {
+      //   name: "Dr. Kiran",
+      //   Qualification: "Dept. of  Paramedical ",
+      //   Experience: "05 year",
+      //   Specialization: "Orthopedics",
+      // },
+      // {
+      //   name: "Dr. Nidhi Chatterjee",
+      //   Qualification: "Dept. of  Zoology",
+      //   Experience: "18 year",
+      //   Specialization: "Zoology, Fish and Fishries, Parasitology.",
+      // },
+      // {
+      //   name: "Ms. Susmita Bahuguna ",
+      //   Qualification: "Dept. of  Nursing",
+      //   Experience: "01 year",
+      //   Specialization: "Nursing fundamental, Social nursing",
+      // },
+      // {
+      //   name: "Ms. Oshin",
+      //   Qualification: "Dept. of  Nursing",
+      //   Experience: "01 year",
+      //   Specialization: "Psychology, Anatomy, Physiology",
+      // },
+
+    ],
+    hostelinfo: [
+      // {
+      //   name: "Capacity",
+      //   info: "1000",
+      // },
+      // {
+      //   name: "Hostel Fees",
+      //   info: "In-house Residential Accommodation (Optional) Charges (Note: - Hostel charges is per year which includes Vegetarian / Non-Vegetarian Food) ",
+      // },
+      // {
+      //   name: "",
+      //   info: "•	Standard Quad (Four Sharing Room) with Attached Toilet Rs.48000/-per Year.        ",
+      // },
+      // {
+      //   name: "",
+      //   info: "•	Deluxe Quad (Four Sharing Room) with Attached Toilet Rs.58000/-per Year.        ",
+      // },
+      // {
+      //   name: "",
+      //   info: "•	Standard (Three Sharing Room) with Attached Toilet Rs.68000/-per Year.        ",
+      // },
+      // {
+      //   name: "",
+      //   info: "•	Deluxe (Three Sharing Room) with Attached Toilet Rs.78000/-per Year.        ",
+      // },
+      // {
+      //   name: "",
+      //   info: "•	Standard (Two Sharing Room) with Attached Toilet Rs.73000/-per Year.        ",
+      // },
+      // {
+      //   name: "",
+      //   info: "•	Deluxe (Two Sharing Room) with Attached Toilet Rs.78000/-per Year.        ",
+      // },
+      // {
+      //   name: "",
+      //   info: "•	Super Deluxe (Two Sharing Room) with Attached Toilet Rs.88000/-per Year.        ",
+      // },
+      // {
+      //   name: "",
+      //   info: "•	Executive Room (TWO SHARING Room) with LCD + Tata Sky + Attached Toilet Rs.95000/-per Year.        ",
+      // },
+      // {
+      //   name: "",
+      //   info: "•	Executive Room (TWO SHARING Room) with A.C + LCD + Tata Sky + Attached Toilet Rs.105000/-per Year.        ",
+      // },
+      // {
+      //   name: "",
+      //   info: "•	Hostel Enrolment & Furnishing Fee: Rs.5000/-(To be paid Once) Laundry Charges: Rs.4800/-per Year",
+      // },
+      // {
+      //   name: "Mess Fees",
+      //   info: "Includes in Hostel Fees",
+      // },
+      // {
+      //   name: "Location (on-campus or off-campus)",
+      //   info: "On-Campus",
+      // },
+      // {
+      //   name: "Number of Rooms",
+      //   info: "300",
+      // },
+      // {
+      //   name: "Room Type (Occupancy basis)",
+      //   info: "Single Sharing, Two sharing, Three Sharing, Four Sharing",
+      // },
+      // {
+      //   name: "Hostel Facilities/ Amenities",
+      //   info: "Wi-Fi, CCTV Surveillance, Security Guards, Warden, Indoor Stadium, Outdoor Playground, Gymnasium, etc.",
+      // },
+    ],
+    rankinginfo: [
+      {
+        name: "NA",
+        info: "NA",
+      },
+      // {
+      //   name: "2390(University)",
+      //   info: "The Asia, 2022",
+      // },
+      // {
+      //   name: "350(University)",
+      //   info: "The India, 2022",
+      // },
+      // {
+      //   name: "9(University)",
+      //   info: "The Uttarakhand, 2022",
+      // },
+      // {
+      //   name: "4(University)",
+      //   info: "Dehradun, 2022",
+      // },
+    ],
+    reviewinfo: [
+      {
+        id: 1,
+        rating: 4.7,
+        desc: "Pal College has contributed greatly to the development of my personality. I feel that I have changed and grown immensely as a person during my course. My three years at the institute were absolutely amazing and enriching. The faculty are highly accomplished. Their quality of teaching is impressive. They are always willing to extend a helping hand to the students at any time. They never hesitate to solve our doubts. The talent and experience they possess shines through unfailingly in their classroom lectures. I am extremely grateful that I got the chance to learn from them.",
+        user: user_1,
+        name: "",
+        location: "",
+      },
+      {
+        id: 2,
+        rating: 4.5,
+        desc: "I had enrolled in the BCA program at Pal College. Mathematics is a core component of the course and I was able to gain the skills and confidence to use a variety of quantitative approaches for my work in various contexts. It can be quite difficult and time consuming to obtain a theoretical understanding of complex concepts before applying them practically. Writing code and then rewriting it to remove errors, before you successfully nail it is quite challenging. Thankfully, we were incredibly fortunate to have instructors who were very patient, understanding and highly skilled for each course in college.",
+        user: user_2,
+        name: "",
+        location: "",
+      },
+      {
+        id: 3,
+        rating: 4.8,
+        desc: "Our college is situated in a prime location. It is easily accessible from the city center of Haldwani and it is also quite large with abundant greenery. The library is well-maintained and has almost every single book related to courses and their concepts as well as many newspapers, journals, periodicals and assignment projects. The faculty is brilliant. They explain everything so well and always answer any question or doubt a student has. Of course, this undoubtedly helps students to score high percentages in their degree programmes.",
         user: user_3,
         name: "",
         location: "",

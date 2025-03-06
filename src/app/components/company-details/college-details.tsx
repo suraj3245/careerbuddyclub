@@ -161,9 +161,9 @@ const CollegeDetailsArea = ({ details }: { details: IcollegeType }) => {
                 <Image
                   src={details.logo}
                   alt="logo"
-                  className="lazy-img m-auto logo"
-                  width={100} 
-                  height={100}
+                  className="lazy-img m-auto logo w-[100px] h-auto"
+                  // width={100} 
+                  // height={100}
                 />
                 <div className="text-md text-dark text-center mt-15 mb-20 lg-mb-10">
                   {details.college}
