@@ -20,7 +20,9 @@ const schools = () => {
   return (
     <Wrapper>
       <HeroBannerThree/>
-      <FlipCard />
+      <div className="container mb-4">
+          <FlipCard />
+      </div>
 
       <FeatureFive />
       <Aptibannerthree />
