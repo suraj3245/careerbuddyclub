@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import shape from "@/assets/images/shape/shape_29.svg";
 import useSearchFormSubmit from "@/hooks/use-search-form-submit";
-import { useRouter } from "next/navigation"; // Corrected from 'next/navigation' to 'next/router'
+import { useRouter } from "next/navigation"; 
 import { ToastContainer, toast } from "react-toastify";
 
 const AptiBanner = () => {
@@ -59,11 +59,11 @@ const AptiBanner = () => {
         )}
       </div>
       <div className="img-meta">
-        <Image
+        {/* <Image
           src={shape}
           alt="shape img"
           className="lazy-img shapes shape_01"
-        />
+        /> */}
       </div>
       <a href="#" className="chat-btn tran3s">
         <i className="bi bi-chat-dots"></i>

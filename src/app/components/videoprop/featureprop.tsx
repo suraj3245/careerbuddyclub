@@ -9,7 +9,7 @@ const VideoCard: React.FC<VideoCardProps> = ({ videoId }) => {
   // Styles for the video container to maintain aspect ratio
   const videoWrapperStyle: React.CSSProperties = {
     position: 'relative',
-    paddingTop: '56.25%', // 16:9 aspect ratio
+    paddingTop: '56.25%', 
     paddingLeft: '10px',
   };
 
@@ -17,11 +17,11 @@ const VideoCard: React.FC<VideoCardProps> = ({ videoId }) => {
   const iframeStyle: React.CSSProperties = {
     position: 'absolute',
     top: 0,
-    left: '10px', // To account for the padding on the container
-    right: '10px', // To account for the padding on the container
-    width: 'calc(100% - 20px)', // Subtracting the left and right padding
+    left: '10px', 
+    right: '10px', 
+    width: 'calc(100% - 20px)', 
     height: '100%',
-    border: '0', // If you prefer no border
+    border: '0', 
   };
 
   return (
@@ -50,9 +50,9 @@ const FeatureSection: React.FC = () => {
                 {/* Content goes here */}
                 <h2 className="pb-20">What is Career Aptitude Test?</h2>
                  <p>Welcome to the Career Buddy Club's Aptitude Test. Dive into a quick and insightful assessment that will shine a light on your unique personality, cognitive strengths, and professional aptitudes.<br/>
-This easy-to-complete test will guide you through a series of questions aimed at pinpointing your capabilities and preferences. Discover your hidden talents and understand how you can apply them in your career path.<br/>
-Receive a detailed report with personalized feedback to set achievable goals and take control of your personal and professional development. Unlock your full potential with CBC's Career Aptitude Test - try it today and experience the difference in your life.<br/>
-</p>
+                 This easy-to-complete test will guide you through a series of questions aimed at pinpointing your capabilities and preferences. Discover your hidden talents and understand how you can apply them in your career path.<br/>
+                 Receive a detailed report with personalized feedback to set achievable goals and take control of your personal and professional development. Unlock your full potential with CBC's Career Aptitude Test - try it today and experience the difference in your life.<br/>
+                </p>
               </div>
             </div>
             <div className="col-lg-7">
