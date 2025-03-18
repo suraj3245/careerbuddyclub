@@ -67,7 +67,7 @@ const CandidateV3Area = ({ style_2 }: { style_2?: boolean }) => {
                   ))}
                 </div>
               </div>
-
+                
               <div
                 className={`accordion-box list-style ${jobType === "list" ? "show" : ""}`}
               >
@@ -75,7 +75,7 @@ const CandidateV3Area = ({ style_2 }: { style_2?: boolean }) => {
                   <CandidateListItem key={item.id} item={item} style_2={true} />
                 ))}
               </div>
-
+                
               <div className="pt-20 d-sm-flex align-items-center justify-content-between">
                 <p className="m0 order-sm-last text-center text-sm-start xs-pb-20">
                   Showing <span className="text-dark fw-500">1 to 20</span> of{" "}

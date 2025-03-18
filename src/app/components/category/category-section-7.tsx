@@ -84,31 +84,31 @@ export function CategoryCardWrapper({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    height: "120px", // Adjust height as needed
+    height: "120px", 
   };
 
   const cardImageStyle = {
-    maxWidth: "100px", // Adjust width as needed
-    maxHeight: "100px", // Adjust height as needed
+    maxWidth: "100px", 
+    maxHeight: "100px", 
   };
   const titleStyle: React.CSSProperties = {
-    textAlign: "center", // Center align text
-    fontWeight: "500", // Keeping consistent with your existing class
+    textAlign: "center", 
+    fontWeight: "500", 
   };
   const descriptionTextStyle: React.CSSProperties = {
-    color: "#333333", // Replace with your preferred dark color
-    // Add any other styling you need for the description text
+    color: "#333333", 
+    
   };
   const renderLink = (item: ICategoryThree) => {
     const linkTarget =
       item.nav === "/dashboard/candidate-dashboard/profile" && !isUserLoggedIn
-        ? "#" // Link to the modal if user is not logged in
-        : item.nav; // Regular link otherwise
+        ? "#" 
+        : item.nav; 
 
     const linkProps =
       item.nav === "/dashboard/candidate-dashboard/profile" && !isUserLoggedIn
         ? { "data-bs-toggle": "modal", "data-bs-target": "#ApplyModal" } // Modal properties
-        : {}; // Regular link properties
+        : {}; 
 
     return (
       <Link href={linkTarget} {...linkProps} className="d-block">
@@ -159,30 +159,30 @@ export function CategoryCardWrapper({
 
 const CategorySectionSeven: React.FC<categorySectionProps> = ({ user }) => {
   const [isLargeScreen, setIsLargeScreen] = useState(false);
-  const isUserLoggedIn = Boolean(user.value); // user.value will be false if null or empty
+  const isUserLoggedIn = Boolean(user.value); 
 
   useEffect(() => {
     const handleResize = () => {
-      setIsLargeScreen(window.innerWidth > 768); // Adjust 768px as per your breakpoint needs
+      setIsLargeScreen(window.innerWidth > 768); 
     };
 
-    // Set the initial value
+    
     handleResize();
 
-    // Add event listener
+    
     window.addEventListener("resize", handleResize);
 
-    // Remove event listener on cleanup
+    
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const sectionStyle: React.CSSProperties = isLargeScreen
     ? {
         overflow: "hidden",
-        height: "100vh", // this ensures the section takes up only the viewport height on larger screens
+        height: "100vh", 
       }
     : {
-        overflow: "auto", // allows scrolling on smaller screens
+        overflow: "auto", 
       };
 
   return (
@@ -203,7 +203,7 @@ const CategorySectionSeven: React.FC<categorySectionProps> = ({ user }) => {
                 </h2>
               </div>
             </div>
-          </div>
+          </div>             
           {/* CategoryCardWrapper */}
           <CategoryCardWrapper isUserLoggedIn={isUserLoggedIn} />
           {/* CategoryCardWrapper */}

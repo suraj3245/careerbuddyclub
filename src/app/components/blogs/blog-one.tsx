@@ -56,20 +56,16 @@ const BlogOne = () => {
           </div>
 
           <div className="row gx-xxl-5">
-            <Slider {...slider_setting} ref={sliderRef}>
-              {blog_items.map((item) => (
-                <div key={item.id} className="col-lg-4 col-md-6">
-                  <BlogItem item={item} />
-                </div>
-              ))}
-            </Slider>
-          </div>
-
-          {/* <div className="text-center explore-btn sm-mt-30">
-            <Link href="/blog-v3" className="btn-one">
-              Explore More
-            </Link>
-          </div> */}
+          <Slider {...slider_setting} ref={sliderRef}>
+           {blog_items.map((item) => (
+           <div key={item.id} className="col-lg-4 col-md-6 border">
+           <BlogItem item={item} />
+           </div>
+           ))}
+         </Slider>
+         </div>
+         
+         
         </div>
       </div>
     </section>

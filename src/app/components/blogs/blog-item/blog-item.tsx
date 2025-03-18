@@ -5,29 +5,28 @@ import { IBlogDataType } from "@/types/blog-type";
 
 const BlogItem = ({ item }: { item: IBlogDataType }) => {
   return (
-    <article className="blog-meta-one mt-35 wow fadeInUp">
-      <figure className="post-img m0">
-        <div className="w-100 d-block">
-          <Image
-            src={item.img}
-            alt="blog-img"
-            className="lazy-img blog-img w-100 tran4s"
-          />
-        </div>
-      </figure>
-      <div className="post-data mt-30 lg-mt-20">
-        <ul className="tags style-none d-flex">
-          {item.tags.map((t, i) => (
-            <li key={i}>
-              <div>{t}</div>
-            </li>
-          ))}
-        </ul>
-        <div className="mt-10 mb-10">
-          <h4 className="tran3s blog-title">{item.title}</h4>
-        </div>
-        <div className="author">
-          <div className="text-dark fw-500">{item.author}</div>
+    <article className="relative overflow-hidden rounded-lg shadow-sm transition hover:shadow-lg">
+      <Image
+        src={item.img}
+        alt={item.title}
+        width={500}
+        height={200}
+        className="absolute inset-0 h-full w-full object-cover"
+      />
+
+      <div className="relative bg-gradient-to-t from-gray-900/50 to-gray-900/25 pt-32 sm:pt-48 lg:pt-64">
+        <div className="p-4 sm:p-6">
+          <time dateTime={item.date} className="block text-xs text-white/90">
+            {item.date}
+          </time>
+
+          <Link href="#">
+            <h1 className="mt-0.5 text-lg font-weight-bold tracking-wider" style={{ color: "#05A9C7", letterSpacing: "2px"}}>{item.title}</h1>
+          </Link>
+
+          <p className="mt-2 line-clamp-3 text-sm/relaxed text-white/95">
+            {item.author}
+          </p>
         </div>
       </div>
     </article>
