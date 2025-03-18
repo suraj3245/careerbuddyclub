@@ -98,7 +98,7 @@ const CategorySectionThree = () => {
                 Top Compaines
               </h2>
             </div>
-            <TrendingJobs />
+            <TrendingJobs/>
           </div>
         </div>
       </section>
