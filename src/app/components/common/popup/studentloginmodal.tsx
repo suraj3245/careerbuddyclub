@@ -24,7 +24,7 @@ const StudentFormModal = () => {
               aria-label="Close"
             ></button>
             <div className="p-2">
-              <h2 className="text-center" style={{ color: "rgb(20, 173, 189)", fontSize: '45px' }}>Hi, Welcome Back!</h2>
+              <h2 className="text-center" style={{ color: "rgb(20, 173, 189)", fontSize: '45px' }}>Hi, Welcome Back!ss</h2>
             </div>
             <div className="row">
               <div className="col-lg-11" style={{margin: 'auto'}}>

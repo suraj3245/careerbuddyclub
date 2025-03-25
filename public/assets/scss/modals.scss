@@ -1,0 +1,19 @@
+
+.ee-formscript{
+    z-index: 1;
+    width: 420px !important;
+    height: auto !important;
+}
+.ee-formscript p {
+    color: black;
+}
+@media screen and (max-width: 950px) {
+    .ee-formscript {
+        position: relative;
+        right: 0;
+        z-index: 1;
+        padding: 20px 0;
+        width: auto !important;
+        height: auto !important;
+    }
+}

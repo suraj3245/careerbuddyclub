@@ -99,7 +99,8 @@ const PhoneForm = () => {
           theme: "light",
         });
         setTimeout(() => {
-          window.location.href = "/dashboard/candidate-dashboard/profile";
+          window.location.href =
+            "/dashboard/candidate-dashboard/career-aptitude";
         }, 1000);
       })
       .catch((error) => {
@@ -121,57 +122,56 @@ const PhoneForm = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="col-12" id="PhoneForm">
-        <div className="input-group-meta position-relative mb-25 mt-30">
-          <div style={{ display: "flex", alignItems: "center" }}>
-            <input
-              type="tel"
-              placeholder="Mobile Number"
-              {...register("mobile", {
-                required: `Phone Number is required!`,
-              })}
-              name="mobile"
-              style={{ flex: "1", marginRight: "10px" }}
-            />
-            <button
-              type="button"
-              onClick={() => {
-                if (!isVerificationSent || showResend) {
-                  const formData = getValues();
-                  requestOTP({
-                    country_code: "91",
-                    mobile: formData.mobile,
-                  });
-                }
-              }}
-              disabled={isVerificationSent && !showResend}
-              style={{
-                backgroundColor: "#14ADBD",
-                color: "#ffffff",
-                border: "none",
-                padding: "10px 15px",
-                borderRadius: "5px",
-                cursor: "pointer",
-              }}
-            >
-              {!isVerificationSent
-                ? "Whatsapp OTP"
-                : showResend
-                ? "Resend"
-                : `Wait for ${countdown} sec`}
-            </button>
-          </div>
+      <div className="row">
+        <div className="col-lg-12 col-12 gap-2">
+          <input
+            type="tel"
+            className="form-control"
+            placeholder="Mobile Number"
+            {...register("mobile", {
+              required: `Phone Number is required!`,
+            })}
+            name="mobile"
+            style={{ flex: "1", marginRight: "10px" }}
+          />&nbsp;
+          <button
+            type="button"
+            className="col-lg-6 col-8"
+            onClick={() => {
+              if (!isVerificationSent || showResend) {
+                const formData = getValues();
+                requestOTP({
+                  country_code: "91",
+                  mobile: formData.mobile,
+                });
+              }
+            }}
+            disabled={isVerificationSent && !showResend}
+            style={{
+              backgroundColor: "#14ADBD",
+              color: "#ffffff",
+              border: "none",
+              padding: "10px 15px",
+              borderRadius: "5px",
+              cursor: "pointer",
+            }}
+          >
+            {!isVerificationSent
+              ? "Whatsapp OTP"
+              : showResend
+              ? "Resend"
+              : `Wait for ${countdown} sec`}
+          </button>
           <div className="help-block with-errors">
             <ErrorMsg msg={errors.mobile?.message!} />
           </div>
         </div>
-      </div>
 
-      {isVerificationSent && (
-        <div className="col-12">
-          <div className="input-group-meta position-relative mb-15">
+        {isVerificationSent && (
+          <div className="col-lg-12 col-12 mt-3">
             <input
               type="text"
+              className="form-control"
               placeholder="Whatsapp OTP"
               {...register("verificationCode", {
                 required: `Verification Code is required!`,
@@ -182,34 +182,7 @@ const PhoneForm = () => {
               <ErrorMsg msg={errors.verificationCode?.message!} />
             </div>
           </div>
-        </div>
-      )}
-
-      <div className="col-12">
-        
-        <div className="agreement-checkbox d-flex justify-content-between align-items-center pb-30">
-          <a
-            href="#"
-            className="fw-500"
-            data-bs-toggle="modal"
-            data-bs-target="#PhoneModal"
-          >
-            Login using Email!
-          </a>
-        </div>
-      </div>
-
-      <div className="col-12">
-        <div className="agreement-checkbox d-flex justify-content-between align-items-center">
-          <a
-            href="#"
-            className="fw-500"
-            data-bs-toggle="modal"
-            data-bs-target="#ApplyModal"
-          >
-            Not a User? Apply
-          </a>
-        </div>
+        )}
       </div>
       <div className="col-12">
         <button

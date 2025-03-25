@@ -1,8 +1,11 @@
 import React from "react";
 import menu_data from "@/data/menu-data";
 import Link from "next/link";
+import { useRouter } from 'next/router';
 
 const Menus = () => {
+  // const router = useRouter();
+  const utmSource = "career buddy club"; 
   return (
     <>
       {menu_data.map((menu) =>

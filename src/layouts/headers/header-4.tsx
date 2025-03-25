@@ -19,6 +19,8 @@ import ApplyModal from "@/app/components/common/popup/apply-modal";
 import ApplyModalSchool from "@/app/components/common/popup/apply-modal2";
 import "react-toastify/dist/ReactToastify.css";
 import { useLocation } from "react-use";
+import ModalHeader from "@/app/components/homeModal";
+
 // Interface defining props for HeaderFour component
 interface HeaderFourProps {
   user: {
@@ -37,6 +39,12 @@ const HeaderFour: React.FC<HeaderFourProps> = ({ user, index, onLogout }) => {
   const [userType, setUserType] = useState("");
   const pathname = usePathname();
   const location = useLocation();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalType, setModalType] = useState<string | null>(null);
+  const openApplyModal = (type: string) => {
+    setModalType(type);
+    setIsModalOpen(true);
+  };
   // Function to fetch user data
   const fetchUserData = async () => {
     const token = localStorage.getItem("token");
@@ -61,7 +69,6 @@ const HeaderFour: React.FC<HeaderFourProps> = ({ user, index, onLogout }) => {
       },
       data: {},
     };
-
     try {
       const response = await axios.request(options);
       const data = response.data;
@@ -81,19 +88,13 @@ const HeaderFour: React.FC<HeaderFourProps> = ({ user, index, onLogout }) => {
   // Effect to fetch user data and simulate click on Apply Modal
   useEffect(() => {
     fetchUserData();
-    if (!localStorage.getItem("token") && location.pathname !== '/schools') {
+    if (!localStorage.getItem("token") && location.pathname !== "/schools" && location.pathname !== '/') {
       setTimeout(() => {
-        const event = new Event("click");
-        const applyNowButton = document.querySelector(
-          '[data-bs-target="#ApplyModal"]'
-        );
-        if (applyNowButton) {
-          applyNowButton.dispatchEvent(event);
-        }
-      }, 1000);
+        setModalType("student");
+        setIsModalOpen(true);
+      }, 3000);
     }
   }, [isUserLoggedIn]);
-
 
   // Effect to determine user type based on stored data
   useEffect(() => {
@@ -107,14 +108,13 @@ const HeaderFour: React.FC<HeaderFourProps> = ({ user, index, onLogout }) => {
   }, []);
 
   // Function to get initials from username
-  const getInitials = ((userNames: string) =>{
+  const getInitials = (userNames: string) => {
     const username = localStorage.getItem("username");
     const schoolName = localStorage.getItem("schoolName");
     const nameToUse = username || schoolName || "";
-    return nameToUse.length > 0 ? nameToUse[0].toUpperCase() : "?"; 
-  })
+    return nameToUse.length > 0 ? nameToUse[0].toUpperCase() : "?";
+  };
 
-  
   return (
     <>
       <header
@@ -128,31 +128,28 @@ const HeaderFour: React.FC<HeaderFourProps> = ({ user, index, onLogout }) => {
             <div className="d-flex align-items-center justify-content-between">
               <div className="logo order-lg-0">
                 <Link href="/" className="d-flex align-items-center">
-                  <Image src={logo} alt="logo" width="125" height="75" priority />
+                  <Image
+                    src={logo}
+                    alt="logo"
+                    width="125"
+                    height="75"
+                    priority
+                  />
                 </Link>
               </div>
               <div className="right-widget ms-auto ms-lg-0 order-lg-2">
                 {!isUserLoggedIn && (
                   <ul className="d-flex align-items-center style-none">
                     <li>
-                      <a
-                        href="#"
-                        className="fw-500 text-dark"
-                        data-bs-toggle="modal"
-                        data-bs-target="#loginModalstudent"
-                      >
-                        Login
-                      </a>
+                      <a className="cursor-pointer" onClick={() => openApplyModal("emailLogin")}>Login</a>
                     </li>
                     <li className="d-none d-md-block ms-4">
-                      <a
-                        href="#"
+                      <button
                         className="fw-500 btn-five"
-                        data-bs-toggle="modal"
-                        data-bs-target="#ApplyModal"
+                        onClick={() => openApplyModal("student")}
                       >
                         Apply Now
-                      </a>
+                      </button>
                     </li>
                   </ul>
                 )}
@@ -200,7 +197,11 @@ const HeaderFour: React.FC<HeaderFourProps> = ({ user, index, onLogout }) => {
                               </Link>
                             </li>
                             <li>
-                              <a href="/" className="dropdown-item" onClick={onLogout}>
+                              <a
+                                href="/"
+                                className="dropdown-item"
+                                onClick={onLogout}
+                              >
                                 Logout
                               </a>
                             </li>
@@ -225,7 +226,11 @@ const HeaderFour: React.FC<HeaderFourProps> = ({ user, index, onLogout }) => {
                               </Link>
                             </li>
                             <li>
-                              <a href="/" className="dropdown-item" onClick={onLogout}>
+                              <a
+                                href="/"
+                                className="dropdown-item"
+                                onClick={onLogout}
+                              >
                                 Logout
                               </a>
                             </li>
@@ -262,14 +267,12 @@ const HeaderFour: React.FC<HeaderFourProps> = ({ user, index, onLogout }) => {
                     {/* menus end */}
                     {!isUserLoggedIn && (
                       <li className="d-md-none mt-5">
-                        <a
-                          href="#"
+                        <button
                           className="fw-500 btn-five"
-                          data-bs-toggle="modal"
-                          data-bs-target="#ApplyModal"
+                          onClick={() => openApplyModal("student")}
                         >
                           Apply Now
-                        </a>
+                        </button>
                       </li>
                     )}
                   </ul>
@@ -281,7 +284,11 @@ const HeaderFour: React.FC<HeaderFourProps> = ({ user, index, onLogout }) => {
       </header>
 
       {/* Modals */}
-      <ApplyModal />
+      <ModalHeader
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        modalType={modalType}
+      />
       <LoginModal />
       <PhoneModal />
       <ScheduleModal />

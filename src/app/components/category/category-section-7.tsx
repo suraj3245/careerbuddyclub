@@ -11,12 +11,6 @@ import bg_4 from "@/assets/images/assets/company.png";
 import { ICategoryThree } from "@/types/category-type";
 import dynamic from "next/dynamic";
 
-const ApplyModal = dynamic(
-  () => import("@/app/components/common/popup/apply-modal"),
-  {
-    ssr: false,
-  }
-);
 const LoginModal = dynamic(
   () => import("@/app/components/common/popup/login-modal"),
   {
@@ -209,7 +203,6 @@ const CategorySectionSeven: React.FC<categorySectionProps> = ({ user }) => {
           {/* CategoryCardWrapper */}
         </div>
       </section>
-      <ApplyModal />
       <LoginModal />
       <PhoneModal />
     </>

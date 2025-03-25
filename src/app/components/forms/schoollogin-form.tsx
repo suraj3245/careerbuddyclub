@@ -8,7 +8,6 @@ import icon from "@/assets/images/icon/icon_60.svg";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useRouter } from "next/navigation";
 
 // form data type
 type IFormData = {
@@ -37,7 +36,6 @@ const resolver: Resolver<IFormData> = async (values) => {
 const SchoolLoginForm = () => {
   const [isMounted, setIsMounted] = useState(false);
   const [loginType, setLoginType] = useState<"student" | "school">("student");
-  const router = useRouter();
   const [showPass, setShowPass] = useState<boolean>(false);
 
   // react hook form
@@ -134,6 +132,7 @@ const SchoolLoginForm = () => {
               <label style={{ color: "black" }}>Email*</label>
               <input
                 type="email"
+                className="form-control"
                 placeholder="Enter your E-mail"
                 {...register("School_email", {
                   required: `Email is required!`,
@@ -151,7 +150,7 @@ const SchoolLoginForm = () => {
               <input
                 type={`${showPass ? "text" : "password"}`}
                 placeholder="Enter Password"
-                className="pass_log_id"
+                className="pass_log_id form-control"
                 {...register("School_password", {
                   required: `Password is required!`,
                 })}
@@ -186,10 +185,10 @@ const SchoolLoginForm = () => {
         <div className="col-12">
           <div className="agreement-checkbox d-flex justify-content-between align-items-center">
             <a
-              href="#"
-              className="fw-500"
-              data-bs-toggle="modal"
-              data-bs-target="#ApplyModalSchool"
+               href="#"
+               className="fw-500"
+               data-bs-toggle="modal"
+               data-bs-target="#ApplyModalSchool"
             >
               Not a User? Apply
             </a>

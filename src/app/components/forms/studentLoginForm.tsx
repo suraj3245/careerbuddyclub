@@ -33,7 +33,7 @@ const resolver: Resolver<IFormData> = async (values) => {
   };
 };
 
-const StudentLoginForm = () => {
+const StudentLoginForm2 = () => {
   const [isMounted, setIsMounted] = useState(false);
   const [loginType, setLoginType] = useState<"student" | "school">("student");
   const router = useRouter();
@@ -112,11 +112,12 @@ const StudentLoginForm = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="mt-10">
       <div className="row">
-        <div className="col-12">
+        <div className="col-lg-12">
           <div className="input-group-meta position-relative mb-25">
             <label style={{ color: "black" }}>Email*</label>
             <input
               type="email"
+              className="form-control"
               placeholder="Enter E-mail"
               {...register("email", { required: `Email is required!` })}
               name="email"
@@ -126,53 +127,31 @@ const StudentLoginForm = () => {
             </div>
           </div>
         </div>
-        <div className="col-12">
-          <div className="input-group-meta position-relative mb-20">
+        <div className="col-lg-10 col-10">
+          <div className="input-group-meta">
             <label style={{ color: "black" }}>Password*</label>
             <input
               type={`${showPass ? "text" : "password"}`}
               placeholder="Enter Password"
-              className="pass_log_id"
+              className="pass_log_id form-control"
               {...register("password", { required: `Password is required!` })}
               name="password"
             />
-            <span
-              className="placeholder_icon"
+            <div className="help-block with-errors">
+              <ErrorMsg msg={errors.password?.message!} />
+            </div>
+          </div>
+        </div>
+        <div className="col-lg-2 col-2" style={{'marginTop': '36px'}}>
+        <span
+              className=""
               onClick={() => setShowPass(!showPass)}
             >
               <span className={`passVicon ${showPass ? "eye-slash" : ""}`}>
                 <Image src={icon} alt="icon" />
               </span>
             </span>
-            <div className="help-block with-errors">
-              <ErrorMsg msg={errors.password?.message!} />
-            </div>
-          </div>
         </div>
-        <div className="col-12">
-          <div className="agreement-checkbox d-flex justify-content-between align-items-center mb-20">
-            <a
-              href="#"
-              className="fw-500"
-              data-bs-toggle="modal"
-              data-bs-target="#StudentModalForm"
-            >
-              Login using Phone Number!
-            </a>
-          </div>
-        </div> 
-        </div>
-        <div className="col-12">
-          <div className="agreement-checkbox d-flex justify-content-between align-items-center">
-            <a
-              href="#"
-              className="fw-500"
-              data-bs-toggle="modal"
-              data-bs-target="#ApplyModal"
-            >
-              Not a User? Apply
-            </a>
-          </div>
         </div>
         <div className="col-12">
           <button
@@ -186,4 +165,4 @@ const StudentLoginForm = () => {
   );
 };
 
-export default StudentLoginForm;
+export default StudentLoginForm2;
