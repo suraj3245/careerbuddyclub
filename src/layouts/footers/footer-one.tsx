@@ -81,7 +81,7 @@ const FooterOne = ({
             </div>
             <div className="col-lg-4 order-lg-2">
               <p className={`text-center mb-15 ${style_2 ? "text-white" : ""}`}>
-                Copyright @{new Date().getFullYear()} Career Buddy Club.
+                Copyright @{new Date().getFullYear()} CAREER BUDDY COLLEGE PLACEMENT AND TRAINING CAREER CENTRES LLP.
               </p>
             </div>
           </div>
