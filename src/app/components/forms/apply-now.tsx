@@ -8,7 +8,6 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/navigation";
-
 interface IOption {
   value: string;
   label: string;
@@ -56,6 +55,7 @@ const ApplyForm = () => {
   const [isVerificationSent, setIsVerificationSent] = useState<boolean>(false);
   const [countdown, setCountdown] = useState(30);
   const [showResend, setShowResend] = useState(false);
+
   const [streamOptions, setStreamOptions] = useState<IOption[]>([
     { value: "Arts & Humanities", label: "Arts & Humanities" },
     { value: "Business & Management", label: "Business & Management" },
@@ -276,6 +276,7 @@ const ApplyForm = () => {
   };
 
   return (
+    <>
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="row">
         <div className="col-12">
@@ -462,21 +463,6 @@ const ApplyForm = () => {
               <ErrorMsg msg={errors.level?.message!} />
             </div>
         </div>
-
-        <div
-          className="agreement-checkbox d-flex justify-content-between align-items-center mt-2"
-          style={{ justifyContent: "center" }}
-        >
-          <a
-            href="#"
-            className="fw-500"
-            data-bs-toggle="modal"
-            data-bs-target="#loginModalstudent"
-          >
-            Already a User? login
-          </a>
-        </div>
-
         <div className="col-12">
           <button
             type="submit"
@@ -487,7 +473,9 @@ const ApplyForm = () => {
         </div>
       </div>
     </form>
+    </>
   );
 };
 
 export default ApplyForm;
+

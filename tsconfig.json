@@ -24,6 +24,6 @@
       "@/assets/*": ["./public/assets/*"],
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/collegeselection"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/collegeselection", "src/app/components/gurunanakwidget.tsx", "public/scripts/gurunanakscirpt.js"],
   "exclude": ["node_modules"]
 }

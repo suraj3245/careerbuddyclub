@@ -384,13 +384,11 @@ const career_details: IcareerType[] = [
     t3: "Spatial Analysis and Statistics",
     t4: "Web Mapping and Programming",
     t5: "Data Visualization",
-
     X1: "ESRI ArcGIS, Landsat, Sentinel, MODIS",
     X2: "UAVs or drones, Leaflet, Mapbox",
     X3: "OpenStreetMap, NASA Earthdata",
     X4: "USGS EarthExplorer, NetLogo, AnyLogic",
     X5: "MySQL, ArcGIS, QGIS, or MapInfo",
-
     S1: "Communication",
     S2: "Critical Thinking",
     S3: "Attention to Detail",
