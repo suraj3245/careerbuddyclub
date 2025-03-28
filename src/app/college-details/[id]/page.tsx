@@ -38,9 +38,9 @@ const CollegeDetailsPage = ({ params }: { params: { id: string } }) => {
         {/* company details area start */}
         {details && <CollegeDetailsArea details={details} />}
         {/* company details area end */}
-
+           
         {/*job Open Position */}
-
+         
         {/*job Open Position */}
 
         {/* job portal intro start */}
