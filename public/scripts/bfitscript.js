@@ -39,4 +39,4 @@ function bfitScriptloaded() {
     document.getElementsByTagName("head")[0].appendChild(t);
 }
 bfitScriptloaded();
-console.log("bfit script loaded");
+
