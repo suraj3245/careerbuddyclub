@@ -7,6 +7,7 @@ import job_img_5 from "@/assets/images/logo/JBIT.webp";
 import job_img_7 from "@/assets/images/logo/udmri.webp";
 import job_img_8 from "@/assets/images/logo/VMM_College.webp";
 import job_img_9 from "@/assets/images/logo/pctmlogo.webp";
+import job_img_10 from "@/assets/images/logo/DD-College.png";
 
 import Image, { StaticImageData } from "next/image";
 import user_1 from "@/assets/images/assets/img_14.jpg";
@@ -16,7 +17,7 @@ import user_3 from "@/assets/images/assets/img_22.jpg";
 
 const college_details: IcollegeType[] = [
   {
-    id: "guru-nanak-college-dehradun",
+    id: "GNC",
     pageTitle: "Career Buddy Club | Guru Nanak College, Dehradun",
     metaDescription: "Guru Nanak College, Dehradun—a prestigious center of higher education specializing in pharmacy and paramedical sciences.",
     logo: job_img_1,
@@ -36,9 +37,9 @@ const college_details: IcollegeType[] = [
       "Guru Nanak College in Dehradun, under NIMS, has swiftly become a leading institution in pharmacy education and paramedical studies since its establishment in 2009. With a focus on academic excellence and career readiness, it boasts a 100% job placement rate through partnerships with Career Buddy Club (CBC) in Dubai. The college's commitment to holistic education is evident in its well-equipped hostels and diverse program offerings across various disciplines.",
     duration: "Fulltime",
     date: "18 Jul 2019",
-    college: "Guru Nanak College",
+    college: " Guru Nanak College of Pharmaceutical Sciences",
     location: "Dehradun, India",
-    category: ["+91 7456000100"],
+    category: ["+917456000100"],
     experience: "Fresher",
     salary: 900,
     salary_duration: "Monthly",
@@ -52,7 +53,7 @@ const college_details: IcollegeType[] = [
     twitter: "",
     linkedin: "",
     courses:
-      " The fees for these programs vary, ensuring accessibility for a broad spectrum of students. The institution prioritizes transparency in its fee structures and provides flexible payment options, acknowledging the diverse financial backgrounds of its students. This approach aims to make quality education accessible to all, fostering inclusivity and diversity within the student body. Students can explore a wide range of courses, each tailored to meet industry standards, with corresponding fees designed to accommodate individual financial circumstances.",
+      "The fees for these programs vary, ensuring accessibility for a broad spectrum of students. The institution prioritizes transparency in its fee structures and provides flexible payment options, acknowledging the diverse financial backgrounds of its students. This approach aims to make quality education accessible to all, fostering inclusivity and diversity within the student body. Students can explore a wide range of courses, each tailored to meet industry standards, with corresponding fees designed to accommodate individual financial circumstances.",
 
     ranking:
       "Our institution consistently secures impressive rankings, a testament to our unwavering commitment to academic excellence and holistic development. Recognized regionally and nationally, these rankings affirm our dedication to providing a top-notch education, encouraging cutting-edge research, and fostering an enriching learning environment for our students.",
@@ -811,26 +812,26 @@ const college_details: IcollegeType[] = [
       },
     ],
     rankinginfo: [
-      {
-        name: "6384(University)",
-        info: "The World, 2022",
-      },
-      {
-        name: "2390(University)",
-        info: "The Asia, 2022",
-      },
-      {
-        name: "350(University)",
-        info: "The India, 2022",
-      },
-      {
-        name: "9(University)",
-        info: "The Uttarakhand, 2022",
-      },
-      {
-        name: "4(University)",
-        info: "Dehradun, 2022",
-      },
+      // {
+      //   name: "6384(University)",
+      //   info: "The World, 2022",
+      // },
+      // {
+      //   name: "2390(University)",
+      //   info: "The Asia, 2022",
+      // },
+      // {
+      //   name: "350(University)",
+      //   info: "The India, 2022",
+      // },
+      // {
+      //   name: "9(University)",
+      //   info: "The Uttarakhand, 2022",
+      // },
+      // {
+      //   name: "4(University)",
+      //   info: "Dehradun, 2022",
+      // },
     ],
     reviewinfo: [
       {
@@ -1764,8 +1765,8 @@ const college_details: IcollegeType[] = [
     ],
   },
   {
-    id: "BFIT-Dehradun",
-    pageTitle: "Career Buddy Club | BFIT Dehradun",
+    id: "BFIT",
+    pageTitle: "Career Buddy Club | BFIT Group of Institutions",
     metaDescription: ": BFIT Dehradun—a world where education transcends the classroom. We blend tradition with innovation, fostering an environment where aspirations take flight.",
     logo: job_img_2,
     type: "Private",
@@ -1784,7 +1785,7 @@ const college_details: IcollegeType[] = [
       "The college, renowned for its distinguished faculty from top-tier institutions, excels with the region's highest number of faculty possessing Master's and Ph.D. qualifications. All programs are accredited by leading regulatory bodies. Transparent processes, automated operations through ERP software, and dedicated resources for training and placements showcase the institution's commitment to excellence. The campus is a ragging and smoking-free environment, providing bus services, uniforms for new students, and separate hostel facilities.",
     duration: "Fulltime",
     date: "18 Jul 2019",
-    college: "BFIT Dehradun",
+    college: "BFIT Group of Institutions",
     location: "Dehradun, India",
     category: ["+91 7456000100"],
     experience: "Fresher",
@@ -2686,7 +2687,7 @@ const college_details: IcollegeType[] = [
  /////////JBIT DEHRADUN /////////////////////////////////////////////////////////////////////
 
  {
-  id: "JBIT-Dehradun",
+  id: "JBIT",
   pageTitle: "Career Buddy Club | JBIT Dehradun",
   metaDescription: "JBIT Dehradun—a private technical institute affiliated with Uttarakhand Board of Technical Education and Uttarakhand Technical University. Offering undergraduate, postgraduate, and diploma courses in engineering, applied sciences, and management.",
   logo: job_img_5,
@@ -2706,9 +2707,9 @@ const college_details: IcollegeType[] = [
     "JB Institute of Technology is a private technical institute established in 2009 at Uttarakhand. The institute is affiliated to the Uttarakhand Board of Technical Education, Roorkee & Uttarakhand Technical University. It is approved by the All India Council of Technical Education (AICTE) and Pharmacy Council of India (PCI). The JB Institute of Technology Dehradun courses are provided at diploma, undergraduate and postgraduate levels. Popular degrees include D.Pharma, B.Tech, BBA and MBA. The JBIT Dehradun fees for the courses range from Rs 50,250 to Rs 93,900 annually. Both previous academic merit along with valid entrance test scores are required for the JB Institute of Technology Dehradun course admissions. Exams such as JEE Main, GATE, JEEP, etc. are considered.",
   duration: "Fulltime",
   date: "18 Jul 2019",
-  college: "JB Institute of Technology",
+  college: "JBIT GROUP OF INSTITUTION",
   location: "Dehradun, India",
-  category: ["+91 7456000100"],
+  category: ["+919368623665"],
   experience: "Fresher",
   salary: 900,
   salary_duration: "Monthly",
@@ -2716,7 +2717,7 @@ const college_details: IcollegeType[] = [
   english_fluency: "Fluent",
   overview:
     "When team members told us they needed more flexibility around where and how they worked, we acted, creating two options to accommodate two different styles of work. One non-negotiable principle along the way? We had to retain our deep culture of collaboration, both among ourselves and with our clients. Introducing Work From Near and Work From Anywhere at WillowTree. Please indicate which location(s) you're interested.",
-  videoid: "ubDgjBKRBx8?si",
+  videoid: "6oKKwGtTkP0",
   facebook: "",
   instagram: "",
   twitter: "",
@@ -2759,32 +2760,36 @@ const college_details: IcollegeType[] = [
     },
     {
       specialization: "Location/ Address",
-      annualfee: "Milestone 23, NH-07, Chakrata Road, Dehradun, UK",
+      annualfee: "SELAQUI",
     },
    
     {
       specialization: "Phone Numbers",
-      annualfee: "+91 7456000100",
+      annualfee: "9368623665,9368623664",
     },
     {
       specialization: "Website",
-      annualfee: "www.jbitdoon.com",
+      annualfee: "WWW.JBITDOON.COM",
     },
     {
       specialization: "Email Address",
-      annualfee: "admission@careerbuddyclub.com",
+      annualfee: "ADMISSIONS@JBITDOON.EDU.IN",
     }, 
     {
       specialization: "Area",
       annualfee: "Education",
     },
     {
+      specialization: "University Affiliation",
+      annualfee: "VMSB UTU DEHRADUN,SRI DEV SUMAN UNIVERSITY TEHRI GARHWAL,UBTER ROORKEE",
+    },
+    {
       specialization: "Approved by",
-      annualfee: "AICTE (All India Council for Technical Education), BCI (Bar Council of India), PCI (Pharmacy Council of India) and India Council of Agricultural Research (ICAR)",
+      annualfee: "AICTE & PCI,MINISTRY OF EDUCATION,GOVT. OF INDIA",
     },
     {
       specialization: "Accreditation",
-      annualfee: "A+ grade by NAAC",
+      annualfee: "NAAC A",
     },
    
   ],
@@ -2792,14 +2797,14 @@ const college_details: IcollegeType[] = [
     {
       course: "M.Tech",
       specialization: "",
-      annualFee: "90,700",
+      annualFee: "90700",
       duration: "GATE/ Personal Interview",
       eligibility: "B. Tech /BE in Aerospace/ Aeronautical/ Mechanical/ Civil/ Chemical Eng. Or equivalent with minimum 60% marks. Gate / NET Qualified will be preferred.",
     },
     {
       course: "MBA",
-      specialization: "",
-      annualFee: "90,700",
+      specialization: "MARKETING,H.R,FINANCE",
+      annualFee: "119700",
       duration: "CAT/ XAT",
       eligibility: "Minimum 50% marks in Class X, XII and Graduation. Graduation From a recognized University in any stream",
     },
@@ -2880,7 +2885,7 @@ const college_details: IcollegeType[] = [
     {
       course: "BBA",
       specialization: "",
-      annualFee: "50,900",
+      annualFee: "54900",
       duration: "Personal Interview",
       eligibility: "Passed 10+2 examination with PCM",
     },  
@@ -3198,7 +3203,7 @@ const college_details: IcollegeType[] = [
 ////////////////UPES_dehradun//////////////////////////////////////////
 
   {
-    id: "UPES-dehradun",
+    id: "UPES",
     pageTitle: "Career Buddy Club | University of Petroleum & Energies Study (UPES) Dehradun",
     metaDescription: "UPES—a vibrant institution fostering innovative ideas, global perspectives, and personalized learning. Ranked #1 in Academic Reputation, UPES offers multidisciplinary programs, top placements, and a dynamic campus life.",
     logo: job_img_3,
@@ -4401,7 +4406,7 @@ const college_details: IcollegeType[] = [
 ////////////////////////////UDMRI COLLEGE DETAILS///////////////////////////////////////////////////////////////////////////
 
   {
-    id: "UDMRI-Dehradun",
+    id: "UDMRI",
     pageTitle: "Career Buddy Club | UDMRI Dehradun",
     metaDescription: "Explore Uttaranchal Dental & Medical Research Institute (UDMRI) Dehradun, a premier medical institute affiliated with HNB Uttarakhand Medical Education University. Offering BDS, MDS, and paramedical courses, UDMRI is recognized by the Dental Council of India and known for its excellence in clinical training and research",
     logo: job_img_7,
@@ -4842,7 +4847,7 @@ const college_details: IcollegeType[] = [
    /////////////////////// VMM-Dehradun /////////////////////////////////////////////////////////////////////
   {
     id: "VMM-College",
-    pageTitle: "Career Buddy Club | JBIT Dehradun",
+    pageTitle: "Career Buddy Club | VMM-College",
     metaDescription: "JBIT Dehradun—a private technical institute affiliated with Uttarakhand Board of Technical Education and Uttarakhand Technical University. Offering undergraduate, postgraduate, and diploma courses in engineering, applied sciences, and management.",
     logo: job_img_8,
     type: "Private",
@@ -5743,6 +5748,655 @@ const college_details: IcollegeType[] = [
         id: 3,
         rating: 4.8,
         desc: "Our college is situated in a prime location. It is easily accessible from the city center of Haldwani and it is also quite large with abundant greenery. The library is well-maintained and has almost every single book related to courses and their concepts as well as many newspapers, journals, periodicals and assignment projects. The faculty is brilliant. They explain everything so well and always answer any question or doubt a student has. Of course, this undoubtedly helps students to score high percentages in their degree programmes.",
+        user: user_3,
+        name: "",
+        location: "",
+      },
+    ],
+  },
+//////////////////////DD College//////////////////////////
+  {
+    id: "DD-College",
+    pageTitle: "Career Buddy Club | D.D. COLLEGE",
+    metaDescription: ": BFIT Dehradun—a world where education transcends the classroom. We blend tradition with innovation, fostering an environment where aspirations take flight.",
+    logo: job_img_10,
+    type: "Private",
+    establishmentyear: "2006",
+    Recognisedby: "UGC",
+    Approvedby: "BCI, RCI, PCI, NCTE",
+    state: "Uttarakhand",
+    city: "Dehradun",
+    Campusarea: "20+ acre",
+    link: "www.ddcollege.in",
+    email: "info@ddcollege.in",
+    founded: "",
+    phone: "+917417555666, +917417934929 , 0135-2750929",
+    feild: ["Education"],
+    overviewsection:
+      "DD College, located in the vibrant heart of Dehradun, has rapidly established itself as a beacon of academic excellence. In a short span of time, the college has made remarkable strides, earning recognition for its significant contributions to education.Affiliated with prestigious institutions such as Shri Dev Suman University (SDSU), Veer Madho Singh Bhandari Uttarakhand Technical University, and Uttarakhand Open University (UOU), DD College offers an array of undergraduate programs. These programs span across disciplines such as Arts, Commerce, Science, and Education (B.Ed.), providing students with a comprehensive academic experience.In addition to its academic offerings, DD College is deeply committed to fostering social transformation. The institution actively organizes special lectures, debates, and training programs, creating a dynamic environment that encourages both intellectual growth and civic responsibility. This commitment to holistic education ensures that DD College continues to shape well-rounded individuals who are prepared to contribute meaningfully to society.",
+    
+    duration: "Fulltime",
+    date: "18 Jul 2019",
+    college: "D.D. COLLEGE",
+    location: "25, NIMBUWALA, NEAR HALYPAD ROAD",
+    category: ["+917417555666, 7417934929, 0135-2750929"],
+    experience: "Fresher",
+    salary: 900,
+    salary_duration: "Monthly",
+    tags: ["java", "developer"],
+    english_fluency: "Fluent",
+    overview:
+      "When team members told us they needed more flexibility around where and how they worked, we acted, creating two options to accommodate two different styles of work. One non-negotiable principle along the way? We had to retain our deep culture of collaboration, both among ourselves and with our clients. Introducing Work From Near and Work From Anywhere at WillowTree. Please indicate which location(s) you're interested.",
+    videoid: "-ONSYi-K7Mw",
+    facebook: "",
+    instagram: "",
+    twitter: "",
+    linkedin: "",
+    courses:
+      "DD College Dehradun offers a variety of undergraduate and postgraduate programs in law, commerce, science, and management. Courses like LLB, BBA, B.Com, and M.Sc. provide students with essential knowledge and skills for their careers. The college ensures its curriculum is aligned with industry needs to enhance employability. The programs are designed to offer practical experience, complementing theoretical learning. Affordability is a key aspect of the college's mission to make quality education accessible. The courses aim to foster both academic excellence and personal development.",
+
+    ranking:
+      "DD College Dehradun has earned several prestigious awards for its academic excellence. In 2018, the college was named Best B.Ed College in Himachal Pradesh. It was awarded Best Commerce College in 2019 for its contributions to commerce education. The college received a National Award from I NEXT (Dainik Jagran) in 2019, recognizing its impact. In 2023, DD College earned the State Award for Excellence from HT Media. These accolades reflect the college’s dedication to high-quality education. The awards reinforce DD College's commitment to student success.",
+    awards:
+      "DD College Dehradun has earned several prestigious awards for its academic excellence. In 2018, the college was named Best B.Ed College in Himachal Pradesh. It was awarded Best Commerce College in 2019 for its contributions to commerce education. The college received a National Award from I NEXT (Dainik Jagran) in 2019, recognizing its impact. In 2023, DD College earned the State Award for Excellence from HT Media. These accolades reflect the college’s dedication to high-quality education. The awards reinforce DD College's commitment to student success.",
+    hostel:
+      "Our institution ensures a comfortable and secure living environment for students with separate hostel facilities for both male and female students. The hostels are well-equipped with modern amenities, providing a conducive atmosphere for focused study and recreation. Trained staff maintains discipline, and safety measures are prioritized. The hostel experience fosters a sense of community, facilitating cultural exchange and lifelong friendships. With a commitment to student welfare, we aim to create a home away from home, ensuring a positive and enriching residential experience during the academic journey.",
+    opportunities:
+      "Our institution provides a myriad of opportunities for students to thrive. Beyond academic excellence, we offer extensive career support, industry collaborations, and leadership programs. A vibrant campus life, enriched with cultural events, sports, and global exposure, fosters holistic development. The Career Resource Centre ensures students are well-prepared for professional success through internships and placement assistance. Research opportunities and collaborations with leading institutions further broaden horizons. We aim to empower our students with a diverse range of opportunities, equipping them for a dynamic and successful future.",
+    campus:
+      "Our campus provides an ideal environment for academic and personal growth. Sprawling greenery and state-of-the-art infrastructure create a conducive atmosphere for learning. Well-equipped classrooms, modern laboratories, and a resource-rich library foster a dynamic educational experience. The campus is Wi-Fi enabled, promoting seamless connectivity for research and collaborative projects. Recreational facilities, including sports amenities and cultural spaces, encourage a balanced student life. Additionally, our commitment to safety and security ensures a peaceful environment. The vibrant campus life, coupled with engaging extracurricular activities, enriches the overall student experience, fostering a sense of community and camaraderie.",
+    placement:
+      "The Placement Cell at DD College Dehradun connects students with top industries for internships and full-time placements. In 2023, 230 students registered, and 140 students were successfully placed. The college’s strong network includes over 100 companies visiting the campus annually. The average annual salary for placed students was ₹3,20,000, with top offers reaching ₹5,40,000. The placement season runs year-round, with pre-placement talks, interviews, and assessments organized. The cell’s strategic partnerships ensure continuous placement opportunities for students.",
+    admission:
+      "Admission to our esteemed institution follows a fair and transparent process. Prospective students can access detailed admission guidelines, ensuring clarity at every step. The selection criteria are merit-based, reflecting our commitment to academic excellence. Application procedures are streamlined, and information is readily available through our online portal. Our dedicated admission committee is always ready to assist and guide applicants through the process. With a focus on diversity and inclusivity, we welcome aspiring students to join our vibrant academic community, where they can embark on a journey of knowledge, skills, and personal growth.",
+    faculty:"Our institution boasts a distinguished faculty drawn from premier institutions across India, setting high academic standards. With a significant number holding Master's and Ph.D. qualifications, they actively contribute to both teaching and research. Their expertise ensures a rigorous and insightful learning experience for students. The faculty's commitment to excellence extends beyond the classroom, guiding students in research endeavors and preparing them for real-world challenges. Their collective knowledge and dedication contribute significantly to the academic vibrancy of our institution, shaping the future leaders of tomorrow. ",
+
+    overviewtable:[
+      {
+        specialization: "Short Name",
+        annualfee: "D.D. COLLEGE",
+      },
+      {
+        specialization: "Institute Type - Public/ Private/ Govt",
+        annualfee: "Private",
+      },
+      {
+        specialization: "State",
+        annualfee: "Uttarakhand",
+      },
+      {
+        specialization: "City",
+        annualfee: "Dehradun",
+      },
+      {
+        specialization: "Location/ Address",
+        annualfee: "Suddhowala",
+      },
+      {
+        specialization: "Latitude",
+        annualfee: "30.351336",
+      },
+      {
+        specialization: "Longitude",
+        annualfee: "78.016832",
+      },
+      {
+        specialization: "Phone Numbers",
+        annualfee: "7417555666, 7417934929, 0135-2750929",
+      },
+      {
+        specialization: "Website",
+        annualfee: "www.ddcollege.in",
+      },
+      {
+        specialization: "Email Address",
+        annualfee: "info@ddcollege.in",
+      },
+      {
+        specialization: "University Affiliation",
+        annualfee: "SHRI DEV SUMAN UNIVERSITY, UTTARAKHAND",
+      },
+      {
+        specialization: "Approval",
+        annualfee: "University Grant Commission & Ministry of H.R.D. Human Resource Development Govt. of India, All India Council for Technical Education",
+      },
+      {
+        specialization: "Area",
+        annualfee: "Education",
+      },
+     
+    ],
+      coursesAndFees: [
+        {
+          course: "LLB  & BA LLB",
+          specialization: "",
+          annualFee: "25000",
+          duration: "Graduation",
+          eligibility: "Passed 10+2 examination",
+        },
+        {
+          course: "B.SC.( AGRICULTURE )",
+          specialization: "",
+          annualFee: "25000",
+          duration: "samarth portal",
+          eligibility: "Passed 10+2 examination",
+        },
+        
+        {
+          course: "B.A.",
+          specialization: "",
+          annualFee: "12500",
+          duration: "samarth portal",
+          eligibility: "Passed 10+2 examination",
+        },
+
+        {
+          course: "B.A.( YOGA )",
+          specialization: "",
+          annualFee: "12500",
+          duration: "samarth portal",
+          eligibility: "Passed 10+2 examination",
+        },
+
+        {
+          course: "B.B.A.",
+          specialization: "",
+          annualFee: "25,000",
+          duration: "samarth portal",
+          eligibility: "Passed 10+2 examination",
+        },
+  
+        {
+          course: "B.COM",
+          specialization: "",
+          annualFee: "17,500",
+          duration: "samarth portal",
+          eligibility: "Passed 10+2 examination",
+        },
+
+        {
+          course: "B.COM( HONS )",
+          specialization: "",
+          annualFee: "20000",
+          duration: "samarth portal",
+          eligibility: "Passed 10+2 examination",
+        },
+
+        {
+          course: "B.SC.( PCM/CBZ)",
+          specialization: "",
+          annualFee: "15,000",
+          duration: "samarth portal",
+          eligibility: "Passed 10+2 examination",
+        },
+
+        {
+          course: "B.SC.(COMPUTER SCIENCE)",
+          specialization: "",
+          annualFee: "20,000",
+          duration: "samarth portal",
+          eligibility: "Passed 10+2 examination",
+        },
+
+        {
+          course: "B.SC.(IT )",
+          specialization: "",
+          annualFee: "25000",
+          duration: "samarth portal",
+          eligibility: "Passed 10+2 examination",
+        },
+  
+        {
+          course: "B.C.A.",
+          specialization: "",
+          annualFee: "25000",
+          duration: "samarth portal",
+          eligibility: "Passed 10+2 examination",
+        },
+  
+        {
+          course: "M SC.(PHYSICS/CHEMISTRY/MATHS)",
+          specialization: "",
+          annualFee: "20000",
+          duration: "samarth portal",
+          eligibility: "Completion of Graduation",
+        },
+        {
+          course: "M.SC(ZOOLOGY/BOTANY )",
+          specialization: "",
+          annualFee: "20,000",
+          duration: "samarth portal",
+          eligibility: "Completion of Graduation",
+        },
+  
+        {
+          course: "M.Sc(HORTICULTURE/AGRONOMY)",
+          specialization: "",
+          annualFee: "30,000",
+          duration: "samarth portal",
+          eligibility: "Completion of Graduation",
+        },
+  
+        {
+          course: "M. A.(YOGA )",
+          specialization: "",
+          annualFee: "15,000",
+          duration: "samarth portal",
+          eligibility: "Completion of Graduation",
+        },
+  
+        {
+          course: "M.A.( ENGLISH / HOSTORY / POL.SC.)",
+          specialization: "",
+          annualFee: "15,000",
+          duration: "samarth portal",
+          eligibility: "Completion of Graduation",
+        },
+  
+        {
+          course: "M.COM",
+          specialization: "",
+          annualFee: "20,000",
+          duration: "samarth portal",
+          eligibility: "Completion of Graduation",
+        },
+        {
+          course: "B. ED.",
+          specialization: "",
+          annualFee: "50,000",
+          duration: "samarth portal",
+          eligibility: "Completion of Graduation",
+        },
+        {
+          course: "PG DIPLOMA IN YOGA",
+          specialization: "",
+          annualFee: "15,000",
+          duration: "samarth portal",
+          eligibility: "Completion of Graduation",
+        },
+        
+    ],
+    admissionDates: [
+      {
+        name: "Application Start Date",
+        date: "As per University",
+      },
+      {
+        name: "Application End Date",
+        date: "As per University",
+      },
+      {
+        name: "Date of Result Declaration",
+        date: "As per University",
+      },
+      {
+        name: "Last Date of Submission of Fee",
+        date: "As per University",
+      },
+      {
+        name: "Commencement of the Coursework",
+        date: "As per University",
+      },
+    ],
+    campusinfo: [
+      {
+        name: "Registration Dates",
+        info: "As per University",
+      },
+      {
+        name: "Date of Entrance Test & Interview",
+        info: "As per University",
+      },
+      {
+        name: "Date of Result Declaration",
+        info: "As per University",
+      },
+     
+    ],
+    placementinformation: [
+      {
+        name: "Placement Year",
+        info: "2023",
+      },
+      {
+        name: "Degree",
+        info: "BA, BCA, BD",
+      },
+      {
+        name: "Number of Students Registered",
+        info: "230",
+      },
+      {
+        name: "Number of Companies Visited",
+        info: "12",
+      },
+      {
+        name: "Number of Students Placed",
+        info: "140",
+      },
+      {
+        name: "Number of Offers Made",
+        info: "150",
+      },
+      {
+        name: "Maximum Salary",
+        info: "5.4 LPA",
+      },
+      {
+         name:"Minimum Salary",
+         info:"1.2 LPA"
+      },
+      {
+        name: "Average Salary",
+        info: "3.2 LPA",
+      },
+      {
+        name: "Recruiter List",
+        info: "TCS, Accenture, Wipro, Indigo",
+      },
+      
+      
+    ],
+    opportunitiesinfo: [
+      {
+        name: "Registration Dates",
+        info: "As per University",
+      },
+      {
+        name: "Date of Entrance Test & Interview",
+        info: "As per University",
+      },
+      {
+        name: "Date of Result Declaration",
+        info: "As per University",
+      },
+      {
+        name: "Last Date of Submission of Fee",
+        info: "As per University",
+      },
+      {
+        name: "Commencement of the Coursework",
+        info: "As per University",
+      },
+    ],
+    awardsinfo: [
+      "BSET B.ED COLLEGE --STATE BY HNN in 2018",
+      "BEST COMMERCE COLLEGE--STATE BY HNN in 2019",
+      "NATONAL --BY NATIONAL AWARD FROM I NEXT (Danik Jagran) in 2019",
+      "2023-STATE AWARD FOR EXCELLECE BY HT MEDIA in 2023"
+    ],
+    facultytable: [
+      {
+        name: "Dr. RBP Singh",
+        Qualification: "Dept. of  Agriculture & Allied Sciences",
+        Experience: "26 year",
+        Specialization: "Water, Soil- Quality monitoring and assessment, Livehood Generation Programme- Mushroom Cultivation, Organic Farming, MAP cultivation, Culnary Herb Cultivation. ",
+      },
+      {
+        name: "Dr. Vishal",
+        Qualification: "Dept. of  Microbiology",
+        Experience: "22 year",
+        Specialization: "Agriculture microbiology, Biological Control, Plant growth promo. Rhizo bacteria, Fermentation Technology, Antimicrobial Activity of mediclinal plant, Microbial pathology.",
+      },
+      {
+        name: "Dr. RD Saklani",
+        Qualification: "Dept. of  Geology",
+        Experience: "10 year",
+        Specialization: "Sequence stratigraphy, Petroleum Geology, Ichnology, Disaster Management, Engg. Geology, Field Geology, Himalayan Geology & Western India (Kachchh & Rajasthan).",
+      },
+      {
+        name: "Dr. Shubramanian",
+        Qualification: "Dept. of  Zoology",
+        Experience: "26 year",
+        Specialization: "Anatomy and Physiology, Ecology and Environment.",
+      },
+      {
+        name: "Mr. S K Thakur",
+        Qualification: "Dept. of  Statistics & Mathematics",
+        Experience: "35 year",
+        Specialization: "Statistics, International finance,  International Economics, Coorporates Law. ",
+      },
+      {
+        name: "Dr. Narayani",
+        Qualification: "Dept. of  Biochemistry",
+        Experience: "06 year",
+        Specialization: "Enzyme Kinetics, Antioxidants, Biotic and Abiotic stress, NGS, GWAS.",
+      },
+      {
+        name: "Dr. Neelesh",
+        Qualification: "Dept. of  Microbiology",
+        Experience: "02 year",
+        Specialization: "Medical microbiology, General microbiology.",
+      },
+      {
+        name: "Dr. Tawseef Ahmad Mir",
+        Qualification: "Dept. of  Botany",
+        Experience: "02 year",
+        Specialization: "Ethnobotany, Taxonomy, Phytochemistry, Traditional knowledge, Medicinal plants.",
+      },
+      {
+        name: "Dr. Muatasim Jan",
+        Qualification: "Dept. of  Botany",
+        Experience: "02 year",
+        Specialization: "Ethnobotany, Ethanogynecology, Traditional knowledge, Ethnobotany medicine,Medicinal plants.",
+      },
+      {
+        name: "Mrs. Preeti Sood",
+        Qualification: "Dept. of  Hotel Management ",
+        Experience: "23 year",
+        Specialization: "Food and beverage,Front office, House Keeping, Kitchen.",
+      },
+      {
+        name: "Er. Manendra Singh  ",
+        Qualification: "Dept. of  Biotechnology",
+        Experience: "08 year",
+        Specialization: "Biochemical Engg., Bioprocess Technology, Fermentation Technology, Upstream and downstream Process, Chromatography, Unit Process and Unit Operation. ",
+      },
+      {
+        name: "Ms. Priyanka Juyal",
+        Qualification: "Dept. of  Agriculture & Allied Sciences",
+        Experience: "02 year",
+        Specialization: "Weed management, Crop production technology, Protected Agriculture, Organic Farming.",
+      },
+      {
+        name: "Mr. Gurmeet singh",
+        Qualification: "Dept. of  Chemistry",
+        Experience: "03 year",
+        Specialization: "Waste Management, Water purification, Biofilms and filters, Polymers, Analytical Chemistry.",
+      },
+      {
+        name: "Mr. Vaibhav Singh",
+        Qualification: "Dept. of  Zoology",
+        Experience: "03 year",
+        Specialization: "Entamology, Medical Entamology, Agriculture Entamology.",
+      },
+      {
+        name: "Ms. Ruby",
+        Qualification: "Dept. of  Management & Technology",
+        Experience: "01 year",
+        Specialization: "Marketing and Finance, Merger and Acquisition, Management accounting, Sales Vs Marketing.",
+      },
+      {
+        name: "Ms. Varsha",
+        Qualification: "Dept. of  Food Technology",
+        Experience: "02 year",
+        Specialization: "Food snacks, Food Preservation, Food Processing.",
+      },
+      {
+        name: "Mr. Javed Siddiqui",
+        Qualification: "Dept. of  Paramedical ",
+        Experience: "14 year",
+        Specialization: "Clinical biochemistry, Pathology, Medical Microbiology.",
+      },
+      {
+        name: "Ms. Komal Sharma",
+        Qualification: "Dept. of  Food Technology",
+        Experience: "03 year",
+        Specialization: "Food nutrition, Hotel Management, Food Science.",
+      },
+      {
+        name: "Ms. Yashasvi",
+        Qualification: "Dept. of  Biotechnology",
+        Experience: "01 year",
+        Specialization: "Plant tissue culture, Bioanlytical Technique, Medicinal plant evalution.",
+      },
+      {
+        name: "Dr.Vishal Kamboj",
+        Qualification: "Dept. of  Environmental Science",
+        Experience: "2.5 year",
+        Specialization: "Water Quality, Fresh water ecology, Environment Pollution and Solid Waste Management.",
+      },
+      {
+        name: "Dr. Manisha Singh",
+        Qualification: "Dept. of  Paramedical ",
+        Experience: "01 year",
+        Specialization: "Orthopedics, Neurology.",
+      },
+      {
+        name: "Dr. Anita Chauhan",
+        Qualification: "Dept. of  Forestry & Horticulture",
+        Experience: "30 year",
+        Specialization: "Forest Ecology, Botany, Forestry, Horticulture.",
+      },
+      {
+        name: "Dr. Kiran",
+        Qualification: "Dept. of  Paramedical ",
+        Experience: "05 year",
+        Specialization: "Orthopedics",
+      },
+      {
+        name: "Dr. Peter",
+        Qualification: "Dept. of  Botany",
+        Experience: "27 year",
+        Specialization: "General Plant Pathology, Plant Protection, Plant-Pollutant Interaction, Plant-Pathogen Interaction,Plant-Pathogen-Pollutant Interaction, Plant Growth Promoting Microorganism,  Biofertilizers, Molecular Plant Pathology and Endophytes. ",
+      },
+      {
+        name: "Dr. Rakesh",
+        Qualification: "Dept. of  Agriculture & Allied Sciences",
+        Experience: "05 year",
+        Specialization: "Seed Science and Technology",
+      },
+      {
+        name: "Dr. Nidhi Chatterjee",
+        Qualification: "Dept. of  Zoology",
+        Experience: "18 year",
+        Specialization: "Zoology, Fish and Fishries, Parasitology.",
+      },
+      
+    ],
+    hostelinfo: [
+      {
+        name: "Capacity",
+        info: "40 EACH",
+      },
+      {
+        name: "Hostel Fees",
+        info: "8500/- INCLUDING FOOD",
+      },
+      {
+        name: "",
+        info: "Standard Quad (Four Sharing Room) with Attached Toilet Rs.48000/-per Year.",
+      },
+      {
+        name: "",
+        info: "Deluxe Quad (Four Sharing Room) with Attached Toilet Rs.58000/-per Year.",
+      },
+      {
+        name: "",
+        info: "Standard (Three Sharing Room) with Attached Toilet Rs.68000/-per Year.",
+      },
+      {
+        name: "",
+        info: "Deluxe (Three Sharing Room) with Attached Toilet Rs.78000/-per Year.",
+      },
+      {
+        name: "",
+        info: "Standard (Two Sharing Room) with Attached Toilet Rs.73000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "Deluxe (Two Sharing Room) with Attached Toilet Rs.78000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "Super Deluxe (Two Sharing Room) with Attached Toilet Rs.88000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "Executive Room (TWO SHARING Room) with LCD + Tata Sky + Attached Toilet Rs.95000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "Executive Room (TWO SHARING Room) with A.C + LCD + Tata Sky + Attached Toilet Rs.105000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "Hostel Enrolment & Furnishing Fee: Rs.5000/-(To be paid Once) Laundry Charges: Rs.4800/-per Year",
+      },
+      {
+        name: "Mess Fees",
+        info: "Includes in Hostel Fees",
+      },
+      {
+        name: "Location (on-campus or off-campus)",
+        info: "On-Campus",
+      },
+      {
+        name: "Number of Rooms",
+        info: "300",
+      },
+      {
+        name: "Room Type (Occupancy basis)",
+        info: "Single Sharing, Two sharing, Three Sharing, Four Sharing",
+      },
+      {
+        name: "Hostel Facilities/ Amenities",
+        info: "Wi-Fi, CCTV Surveillance, Security Guards, Warden, Indoor Stadium, Outdoor Playground, Gymnasium, etc.",
+      },
+    ],
+    rankinginfo: [
+      {
+        name: "N/A",
+        info: "N/A",
+      },
+      // {
+      //   name: "2390(University)",
+      //   info: "The Asia, 2022",
+      // },
+      // {
+      //   name: "350(University)",
+      //   info: "The India, 2022",
+      // },
+      // {
+      //   name: "9(University)",
+      //   info: "The Uttarakhand, 2022",
+      // },
+      // {
+      //   name: "4(University)",
+      //   info: "Dehradun, 2022",
+      // },
+    ],
+    reviewinfo: [
+      {
+        id: 1,
+        rating: 4.7,
+        desc: "The quality of teaching is good and the faculty is supportive..",
+        user: user_1,
+        name: "",
+        location: "",
+      },
+      {
+        id: 2,
+        rating: 4.5,
+        desc: "The syllabus is updated and the students are given exposure to various aspects of the industry..",
+        user: user_2,
+        name: "",
+        location: "",
+      },
+      {
+        id: 3,
+        rating: 4.8,
+        desc: "The college has a beautiful and serene campus..",
         user: user_3,
         name: "",
         location: "",
