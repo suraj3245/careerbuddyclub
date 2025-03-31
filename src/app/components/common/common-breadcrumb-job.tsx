@@ -2,6 +2,8 @@
 import React, { useEffect, useState, Suspense } from "react";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import Script from "next/script";
+import { ReactTyped } from "react-typed";
+
 
 const CommonBreadcrumbjob = ({
   title,
@@ -15,12 +17,11 @@ const CommonBreadcrumbjob = ({
   const parts = pathname.split("/");
   const id = parts[parts.length - 1];
 
-  const brochures: any = {
-    "UDMRI": "/assets/text/udmri_paramedical_brochure.pdf",
+  const brochures: Record<string, string> = {
+    UDMRI: "/assets/text/udmri_paramedical_brochure.pdf",
     "Pal-College": "/assets/text/Pal_College_Brochure.pdf",
-    "VMM-College": "/assets/text/VMM_College_Brochure.pdf",
-    "JBIT": "/assets/text/jbit-brochure-2022.pdf",
-
+    "VMM-College": "/assets/text/vmm_college_brochure.pdf",
+    JBIT: "/assets/text/jbit-brochure-2022.pdf",
   };
 
   type WidgetConfig = {
@@ -28,24 +29,20 @@ const CommonBreadcrumbjob = ({
     content: JSX.Element;
   };
 
-  type Widgets = {
-    [key: string]: WidgetConfig;
-  };
-
-  const widgets: Widgets = {
+  const widgets: Record<string, WidgetConfig> = {
     GNC: {
       script: "/scripts/gurunanakscript.js",
       content: <div className="ee-formscript" id="ee-form-6"></div>,
     },
     BFIT: {
-      script: "/scripts/bfitscript.js",
-      content: <div className="ee-formscript" id="ee-form-5"></div>,
+      script: "/scripts/gurunanakscript.js",
+      content: <div className="ee-formscript" id="ee-form-6"></div>,
     },
     UPES: {
       script: "/scripts/upesscript.js",
       content: <div className="ee-formscript" id="ee-form-12"></div>,
     },
-     "Uttaranchal-University": {
+    "Uttaranchal-University": {
       script: "/scripts/uttaranchaluniversityscript.js",
       content: <div className="ee-formscript" id="ee-form-10"></div>,
     },
@@ -67,11 +64,9 @@ const CommonBreadcrumbjob = ({
     },
   };
 
-  const [script, setScript] = useState<string>("");
-  const [widgetContent, setWidgetContent] = useState<JSX.Element | null>(null);
-
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<Loader />}>
+       
       <Content
         id={id}
         pathname={pathname}
@@ -85,6 +80,17 @@ const CommonBreadcrumbjob = ({
   );
 };
 
+const Loader = () => (
+  <div className="loader-overlay d-flex justify-content-center align-items-center min-vh-100 bg-light">
+    <iframe
+      src="https://lottie.host/embed/a6783898-e218-4f04-96b4-960e4cef1250/vmsVpLHgSJ.lottie"
+      style={{ width: "300px", height: "300px", border: "none" }}
+      loading="lazy"
+      title="Loading Animation"
+    ></iframe>
+  </div>
+);
+
 const Content = ({
   id,
   pathname,
@@ -97,26 +103,35 @@ const Content = ({
   const searchParams = useSearchParams();
   const [script, setScript] = useState<string>("");
   const [widgetContent, setWidgetContent] = useState<JSX.Element | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    if (widgets[id]) {
-      const widget = widgets[id];
+    const loadData = async () => {
+      if (widgets[id]) {
+        const widget = widgets[id];
 
-      if (!searchParams.has("utm_source")) {
-        const utmParams = new URLSearchParams({
-          utm_source: "CBC-Website",
-          utm_medium: "Online",
-          utm_campaign: id,
-        });
+        if (!searchParams.has("utm_source")) {
+          const utmParams = new URLSearchParams({
+            utm_source: "CBC-Website",
+            utm_medium: "Online",
+            utm_campaign: id,
+          });
 
-        const newUrl = `${pathname}?${utmParams.toString()}`;
-        router.replace(newUrl);
+          const newUrl = `${pathname}?${utmParams.toString()}`;
+          router.replace(newUrl);
+        }
+
+        setScript(widget.script);
+        setWidgetContent(widget.content);
+
+        setTimeout(() => setLoading(false), 1000);
+      } else {
+        setLoading(false);
       }
+    };
 
-      setScript(`${widget.script}`);
-      setWidgetContent(widget.content);
-    }
-  }, [id, searchParams, pathname, router]);
+    loadData();
+  }, [id, searchParams, pathname, router, widgets]);
 
   const downloadBrochure = () => {
     const brochureLink = brochures[id];
@@ -133,22 +148,46 @@ const Content = ({
 
   return (
     <>
-      <div className="breadcrumb-container">
-        <div className="content-wrapper">
-          <div className="text-section">
-            <h1 className="title">{title}</h1>
-            <h3 className="subtitle">{subtitle}</h3>
-            <button className="btn-download" onClick={downloadBrochure}>
+      {loading ? (
+        <Loader />
+      ) : (
+        <div className="container-fluid min-vh-100 d-flex flex-column flex-lg-row justify-content-center align-items-center p-5 w-100"
+          style={{ background: "#35c3d1",}}>
+
+          <div className="col-12 col-lg-6 p-5 text-black d-flex flex-column justify-content-center align-items-start" style={{padding:"2rem"}}>
+            <h2 className="wow fadeInUp"
+              data-wow-delay="0.3s"
+              style={{ color: "#05A9C7", textShadow: "2px 2px 4px #125125", marginTop:"3rem" }}
+            >{title}</h2><br></br>
+            <h4 className="">
+              <ReactTyped
+                strings={[
+                  subtitle
+                ]}
+                typeSpeed={70}
+                loop
+                backSpeed={20}
+                cursorChar=""
+                showCursor={true}
+              /></h4><br></br>
+
+            <button
+              className="btn btn-success btn-lg text-white"
+              onClick={downloadBrochure}
+            >
               Download Brochure
             </button>
           </div>
 
-          <div className="form-section">
-            {script && <Script src={script} strategy="afterInteractive" />}
-            {widgetContent}
+
+          <div className="col-12 col-lg-6 p-5 d-flex justify-content-center align-items-center bg-transparent ee-form-div">
+            {script && <Script src={script} strategy="afterInteractive"/>}
+            <div className="ee-formscript">
+              {widgetContent}
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </>
   );
 };

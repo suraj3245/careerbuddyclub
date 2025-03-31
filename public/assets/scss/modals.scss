@@ -1,112 +1,31 @@
-.breadcrumb-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background: #f0f8ff;
-    padding: 50px 20px;
+@media (max-width: 1024px) {
+  .ee-form-div {
+    width: 40% !important;    
   }
-  
-  .content-wrapper {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    max-width: 1200px;
-    width: 100%;
-    background: #fff;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    border-radius: 12px;
-    overflow: hidden;
-    margin-top: 5rem;
-    background: #14adbd;
+}
+
+@media (max-width: 768px) {
+  .ee-form-div {
+    width: 50% !important;    
   }
-  
-  .text-section {
-    flex: 1;
-    padding: 50px;
-    text-align: left;
-    color: #fff;
-  
-    .title {
-      font-size: 4rem;
-      color: #eed30d;
-      margin-bottom: 20px;
-    }
-  
-    .subtitle {
-      font-size: 2rem;
-      color: #fff;
-      margin-bottom: 30px;
-    }
-  
-    .btn-download {
-      background: #eed30d;
-      color: #fff;
-      border: none;
-      padding: 12px 24px;
-      font-size: 16px;
-      cursor: pointer;
-      transition: background 0.3s;
-      border-radius: 5px;
-  
-      &:hover {
-        background-color: #f6e34d;
-      }
-    }
+}
+
+@media (max-width: 576px) {
+  .ee-form-div {
+    width: 80% !important;    
   }
-  
-  .form-section {
-    flex: 1;
-    padding: 50px;
-    background: #f9f9f9;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  
-    .ee-formscript {
-      width: 100%;
-    }
+}
+
+@media (max-width: 425px) {
+  .ee-form-div {
+    width: 100% !important;   
   }
+}
+
+
+.form-widget{
+  border-radius: 2rem;
   
-  
-  @media (max-width: 1024px) {
-    .content-wrapper {
-      flex-direction: column;
-    }
-  
-    .text-section,
-    .form-section {
-      padding: 30px;
-    }
-  
-    .text-section {
-      .title {
-        font-size: 3rem;
-      }
-  
-      .subtitle {
-        font-size: 1.5rem;
-      }
-    }
-  
-    .btn-download {
-      width: 100%;
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .text-section {
-      .title {
-        font-size: 2.5rem;
-      }
-  
-      .subtitle {
-        font-size: 1.2rem;
-      }
-    }
-  
-    .btn-download {
-      font-size: 14px;
-    }
-  }
-  
+  margin-top: 1rem;
+}
+
