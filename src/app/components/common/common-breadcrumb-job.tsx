@@ -4,7 +4,6 @@ import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import Script from "next/script";
 import { ReactTyped } from "react-typed";
 
-
 const CommonBreadcrumbjob = ({
   title,
   subtitle,
@@ -66,7 +65,6 @@ const CommonBreadcrumbjob = ({
 
   return (
     <Suspense fallback={<Loader />}>
-       
       <Content
         id={id}
         pathname={pathname}
@@ -81,10 +79,10 @@ const CommonBreadcrumbjob = ({
 };
 
 const Loader = () => (
-  <div className="loader-overlay d-flex justify-content-center align-items-center min-vh-100 bg-light">
+  <div className="loader-overlay d-flex justify-content-center align-items-center min-vh-100 bg-transparent">
     <iframe
       src="https://lottie.host/embed/a6783898-e218-4f04-96b4-960e4cef1250/vmsVpLHgSJ.lottie"
-      style={{ width: "300px", height: "300px", border: "none" }}
+      style={{ width: "600px", height: "300px", border: "none" }}
       loading="lazy"
       title="Loading Animation"
     ></iframe>
@@ -148,46 +146,61 @@ const Content = ({
 
   return (
     <>
-      {loading ? (
-        <Loader />
-      ) : (
-        <div className="container-fluid min-vh-100 d-flex flex-column flex-lg-row justify-content-center align-items-center p-5 w-100"
-          style={{ background: "#35c3d1",}}>
-
-          <div className="col-12 col-lg-6 p-5 text-black d-flex flex-column justify-content-center align-items-start" style={{padding:"2rem"}}>
-            <h2 className="wow fadeInUp"
-              data-wow-delay="0.3s"
-              style={{ color: "#05A9C7", textShadow: "2px 2px 4px #125125", marginTop:"3rem" }}
-            >{title}</h2><br></br>
-            <h4 className="">
-              <ReactTyped
-                strings={[
-                  subtitle
-                ]}
-                typeSpeed={70}
-                loop
-                backSpeed={20}
-                cursorChar=""
-                showCursor={true}
-              /></h4><br></br>
-
-            <button
-              className="btn btn-success btn-lg text-white"
-              onClick={downloadBrochure}
-            >
-              Download Brochure
-            </button>
-          </div>
-
-
-          <div className="col-12 col-lg-6 p-5 d-flex justify-content-center align-items-center bg-transparent ee-form-div">
-            {script && <Script src={script} strategy="afterInteractive"/>}
-            <div className="ee-formscript">
-              {widgetContent}
-            </div>
-          </div>
+      <div
+        className="container-fluid min-vh-100 d-flex flex-column flex-lg-row justify-content-center align-items-center p-5 w-100 px-0"
+        style={{ background: "#35c3d1" }}
+      >
+        {/* Title and Brochure Section */}
+        <div
+          className="col-12 col-lg-6 p-5 text-black d-flex flex-column justify-content-center align-items-start"
+          style={{ padding: "2rem" }}
+        >
+          <h2
+            className="wow fadeInUp"
+            data-wow-delay="0.3s"
+            style={{
+              color: "#05A9C7",
+              textShadow: "2px 2px 4px #125125",
+              marginTop: "3rem",
+            }}
+          >
+            {title}
+          </h2>
+          <br />
+          <h4>
+            <ReactTyped
+              strings={[subtitle]}
+              typeSpeed={70}
+              loop
+              backSpeed={20}
+              cursorChar=""
+              showCursor={true}
+            />
+          </h4>
+          <br />
+          <button
+            className="btn-five wow fadeInUp"
+            onClick={downloadBrochure}
+          >
+            Download Brochure
+          </button>
         </div>
-      )}
+
+        {/* Widget Section with Loader */}
+        <div
+          className="col-lg-6 p-5 d-flex justify-content-center align-items-center bg-transparent"
+          style={{ width: "30rem"}}
+        >
+          {loading ? (
+            <Loader />
+          ) : (
+            <>
+              {script && <Script src={script} strategy="afterInteractive" />}
+              <div className="ee-formscript">{widgetContent}</div>
+            </>
+          )}
+        </div>
+      </div>
     </>
   );
 };

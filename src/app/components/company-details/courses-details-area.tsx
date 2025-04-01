@@ -39,7 +39,7 @@ const CoursesDetailsArea = ({ details }: { details: IcourseType }) => {
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 767);
-      console.log("isMobile:", isMobile); // Debugging statement
+      console.log("isMobile:", isMobile); 
     };
 
     window.addEventListener("resize", handleResize);
@@ -53,7 +53,7 @@ const CoursesDetailsArea = ({ details }: { details: IcourseType }) => {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollPos = window.pageYOffset;
-      setHeaderTop(currentScrollPos > 50 ? "0px" : "275px"); // Change '50' to the scroll position you desire
+      setHeaderTop(currentScrollPos > 50 ? "0px" : "275px"); 
     };
 
     window.addEventListener("scroll", handleScroll);

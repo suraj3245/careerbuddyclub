@@ -63,8 +63,8 @@ const VideoCard: React.FC<VideoCardProps> = ({ videoId }) => {
   
     
 
-  // Styles for the video container to maintain aspect ratio
-  const isSmallScreen = windowWidth !== undefined && windowWidth < 768; // Define your breakpoint for smaller screens
+  
+  const isSmallScreen = windowWidth !== undefined && windowWidth < 768; 
 
   const videoWrapperStyle: React.CSSProperties = isSmallScreen
     ? {
