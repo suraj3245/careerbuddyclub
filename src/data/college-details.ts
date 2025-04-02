@@ -8,7 +8,6 @@ import job_img_7 from "@/assets/images/logo/udmri.webp";
 import job_img_8 from "@/assets/images/logo/VMM_College.webp";
 import job_img_9 from "@/assets/images/logo/pctmlogo.webp";
 import job_img_10 from "@/assets/images/logo/DD-College.png";
-
 import Image, { StaticImageData } from "next/image";
 import user_1 from "@/assets/images/assets/img_14.jpg";
 import user_2 from "@/assets/images/assets/img_15.jpg";

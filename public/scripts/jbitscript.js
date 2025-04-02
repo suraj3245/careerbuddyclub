@@ -1,4 +1,4 @@
-function ddScriptloaded() {
+function jbitscriptloaded() {
     window.ee_form_widget_baseurl = "https://eeconfigstaticfiles.blob.core.windows.net/staticfiles/ee-form-widget/";
     // Ensure the CSS is only appended once
     if (!document.getElementById("__formWidgetCss")) {
@@ -21,7 +21,7 @@ function ddScriptloaded() {
             const utm_campaign = urlParams.get("utm_campaign") || "default_campaign";
 
             // Pass UTM parameters to init function
-            await _eeFormWidget.init("applycbc", "form-14", "ee-form-14", {
+            await _eeFormWidget.init("applycbc", "form-13", "ee-form-13", {
                 utm_source: utm_source,
                 utm_medium: utm_medium,
                 utm_campaign: utm_campaign
@@ -38,5 +38,4 @@ function ddScriptloaded() {
 
     document.getElementsByTagName("head")[0].appendChild(t);
 }
-ddScriptloaded();
-
+jbitscriptloaded();
