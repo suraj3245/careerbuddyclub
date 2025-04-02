@@ -88,7 +88,7 @@ const HeaderFour: React.FC<HeaderFourProps> = ({ user, index, onLogout }) => {
   // Effect to fetch user data and simulate click on Apply Modal
   useEffect(() => {
     fetchUserData();
-    if (!localStorage.getItem("token") && location.pathname !== "/schools" && location.pathname !== '/') {
+    if (!localStorage.getItem("token") && location.pathname === '/' || location.pathname === '/about-us' || location.pathname === '/campus' || location.pathname === '/corporate') {
       setTimeout(() => {
         setModalType("student");
         setIsModalOpen(true);
