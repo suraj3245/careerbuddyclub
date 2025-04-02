@@ -33,7 +33,7 @@ const CompanyDetailsDynamicPage = ({ params }: { params: { id: string } }) => {
         {/*breadcrumb end */}
 
         {/* company details area start */}
-        {details && <CompanyDetailsArea details={details} />}
+        {/* {details && <CompanyDetailsArea details={details} />} */}
         {/* company details area end */}
 
         {/*job Open Position */}

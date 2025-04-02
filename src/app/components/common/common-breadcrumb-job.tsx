@@ -3,6 +3,7 @@ import React, { useEffect, useState, Suspense } from "react";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import Script from "next/script";
 import { ReactTyped } from "react-typed";
+import Image, { StaticImageData } from "next/image";
 
 const CommonBreadcrumbjob = ({
   title,
@@ -31,19 +32,23 @@ const CommonBreadcrumbjob = ({
   const widgets: Record<string, WidgetConfig> = {
     GNC: {
       script: "/scripts/gurunanakscript.js",
-      content: <div className="ee-formscript" id="ee-form-6"></div>,
+      content: <div className="ee-formscript border rounded-4 p-2" id="ee-form-6"></div>,
     },
     BFIT: {
       script: "/scripts/gurunanakscript.js",
-      content: <div className="ee-formscript" id="ee-form-6"></div>,
+      content: <div className="ee-formscript border rounded-4 p-2" id="ee-form-6"></div>,
     },
     UPES: {
       script: "/scripts/upesscript.js",
-      content: <div className="ee-formscript" id="ee-form-12"></div>,
+      content: <div className="ee-formscript border rounded-4 p-2" id="ee-form-12"></div>,
     },
     "Uttaranchal-University": {
       script: "/scripts/uttaranchaluniversityscript.js",
-      content: <div className="ee-formscript" id="ee-form-10"></div>,
+      content: <div className="ee-formscript border rounded-4 p-2" id="ee-form-10"></div>,
+    },
+    "JBIT":{
+      script: "/scripts/jbitscript.js",
+      content: <div className="ee-formscript border rounded-4 p-2" id="ee-form-13"></div>,
     },
     UDMRI: {
       script: "/scripts/udmriscript.js",
@@ -51,7 +56,7 @@ const CommonBreadcrumbjob = ({
     },
     "Pal-College": {
       script: "/scripts/palscript.js",
-      content: <div className="ee-formscript" id="ee-form-11"></div>,
+      content: <div className="ee-formscript m-2" id="ee-form-11"></div>,
     },
     "VMM-College": {
       script: "/scripts/vmmscript.js",
@@ -59,7 +64,7 @@ const CommonBreadcrumbjob = ({
     },
     "DD-College": {
       script: "/scripts/ddscript.js",
-      content: <div className="ee-formscript" id="ee-form-9"></div>,
+      content: <div className="ee-formscript border rounded-4 p-2" id="ee-form-14"></div>,
     },
   };
 
@@ -82,7 +87,7 @@ const Loader = () => (
   <div className="loader-overlay d-flex justify-content-center align-items-center min-vh-100 bg-transparent">
     <iframe
       src="https://lottie.host/embed/a6783898-e218-4f04-96b4-960e4cef1250/vmsVpLHgSJ.lottie"
-      style={{ width: "600px", height: "300px", border: "none" }}
+      style={{ width: "400px", height: "300px", border: "none" }}
       loading="lazy"
       title="Loading Animation"
     ></iframe>
@@ -97,6 +102,7 @@ const Content = ({
   brochures,
   title,
   subtitle,
+  logo
 }: any) => {
   const searchParams = useSearchParams();
   const [script, setScript] = useState<string>("");
@@ -148,7 +154,6 @@ const Content = ({
     <>
       <div
         className="container-fluid min-vh-100 d-flex flex-column flex-lg-row justify-content-center align-items-center p-5 w-100 px-0"
-        style={{ background: "#35c3d1" }}
       >
         {/* Title and Brochure Section */}
         <div
