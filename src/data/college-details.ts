@@ -2706,7 +2706,7 @@ const college_details: IcollegeType[] = [
     "JB Institute of Technology is a private technical institute established in 2009 at Uttarakhand. The institute is affiliated to the Uttarakhand Board of Technical Education, Roorkee & Uttarakhand Technical University. It is approved by the All India Council of Technical Education (AICTE) and Pharmacy Council of India (PCI). The JB Institute of Technology Dehradun courses are provided at diploma, undergraduate and postgraduate levels. Popular degrees include D.Pharma, B.Tech, BBA and MBA. The JBIT Dehradun fees for the courses range from Rs 50,250 to Rs 93,900 annually. Both previous academic merit along with valid entrance test scores are required for the JB Institute of Technology Dehradun course admissions. Exams such as JEE Main, GATE, JEEP, etc. are considered.",
   duration: "Fulltime",
   date: "18 Jul 2019",
-  college: "JBIT GROUP OF INSTITUTION",
+  college: "JBIT Group Of Institution",
   location: "Dehradun, India",
   category: ["+919368623665"],
   experience: "Fresher",
