@@ -159,7 +159,7 @@ const Content = ({
             className="wow fadeInUp"
             data-wow-delay="0.3s"
             style={{
-              color: "#05A9C7",
+              color: "#FFFFFF",
               textShadow: "2px 2px 4px #125125",
               marginTop: "3rem",
             }}
