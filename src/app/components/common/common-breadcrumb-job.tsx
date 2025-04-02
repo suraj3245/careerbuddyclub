@@ -46,7 +46,7 @@ const CommonBreadcrumbjob = ({
       script: "/scripts/uttaranchaluniversityscript.js",
       content: <div className="ee-formscript border rounded-4 p-2" id="ee-form-10"></div>,
     },
-    UDMRI: {
+    "UDMRI": {
       script: "/scripts/udmriscript.js",
       content: <div className="ee-formscript border rounded-4 p-2" id="ee-form-7"></div>,
     },
@@ -62,9 +62,9 @@ const CommonBreadcrumbjob = ({
       script: "/scripts/ddscript.js",
       content: <div className="ee-formscript border rounded-4 p-2" id="ee-form-14"></div>,
     },
-    JBIT: {
+    "JBIT": {
       script: "/scripts/jbitscript.js",
-      content: <div className="ee-formscript border rounded-4 p-2" id="ee-form-1"></div>,
+      content: <div className="ee-formscript border rounded-4 p-2" id="ee-form-13"></div>,
     },
   };
 
