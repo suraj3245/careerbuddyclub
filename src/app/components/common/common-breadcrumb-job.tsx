@@ -1,9 +1,9 @@
 "use client";
-import React, { useEffect, useState, Suspense } from "react";
+import React, { useEffect, useState, useRef, Suspense } from "react";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import Script from "next/script";
 import { ReactTyped } from "react-typed";
-import Image, { StaticImageData } from "next/image";
+import "animate.css";
 
 const CommonBreadcrumbjob = ({
   title,
@@ -46,25 +46,25 @@ const CommonBreadcrumbjob = ({
       script: "/scripts/uttaranchaluniversityscript.js",
       content: <div className="ee-formscript border rounded-4 p-2" id="ee-form-10"></div>,
     },
-    "JBIT":{
-      script: "/scripts/jbitscript.js",
-      content: <div className="ee-formscript border rounded-4 p-2" id="ee-form-13"></div>,
-    },
     UDMRI: {
       script: "/scripts/udmriscript.js",
-      content: <div className="ee-formscript" id="ee-form-7"></div>,
+      content: <div className="ee-formscript border rounded-4 p-2" id="ee-form-7"></div>,
     },
     "Pal-College": {
       script: "/scripts/palscript.js",
-      content: <div className="ee-formscript m-2" id="ee-form-11"></div>,
+      content: <div className="ee-formscript border rounded-4 p-2" id="ee-form-11"></div>,
     },
     "VMM-College": {
       script: "/scripts/vmmscript.js",
-      content: <div className="ee-formscript" id="ee-form-8"></div>,
+      content: <div className="ee-formscript border rounded-4 p-2" id="ee-form-8"></div>,
     },
     "DD-College": {
       script: "/scripts/ddscript.js",
       content: <div className="ee-formscript border rounded-4 p-2" id="ee-form-14"></div>,
+    },
+    JBIT: {
+      script: "/scripts/jbitscript.js",
+      content: <div className="ee-formscript border rounded-4 p-2" id="ee-form-1"></div>,
     },
   };
 
@@ -87,7 +87,7 @@ const Loader = () => (
   <div className="loader-overlay d-flex justify-content-center align-items-center min-vh-100 bg-transparent">
     <iframe
       src="https://lottie.host/embed/a6783898-e218-4f04-96b4-960e4cef1250/vmsVpLHgSJ.lottie"
-      style={{ width: "400px", height: "300px", border: "none" }}
+      style={{ width: "600px", height: "300px", border: "none" }}
       loading="lazy"
       title="Loading Animation"
     ></iframe>
@@ -102,19 +102,22 @@ const Content = ({
   brochures,
   title,
   subtitle,
-  logo
 }: any) => {
   const searchParams = useSearchParams();
   const [script, setScript] = useState<string>("");
   const [widgetContent, setWidgetContent] = useState<JSX.Element | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
 
+  // Prevent UTM from being updated multiple times
+  const utmUpdated = useRef(false);
+
   useEffect(() => {
     const loadData = async () => {
       if (widgets[id]) {
         const widget = widgets[id];
 
-        if (!searchParams.has("utm_source")) {
+        if (!searchParams.has("utm_source") && !utmUpdated.current) {
+          utmUpdated.current = true;
           const utmParams = new URLSearchParams({
             utm_source: "CBC-Website",
             utm_medium: "Online",
@@ -127,15 +130,12 @@ const Content = ({
 
         setScript(widget.script);
         setWidgetContent(widget.content);
-
-        setTimeout(() => setLoading(false), 1000);
-      } else {
-        setLoading(false);
       }
+      setTimeout(() => setLoading(false), 1000);
     };
 
     loadData();
-  }, [id, searchParams, pathname, router, widgets]);
+  }, [id, pathname, router, widgets, searchParams]);
 
   const downloadBrochure = () => {
     const brochureLink = brochures[id];
@@ -151,62 +151,57 @@ const Content = ({
   };
 
   return (
-    <>
+    <div
+      className="container-fluid min-vh-100 d-flex flex-column flex-lg-row justify-content-center align-items-center p-5 w-100 px-0"
+      style={{ background: "#67d9e3" }}
+    >
+      {/* Title and Brochure Section */}
       <div
-        className="container-fluid min-vh-100 d-flex flex-column flex-lg-row justify-content-center align-items-center p-5 w-100 px-0"
+        className="col-12 col-lg-6 p-5 text-black d-flex flex-column justify-content-center align-items-start"
       >
-        {/* Title and Brochure Section */}
-        <div
-          className="col-12 col-lg-6 p-5 text-black d-flex flex-column justify-content-center align-items-start"
-          style={{ padding: "2rem" }}
+        <h2
+          className="wow fadeInUp"
+          data-wow-delay="0.3s"
+          style={{
+            color: "#05A9C7",
+            textShadow: "2px 2px 4px #125125",
+            marginTop: "3rem",
+          }}
         >
-          <h2
-            className="wow fadeInUp"
-            data-wow-delay="0.3s"
-            style={{
-              color: "#FFFFFF",
-              textShadow: "2px 2px 4px #125125",
-              marginTop: "3rem",
-            }}
-          >
-            {title}
-          </h2>
-          <br />
-          <h4>
-            <ReactTyped
-              strings={[subtitle]}
-              typeSpeed={70}
-              loop
-              backSpeed={20}
-              cursorChar=""
-              showCursor={true}
-            />
-          </h4>
-          <br />
-          <button
-            className="btn-five wow fadeInUp"
-            onClick={downloadBrochure}
-          >
-            Download Brochure
-          </button>
-        </div>
-
-        {/* Widget Section with Loader */}
-        <div
-          className="col-lg-6 p-5 d-flex justify-content-center align-items-center bg-transparent"
-          style={{ width: "30rem"}}
-        >
-          {loading ? (
-            <Loader />
-          ) : (
-            <>
-              {script && <Script src={script} strategy="afterInteractive" />}
-              <div className="ee-formscript">{widgetContent}</div>
-            </>
-          )}
-        </div>
+          {title}
+        </h2>
+        <br />
+        <h4>
+          <ReactTyped
+            strings={[subtitle]}
+            typeSpeed={70}
+            loop={false} // Prevents reanimation
+            backSpeed={20}
+            cursorChar=""
+            showCursor={true}
+          />
+        </h4>
+        <br />
+        <button className="btn-five wow fadeInUp" onClick={downloadBrochure}>
+          Download Brochure
+        </button>
       </div>
-    </>
+
+      {/* Widget Section with Loader */}
+      <div
+        className="col-lg-6 p-5 d-flex justify-content-center align-items-center bg-transparent"
+        style={{ width: "30rem" }}
+      >
+        {loading ? (
+          <Loader />
+        ) : (
+          <>
+            {script && <Script src={script} strategy="afterInteractive" />}
+            <div className="ee-formscript">{widgetContent}</div>
+          </>
+        )}
+      </div>
+    </div>
   );
 };
 

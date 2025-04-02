@@ -21,7 +21,7 @@ function bfitScriptloaded() {
             const utm_campaign = urlParams.get("utm_campaign") || "default_campaign";
 
             // Pass UTM parameters to init function
-            await _eeFormWidget.init("applycbc", "form-5", "ee-form-5", {
+            await _eeFormWidget.init("applycbc", "form-6", "ee-form-6", {
                 utm_source: utm_source,
                 utm_medium: utm_medium,
                 utm_campaign: utm_campaign

@@ -38,4 +38,4 @@ function jbitscriptloaded() {
 
     document.getElementsByTagName("head")[0].appendChild(t);
 }
-jbitscriptloaded();
+ jbitscriptloaded();
