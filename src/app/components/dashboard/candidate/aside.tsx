@@ -87,6 +87,9 @@ const CandidateAside = ({ isOpenSidebar, setIsOpenSidebar }: IProps) => {
     localStorage.removeItem("token");
     localStorage.removeItem("username");
     localStorage.removeItem("School_email");
+    localStorage.removeItem("catResults");
+    localStorage.removeItem("quizSubmitted");
+    localStorage.removeItem("testStatus");
   }
 
   const fetchUserData = async () => {
