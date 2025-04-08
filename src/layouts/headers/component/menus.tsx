@@ -29,7 +29,7 @@ const Menus = () => {
             <ul className="dropdown-menu">
               {menu.sub_menus.map((s, i) => (
                 <li key={i}>
-                  <a href={s.link} className="dropdown-item">
+                  <a href={s.link}className="dropdown-item">
                     <span>{s.title}</span>
                   </a>
                 </li>
@@ -48,10 +48,10 @@ const Menus = () => {
             >
               {menu.title}
             </a>
-            <ul className="dropdown-menu">
+            <ul className="dropdown-menu" style={{'width':"65vw"}}>
               <li className="row gx-1">
                 {menu.mega_menus.map((m) => (
-                  <div key={m.id} className="col-md-6">
+                  <div key={m.id} className="col-md-4">
                     <div className="menu-column">
                       <h6 className="mega-menu-title">{m.title}</h6>
                       <ul className="style-none mega-dropdown-list">
