@@ -3,6 +3,7 @@ import React, { useEffect, useState, useRef, Suspense } from "react";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import Script from "next/script";
 import { ReactTyped } from "react-typed";
+import { Globe, Download, ChevronRight } from 'lucide-react';
 import "animate.css";
 
 const CommonBreadcrumbjob = ({
@@ -65,6 +66,10 @@ const CommonBreadcrumbjob = ({
     "JBIT": {
       script: "/scripts/jbitscript.js",
       content: <div className="ee-formscript border rounded-4 p-2" id="ee-form-13"></div>,
+    },
+    "DBS-College": {
+      script: "/scripts/jbitscript.js",
+      content: <div className="ee-formscript border rounded-4 p-2" id="ee-form-9"></div>,
     },
   };
 
@@ -171,19 +176,19 @@ const Content = ({
           {title}
         </h2>
         <br />
-        <h4>
+        <h4 className="">
           <ReactTyped
             strings={[subtitle]}
             typeSpeed={70}
-            loop={false} // Prevents reanimation
+            loop={true}
             backSpeed={20}
             cursorChar=""
             showCursor={true}
           />
         </h4>
         <br />
-        <button className="btn-five wow fadeInUp" onClick={downloadBrochure}>
-          Download Brochure
+        <button className="btn-five wow fadeInUp  text-black d-flex items-center justify-center gap-2 text-white" onClick={downloadBrochure}><Download size={25} />
+          Download Brochure <ChevronRight size={25} />
         </button>
       </div>
 

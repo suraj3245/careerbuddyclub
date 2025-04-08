@@ -12,6 +12,9 @@ import Image, { StaticImageData } from "next/image";
 import user_1 from "@/assets/images/assets/img_14.jpg";
 import user_2 from "@/assets/images/assets/img_15.jpg";
 import user_3 from "@/assets/images/assets/img_22.jpg";
+import job_img_11 from "@/assets/images/logo/DGC.jpeg";
+import job_img_12 from "@/assets/images/logo/CCHM.jpg";
+import job_img_13 from "@/assets/images/logo/SGI.webp";
 
 
 const college_details: IcollegeType[] = [
@@ -6396,6 +6399,1676 @@ const college_details: IcollegeType[] = [
         id: 3,
         rating: 4.8,
         desc: "The college has a beautiful and serene campus..",
+        user: user_3,
+        name: "",
+        location: "",
+      },
+    ],
+  },
+
+  ///////////DOON Group Of Colleges/////////////////////////////////////////////////////
+
+  {
+    id: "DOON-GROUP-OF-COLLEGES",
+    pageTitle: "Career Buddy Club | DOON GROUP OF COLLEGES ",
+    metaDescription: "Doon Group of Colleges, Dehradun, offers top-tier education in agriculture and paramedical sciences. Affiliated with HNB Garhwal University and approved by UGC & AICTE, the college provides skill-based training, global collaborations, and industry-focused learning. Explore a world-class education at Doon College.",
+    logo: job_img_11,
+    type: "Private",
+    establishmentyear: "2001",
+    Recognisedby: "UGC",
+    Approvedby: "UGC, AICTE, NAAC",
+    state: "Uttarakhand",
+    city: "Dehradun",
+    Campusarea:"6 Acers",
+    link: "doongroupofcolleges.in",
+    email: "doongroupofcolleges@gmail.com",
+    founded: "",
+    phone: "",
+    feild: ["Education"],
+    overviewsection:
+      "Established in 2001, Doon Group of Colleges in Dehradun, Uttarakhand, is a premier private institution affiliated with HNB Garhwal University (A Central University). Approved by UGC, AICTE, and NAAC (A Grade), the college is committed to academic excellence and professional development.Located at 28 Chakrata Road, Selaqui, Dehradun, the campus spans 6 acres, offering a conducive learning environment with modern infrastructure. The institution houses Doon (P.G.) College of Agriculture Science & Technology (DCAST) and Doon PG Paramedical College (DPMC), both renowned for their practical skill-based training, experienced faculty, and strong industry connections.With international collaborations in Yemen, South Africa, Sudan, and Nigeria, Doon Group of Colleges ensures a global perspective in education. Its commitment to academic rigor and career-focused learning makes it a distinguished choice for aspiring students.",
+    duration: "Fulltime",
+    date: "18 Jul 2019",
+    college: "Doon Group Of Colleges",
+    location: "28 Chakrata  Road Selaqui Dehradun",
+    category: ["+917006624754"],
+    experience: "Fresher",
+    salary: 900,
+    salary_duration: "Monthly",
+    tags: ["java", "developer"],
+    english_fluency: "Fluent",
+    overview:
+      "Established in 2001, Doon Group of Colleges in Dehradun, Uttarakhand, is a premier private institution affiliated with HNB Garhwal University (A Central University). Approved by UGC, AICTE, and NAAC (A Grade), the college is committed to academic excellence and professional development.Located at 28 Chakrata Road, Selaqui, Dehradun, the campus spans 6 acres, offering a conducive learning environment with modern infrastructure. The institution houses Doon (P.G.) College of Agriculture Science & Technology (DCAST) and Doon PG Paramedical College (DPMC), both renowned for their practical skill-based training, experienced faculty, and strong industry connections.With international collaborations in Yemen, South Africa, Sudan, and Nigeria, Doon Group of Colleges ensures a global perspective in education. Its commitment to academic rigor and career-focused learning makes it a distinguished choice for aspiring students.",
+    videoid: "NajdvaN3Klc",
+    facebook: "",
+    instagram: "",
+    twitter: "",
+    linkedin: "",
+    courses:
+      "Doon Group of Colleges offers a diverse range of undergraduate, postgraduate, and diploma programs across various disciplines. Undergraduate courses include Bachelor of Physiotherapy (B.P.T), B.Sc Medical Lab Technology (Pathology), B.Sc Medical Microbiology, B.Sc Bio-Technology (CBZ), B.Sc Forestry, B.Sc Agriculture (Honours), B.Sc Horticulture (Honours), B.Sc Food Technology, Bachelor of Fisheries, Bachelor of Business Administration (BBA), Bachelor of Computer Science (BCA), and Bachelor of Education (B.Ed). The college also offers a Diploma in Pharmacy (D. Pharma). Postgraduate programs include Master in Physiotherapy (MPT – Ortho, Neuro), M.Sc Medical Lab Technology (Pathology, Microbiology, Biochemistry), M.Sc Microbiology, M.Sc Biotechnology, M.Sc Horticulture, M.Sc Agronomy, M.Sc Forestry, M.Sc Fisheries Science, M.Sc Food Technology, M.Sc Chemistry, M.Sc Botany, M.Sc Zoology, and M.Sc Environmental Science. With a strong emphasis on practical learning, industry exposure, and academic excellence, the institution ensures holistic development and career readiness for students in their chosen fields.",
+  
+    ranking:
+      "Doon Group of Colleges has consistently upheld its commitment to academic excellence, earning prestigious recognition for its quality education. Further solidifying its reputation, the institution has been accredited with a NAAC Grade 'A', a testament to its high academic standards, well-structured curriculum, and student-centric approach. This ranking highlights the college’s dedication to providing top-tier education, fostering research, and ensuring the holistic development of its students, making it a preferred choice for aspiring learners.",
+    awards:
+      "Doon Group of Colleges has been recognized for its excellence in education, receiving prestigious accolades at both national and state levels. The institution has been honored with the National Award by the Central Education Minister and the State Award by the Chief Minister of Uttarakhand. Additionally, its commitment to quality education has been acknowledged with the Top Quality Award by the State Education Minister and the Top Quality Education Award by the Governor of Uttarakhand. ",
+    hostel:
+      "",
+    opportunities:
+      "",
+    campus:
+      "JB Institute of Technology (JBIT) Dehradun has all the required facilities for the convenience of staff and students. The virtual classrooms and video conferring facilities are the major highlights of academic facilities at JB Institute of Technology. The campus of JBIT is completely networked and interconnected. The JBIT campus has been interconnected through Wi-Fi networks. The central library at JBIT is one of the major highlights of the campus. The library has a huge collection of books on Engineering, Science, Technology, and Humanities. Students can also refer to the latest international and national journals, magazines, etc at the central library. ",
+    placement:
+      "Doon Group of Colleges has maintained a strong placement record across various disciplines, including B.Sc Agriculture, Forestry, BBA, BCA, MLT, BPT, Food Technology, and Microbiology. From 2017 to 2024, the college registered 500 students for placements, with 12 reputed companies visiting the campus. A total of 350 students secured placements, with 10 offers made. The salary package ranged from a minimum of ₹28,000 per month to a maximum of ₹15 lakh per annum, with an average salary of ₹1,25,000. International placements offered salaries between ₹70,000 and ₹90,000. Over the last three years, the average salary has been ₹62,000, reflecting the institution's commitment to providing excellent career opportunities for its students.",
+    admission:
+      "",
+    faculty:"",
+  
+    overviewtable:[
+      {
+        specialization: "Short Name",
+        annualfee: "DCAST/DPMC",
+      },
+      {
+        specialization: "Institute Type - Public/ Private/ Govt",
+        annualfee: "Private",
+      },
+      {
+        specialization: "State",
+        annualfee: "Uttarakhand",
+      },
+      {
+        specialization: "City",
+        annualfee: "Dehradun",
+      },
+      {
+        specialization: "Location/ Address",
+        annualfee: "28 Chakrata Road Selaqui Dehradun",
+      },
+     
+      {
+        specialization: "Phone Numbers",
+        annualfee: "7006624754",
+      },
+      {
+        specialization: "Website",
+        annualfee: "doongroupofcolleges.in",
+      },
+      {
+        specialization: "Email Address",
+        annualfee: "doongroupofcolleges@gmail.com",
+      }, 
+      {
+        specialization: "Area",
+        annualfee: "Education",
+      },
+      {
+        specialization: "University Affiliation",
+        annualfee: "HNB GARHWAL UNIVERSITY (A CENTRAL UNIVERSITY)",
+      },
+      {
+        specialization: "Approved by",
+        annualfee: "UGC, AICTE, NAAC",
+      },
+      {
+        specialization: "Accreditation",
+        annualfee: "NAAC -A",
+      },
+      
+     
+    ],
+      coursesAndFees: [
+      {
+        course: "BACHELOR OF PHYSIOTHERAPY(B.P.T)",
+        specialization: "All",
+        annualFee: "85000",
+        duration: "Direct",
+        eligibility: "10+2 with PCB with minimum 45%",
+      },
+      {
+        course: "BSC MEDICAL LAB. TECHNOLOGY(BSC MLT)",
+        specialization: "PATHOLOGY",
+        annualFee: "75000",
+        duration: "Direct",
+        eligibility: "10+2 with PCB with minimum 45%",
+      },
+  
+       {
+        course: "BSC MEDICAL MICORBILOGY",
+        specialization: "All",
+        annualFee: "60000",
+        duration: "Direct",
+        eligibility: "10+2 with PCB with minimum 45%",
+      },  
+      {
+        course: "BSC BIO-TECHNOLOGY(CBZ)",
+        specialization: "CBZ",
+        annualFee: "50000",
+        duration: "Direct",
+        eligibility: "10+2 with PCB with minimum 45%",
+      },  
+      {
+        course: "BSC FORESTY",
+        specialization: "General",
+        annualFee: "75000",
+        duration: "Direct",
+        eligibility: "10+2 with PCB with minimum 45%",
+      },  
+      {
+        course: "BSC AGRICULTURE",
+        specialization: "HONOURS",
+        annualFee: "75000",
+        duration: "Direct",
+        eligibility: "10+2 with PCB with minimum 45%",
+      },  
+      {
+        course: "BSC HORTICULTURE ",
+        specialization: "HONOURS",
+        annualFee: "75000",
+        duration: "Direct",
+        eligibility: "10+2 with PCB with minimum 45%",
+      },
+      
+      {
+        course: "BSC FOOD TECHNOLOGY",
+        specialization: "ALL",
+        annualFee: "75000",
+        duration: "Direct",
+        eligibility: "10+2 with PCB, PCM with minimum 45%",
+      },  
+      {
+        course: "BACHELOR OF FISHERIES",
+        specialization: "ALL",
+        annualFee: "55000",
+        duration: "Direct",
+        eligibility: "10+2 with PCB with minimum 45%",
+      },  
+      {
+        course: "BACHELOR OF BUSNINESS ADMINISTRATION(BBA)",
+        specialization: "SIMPLE",
+        annualFee: "55000",
+        duration: "Personal Interview",
+        eligibility: "10+2  with any  subject ",
+      }, 
+      
+      {
+        course: "BACHELOR OF COMPUTER SCINECE (BCA)",
+        specialization: "SIMPLE",
+        annualFee: "55000",
+        duration: "Direct",
+        eligibility: "10+2 with PCM with minimum 45%",
+      },
+  
+      {
+        course: "BACHELOR OF EDUCATION (B.ED)",
+        specialization: "ALL",
+        annualFee: "45000",
+        duration: "Direct",
+        eligibility: "BA , BSc , B.Com, etc",
+      },  
+      {
+        course: "DIPLOMA IN PHARMACY(D PHARMA)",
+        specialization: "SIMPLE",
+        annualFee: "55000",
+        duration: "Direct",
+        eligibility: "10+2  with PCM, PCB",
+      },  
+       {
+        course: "MASTER IN PHYSIOTHERAPY(MPT)",
+        specialization: "ORTHO , NEURO ",
+        annualFee: "85000",
+        duration: "Direct",
+        eligibility: "BPT with minimum 45%",
+      },
+      {
+        course: "M.SC MEDICAL LAB TECHNOLOGY(MLT)",
+        specialization: "PATHOLOGY , MICROBIOLOGY, Biochemistry ",
+        annualFee: "70000",
+        duration: "Direct",
+        eligibility: "MLT with minimum 45%",
+      },
+
+      {
+        course: "M SC MICORBIOLOGY ",
+        specialization: "SIMPLE ",
+        annualFee: "75000",
+        duration: "Direct",
+        eligibility: "BSC with CBZ, BSC MLT, BSC RADIOLOGY, NURSING with minimum 45%",
+      },
+      {
+        course: "M.SC BIOTECHNOLOGY",
+        specialization: "Simple",
+        annualFee: "75000",
+        duration: "Direct",
+        eligibility: "B.Sc with Biotechnology, ",
+      },
+      {
+        course: "M.SC HORTICULTURE",
+        specialization: "HORTICULTURE",
+        annualFee: "75000",
+        duration: "Direct",
+        eligibility: "BSC Horticulture, agriculture with minimum 45%",
+      },
+      {
+        course: "M.SC AGRONOMY",
+        specialization: "AGRONOMY",
+        annualFee: "85000",
+        duration: "Direct",
+        eligibility: "BSC agriculture with minimum 45%",
+      },
+      {
+        course: "M.SC FORESTY ",
+        specialization: "FORESTRY",
+        annualFee: "85000",
+        duration: "Direct",
+        eligibility: "Bsc forestry with minimum 45%",
+      },
+      {
+        course: "M.SC FISHERIES SCIENCE",
+        specialization: "All",
+        annualFee: "85000",
+        duration: "Direct",
+        eligibility: "BSc fishers with minimum 45%",
+      },
+      {
+        course: "M.SC FOOD TECHNOLOGY",
+        specialization: "FOOD TECHNOLOGY ",
+        annualFee: "75000",
+        duration: "Direct",
+        eligibility: "BSC food technology with minimum 45%",
+      },
+      {
+        course: "M.SC CHEMISTRY",
+        specialization: "SIMPLE",
+        annualFee: "55000",
+        duration: "Direct",
+        eligibility: "BSC with Chemistry with minimum 45%",
+      },
+      {
+        course: "M.SC BOTANY",
+        specialization: "SIMPLE",
+        annualFee: "55000",
+        duration: "Direct",
+        eligibility: "BSC with Botany with minimum 45%",
+      },
+      {
+        course: "M.SC ZOOLOGY",
+        specialization: "SIMPLE",
+        annualFee: "55000",
+        duration: "Direct",
+        eligibility: "BSC zoology with minimum 45%",
+      },
+      {
+        course: "M.SC ENVIRONMENTAL SCIENCE ",
+        specialization: "SIMPLE",
+        annualFee: "55000",
+        duration: "Direct",
+        eligibility: "Bsc any subject with minimum 45%",
+      },
+
+  
+  
+       
+      
+    ],
+    admissionDates: [
+      {
+        name: "Application Start Date",
+        date: "1st April",
+      },
+      {
+        name: "Application End Date",
+        date: "August",
+      },
+      {
+        name: "Date of Result Declaration",
+        date: "September 18, 2023",
+      },
+      {
+        name: "Last Date of Submission of Fee",
+        date: "September 28, 2023",
+      },
+      {
+        name: "Commencement of the Coursework",
+        date: "01-Aug-2024",
+      },
+    ],
+    campusinfo: [
+      {
+        name: "Registration Dates",
+        info: "April, 2024",
+      },
+      {
+        name: "Date of Entrance Test & Interview",
+        info: "April, 2024",
+      },
+      {
+        name: "Date of Result Declaration",
+        info: "May , 2024",
+      },
+      {
+        name: "Commencement of the Coursework",
+        info: "October , 2024",
+      },
+    ],
+    placementinformation: [
+      {
+        name: "Placement Year",
+        info: "2017, 2018, 2019, 2020, 2022, 2023,2024",
+      },
+      {
+        name: "Degree",
+        info: "Bsc Agriculture, Forestry , BBA BCA ,  MLT ,BPT FOOD TECHNOLOGY, MICROBIOLOGY",
+      },
+      {
+        name: "N.o of Students Registered",
+        info: "500 Students",
+      },
+      {
+        name: "Number of Companies Visited",
+        info: "12 Companies",
+      },
+      {
+        name: "Number of Students Placed",
+        info: "350",
+      },
+      {
+        name: "Number of Offers Made",
+        info: "10",
+      },
+      {
+        name: "Minimum Salary",
+        info: "28000/-",
+      },
+      {
+        name: "Maximum Salary",
+        info: "15 lakh",
+      },
+      {
+        name: "Average Salary",
+        info: "125000/-",
+      },
+      {
+        name: "Minimum Salary (International, if applicable)",
+        info: "70000/-",
+      },
+      {
+        name: "Maximum Salary (International, if applicable)",
+        info: "90000/-",
+      },
+      {
+        name: "Average Salary Percentage for Last 3 Years",
+        info: "62000/-",
+      },
+      
+    ],
+    opportunitiesinfo: [
+      // {
+      //   name: "Registration Dates",
+      //   info: "February 8 to September 15, 2023",
+      // },
+      // {
+      //   name: "Date of Entrance Test & Interview",
+      //   info: "September 17, 2023",
+      // },
+      // {
+      //   name: "Date of Result Declaration",
+      //   info: "September 18, 2023",
+      // },
+      // {
+      //   name: "Last Date of Submission of Fee",
+      //   info: "September 28, 2023",
+      // },
+      // {
+      //   name: "Commencement of the Coursework",
+      //   info: "October 3, 2023",
+      // },
+    ],
+     
+    awardsinfo: [
+      "National Award : Central Education Minister",
+      "State Award : Chief minister of Uttarakhand ",
+      "Top Quality award : State Education Minister ",
+      "Top Quality education awards : Governor of uttrakhand ",
+      
+    ],
+   
+    facultytable: [
+      {
+        name: "Dr. Vishal",
+        Qualification: "Dept. of  Microbiology",
+        Experience: "22 year",
+        Specialization: "Agriculture microbiology, Biological Control, Plant growth promo. Rhizo bacteria, Fermentation Technology, Antimicrobial Activity of mediclinal plant, Microbial pathology.",
+      },
+      {
+        name: "Dr. RD Saklani",
+        Qualification: "Dept. of  Geology",
+        Experience: "10 year",
+        Specialization: "Sequence stratigraphy, Petroleum Geology, Ichnology, Disaster Management, Engg. Geology, Field Geology, Himalayan Geology & Western India (Kachchh & Rajasthan).",
+      },
+      {
+        name: "Mr. S K Thakur",
+        Qualification: "Dept. of  Statistics & Mathematics",
+        Experience: "35 year",
+        Specialization: "Statistics, International finance,  International Economics, Coorporates Law. ",
+      },
+      {
+        name: "Dr. Neelesh",
+        Qualification: "Dept. of  Microbiology",
+        Experience: "02 year",
+        Specialization: "Medical microbiology, General microbiology.",
+      },
+      {
+        name: "Mrs. Preeti Sood",
+        Qualification: "Dept. of  Hotel Management ",
+        Experience: "23 year",
+        Specialization: "Food and beverage,Front office, House Keeping, Kitchen.",
+      },
+      {
+        name: "Mr. Gurmeet singh",
+        Qualification: "Dept. of  Chemistry",
+        Experience: "03 year",
+        Specialization: "Waste Management, Water purification, Biofilms and filters, Polymers, Analytical Chemistry.",
+      },
+      {
+        name: "Mr. Kashif Hussain",
+        Qualification: "Dept. of  Pharmacy",
+        Experience: "12 year",
+        Specialization: "Pharmaceutical Chemistry.",
+      },
+      {
+        name: "Mr. Javed Siddiqui",
+        Qualification: "Dept. of  Paramedical ",
+        Experience: "14 year",
+        Specialization: "Clinical biochemistry, Pathology, Medical Microbiology.",
+      },
+      {
+        name: "Ms. Rohita",
+        Qualification: "Dept. of  Pharmacy",
+        Experience: "01 year",
+        Specialization: "Hospital and clinical pharmacy, Community pharmacy, Pharmacy practice, Social pharmacy.",
+      },
+      {
+        name: "Dr. Manisha Singh",
+        Qualification: "Dept. of  Paramedical ",
+        Experience: "01 year",
+        Specialization: "Orthopedics, Neurology.",
+      },
+      {
+        name: "Dr. Kiran",
+        Qualification: "Dept. of  Paramedical ",
+        Experience: "05 year",
+        Specialization: "Orthopedics",
+      },
+      {
+        name: "Dr. Nidhi Chatterjee",
+        Qualification: "Dept. of  Zoology",
+        Experience: "18 year",
+        Specialization: "Zoology, Fish and Fishries, Parasitology.",
+      },
+      {
+        name: "Ms. Susmita Bahuguna ",
+        Qualification: "Dept. of  Nursing",
+        Experience: "01 year",
+        Specialization: "Nursing fundamental, Social nursing",
+      },
+      {
+        name: "Ms. Oshin",
+        Qualification: "Dept. of  Nursing",
+        Experience: "01 year",
+        Specialization: "Psychology, Anatomy, Physiology",
+      },
+  
+    ],
+    hostelinfo: [
+      {
+        name: "Capacity",
+        info: "1000",
+      },
+      {
+        name: "Hostel Fees",
+        info: "In-house Residential Accommodation (Optional) Charges (Note: - Hostel charges is per year which includes Vegetarian / Non-Vegetarian Food) ",
+      },
+      {
+        name: "",
+        info: "•	Standard Quad (Four Sharing Room) with Attached Toilet Rs.48000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "•	Deluxe Quad (Four Sharing Room) with Attached Toilet Rs.58000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "•	Standard (Three Sharing Room) with Attached Toilet Rs.68000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "•	Deluxe (Three Sharing Room) with Attached Toilet Rs.78000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "•	Standard (Two Sharing Room) with Attached Toilet Rs.73000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "•	Deluxe (Two Sharing Room) with Attached Toilet Rs.78000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "•	Super Deluxe (Two Sharing Room) with Attached Toilet Rs.88000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "•	Executive Room (TWO SHARING Room) with LCD + Tata Sky + Attached Toilet Rs.95000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "•	Executive Room (TWO SHARING Room) with A.C + LCD + Tata Sky + Attached Toilet Rs.105000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "•	Hostel Enrolment & Furnishing Fee: Rs.5000/-(To be paid Once) Laundry Charges: Rs.4800/-per Year",
+      },
+      {
+        name: "Mess Fees",
+        info: "Includes in Hostel Fees",
+      },
+      {
+        name: "Location (on-campus or off-campus)",
+        info: "On-Campus",
+      },
+      {
+        name: "Number of Rooms",
+        info: "300",
+      },
+      {
+        name: "Room Type (Occupancy basis)",
+        info: "Single Sharing, Two sharing, Three Sharing, Four Sharing",
+      },
+      {
+        name: "Hostel Facilities/ Amenities",
+        info: "Wi-Fi, CCTV Surveillance, Security Guards, Warden, Indoor Stadium, Outdoor Playground, Gymnasium, etc.",
+      },
+    ],
+    rankinginfo: [
+      {
+        name: "A",
+        info: "NAAC A, For All courses",
+      },
+      // {
+      //   name: "TOI (B.Tech)",
+      //   info: "#142 out of 170",
+      // },
+      // {
+      //   name: "Indiatoday (B.Tech)",
+      //   info: "#157 out of 246",
+      // },
+      // {
+      //   name: "Outlook (B.Tech)",
+      //   info: "#107 out of 160",
+      // },
+      // {
+      //   name: "",
+      //   info: "",
+      // },
+    ],
+    reviewinfo: [
+      {
+        id: 1,
+        rating: 4.7,
+        desc: "Faculty of my college are very higher educated . They are qualified for the best universities with best knowledge and gesture . They always treat students very well..",
+        user: user_1,
+        name: "",
+        location: "",
+      },
+      {
+        id: 2,
+        rating: 4.5,
+        desc: "With a 90% placement rate, your college demonstrates a strong commitment to preparing its students for successful careers..",
+        user: user_2,
+        name: "",
+        location: "",
+      },
+      {
+        id: 3,
+        rating: 4.8,
+        desc: "It was the good experience about my collage I were study past some year in this collage and I saw a major change in my communication skill and our department staf is also a good performence..",
+        user: user_3,
+        name: "",
+        location: "",
+      },
+    ],
+  },
+
+
+  ////////////////////////////////CCHM///////////////////////////////////////////////////////////////////////////////
+
+  {
+    id: "CCHM",
+    pageTitle: "Career Buddy Club | CULINARY COLLEGE OF HOTEL  MANAGEMENT",
+    metaDescription: "Doon Group of Colleges, Dehradun, offers top-tier education in agriculture and paramedical sciences. Affiliated with HNB Garhwal University and approved by UGC & AICTE, the college provides skill-based training, global collaborations, and industry-focused learning. Explore a world-class education at Doon College.",
+    logo: job_img_12,
+    type: "Private",
+    establishmentyear: "2003",
+    Recognisedby: "UGC",
+    Approvedby: "UGC, AICTE, NAAC",
+    state: "Uttarakhand",
+    city: "Dehradun",
+    Campusarea:"Miyanwala",
+    link: "www.culinarycollege.co.in",
+    email: "culinaryddn@gmail.com",
+    founded: "",
+    phone: "",
+    feild: ["Education"],
+    overviewsection:
+      "One of the oldest institutions in Uttarakhand, Culinary College of Hotel Management (CCHM Dehradun) has been dedicated to providing professional hotel management education for the past eighteen years. Located in Miyanwala, Dehradun, the college offers a specialized program that equips students with the skills and training needed to excel as qualified professionals in the hospitality industry. With nearly two decades of experience, CCHM has established itself as a reputed institute, offering exposure to international standards and producing industry-ready graduates.",
+    duration: "Fulltime",
+    date: "18 Jul 2019",
+    college: "CULINARY COLLEGE OF HOTEL  MANAGEMENT",
+    location: "Near Mall of Dehradun, Miyanwala , Dehradun  Uttarakhand",
+    category: ["+917006624754", "+919410320693"],
+    experience: "Fresher",
+    salary: 900,
+    salary_duration: "Monthly",
+    tags: ["java", "developer"],
+    english_fluency: "Fluent",
+    overview:
+      "One of the oldest institutions in Uttarakhand, Culinary College of Hotel Management (CCHM Dehradun) has been dedicated to providing professional hotel management education for the past eighteen years. Located in Miyanwala, Dehradun, the college offers a specialized program that equips students with the skills and training needed to excel as qualified professionals in the hospitality industry. With nearly two decades of experience, CCHM has established itself as a reputed institute, offering exposure to international standards and producing industry-ready graduates.",
+    videoid: "EfJ6F1sb9hk",
+    facebook: "",
+    instagram: "",
+    twitter: "",
+    linkedin: "",
+    courses:
+      "Culinary College of Hotel Management offers a diverse range of industry-relevant programs tailored to meet the evolving demands of the hospitality sector. The college provides an 18-month Diploma in Hotel Management, along with specialized diplomas in Culinary Arts, Bakery Arts, Bar Management, and Cruise Ship Management, all affiliated with NCVTE. Additionally, it offers a B.Voc in Hotel Management under the affiliation of HGU University. These courses are designed to equip students with both theoretical knowledge and practical skills, ensuring they are industry-ready upon graduation.",
+  
+    ranking:
+      "",
+    awards:
+      "CCHM is recognized as one of the oldest and most reputed hotel management institutes in Uttarakhand. Its consistent quality of education, innovative curriculum, and strong industry collaborations have earned it a leading reputation in hospitality education. With approvals from UGC, the Ministry of HRD, and Uttarakhand Government Authorities, CCHM stands as a top-ranked institution for aspiring hospitality professionals.",
+    hostel:
+      "",
+    opportunities:
+      "",
+    campus:
+      "Located in Dehradun, the Culinary College of Hotel Management (CCHM) has been shaping hospitality professionals for the past 18 years. With a dedicated focus on hotel management education, the campus offers a vibrant and culturally diverse environment that blends academic learning with practical exposure. CCHM features an on-campus 5-star hotel, advanced training facilities, and a unique learning model that prepares students to meet global industry standards.",
+    placement:
+      "CCHM has the quality of education offered combined with unique paid internship opportunities in some of the most luxurious hotels in both India and Abroad which makes it one of the best institutes for placements & training in Hotel Management. An on-campus 5-star hotel and a 100% placement track record make CCHM the best choice for your education in hospitality and the top institute of hotel management in Dehradun.Till date number of graduates have passed out and have been placed in reputed hotels, resorts, and cruise lines around the world. Our expertise in the hospitality industry and our national/international affiliation and collaboration with world-renowned hospitality organizations has enabled us to provide the highest level of comprehensive hospitality education to Indian youths.",
+    admission:
+      "",
+    faculty:"",
+  
+    overviewtable:[
+      {
+        specialization: "Short Name",
+        annualfee: "CCHM",
+      },
+      {
+        specialization: "Institute Type - Public/ Private/ Govt",
+        annualfee: "Private",
+      },
+      {
+        specialization: "State",
+        annualfee: "Uttarakhand",
+      },
+      {
+        specialization: "City",
+        annualfee: "Dehradun",
+      },
+      {
+        specialization: "Location/ Address",
+        annualfee: "Near Mall of Dehradun, Miyanwala , Dehradun  Uttarakhand",
+      },
+     
+      {
+        specialization: "Phone Numbers",
+        annualfee: "9410320693, 7055873333",
+      },
+      {
+        specialization: "Website",
+        annualfee: "www.culinarycollege.co.in",
+      },
+      {
+        specialization: "Email Address",
+        annualfee: "culinaryddn@gmail.com",
+      }, 
+      {
+        specialization: "Area",
+        annualfee: "Education",
+      },
+      {
+        specialization: "University Affiliation",
+        annualfee: "Sri Dev Suman Uttarakahnd Univeristy",
+      },
+      {
+        specialization: "Approved by",
+        annualfee: "UGC, AICTE, NAAC",
+      },
+      {
+        specialization: "Accreditation",
+        annualfee: "Vidyapeeth Prashikshan Sansthan Avam Jan Vikas Samiti",
+      },
+      
+     
+    ],
+      coursesAndFees: [
+      {
+        course: "Degree in Hotel Management (3 Year)",
+        specialization: "N/A",
+        annualFee: "65000",
+        duration: "Direct",
+        eligibility: "Min 10 Pass",
+      },
+      {
+        course: "Diploma in Hotel Management(1 Year)",
+        specialization: "N/A",
+        annualFee: "50000",
+        duration: "Direct",
+        eligibility: "Min 10 Pass",
+      },
+  
+       {
+        course: "Advance Diploma in Hotel Management (18 Months)",
+        specialization: "N/A",
+        annualFee: "65000",
+        duration: "Direct",
+        eligibility: "Min 10 Pass",
+      },  
+      {
+        course: "Diploma in Culinary Arts/ Food Production",
+        specialization: "N/A",
+        annualFee: "125000",
+        duration: "Direct",
+        eligibility: "Min 10 Pass",
+      },  
+      {
+        course: "Diploma in Bakery & Patisserie",
+        specialization: "N/A",
+        annualFee: "95000",
+        duration: "Direct",
+        eligibility: "Min 10 Pass",
+      },  
+      {
+        course: "Diploma in Cruise-Ship Management",
+        specialization: "N/A",
+        annualFee: "125000",
+        duration: "Direct",
+        eligibility: "12 Pass ",
+      },  
+      {
+        course: "Diploma in Bar Management",
+        specialization: "N/A",
+        annualFee: "40000",
+        duration: "Direct",
+        eligibility: "12 Pass",
+      },
+      
+     ],
+    admissionDates: [
+      {
+        name: "Application Start Date",
+        date: "1st April",
+      },
+      {
+        name: "Application End Date",
+        date: "August",
+      },
+      {
+        name: "Date of Result Declaration",
+        date: "September 18, 2023",
+      },
+      {
+        name: "Last Date of Submission of Fee",
+        date: "September 28, 2023",
+      },
+      {
+        name: "Commencement of the Coursework",
+        date: "01-Aug-2024",
+      },
+    ],
+    campusinfo: [
+      {
+        name: "Registration Dates",
+        info: "N/A",
+      },
+      {
+        name: "Date of Entrance Test & Interview",
+        info: "N/A",
+      },
+      {
+        name: "Date of Result Declaration",
+        info: "N/A",
+      },
+      {
+        name: "Commencement of the Coursework",
+        info: "N/A",
+      },
+    ],
+    placementinformation: [
+      {
+        name: "Placement Year",
+        info: "2023-24",
+      },
+      {
+        name: "Degree",
+        info: "N/A",
+      },
+      {
+        name: "N.o of Students Registered",
+        info: " 113",
+      },
+      {
+        name: "Number of Companies Visited",
+        info: " 50",
+      },
+      {
+        name: "Number of Students Placed",
+        info: "104",
+      },
+      {
+        name: "Number of Offers Made",
+        info: "N/A",
+      },
+      {
+        name: "Minimum Salary",
+        info: "15000/month",
+      },
+      {
+        name: "Maximum Salary",
+        info: " 25500/month",
+      },
+      {
+        name: "Average Salary",
+        info: "18000/Month",
+      },
+      {
+        name: "Minimum Salary (International, if applicable)",
+        info: " 40000/ month Depends on Country to Country",
+      },
+      {
+        name: "Maximum Salary (International, if applicable)",
+        info: "900 Dollars in Cruise",
+      },
+      {
+        name: "Average Salary (International, if applicable)",
+        info: " 30000/ Months in Gulf",
+      },
+      {
+        name: "Average Salary Percentage for Last 3 Years",
+        info: " 20000/Month",  
+      },
+      {
+        name: "Recruiter List",
+        info: "Marriott Jaipur, Wyndham Ahmedabad Shela,  Radisson Lucknow City Centre , Radisson Resort & Spa Lonavala,  Fortune Palace Jamnagar, Chauki Dhani Ressort Jaipur, Four Points By Sheraton Delhi, The Park Baga River Goa,  The Bagh Ananta Elite Ranthambore,  Le Meridien Nagpur,  Le Meridien nagpur, Hyatt Regency Ahemdabad ,  Seven Seas Delhi",
+      },
+      
+    ],
+    opportunitiesinfo: [
+      // {
+      //   name: "Registration Dates",
+      //   info: "February 8 to September 15, 2023",
+      // },
+      // {
+      //   name: "Date of Entrance Test & Interview",
+      //   info: "September 17, 2023",
+      // },
+      // {
+      //   name: "Date of Result Declaration",
+      //   info: "September 18, 2023",
+      // },
+      // {
+      //   name: "Last Date of Submission of Fee",
+      //   info: "September 28, 2023",
+      // },
+      // {
+      //   name: "Commencement of the Coursework",
+      //   info: "October 3, 2023",
+      // },
+    ],
+     
+    awardsinfo: [
+      
+      
+    ],
+   
+    facultytable: [
+      {
+        name: "Dr. Vishal",
+        Qualification: "Dept. of  Microbiology",
+        Experience: "22 year",
+        Specialization: "Agriculture microbiology, Biological Control, Plant growth promo. Rhizo bacteria, Fermentation Technology, Antimicrobial Activity of mediclinal plant, Microbial pathology.",
+      },
+      {
+        name: "Dr. RD Saklani",
+        Qualification: "Dept. of  Geology",
+        Experience: "10 year",
+        Specialization: "Sequence stratigraphy, Petroleum Geology, Ichnology, Disaster Management, Engg. Geology, Field Geology, Himalayan Geology & Western India (Kachchh & Rajasthan).",
+      },
+      {
+        name: "Mr. S K Thakur",
+        Qualification: "Dept. of  Statistics & Mathematics",
+        Experience: "35 year",
+        Specialization: "Statistics, International finance,  International Economics, Coorporates Law. ",
+      },
+      {
+        name: "Dr. Neelesh",
+        Qualification: "Dept. of  Microbiology",
+        Experience: "02 year",
+        Specialization: "Medical microbiology, General microbiology.",
+      },
+      {
+        name: "Mrs. Preeti Sood",
+        Qualification: "Dept. of  Hotel Management ",
+        Experience: "23 year",
+        Specialization: "Food and beverage,Front office, House Keeping, Kitchen.",
+      },
+      {
+        name: "Mr. Gurmeet singh",
+        Qualification: "Dept. of  Chemistry",
+        Experience: "03 year",
+        Specialization: "Waste Management, Water purification, Biofilms and filters, Polymers, Analytical Chemistry.",
+      },
+      {
+        name: "Mr. Kashif Hussain",
+        Qualification: "Dept. of  Pharmacy",
+        Experience: "12 year",
+        Specialization: "Pharmaceutical Chemistry.",
+      },
+      {
+        name: "Mr. Javed Siddiqui",
+        Qualification: "Dept. of  Paramedical ",
+        Experience: "14 year",
+        Specialization: "Clinical biochemistry, Pathology, Medical Microbiology.",
+      },
+      {
+        name: "Ms. Rohita",
+        Qualification: "Dept. of  Pharmacy",
+        Experience: "01 year",
+        Specialization: "Hospital and clinical pharmacy, Community pharmacy, Pharmacy practice, Social pharmacy.",
+      },
+      {
+        name: "Dr. Manisha Singh",
+        Qualification: "Dept. of  Paramedical ",
+        Experience: "01 year",
+        Specialization: "Orthopedics, Neurology.",
+      },
+      {
+        name: "Dr. Kiran",
+        Qualification: "Dept. of  Paramedical ",
+        Experience: "05 year",
+        Specialization: "Orthopedics",
+      },
+      {
+        name: "Dr. Nidhi Chatterjee",
+        Qualification: "Dept. of  Zoology",
+        Experience: "18 year",
+        Specialization: "Zoology, Fish and Fishries, Parasitology.",
+      },
+      {
+        name: "Ms. Susmita Bahuguna ",
+        Qualification: "Dept. of  Nursing",
+        Experience: "01 year",
+        Specialization: "Nursing fundamental, Social nursing",
+      },
+      {
+        name: "Ms. Oshin",
+        Qualification: "Dept. of  Nursing",
+        Experience: "01 year",
+        Specialization: "Psychology, Anatomy, Physiology",
+      },
+  
+    ],
+    hostelinfo: [
+      {
+        name: "Capacity",
+        info: "1000",
+      },
+      {
+        name: "Hostel Fees",
+        info: "In-house Residential Accommodation (Optional) Charges (Note: - Hostel charges is per year which includes Vegetarian / Non-Vegetarian Food) ",
+      },
+      {
+        name: "",
+        info: "•	Standard Quad (Four Sharing Room) with Attached Toilet Rs.48000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "•	Deluxe Quad (Four Sharing Room) with Attached Toilet Rs.58000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "•	Standard (Three Sharing Room) with Attached Toilet Rs.68000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "•	Deluxe (Three Sharing Room) with Attached Toilet Rs.78000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "•	Standard (Two Sharing Room) with Attached Toilet Rs.73000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "•	Deluxe (Two Sharing Room) with Attached Toilet Rs.78000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "•	Super Deluxe (Two Sharing Room) with Attached Toilet Rs.88000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "•	Executive Room (TWO SHARING Room) with LCD + Tata Sky + Attached Toilet Rs.95000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "•	Executive Room (TWO SHARING Room) with A.C + LCD + Tata Sky + Attached Toilet Rs.105000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "•	Hostel Enrolment & Furnishing Fee: Rs.5000/-(To be paid Once) Laundry Charges: Rs.4800/-per Year",
+      },
+      {
+        name: "Mess Fees",
+        info: "Includes in Hostel Fees",
+      },
+      {
+        name: "Location (on-campus or off-campus)",
+        info: "On-Campus",
+      },
+      {
+        name: "Number of Rooms",
+        info: "300",
+      },
+      {
+        name: "Room Type (Occupancy basis)",
+        info: "Single Sharing, Two sharing, Three Sharing, Four Sharing",
+      },
+      {
+        name: "Hostel Facilities/ Amenities",
+        info: "Wi-Fi, CCTV Surveillance, Security Guards, Warden, Indoor Stadium, Outdoor Playground, Gymnasium, etc.",
+      },
+    ],
+    rankinginfo: [
+      {
+        name: "A",
+        info: "NAAC A, For All courses",
+      },
+      // {
+      //   name: "TOI (B.Tech)",
+      //   info: "#142 out of 170",
+      // },
+      // {
+      //   name: "Indiatoday (B.Tech)",
+      //   info: "#157 out of 246",
+      // },
+      // {
+      //   name: "Outlook (B.Tech)",
+      //   info: "#107 out of 160",
+      // },
+      // {
+      //   name: "",
+      //   info: "",
+      // },
+    ],
+    reviewinfo: [
+      {
+        id: 1,
+        rating: 4.7,
+        desc: "Faculty of my college are very higher educated . They are qualified for the best universities with best knowledge and gesture . They always treat students very well..",
+        user: user_1,
+        name: "",
+        location: "",
+      },
+      {
+        id: 2,
+        rating: 4.5,
+        desc: "With a 100% placement rate, your college demonstrates a strong commitment to preparing its students for successful careers..",
+        user: user_2,
+        name: "",
+        location: "",
+      },
+      {
+        id: 3,
+        rating: 4.8,
+        desc: "It was the good experience about my collage I were study past some year in this collage and I saw a major change in my communication skill and our department staf is also a good performence..",
+        user: user_3,
+        name: "",
+        location: "",
+      },
+    ],
+  },
+
+
+
+  ///////////////////////////////////////Sidddharth Group of Institutions ////////////////////////////////////////////////////////
+
+
+  {
+    id: "SGI",
+    pageTitle: "Career Buddy Club | Siddhartha Group of Institutions ",
+    metaDescription: "Doon Group of Colleges, Dehradun, offers top-tier education in agriculture and paramedical sciences. Affiliated with HNB Garhwal University and approved by UGC & AICTE, the college provides skill-based training, global collaborations, and industry-focused learning. Explore a world-class education at Doon College.",
+    logo: job_img_13,
+    type: "Private",
+    establishmentyear: "2003",
+    Recognisedby: "AICTE, PCI, and the Uttarakhand Board of Technical Education",
+    Approvedby: "BCI,PCI",
+    state: "Uttarakhand",
+    city: "Dehradun",
+    Campusarea:"27 bigha",
+    link: "https://siddharthagroup.co.in/",
+    email: "info@siddharthagroup.co.in",
+    founded: "",
+    phone: "",
+    feild: ["Education"],
+    overviewsection:
+      "Established in 2003, Siddhartha Law College is a part of the Siddhartha Group of Institutions (SGI), a private educational hub located in the serene academic environment of Dehradun, Uttarakhand. Affiliated with Veer Madho Singh Bhandari Uttarakhand Technical University and approved by the Bar Council of India (BCI), the college is dedicated to delivering quality legal education. Situated near IT Park on Sahastradhara Road, the 27-bigha campus provides an ideal academic setting with modern infrastructure and well-equipped facilities. SGI is known for itsstrong academic foundation, experienced faculty, and collaborations with multiple research organizations and industries. With a commitment to academic excellence and holistic development.",
+    duration: "Fulltime",
+    date: "18 Jul 2019",
+    college: "Siddhartha Group of Institutions",
+    location: "Near IT Park, Sahastradhara Road, Do Bacchi, Opposite Rajeshwar Nagar, Phase 2, Dehradun 248001 UK",
+    category: ["+919456596314","9456596313"],
+    experience: "Fresher",
+    salary: 900,
+    salary_duration: "Monthly",
+    tags: ["java", "developer"],
+    english_fluency: "Fluent",
+    overview:
+      "Established in 2003, Siddhartha Law College is a part of the Siddhartha Group of Institutions (SGI), a private educational hub located in the serene academic environment of Dehradun, Uttarakhand. Affiliated with Veer Madho Singh Bhandari Uttarakhand Technical University and approved by the Bar Council of India (BCI), the college is dedicated to delivering quality legal education. Situated near IT Park on Sahastradhara Road, the 27-bigha campus provides an ideal academic setting with modern infrastructure and well-equipped facilities. SGI is known for itsstrong academic foundation, experienced faculty, and collaborations with multiple research organizations and industries. With a commitment to academic excellence and holistic development.",
+    videoid: "oABzh81hnpg",
+    facebook: "",
+    instagram: "",
+    twitter: "",
+    linkedin: "",
+    courses:
+      "Siddhartha Group of Institutions, Dehradun offers a comprehensive range of courses in the fields of Pharmacy and Law. In Pharmacy, the institute provides B. Pharma, B. Pharma (Lateral Entry), D. Pharma, and M. Pharma with specializations in Pharmacology, Pharmaceutics, and Chemistry. The law programs include BA LL.B, BBA LL.B, LL.B, and LL.M with a wide selection of specializations such as Constitutional Law, Corporate Law, Family Law, Criminal Law, Reputation Law, Environmental Law, Human Rights, International Law, Intellectual Property Law, Dispute Resolution Law, and Science, Technology &amp; Law—designed to equip students with academic excellence and practical insight for thriving careers.",
+  
+    ranking:
+      "",
+    awards:
+      "Siddhartha Group of Institutions has been consistently recognized for its excellence in legal education. The institution was ranked 2nd Best Law College in 2019 and 4th Best in 2021 by the Law Commission of Uttarakhand in collaboration with Uttarakhand Technical Education and Divya Himgree Zee University. These accolades reflect the institute’s strong academic foundation, commitment to legal excellence, and its growing reputation in the field of law.",
+    hostel:
+      "",
+    opportunities:
+      "",
+    campus:
+      "Established in 2003, Siddhartha Group of Institutions (SGI) in Dehradun is a renowned private educational hub offering top-tier programs in Law and Pharmacy. Affiliated with Veer Madho Singh Bhandari Uttarakhand Technical University and approved by the Bar Council of India, SGI provides a modern, 27-bigha campus near IT Park with advanced infrastructure and a strong academic environment.The institute offers BA LL.B, BBA LL.B, LL.B, LL.M, and Pharmacy programs including B. Pharma, D. Pharma, and M. Pharma with various specializations. SGI has consistently achieved strong placement results, with 75% of students placed in 2024–25 and top recruiters like Cipla, Ranbaxy, Max Healthcare, and Apollo Pharmacy. Recognized as the 2nd Best Law College in 2019 and 4th Best in 2021, SGI is known for its academic excellence, experienced faculty, and industry connections. Its alumni have excelled as APOs, Judicial Officers, JAG Officers, and leaders in the pharma and healthcare sectors, both in India and abroad.",
+    placement:
+      "For the academic year 2024–25, Siddhartha Group of Institutions has demonstrated promising placement outcomes across its combined courses. Out of 138 registered students, 75% secured placements, with 60% receiving multiple offers. The average salary package stood at ₹2.5 LPA, with domestic packages ranging between ₹2–4 LPA. On the international front, salaries ranged from ₹10–15 LPA, averaging ₹12 LPA. Over the past three years, the average placement percentage has remained consistent between 65–70%. The institute has built strong industry connections, with top recruiters such as Ranbaxy, Derma Care, Rusan, Akums, Max Health Care, Dr. Morepen, Mankind, Apollo Pharmacy, Dr. Reddy’s, and Cipla actively participating in the placement drives.",
+    admission:
+      "",
+    faculty:"",
+  
+    overviewtable:[
+      {
+        specialization: "Short Name",
+        annualfee: "SGI",
+      },
+      {
+        specialization: "Institute Type - Public/ Private/ Govt",
+        annualfee: "Private",
+      },
+      {
+        specialization: "State",
+        annualfee: "Uttarakhand",
+      },
+      {
+        specialization: "City",
+        annualfee: "Dehradun",
+      },
+      {
+        specialization: "Location/ Address",
+        annualfee: "Near IT Park, Sahastradhara Road, Do Bacchi, Opposite Rajeshwar Nagar, Phase 2, Dehradun 248001 UK",
+      },
+     
+      {
+        specialization: "Phone Numbers",
+        annualfee: "9456596316, 9456596308",
+      },
+      {
+        specialization: "Website",
+        annualfee: "https://siddharthagroup.co.in/",
+      },
+      {
+        specialization: "Email Address",
+        annualfee: "info@siddharthagroup.co.in",
+      }, 
+      {
+        specialization: "Area",
+        annualfee: "Education",
+      },
+      {
+        specialization: "University Affiliation",
+        annualfee: "Veer Madho Singh Bhandari Utarakhand Technical University",
+      },
+      {
+        specialization: "Approved by",
+        annualfee: " BCI,PCI",
+      },
+      {
+        specialization: "Accreditation",
+        annualfee: "NAAC -A",
+      },
+      
+     
+    ],
+      coursesAndFees: [
+      {
+        course: "B. Pharma",
+        specialization: "",
+        annualFee: "As per the fees structure",
+        duration: "Direct Admission + Counselling",
+        eligibility: "10+2 PCM/PCB",
+      },
+      {
+        course: "B. Pharma (Lateral Entry)",
+        specialization: "",
+        annualFee: "As per the fees structure",
+        duration: "Direct Admission + Counselling",
+        eligibility: "D. Pharma",
+      },
+  
+       {
+        course: "D. Pharma",
+        specialization: "",
+        annualFee: "As per the fees structure",
+        duration: "Direct Admission + Counselling",
+        eligibility: "10+2 with PCM/PCB",
+      },  
+      {
+        course: "M. Pharma",
+        specialization: "Pharmacology,Pharmaceutics,Chemistry",
+        annualFee: "As per the fees structure",
+        duration: "Direct Admission + Counselling",
+        eligibility: "B. Pharma with 50% marks mandatory",
+      },  
+      {
+        course: "Pharmacology",
+        specialization: "General",
+        annualFee: "As per the fees structure",
+        duration: "Direct Admission + Counselling",
+        eligibility: "B. Pharma with 50% marks mandatory",
+      },  
+      {
+        course: "Pharmaceutics",
+        specialization: "HONOURS",
+        annualFee: "As per the fees structure",
+        duration: "Direct Admission + Counselling",
+        eligibility: "B. Pharma with 50% marks mandatory",
+      },  
+      {
+        course: "Chemistry",
+        specialization: "HONOURS",
+        annualFee: "As per the fees structure",
+        duration: "Direct Admission + Counselling",
+        eligibility: "B. Pharma with 50% marks mandatory",
+      },
+      
+      {
+        course: "BA LLB",
+        specialization: "ALL",
+        annualFee: "As per the fees structure",
+        duration: "Direct Admission + Counselling",
+        eligibility: "10+2",
+      },  
+      {
+        course: "BBA LLB",
+        specialization: "ALL",
+        annualFee: "As per the fees structure",
+        duration: "Direct Admission + Counselling",
+        eligibility: "10+2",
+      },  
+      {
+        course: "LLB",
+        specialization: "SIMPLE",
+        annualFee: "As per the fees structure",
+        duration: "Direct Admission + Counselling",
+        eligibility: "Graduation ",
+      }, 
+      
+      {
+        course: "LLM",
+        specialization: "Constitutional Law, Corporate Law, Family Law, Criminal Law, Reputation Law, Environmental Law, Human Rights,International Law , Intellectual Property Law, Dispute Resolution Law, Science,Technology & Law",
+        annualFee: "As per the fees structure",
+        duration: "Direct Admission + Counselling",
+        eligibility: "LLB",
+      },
+  
+      
+
+  
+  
+       
+      
+    ],
+    admissionDates: [
+      {
+        name: "Application Start Date",
+        date: "1st April",
+      },
+      {
+        name: "Application End Date",
+        date: "August",
+      },
+      {
+        name: "Date of Result Declaration",
+        date: "September 18, 2023",
+      },
+      {
+        name: "Last Date of Submission of Fee",
+        date: "September 28, 2023",
+      },
+      {
+        name: "Commencement of the Coursework",
+        date: "01-Aug-2024",
+      },
+    ],
+    campusinfo: [
+      {
+        name: "Registration Dates",
+        info: "April, 2024",
+      },
+      {
+        name: "Date of Entrance Test & Interview",
+        info: "April, 2024",
+      },
+      {
+        name: "Date of Result Declaration",
+        info: "May , 2024",
+      },
+      {
+        name: "Commencement of the Coursework",
+        info: "October , 2024",
+      },
+    ],
+    placementinformation: [
+      {
+        name: "Placement Year",
+        info: "2024-25",
+      },
+      {
+        name: "Degree",
+        info: "Combined Courses",
+      },
+      {
+        name: "N.o of Students Registered",
+        info: "138 Students",
+      },
+      {
+        name: "Number of Companies Visited",
+        info: "10",
+      },
+      {
+        name: "Number of Students Placed",
+        info: "75%",
+      },
+      {
+        name: "Number of Offers Made",
+        info: "60%",
+      },
+      {
+        name: "Minimum Salary",
+        info: "2 Lac-3Lac yearly",
+      },
+      {
+        name: "Maximum Salary",
+        info: "3Lac - 4Lac yearly",
+      },
+      {
+        name: "Average Salary",
+        info: "2.5 Lac",
+      },
+      {
+        name: "Minimum Salary (International, if applicable)",
+        info: "10 Lac- 13 Lac yearly",
+      },
+      {
+        name: "Maximum Salary (International, if applicable)",
+        info: "13 Lac - 15 Lac yearly",
+      },
+      {
+        name: "Average Salary (International, if applicable)",
+        info: "12 Lac yearly",
+      },
+      {
+
+        name:"Average Salary Percentage for Last 3 Years",
+        info:"65-70%",
+      },
+      {
+        name:"Top Recruiters",
+        info:"Ranbaxy, Derma Care, Rusan ,Akums, Max Health Care, Dr. Morepen, Mankind serving life, Apollo Pharmacy, Dr. Reddy's, Cipla Caring for life"
+      },
+      
+    ],
+    opportunitiesinfo: [
+      // {
+      //   name: "Registration Dates",
+      //   info: "February 8 to September 15, 2023",
+      // },
+      // {
+      //   name: "Date of Entrance Test & Interview",
+      //   info: "September 17, 2023",
+      // },
+      // {
+      //   name: "Date of Result Declaration",
+      //   info: "September 18, 2023",
+      // },
+      // {
+      //   name: "Last Date of Submission of Fee",
+      //   info: "September 28, 2023",
+      // },
+      // {
+      //   name: "Commencement of the Coursework",
+      //   info: "October 3, 2023",
+      // },
+    ],
+     
+    awardsinfo: [
+      "Best Law College (2019): (2nd)Law Commission Uttarkhand, Uttarakhand Technical Education, Divya Himgree Zee university",
+      "Best Law College (2021) : (4th) Law Commission Uttarkhand, Uttarakhand Technical Education, Divya Himgree Zee university ",
+      
+      
+    ],
+   
+    facultytable: [
+      {
+        name: "Dr. Vishal",
+        Qualification: "Dept. of  Microbiology",
+        Experience: "22 year",
+        Specialization: "Agriculture microbiology, Biological Control, Plant growth promo. Rhizo bacteria, Fermentation Technology, Antimicrobial Activity of mediclinal plant, Microbial pathology.",
+      },
+      {
+        name: "Dr. RD Saklani",
+        Qualification: "Dept. of  Geology",
+        Experience: "10 year",
+        Specialization: "Sequence stratigraphy, Petroleum Geology, Ichnology, Disaster Management, Engg. Geology, Field Geology, Himalayan Geology & Western India (Kachchh & Rajasthan).",
+      },
+      {
+        name: "Mr. S K Thakur",
+        Qualification: "Dept. of  Statistics & Mathematics",
+        Experience: "35 year",
+        Specialization: "Statistics, International finance,  International Economics, Coorporates Law. ",
+      },
+      {
+        name: "Dr. Neelesh",
+        Qualification: "Dept. of  Microbiology",
+        Experience: "02 year",
+        Specialization: "Medical microbiology, General microbiology.",
+      },
+      {
+        name: "Mrs. Preeti Sood",
+        Qualification: "Dept. of  Hotel Management ",
+        Experience: "23 year",
+        Specialization: "Food and beverage,Front office, House Keeping, Kitchen.",
+      },
+      {
+        name: "Mr. Gurmeet singh",
+        Qualification: "Dept. of  Chemistry",
+        Experience: "03 year",
+        Specialization: "Waste Management, Water purification, Biofilms and filters, Polymers, Analytical Chemistry.",
+      },
+      {
+        name: "Mr. Kashif Hussain",
+        Qualification: "Dept. of  Pharmacy",
+        Experience: "12 year",
+        Specialization: "Pharmaceutical Chemistry.",
+      },
+      {
+        name: "Mr. Javed Siddiqui",
+        Qualification: "Dept. of  Paramedical ",
+        Experience: "14 year",
+        Specialization: "Clinical biochemistry, Pathology, Medical Microbiology.",
+      },
+      {
+        name: "Ms. Rohita",
+        Qualification: "Dept. of  Pharmacy",
+        Experience: "01 year",
+        Specialization: "Hospital and clinical pharmacy, Community pharmacy, Pharmacy practice, Social pharmacy.",
+      },
+      {
+        name: "Dr. Manisha Singh",
+        Qualification: "Dept. of  Paramedical ",
+        Experience: "01 year",
+        Specialization: "Orthopedics, Neurology.",
+      },
+      {
+        name: "Dr. Kiran",
+        Qualification: "Dept. of  Paramedical ",
+        Experience: "05 year",
+        Specialization: "Orthopedics",
+      },
+      {
+        name: "Dr. Nidhi Chatterjee",
+        Qualification: "Dept. of  Zoology",
+        Experience: "18 year",
+        Specialization: "Zoology, Fish and Fishries, Parasitology.",
+      },
+      {
+        name: "Ms. Susmita Bahuguna ",
+        Qualification: "Dept. of  Nursing",
+        Experience: "01 year",
+        Specialization: "Nursing fundamental, Social nursing",
+      },
+      {
+        name: "Ms. Oshin",
+        Qualification: "Dept. of  Nursing",
+        Experience: "01 year",
+        Specialization: "Psychology, Anatomy, Physiology",
+      },
+  
+    ],
+    hostelinfo: [
+      {
+        name: "Capacity",
+        info: "1000",
+      },
+      {
+        name: "Hostel Fees",
+        info: "In-house Residential Accommodation (Optional) Charges (Note: - Hostel charges is per year which includes Vegetarian / Non-Vegetarian Food) ",
+      },
+      {
+        name: "",
+        info: "•	Standard Quad (Four Sharing Room) with Attached Toilet Rs.48000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "•	Deluxe Quad (Four Sharing Room) with Attached Toilet Rs.58000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "•	Standard (Three Sharing Room) with Attached Toilet Rs.68000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "•	Deluxe (Three Sharing Room) with Attached Toilet Rs.78000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "•	Standard (Two Sharing Room) with Attached Toilet Rs.73000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "•	Deluxe (Two Sharing Room) with Attached Toilet Rs.78000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "•	Super Deluxe (Two Sharing Room) with Attached Toilet Rs.88000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "•	Executive Room (TWO SHARING Room) with LCD + Tata Sky + Attached Toilet Rs.95000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "•	Executive Room (TWO SHARING Room) with A.C + LCD + Tata Sky + Attached Toilet Rs.105000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "•	Hostel Enrolment & Furnishing Fee: Rs.5000/-(To be paid Once) Laundry Charges: Rs.4800/-per Year",
+      },
+      {
+        name: "Mess Fees",
+        info: "Includes in Hostel Fees",
+      },
+      {
+        name: "Location (on-campus or off-campus)",
+        info: "On-Campus",
+      },
+      {
+        name: "Number of Rooms",
+        info: "300",
+      },
+      {
+        name: "Room Type (Occupancy basis)",
+        info: "Single Sharing, Two sharing, Three Sharing, Four Sharing",
+      },
+      {
+        name: "Hostel Facilities/ Amenities",
+        info: "Wi-Fi, CCTV Surveillance, Security Guards, Warden, Indoor Stadium, Outdoor Playground, Gymnasium, etc.",
+      },
+    ],
+    rankinginfo: [
+      {
+        name: "A",
+        info: "NAAC A, For All courses",
+      },
+      // {
+      //   name: "TOI (B.Tech)",
+      //   info: "#142 out of 170",
+      // },
+      // {
+      //   name: "Indiatoday (B.Tech)",
+      //   info: "#157 out of 246",
+      // },
+      // {
+      //   name: "Outlook (B.Tech)",
+      //   info: "#107 out of 160",
+      // },
+      // {
+      //   name: "",
+      //   info: "",
+      // },
+    ],
+    reviewinfo: [
+      {
+        id: 1,
+        rating: 4.7,
+        desc: "The Pharmacy program at Siddhartha empowered me to pursue a dynamic career in healthcare management. From research to real-world applications, the curriculum was forward-thinking and industry-aligned. Today, I work with a top pharmaceutical firm abroad—all thanks to the solid base I built here.",
+        user: user_1,
+        name: "",
+        location: "",
+      },
+      {
+        id: 2,
+        rating: 4.5,
+        desc: "Studying law at Siddhartha was a transformative experience. The rigorous academic framework and mentorship I received played a pivotal role in my journey to becoming a Judicial Officer in Nepal. The institution doesn't just prepare students for exams—it prepares them for life.",
+        user: user_2,
+        name: "",
+        location: "",
+      },
+      {
+        id: 3,
+        rating: 4.8,
+        desc: "Siddhartha Group of Institutions gave me the foundation I needed to thrive in the legal world. The faculty’s dedication and practical exposure helped me crack the APO exam in Uttarakhand. I’ll always credit my success to the environment of excellence and discipline fostered here.",
         user: user_3,
         name: "",
         location: "",
