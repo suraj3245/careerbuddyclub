@@ -179,6 +179,8 @@ const ApplyForm = () => {
         });
       });
   };
+
+
   useEffect(() => {
     let interval: string | number | NodeJS.Timeout | undefined;
     if (isVerificationSent && countdown > 0) {
@@ -190,7 +192,25 @@ const ApplyForm = () => {
     }
     return () => clearInterval(interval);
   }, [isVerificationSent, countdown]);
-  const onSubmit = (data: IFormData) => {
+
+  const verifyOTP = async (mobile: number, otp: string) => {
+    try {
+      const response = await axios.post(
+        "https://test.careerbuddyclub.com:8080/api/students/verifywhatsappotp",
+        {
+          mobile,
+          verificationCode: otp,
+        }
+      );
+      if(response.data.success === true){
+        return true;
+      }
+    } catch (error) {
+      return false;
+    }
+  };
+
+  const onSubmit = async  (data: IFormData) => {
     const {
       name,
       from,
@@ -201,6 +221,20 @@ const ApplyForm = () => {
       level,
       stream,
     } = data;
+    const isVerified = await verifyOTP(mobile, otp);
+    if (!isVerified) {
+      toast.error("OTP verification failed ❌", {
+        position: "top-left",
+        autoClose: 1500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        theme: "light",
+      });
+      return; // 🛑 stop submission if OTP failed
+    }
+
     const payload = {
       name,
       from,
