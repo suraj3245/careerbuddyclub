@@ -24,11 +24,11 @@ const PhoneForm = () => {
     getValues,
   } = useForm<IFormData>({});
 
-  const requestOTP = (data: { country_code: string; mobile: string }) => {
+  const requestOTP = (data: {name: string; country_code: string; mobile: string }) => {
     setIsVerificationSent(true);
     axios
       .post(
-        "https://test.careerbuddyclub.com:8080/api/students/loginwithphonewpotpsend",
+        "https://test.careerbuddyclub.com:8080/api/students/getwhatsappotp",
         data
       )
       .then((response) => {
@@ -141,6 +141,7 @@ const PhoneForm = () => {
               if (!isVerificationSent || showResend) {
                 const formData = getValues();
                 requestOTP({
+                  name: formData.mobile,
                   country_code: "91",
                   mobile: formData.mobile,
                 });
