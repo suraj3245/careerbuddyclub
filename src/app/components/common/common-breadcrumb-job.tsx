@@ -67,9 +67,9 @@ const CommonBreadcrumbjob = ({
       script: "/scripts/jbitscript.js",
       content: <div className="ee-formscript border rounded-4 p-2" id="ee-form-13"></div>,
     },
-    "DBS-College": {
-      script: "/scripts/jbitscript.js",
-      content: <div className="ee-formscript border rounded-4 p-2" id="ee-form-9"></div>,
+    "DOON-GROUP-OF-COLLEGES": {
+      script: "/scripts/doongroupscript.js",
+      content: <div className="ee-formscript border rounded-4 p-2" id="ee-form-16"></div>,
     },
   };
 
