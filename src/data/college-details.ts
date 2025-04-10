@@ -1787,7 +1787,7 @@ const college_details: IcollegeType[] = [
       "The college, renowned for its distinguished faculty from top-tier institutions, excels with the region's highest number of faculty possessing Master's and Ph.D. qualifications. All programs are accredited by leading regulatory bodies. Transparent processes, automated operations through ERP software, and dedicated resources for training and placements showcase the institution's commitment to excellence. The campus is a ragging and smoking-free environment, providing bus services, uniforms for new students, and separate hostel facilities.",
     duration: "Fulltime",
     date: "18 Jul 2019",
-    college: "BFIT Group of Institutions",
+    college: "BFIT Group Of Institutions",
     location: "Dehradun, India",
     category: ["+91 7456000100"],
     experience: "Fresher",
@@ -6429,7 +6429,7 @@ const college_details: IcollegeType[] = [
       "Established in 2001, Doon Group of Colleges in Dehradun, Uttarakhand, is a premier private institution affiliated with HNB Garhwal University (A Central University). Approved by UGC, AICTE, and NAAC (A Grade), the college is committed to academic excellence and professional development.Located at 28 Chakrata Road, Selaqui, Dehradun, the campus spans 6 acres, offering a conducive learning environment with modern infrastructure. The institution houses Doon (P.G.) College of Agriculture Science & Technology (DCAST) and Doon PG Paramedical College (DPMC), both renowned for their practical skill-based training, experienced faculty, and strong industry connections.With international collaborations in Yemen, South Africa, Sudan, and Nigeria, Doon Group of Colleges ensures a global perspective in education. Its commitment to academic rigor and career-focused learning makes it a distinguished choice for aspiring students.",
     duration: "Fulltime",
     date: "18 Jul 2019",
-    college: "Doon Group Of Colleges",
+    college: "Doon Group of Colleges",
     location: "28 Chakrata  Road Selaqui Dehradun",
     category: ["+917006624754"],
     experience: "Fresher",
@@ -6456,7 +6456,7 @@ const college_details: IcollegeType[] = [
     opportunities:
       "",
     campus:
-      "JB Institute of Technology (JBIT) Dehradun has all the required facilities for the convenience of staff and students. The virtual classrooms and video conferring facilities are the major highlights of academic facilities at JB Institute of Technology. The campus of JBIT is completely networked and interconnected. The JBIT campus has been interconnected through Wi-Fi networks. The central library at JBIT is one of the major highlights of the campus. The library has a huge collection of books on Engineering, Science, Technology, and Humanities. Students can also refer to the latest international and national journals, magazines, etc at the central library. ",
+      "Doon Group of Colleges offers all the essential facilities to ensure the convenience and comfort of both students and staff. Among the academic highlights are advanced virtual classrooms and video conferencing facilities that enhance the teaching and learning experience. The entire campus is fully networked and Wi-Fi enabled, providing seamless connectivity across departments. A key feature of the campus is the central library, which houses an extensive collection of books spanning Engineering, Science, Technology, Humanities, and more. Students also have access to the latest national and international journals, magazines, and other academic resources, making it a vital hub for knowledge and research.",
     placement:
       "Doon Group of Colleges has maintained a strong placement record across various disciplines, including B.Sc Agriculture, Forestry, BBA, BCA, MLT, BPT, Food Technology, and Microbiology. From 2017 to 2024, the college registered 500 students for placements, with 12 reputed companies visiting the campus. A total of 350 students secured placements, with 10 offers made. The salary package ranged from a minimum of ₹28,000 per month to a maximum of ₹15 lakh per annum, with an average salary of ₹1,25,000. International placements offered salaries between ₹70,000 and ₹90,000. Over the last three years, the average salary has been ₹62,000, reflecting the institution's commitment to providing excellent career opportunities for its students.",
     admission:
@@ -7045,7 +7045,7 @@ const college_details: IcollegeType[] = [
   {
     id: "CCHM",
     pageTitle: "Career Buddy Club | CULINARY COLLEGE OF HOTEL  MANAGEMENT",
-    metaDescription: "Doon Group of Colleges, Dehradun, offers top-tier education in agriculture and paramedical sciences. Affiliated with HNB Garhwal University and approved by UGC & AICTE, the college provides skill-based training, global collaborations, and industry-focused learning. Explore a world-class education at Doon College.",
+    metaDescription: "With 18 years of excellence, Culinary College of Hotel Management (CCHM Dehradun) offers professional hotel management education in Miyanwala, preparing students for successful careers in the hospitality industry.",
     logo: job_img_12,
     type: "Private",
     establishmentyear: "2003",
@@ -7545,7 +7545,7 @@ const college_details: IcollegeType[] = [
   {
     id: "SGI",
     pageTitle: "Career Buddy Club | Siddhartha Group of Institutions ",
-    metaDescription: "Doon Group of Colleges, Dehradun, offers top-tier education in agriculture and paramedical sciences. Affiliated with HNB Garhwal University and approved by UGC & AICTE, the college provides skill-based training, global collaborations, and industry-focused learning. Explore a world-class education at Doon College.",
+    metaDescription: "Established in 2003, Siddhartha Law College Dehradun offers quality legal education with BCI approval and UTU affiliation. Located near IT Park, the campus features modern infrastructure and expert faculty.",
     logo: job_img_13,
     type: "Private",
     establishmentyear: "2003",

@@ -23,9 +23,8 @@ const menu_data: IMenuData[] = [
           { title: "JBIT Dehradun", link: "/college-details/JBIT" },
           {title: "UDMRI Dehradun", link:"/college-details/UDMRI" },
           {title:"VMM College" , link:"/college-details/VMM-College"},
-          // {title:"PAL College" , link:"/college-details/Pal-College"},
           {title:"DD College" , link:"/college-details/DD-College"},
-          {title:"Doon Group Of Colleges" , link:"/college-details/DOON-GROUP-OF-COLLEGES"},
+          {title:"Doon Group of Colleges" , link:"/college-details/DOON-GROUP-OF-COLLEGES"},
           {title:"Culinary College of Hotel Management" , link:"/college-details/CCHM"},
           {title:"Siddhartha Group of Institutions" , link:"/college-details/SGI"},
 
