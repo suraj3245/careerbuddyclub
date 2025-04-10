@@ -4,11 +4,17 @@ import shape from "@/assets/images/shape/shape_29.svg";
 import useSearchFormSubmit from "@/hooks/use-search-form-submit";
 import { useRouter } from "next/navigation"; 
 import { ToastContainer, toast } from "react-toastify";
+import ModalHeader from "@/app/components/homeModal"; 
 
 const AptiBanner = () => {
   const router = useRouter();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
+   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalType, setModalType] = useState<string | null>(null);
+  const openApplyModal = (type: string) => {
+    setModalType(type);
+    setIsModalOpen(true);
+  };
   useEffect(() => {
     // This code now runs on client-side only, ensuring no mismatch during hydration
     const token = localStorage.getItem("token");
@@ -48,14 +54,12 @@ const AptiBanner = () => {
             Begin your Free Test
           </button>
         ) : (
-          <a
-            href="#"
+          <button
             className="btn-five wow fadeInUp"
-            data-bs-toggle="modal"
-            data-bs-target="#ApplyModal"
+            onClick={() => openApplyModal("student")}
           >
             Begin your free test
-          </a>
+          </button>
         )}
       </div>
       <div className="img-meta">
@@ -68,6 +72,11 @@ const AptiBanner = () => {
       <a href="#" className="chat-btn tran3s">
         <i className="bi bi-chat-dots"></i>
       </a>
+      <ModalHeader
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        modalType={modalType}
+      />
     </div>
   );
 };
