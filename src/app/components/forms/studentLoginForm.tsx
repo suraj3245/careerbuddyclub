@@ -8,7 +8,6 @@ import icon from "@/assets/images/icon/icon_60.svg";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useRouter } from "next/navigation";
 // form data type
 type IFormData = {
   email: string;
@@ -36,9 +35,8 @@ const resolver: Resolver<IFormData> = async (values) => {
 const StudentLoginForm2 = () => {
   const [isMounted, setIsMounted] = useState(false);
   const [loginType, setLoginType] = useState<"student" | "school">("student");
-  const router = useRouter();
   const [showPass, setShowPass] = useState<boolean>(false);
-
+  const [loading, setLoading] = useState(false);
   // react hook form
   const {
     register,
@@ -48,8 +46,8 @@ const StudentLoginForm2 = () => {
   } = useForm<IFormData>({});
   // on submit
   const onSubmit = (data: IFormData) => {
+    setLoading(true);
     const { email, password } = data;
-
     // Set up the request options for axios
     const options = {
       method: "POST",
@@ -104,9 +102,11 @@ const StudentLoginForm2 = () => {
           progress: undefined,
           theme: "light",
         });
+      })
+      .finally(() => {
+        reset();
+        setLoading(false);
       });
-
-    reset();
   };
 
   return (
@@ -142,25 +142,31 @@ const StudentLoginForm2 = () => {
             </div>
           </div>
         </div>
-        <div className="col-lg-2 col-2" style={{'marginTop': '36px'}}>
-        <span
-              className=""
-              onClick={() => setShowPass(!showPass)}
-            >
-              <span className={`passVicon ${showPass ? "eye-slash" : ""}`}>
-                <Image src={icon} alt="icon" />
-              </span>
+        <div className="col-lg-2 col-2" style={{ marginTop: "36px" }}>
+          <span className="" onClick={() => setShowPass(!showPass)}>
+            <span className={`passVicon ${showPass ? "eye-slash" : ""}`}>
+              <Image src={icon} alt="icon" />
             </span>
+          </span>
         </div>
-        </div>
-        <div className="col-12">
-          <button
-            type="submit"
-            className="btn-eleven fw-500 tran3s d-block mt-20 "
-          >
-            Login
-          </button>
-        </div>
+      </div>
+      <div className="col-12">
+        <button
+          type="submit"
+          className="btn-eleven fw-500 tran3s d-block mt-10"
+          disabled={loading}
+        >
+          {loading && (
+            <span
+              className="spinner-border spinner-border-sm me-2"
+              role="status"
+              aria-hidden="true"
+              style={{ width: '1.5rem', height: '1.5rem' }}
+            ></span>
+          )}
+          {loading ? "" : "Login"}
+        </button>
+      </div>
     </form>
   );
 };

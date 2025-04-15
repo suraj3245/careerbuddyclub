@@ -37,7 +37,7 @@ const SchoolLoginForm = () => {
   const [isMounted, setIsMounted] = useState(false);
   const [loginType, setLoginType] = useState<"student" | "school">("student");
   const [showPass, setShowPass] = useState<boolean>(false);
-
+  const [loading, setLoading] = useState(false);
   // react hook form
   const {
     register,
@@ -47,6 +47,7 @@ const SchoolLoginForm = () => {
   } = useForm<IFormData>({});
   // on submit
   const onSubmit = (data: IFormData) => {
+    setLoading(true);
     const { School_email, School_password } = data;
 
     // Set up the request options for axios
@@ -118,9 +119,10 @@ const SchoolLoginForm = () => {
             theme: "light",
           });
         }
+      }).finally(()=>{
+        reset();
+        setLoading(false);
       });
-
-    reset();
   };
 
   return (
@@ -195,12 +197,21 @@ const SchoolLoginForm = () => {
           </div>
         </div>
         <div className="col-12">
-          <button
-            type="submit"
-            className="btn-eleven fw-500 tran3s d-block mt-20 "
-          >
-            Login
-          </button>
+        <button
+              type="submit"
+              className="btn-eleven fw-500 tran3s d-block mt-10"
+              disabled={loading}
+            >
+              {loading && (
+                <span
+                  className="spinner-border spinner-border-sm me-2"
+                  role="status"
+                  aria-hidden="true"
+                  style={{ width: '1.5rem', height: '1.5rem' }}
+                ></span>
+              )}
+              {loading ? "" : "Login"}
+            </button>
         </div>
       </form>
     </>

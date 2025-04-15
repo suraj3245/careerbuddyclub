@@ -5,7 +5,7 @@ import { IBlogDataType } from "@/types/blog-type";
 
 const BlogItem = ({ item }: { item: IBlogDataType }) => {
   return (
-    <article className="relative overflow-hidden rounded-lg shadow-sm transition hover:shadow-lg">
+    <article className="relative overflow-hidden rounded-xl transition hover:shadow-lg text-center" style={{'borderRadius': '0.8rem', 'boxShadow': '3px 6px 11px -8px rgba(0,0,0,0.75);'}}>
       <Image
         src={item.img}
         alt={item.title}

@@ -192,7 +192,7 @@ const CategorySectionSeven: React.FC<categorySectionProps> = ({ user }) => {
                 className="title-one text-center text-sm-start"
                 data-wow-delay="0.3s"
               >
-                <h2 className="fw-600">
+                <h2 className="fw-600 text-center">
                   India's 1ˢᵗ End-To-End Career Services for Students
                 </h2>
               </div>
