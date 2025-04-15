@@ -15,9 +15,14 @@ import user_3 from "@/assets/images/assets/img_22.jpg";
 import job_img_11 from "@/assets/images/logo/DGC.jpeg";
 import job_img_12 from "@/assets/images/logo/CCHM.jpg";
 import job_img_13 from "@/assets/images/logo/SGI.webp";
+import job_img_14 from "@/assets/images/logo/nav-chetna.png";
+import job_img_15 from "@/assets/images/logo/MPU.png"
 
 
 const college_details: IcollegeType[] = [
+  
+  ////////////////////////////////GNC/////////////////////////////////////////////////////////////////////////////////////////////
+  
   {
     id: "GNC",
     pageTitle: "Career Buddy Club | Guru Nanak College, Dehradun",
@@ -862,6 +867,8 @@ const college_details: IcollegeType[] = [
       },
     ],
   },
+
+  ////////////////////////////////////////////////////////////////Uttaranchal-University/////////////////////////////////////////////////////////////////////
   {
     id: "Uttaranchal-University",
     pageTitle: "Career Buddy Club | Uttaranchal University",
@@ -1789,7 +1796,7 @@ const college_details: IcollegeType[] = [
     date: "18 Jul 2019",
     college: "BFIT Group Of Institutions",
     location: "Dehradun, India",
-    category: ["+91 7456000100"],
+    category: ["+917456000100"],
     experience: "Fresher",
     salary: 900,
     salary_duration: "Monthly",
@@ -1803,7 +1810,7 @@ const college_details: IcollegeType[] = [
     twitter: "",
     linkedin: "",
     courses:
-      " The fees for these programs vary, ensuring accessibility for a broad spectrum of students. The institution prioritizes transparency in its fee structures and provides flexible payment options, acknowledging the diverse financial backgrounds of its students. This approach aims to make quality education accessible to all, fostering inclusivity and diversity within the student body. Students can explore a wide range of courses, each tailored to meet industry standards, with corresponding fees designed to accommodate individual financial circumstances.",
+      "The fees for these programs vary, ensuring accessibility for a broad spectrum of students. The institution prioritizes transparency in its fee structures and provides flexible payment options, acknowledging the diverse financial backgrounds of its students. This approach aims to make quality education accessible to all, fostering inclusivity and diversity within the student body. Students can explore a wide range of courses, each tailored to meet industry standards, with corresponding fees designed to accommodate individual financial circumstances.",
 
     ranking:
       "Our institution consistently secures impressive rankings, a testament to our unwavering commitment to academic excellence and holistic development. Recognized regionally and nationally, these rankings affirm our dedication to providing a top-notch education, encouraging cutting-edge research, and fostering an enriching learning environment for our students.",
@@ -4850,7 +4857,7 @@ const college_details: IcollegeType[] = [
   {
     id: "VMM-College",
     pageTitle: "Career Buddy Club | VMM-College",
-    metaDescription: "JBIT Dehradun—a private technical institute affiliated with Uttarakhand Board of Technical Education and Uttarakhand Technical University. Offering undergraduate, postgraduate, and diploma courses in engineering, applied sciences, and management.",
+    metaDescription: "Vaidik Medical and Management College (VMM College), nestled in the Himalayas, offers affordable, quality paramedical education with hands-on training in Medical Lab, OT, and X-Ray Technology, empowering students to serve rural and urban healthcare needs.",
     logo: job_img_8,
     type: "Private",
     establishmentyear: "2022",
@@ -5760,7 +5767,7 @@ const college_details: IcollegeType[] = [
   {
     id: "DD-College",
     pageTitle: "Career Buddy Club | D.D. COLLEGE",
-    metaDescription: ": BFIT Dehradun—a world where education transcends the classroom. We blend tradition with innovation, fostering an environment where aspirations take flight.",
+    metaDescription: ":DD College Dehradun, affiliated with SDSU, UTU & UOU, offers UG programs in Arts, Commerce, Science & B.Ed., blending academic excellence with social impact through lectures, debates, and training initiatives.",
     logo: job_img_10,
     type: "Private",
     establishmentyear: "2006",
@@ -8075,6 +8082,976 @@ const college_details: IcollegeType[] = [
       },
     ],
   },
+////////////////////////////////////////NAV Chetna Academy///////////////////////////////////////////////////////////
+
+  {
+    id: "NAV-CHETNA-COLLEGE",
+    pageTitle: "Career Buddy Club | NAV CHETNA COLLEGE",
+    metaDescription: "Nav Chetna College Dehradun offers top nursing & health science programs. Established in 2005, affiliated with SDSU & approved by SNC & PCI.",
+    logo: job_img_14,
+    type: "Private",
+    establishmentyear: "2005",
+    Recognisedby: "UGC",
+    Approvedby: "SNC, PCI",
+    state: "Uttarakhand",
+    city: "Dehradun",
+    Campusarea: "Manduwala, Garhi Cantt",
+    link: "navchetnacollege.co.in",
+    email: "navchetnacollege@gmail.com",
+    founded: "",
+    phone: "+918755737722, 7895929760",
+    feild: ["Education"],
+    overviewsection:
+      "Nav Chetna College, established in 2005, is a reputed private institution located in the scenic city of Dehradun, Uttarakhand. With campuses situated at Manduwala near Bala Sundri Mandir and Garhi Cantt, the college offers easy accessibility and a serene academic environment. It is affiliated with Sri Dev Suman University, Hemvati Nandan Bahuguna Medical Education University, and the Uttarakhand Board of Technical Education, ensuring academic excellence and credibility. Approved by SNC and PCI, Nav Chetna College provides quality education in nursing and allied health sciences. The institute is committed to holistic development through a blend of academic rigor and hands-on training.",
+    duration: "Fulltime",
+    date: "18 Jul 2019",
+    college: "NAV CHETNA COLLEGE",
+    location: "1)NEAR BALA SUNDRI MANDIR MANDUWALA DEHRADUN, 2) 658 A Dakra Garhi Cantt Dehradun ",
+    category: ["+918755737722","7895929760"],
+    experience: "Fresher",
+    salary: 900,
+    salary_duration: "Monthly",
+    tags: ["java", "developer"],
+    english_fluency: "Fluent",
+    overview:
+      "Nav Chetna College, established in 2005, is a reputed private institution located in the scenic city of Dehradun, Uttarakhand. With campuses situated at Manduwala near Bala Sundri Mandir and Garhi Cantt, the college offers easy accessibility and a serene academic environment. It is affiliated with Sri Dev Suman University, Hemvati Nandan Bahuguna Medical Education University, and the Uttarakhand Board of Technical Education, ensuring academic excellence and credibility. Approved by SNC and PCI, Nav Chetna College provides quality education in nursing and allied health sciences. The institute is committed to holistic development through a blend of academic rigor and hands-on training.",
+    videoid: "7K8lZPpxZQU",
+    facebook: "",
+    instagram: "",
+    twitter: "",
+    linkedin: "",
+    courses:
+      "Nav Chetna College offers a variety of career-oriented programs across healthcare, science, commerce, and management streams. The B.Sc Nursing program is ideal for aspiring healthcare professionals, requiring candidates to be at least 17 years of age with a minimum of 45% in 12th grade (PCB group). The D.Pharma course is tailored for students from the science stream in 12th, aiming to enter the pharmaceutical industry. For those interested in business and management, the BBA and B.Com programs are open to students with a minimum of 45% in any stream in 12th. Tech-savvy students can pursue the BCA program, also requiring 45% in 12th, ideally with a background in mathematics or science. Students inclined towards core sciences can choose between B.Sc (PCM), focusing on Physics, Chemistry, and Mathematics, or B.Sc (CBZ), covering Chemistry, Botany, and Zoology—both needing 45% marks in 12th with a science background. All admissions are conducted as per university selection norms.",
+
+    ranking:
+      "Uttaranchal University is a premier university that is many students’ choice. Rankings from established and nationally recognised authorities represent an institution's quality and standards. Uttaranchal University was ranked 53rd in The Week Hansa Research Survey 2023's category of Multidisciplinary Universities. The university was presented with the Jagran Excellence Award for Education in 2022. It is the first university in Uttarakhand to receive a NAAC A+ rating. Listed below are some categories in which Uttaranchal University has managed to rank high.",
+    awards:
+      "",
+    hostel:
+      "",
+    opportunities:
+      "",
+    campus:
+      "The Institute has a lush green campus and is known for its state-of-the-art infrastructure. It provides all the basic amenities to the students. Mentioned below are the salient features of the Nav Chetna College Garhi Cantt Dehradun infrastructure: Wi-Fi enabled, campus,Fully computerized library with over 91,000 books,On-campus accommodation facility,Medical facilities,Sports-facilities,Boys-Hostel,Gym,Sports,Cafeteria,Auditorium,Medical/Hospital,Wifi,IT Infrastructure,Transport,Laboratorie,Alumni Associations",
+    placement:
+      "The full-time summer internships take place in the month of April-June. For Nav Chetna College Garhi Cantt Dehradun Placements, the total number of students registered for the placement drive was 78 students. Placements at Nav Chetna College placed around 60 students in some of the top companies in the 2021-22 batch. Nav Chetna College Garhi Cantt Dehradun Placements Packages for average salary is Rs 4.3 PA CTC. Nav Chetna College Placement Process is done with the proper training given by the college. Candidates can check the Nav Chetna College Placement statistics table given below for detailed information in short. The key highlights of Nav Chetna College Garhi Cantt Dehradun placements 2023 are presented below:",
+    admission:
+      "",
+    faculty:"",
+
+    overviewtable:[
+      {
+        specialization: "Short Name",
+        annualfee: "NAV CHETNA COLLEGE",
+      },
+      {
+        specialization: "Institute Type - Public/ Private/ Govt",
+        annualfee: "Private",
+      },
+      {
+        specialization: "State",
+        annualfee: "Uttarakhand",
+      },
+      {
+        specialization: "City",
+        annualfee: "Dehradun",
+      },
+      {
+        specialization: "Location/ Address",
+        annualfee: "1) NEAR BALA SUNDRI MANDIR MANDUWALA DEHRADUN , 2) 658 A Dakra Garhi Cantt Dehradun  ",
+      },
+     
+      {
+        specialization: "Phone Numbers",
+        annualfee: "8755737722",
+      },
+      {
+        specialization: "Website",
+        annualfee: "navchetnacollege.co.in",
+      },
+      {
+        specialization: "Email Address",
+        annualfee: "navchetnacollege@gmail.com",
+      },
+      
+      {
+        specialization: "Area",
+        annualfee: "Manduwala, Garhi Cantt",
+      },
+      {
+        specialization: "Approved by",
+        annualfee: "SNC, PCI",
+      },
+      {
+        specialization: "Accreditation",
+        annualfee: "A+ grade by NAAC",
+      },
+     
+    ],
+      coursesAndFees: [
+      {
+        course: "B.SC NURSING",
+        specialization: "N/A",
+        annualFee: "1,10,000",
+        duration: "As per university",
+        eligibility: "Passed 10+2 examination with min 45% marks(PCB)",
+      },
+      {
+        course: "D PHARMA",
+        specialization: "N/A",
+        annualFee: "71,000",
+        duration: "As per university",
+        eligibility: "Passed 10+2 examination with min 45% marks(PCM/PCB)",
+      },
+      {
+        course: "BBA",
+        specialization: "N/A",
+        annualFee: "50,000",
+        duration: "As per university",
+        eligibility: "Passed 10+2 examination with min 45% marks",
+      },
+      {
+        course: "BCA",
+        specialization: "N/A",
+        annualFee: "50,000",
+        duration: "As per university",
+        eligibility: "Passed 10+2 examination with min 45% marks",
+      },
+      {
+        course: "B.COM",
+        specialization: "N/A",
+        annualFee: "34,500",
+        duration: "As per university",
+        eligibility: "Passed 10+2 examination with min 45% marks",
+      },
+     
+      {
+        course: "B.SC [PCM]",
+        specialization: "N/A",
+        annualFee: "28,500",
+        duration: "As per university",
+        eligibility: "Passed 10+2 examination with PCM",
+      },
+      {
+        course: "B.SC [CBZ]",
+        specialization: "N/A",
+        annualFee: "28,500",
+        duration: "As per university",
+        eligibility: "Passed 10+2 examination with min 45% marks",
+      },
+      
+      
+    ],
+    admissionDates: [
+      {
+        name: "Application Start Date",
+        date: "As per university norms",
+      },
+      {
+        name: "Application End Date",
+        date: "As per university norms",
+      },
+      {
+        name: "Date of Result Declaration",
+        date: "",
+      },
+      {
+        name: "Last Date of Submission of Fee",
+        date: "",
+      },
+      {
+        name: "Commencement of the Coursework",
+        date: "",
+      },
+    ],
+    campusinfo: [
+      {
+        name: "Registration Dates",
+        info: "N/A",
+      },
+      // {
+      //   name: "Date of Entrance Test & Interview",
+      //   info: "",
+      // },
+      // {
+      //   name: "Date of Result Declaration",
+      //   info: "",
+      // },
+      // {
+      //   name: "Commencement of the Coursework",
+      //   info: "",
+      // },
+    ],
+    placementinformation: [
+      {
+        name: "Placement Year",
+        info: "2021-22",
+      },
+      {
+        name: "Number of Companies Visited",
+        info: "12",
+      },
+      {
+        name: "Number of Students",
+        info: "78",
+      },
+      {
+        name: "Highest Package",
+        info: "5.75 P.A.CTC",
+      },
+     
+     
+      
+    ],
+    opportunitiesinfo: [
+      // {
+      //   name: "Registration Dates",
+      //   info: "February 8 to September 15, 2023",
+      // },
+      // {
+      //   name: "Date of Entrance Test & Interview",
+      //   info: "September 17, 2023",
+      // },
+      // {
+      //   name: "Date of Result Declaration",
+      //   info: "September 18, 2023",
+      // },
+      // {
+      //   name: "Last Date of Submission of Fee",
+      //   info: "September 28, 2023",
+      // },
+      // {
+      //   name: "Commencement of the Coursework",
+      //   info: "October 3, 2023",
+      // },
+    ],
+
+    awardsinfo: [
+      // "NAAC A+",
+      // "Top Private Law College In Uttarakhand.",
+      // "Most Promising Engineering & Management Institute in India Award.",
+      // "Most Aware Campus of Uttarakhand Award.",
+      // "Icon Award of Uttarakhand.",
+      
+     
+    ],
+   
+    facultytable: [
+      {
+        name: "Dr. Vishal",
+        Qualification: "Dept. of  Microbiology",
+        Experience: "22 year",
+        Specialization: "Agriculture microbiology, Biological Control, Plant growth promo. Rhizo bacteria, Fermentation Technology, Antimicrobial Activity of mediclinal plant, Microbial pathology.",
+      },
+      {
+        name: "Dr. RD Saklani",
+        Qualification: "Dept. of  Geology",
+        Experience: "10 year",
+        Specialization: "Sequence stratigraphy, Petroleum Geology, Ichnology, Disaster Management, Engg. Geology, Field Geology, Himalayan Geology & Western India (Kachchh & Rajasthan).",
+      },
+      {
+        name: "Mr. S K Thakur",
+        Qualification: "Dept. of  Statistics & Mathematics",
+        Experience: "35 year",
+        Specialization: "Statistics, International finance,  International Economics, Coorporates Law. ",
+      },
+      {
+        name: "Dr. Neelesh",
+        Qualification: "Dept. of  Microbiology",
+        Experience: "02 year",
+        Specialization: "Medical microbiology, General microbiology.",
+      },
+      {
+        name: "Mrs. Preeti Sood",
+        Qualification: "Dept. of  Hotel Management ",
+        Experience: "23 year",
+        Specialization: "Food and beverage,Front office, House Keeping, Kitchen.",
+      },
+      {
+        name: "Mr. Gurmeet singh",
+        Qualification: "Dept. of  Chemistry",
+        Experience: "03 year",
+        Specialization: "Waste Management, Water purification, Biofilms and filters, Polymers, Analytical Chemistry.",
+      },
+      {
+        name: "Mr. Kashif Hussain",
+        Qualification: "Dept. of  Pharmacy",
+        Experience: "12 year",
+        Specialization: "Pharmaceutical Chemistry.",
+      },
+      {
+        name: "Mr. Javed Siddiqui",
+        Qualification: "Dept. of  Paramedical ",
+        Experience: "14 year",
+        Specialization: "Clinical biochemistry, Pathology, Medical Microbiology.",
+      },
+      {
+        name: "Ms. Rohita",
+        Qualification: "Dept. of  Pharmacy",
+        Experience: "01 year",
+        Specialization: "Hospital and clinical pharmacy, Community pharmacy, Pharmacy practice, Social pharmacy.",
+      },
+      {
+        name: "Dr. Manisha Singh",
+        Qualification: "Dept. of  Paramedical ",
+        Experience: "01 year",
+        Specialization: "Orthopedics, Neurology.",
+      },
+      {
+        name: "Dr. Kiran",
+        Qualification: "Dept. of  Paramedical ",
+        Experience: "05 year",
+        Specialization: "Orthopedics",
+      },
+      {
+        name: "Dr. Nidhi Chatterjee",
+        Qualification: "Dept. of  Zoology",
+        Experience: "18 year",
+        Specialization: "Zoology, Fish and Fishries, Parasitology.",
+      },
+      {
+        name: "Ms. Susmita Bahuguna ",
+        Qualification: "Dept. of  Nursing",
+        Experience: "01 year",
+        Specialization: "Nursing fundamental, Social nursing",
+      },
+      {
+        name: "Ms. Oshin",
+        Qualification: "Dept. of  Nursing",
+        Experience: "01 year",
+        Specialization: "Psychology, Anatomy, Physiology",
+      },
+
+    ],
+    hostelinfo: [
+      {
+        name: "Capacity",
+        info: "1000",
+      },
+      {
+        name: "Hostel Fees",
+        info: "In-house Residential Accommodation (Optional) Charges (Note: - Hostel charges is per year which includes Vegetarian / Non-Vegetarian Food) ",
+      },
+      {
+        name: "",
+        info: "•	Standard Quad (Four Sharing Room) with Attached Toilet Rs.48000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "•	Deluxe Quad (Four Sharing Room) with Attached Toilet Rs.58000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "•	Standard (Three Sharing Room) with Attached Toilet Rs.68000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "•	Deluxe (Three Sharing Room) with Attached Toilet Rs.78000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "•	Standard (Two Sharing Room) with Attached Toilet Rs.73000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "•	Deluxe (Two Sharing Room) with Attached Toilet Rs.78000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "•	Super Deluxe (Two Sharing Room) with Attached Toilet Rs.88000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "•	Executive Room (TWO SHARING Room) with LCD + Tata Sky + Attached Toilet Rs.95000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "•	Executive Room (TWO SHARING Room) with A.C + LCD + Tata Sky + Attached Toilet Rs.105000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "•	Hostel Enrolment & Furnishing Fee: Rs.5000/-(To be paid Once) Laundry Charges: Rs.4800/-per Year",
+      },
+      {
+        name: "Mess Fees",
+        info: "Includes in Hostel Fees",
+      },
+      {
+        name: "Location (on-campus or off-campus)",
+        info: "On-Campus",
+      },
+      {
+        name: "Number of Rooms",
+        info: "300",
+      },
+      {
+        name: "Room Type (Occupancy basis)",
+        info: "Single Sharing, Two sharing, Three Sharing, Four Sharing",
+      },
+      {
+        name: "Hostel Facilities/ Amenities",
+        info: "Wi-Fi, CCTV Surveillance, Security Guards, Warden, Indoor Stadium, Outdoor Playground, Gymnasium, etc.",
+      },
+    ],
+    rankinginfo: [
+      {
+        name: "6384(University)",
+        info: "The World, 2022",
+      },
+      {
+        name: "2390(University)",
+        info: "The Asia, 2022",
+      },
+      {
+        name: "350(University)",
+        info: "The India, 2022",
+      },
+      {
+        name: "9(University)",
+        info: "The Uttarakhand, 2022",
+      },
+      {
+        name: "4(University)",
+        info: "Dehradun, 2022",
+      },
+    ],
+    reviewinfo: [
+      {
+        id: 1,
+        rating: 4.7,
+        desc: "Faculty of my college are very higher educated . They are qualified for the best universities with best knowledge and gesture . They always treat students very well..",
+        user: user_1,
+        name: "",
+        location: "",
+      },
+      {
+        id: 2,
+        rating: 4.5,
+        desc: "This  college demonstrates a strong commitment to preparing its students for successful careers..",
+        user: user_2,
+        name: "",
+        location: "",
+      },
+      {
+        id: 3,
+        rating: 4.8,
+        desc: "It was the good experience about my collage I were study past some year in this collage and I saw a major change in my communication skill and our department staf is also a good performance..",
+        user: user_3,
+        name: "",
+        location: "",
+      },
+    ],
+  },
+
+  //////////////////Mind Power University/////////////////////////////////////////////////////////////////////////////////////////////////
+
+  {
+    id: "MPU",
+    pageTitle: "Career Buddy Club | Mind Power University",
+    metaDescription: "Mind Power University, Bhimtal is a UGC-recognized private university established in 2024. Offering NEP 2020-based, industry-aligned programs with global tie-ups like IBM & MEND Solutions.",
+    logo: job_img_15,
+    type: "State Private University",
+    establishmentyear: "2024, (parental society is 22 years old)",
+    Recognisedby: "UGC",
+    Approvedby: "UGC, AIU",
+    state: "Nainital",
+    city: "Bhimtal",
+    Campusarea: "Bohrakun Bhimtal Nainital",
+    link: "mindpoweruniversity.ac.in",
+    email: "info@mindpoweruniversity.ac.in",
+    founded: "",
+    phone: "9258119490, 8439512284, 9616921222, 9258119487, 9212263645",
+    feild: ["Education"],
+    overviewsection:
+      "Mind Power University (MPU), located in the scenic town of Bhimtal, Nainital, is a state private university established in 2024 under the Government of Uttarakhand and recognized under Section 2(f) of the UGC Act 1956. Spread across a 40,000 sq.m campus, MPU is built on the principles of the NEP 2020, offering industry-aligned,affordable professional programs. The university emphasizes bridging the gap between academics and real-world skills through international collaborations like MEND Solutions (USA) and Centres of Excellence with IBM. MPU is approved by UGC and AIU and supported by a 22-year-old legacy of its parental society.",
+    duration: "Fulltime",
+    date: "18 Jul 2019",
+    college: "Mind Power University",
+    location: "Bohrakun Bhimtal Nainital",
+    category: ["+9258119490","8439512284, 9616921222, 9258119487, 9212263645"],
+    experience: "Fresher",
+    salary: 900,
+    salary_duration: "Monthly",
+    tags: ["java", "developer"],
+    english_fluency: "Fluent",
+    overview:
+      "Mind Power University (MPU), located in the scenic town of Bhimtal, Nainital, is a state private university established in 2024 under the Government of Uttarakhand and recognized under Section 2(f) of the UGC Act 1956. Spread across a 40,000 sq.m campus, MPU is built on the principles of the NEP 2020, offering industry-aligned, affordable professional programs. The university emphasizes bridging the gap between academics and real-world skills through international collaborations like MEND Solutions (USA) and Centres of Excellence with IBM. MPU is approved by UGC and AIU and supported by a 22-year-old legacy of its parental society.",
+    videoid: "y5_dg6Ytkss",
+    facebook: "",
+    instagram: "",
+    twitter: "",
+    linkedin: "",
+    courses:
+      "Mind Power University (MPU) offers a diverse range of undergraduate, postgraduate, and diploma programs designed to meet current industry demands. Engineering aspirants can choose from B.Tech in Mechanical Engineering (General &amp; Electric Vehicle), Computer Science Engineering, and Electronics &amp; Communication, along with M.Tech for advanced technical specialization. Business-minded students can pursue BBA in Business Analytics with IBM certification, and MBA with dual specializations in Business Analytics, Marketing, Finance, HR, and Operations. In the tech space, BCA programs are offered with specializations in Data Science &amp; AI with IBM certification and Cyber Security &amp; Forensic Science, alongside MCA for deeper computing knowledge. The hospitality stream includes Bachelor, Master, and Diploma in Hotel Management. MPU also offers strong programs in paramedical sciences, BJMC (Journalism &amp; Mass Communication), and Commerce, preparing students for a wide range of careers.The university’s course design, in line with NEP 2020, ensures an industry-relevant, skill-focused academic experience supported by global collaborations like IBM.",
+
+    ranking:
+      "",
+    awards:
+      "",
+    hostel:
+      "",
+    opportunities:
+      "",
+    campus:
+      "",
+    placement:
+      "",
+    admission:
+      "",
+    faculty:"",
+
+    overviewtable:[
+      {
+        specialization: "Short Name",
+        annualfee: "NAV CHETNA COLLEGE",
+      },
+      {
+        specialization: "Institute Type - Public/ Private/ Govt",
+        annualfee: "Private",
+      },
+      {
+        specialization: "State",
+        annualfee: "Uttarakhand",
+      },
+      {
+        specialization: "City",
+        annualfee: "Dehradun",
+      },
+      {
+        specialization: "Location/ Address",
+        annualfee: "Bohrakun Bhimtal Nainital",
+      },
+     
+      {
+        specialization: "Phone Numbers",
+        annualfee: "8755737722",
+      },
+      {
+        specialization: "Website",
+        annualfee: "mindpoweruniversity.ac.in",
+      },
+      {
+        specialization: "Email Address",
+        annualfee: "info@mindpoweruniversity.ac.in",
+      },
+      
+      {
+        specialization: "Area",
+        annualfee: "40,000 sq.m",
+      },
+      {
+        specialization: "Approved by",
+        annualfee: "SNC, PCI",
+      },
+      {
+        specialization: "Accreditation",
+        annualfee: "A+ grade by NAAC",
+      },
+     
+    ],
+      coursesAndFees: [
+      {
+        course: "B.Tech Aerospace Engineering",
+        specialization: "Drone Technology",
+        annualFee: "As per university norms",
+        duration: "MPUCET, MERIT AND ENTRANCE EXAMINATION BASED",
+        eligibility: "12TH PCM",
+      },
+      {
+        course: "B.Tech Computer Science Engineering",
+        specialization: "AI & ML with IBM Certification,Data Science & Cloud with IBM Certification,Cyber & Forensics – IBM Cert.",
+        annualFee: "As per university norms",
+        duration: "N/A",
+        eligibility: "12TH PCM",
+      },
+      {
+        course: "B.Tech Electrical Engineering",
+        specialization: "General",
+        annualFee: "As per university norms",
+        duration: "N/A",
+        eligibility: "12TH PCM",
+      },
+      {
+        course: "B.Tech Mechanical Engineering",
+        specialization: "Electric Vehicle",
+        annualFee: "As per university norms",
+        duration: "N/A",
+        eligibility: "12TH PCM",
+      },
+      {
+        course: "B.Tech Electronics & Communication Engineering",
+        specialization: "N/A",
+        annualFee: "As per university norms",
+        duration: "N/A",
+        eligibility: "12TH PCM",
+      },
+     
+      {
+        course: "M.Tech",
+        specialization: "N/A",
+        annualFee: "As per university norms",
+        duration: "N/A",
+        eligibility: "N/A",
+      },
+      {
+        course: "BBA - Buisness Analytics with IBM certification",
+        specialization: "N/A",
+        annualFee: "As per university norms",
+        duration: "N/A",
+        eligibility: "ANY STREAM",
+      },
+
+      {
+        course: "MBA (DUAL SPECIALIZATION)",
+        specialization: "buisness analytics,marketing, finance, human resources, operation",
+        annualFee: "As per university norms",
+        duration: "N/A",
+        eligibility: "ANY STREAM",
+      },
+
+      {
+        course: "BCA",
+        specialization: "Data Science & AI – IBM Certification",
+        annualFee: "As per university norms",
+        duration: "N/A",
+        eligibility: "ANY STREAM",
+      },
+
+      {
+        course: "MCA",
+        specialization: "N/A",
+        annualFee: "As per university norms",
+        duration: "N/A",
+        eligibility: "ANY STREAM",
+      },
+
+      {
+        course: "BACHELOR IN HOTEL MANAGEMENT",
+        specialization: "N/A",
+        annualFee: "As per university norms",
+        duration: "N/A",
+        eligibility: "any stream",
+      },
+
+      {
+        course: "MASTER IN HOTEL MANAGEMENT",
+        specialization: "N/A",
+        annualFee: "As per university norms",
+        duration: "N/A",
+        eligibility: "any stream",
+      },
+      {
+        course: "DIPLOMA IN HOTEL MANAGEMENT",
+        specialization: "N/A",
+        annualFee: "As per university norms",
+        duration: "N/A",
+        eligibility: "10th 12th based any stream",
+      },
+
+      
+      
+    ],
+    admissionDates: [
+      {
+        name: "Application Start Date",
+        date: "As per university norms",
+      },
+      {
+        name: "Application End Date",
+        date: "As per university norms",
+      },
+      {
+        name: "Date of Result Declaration",
+        date: "",
+      },
+      {
+        name: "Last Date of Submission of Fee",
+        date: "",
+      },
+      {
+        name: "Commencement of the Coursework",
+        date: "",
+      },
+    ],
+    campusinfo: [
+      {
+        name: "Registration Dates",
+        info: "N/A",
+      },
+      // {
+      //   name: "Date of Entrance Test & Interview",
+      //   info: "",
+      // },
+      // {
+      //   name: "Date of Result Declaration",
+      //   info: "",
+      // },
+      // {
+      //   name: "Commencement of the Coursework",
+      //   info: "",
+      // },
+    ],
+    placementinformation: [
+      {
+        name: "Placement Year",
+        info: "2021-22",
+      },
+      {
+        name: "Number of Companies Visited",
+        info: "12",
+      },
+      {
+        name: "Number of Students",
+        info: "78",
+      },
+      {
+        name: "Highest Package",
+        info: "5.75 P.A.CTC",
+      },
+     
+     
+      
+    ],
+    opportunitiesinfo: [
+      // {
+      //   name: "Registration Dates",
+      //   info: "February 8 to September 15, 2023",
+      // },
+      // {
+      //   name: "Date of Entrance Test & Interview",
+      //   info: "September 17, 2023",
+      // },
+      // {
+      //   name: "Date of Result Declaration",
+      //   info: "September 18, 2023",
+      // },
+      // {
+      //   name: "Last Date of Submission of Fee",
+      //   info: "September 28, 2023",
+      // },
+      // {
+      //   name: "Commencement of the Coursework",
+      //   info: "October 3, 2023",
+      // },
+    ],
+
+    awardsinfo: [
+      // "NAAC A+",
+      // "Top Private Law College In Uttarakhand.",
+      // "Most Promising Engineering & Management Institute in India Award.",
+      // "Most Aware Campus of Uttarakhand Award.",
+      // "Icon Award of Uttarakhand.",
+      
+     
+    ],
+   
+    facultytable: [
+      {
+        name: "Dr. Vishal",
+        Qualification: "Dept. of  Microbiology",
+        Experience: "22 year",
+        Specialization: "Agriculture microbiology, Biological Control, Plant growth promo. Rhizo bacteria, Fermentation Technology, Antimicrobial Activity of mediclinal plant, Microbial pathology.",
+      },
+      {
+        name: "Dr. RD Saklani",
+        Qualification: "Dept. of  Geology",
+        Experience: "10 year",
+        Specialization: "Sequence stratigraphy, Petroleum Geology, Ichnology, Disaster Management, Engg. Geology, Field Geology, Himalayan Geology & Western India (Kachchh & Rajasthan).",
+      },
+      {
+        name: "Mr. S K Thakur",
+        Qualification: "Dept. of  Statistics & Mathematics",
+        Experience: "35 year",
+        Specialization: "Statistics, International finance,  International Economics, Coorporates Law. ",
+      },
+      {
+        name: "Dr. Neelesh",
+        Qualification: "Dept. of  Microbiology",
+        Experience: "02 year",
+        Specialization: "Medical microbiology, General microbiology.",
+      },
+      {
+        name: "Mrs. Preeti Sood",
+        Qualification: "Dept. of  Hotel Management ",
+        Experience: "23 year",
+        Specialization: "Food and beverage,Front office, House Keeping, Kitchen.",
+      },
+      {
+        name: "Mr. Gurmeet singh",
+        Qualification: "Dept. of  Chemistry",
+        Experience: "03 year",
+        Specialization: "Waste Management, Water purification, Biofilms and filters, Polymers, Analytical Chemistry.",
+      },
+      {
+        name: "Mr. Kashif Hussain",
+        Qualification: "Dept. of  Pharmacy",
+        Experience: "12 year",
+        Specialization: "Pharmaceutical Chemistry.",
+      },
+      {
+        name: "Mr. Javed Siddiqui",
+        Qualification: "Dept. of  Paramedical ",
+        Experience: "14 year",
+        Specialization: "Clinical biochemistry, Pathology, Medical Microbiology.",
+      },
+      {
+        name: "Ms. Rohita",
+        Qualification: "Dept. of  Pharmacy",
+        Experience: "01 year",
+        Specialization: "Hospital and clinical pharmacy, Community pharmacy, Pharmacy practice, Social pharmacy.",
+      },
+      {
+        name: "Dr. Manisha Singh",
+        Qualification: "Dept. of  Paramedical ",
+        Experience: "01 year",
+        Specialization: "Orthopedics, Neurology.",
+      },
+      {
+        name: "Dr. Kiran",
+        Qualification: "Dept. of  Paramedical ",
+        Experience: "05 year",
+        Specialization: "Orthopedics",
+      },
+      {
+        name: "Dr. Nidhi Chatterjee",
+        Qualification: "Dept. of  Zoology",
+        Experience: "18 year",
+        Specialization: "Zoology, Fish and Fishries, Parasitology.",
+      },
+      {
+        name: "Ms. Susmita Bahuguna ",
+        Qualification: "Dept. of  Nursing",
+        Experience: "01 year",
+        Specialization: "Nursing fundamental, Social nursing",
+      },
+      {
+        name: "Ms. Oshin",
+        Qualification: "Dept. of  Nursing",
+        Experience: "01 year",
+        Specialization: "Psychology, Anatomy, Physiology",
+      },
+
+    ],
+    hostelinfo: [
+      {
+        name: "Capacity",
+        info: "1000",
+      },
+      {
+        name: "Hostel Fees",
+        info: "In-house Residential Accommodation (Optional) Charges (Note: - Hostel charges is per year which includes Vegetarian / Non-Vegetarian Food) ",
+      },
+      {
+        name: "",
+        info: "•	Standard Quad (Four Sharing Room) with Attached Toilet Rs.48000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "•	Deluxe Quad (Four Sharing Room) with Attached Toilet Rs.58000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "•	Standard (Three Sharing Room) with Attached Toilet Rs.68000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "•	Deluxe (Three Sharing Room) with Attached Toilet Rs.78000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "•	Standard (Two Sharing Room) with Attached Toilet Rs.73000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "•	Deluxe (Two Sharing Room) with Attached Toilet Rs.78000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "•	Super Deluxe (Two Sharing Room) with Attached Toilet Rs.88000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "•	Executive Room (TWO SHARING Room) with LCD + Tata Sky + Attached Toilet Rs.95000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "•	Executive Room (TWO SHARING Room) with A.C + LCD + Tata Sky + Attached Toilet Rs.105000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "•	Hostel Enrolment & Furnishing Fee: Rs.5000/-(To be paid Once) Laundry Charges: Rs.4800/-per Year",
+      },
+      {
+        name: "Mess Fees",
+        info: "Includes in Hostel Fees",
+      },
+      {
+        name: "Location (on-campus or off-campus)",
+        info: "On-Campus",
+      },
+      {
+        name: "Number of Rooms",
+        info: "300",
+      },
+      {
+        name: "Room Type (Occupancy basis)",
+        info: "Single Sharing, Two sharing, Three Sharing, Four Sharing",
+      },
+      {
+        name: "Hostel Facilities/ Amenities",
+        info: "Wi-Fi, CCTV Surveillance, Security Guards, Warden, Indoor Stadium, Outdoor Playground, Gymnasium, etc.",
+      },
+    ],
+    rankinginfo: [
+      {
+        name: "6384(University)",
+        info: "The World, 2022",
+      },
+      {
+        name: "2390(University)",
+        info: "The Asia, 2022",
+      },
+      {
+        name: "350(University)",
+        info: "The India, 2022",
+      },
+      {
+        name: "9(University)",
+        info: "The Uttarakhand, 2022",
+      },
+      {
+        name: "4(University)",
+        info: "Dehradun, 2022",
+      },
+    ],
+    reviewinfo: [
+      {
+        id: 1,
+        rating: 4.7,
+        desc: "Faculty of my college are very higher educated . They are qualified for the best universities with best knowledge and gesture . They always treat students very well..",
+        user: user_1,
+        name: "",
+        location: "",
+      },
+      {
+        id: 2,
+        rating: 4.5,
+        desc: "This  college demonstrates a strong commitment to preparing its students for successful careers..",
+        user: user_2,
+        name: "",
+        location: "",
+      },
+      {
+        id: 3,
+        rating: 4.8,
+        desc: "It was the good experience about my collage I were study past some year in this collage and I saw a major change in my communication skill and our department staf is also a good performance..",
+        user: user_3,
+        name: "",
+        location: "",
+      },
+    ],
+  },
+  
   
 
 ];
