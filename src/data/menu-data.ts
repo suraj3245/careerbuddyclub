@@ -27,6 +27,8 @@ const menu_data: IMenuData[] = [
           {title:"Doon Group of Colleges" , link:"/college-details/DOON-GROUP-OF-COLLEGES"},
           {title:"Culinary College of Hotel Management" , link:"/college-details/CCHM"},
           {title:"Siddhartha Group of Institutions" , link:"/college-details/SGI"},
+          {title:"Nav Chetna College" , link:"/college-details/NAV-CHETNA-COLLEGE"},
+          {title:"Mind Power University" , link:"/college-details/MPU"},
 
 
           
