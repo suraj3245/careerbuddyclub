@@ -163,7 +163,7 @@
   border-radius: 5px;
   @include transition(0.2s);
   &:hover {
-    color: $color-four;
+    color: #14adbd;
     background: rgba($color: $color-three, $alpha: 0.06);
   }
 }

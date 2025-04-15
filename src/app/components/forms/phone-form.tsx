@@ -16,6 +16,7 @@ const PhoneForm = () => {
   const [isVerificationSent, setIsVerificationSent] = useState<boolean>(false);
   const [countdown, setCountdown] = useState(30);
   const [showResend, setShowResend] = useState(false);
+  const [loading, setLoading] = useState(false);
   const {
     register,
     handleSubmit,
@@ -24,7 +25,11 @@ const PhoneForm = () => {
     getValues,
   } = useForm<IFormData>({});
 
-  const requestOTP = (data: {name: string; country_code: string; mobile: string }) => {
+  const requestOTP = (data: {
+    name: string;
+    country_code: string;
+    mobile: string;
+  }) => {
     setIsVerificationSent(true);
     axios
       .post(
@@ -69,6 +74,7 @@ const PhoneForm = () => {
   }, [isVerificationSent, countdown]);
   const onSubmit = (data: IFormData) => {
     // Destructure the required fields from data
+    setLoading(true);
     const country_code = "91";
     const { mobile, verificationCode: otp } = data;
 
@@ -115,9 +121,11 @@ const PhoneForm = () => {
           progress: undefined,
           theme: "light",
         });
+      })
+      .finally(() => {
+        reset();
+        setLoading(false);
       });
-
-    reset();
   };
 
   return (
@@ -133,7 +141,24 @@ const PhoneForm = () => {
             })}
             name="mobile"
             style={{ flex: "1", marginRight: "10px" }}
-          />&nbsp;
+          />
+          {isVerificationSent && (
+            <div className="col-lg-6 col-12 mt-3">
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Whatsapp OTP"
+                {...register("verificationCode", {
+                  required: `Verification Code is required!`,
+                })}
+                name="verificationCode"
+              />
+              <div className="help-block with-errors">
+                <ErrorMsg msg={errors.verificationCode?.message!} />
+              </div>
+            </div>
+          )}
+          &nbsp;
           <button
             type="button"
             className="col-lg-6 col-8"
@@ -167,30 +192,22 @@ const PhoneForm = () => {
             <ErrorMsg msg={errors.mobile?.message!} />
           </div>
         </div>
-
-        {isVerificationSent && (
-          <div className="col-lg-12 col-12 mt-3">
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Whatsapp OTP"
-              {...register("verificationCode", {
-                required: `Verification Code is required!`,
-              })}
-              name="verificationCode"
-            />
-            <div className="help-block with-errors">
-              <ErrorMsg msg={errors.verificationCode?.message!} />
-            </div>
-          </div>
-        )}
       </div>
       <div className="col-12">
         <button
           type="submit"
-          className="btn-eleven fw-500 tran3s d-block mt-20 "
+          className="btn-eleven fw-500 tran3s d-block mt-10"
+          disabled={loading}
         >
-          Login
+          {loading && (
+            <span
+              className="spinner-border spinner-border-sm me-2"
+              role="status"
+              aria-hidden="true"
+              style={{ width: '1.5rem', height: '1.5rem' }}
+            ></span>
+          )}
+          {loading ? "" : "Login"}
         </button>
       </div>
     </form>

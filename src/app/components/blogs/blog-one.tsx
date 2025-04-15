@@ -52,13 +52,13 @@ const BlogOne = () => {
             className="title-one mb-30 lg-mb-10 wow fadeInUp"
             data-wow-delay="0.3s"
           >
-            <h2>Career Buddy Club Media Presence</h2>
+            <h2 className="text-center">Career Buddy Club Media Presence</h2>
           </div>
 
-          <div className="row gx-xxl-5">
+          <div className="row gx-xxl-5 text-center">
           <Slider {...slider_setting} ref={sliderRef}>
            {blog_items.map((item) => (
-           <div key={item.id} className="col-lg-4 col-md-6 border">
+           <div key={item.id} className="col-lg-4 col-md-6">
            <BlogItem item={item} />
            </div>
            ))}

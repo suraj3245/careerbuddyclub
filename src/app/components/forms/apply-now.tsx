@@ -12,7 +12,7 @@ interface IOption {
   value: string;
   label: string;
 }
- 
+
 type UTMParams = {
   utm_source: string | null;
   utm_medium: string | null;
@@ -55,6 +55,7 @@ const ApplyForm = () => {
   const [isVerificationSent, setIsVerificationSent] = useState<boolean>(false);
   const [countdown, setCountdown] = useState(30);
   const [showResend, setShowResend] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const [streamOptions, setStreamOptions] = useState<IOption[]>([
     { value: "Arts & Humanities", label: "Arts & Humanities" },
@@ -62,37 +63,70 @@ const ApplyForm = () => {
     { value: "Engineering & Technology", label: "Engineering & Technology" },
     { value: "Life Sciences & Medicine", label: "Life Sciences & Medicine" },
     { value: "Natural Sciences", label: "Natural Sciences" },
-    { value: "Social Sciences & Management", label: "Social Sciences & Management" },
+    {
+      value: "Social Sciences & Management",
+      label: "Social Sciences & Management",
+    },
     { value: "Computer Science & IT", label: "Computer Science & IT" },
     { value: "Law", label: "Law" },
     { value: "Education & Training", label: "Education & Training" },
     { value: "Creative Arts & Design", label: "Creative Arts & Design" },
-    { value: "Applied Sciences & Professions", label: "Applied Sciences & Professions" },
+    {
+      value: "Applied Sciences & Professions",
+      label: "Applied Sciences & Professions",
+    },
     { value: "Agriculture & Forestry", label: "Agriculture & Forestry" },
-    { value: "Environmental Studies & Earth Sciences", label: "Environmental Studies & Earth Sciences" },
-    { value: "Hospitality, Leisure & Sports", label: "Hospitality, Leisure & Sports" },
+    {
+      value: "Environmental Studies & Earth Sciences",
+      label: "Environmental Studies & Earth Sciences",
+    },
+    {
+      value: "Hospitality, Leisure & Sports",
+      label: "Hospitality, Leisure & Sports",
+    },
     { value: "Journalism & Media", label: "Journalism & Media" },
-    { value: "General Studies & Classics", label: "General Studies & Classics" },
+    {
+      value: "General Studies & Classics",
+      label: "General Studies & Classics",
+    },
     { value: "Health & Medicine", label: "Health & Medicine" },
     { value: "Performing Arts", label: "Performing Arts" },
-    { value: "Physical Sciences & Mathematics", label: "Physical Sciences & Mathematics" },
+    {
+      value: "Physical Sciences & Mathematics",
+      label: "Physical Sciences & Mathematics",
+    },
     { value: "Psychology & Counseling", label: "Psychology & Counseling" },
     { value: "Fashion & Beauty", label: "Fashion & Beauty" },
     { value: "Veterinary Medicine", label: "Veterinary Medicine" },
-    { value: "Religious Studies & Theology", label: "Religious Studies & Theology" },
+    {
+      value: "Religious Studies & Theology",
+      label: "Religious Studies & Theology",
+    },
     { value: "Philosophy & Ethics", label: "Philosophy & Ethics" },
     { value: "Languages & Literature", label: "Languages & Literature" },
     { value: "Culinary Arts", label: "Culinary Arts" },
     { value: "Anthropology", label: "Anthropology" },
     { value: "Archaeology", label: "Archaeology" },
     { value: "History", label: "History" },
-    { value: "Political Science & International Relations", label: "Political Science & International Relations" },
+    {
+      value: "Political Science & International Relations",
+      label: "Political Science & International Relations",
+    },
     { value: "Sociology", label: "Sociology" },
     { value: "Economics", label: "Economics" },
-    { value: "Urban Planning & Architecture", label: "Urban Planning & Architecture" },
+    {
+      value: "Urban Planning & Architecture",
+      label: "Urban Planning & Architecture",
+    },
     { value: "Music", label: "Music" },
-    { value: "Film, Television & Theater", label: "Film, Television & Theater" },
-    { value: "Graphic Design & Visual Arts", label: "Graphic Design & Visual Arts" },
+    {
+      value: "Film, Television & Theater",
+      label: "Film, Television & Theater",
+    },
+    {
+      value: "Graphic Design & Visual Arts",
+      label: "Graphic Design & Visual Arts",
+    },
   ]);
   const router = useRouter();
   const [utmParams, setUtmParams] = useState<UTMParams>({
@@ -180,7 +214,6 @@ const ApplyForm = () => {
       });
   };
 
-
   useEffect(() => {
     let interval: string | number | NodeJS.Timeout | undefined;
     if (isVerificationSent && countdown > 0) {
@@ -194,6 +227,7 @@ const ApplyForm = () => {
   }, [isVerificationSent, countdown]);
 
   const verifyOTP = async (mobile: number, otp: string) => {
+    setLoading(true);
     try {
       const response = await axios.post(
         "https://test.careerbuddyclub.com:8080/api/students/verifywhatsappotp",
@@ -202,7 +236,7 @@ const ApplyForm = () => {
           verificationCode: otp,
         }
       );
-      if(response.data.success === true){
+      if (response.data.success === true) {
         return true;
       }
     } catch (error) {
@@ -210,7 +244,8 @@ const ApplyForm = () => {
     }
   };
 
-  const onSubmit = async  (data: IFormData) => {
+  const onSubmit = async (data: IFormData) => {
+    setLoading(true);
     const {
       name,
       from,
@@ -223,7 +258,7 @@ const ApplyForm = () => {
     } = data;
     const isVerified = await verifyOTP(mobile, otp);
     if (!isVerified) {
-      toast.error("OTP verification failed ❌", {
+      toast.error("OTP verification failed 😵‍💫", {
         position: "top-left",
         autoClose: 1500,
         hideProgressBar: false,
@@ -232,6 +267,7 @@ const ApplyForm = () => {
         draggable: true,
         theme: "light",
       });
+      setLoading(false);
       return; // 🛑 stop submission if OTP failed
     }
 
@@ -260,7 +296,7 @@ const ApplyForm = () => {
     axios
       .request(options)
       .then((response) => {
-        // Handle the response here, e.g., notify the user of success        
+        // Handle the response here, e.g., notify the user of success
         localStorage.setItem("token", response.data.access_token);
         localStorage.setItem("username", name);
         localStorage.setItem("School_email", email);
@@ -293,7 +329,6 @@ const ApplyForm = () => {
             errorMessage = error.response.data.mobile[0];
           }
         }
-
         toast.error(errorMessage, {
           position: "top-left",
           autoClose: 1000,
@@ -304,19 +339,21 @@ const ApplyForm = () => {
           progress: undefined,
           theme: "light",
         });
+      })
+      .finally(() => {
+        reset();
+        setLoading(false);
       });
-
-    reset();
   };
 
   return (
     <>
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="row">
-        <div className="col-12">
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div className="row">
+          <div className="col-12">
             <input
               type="text"
-               className="form-control"
+              className="form-control"
               placeholder="Enter Student Name"
               {...register("name", { required: `Name is required!` })}
               name="name"
@@ -330,9 +367,9 @@ const ApplyForm = () => {
             <div className="help-block with-errors">
               <ErrorMsg msg={errors.name?.message!} />
             </div>
-        </div>
+          </div>
 
-        <div className="col-12">
+          <div className="col-12">
             <input
               type="email"
               className="form-control mt-2"
@@ -349,8 +386,8 @@ const ApplyForm = () => {
             <div className="help-block with-errors">
               <ErrorMsg msg={errors.email?.message!} />
             </div>
-        </div>
-        <div className="col-12">
+          </div>
+          <div className="col-12">
             <input
               type="text"
               className="form-control mt-2"
@@ -367,9 +404,9 @@ const ApplyForm = () => {
             <div className="help-block with-errors">
               <ErrorMsg msg={errors.from?.message!} />
             </div>
-        </div>
+          </div>
 
-        <div className="col-12">
+          <div className="col-12">
             <div style={{ display: "flex", alignItems: "center" }}>
               <input
                 type="tel"
@@ -420,12 +457,13 @@ const ApplyForm = () => {
             <div className="help-block with-errors">
               <ErrorMsg msg={errors.mobile?.message!} />
             </div>
-        </div>
+          </div>
 
-        {isVerificationSent && (
-          <div className="col-12">
+          {isVerificationSent && (
+            <div className="col-12">
               <input
                 type="text"
+                className="form-control mt-2"
                 placeholder="Whatsapp OTP"
                 {...register("verificationCode", {
                   required: `Verification Code is required!`,
@@ -441,10 +479,10 @@ const ApplyForm = () => {
               <div className="help-block with-errors">
                 <ErrorMsg msg={errors.verificationCode?.message!} />
               </div>
-          </div>
-        )}
+            </div>
+          )}
 
-        <div className="col-12">
+          <div className="col-12">
             <select
               {...register("stream", { required: `Stream is required!` })}
               name="stream"
@@ -469,13 +507,13 @@ const ApplyForm = () => {
             <div className="help-block with-errors">
               <ErrorMsg msg={errors.stream?.message!} />
             </div>
-        </div>
+          </div>
 
-        <div className="col-12">
+          <div className="col-12">
             <select
               {...register("level", { required: `Level is required!` })}
               name="level"
-               className="form-select mt-2"
+              className="form-select mt-2"
               style={{
                 backgroundColor: "white",
                 padding: "8px 12px",
@@ -496,20 +534,27 @@ const ApplyForm = () => {
             <div className="help-block with-errors">
               <ErrorMsg msg={errors.level?.message!} />
             </div>
+          </div>
+          <div className="col-12">
+            <button
+              type="submit"
+              className="btn-eleven fw-500 tran3s d-block mt-10"
+              disabled={loading}
+            >
+              {loading && (
+                <span
+                  className="spinner-border spinner-border-sm me-2"
+                  role="status"
+                  aria-hidden="true"
+                  style={{ width: '1.5rem', height: '1.5rem' }}
+                ></span>
+              )}
+              {loading ? "" : "Apply Now!"}
+            </button>
+          </div>
         </div>
-        <div className="col-12">
-          <button
-            type="submit"
-            className="btn-eleven fw-500 tran3s d-block mt-10"
-          >
-            Apply Now!
-          </button>
-        </div>
-      </div>
-    </form>
+      </form>
     </>
   );
 };
-
 export default ApplyForm;
-

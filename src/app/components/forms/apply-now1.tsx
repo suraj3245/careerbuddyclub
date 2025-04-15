@@ -50,7 +50,7 @@ const ApplyForm1 = ({ onSuccess }: { onSuccess: () => void }) => {
   const [isVerificationSent, setIsVerificationSent] = useState<boolean>(false);
   const [countdown, setCountdown] = useState(30);
   const [showResend, setShowResend] = useState(false);
-  const router = useRouter();
+  const [loading, setLoading] = useState(false);
   const [utmParams, setUtmParams] = useState<UTMParams>({
     utm_source: null,
     utm_medium: null,
@@ -146,6 +146,7 @@ const ApplyForm1 = ({ onSuccess }: { onSuccess: () => void }) => {
     return () => clearInterval(interval);
   }, [isVerificationSent, countdown]);
   const onSubmit = (data: IFormData) => {
+    setLoading(true);
     const {
       School_name,
       School_email,
@@ -205,8 +206,10 @@ const ApplyForm1 = ({ onSuccess }: { onSuccess: () => void }) => {
           progress: undefined,
           theme: "light",
         });
+      }).finally(()=>{
+        reset();
+        setLoading(false);
       });
-    reset();
   };
 
   return (
@@ -420,12 +423,21 @@ const ApplyForm1 = ({ onSuccess }: { onSuccess: () => void }) => {
         </div>
 
         <div className="col-12">
-          <button
-            type="submit"
-            className="btn-eleven fw-500 tran3s d-block mt-10"
-          >
-            Apply Now!
-          </button>
+         <button
+              type="submit"
+              className="btn-eleven fw-500 tran3s d-block mt-10"
+              disabled={loading}
+            >
+              {loading && (
+                <span
+                  className="spinner-border spinner-border-sm me-2"
+                  role="status"
+                  aria-hidden="true"
+                  style={{ width: '1.5rem', height: '1.5rem' }}
+                ></span>
+              )}
+              {loading ? "" : "Apply Now!"}
+            </button>
         </div>
       </div>
     </form>

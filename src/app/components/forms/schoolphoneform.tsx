@@ -17,6 +17,7 @@ const SchoolPhoneForm = () => {
   const [isVerificationSent, setIsVerificationSent] = useState<boolean>(false);
   const [countdown, setCountdown] = useState(30);
   const [showResend, setShowResend] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const {
     register,
@@ -74,6 +75,7 @@ const SchoolPhoneForm = () => {
   }, [isVerificationSent, countdown]);
   const onSubmit = (data: IFormData) => {
     // Destructure the required fields from data
+    setLoading(true);
     const country_code = "91";
     const { School_mobile, verificationCode: otp } = data;
 
@@ -139,9 +141,10 @@ const SchoolPhoneForm = () => {
             theme: "light",
           });
         }
+      }).finally(()=>{
+        reset();
+        setLoading(false);
       });
-
-    reset();
   };
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -235,12 +238,21 @@ const SchoolPhoneForm = () => {
         </div>
       </div>
       <div className="col-12">
-        <button
-          type="submit"
-          className="btn-eleven fw-500 tran3s d-block mt-20 "
-        >
-          Login
-        </button>
+      <button
+              type="submit"
+              className="btn-eleven fw-500 tran3s d-block mt-10"
+              disabled={loading}
+            >
+              {loading && (
+                <span
+                  className="spinner-border spinner-border-sm me-2"
+                  role="status"
+                  aria-hidden="true"
+                  style={{ width: '1.5rem', height: '1.5rem' }}
+                ></span>
+              )}
+              {loading ? "" : "Login"}
+            </button>
       </div>
     </form>
   );
