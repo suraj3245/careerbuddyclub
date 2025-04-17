@@ -48,16 +48,15 @@ const menu_data: IMenuData[] = [
             id: 3,
             title: "Dubai University",
             sub_menus: [
-              {title: "De Montfort University", link: ''},
-              {title: "University of Europe", link: ''},
-              {title: "Manipal Academy of Higher Education Dubai", link: ''},
-              {title: "Rochester Institute of Technology Dubai", link: ''},
-              {title: "University of Debrecen Dubai", link: ''},
+              {title: "De Montfort University", link: '/dubai-colleges/1'},
+              {title: "University of Europe", link: '/dubai-colleges/2'},
+              {title: "Manipal Academy of Higher Education Dubai", link: '/dubai-colleges/3'},
+              {title: "Rochester Institute of Technology Dubai", link: '/dubai-colleges/4'},
+              {title: "University of Debrecen Dubai", link: '/dubai-colleges/5'},
             ],
           },
         ],
   },
-
   {
     id: 3,
     link: "/",

@@ -416,6 +416,7 @@ const ApplyForm = () => {
                   required: `Phone Number is required!`,
                 })}
                 name="mobile"
+                maxLength={10}
                 style={{
                   flex: "1",
                   marginRight: "10px",
