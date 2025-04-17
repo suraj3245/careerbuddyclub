@@ -187,7 +187,7 @@ export default function FilterPanel({
 
   const handleCategoryClick = (category: string) => {
     const next = new Set(openCategories);
-    openCategories.has(category) ? next.delete(category) : next.add(category);
+    next.has(category) ? next.delete(category) : next.add(category);
     setOpenCategories(next);
   };
   const handleFilterSelect = (category: string, option: FilterOption) => {
@@ -284,6 +284,7 @@ function FilterContent({
   searchQuery,
   setSearchQuery,
 }: FilterContentProps) {
+  const isSearchActive = searchQuery.trim().length > 0;
   return (
     <>
       <Box sx={{ mb: 2 }}>
@@ -328,59 +329,73 @@ function FilterContent({
           />
         ))}
       </Box>
-      {Object.entries(filters).map(([category, options]) => (
-        <Box key={category} sx={{ mb: 2 }}>
-          <Box
-            onClick={() => handleCategoryClick(category)}
-            sx={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              cursor: "pointer",
-              py: 1,
-            }}
-          >
-            <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>
-              {category}
-            </Typography>
-            {openCategories.has(category) ? <ExpandLess /> : <ExpandMore />}
-          </Box>
-          {openCategories.has(category) && (
-            <Box sx={{ mt: 1 }}>
-              {options
-                .filter((opt) =>
-                  opt?.name?.toLowerCase().includes(searchQuery?.toLowerCase())
-                )
-                .map((opt) => (
-                  <Box
-                    key={opt.name}
-                    sx={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      alignItems: "center",
-                      py: 0.5,
-                    }}
-                  >
-                    <Box sx={{ display: "flex", alignItems: "center" }}>
-                      <Checkbox
-                        checked={selectedFilters.includes(
-                          opt.id != null
-                            ? `${category}|${opt.id}|${opt.name}`
-                            : `${category}||${opt.name}`
-                        )}
-                        onChange={() => handleFilterSelect(category, opt)}
-                      />
-                      <Typography variant="body2">{opt.name}</Typography>
-                    </Box>
-                    <Typography variant="body2" color="text.secondary">
-                      ({opt.count})
-                    </Typography>
-                  </Box>
-                ))}
+
+      {Object.entries(filters).map(([category, options]) => {
+        const filtered = searchQuery
+          ? options.filter((opt) =>
+              opt.name.toLowerCase().includes(searchQuery.toLowerCase())
+            )
+          : options;
+        const isOpen = isSearchActive || openCategories.has(category);
+
+        return (
+          <Box key={category} sx={{ mb: 2 }}>
+            <Box
+              onClick={() => handleCategoryClick(category)}
+              sx={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                cursor: "pointer",
+                py: 1,
+              }}
+            >
+              <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>
+                {category}
+              </Typography>
+              {isOpen ? <ExpandLess /> : <ExpandMore />}
             </Box>
-          )}
-        </Box>
-      ))}
+            {isOpen && (
+              <Box sx={{ mt: 1 }}>
+                {filtered.length === 0 ? (
+                  <Typography variant="body2" color="text.secondary">
+                    No {category.toLowerCase()} found.
+                  </Typography>
+                ) : (
+                  filtered.map((opt) => {
+                    const key =
+                      opt.id != null
+                        ? `${category}|${opt.id}|${opt.name}`
+                        : `${category}||${opt.name}`;
+                    return (
+                      <Box
+                        key={opt.name}
+                        sx={{
+                          display: "flex",
+                          justifyContent: "space-between",
+                          alignItems: "center",
+                          py: 0.5,
+                        }}
+                      >
+                        <Box sx={{ display: "flex", alignItems: "center" }}>
+                          <Checkbox
+                            checked={selectedFilters.includes(key)}
+                            onChange={() => handleFilterSelect(category, opt)}
+                          />
+                          <Typography variant="body2">{opt.name}</Typography>
+                        </Box>
+                        <Typography variant="body2" color="text.secondary">
+                          ({opt.count})
+                        </Typography>
+                      </Box>
+                    );
+                  })
+                )}
+              </Box>
+            )}
+          </Box>
+        );
+      })}
     </>
   );
 }
