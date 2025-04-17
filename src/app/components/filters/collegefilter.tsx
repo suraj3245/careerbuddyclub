@@ -14,6 +14,7 @@ import {
 } from "@mui/material";
 import { useRouter } from "next/navigation";
 import axios from "axios";
+import { createSlug } from "@/utils/slugify";
 
 interface Stream {
   id: number;
@@ -48,10 +49,13 @@ const CollegeFinder: React.FC = () => {
   const router = useRouter();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+  const handleStreamChange = (
+    event: React.SyntheticEvent,
+    newValue: number
+  ) => {
     setStreamId(newValue);
   };
-  
+
   const fetchStreams = async () => {
     try {
       const response = await axios({
@@ -73,22 +77,15 @@ const CollegeFinder: React.FC = () => {
   }, []);
 
   // Filtered lists based on streamId
-  const colleges = useMemo(() => {
-    const selectedStream = streams.find((stream) => stream.id === streamId);
-    return selectedStream?.colleges || [];
+  const selectedStream = useMemo(() => {
+    return streams.find((stream) => stream.id === streamId);
   }, [streamId, streams]);
-  const companies = useMemo(() => {
-    const selectedStream = streams.find((stream) => stream.id === streamId);
-    return selectedStream?.companies || [];
-  }, [streamId, streams]);
-  const careers = useMemo(() => {
-    const selectedStream = streams.find((stream) => stream.id === streamId);
-    return selectedStream?.careers || [];
-  }, [streamId, streams]);
-  const courses = useMemo(() => {
-    const selectedStream = streams.find((stream) => stream.id === streamId);
-    return selectedStream?.courses || [];
-  }, [streamId, streams]);
+  const selectedStreamTitle = selectedStream?.title || "";
+
+  const colleges = selectedStream?.colleges || [];
+  const companies = selectedStream?.companies || [];
+  const careers = selectedStream?.careers || [];
+  const courses = selectedStream?.courses || [];
 
   return (
     <div className="container mt-80">
@@ -116,7 +113,7 @@ const CollegeFinder: React.FC = () => {
         >
           <Tabs
             value={streamId}
-            onChange={handleChange}
+            onChange={handleStreamChange}
             variant="scrollable"
             scrollButtons="auto"
             TabIndicatorProps={{ style: { backgroundColor: "#13adbd" } }}
@@ -167,7 +164,13 @@ const CollegeFinder: React.FC = () => {
                 <Button
                   variant="text"
                   size="small"
-                  onClick={() => router.push(`/find-colleges`)}
+                  onClick={() =>
+                    router.push(
+                      `/find-colleges?stream=${createSlug(
+                        selectedStreamTitle || "unspecified"
+                      )}&streamId=${streamId}`
+                    )
+                  }
                 >
                   View All
                 </Button>
@@ -194,7 +197,13 @@ const CollegeFinder: React.FC = () => {
                         whiteSpace: "nowrap",
                       }}
                       onClick={() =>
-                        router.push(`/find-colleges/${college.id}`)
+                        router.push(
+                          `/find-colleges?stream=${createSlug(
+                            selectedStreamTitle || "unspecified"
+                          )}&college=${createSlug(
+                            college.college_full_name
+                          )}&streamId=${streamId}&collegeId=${college.id}`
+                        )
                       }
                     >
                       {college.college_full_name}
@@ -248,7 +257,13 @@ const CollegeFinder: React.FC = () => {
                   <Button
                     variant="text"
                     size="small"
-                    onClick={() => router.push(`/find-colleges`)}
+                    onClick={() =>
+                      router.push(
+                        `/find-colleges?stream=${createSlug(
+                          selectedStreamTitle || "unspecified"
+                        )}&streamId=${streamId}`
+                      )
+                    }
                   >
                     View All
                   </Button>
@@ -275,7 +290,13 @@ const CollegeFinder: React.FC = () => {
                           whiteSpace: "nowrap",
                         }}
                         onClick={() =>
-                          router.push(`/find-colleges/${company.id}`)
+                          router.push(
+                            `/find-colleges?stream=${createSlug(
+                              selectedStreamTitle || "unspecified"
+                            )}&company=${createSlug(
+                              company.name
+                            )}&streamId=${streamId}&companyId=${company.id}`
+                          )
                         }
                       >
                         {company.name}
@@ -318,7 +339,13 @@ const CollegeFinder: React.FC = () => {
                   <Button
                     variant="text"
                     size="small"
-                    onClick={() => router.push(`/find-colleges`)}
+                    onClick={() =>
+                      router.push(
+                        `/find-colleges?stream=${createSlug(
+                          selectedStreamTitle || "unspecified"
+                        )}&streamId=${streamId}`
+                      )
+                    }
                   >
                     View All
                   </Button>
@@ -345,7 +372,13 @@ const CollegeFinder: React.FC = () => {
                           whiteSpace: "nowrap",
                         }}
                         onClick={() =>
-                          router.push(`/find-colleges/${career.id}`)
+                          router.push(
+                            `/find-colleges?stream=${createSlug(
+                              selectedStreamTitle || "unspecified"
+                            )}&career=${createSlug(
+                              career.title
+                            )}&streamId=${streamId}&careerId=${career.id}`
+                          )
                         }
                       >
                         {career.title}
@@ -383,7 +416,13 @@ const CollegeFinder: React.FC = () => {
                 <Button
                   variant="text"
                   size="small"
-                  onClick={() => router.push(`/find-colleges`)}
+                  onClick={() =>
+                    router.push(
+                      `/find-colleges?stream=${createSlug(
+                        selectedStreamTitle || "unspecified"
+                      )}&streamId=${streamId}`
+                    )
+                  }
                 >
                   View All
                 </Button>
@@ -409,7 +448,15 @@ const CollegeFinder: React.FC = () => {
                         fontSize: ".7rem",
                         whiteSpace: "nowrap",
                       }}
-                      onClick={() => router.push(`/find-colleges/${course.id}`)}
+                      onClick={() =>
+                        router.push(
+                          `/find-colleges?stream=${createSlug(
+                            selectedStreamTitle || "unspecified"
+                          )}&course=${createSlug(
+                            course.name
+                          )}&streamId=${streamId}&courseId=${course.id}`
+                        )
+                      }
                     >
                       {course.name}
                     </Button>
