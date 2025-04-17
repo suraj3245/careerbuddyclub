@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { createTheme, ThemeProvider, styled } from "@mui/material/styles";
 import {
   Box,
@@ -17,10 +17,48 @@ import {
   Dialog,
   useMediaQuery,
 } from "@mui/material";
-import { FavoriteBorder, Search, LocationOn } from "@mui/icons-material";
+import { FavoriteBorder, Search, LocationOn, Link } from "@mui/icons-material";
 import Image from "next/image";
 import BlogSection from "./blog-section";
 import FilterPanel from "./filterpanel";
+import { useSearchParams } from "next/navigation";
+import axios from "axios";
+
+interface Stream {
+  id: number;
+  title: string;
+  description: string | null;
+  colleges: College[];
+  companies: Company[];
+  careers: Career[];
+  courses: Course[];
+}
+interface Company {
+  id: number;
+  name: string;
+}
+interface Career {
+  id: number;
+  title: string;
+}
+interface Course {
+  id: number;
+  name: string;
+}
+interface College {
+  id: number;
+  college_full_name: string;
+  college_short_name: string;
+  type: string;
+  approved_by: string;
+  established_year: number;
+  about: string;
+  address: string;
+  phone: string;
+  email: string;
+  website: string;
+  city: string;
+}
 
 // Custom theme
 const theme = createTheme({
@@ -75,9 +113,134 @@ const FloatingButton = styled(Button)(({ theme }) => ({
 }));
 
 export default function CollegeListing() {
+  const searchParams = useSearchParams();
+  const streamId = searchParams.get("streamId");
+  const collegeId = searchParams.get("collegeId");
+  const companyId = searchParams.get("companyId");
+  const careerId = searchParams.get("careerId");
+  const courseId = searchParams.get("courseId");
+
+  const [allColleges, setAllColleges] = useState<College[]>([]);
+  const [filteredByCoursesColleges, setFilteredByCoursesColleges] = useState<
+    College[]
+  >([]);
+  const [streams, setStreams] = useState<Stream[]>([]);
+  const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
   const [sortBy, setSortBy] = useState("Featured");
   const [dialogOpen, setDialogOpen] = useState(false);
   const isLargeScreen = useMediaQuery(theme.breakpoints.up("lg"));
+
+  useEffect(() => {
+    // Fetch all college details
+    axios
+      .post("https://test.careerbuddyclub.com:8080/api/students/getallcollegesdetails")
+      .then((res) => setAllColleges(res?.data?.colleges || []))
+      .catch(console.error);
+
+    // Fetch streams with nested relations
+    axios
+      .post("https://test.careerbuddyclub.com:8080/api/students/getfilterationdata")
+      .then((res) => setStreams(res?.data?.streams))
+      .catch(console.error);
+  }, []);
+
+  const fetchCollegesByCourse = async (courseIds: string[]) => {
+    try {
+      const res = await axios.post(
+        "https://test.careerbuddyclub.com:8080/api/students/getcollegesbycourses",
+        {
+          course_ids: courseIds,
+        }
+      );
+      return res?.data?.colleges;
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    const courseIds = selectedFilters
+      .filter((filter) => filter.startsWith("Courses|"))
+      .map((filter) => filter.split("|")[1]); // extract course ID
+
+    if (courseIds.length > 0) {
+      fetchCollegesByCourse(courseIds).then((colleges) => {
+        setFilteredByCoursesColleges(colleges || []);
+      });
+    } else {
+      setFilteredByCoursesColleges([]);
+    }
+  }, [selectedFilters]);
+
+  // Find the selected stream object
+  const selectedStream = useMemo(
+    () => streams.find((s) => s.id.toString() === streamId),
+    [streams, streamId]
+  );
+
+  // Decide which colleges to show: all or only those in the selected stream
+  const displayedColleges = useMemo(() => {
+    let baseColleges: College[] =
+      filteredByCoursesColleges.length > 0
+        ? filteredByCoursesColleges
+        : allColleges;
+
+    // If no filters, return early
+    if (selectedFilters.length === 0) return baseColleges;
+
+    // Organize selectedFilters by category
+    const filtersByCategory = selectedFilters.reduce((acc, filter) => {
+      const [category, id, name] = filter.split("|");
+      if (!acc[category]) acc[category] = new Set();
+      acc[category].add(id || name); // use id if available, else name
+      return acc;
+    }, {} as Record<string, Set<string>>);
+
+    // If a stream is selected, filter to its colleges first
+    if (selectedStream && !filtersByCategory.Streams) {
+      const ids = new Set(selectedStream.colleges.map((c) => c.id));
+      baseColleges = baseColleges.filter((col) => ids.has(col.id));
+    }
+
+    if (filtersByCategory.Streams) {
+      const streamIds = filtersByCategory.Streams;
+      const validCollegeIds = new Set<number>();
+      streams.forEach((stream) => {
+        if (streamIds.has(String(stream.id))) {
+          stream.colleges.forEach((college) => validCollegeIds.add(college.id));
+        }
+      });
+      baseColleges = baseColleges.filter((college) =>
+        validCollegeIds.has(college.id)
+      );
+    }
+
+    // Apply filters
+    return baseColleges.filter((college) => {
+      // Location
+      if (
+        filtersByCategory.Location &&
+        !filtersByCategory.Location.has(college.city)
+      ) {
+        return false;
+      }
+
+      // Type
+      if (filtersByCategory.Type && !filtersByCategory.Type.has(college.type)) {
+        return false;
+      }
+
+      // ApprovedBy
+      if (
+        filtersByCategory.ApprovedBy &&
+        !filtersByCategory.ApprovedBy.has(college.approved_by)
+      ) {
+        return false;
+      }
+
+      return true;
+    });
+  }, [allColleges, filteredByCoursesColleges, selectedStream, selectedFilters]);
 
   const RegisterContent = () => (
     <Box sx={{ p: 3, bgcolor: "#FFD700", borderRadius: 2 }}>
@@ -112,12 +275,22 @@ export default function CollegeListing() {
         <Grid container spacing={3}>
           {/* Left Sidebar */}
           <Grid item xs={12} md={3} lg={3}>
-            <FilterPanel />
+            <FilterPanel
+              streams={streams}
+              allColleges={allColleges}
+              selectedStreamId={streamId}
+              collegeId={collegeId}
+              companyId={companyId}
+              careerId={careerId}
+              courseId={courseId}
+              selectedFilters={selectedFilters}
+              setSelectedFilters={setSelectedFilters}
+            />
           </Grid>
 
           {/* College Listings */}
           <Grid item xs={12} md={9} lg={6}>
-            <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
+            {/* <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
               <Box sx={{ flexGrow: 1 }} />
               <FormControl size="small" sx={{ minWidth: 200 }}>
                 <Select
@@ -135,13 +308,17 @@ export default function CollegeListing() {
                   }}
                 >
                   <MenuItem value="Featured">Sort by: Featured</MenuItem>
-                  <MenuItem value="Rating">Sort by: Rating</MenuItem>
-                  <MenuItem value="Fees">Sort by: Fees</MenuItem>
+                  <MenuItem value="Alphabetical">
+                    Sort by: Alphabetical
+                  </MenuItem>
+                  <MenuItem value="Established">
+                    Sort by: Established Year
+                  </MenuItem>
                 </Select>
               </FormControl>
-            </Box>
-            {[1, 2, 3, 4, 5].map((college) => (
-              <CollegeCard key={college}>
+            </Box> */}
+            {displayedColleges.map((college) => (
+              <CollegeCard key={college.id}>
                 <CardContent>
                   <Box
                     sx={{
@@ -160,7 +337,7 @@ export default function CollegeListing() {
                         minWidth: 0,
                       }}
                     >
-                      <Box
+                      {/* <Box
                         sx={{
                           position: "relative",
                           width: 60,
@@ -171,28 +348,29 @@ export default function CollegeListing() {
                       >
                         <Image
                           src="/placeholder.svg"
-                          alt="College logo"
+                          alt={`${college?.college_short_name} logo`}
                           layout="fill"
                           objectFit="contain"
                         />
-                      </Box>
+                      </Box> */}
                       <Box>
                         <Typography variant="subtitle1">
-                          IIM Ahmedabad (IIMA) : Indian Institute of Management
+                          {college?.college_full_name} (
+                          {college?.college_short_name})
                         </Typography>
                         <Box
                           sx={{ display: "flex", alignItems: "center", mt: 1 }}
                         >
                           <LocationOn sx={{ mr: 1 }} />
                           <Typography variant="body2">
-                            Ahmedabad : Govt
+                            {college?.city} : {college?.type}
                           </Typography>
                         </Box>
                       </Box>
                     </Box>
-                    <IconButton sx={{ alignSelf: "flex-start" }}>
+                    {/* <IconButton sx={{ alignSelf: "flex-start" }}>
                       <FavoriteBorder />
-                    </IconButton>
+                    </IconButton> */}
                   </Box>
 
                   {/* Details Section: full width */}
@@ -200,31 +378,33 @@ export default function CollegeListing() {
                     <Grid container spacing={2}>
                       <Grid item xs={12} sm={4}>
                         <Typography variant="body2" color="text.secondary">
-                          Courses Offered
+                          Approved By
                         </Typography>
-                        <Typography>17 Courses | ⭐ 4.7</Typography>
+                        <Typography>{college?.approved_by || "N/A"}</Typography>
                         <Typography
                           variant="body2"
                           color="text.secondary"
                           sx={{ mt: 1 }}
                         >
-                          Exams Accepted
+                          Established
                         </Typography>
-                        <Typography>CBSE, +2, ISE</Typography>
+                        <Typography>
+                          {college?.established_year || "N/A"}
+                        </Typography>
                       </Grid>
                       <Grid item xs={12} sm={4}>
                         <Typography variant="body2" color="text.secondary">
-                          Total Tuition Fees
+                          Email
                         </Typography>
-                        <Typography>₹64 K - 4 L</Typography>
+                        <Typography>{college?.email || "N/A"}</Typography>
                         <Typography
                           variant="body2"
                           color="text.secondary"
                           sx={{ mt: 1 }}
                         >
-                          Average Salary
+                          Phone
                         </Typography>
-                        <Typography>₹1 L - 1.5 L</Typography>
+                        <Typography>{college?.phone || "N/A"}</Typography>
                       </Grid>
                       <Grid item xs={12} sm={4}>
                         <Box
@@ -234,8 +414,8 @@ export default function CollegeListing() {
                             gap: 2,
                           }}
                         >
-                          <Button variant="outlined" startIcon={<Search />}>
-                            Compare
+                          <Button variant="outlined" startIcon={<Link />}>
+                            Visit Website
                           </Button>
                           <Button variant="contained">Brochure</Button>
                         </Box>
@@ -245,6 +425,11 @@ export default function CollegeListing() {
                 </CardContent>
               </CollegeCard>
             ))}
+            {displayedColleges.length === 0 && (
+              <Typography variant="h6" sx={{ mt: 4, textAlign: "center" }}>
+                No colleges found matching the selected filters.
+              </Typography>
+            )}
           </Grid>
 
           {/* Register Banner (Third Column) */}
