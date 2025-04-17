@@ -164,13 +164,7 @@ const CollegeFinder: React.FC = () => {
                 <Button
                   variant="text"
                   size="small"
-                  onClick={() =>
-                    router.push(
-                      `/find-colleges?stream=${createSlug(
-                        selectedStreamTitle || "unspecified"
-                      )}&streamId=${streamId}`
-                    )
-                  }
+                  onClick={() => router.push(`/find-colleges`)}
                 >
                   View All
                 </Button>
@@ -257,13 +251,7 @@ const CollegeFinder: React.FC = () => {
                   <Button
                     variant="text"
                     size="small"
-                    onClick={() =>
-                      router.push(
-                        `/find-colleges?stream=${createSlug(
-                          selectedStreamTitle || "unspecified"
-                        )}&streamId=${streamId}`
-                      )
-                    }
+                    onClick={() => router.push(`/find-colleges`)}
                   >
                     View All
                   </Button>
@@ -339,13 +327,7 @@ const CollegeFinder: React.FC = () => {
                   <Button
                     variant="text"
                     size="small"
-                    onClick={() =>
-                      router.push(
-                        `/find-colleges?stream=${createSlug(
-                          selectedStreamTitle || "unspecified"
-                        )}&streamId=${streamId}`
-                      )
-                    }
+                    onClick={() => router.push(`/find-colleges`)}
                   >
                     View All
                   </Button>
@@ -416,13 +398,7 @@ const CollegeFinder: React.FC = () => {
                 <Button
                   variant="text"
                   size="small"
-                  onClick={() =>
-                    router.push(
-                      `/find-colleges?stream=${createSlug(
-                        selectedStreamTitle || "unspecified"
-                      )}&streamId=${streamId}`
-                    )
-                  }
+                  onClick={() => router.push(`/find-colleges`)}
                 >
                   View All
                 </Button>
