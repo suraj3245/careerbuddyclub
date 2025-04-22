@@ -1,6 +1,7 @@
 "use client";
 import "./globals.scss";
 import localFont from "next/font/local";
+import { EB_Garamond } from "next/font/google";
 import BackToTopCom from "./components/common/back-to-top-com";
 import { Providers } from "@/redux/provider";
 import HeaderFour from "@/layouts/headers/header-4";
@@ -36,6 +37,11 @@ const gordita = localFont({
   variable: "--gorditas-font",
 });
 1;
+const garamond = EB_Garamond({
+  weight: ["400", "500", "600", "700", "800"],
+  subsets: ["latin"],
+  variable: "--eb_garamond-font",
+});
 
 export default function RootLayout({
   children,
@@ -132,6 +138,7 @@ export default function RootLayout({
       </head>
       <body
         suppressHydrationWarning={true}
+        className={`${gordita.variable} ${garamond.variable}`}
       >
         <noscript>
           <iframe
