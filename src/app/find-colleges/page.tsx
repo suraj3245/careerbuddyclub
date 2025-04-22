@@ -1,11 +1,15 @@
 import React from "react";
 import Wrapper from "@/layouts/wrapper";
-import FilterPage from "../components/filters/filterpage";
 import { Metadata } from "next";
+import dynamic from "next/dynamic";
 
 export const metadata: Metadata = {
   title: "Explore Top Colleges in India | Find Your Best Fit Today",
 };
+
+const FilterPage = dynamic(() => import("../components/filters/filterpage"), {
+  ssr: false,
+});
 
 const FindColleges = () => {
   return (
