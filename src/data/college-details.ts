@@ -16,7 +16,8 @@ import job_img_11 from "@/assets/images/logo/DGC.jpeg";
 import job_img_12 from "@/assets/images/logo/CCHM.jpg";
 import job_img_13 from "@/assets/images/logo/SGI.webp";
 import job_img_14 from "@/assets/images/logo/nav-chetna.png";
-import job_img_15 from "@/assets/images/logo/MPU.png"
+import job_img_15 from "@/assets/images/logo/MPU.png";
+import job_img_16 from "@/assets/images/logo/DBSGU-logo.svg";
 
 
 const college_details: IcollegeType[] = [
@@ -3209,7 +3210,7 @@ const college_details: IcollegeType[] = [
 
 
 
-////////////////UPES_dehradun//////////////////////////////////////////
+////////////////UPES_dehradun////////////////////////////////////////////////
 
   {
     id: "UPES",
@@ -7660,14 +7661,14 @@ const college_details: IcollegeType[] = [
       coursesAndFees: [
       {
         course: "B. Pharma",
-        specialization: "",
+        specialization: "N/A",
         annualFee: "As per the fees structure",
         duration: "Direct Admission + Counselling",
         eligibility: "10+2 PCM/PCB",
       },
       {
         course: "B. Pharma (Lateral Entry)",
-        specialization: "",
+        specialization: "N/A",
         annualFee: "As per the fees structure",
         duration: "Direct Admission + Counselling",
         eligibility: "D. Pharma",
@@ -7675,7 +7676,7 @@ const college_details: IcollegeType[] = [
   
        {
         course: "D. Pharma",
-        specialization: "",
+        specialization: "N/A",
         annualFee: "As per the fees structure",
         duration: "Direct Admission + Counselling",
         eligibility: "10+2 with PCM/PCB",
@@ -8038,22 +8039,7 @@ const college_details: IcollegeType[] = [
         name: "A",
         info: "NAAC A, For All courses",
       },
-      // {
-      //   name: "TOI (B.Tech)",
-      //   info: "#142 out of 170",
-      // },
-      // {
-      //   name: "Indiatoday (B.Tech)",
-      //   info: "#157 out of 246",
-      // },
-      // {
-      //   name: "Outlook (B.Tech)",
-      //   info: "#107 out of 160",
-      // },
-      // {
-      //   name: "",
-      //   info: "",
-      // },
+     
     ],
     reviewinfo: [
       {
@@ -8106,7 +8092,7 @@ const college_details: IcollegeType[] = [
     duration: "Fulltime",
     date: "18 Jul 2019",
     college: "NAV CHETNA COLLEGE",
-    location: "1)NEAR BALA SUNDRI MANDIR MANDUWALA DEHRADUN, 2) 658 A Dakra Garhi Cantt Dehradun ",
+    location: "1)Near Bala Sundri Mandir Manduwala Dehradun, 2) 658 A Dakra Garhi Cantt Dehradun ",
     category: ["+918755737722","7895929760"],
     experience: "Fresher",
     salary: 900,
@@ -8582,8 +8568,8 @@ const college_details: IcollegeType[] = [
     twitter: "",
     linkedin: "",
     courses:
-      "Mind Power University (MPU) offers a diverse range of undergraduate, postgraduate, and diploma programs designed to meet current industry demands. Engineering aspirants can choose from B.Tech in Mechanical Engineering (General &amp; Electric Vehicle), Computer Science Engineering, and Electronics &amp; Communication, along with M.Tech for advanced technical specialization. Business-minded students can pursue BBA in Business Analytics with IBM certification, and MBA with dual specializations in Business Analytics, Marketing, Finance, HR, and Operations. In the tech space, BCA programs are offered with specializations in Data Science &amp; AI with IBM certification and Cyber Security &amp; Forensic Science, alongside MCA for deeper computing knowledge. The hospitality stream includes Bachelor, Master, and Diploma in Hotel Management. MPU also offers strong programs in paramedical sciences, BJMC (Journalism &amp; Mass Communication), and Commerce, preparing students for a wide range of careers.The university’s course design, in line with NEP 2020, ensures an industry-relevant, skill-focused academic experience supported by global collaborations like IBM.",
-
+      "Mind Power University (MPU) offers a diverse range of undergraduate, postgraduate, and diploma programs designed to meet current industry demands. Engineering aspirants can choose from B.Tech in Mechanical Engineering (General & Electric Vehicle), Computer Science Engineering, and Electronics & Communication, along with M.Tech for advanced technical specialization. Business-minded students can pursue BBA in Business Analytics with IBM certification, and MBA with dual specializations in Business Analytics, Marketing, Finance, HR, and Operations. In the tech space, BCA programs are offered with specializations in Data Science & AI with IBM certification and Cyber Security  Forensic Science, alongside MCA for deeper computing knowledge. The hospitality stream includes Bachelor, Master, and Diploma in Hotel Management. MPU also offers strong programs in paramedical sciences, BJMC (Journalism & Mass Communication), and Commerce, preparing students for a wide range of careers.The university’s course design, in line with NEP 2020, ensures an industry-relevant, skill-focused academic experience supported by global collaborations like IBM.",
+     
     ranking:
       "",
     awards:
@@ -8603,10 +8589,10 @@ const college_details: IcollegeType[] = [
     overviewtable:[
       {
         specialization: "Short Name",
-        annualfee: "NAV CHETNA COLLEGE",
+        annualfee: "MPU",
       },
       {
-        specialization: "Institute Type - Public/ Private/ Govt",
+        specialization: "Institute Type",
         annualfee: "Private",
       },
       {
@@ -8653,99 +8639,122 @@ const college_details: IcollegeType[] = [
       {
         course: "B.Tech Aerospace Engineering",
         specialization: "Drone Technology",
-        annualFee: "As per university norms",
-        duration: "MPUCET, MERIT AND ENTRANCE EXAMINATION BASED",
-        eligibility: "12TH PCM",
+        annualFee: "1.68L",
+        duration: "MERIT AND ENTRANCE EXAMINATION BASED",
+        eligibility: "10+2/ DIPLOMA IN ENGINEERING IN RELEVANT FIELD.",
       },
       {
         course: "B.Tech Computer Science Engineering",
-        specialization: "AI & ML with IBM Certification,Data Science & Cloud with IBM Certification,Cyber & Forensics – IBM Cert.",
-        annualFee: "As per university norms",
-        duration: "N/A",
-        eligibility: "12TH PCM",
+        specialization: "AI & ML with IBM Certification,Data Science & Cloud with IBM Certification,Cyber Security & Forensic – IBM Certification",
+        annualFee: "1.68L",
+        duration: "MERIT AND ENTRANCE EXAMINATION BASED",
+        eligibility: "10+2/ DIPLOMA IN ENGINEERING IN RELEVANT FIELD.",
       },
       {
         course: "B.Tech Electrical Engineering",
-        specialization: "General",
-        annualFee: "As per university norms",
-        duration: "N/A",
-        eligibility: "12TH PCM",
+        specialization: "CORE",
+        annualFee: "1.52L",
+        duration: "MERIT AND ENTRANCE EXAMINATION BASED",
+        eligibility: "10+2/ DIPLOMA IN ENGINEERING IN RELEVANT FIELD.",
+      },
+      {
+        course: "B.Tech Computer Science Engineering",
+        specialization: "CORE",
+        annualFee: "1.52L",
+        duration: "MERIT AND ENTRANCE EXAMINATION BASED",
+        eligibility: "10+2/ DIPLOMA IN ENGINEERING IN RELEVANT FIELD.",
       },
       {
         course: "B.Tech Mechanical Engineering",
-        specialization: "Electric Vehicle",
-        annualFee: "As per university norms",
-        duration: "N/A",
-        eligibility: "12TH PCM",
+        specialization: "CORE,Electric Vehicle",
+        annualFee: "1.52L",
+        duration: "MERIT AND ENTRANCE EXAMINATION BASED",
+        eligibility: "10+2/ DIPLOMA IN ENGINEERING IN RELEVANT FIELD.",
       },
       {
         course: "B.Tech Electronics & Communication Engineering",
-        specialization: "N/A",
-        annualFee: "As per university norms",
-        duration: "N/A",
-        eligibility: "12TH PCM",
+        specialization: "CORE",
+        annualFee: "1.52L",
+        duration: "MERIT AND ENTRANCE EXAMINATION BASED",
+        eligibility: "10+2/ DIPLOMA IN ENGINEERING IN RELEVANT FIELD.",
       },
      
       {
         course: "M.Tech",
         specialization: "N/A",
-        annualFee: "As per university norms",
-        duration: "N/A",
-        eligibility: "N/A",
+        annualFee: "1.52L",
+        duration: "MERIT AND ENTRANCE EXAMINATION BASED",
+        eligibility: "B.Tech/ B.E or M. Sc. In relevant field",
       },
       {
         course: "BBA - Buisness Analytics with IBM certification",
         specialization: "N/A",
-        annualFee: "As per university norms",
-        duration: "N/A",
-        eligibility: "ANY STREAM",
+        annualFee: "1.3L",
+        duration: "MERIT AND ENTRANCE EXAMINATION BASED",
+        eligibility: "XII from recognized board",
       },
 
       {
-        course: "MBA (DUAL SPECIALIZATION)",
-        specialization: "buisness analytics,marketing, finance, human resources, operation",
-        annualFee: "As per university norms",
-        duration: "N/A",
-        eligibility: "ANY STREAM",
+        course: "MBA (Dual Specialization) with IBM with laptop Without international tour",
+        specialization: "N/A",
+        annualFee: "1.73L",
+        duration: "MERIT AND ENTRANCE EXAMINATION BASED",
+        eligibility: "Bachelor Degree in any discipline with 45% or equivalent grades",
+      },
+
+      {
+        course: "MBA (Dual Specialization) with IBM with laptop and With international tour",
+        specialization: "Buisness Analytics,marketing,finance,human resources, operation",
+        annualFee: "239500",
+        duration: "MERIT AND ENTRANCE EXAMINATION BASED",
+        eligibility: "Bachelor Degree in any discipline with 45% or equivalent grades",
       },
 
       {
         course: "BCA",
-        specialization: "Data Science & AI – IBM Certification",
-        annualFee: "As per university norms",
-        duration: "N/A",
-        eligibility: "ANY STREAM",
+        specialization: "Data Science & AI – IBM Certification,Cyber Security& Forensic Science with IBM certification",
+        annualFee: "1.3L",
+        duration: "MERIT AND ENTRANCE EXAMINATION BASED",
+        eligibility: "XII from recognized board",
       },
 
       {
         course: "MCA",
-        specialization: "N/A",
-        annualFee: "As per university norms",
-        duration: "N/A",
-        eligibility: "ANY STREAM",
+        specialization: "Data Science & AI – IBM Certification,Cyber Security& Forensic Science with IBM certification",
+        annualFee: "1.35L",
+        duration: "MERIT AND ENTRANCE EXAMINATION BASED",
+        eligibility: "A Candidate shall have passed the qualifying exam of B.C.A/B.Sc (computer science)/ B.Sc (I.T)/B.E(CSE)/ B.Tech(CSE)/ BE(I.T)/ B.Tech(IT) or equivalent Degree or passed any graduation degree (e.g.: B.E/B.Tech/ B.Sc/B.Com/ B.A/ B.voc etc), preferably with maths. business-maths or statistics at 10+2 level or at graduation level",
       },
 
       {
-        course: "BACHELOR IN HOTEL MANAGEMENT",
-        specialization: "N/A",
-        annualFee: "As per university norms",
+        course: "Bachelor In Hotel Management",
+        specialization: "MERIT AND ENTRANCE EXAMINATION BASED",
+        annualFee: "1.25L",
         duration: "N/A",
-        eligibility: "any stream",
+        eligibility: "XII from recognized board",
       },
 
       {
-        course: "MASTER IN HOTEL MANAGEMENT",
-        specialization: "N/A",
-        annualFee: "As per university norms",
+        course: "Master In Hotel Management",
+        specialization: "MERIT AND ENTRANCE EXAMINATION BASED",
+        annualFee: "1.10L",
         duration: "N/A",
-        eligibility: "any stream",
+        eligibility: "Bachelor Degree in any discipline with 45% or equivalent grades",
       },
       {
-        course: "DIPLOMA IN HOTEL MANAGEMENT",
-        specialization: "N/A",
-        annualFee: "As per university norms",
+        course: "Diploma In Hotel Management",
+        specialization: "MERIT AND ENTRANCE EXAMINATION BASED",
+        annualFee: "92000",
         duration: "N/A",
-        eligibility: "10th 12th based any stream",
+        eligibility: "X from recognized board",
+      },
+
+      {
+        course: "Advance Diploma",
+        specialization: "MERIT AND ENTRANCE EXAMINATION BASED",
+        annualFee: "92000",
+        duration: "N/A",
+        eligibility: "XII from recognized board",
       },
 
       
@@ -8754,11 +8763,11 @@ const college_details: IcollegeType[] = [
     admissionDates: [
       {
         name: "Application Start Date",
-        date: "As per university norms",
+        date: "N/A",
       },
       {
         name: "Application End Date",
-        date: "As per university norms",
+        date: "N/A",
       },
       {
         name: "Date of Result Declaration",
@@ -8794,19 +8803,19 @@ const college_details: IcollegeType[] = [
     placementinformation: [
       {
         name: "Placement Year",
-        info: "2021-22",
+        info: "N/A",
       },
       {
         name: "Number of Companies Visited",
-        info: "12",
+        info: "N/A",
       },
       {
         name: "Number of Students",
-        info: "78",
+        info: "N/A",
       },
       {
         name: "Highest Package",
-        info: "5.75 P.A.CTC",
+        info: "N/A",
       },
      
      
@@ -8836,14 +8845,461 @@ const college_details: IcollegeType[] = [
     ],
 
     awardsinfo: [
-      // "NAAC A+",
-      // "Top Private Law College In Uttarakhand.",
-      // "Most Promising Engineering & Management Institute in India Award.",
-      // "Most Aware Campus of Uttarakhand Award.",
-      // "Icon Award of Uttarakhand.",
-      
+    
+      "N/A"
      
     ],
+   
+    facultytable: [
+      {
+        name: "Dr. Vishal",
+        Qualification: "Dept. of  Microbiology",
+        Experience: "22 year",
+        Specialization: "Agriculture microbiology, Biological Control, Plant growth promo. Rhizo bacteria, Fermentation Technology, Antimicrobial Activity of mediclinal plant, Microbial pathology.",
+      },
+      {
+        name: "Dr. RD Saklani",
+        Qualification: "Dept. of  Geology",
+        Experience: "10 year",
+        Specialization: "Sequence stratigraphy, Petroleum Geology, Ichnology, Disaster Management, Engg. Geology, Field Geology, Himalayan Geology & Western India (Kachchh & Rajasthan).",
+      },
+      {
+        name: "Mr. S K Thakur",
+        Qualification: "Dept. of  Statistics & Mathematics",
+        Experience: "35 year",
+        Specialization: "Statistics, International finance,  International Economics, Coorporates Law. ",
+      },
+      {
+        name: "Dr. Neelesh",
+        Qualification: "Dept. of  Microbiology",
+        Experience: "02 year",
+        Specialization: "Medical microbiology, General microbiology.",
+      },
+      {
+        name: "Mrs. Preeti Sood",
+        Qualification: "Dept. of  Hotel Management ",
+        Experience: "23 year",
+        Specialization: "Food and beverage,Front office, House Keeping, Kitchen.",
+      },
+      {
+        name: "Mr. Gurmeet singh",
+        Qualification: "Dept. of  Chemistry",
+        Experience: "03 year",
+        Specialization: "Waste Management, Water purification, Biofilms and filters, Polymers, Analytical Chemistry.",
+      },
+      {
+        name: "Mr. Kashif Hussain",
+        Qualification: "Dept. of  Pharmacy",
+        Experience: "12 year",
+        Specialization: "Pharmaceutical Chemistry.",
+      },
+      {
+        name: "Mr. Javed Siddiqui",
+        Qualification: "Dept. of  Paramedical ",
+        Experience: "14 year",
+        Specialization: "Clinical biochemistry, Pathology, Medical Microbiology.",
+      },
+      {
+        name: "Ms. Rohita",
+        Qualification: "Dept. of  Pharmacy",
+        Experience: "01 year",
+        Specialization: "Hospital and clinical pharmacy, Community pharmacy, Pharmacy practice, Social pharmacy.",
+      },
+      {
+        name: "Dr. Manisha Singh",
+        Qualification: "Dept. of  Paramedical ",
+        Experience: "01 year",
+        Specialization: "Orthopedics, Neurology.",
+      },
+      {
+        name: "Dr. Kiran",
+        Qualification: "Dept. of  Paramedical ",
+        Experience: "05 year",
+        Specialization: "Orthopedics",
+      },
+      {
+        name: "Dr. Nidhi Chatterjee",
+        Qualification: "Dept. of  Zoology",
+        Experience: "18 year",
+        Specialization: "Zoology, Fish and Fishries, Parasitology.",
+      },
+      {
+        name: "Ms. Susmita Bahuguna ",
+        Qualification: "Dept. of  Nursing",
+        Experience: "01 year",
+        Specialization: "Nursing fundamental, Social nursing",
+      },
+      {
+        name: "Ms. Oshin",
+        Qualification: "Dept. of  Nursing",
+        Experience: "01 year",
+        Specialization: "Psychology, Anatomy, Physiology",
+      },
+
+    ],
+    hostelinfo: [
+      {
+        name: "Capacity",
+        info: "1000",
+      },
+      {
+        name: "Hostel Fees",
+        info: "In-house Residential Accommodation (Optional) Charges (Note: - Hostel charges is per year which includes Vegetarian / Non-Vegetarian Food) ",
+      },
+      {
+        name: "",
+        info: "•	Standard Quad (Four Sharing Room) with Attached Toilet Rs.48000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "•	Deluxe Quad (Four Sharing Room) with Attached Toilet Rs.58000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "•	Standard (Three Sharing Room) with Attached Toilet Rs.68000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "•	Deluxe (Three Sharing Room) with Attached Toilet Rs.78000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "•	Standard (Two Sharing Room) with Attached Toilet Rs.73000/-per Year.        ",
+      },
+      {
+        name: "",
+        info: "•	Deluxe (Two Sharing Room) with Attached Toilet Rs.78000/-per Year. ",
+      },
+      {
+        name: "",
+        info: "•	Super Deluxe (Two Sharing Room) with Attached Toilet Rs.88000/-per Year.  ",
+      },
+      {
+        name: "",
+        info: "Executive Room (TWO SHARING Room) with LCD + Tata Sky + Attached Toilet Rs.95000/-per Year. ",
+      },
+      {
+        name: "",
+        info: "•	Executive Room (TWO SHARING Room) with A.C + LCD + Tata Sky + Attached Toilet Rs.105000/-per Year.  ",
+      },
+      {
+        name: "",
+        info: "•	Hostel Enrolment & Furnishing Fee: Rs.5000/-(To be paid Once) Laundry Charges: Rs.4800/-per Year",
+      },
+      {
+        name: "Mess Fees",
+        info: "Includes in Hostel Fees",
+      },
+      {
+        name: "Location (on-campus or off-campus)",
+        info: "On-Campus",
+      },
+      {
+        name: "Number of Rooms",
+        info: "300",
+      },
+      {
+        name: "Room Type (Occupancy basis)",
+        info: "Single Sharing, Two sharing, Three Sharing, Four Sharing",
+      },
+      {
+        name: "Hostel Facilities/ Amenities",
+        info: "Wi-Fi, CCTV Surveillance, Security Guards, Warden, Indoor Stadium, Outdoor Playground, Gymnasium, etc.",
+      },
+    ],
+    rankinginfo: [
+      {
+        name: "N/A",
+        info: "",
+      },
+      // {
+      //   name: "2390(University)",
+      //   info: "The Asia, 2022",
+      // },
+      // {
+      //   name: "350(University)",
+      //   info: "The India, 2022",
+      // },
+      // {
+      //   name: "9(University)",
+      //   info: "The Uttarakhand, 2022",
+      // },
+      // {
+      //   name: "4(University)",
+      //   info: "Dehradun, 2022",
+      // },
+    ],
+    reviewinfo: [
+      {
+        id: 1,
+        rating: 4.7,
+        desc: "Faculty of my college are very higher educated . They are qualified for the best universities with best knowledge and gesture . They always treat students very well..",
+        user: user_1,
+        name: "",
+        location: "",
+      },
+      {
+        id: 2,
+        rating: 4.5,
+        desc: "This  college demonstrates a strong commitment to preparing its students for successful careers..",
+        user: user_2,
+        name: "",
+        location: "",
+      },
+      {
+        id: 3,
+        rating: 4.8,
+        desc: "It was the good experience about my collage I were study past some year in this collage and I saw a major change in my communication skill and our department staf is also a good performance..",
+        user: user_3,
+        name: "",
+        location: "",
+      },
+    ],
+  },
+
+////////////////////////////DBS University ////////////////////////////////////////////////////////
+
+
+  {
+    id: "DBS",
+    pageTitle: "Career Buddy Club | DBS Global University",
+    metaDescription: "DBS Global University in Dehradun offers globally benchmarked education with industry integration, international collaborations,and experiential learning. A next-gen campus aligned with NEP 2020.",
+    logo: job_img_16,
+    type: "State Private University",
+    establishmentyear: "2007",
+    Recognisedby: "UGC",
+    Approvedby: "UGC approved,AIU approved,PCI",
+    state: "Uttarakhand",
+    city: "Dehradun",
+    Campusarea: "MI-122,Selaqui,dehradun",
+    link: "dgu.ac",
+    email: "sourabhpanwar@doonbusinessschool.com",
+    founded: "",
+    phone: "6395511513",
+    feild: ["Education"],
+    overviewsection:
+      "DBS Global University, located in the scenic city of Dehradun, is a next-generation academic institution established with a mission  to deliver globally benchmarked education that bridges the gap between academics and industry. With a strong emphasis on technology  integration, international collaborations, and experiential learning, the university offers a transformative environment where students gain not just academic knowledge, but also real-world skills. The campus is known for its vibrant student life, sustainable infrastructure, and progressive educational ecosystem aligned with NEP 2020.",
+    duration: "Fulltime",
+    date: "18 Jul 2019",
+    college: "DBS Global University",
+    location: "MI-122,Selaqui,dehradun",
+    category: ["6395511513"],
+    experience: "Fresher",
+    salary: 900,
+    salary_duration: "Monthly",
+    tags: ["java", "developer"],
+    english_fluency: "Fluent",
+    overview:
+      "DBS Global University, located in the scenic city of Dehradun, is a next-generation academic institution established with a mission to deliver globally benchmarked education that bridges the gap between academics and industry. With a strong emphasis on technology integration, international collaborations, and experiential learning, the university offers a transformative environment where students gain not just academic knowledge, but also real-world skills. The campus is known for its vibrant student life, sustainable infrastructure, and progressive educational ecosystem aligned with NEP 2020.",
+    videoid: "lQIWjOM-YY4",
+    facebook: "",
+    instagram: "",
+    twitter: "",
+    linkedin: "",
+    courses:
+      "DBS Global University offers a diverse array of undergraduate and postgraduate programs across multiple disciplines including Engineering, Management, Computer Applications, Commerce, Hospitality, Journalism, and Paramedical Sciences. Notable programs include B.Tech with specializations in AI/ML, Cyber Security, and Cloud Computing, BCA and MCA with IBM-certified modules in Data Science and Forensics and MBA with dual specializations such as Business Analytics, Marketing, Finance, and HR. The university also runs integrated degrees like B.Tech + MBA and BBA + MBA, allowing students to pursue a continuous academic path with strong industry orientation.",
+
+    ranking:
+      "DBS Global University has earned recognition for its academic excellence and innovative education model. It has consistently been ranked among the top B-Schools in India, including being named the No.1 B-School in Uttarakhand and one of the top private B-Schools in North India by The Week. It is also recognized among the top 50 institutions in India for AI integration and features prominently in rankings by Fortune India and CareerLink for its curriculum quality and placement success.",
+    awards:
+      "",
+    hostel:
+      "",
+    opportunities:
+      "",
+    campus:
+      "",
+    placement:
+      "Placements at DBS Global University are among its strongest assets, with students receiving offers from top recruiters like Aditya Birla Capital, FedEx, Bandhan Bank, and IndusInd Bank. The university has recorded a highest package of INR 24 LPA and an average package of INR 6.69 LPA, reflecting its commitment to employability and industry readiness. Through a curriculum built on practical skills, global certifications, and dedicated placement support, the university ensures that its students are equipped for a successful career from day one.",
+    admission:
+      "",
+    faculty:"",
+
+    overviewtable:[
+      {
+        specialization: "Short Name",
+        annualfee: "DGU",
+      },
+      {
+        specialization: "Institute Type - Public/ Private/ Govt",
+        annualfee: "Private",
+      },
+      {
+        specialization: "State",
+        annualfee: "Uttarakhand",
+      },
+      {
+        specialization: "City",
+        annualfee: "Dehradun",
+      },
+      {
+        specialization: "Location/ Address",
+        annualfee: "MI-122,Selaqui,dehradun",
+      },
+     
+      {
+        specialization: "Phone Numbers",
+        annualfee: "6395511513",
+      },
+      {
+        specialization: "Website",
+        annualfee: "dgu.ac",
+      },
+      {
+        specialization: "Email Address",
+        annualfee:"sourabhpanwar@doonbusinessschool.com",
+      },
+      
+      {
+        specialization: "Area",
+        annualfee: "Education",
+      },
+      {
+        specialization: "Approved by",
+        annualfee: "UGC approved,AIU approved,PCI",
+      },
+      {
+        specialization: "Accreditation",
+        annualfee: "NAAC",
+      },
+     
+    ],
+      coursesAndFees: [
+      {
+        course: "BBA/B.Tech",
+        specialization: "N/A",
+        annualFee: "230000",
+        duration: "Online PI+WAT for BBA/Apptitude Test for B. tech.",
+        eligibility: "65% in 12th,if result awaited then 65% in 10th.",
+      },
+      {
+        course: "BBA+MBA Integrated",
+        specialization: "N/A",
+        annualFee: "210000",
+        duration: "PI+WAT",
+        eligibility: "75% in 12th,if result awaited then 75% in 10th.",
+      },
+      {
+        course: "Rest All UG Programs",
+        specialization: "N/A",
+        annualFee: "180000",
+        duration: "Online PI+WAT",
+        eligibility: "Minimum 60%",
+      },
+      {
+        course: "MBA",
+        specialization: "N/A",
+        annualFee: "100000",
+        duration: "Online PI+WAT",
+        eligibility: "12th+Grad percentage should be 130 in total.Else should have written CAT/XAT/MAT/CMAT ",
+      },
+
+      
+
+
+    
+     ],
+    admissionDates: [
+      {
+        name: "Application Start Date",
+        date: "As per university norms",
+      },
+      {
+        name: "Application End Date",
+        date: "As per university norms",
+      },
+      
+    ],
+    campusinfo: [
+      {
+        name: "Registration Dates",
+        info: "N/A",
+      },
+      // {
+      //   name: "Date of Entrance Test & Interview",
+      //   info: "",
+      // },
+      // {
+      //   name: "Date of Result Declaration",
+      //   info: "",
+      // },
+      // {
+      //   name: "Commencement of the Coursework",
+      //   info: "",
+      // },
+    ],
+    placementinformation: [
+      {
+        name: "Placement Year",
+        info: "2024",
+      },
+      {
+        name: "Maximum Salary",
+        info: "23.5 Lac",
+      },
+
+      {
+        name:"Minimum Salary Package",
+        info:"5 Lac",
+      },
+
+      {
+        name:"Average Salary Percentage for Last 3 Years",
+        info:"8.5 Lac",
+      },
+      {
+        name:"Recruiter List (at least 10)",
+        info:"BP Global,Deloitte,DBS,ANZ,KPMG,Grant Thomton,BCG,Tech Mahindra,Nerolac,Wipro,Asian Paints,ICICI,Infosys,HCL Tech etc",
+      },
+
+      
+
+     
+     
+      
+    ],
+    opportunitiesinfo: [
+      // {
+      //   name: "Registration Dates",
+      //   info: "February 8 to September 15, 2023",
+      // },
+      // {
+      //   name: "Date of Entrance Test & Interview",
+      //   info: "September 17, 2023",
+      // },
+      // {
+      //   name: "Date of Result Declaration",
+      //   info: "September 18, 2023",
+      // },
+      // {
+      //   name: "Last Date of Submission of Fee",
+      //   info: "September 28, 2023",
+      // },
+      // {
+      //   name: "Commencement of the Coursework",
+      //   info: "October 3, 2023",
+      // },
+    ],
+
+    awardsinfo: [
+      "22nd Best B-School in North India - BW Business World 2020",
+      "63rd Best B-School in India - The Week 2020",
+      "67th Best Private B-School in India - BW Business World 2020",
+      "87th Best B-School in India - BW Business World 2020",
+      "2nd Best Institution in India (After IIM-A) in ‘Future Orientation of Management Courses’ - India Today Nielson Survey",
+      "4th Best Management College in India for Industrial Interface – Careerlinks",
+      "5th Best Institution in North India for Management Programs - India Today (June 2018)",
+      "5th Best Pvt. Management Institution in India for ‘Value for Money Education’ - India Today Nielson Survey",
+      "6th Best Business School in India for Top Faculty – Careerlinks",
+      "32nd Best Business School in ‘Overall Performance’ - by Business Today, India Today Nielson Survey",
+      "Ranked among Top 10 B-Schools of North India – All India Management Association (AIMA)",
+      "Most Innovative Business School of India – UTV Bloomberg",
+      "Ranked among Top 14 Best Mass Communication College in All India Ranking. - The Week - 2020",
+      "Amongst top 50 Pvt. Management Institutes in India – Business India",
+      "Amongst Top 15 in Pvt. B-Schools in North India – The Week–Hansa Research Survey",
+      "Rated 2nd Amongst The Top Emerging B-Schools in India – Business Baron",
+      "India Excellence Award for Best Upcoming Management Institute in India – The India Excellence Award",
+],
    
     facultytable: [
       {
@@ -9004,31 +9460,16 @@ const college_details: IcollegeType[] = [
     ],
     rankinginfo: [
       {
-        name: "6384(University)",
-        info: "The World, 2022",
+        name: "N/A",
+        info: "N/A",
       },
-      {
-        name: "2390(University)",
-        info: "The Asia, 2022",
-      },
-      {
-        name: "350(University)",
-        info: "The India, 2022",
-      },
-      {
-        name: "9(University)",
-        info: "The Uttarakhand, 2022",
-      },
-      {
-        name: "4(University)",
-        info: "Dehradun, 2022",
-      },
+      
     ],
     reviewinfo: [
       {
         id: 1,
         rating: 4.7,
-        desc: "Faculty of my college are very higher educated . They are qualified for the best universities with best knowledge and gesture . They always treat students very well..",
+        desc: "The faculty at my college are highly educated and have earned their qualifications from some of the best universities. They possess deep knowledge and a respectful, supportive demeanor. They always treat students with kindness and care, creating a positive learning environment.",
         user: user_1,
         name: "",
         location: "",
@@ -9036,7 +9477,7 @@ const college_details: IcollegeType[] = [
       {
         id: 2,
         rating: 4.5,
-        desc: "This  college demonstrates a strong commitment to preparing its students for successful careers..",
+        desc: "The college shows a clear dedication to equipping students with the skills and knowledge needed for successful careers, bridging the gap between academic learning and real-world application.",
         user: user_2,
         name: "",
         location: "",
@@ -9044,13 +9485,14 @@ const college_details: IcollegeType[] = [
       {
         id: 3,
         rating: 4.8,
-        desc: "It was the good experience about my collage I were study past some year in this collage and I saw a major change in my communication skill and our department staf is also a good performance..",
+        desc: "Studying at this college over the past few years has been a great experience. I’ve seen a significant improvement in my communication skills, and our department staff has consistently performed excellently. Their support and dedication truly made a difference in my academic journey.",
         user: user_3,
         name: "",
         location: "",
       },
     ],
   },
+  
   
   
 
