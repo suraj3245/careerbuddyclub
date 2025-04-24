@@ -23,6 +23,8 @@ const CommonBreadcrumbjob = ({
     "Pal-College": "/assets/text/Pal_College_Brochure.pdf",
     "VMM-College": "/assets/text/vmm_college_brochure.pdf",
     JBIT: "/assets/text/jbit-brochure-2022.pdf",
+    "DBS":"/assets/text/DGU.pdf",
+
   };
 
   type WidgetConfig = {
@@ -70,6 +72,24 @@ const CommonBreadcrumbjob = ({
     "DOON-GROUP-OF-COLLEGES": {
       script: "/scripts/doongroupscript.js",
       content: <div className="ee-formscript border rounded-4 p-2" id="ee-form-16"></div>,
+    },
+    "SGI": {
+      script: "/scripts/sgiscript.js",
+      content: <div className="ee-formscript border rounded-4 p-2" id="ee-form-17"></div>,
+    },
+
+    "NAV-CHETNA-COLLEGE": {
+      script: "/scripts/navchetnascript.js",
+      content: <div className="ee-formscript border rounded-4 p-2" id="ee-form-18"></div>,
+    },
+    
+    "CCHM": {
+      script: "/scripts/cchmscript.js",
+      content: <div className="ee-formscript border rounded-4 p-2" id="ee-form-19"></div>,
+    },
+    "DBS": {
+      script: "/scripts/dbsscript.js",
+      content: <div className="ee-formscript border rounded-4 p-2" id="ee-form-9"></div>,
     },
   };
 
@@ -175,7 +195,7 @@ const Content = ({
         >
           {title}
         </h2>
-        <br />
+        <br/>
         <h4 className="">
           <ReactTyped
             strings={[subtitle]}
@@ -186,7 +206,7 @@ const Content = ({
             showCursor={true}
           />
         </h4>
-        <br />
+        <br/>
         <button className="btn-five wow fadeInUp  text-black d-flex items-center justify-center gap-2 text-white" onClick={downloadBrochure}><Download size={25} />
           Download Brochure <ChevronRight size={25} />
         </button>

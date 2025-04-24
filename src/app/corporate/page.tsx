@@ -24,7 +24,7 @@ const corporate = () => {
         <HeroBannerSix />
         <div className="partner-logos bg-color border-0 pt-30 pb-45 ps-3 pe-3">
           {/* <PartnersSlider2 /> */}
-          <PartnersSlider />
+          <PartnersSlider/>
         </div>
         <FeatureNine />
         <FeatureThree />
