@@ -1,16 +1,17 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
-
-
-
-// const developmentConfig = {
-//   apiUrl: "http://localhost:8000/api",
-// };
-
-// const productionConfig = {
-//   apiUrl: "https://api.yourdomain.com",
-// };
-
-// const config = process.env.NODE_ENV === 'development' ? developmentConfig : productionConfig;
-
-// export default config;
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+    images: {
+      domains: ['test.careerbuddyclub.com'],
+      remotePatterns: [
+        {
+          protocol: 'https',
+          hostname: 'test.careerbuddyclub.com',
+          port: '8080',
+          pathname: '/',
+        },
+      ],
+    },
+  };
+  
+  module.exports = nextConfig;

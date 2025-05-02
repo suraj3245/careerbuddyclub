@@ -423,35 +423,6 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
       // Handle error, e.g., set some state to show an error message
     }
   };
-  // const locationToColleges: Record<Location, string[]> = {
-  //   Dehradun: [
-  //     "Guru Nanak",
-  //     "BFIT",
-  //     "Doon Business",
-  //     "JBIT",
-  //     "Uttaranchal University",
-  //     "Dev Bhoomi College",
-  //     "UPES",
-  //   ],
-  //   Russia: ["University of Russia", "Moscow State University"],
-  //   Dubai: [
-  //     "American University in Dubai",
-  //     "University of Wollongong in Dubai",
-  //   ],
-  //   // Add more locations and colleges as needed
-  // };
-
-  // // Function to get colleges based on selected location
-  // const getCollegesByLocation = (location: Location) => {
-  //   return locationToColleges[location] || [];
-  // };
-
-  // const collegeOptions = getCollegesByLocation(formData.location).map(
-  //   (college: any) => ({
-  //     value: college,
-  //     label: college,
-  //   })
-  // );
 
   // Get the selected college object
   const filteredColleges = collegesData.filter(
@@ -484,105 +455,10 @@ const DashboardProfileArea = ({ setIsOpenSidebar }: IProps) => {
       // Handle error, e.g., set some state to show an error message
     }
   };
-  // const fetchCourses = async () => {
-  //   if (!formData.level || !formData.stream) {
-  //     return; // exit if either level or stream is not selected
-  //   }
 
-  //   try {
-  //     const response = await axios({
-  //       method: "POST",
-  //       url: "https://test.careerbuddyclub.com:8080/api/students/getcoursesbylevelandstream",
-  //       headers: {
-  //         Accept: "*/*",
-  //         "Content-Type": "application/json",
-  //       },
-  //       data: {
-  //         level_id: formData.level,
-  //         stream_id: formData.stream,
-  //       },
-  //     });
-
-  //     // Map the response to the format expected by NiceSelect
-  //     const newCoursesOptions = response.data.map(
-  //       (course: { id: any; name: any }) => ({
-  //         value: course.name, // assuming you want to store the course id
-  //         label: course.name, // the course name for display
-  //       })
-  //     );
-
-  //     setcoursesOptions(newCoursesOptions);
-  //   } catch (error) {
-  //     console.error(error);
-  //     // Handle the error appropriately
-  //   }
-  // };
-  // const fetchSpecializations = async () => {
-  //   try {
-  //     const response = await axios({
-  //       method: "POST",
-  //       url: "https://test.careerbuddyclub.com:8080/api/students/getspecializationsbycourse",
-  //       headers: {
-  //         Accept: "*/*",
-  //         "Content-Type": "application/json",
-  //       },
-  //       data: { course_id: formData.courses },
-  //     });
-  //     const specializationData = response.data.map(
-  //       (spec: { id: any; title: any }) => ({
-  //         value: spec.title,
-  //         label: spec.title,
-  //       })
-  //     );
-  //     setSpecializationOptions(specializationData);
-  //   } catch (error) {
-  //     console.error(error);
-  //     // Handle error, e.g., set some state to show an error message
-  //   }
-  // };
-  // const fetchcolleges = async () => {
-  //   try {
-  //     const response = await axios({
-  //       method: "POST",
-  //       url: "https://test.careerbuddyclub.com:8080/api/students/getcollegesbycoursefeeandlocation",
-  //       headers: {
-  //         Accept: "*/*",
-  //         "Content-Type": "application/json",
-  //       },
-  //       data: {
-  //         course_id: formData.courses,
-  //         fee_range: formData.feeRange,
-  //         city: formData.location,
-  //       },
-  //     });
-  //     const collegeData = response.data.map(
-  //       (college: { id: any; college_full_name: any }) => ({
-  //         value: college.college_full_name,
-  //         label: college.college_full_name,
-  //       })
-  //     );
-  //     setCollegesOptions(collegeData);
-  //   } catch (error) {
-  //     console.error(error);
-  //     // Handle error, e.g., set some state to show an error message
-  //   }
-  // };
   useEffect(() => {
     fetchLevelOptions(); // Fetch stream options when the component mounts
   }, []);
-  // useEffect(() => {
-  //   if (formData.stream && formData.level) {
-  //     fetchCourses();
-  //   }
-  // }, [formData.stream, formData.level]);
-  // useEffect(() => {
-  //   if (formData.courses) {
-  //     fetchSpecializations();
-  //   }
-  // }, [formData.courses]);
-  // useEffect(() => {
-  //   fetchcolleges();
-  // }, [formData.courses, formData.feeRange, formData.city]);
 
   useEffect(() => {
     const selectedLocation = formData.location;
