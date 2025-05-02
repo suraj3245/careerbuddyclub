@@ -1,7 +1,7 @@
 import { IMenuData } from "@/types/menu-data-type";
 import { link } from "fs";
 import { title } from "process";
-const menu_data: IMenuData[] = [
+const menu_data = [
   {
     id: 1,
     link: "/",
@@ -12,27 +12,27 @@ const menu_data: IMenuData[] = [
     link: "/admission",
     title: "Admission",
     mega_menus: [
-      {
-        id: 1,
-        title: "For College/University",
-        sub_menus: [
-          { title: "Guru Nanak College", link: "/college-details/GNC" },
-          { title: "BFIT Group of Institutions", link: "/college-details/BFIT" },
-          { title: "UPES Dehradun", link: "/college-details/UPES" },
-          { title: "Uttaranchal University", link: "/college-details/Uttaranchal-University" }, 
-          { title: "JBIT Dehradun", link: "/college-details/JBIT" },
-          {title: "UDMRI Dehradun", link:"/college-details/UDMRI" },
-          {title:"VMM College" , link:"/college-details/VMM-College"},
-          {title:"DD College" , link:"/college-details/DD-College"},
-          {title:"Doon Group of Colleges" , link:"/college-details/DOON-GROUP-OF-COLLEGES"},
-          {title:"Culinary College of Hotel Management" , link:"/college-details/CCHM"},
-          {title:"Siddhartha Group of Institutions" , link:"/college-details/SGI"},
-          {title:"Nav Chetna College" , link:"/college-details/NAV-CHETNA-COLLEGE"},
-          {title:"Mind Power University" , link:"/college-details/MPU"},
-          {title:"DBS Global University" , link:"/college-details/DBS"},
-         ],
+      // {
+      //   id: 1,
+      //   title: "For College/University",
+      //   sub_menus: [
+      //     { title: "Guru Nanak College", link: "/college-details/GNC" },
+      //     { title: "BFIT Group of Institutions", link: "/college-details/BFIT" },
+      //     { title: "UPES Dehradun", link: "/college-details/UPES" },
+      //     { title: "Uttaranchal University", link: "/college-details/Uttaranchal-University" }, 
+      //     { title: "JBIT Dehradun", link: "/college-details/JBIT" },
+      //     {title: "UDMRI Dehradun", link:"/college-details/UDMRI" },
+      //     {title:"VMM College" , link:"/college-details/VMM-College"},
+      //     {title:"DD College" , link:"/college-details/DD-College"},
+      //     {title:"Doon Group of Colleges" , link:"/college-details/DOON-GROUP-OF-COLLEGES"},
+      //     {title:"Culinary College of Hotel Management" , link:"/college-details/CCHM"},
+      //     {title:"Siddhartha Group of Institutions" , link:"/college-details/SGI"},
+      //     {title:"Nav Chetna College" , link:"/college-details/NAV-CHETNA-COLLEGE"},
+      //     {title:"Mind Power University" , link:"/college-details/MPU"},
+      //     {title:"DBS Global University" , link:"/college-details/DBS"},
+      //    ],
        
-      },
+      // },
       {
         id: 2,
         title: "International University",

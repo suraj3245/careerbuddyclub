@@ -1,6 +1,6 @@
 function cchmScriptloaded() {
     window.ee_form_widget_baseurl = "https://eeconfigstaticfiles.blob.core.windows.net/staticfiles/ee-form-widget/";
-    
+    // Ensure the CSS is only appended once
     if (!document.getElementById("__formWidgetCss")) {
         var e = document.createElement("link");
         e.id = "__formWidgetCss";
@@ -39,4 +39,3 @@ function cchmScriptloaded() {
     document.getElementsByTagName("head")[0].appendChild(t);
 }
 cchmScriptloaded();
-

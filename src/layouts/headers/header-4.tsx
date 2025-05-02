@@ -92,7 +92,7 @@ const HeaderFour: React.FC<HeaderFourProps> = ({ user, index, onLogout }) => {
       setTimeout(() => {
         setModalType("student");
         setIsModalOpen(true);
-      }, 3000);
+      }, 30000);
     }
   }, [isUserLoggedIn]);
 

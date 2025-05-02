@@ -3,7 +3,7 @@ import React, { useEffect, useState, useRef, Suspense } from "react";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import Script from "next/script";
 import { ReactTyped } from "react-typed";
-import { Globe, Download, ChevronRight } from 'lucide-react';
+import { Globe, Download, ChevronRight } from "lucide-react";
 import "animate.css";
 
 const CommonBreadcrumbjob = ({
@@ -23,8 +23,7 @@ const CommonBreadcrumbjob = ({
     "Pal-College": "/assets/text/Pal_College_Brochure.pdf",
     "VMM-College": "/assets/text/vmm_college_brochure.pdf",
     JBIT: "/assets/text/jbit-brochure-2022.pdf",
-    "DBS":"/assets/text/DGU.pdf",
-
+    DBS: "/assets/text/DGU.pdf",
   };
 
   type WidgetConfig = {
@@ -35,61 +34,131 @@ const CommonBreadcrumbjob = ({
   const widgets: Record<string, WidgetConfig> = {
     GNC: {
       script: "/scripts/gurunanakscript.js",
-      content: <div className="ee-formscript border rounded-4 p-2" id="ee-form-6"></div>,
+      content: (
+        <div
+          className="ee-formscript border rounded-4 p-2"
+          id="ee-form-6"
+        ></div>
+      ),
     },
     BFIT: {
       script: "/scripts/gurunanakscript.js",
-      content: <div className="ee-formscript border rounded-4 p-2" id="ee-form-6"></div>,
+      content: (
+        <div
+          className="ee-formscript border rounded-4 p-2"
+          id="ee-form-6"
+        ></div>
+      ),
     },
     UPES: {
       script: "/scripts/upesscript.js",
-      content: <div className="ee-formscript border rounded-4 p-2" id="ee-form-12"></div>,
+      content: (
+        <div
+          className="ee-formscript border rounded-4 p-2"
+          id="ee-form-12"
+        ></div>
+      ),
     },
     "Uttaranchal-University": {
       script: "/scripts/uttaranchaluniversityscript.js",
-      content: <div className="ee-formscript border rounded-4 p-2" id="ee-form-10"></div>,
+      content: (
+        <div
+          className="ee-formscript border rounded-4 p-2"
+          id="ee-form-10"
+        ></div>
+      ),
     },
-    "UDMRI": {
+    UDMRI: {
       script: "/scripts/udmriscript.js",
-      content: <div className="ee-formscript border rounded-4 p-2" id="ee-form-7"></div>,
+      content: (
+        <div
+          className="ee-formscript border rounded-4 p-2"
+          id="ee-form-7"
+        ></div>
+      ),
     },
     "Pal-College": {
       script: "/scripts/palscript.js",
-      content: <div className="ee-formscript border rounded-4 p-2" id="ee-form-11"></div>,
+      content: (
+        <div
+          className="ee-formscript border rounded-4 p-2"
+          id="ee-form-11"
+        ></div>
+      ),
     },
     "VMM-College": {
       script: "/scripts/vmmscript.js",
-      content: <div className="ee-formscript border rounded-4 p-2" id="ee-form-8"></div>,
+      content: (
+        <div
+          className="ee-formscript border rounded-4 p-2"
+          id="ee-form-8"
+        ></div>
+      ),
     },
     "DD-College": {
       script: "/scripts/ddscript.js",
-      content: <div className="ee-formscript border rounded-4 p-2" id="ee-form-14"></div>,
+      content: (
+        <div
+          className="ee-formscript border rounded-4 p-2"
+          id="ee-form-14"
+        ></div>
+      ),
     },
-    "JBIT": {
+    JBIT: {
       script: "/scripts/jbitscript.js",
-      content: <div className="ee-formscript border rounded-4 p-2" id="ee-form-13"></div>,
+      content: (
+        <div
+          className="ee-formscript border rounded-4 p-2"
+          id="ee-form-13"
+        ></div>
+      ),
     },
     "DOON-GROUP-OF-COLLEGES": {
       script: "/scripts/doongroupscript.js",
-      content: <div className="ee-formscript border rounded-4 p-2" id="ee-form-16"></div>,
+      content: (
+        <div
+          className="ee-formscript border rounded-4 p-2"
+          id="ee-form-16"
+        ></div>
+      ),
     },
-    "SGI": {
+    SGI: {
       script: "/scripts/sgiscript.js",
-      content: <div className="ee-formscript border rounded-4 p-2" id="ee-form-17"></div>,
+      content: (
+        <div
+          className="ee-formscript border rounded-4 p-2"
+          id="ee-form-17"
+        ></div>
+      ),
     },
 
     "NAV-CHETNA-COLLEGE": {
       script: "/scripts/navchetnascript.js",
-      content: <div className="ee-formscript border rounded-4 p-2" id="ee-form-18"></div>,
+      content: (
+        <div
+          className="ee-formscript border rounded-4 p-2"
+          id="ee-form-18"
+        ></div>
+      ),
     },
-    
-    "CCHM": {
+
+    CCHM: {
       script: "/scripts/cchmscript.js",
-      content: <div className="ee-formscript border rounded-4 p-2" id="ee-form-19"></div>,
+      content: (
+        <div
+          className="ee-formscript border rounded-4 p-2"
+          id="ee-form-19"
+        ></div>
+      ),
     },
-    "DBS": {
+    DBS: {
       script: "/scripts/dbsscript.js",
-      content: <div className="ee-formscript border rounded-4 p-2" id="ee-form-9"></div>,
+      content: (
+        <div
+          className="ee-formscript border rounded-4 p-2"
+          id="ee-form-9"
+        ></div>
+      ),
     },
   };
 
@@ -181,9 +250,7 @@ const Content = ({
       style={{ background: "#67d9e3" }}
     >
       {/* Title and Brochure Section */}
-      <div
-        className="col-12 col-lg-6 p-5 text-black d-flex flex-column justify-content-center align-items-start"
-      >
+      <div className="col-12 col-lg-6 p-5 text-black d-flex flex-column justify-content-center align-items-start">
         <h2
           className="wow fadeInUp"
           data-wow-delay="0.3s"
@@ -195,7 +262,7 @@ const Content = ({
         >
           {title}
         </h2>
-        <br/>
+        <br />
         <h4 className="">
           <ReactTyped
             strings={[subtitle]}
@@ -206,8 +273,12 @@ const Content = ({
             showCursor={true}
           />
         </h4>
-        <br/>
-        <button className="btn-five wow fadeInUp  text-black d-flex items-center justify-center gap-2 text-white" onClick={downloadBrochure}><Download size={25} />
+        <br />
+        <button
+          className="btn-five wow fadeInUp  text-black d-flex items-center justify-center gap-2 text-white"
+          onClick={downloadBrochure}
+        >
+          <Download size={25} />
           Download Brochure <ChevronRight size={25} />
         </button>
       </div>
@@ -221,8 +292,10 @@ const Content = ({
           <Loader />
         ) : (
           <>
-            {script && <Script src={script} strategy="afterInteractive" />}
-            <div className="ee-formscript">{widgetContent}</div>
+            <div className="container">
+              {script && <Script src={script} strategy="afterInteractive" />}
+              <div className="ee-formscript">{widgetContent}</div>
+            </div>
           </>
         )}
       </div>

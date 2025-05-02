@@ -133,13 +133,17 @@ export default function CollegeListing() {
   useEffect(() => {
     // Fetch all college details
     axios
-      .post("https://test.careerbuddyclub.com:8080/api/students/getallcollegesdetails")
+      .post(
+        "https://test.careerbuddyclub.com:8080/api/students/getallcollegesdetails"
+      )
       .then((res) => setAllColleges(res?.data?.colleges || []))
       .catch(console.error);
 
     // Fetch streams with nested relations
     axios
-      .post("https://test.careerbuddyclub.com:8080/api/students/getfilterationdata")
+      .post(
+        "https://test.careerbuddyclub.com:8080/api/students/getfilterationdata"
+      )
       .then((res) => setStreams(res?.data?.streams))
       .catch(console.error);
   }, []);
@@ -414,9 +418,15 @@ export default function CollegeListing() {
                             gap: 2,
                           }}
                         >
-                          <Button variant="outlined" startIcon={<Link />}>
-                            Visit Website
-                          </Button>
+                          <a
+                            href={college?.website}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <Button variant="outlined" startIcon={<Link />}>
+                              Visit Website
+                            </Button>
+                          </a>
                           <Button variant="contained">Brochure</Button>
                         </Box>
                       </Grid>
