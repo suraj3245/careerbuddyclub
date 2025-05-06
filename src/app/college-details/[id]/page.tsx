@@ -367,8 +367,8 @@ const CollegeDetailsPage = ({ params }: { params: { id: string } }) => {
                         <thead>
                           <tr>
                             <th scope="col">Courses</th>
-                            <th scope="col">Specialization</th>
-                            <th scope="col">Annual Fees (Rs.)</th>
+                            <th scope="col">Duration</th>
+                            <th scope="col">Total Fees (Rs.)</th>
                             <th scope="col">Selection Criteria</th>
                             <th scope="col">Eligibility Criteria</th>
                           </tr>
