@@ -29,12 +29,12 @@ const FullWidthItem = ({blog}:{blog:IBlogDataType}) => {
             {`${title.substring(0,30)}...`}
           </h4>
         </Link>
-        <Link href={`/blog-details/${id}`}
+        <Link href={id === 7 ? "/blog-v4" : `/blog-details/${id}`}
           className="continue-btn tran3s d-flex align-items-center"
-        >
-          <span className="fw-500 me-2">Continue Reading</span>
-          <i className="bi bi-arrow-right"></i>
-        </Link>
+         >
+       <span className="fw-500 me-2">Continue Reading</span>
+        <i className="bi bi-arrow-right"></i>
+       </Link>
       </div>
     </article>
   );

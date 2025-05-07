@@ -5,8 +5,13 @@ import Link from 'next/link';
 
 const images = [
   {
+    src: '/assets/images/blog/media6.jpg',
+    title: 'Top Pharmacy Colleges in Dehradun(2025)',
+    link: '/blog-v3',
+  },
+  {
     src: '/assets/images/blog/blog_img_34.jpg',
-    title: 'Celebrating Ganesh Chaturthi',
+    title: 'Celebrating Ganesh Chaturthi (2024)',
     link: '/blog-v3',
   },
   {
@@ -19,6 +24,7 @@ const images = [
     title: 'UP NEET UG 2024 Counselling',
     link: '/blog-v3',
   },
+  
 ];
 
 const FancyBanner16 = () => {

@@ -20,7 +20,7 @@ const BlogGridArea = () => {
                 </div>
               ))}
             </div>
-            <BlogPagination />
+            <BlogPagination/>
           </div>
 
           <div className="col-lg-4">
