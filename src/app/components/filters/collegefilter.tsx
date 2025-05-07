@@ -164,7 +164,7 @@ const CollegeFinder: React.FC = () => {
                 <Button
                   variant="text"
                   size="small"
-                  onClick={() => router.push(`/find-colleges`)}
+                  onClick={() => router.push(`/colleges`)}
                 >
                   View All
                 </Button>
@@ -192,7 +192,7 @@ const CollegeFinder: React.FC = () => {
                       }}
                       onClick={() =>
                         router.push(
-                          `/find-colleges?stream=${createSlug(
+                          `/colleges?stream=${createSlug(
                             selectedStreamTitle || "unspecified"
                           )}&college=${createSlug(
                             college.college_full_name
@@ -251,7 +251,7 @@ const CollegeFinder: React.FC = () => {
                   <Button
                     variant="text"
                     size="small"
-                    onClick={() => router.push(`/find-colleges`)}
+                    onClick={() => router.push(`/colleges`)}
                   >
                     View All
                   </Button>
@@ -279,7 +279,7 @@ const CollegeFinder: React.FC = () => {
                         }}
                         onClick={() =>
                           router.push(
-                            `/find-colleges?stream=${createSlug(
+                            `/colleges?stream=${createSlug(
                               selectedStreamTitle || "unspecified"
                             )}&company=${createSlug(
                               company.name
@@ -327,7 +327,7 @@ const CollegeFinder: React.FC = () => {
                   <Button
                     variant="text"
                     size="small"
-                    onClick={() => router.push(`/find-colleges`)}
+                    onClick={() => router.push(`/colleges`)}
                   >
                     View All
                   </Button>
@@ -355,7 +355,7 @@ const CollegeFinder: React.FC = () => {
                         }}
                         onClick={() =>
                           router.push(
-                            `/find-colleges?stream=${createSlug(
+                            `/colleges?stream=${createSlug(
                               selectedStreamTitle || "unspecified"
                             )}&career=${createSlug(
                               career.title
@@ -398,7 +398,7 @@ const CollegeFinder: React.FC = () => {
                 <Button
                   variant="text"
                   size="small"
-                  onClick={() => router.push(`/find-colleges`)}
+                  onClick={() => router.push(`/colleges`)}
                 >
                   View All
                 </Button>
@@ -426,7 +426,7 @@ const CollegeFinder: React.FC = () => {
                       }}
                       onClick={() =>
                         router.push(
-                          `/find-colleges?stream=${createSlug(
+                          `/colleges?stream=${createSlug(
                             selectedStreamTitle || "unspecified"
                           )}&course=${createSlug(
                             course.name

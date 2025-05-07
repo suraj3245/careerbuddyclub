@@ -231,7 +231,7 @@ const menu_data = [
       { title: "For College/ University", link: "/campus" },
       { title: "For Schools", link: "/schools" },
       { title: "For Corporate", link: "/corporate" },
-      { title: "Top Pharmacy Colleges", link: "/top-pharmacy-colleges" },
+      // { title: "Top Pharmacy Colleges", link: "/top-pharmacy-colleges" },
     ]
   },
   {
