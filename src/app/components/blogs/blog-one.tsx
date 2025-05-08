@@ -2,8 +2,8 @@
 import React, { useRef } from "react";
 import blog_data from "@/data/blog-data";
 import BlogItem from "./blog-item/blog-item";
-import Link from "next/link";
 import Slider from "react-slick";
+
 const slider_setting = {
   dots: false,
   arrows: false,
@@ -33,39 +33,36 @@ const slider_setting = {
     },
   ],
 };
+
 const BlogOne = () => {
   const blog_items = blog_data.filter((b) => b.blog === "blog-one");
   const sliderRef = useRef<Slider | null>(null);
 
-  const sliderPrev = () => {
-    sliderRef.current?.slickPrev();
-  };
-
-  const sliderNext = () => {
-    sliderRef.current?.slickNext();
-  };
   return (
-    <section className="blog-section-one pt-60">
+    <section
+      className="blog-section-one pt-60"
+      style={{ background: "#7ed4ec"}} 
+    >
       <div className="container">
         <div className="position-relative">
           <div
-            className="title-one mb-30 lg-mb-10 wow fadeInUp"
+            className="title-one text-center text-sm-start"
             data-wow-delay="0.3s"
           >
-            <h2 className="text-center">Career Buddy Club Media Presence</h2>
+            <h2 className="fw-600 text-center">Career Buddy Club Media Presence</h2>
           </div>
 
-          <div className="row gx-xxl-5 text-center">
-          <Slider {...slider_setting} ref={sliderRef}>
-           {blog_items.map((item) => (
-           <div key={item.id} className="col-lg-4 col-md-6">
-           <BlogItem item={item} />
-           </div>
-           ))}
-         </Slider>
-         </div>
-         
-         
+          <div className="row gx-xxl-5 text-center mt-40">
+            <Slider {...slider_setting} ref={sliderRef}>
+              {blog_items.map((item) => (
+                <div key={item.id} className="col-lg-4 col-md-6">
+                  <div className="card-style-four tran3s w-100 mt-30 wow fadeInUp" style={{ marginBottom:'4rem' }}>
+                    <BlogItem item={item} />
+                  </div>
+                </div>
+              ))}
+            </Slider>
+          </div>
         </div>
       </div>
     </section>

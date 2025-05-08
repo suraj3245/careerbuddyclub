@@ -17,7 +17,7 @@ const CommonBreadcrumb = ({
           <div className="row">
             <div className="col-xl-6 m-auto text-center">
               <div className="title-two">
-                <h2 className="text-black">{title}</h2>
+                <h2 className="text-black blog-V3-title">{title}</h2>
               </div>
               <p className="text-lg text-black mt-30 lg-mt-20">{subtitle}</p>
             </div>
@@ -26,6 +26,7 @@ const CommonBreadcrumb = ({
       </div>
 
       <Image src={shape_2} alt="shape" className="lazy-img shapes shape_02" />
+      
     </div>
   );
 };
