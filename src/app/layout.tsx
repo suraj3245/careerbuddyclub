@@ -10,7 +10,6 @@ import Script from "next/script";
 import { ToastContainer, toast } from "react-toastify"; 
 import "react-toastify/dist/ReactToastify.css";
 import HeaderTop from "@/layouts/headers/header-top";
-import { EB_Garamond } from "next/font/google";
 const gordita = localFont({
   src: [
     {
@@ -36,12 +35,6 @@ const gordita = localFont({
   ],
   variable: "--gorditas-font",
 });
-const garamond = EB_Garamond({
-  weight: ["400", "700"], 
-  subsets: ["latin"],
-  variable: "--eb_garamond-font",
-});
-
 export default function RootLayout({
   children,
 }: {
@@ -137,7 +130,7 @@ export default function RootLayout({
       </head>
       <body
         suppressHydrationWarning={true}
-        className={`${gordita.variable}  ${garamond.variable}`}
+        className={`${gordita.variable}`}
       >
         <noscript>
           <iframe
