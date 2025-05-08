@@ -34,7 +34,7 @@ const blog_data: IBlogDataType[] = [
     grid_img: blog_grid_2,
     img_full: blog_full_2,
     tags: ["BFIT College , Dehradun"],
-    title: "Fireside Chat with Anubhav Dubey, CEO, Chai Sutta Bar",
+    title: "Fireside chat with Anubhav Dubey, CEO, Chai Sutta Bar",
     author: "Career Town",
     date: "December, 2022",
     desc: "Tomfoolery crikey bits and bobs brilliant bamboozled down the pub amongst brolly hanky panky, cack bonnet arse over tit burke bugger all mate bodge. cillum dolore eu fugiat pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Suspendisse interdum consectetur libero id faucibu nisl. Lacus vel facilisis volutpat est velit egestas.Tempus imperdiet nulla malesuada pellentesque elit eget gravida cum. Sit amet ris nullam eget felis. Enim praesent elementum facilisis leo. Ultricies leo integer.",
