@@ -164,7 +164,7 @@ const CollegeFinder: React.FC = () => {
                 <Button
                   variant="text"
                   size="small"
-                  onClick={() => router.push(`/colleges`)}
+                  onClick={() => router.push(`/top-pharmacy-colleges-inDehradun-Uttarakhand`)}
                 >
                   View All
                 </Button>
@@ -251,7 +251,7 @@ const CollegeFinder: React.FC = () => {
                   <Button
                     variant="text"
                     size="small"
-                    onClick={() => router.push(`/colleges`)}
+                    onClick={() => router.push(`/top-pharmacy-colleges-inDehradun-Uttarakhand`)}
                   >
                     View All
                   </Button>
@@ -327,7 +327,7 @@ const CollegeFinder: React.FC = () => {
                   <Button
                     variant="text"
                     size="small"
-                    onClick={() => router.push(`/colleges`)}
+                    onClick={() => router.push(`/top-pharmacy-colleges-inDehradun-Uttarakhand`)}
                   >
                     View All
                   </Button>

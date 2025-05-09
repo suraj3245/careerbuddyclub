@@ -24,7 +24,7 @@ const FullWidthItem = ({ blog }: { blog: IBlogDataType }) => {
         <h4 className="tran3s blog-title">{`${title.substring(0, 30)}...`}</h4>
 
         <Link
-          href={id === 7 ? "/blog-v4" : `/blog-details/${id}`}
+          href={id === 7 ? "/top-pharmacy-colleges-inDehradun-Uttarakhand" : `/blog-details/${id}`}
           className="continue-btn tran3s d-flex align-items-center"
         >
           <span className="fw-500 me-2">Continue Reading</span>
