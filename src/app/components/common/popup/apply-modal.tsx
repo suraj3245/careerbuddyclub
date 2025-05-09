@@ -12,7 +12,7 @@ const ApplyModal = () => {
   return (
         <div className="row">
           <div
-            className="col-lg-6 mt-2 d-sm-block"
+            className="col-lg-6 mt-2 d-sm-block d-none"
             style={{
               boxShadow: "rgba(0, 0, 0, 0.1) 0px 3px 6px",
               backgroundColor: "rgb(247, 247, 247)",
