@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import static_menu_data from "@/data/menu-data"; // Your static menu config
+import static_menu_data from "@/data/menu-data";
 
 const Menus = () => {
   const [menuData, setMenuData] = useState<any[]>(static_menu_data);
@@ -78,25 +78,95 @@ const Menus = () => {
             </a>
             <ul
               className="dropdown-menu"
-              style={{ width: "68vw", overflowY: "scroll", maxHeight: "85vh" }}
+              style={{
+                width: "70vw",
+                maxWidth: "1300px",
+                maxHeight: "80vh",
+                overflowY: "auto",
+              }}
             >
-              <li className="row gx-2">
-                {menu.mega_menus.map((m: any) => (
-                  <div key={m.id} className="col-md-4">
-                    <div className="menu-column">
-                      <h6 className="mega-menu-title">{m.title}</h6>
-                      <ul className="style-none mega-dropdown-list">
-                        {m.sub_menus.map((s: any, i: number) => (
-                          <li key={i} style={{ width: "100%" }}>
-                            <a href={s.link} className="dropdown-item">
-                              {s.title}
-                            </a>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+              <li>
+                <div className="container-fluid">
+                  <div className="row">
+                    {menu.mega_menus.map((m: any) => {
+                      if (m.title === "For College/University") {
+                        const chunkSize = Math.ceil(m.sub_menus.length / 3);
+                        const chunks = Array.from({ length: 3 }, (_, i) =>
+                          m.sub_menus.slice(i * chunkSize, (i + 1) * chunkSize)
+                        );
+
+                        return (
+                          <div key={m.id} className="col-12 mb-4">
+                            <div
+                              className="row"
+                              style={{
+                                backgroundColor: "#f0f8ff", // Light blue background for content
+                                padding: "1rem",
+                                borderRadius: "8px",
+                                border: "1px solid #cce7ff", // Subtle border to define the section
+                                maxHeight: "330px", // Ensuring scroll area is available
+                                overflowY: "auto", // Scroll functionality
+                              }}
+                            >
+                              <h6
+                                className="mega-menu-title"
+                                style={{
+                                  color: "#eed30d", // Dark blue color for the title
+                                  fontWeight: "bold",
+                                  marginBottom: "1rem",
+                                }}
+                              >
+                                {m.title}
+                              </h6>
+                              {chunks.map((chunk, idx) => (
+                                <div key={idx} className="col-12 col-md-4 mb-3">
+                                  <ul className="style-none mega-dropdown-list p-0">
+                                    {chunk.map((s: any, i: number) => (
+                                      <li key={i}>
+                                        <a
+                                          href={s.link}
+                                          className="dropdown-item"
+                                          style={{
+                                            whiteSpace: "normal",
+                                            wordBreak: "break-word",
+                                            overflowWrap: "break-word",
+                                            fontSize: "0.95rem",
+                                          }}
+                                        >
+                                          {s.title}
+                                        </a>
+                                      </li>
+                                    ))}
+                                  </ul>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        );
+                      }
+
+                      return (
+                        <div key={m.id} className="col-12 col-md-6 mb-4">
+                          <h6
+                            className="mega-menu-title"
+                            style={{ color: "#eed30d", fontWeight: "bold" }}
+                          >
+                            {m.title}
+                          </h6>
+                          <ul className="style-none mega-dropdown-list">
+                            {m.sub_menus.map((s: any, i: number) => (
+                              <li key={i}>
+                                <a href={s.link} className="dropdown-item">
+                                  {s.title}
+                                </a>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      );
+                    })}
                   </div>
-                ))}
+                </div>
               </li>
             </ul>
           </li>
