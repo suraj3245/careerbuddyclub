@@ -166,8 +166,8 @@ export default function FilterPanel({
     return {
       Location: locationOpts,
       Streams: streamOpts,
-      // Companies: companyOpts,
-      // Careers: careerOpts,
+      Companies: companyOpts,
+      Careers: careerOpts,
       Courses: courseOpts,
       Type: typeOpts,
       ApprovedBy: approvedOpts,
@@ -184,6 +184,51 @@ export default function FilterPanel({
       setOpenCategories((prev) => new Set(prev).add("Streams"));
     }
   }, [selectedStreamId, streams]);
+
+  useEffect(() => {
+    if (companyId && streams.length) {
+      streams.forEach((stream) =>
+        stream.companies
+          .filter((c) => String(c.id) === companyId)
+          .forEach((c) =>
+            setSelectedFilters((prev) => [
+              ...new Set([...prev, `Companies|${c.id}|${c.name}`]),
+            ])
+          )
+      );
+      setOpenCategories((prev) => new Set(prev).add("Companies"));
+    }
+  }, [companyId, streams]);
+
+  useEffect(() => {
+    if (careerId && streams.length) {
+      streams.forEach((stream) =>
+        stream.careers
+          .filter((ca) => String(ca.id) === careerId)
+          .forEach((ca) =>
+            setSelectedFilters((prev) => [
+              ...new Set([...prev, `Careers|${ca.id}|${ca.title}`]),
+            ])
+          )
+      );
+      setOpenCategories((prev) => new Set(prev).add("Careers"));
+    }
+  }, [careerId, streams]);
+
+  useEffect(() => {
+    if (courseId && streams.length) {
+      streams.forEach((stream) =>
+        stream.courses
+          .filter((cu) => String(cu.id) === courseId)
+          .forEach((cu) =>
+            setSelectedFilters((prev) => [
+              ...new Set([...prev, `Courses|${cu.id}|${cu.name}`]),
+            ])
+          )
+      );
+      setOpenCategories((prev) => new Set(prev).add("Courses"));
+    }
+  }, [courseId, streams]);
 
   const handleCategoryClick = (category: string) => {
     const next = new Set(openCategories);
