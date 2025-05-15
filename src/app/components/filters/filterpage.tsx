@@ -121,9 +121,6 @@ export default function CollegeListing() {
   const courseId = searchParams.get("courseId");
 
   const [allColleges, setAllColleges] = useState<College[]>([]);
-  const [filteredByCoursesColleges, setFilteredByCoursesColleges] = useState<
-    College[]
-  >([]);
   const [streams, setStreams] = useState<Stream[]>([]);
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
   const [sortBy, setSortBy] = useState("Featured");
@@ -148,34 +145,6 @@ export default function CollegeListing() {
       .catch(console.error);
   }, []);
 
-  const fetchCollegesByCourse = async (courseIds: string[]) => {
-    try {
-      const res = await axios.post(
-        "https://test.careerbuddyclub.com:8080/api/students/getcollegesbycourses",
-        {
-          course_ids: courseIds,
-        }
-      );
-      return res?.data?.colleges;
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  useEffect(() => {
-    const courseIds = selectedFilters
-      .filter((filter) => filter.startsWith("Courses|"))
-      .map((filter) => filter.split("|")[1]); // extract course ID
-
-    if (courseIds.length > 0) {
-      fetchCollegesByCourse(courseIds).then((colleges) => {
-        setFilteredByCoursesColleges(colleges || []);
-      });
-    } else {
-      setFilteredByCoursesColleges([]);
-    }
-  }, [selectedFilters]);
-
   // Find the selected stream object
   const selectedStream = useMemo(
     () => streams.find((s) => s.id.toString() === streamId),
@@ -184,10 +153,65 @@ export default function CollegeListing() {
 
   // Decide which colleges to show: all or only those in the selected stream
   const displayedColleges = useMemo(() => {
-    let baseColleges: College[] =
-      filteredByCoursesColleges.length > 0
-        ? filteredByCoursesColleges
-        : allColleges;
+    let baseColleges: College[] = allColleges;
+
+    const selectedCourseIds = selectedFilters
+      .filter((f) => f.startsWith("Courses|"))
+      .map((f) => f.split("|")[1]);
+
+    if (selectedCourseIds.length > 0) {
+      const validCollegeIds = new Set<number>();
+      streams.forEach((stream) => {
+        stream.colleges.forEach((college) => {
+          const courseIdsInStream = stream.courses.map((c) => c.id.toString());
+          const hasMatchingCourse = selectedCourseIds.some((cid) =>
+            courseIdsInStream.includes(cid)
+          );
+          if (hasMatchingCourse) validCollegeIds.add(college.id);
+        });
+      });
+      baseColleges = baseColleges.filter((college) =>
+        validCollegeIds.has(college.id)
+      );
+    }
+
+    const selectedCompanyIds = selectedFilters
+      .filter((f) => f.startsWith("Companies|"))
+      .map((f) => f.split("|")[1]);
+
+    if (selectedCompanyIds.length > 0) {
+      const validCollegeIds = new Set<number>();
+      streams.forEach((stream) => {
+        const hasMatchingCompany = stream.companies.some((company) =>
+          selectedCompanyIds.includes(company.id.toString())
+        );
+        if (hasMatchingCompany) {
+          stream.colleges.forEach((college) => validCollegeIds.add(college.id));
+        }
+      });
+      baseColleges = baseColleges.filter((college) =>
+        validCollegeIds.has(college.id)
+      );
+    }
+
+    const selectedCareerIds = selectedFilters
+      .filter((f) => f.startsWith("Careers|"))
+      .map((f) => f.split("|")[1]);
+
+    if (selectedCareerIds.length > 0) {
+      const validCollegeIds = new Set<number>();
+      streams.forEach((stream) => {
+        const hasMatchingCareer = stream.careers.some((career) =>
+          selectedCareerIds.includes(career.id.toString())
+        );
+        if (hasMatchingCareer) {
+          stream.colleges.forEach((college) => validCollegeIds.add(college.id));
+        }
+      });
+      baseColleges = baseColleges.filter((college) =>
+        validCollegeIds.has(college.id)
+      );
+    }
 
     // If no filters, return early
     if (selectedFilters.length === 0) return baseColleges;
@@ -244,7 +268,7 @@ export default function CollegeListing() {
 
       return true;
     });
-  }, [allColleges, filteredByCoursesColleges, selectedStream, selectedFilters]);
+  }, [allColleges, selectedStream, selectedFilters]);
 
   const RegisterContent = () => (
     <Box sx={{ p: 3, bgcolor: "#FFD700", borderRadius: 2 }}>
