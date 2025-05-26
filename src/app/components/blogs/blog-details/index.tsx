@@ -19,7 +19,7 @@ const BlogDetailsArea = ({ item }: { item: IBlogDataType }) => {
                   <h2 className="blog-heading">{item.title}</h2>
                   <div className="img-meta mb-15">
                     <Image src={item.img_full} alt="blog-img" className="lazy-img" /></div>
-                  <p>{item.desc}</p> <br />
+                  <p>{item.desc}</p><br/>
                   
                   <div className="quote-text">
                     <div className="row">

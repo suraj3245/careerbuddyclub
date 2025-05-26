@@ -1,5 +1,4 @@
 "use client";
-
 import { useEffect, useMemo, useState } from "react";
 import {
   Box,
@@ -31,17 +30,7 @@ interface Stream {
   id: number;
   title: string;
   colleges: College[];
-  companies: Company[];
-  careers: Career[];
   courses: Course[];
-}
-interface Company {
-  id: number;
-  name: string;
-}
-interface Career {
-  id: number;
-  title: string;
 }
 interface Course {
   id: number;
@@ -58,11 +47,10 @@ interface FilterProps {
   allColleges: College[];
   selectedStreamId: string | null;
   collegeId: string | null;
-  companyId: string | null;
-  careerId: string | null;
   courseId: string | null;
   selectedFilters: string[];
   setSelectedFilters: React.Dispatch<React.SetStateAction<string[]>>;
+  onStreamFilterChange?: (id: string | number | null) => void;
 }
 
 export default function FilterPanel({
@@ -70,11 +58,10 @@ export default function FilterPanel({
   allColleges,
   selectedStreamId,
   collegeId,
-  companyId,
-  careerId,
   courseId,
   selectedFilters,
   setSelectedFilters,
+  onStreamFilterChange,
 }: FilterProps) {
   const isLargeScreen = useMediaQuery((theme: Theme) =>
     theme.breakpoints.up("lg")
@@ -85,135 +72,82 @@ export default function FilterPanel({
   const [searchQuery, setSearchQuery] = useState("");
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
-  // Derive dynamic filter buckets
-  const filters = useMemo(() => {
-    // 1️⃣ Streams
-    const streamOpts: FilterOption[] = streams.map((s) => ({
-      name: s.title,
-      count: s.colleges.length,
-      id: s.id,
-    }));
+  const isStreamSelected = !!selectedStreamId;
 
-    // 2️⃣ Location   ← from allColleges
+  // Derive dynamic filter buckets: Streams hidden & related filter values shown if stream selected
+  const filters = useMemo(() => {
+    const result: Record<string, FilterOption[]> = {};
+
+    // 1️⃣ Streams - Only show if not selected
+    if (!isStreamSelected) {
+      result.Streams = streams.map((s) => ({
+        name: s.title,
+        count: s.colleges.length,
+        id: s.id,
+      }));
+    }
+
+    // 2️⃣ Location   ← from allColleges (always show all locations)
     const locMap = new Map<string, number>();
     allColleges.forEach((c) => {
       locMap.set(c.city, (locMap.get(c.city) || 0) + 1);
     });
-    const locationOpts: FilterOption[] = Array.from(
-      locMap,
-      ([name, count]) => ({ name, count })
-    );
+    result.Location = Array.from(locMap, ([name, count]) => ({ name, count }));
 
-    // 3️⃣ Type      ← from allColleges
+    // 3️⃣ Type
     const typeMap = new Map<string, number>();
     allColleges.forEach((c) => {
       typeMap.set(c.type, (typeMap.get(c.type) || 0) + 1);
     });
-    const typeOpts: FilterOption[] = Array.from(typeMap, ([name, count]) => ({
-      name,
-      count,
-    }));
+    result.Type = Array.from(typeMap, ([name, count]) => ({ name, count }));
 
-    // 4️⃣ ApprovedBy ← from allColleges
+    // 4️⃣ ApprovedBy
     const appMap = new Map<string, number>();
     allColleges.forEach((c) => {
       appMap.set(c.approved_by, (appMap.get(c.approved_by) || 0) + 1);
     });
-    const approvedOpts: FilterOption[] = Array.from(
-      appMap,
-      ([name, count]) => ({ name, count })
-    );
+    result.ApprovedBy = Array.from(appMap, ([name, count]) => ({ name, count }));
 
-    // 5️⃣ Companies, Careers, Courses  ← same as before
-    const companyMap = new Map<number, FilterOption>();
-    const careerMap = new Map<number, FilterOption>();
-    const courseMap = new Map<number, FilterOption>();
-
-    streams.forEach((s) => {
-      // company
-      s.companies.forEach((co) => {
-        const prev = companyMap.get(co.id);
-        companyMap.set(co.id, {
-          id: co.id,
-          name: co.name,
-          count: prev ? prev.count + s.colleges.length : s.colleges.length,
-        });
+    // 5️⃣ Courses only (no companies/careers)
+    let courses: Course[] = [];
+    if (isStreamSelected) {
+      const stream = streams.find((s) => s.id.toString() === selectedStreamId);
+      if (stream) {
+        courses = stream.courses;
+      }
+    } else {
+      // Unique courses from all streams
+      const courseMap = new Map<number, Course>();
+      streams.forEach((s) => {
+        s.courses.forEach((c) => courseMap.set(c.id, c));
       });
-      // career
-      s.careers.forEach((ca) => {
-        const prev = careerMap.get(ca.id);
-        careerMap.set(ca.id, {
-          id: ca.id,
-          name: ca.title,
-          count: prev ? prev.count + s.colleges.length : s.colleges.length,
-        });
-      });
-      // course
-      s.courses.forEach((cu) => {
-        const prev = courseMap.get(cu.id);
-        courseMap.set(cu.id, {
-          id: cu.id,
-          name: cu.name,
-          count: prev ? prev.count + s.colleges.length : s.colleges.length,
-        });
-      });
-    });
+      courses = Array.from(courseMap.values());
+    }
 
-    const companyOpts = Array.from(companyMap.values());
-    const careerOpts = Array.from(careerMap.values());
-    const courseOpts = Array.from(courseMap.values());
+    result.Courses = courses.map((c) => ({
+      id: c.id,
+      name: c.name,
+      count: 1,
+    }));
 
-    return {
-      Location: locationOpts,
-      Streams: streamOpts,
-      Companies: companyOpts,
-      Careers: careerOpts,
-      Courses: courseOpts,
-      Type: typeOpts,
-      ApprovedBy: approvedOpts,
-    };
-  }, [streams, allColleges]);
+    return result;
+  }, [streams, allColleges, selectedStreamId, isStreamSelected]);
 
+  // Select stream filter from prop on mount/URL change
   useEffect(() => {
-    if (selectedStreamId) {
+    if (selectedStreamId && streams.length) {
       const s = streams.find((s) => s.id.toString() === selectedStreamId);
-      if (s)
-        setSelectedFilters((prev) => [
-          ...new Set([...prev, `Streams|${s.id}|${s.title}`]),
-        ]);
+      if (s) setSelectedFilters([`Streams|${s.id}|${s.title}`]);
       setOpenCategories((prev) => new Set(prev).add("Streams"));
     }
+    // If no selectedStreamId, clear Streams filter
+    if (!selectedStreamId) {
+      setSelectedFilters((prev) =>
+        prev.filter((f) => !f.startsWith("Streams|"))
+      );
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedStreamId, streams]);
-
-  useEffect(() => {
-    if (companyId && streams.length) {
-      streams.forEach((stream) =>
-        stream.companies
-          .filter((c) => String(c.id) === companyId)
-          .forEach((c) =>
-            setSelectedFilters((prev) => [
-              ...new Set([...prev, `Companies|${c.id}|${c.name}`]),
-            ])
-          )
-      );
-      setOpenCategories((prev) => new Set(prev).add("Companies"));
-    }
-  }, [companyId, streams]);
-
-  useEffect(() => {
-    if (careerId && streams.length) {
-      streams.forEach((stream) =>
-        stream.careers
-          .filter((ca) => String(ca.id) === careerId)
-          .forEach((ca) =>
-            setSelectedFilters((prev) => [
-              ...new Set([...prev, `Careers|${ca.id}|${ca.title}`]),
-            ])
-          )
-      );
-      setOpenCategories((prev) => new Set(prev).add("Careers"));
-    }
-  }, [careerId, streams]);
 
   useEffect(() => {
     if (courseId && streams.length) {
@@ -235,19 +169,37 @@ export default function FilterPanel({
     next.has(category) ? next.delete(category) : next.add(category);
     setOpenCategories(next);
   };
+
   const handleFilterSelect = (category: string, option: FilterOption) => {
     const key =
       option.id != null
         ? `${category}|${option.id}|${option.name}`
         : `${category}||${option.name}`;
-    setSelectedFilters((prev) =>
-      prev.includes(key) ? prev.filter((f) => f !== key) : [...prev, key]
-    );
+    if (category === "Streams" && typeof option.id !== "undefined") {
+      // If user checks a stream, call parent's stream handler
+      if (selectedFilters.includes(key)) {
+        setSelectedFilters([]);
+        if (onStreamFilterChange) onStreamFilterChange(null); // cleared
+      } else {
+        setSelectedFilters([key]);
+        if (onStreamFilterChange) onStreamFilterChange(option.id);
+      }
+    } else {
+      setSelectedFilters((prev) =>
+        prev.includes(key) ? prev.filter((f) => f !== key) : [...prev, key]
+      );
+    }
   };
 
-  const handleClearAll = () => setSelectedFilters([]);
-  const handleRemoveFilter = (filter: string) =>
+  const handleClearAll = () => {
+    setSelectedFilters([]);
+    if (onStreamFilterChange) onStreamFilterChange(null);
+  };
+  const handleRemoveFilter = (filter: string) => {
     setSelectedFilters((prev) => prev.filter((f) => f !== filter));
+    if (filter.startsWith("Streams|") && onStreamFilterChange)
+      onStreamFilterChange(null);
+  };
 
   return (
     <>
