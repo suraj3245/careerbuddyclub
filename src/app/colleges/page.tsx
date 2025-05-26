@@ -1,7 +1,8 @@
+// app/colleges/[...slug]/page.tsx
 import React from "react";
 import Wrapper from "@/layouts/wrapper";
-import { Metadata } from "next";
 import dynamic from "next/dynamic";
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Explore Top Colleges in India | Find Your Best Fit Today",
@@ -11,7 +12,7 @@ const FilterPage = dynamic(() => import("../components/filters/filterpage"), {
   ssr: false,
 });
 
-const FindColleges = () => {
+const CollegePage = () => {
   return (
     <Wrapper>
       <div className="main-page-wrapper">
@@ -21,4 +22,4 @@ const FindColleges = () => {
   );
 };
 
-export default FindColleges;
+export default CollegePage;

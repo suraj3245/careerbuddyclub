@@ -14,13 +14,13 @@ const HeroBannerTen = () => {
     <>
       <style jsx>{`
         h1 {
-          font-size: 4.5rem;
+          font-size: 2.5rem;
           font-weight: 700;
           color: white;
           text-shadow: 2px 2px 4px black;
-          text-align: center;
           opacity: 0;
           animation: fadeInUp 0.6s ease-in-out forwards;
+          line-height: 1.2;
         }
 
         @keyframes fadeInUp {
@@ -38,9 +38,9 @@ const HeroBannerTen = () => {
       <div className="hero-banner-ten position-relative pt-170 lg-pt-150 pb-100 lg-pb-150 md-pb-100">
         <div className="container">
           <div className="position-relative sm-pb-20">
-            <div className="row">
+            <div className="row" style={{marginTop:"5rem"}}>
               <div className="col-xxl-7 col-lg-8 m-auto pt-200 text-center">
-                <h1 className="wow fadeInUp" data-wow-delay="0.3s">
+                <h1 className=" text-white wow fadeInUp text-end" data-wow-delay="0.3s">
                   "Empowering Minds, Igniting Change: Where Mentors Inspire and
                   Speakers Spark Transformation."
                 </h1>

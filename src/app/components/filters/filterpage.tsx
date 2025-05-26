@@ -1,33 +1,30 @@
 "use client";
 import { useEffect, useMemo, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import { createTheme, ThemeProvider, styled } from "@mui/material/styles";
 import {
   Box,
   Card,
   CardContent,
   Container,
-  FormControl,
   Grid,
-  IconButton,
-  MenuItem,
-  Select,
   Typography,
   Button,
   CssBaseline,
   Dialog,
   useMediaQuery,
 } from "@mui/material";
-import { FavoriteBorder, Search, LocationOn, Link } from "@mui/icons-material";
-import Image from "next/image";
+import { LocationOn, Link } from "@mui/icons-material";
 import BlogSection from "./blog-section";
 import FilterPanel from "./filterpanel";
-import { useSearchParams } from "next/navigation";
 import axios from "axios";
+import { createSlug } from "@/utils/slugify";
+import { getStreamSlug } from "@/utils/customslugs";
 
 interface Stream {
   id: number;
   title: string;
-  description: string | null;
+  description: string;
   colleges: College[];
   companies: Company[];
   careers: Career[];
@@ -60,176 +57,158 @@ interface College {
   city: string;
 }
 
-// Custom theme
 const theme = createTheme({
   palette: {
-    primary: {
-      main: "#00B5D1",
-    },
-    info: {
-      main: "#00B5D1",
-    },
+    primary: { main: "#00B5D1" },
+    info: { main: "#00B5D1" },
   },
   components: {
-    MuiButton: {
-      styleOverrides: {
-        root: {
-          textTransform: "none",
-          borderRadius: "8px",
-        },
-      },
-    },
-    MuiCard: {
-      styleOverrides: {
-        root: {
-          borderRadius: "12px",
-        },
-      },
-    },
+    MuiButton: { styleOverrides: { root: { textTransform: "none", borderRadius: "8px" } } },
+    MuiCard: { styleOverrides: { root: { borderRadius: "16px" } } },
   },
 });
 
 const CollegeCard = styled(Card)({
-  marginBottom: "16px",
-  backgroundColor: "rgb(186, 230, 243)",
+  marginBottom: "20px",
+  backgroundColor: "#b4e4f6",
+  borderRadius: "16px",
+  boxShadow: "0 2px 8px 0 rgba(0,0,0,0.04)",
 });
 
 const RegisterBanner = styled(Box)(({ theme }) => ({
   position: "sticky",
   top: theme.spacing(2),
-  [theme.breakpoints.down("lg")]: {
-    display: "none",
-  },
+  [theme.breakpoints.down("lg")]: { display: "none" },
 }));
-
 const FloatingButton = styled(Button)(({ theme }) => ({
   position: "fixed",
   bottom: 20,
   right: 20,
   zIndex: 1000,
-  [theme.breakpoints.up("lg")]: {
-    display: "none",
-  },
+  [theme.breakpoints.up("lg")]: { display: "none" },
 }));
 
-export default function CollegeListing() {
+export default function CollegeModulePage() {
   const searchParams = useSearchParams();
-  const streamId = searchParams.get("streamId");
-  const collegeId = searchParams.get("collegeId");
-  const companyId = searchParams.get("companyId");
-  const careerId = searchParams.get("careerId");
-  const courseId = searchParams.get("courseId");
+  const router = useRouter();
+
+  // Query params from URL
+  const streamIdParam = searchParams.get("streamId");
+  const [streamId, setStreamId] = useState<string | null>(streamIdParam);
+  const [collegeId, setCollegeId] = useState<string | null>(searchParams.get("collegeId"));
+  // const [companyId, setCompanyId] = useState<string | null>(searchParams.get("companyId"));
+  // const [careerId, setCareerId] = useState<string | null>(searchParams.get("careerId"));
+  const [courseId, setCourseId] = useState<string | null>(searchParams.get("courseId"));
 
   const [allColleges, setAllColleges] = useState<College[]>([]);
   const [streams, setStreams] = useState<Stream[]>([]);
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
-  const [sortBy, setSortBy] = useState("Featured");
   const [dialogOpen, setDialogOpen] = useState(false);
   const isLargeScreen = useMediaQuery(theme.breakpoints.up("lg"));
+  const clgLocation = useMemo(
+    () => Array.from(new Set(allColleges.map((c) => c.city).filter(Boolean))),
+    [allColleges]
+  );
 
+  // Fetch data
   useEffect(() => {
-    // Fetch all college details
-    axios
-      .post(
-        "https://test.careerbuddyclub.com:8080/api/students/getallcollegesdetails"
-      )
+    axios.post("https://test.careerbuddyclub.com:8080/api/students/getallcollegesdetails")
       .then((res) => setAllColleges(res?.data?.colleges || []))
       .catch(console.error);
-
-    // Fetch streams with nested relations
-    axios
-      .post(
-        "https://test.careerbuddyclub.com:8080/api/students/getfilterationdata"
-      )
+    axios.post("https://test.careerbuddyclub.com:8080/api/students/getfilterationdata")
       .then((res) => setStreams(res?.data?.streams))
       .catch(console.error);
   }, []);
 
-  // Find the selected stream object
+  // Memo: find selected stream object from ID
   const selectedStream = useMemo(
     () => streams.find((s) => s.id.toString() === streamId),
     [streams, streamId]
   );
 
-  // Decide which colleges to show: all or only those in the selected stream
+  // Keep selectedFilters in sync with URL streamId on first load or when streamId/streams change
+  useEffect(() => {
+    if (!streams.length) return;
+    if (streamId) {
+      const stream = streams.find((s) => s.id.toString() === streamId);
+      if (stream) {
+        setSelectedFilters([`Streams|${stream.id}|${stream.title}`]);
+      }
+    } else {
+      setSelectedFilters([]);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [streamId, streams]);
+
+  // Handler: When stream filter is changed via FilterPanel or Finder
+  const handleStreamChange = (id: string | number | null) => {
+  let newStreamId = id ? String(id) : null;
+  setStreamId(newStreamId);
+
+  if (newStreamId) {
+    const stream = streams.find((s) => s.id.toString() === newStreamId);
+    const slug = getStreamSlug(stream?.title ?? "", stream?.id ?? 0); // Use your custom slug function!
+    const params = new URLSearchParams(Array.from(searchParams.entries()));
+    params.set("streamId", newStreamId);
+    params.delete("streamTitle");
+    router.replace(`/colleges/${slug}?${params.toString()}`, { scroll: false });
+    setSelectedFilters([`Streams|${newStreamId}|${stream?.title ?? ""}`]);
+  } else {
+    router.replace(`/colleges`, { scroll: false });
+    setSelectedFilters([]);
+  }
+};
+
+  // Main filter logic
   const displayedColleges = useMemo(() => {
     let baseColleges: College[] = allColleges;
 
-    const selectedCourseIds = selectedFilters
-      .filter((f) => f.startsWith("Courses|"))
-      .map((f) => f.split("|")[1]);
-
+    const selectedCourseIds = selectedFilters.filter(f => f.startsWith("Courses|")).map(f => f.split("|")[1]);
     if (selectedCourseIds.length > 0) {
       const validCollegeIds = new Set<number>();
       streams.forEach((stream) => {
         stream.colleges.forEach((college) => {
           const courseIdsInStream = stream.courses.map((c) => c.id.toString());
-          const hasMatchingCourse = selectedCourseIds.some((cid) =>
-            courseIdsInStream.includes(cid)
-          );
+          const hasMatchingCourse = selectedCourseIds.some((cid) => courseIdsInStream.includes(cid));
           if (hasMatchingCourse) validCollegeIds.add(college.id);
         });
       });
-      baseColleges = baseColleges.filter((college) =>
-        validCollegeIds.has(college.id)
-      );
+      baseColleges = baseColleges.filter((college) => validCollegeIds.has(college.id));
     }
 
-    const selectedCompanyIds = selectedFilters
-      .filter((f) => f.startsWith("Companies|"))
-      .map((f) => f.split("|")[1]);
+     ///Filtering Company & Career 
 
-    if (selectedCompanyIds.length > 0) {
-      const validCollegeIds = new Set<number>();
-      streams.forEach((stream) => {
-        const hasMatchingCompany = stream.companies.some((company) =>
-          selectedCompanyIds.includes(company.id.toString())
-        );
-        if (hasMatchingCompany) {
-          stream.colleges.forEach((college) => validCollegeIds.add(college.id));
-        }
-      });
-      baseColleges = baseColleges.filter((college) =>
-        validCollegeIds.has(college.id)
-      );
-    }
+    // const selectedCompanyIds = selectedFilters.filter(f => f.startsWith("Companies|")).map(f => f.split("|")[1]);
+    // if (selectedCompanyIds.length > 0) {
+    //   const validCollegeIds = new Set<number>();
+    //   streams.forEach((stream) => {
+    //     const hasMatchingCompany = stream.companies.some((company) => selectedCompanyIds.includes(company.id.toString()));
+    //     if (hasMatchingCompany) stream.colleges.forEach((college) => validCollegeIds.add(college.id));
+    //   });
+    //   baseColleges = baseColleges.filter((college) => validCollegeIds.has(college.id));
+    // }
+    // const selectedCareerIds = selectedFilters.filter(f => f.startsWith("Careers|")).map(f => f.split("|")[1]);
+    // if (selectedCareerIds.length > 0) {
+    //   const validCollegeIds = new Set<number>();
+    //   streams.forEach((stream) => {
+    //     const hasMatchingCareer = stream.careers.some((career) => selectedCareerIds.includes(career.id.toString()));
+    //     if (hasMatchingCareer) stream.colleges.forEach((college) => validCollegeIds.add(college.id));
+    //   });
+    //   baseColleges = baseColleges.filter((college) => validCollegeIds.has(college.id));
+    // }
 
-    const selectedCareerIds = selectedFilters
-      .filter((f) => f.startsWith("Careers|"))
-      .map((f) => f.split("|")[1]);
-
-    if (selectedCareerIds.length > 0) {
-      const validCollegeIds = new Set<number>();
-      streams.forEach((stream) => {
-        const hasMatchingCareer = stream.careers.some((career) =>
-          selectedCareerIds.includes(career.id.toString())
-        );
-        if (hasMatchingCareer) {
-          stream.colleges.forEach((college) => validCollegeIds.add(college.id));
-        }
-      });
-      baseColleges = baseColleges.filter((college) =>
-        validCollegeIds.has(college.id)
-      );
-    }
-
-    // If no filters, return early
     if (selectedFilters.length === 0) return baseColleges;
-
-    // Organize selectedFilters by category
     const filtersByCategory = selectedFilters.reduce((acc, filter) => {
       const [category, id, name] = filter.split("|");
       if (!acc[category]) acc[category] = new Set();
-      acc[category].add(id || name); // use id if available, else name
+      acc[category].add(id || name);
       return acc;
     }, {} as Record<string, Set<string>>);
 
-    // If a stream is selected, filter to its colleges first
     if (selectedStream && !filtersByCategory.Streams) {
       const ids = new Set(selectedStream.colleges.map((c) => c.id));
       baseColleges = baseColleges.filter((col) => ids.has(col.id));
     }
-
     if (filtersByCategory.Streams) {
       const streamIds = filtersByCategory.Streams;
       const validCollegeIds = new Set<number>();
@@ -238,52 +217,47 @@ export default function CollegeListing() {
           stream.colleges.forEach((college) => validCollegeIds.add(college.id));
         }
       });
-      baseColleges = baseColleges.filter((college) =>
-        validCollegeIds.has(college.id)
-      );
+      baseColleges = baseColleges.filter((college) => validCollegeIds.has(college.id));
     }
 
-    // Apply filters
     return baseColleges.filter((college) => {
-      // Location
-      if (
-        filtersByCategory.Location &&
-        !filtersByCategory.Location.has(college.city)
-      ) {
-        return false;
-      }
-
-      // Type
-      if (filtersByCategory.Type && !filtersByCategory.Type.has(college.type)) {
-        return false;
-      }
-
-      // ApprovedBy
-      if (
-        filtersByCategory.ApprovedBy &&
-        !filtersByCategory.ApprovedBy.has(college.approved_by)
-      ) {
-        return false;
-      }
-
+      if (filtersByCategory.Location && !filtersByCategory.Location.has(college.city)) return false;
+      if (filtersByCategory.Type && !filtersByCategory.Type.has(college.type)) return false;
+      if (filtersByCategory.ApprovedBy && !filtersByCategory.ApprovedBy.has(college.approved_by)) return false;
       return true;
     });
-  }, [allColleges, selectedStream, selectedFilters]);
+  }, [allColleges, selectedStream, selectedFilters, streams]);
 
   const RegisterContent = () => (
-    <Box sx={{ p: 3, bgcolor: "#FFD700", borderRadius: 2 }}>
+    <Box
+      sx={{
+        p: 3,
+        bgcolor: "#FFD700",
+        borderRadius: 3,
+        boxShadow: '0 2px 10px rgba(0,0,0,0.08)',
+        minWidth: 320,
+        maxWidth: 340,
+        mx: "auto",
+        my: 0,
+      }}
+    >
       <Typography variant="h6" gutterBottom>
-        Get personalised college recommendations
+        Get personalised college<br/>recommendations
       </Typography>
-      <Typography variant="body2" sx={{ mb: 2 }}>
-        Registering gives you the benefit to browse variety of colleges based on
-        your preferences
+      <Typography variant="body2" sx={{ mb: 2}}>
+        Registering gives you the benefit to browse variety of colleges based on your preferences
       </Typography>
       <Button
         variant="contained"
         fullWidth
         sx={{
           bgcolor: "#00B5D1",
+          boxShadow: "0 4px 10px 0 rgba(0,0,0,0.08)",
+          borderRadius: 2,
+          fontWeight: 600,
+          fontSize: 18,
+          py: 1.25,
+          mt: 2,
           "&:hover": {
             bgcolor: "#009BB3",
           },
@@ -296,23 +270,29 @@ export default function CollegeListing() {
 
   return (
     <ThemeProvider theme={theme}>
-      <CssBaseline />
+      <CssBaseline/>
       <Container maxWidth="lg" sx={{ py: 4, pt: 20 }}>
         {/* Add BlogSection at the top */}
-        <BlogSection />
+       <BlogSection
+          streams={streams}
+          clgLocation={clgLocation}
+          selectedFilters={selectedFilters}
+          setSelectedFilters={setSelectedFilters}
+        />
         <Grid container spacing={3}>
           {/* Left Sidebar */}
           <Grid item xs={12} md={3} lg={3}>
-            <FilterPanel
+             <FilterPanel
               streams={streams}
               allColleges={allColleges}
               selectedStreamId={streamId}
               collegeId={collegeId}
-              companyId={companyId}
-              careerId={careerId}
+              // companyId={companyId}
+              // careerId={careerId}
               courseId={courseId}
               selectedFilters={selectedFilters}
               setSelectedFilters={setSelectedFilters}
+              onStreamFilterChange={handleStreamChange}
             />
           </Grid>
 
@@ -424,7 +404,10 @@ export default function CollegeListing() {
                         <Typography variant="body2" color="text.secondary">
                           Email
                         </Typography>
-                        <Typography>{college?.email || "N/A"}</Typography>
+                        <Typography sx={{
+                          wordBreak: 'break-word',
+                          overflowWrap: 'break-word',
+                        }}>{college?.email || "N/A"}</Typography>
                         <Typography
                           variant="body2"
                           color="text.secondary"

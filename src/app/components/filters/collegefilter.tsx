@@ -15,6 +15,7 @@ import {
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import { createSlug } from "@/utils/slugify";
+import { getStreamSlug } from "@/utils/customslugs";  //added custom slug
 
 interface Stream {
   id: number;
@@ -164,7 +165,10 @@ const CollegeFinder: React.FC = () => {
                 <Button
                   variant="text"
                   size="small"
-                  onClick={() => router.push(`/top-pharmacy-colleges-inDehradun-Uttarakhand`)}
+                  onClick={() => {
+                    const slug = getStreamSlug(selectedStreamTitle, streamId); //added custom slug
+                    router.push(`/colleges/${slug}?streamId=${streamId}`);
+                  }}
                 >
                   View All
                 </Button>
@@ -251,7 +255,7 @@ const CollegeFinder: React.FC = () => {
                   <Button
                     variant="text"
                     size="small"
-                    onClick={() => router.push(`/top-pharmacy-colleges-inDehradun-Uttarakhand`)}
+                    onClick={() => router.push(`/colleges`)}
                   >
                     View All
                   </Button>
