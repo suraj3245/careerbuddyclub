@@ -4,14 +4,18 @@ import ApplyModal from "./common/popup/apply-modal";
 import PhoneForm from "./forms/phone-form";
 import StudentLoginForm2 from "./forms/studentLoginForm";
 
-const ModalForHeader = ({
-  isOpen,
-  onClose,
-  modalType,
-}: {
+interface ModalForHeaderProps {
   isOpen: boolean;
   onClose: () => void;
   modalType: string | null;
+  onSuccess?: () => void; // <-- Add this prop to allow parent-driven redirect
+}
+
+const ModalForHeader: React.FC<ModalForHeaderProps> = ({
+  isOpen,
+  onClose,
+  modalType,
+  onSuccess,
 }) => {
   const [currentModalType, setCurrentModalType] = useState("student");
   const [isMobile, setIsMobile] = useState(false);
@@ -54,11 +58,11 @@ const ModalForHeader = ({
       case "schoolForm":
         return <PhoneForm />;
       case "student":
-        return <ApplyModal />;
+        return <ApplyModal onSuccess={onSuccess} />;
       case "emailLogin":
-        return <StudentLoginForm2 />;
+        return <StudentLoginForm2/>;
       default:
-        return <ApplyModal />;
+        return <ApplyModal onSuccess={onSuccess} />;
     }
   };
 
@@ -68,11 +72,11 @@ const ModalForHeader = ({
       <div
         className="modal-backdrop"
         style={{
-          backgroundColor: "rgba(0, 0, 0, 0.4)", // Light dark overlay
-          backdropFilter: "blur(4px)", // ✅ Apply blur effect
+          backgroundColor: "rgba(0, 0, 0, 0.4)",
+          backdropFilter: "blur(4px)",
           zIndex: 1049,
         }}
-        onClick={onClose} // Click outside to close modal
+        onClick={onClose}
       ></div>
       {/* Modal Box */}
       <div
@@ -82,15 +86,15 @@ const ModalForHeader = ({
           width: "90%",
           maxWidth: getModalWidth(),
           maxHeight: "90vh",
-          overflow: 'auto',
-          scrollbarWidth: 'none', 
+          overflow: "auto",
+          scrollbarWidth: "none",
           display: "flex",
           flexDirection: "column",
           border: "1px solid yellow",
           borderRadius: "20px",
           backgroundColor: "white",
         }}
-        onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside
+        onClick={(e) => e.stopPropagation()}
       >
         <div className="container">
           <div
@@ -114,10 +118,7 @@ const ModalForHeader = ({
               style={{ zIndex: 1051 }}
             />
           </div>
-          <div
-            className="flex-grow-1"
-            style={{ maxHeight: "74vh" }}
-          >
+          <div className="flex-grow-1" style={{ maxHeight: "74vh" }}>
             <div className="container">{getModalContent()}</div>
             <div className="container">
               {currentModalType === "student" && (
@@ -184,7 +185,6 @@ const ModalForHeader = ({
           </div>
         </div>
       </div>
-
       {/* CSS for Mobile Full-Width */}
       <style jsx>{`
         @media (max-width: 768px) {
@@ -192,9 +192,9 @@ const ModalForHeader = ({
             width: 88% !important;
             border-radius: 0 !important;
           }
-            .btnoflogin{
-              margin-bottom: 20px !important;
-            }
+          .btnoflogin {
+            margin-bottom: 20px !important;
+          }
         }
       `}</style>
     </>

@@ -2,12 +2,12 @@
 
 import React, { useState, useEffect } from "react";
 import * as Yup from "yup";
-import { Resolver, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import ErrorMsg from "../common/error-msg";
 import axios from "axios";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useRouter } from "next/navigation";
+
 interface IOption {
   value: string;
   label: string;
@@ -39,8 +39,12 @@ type IFormData = {
   utm_term?: string | null;
   utm_content?: string | null;
 };
+///Passing the prop for path navigation
+interface ApplyFormProps {
+  onSuccess?: () => void;
+}
 
-// schema
+// schema (unused, but can be used with yupResolver if desired)
 const schema = Yup.object().shape({
   name: Yup.string().required().label("Name"),
   from: Yup.string().required().label("from"),
@@ -50,85 +54,52 @@ const schema = Yup.object().shape({
   verificationCode: Yup.string().required().label("Verification Code"),
 });
 
-const ApplyForm = () => {
+const ApplyForm: React.FC<ApplyFormProps> = ({ onSuccess }) => {
   const [showPass, setShowPass] = useState<boolean>(false);
   const [isVerificationSent, setIsVerificationSent] = useState<boolean>(false);
   const [countdown, setCountdown] = useState(30);
   const [showResend, setShowResend] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const [streamOptions, setStreamOptions] = useState<IOption[]>([
+  const [streamOptions] = useState<IOption[]>([
     { value: "Arts & Humanities", label: "Arts & Humanities" },
     { value: "Business & Management", label: "Business & Management" },
     { value: "Engineering & Technology", label: "Engineering & Technology" },
     { value: "Life Sciences & Medicine", label: "Life Sciences & Medicine" },
     { value: "Natural Sciences", label: "Natural Sciences" },
-    {
-      value: "Social Sciences & Management",
-      label: "Social Sciences & Management",
-    },
+    { value: "Social Sciences & Management", label: "Social Sciences & Management" },
     { value: "Computer Science & IT", label: "Computer Science & IT" },
     { value: "Law", label: "Law" },
     { value: "Education & Training", label: "Education & Training" },
     { value: "Creative Arts & Design", label: "Creative Arts & Design" },
-    {
-      value: "Applied Sciences & Professions",
-      label: "Applied Sciences & Professions",
-    },
+    { value: "Applied Sciences & Professions", label: "Applied Sciences & Professions" },
     { value: "Agriculture & Forestry", label: "Agriculture & Forestry" },
-    {
-      value: "Environmental Studies & Earth Sciences",
-      label: "Environmental Studies & Earth Sciences",
-    },
-    {
-      value: "Hospitality, Leisure & Sports",
-      label: "Hospitality, Leisure & Sports",
-    },
+    { value: "Environmental Studies & Earth Sciences", label: "Environmental Studies & Earth Sciences" },
+    { value: "Hospitality, Leisure & Sports", label: "Hospitality, Leisure & Sports" },
     { value: "Journalism & Media", label: "Journalism & Media" },
-    {
-      value: "General Studies & Classics",
-      label: "General Studies & Classics",
-    },
+    { value: "General Studies & Classics", label: "General Studies & Classics" },
     { value: "Health & Medicine", label: "Health & Medicine" },
     { value: "Performing Arts", label: "Performing Arts" },
-    {
-      value: "Physical Sciences & Mathematics",
-      label: "Physical Sciences & Mathematics",
-    },
+    { value: "Physical Sciences & Mathematics", label: "Physical Sciences & Mathematics" },
     { value: "Psychology & Counseling", label: "Psychology & Counseling" },
     { value: "Fashion & Beauty", label: "Fashion & Beauty" },
     { value: "Veterinary Medicine", label: "Veterinary Medicine" },
-    {
-      value: "Religious Studies & Theology",
-      label: "Religious Studies & Theology",
-    },
+    { value: "Religious Studies & Theology", label: "Religious Studies & Theology" },
     { value: "Philosophy & Ethics", label: "Philosophy & Ethics" },
     { value: "Languages & Literature", label: "Languages & Literature" },
     { value: "Culinary Arts", label: "Culinary Arts" },
     { value: "Anthropology", label: "Anthropology" },
     { value: "Archaeology", label: "Archaeology" },
     { value: "History", label: "History" },
-    {
-      value: "Political Science & International Relations",
-      label: "Political Science & International Relations",
-    },
+    { value: "Political Science & International Relations", label: "Political Science & International Relations" },
     { value: "Sociology", label: "Sociology" },
     { value: "Economics", label: "Economics" },
-    {
-      value: "Urban Planning & Architecture",
-      label: "Urban Planning & Architecture",
-    },
+    { value: "Urban Planning & Architecture", label: "Urban Planning & Architecture" },
     { value: "Music", label: "Music" },
-    {
-      value: "Film, Television & Theater",
-      label: "Film, Television & Theater",
-    },
-    {
-      value: "Graphic Design & Visual Arts",
-      label: "Graphic Design & Visual Arts",
-    },
+    { value: "Film, Television & Theater", label: "Film, Television & Theater" },
+    { value: "Graphic Design & Visual Arts", label: "Graphic Design & Visual Arts" },
   ]);
-  const router = useRouter();
+
   const [utmParams, setUtmParams] = useState<UTMParams>({
     utm_source: null,
     utm_medium: null,
@@ -137,7 +108,7 @@ const ApplyForm = () => {
     utm_term: null,
     utm_content: null,
   });
-  const [levelOptions, setLevelOptions] = useState<IOption[]>([
+  const [levelOptions] = useState<IOption[]>([
     { value: "Not known", label: "Not Known" },
     { value: "UG", label: "Undergraduate (UG)" },
     { value: "PG", label: "Postgraduate (PG)" },
@@ -162,6 +133,7 @@ const ApplyForm = () => {
     };
     setUtmParams(newUtmParams);
   }, []);
+
   const {
     register,
     handleSubmit,
@@ -185,9 +157,7 @@ const ApplyForm = () => {
         "https://test.careerbuddyclub.com:8080/api/students/getwhatsappotp",
         data
       )
-      .then((response) => {
-        // Notify user that OTP is sent
-
+      .then(() => {
         toast.info("Otp sent 🚀", {
           position: "top-left",
           autoClose: 1000,
@@ -198,9 +168,8 @@ const ApplyForm = () => {
           progress: undefined,
           theme: "light",
         });
-        // To show OTP input field
       })
-      .catch((error) => {
+      .catch(() => {
         toast.error("Error sending OTP 😵‍💫", {
           position: "top-left",
           autoClose: 3000,
@@ -239,7 +208,7 @@ const ApplyForm = () => {
       if (response.data.success === true) {
         return true;
       }
-    } catch (error) {
+    } catch {
       return false;
     }
   };
@@ -284,19 +253,16 @@ const ApplyForm = () => {
     };
     const options = {
       method: "POST",
-      // url: '${process.env.REACT_APP_API_URL}students/register', // Replace with your API's URL
-      url: "https://test.careerbuddyclub.com:8080/api/students/register", // Replace with your API's URL
+      url: "https://test.careerbuddyclub.com:8080/api/students/register",
       headers: {
         "Content-Type": "application/json",
       },
-      data: payload, // Send only the required data
+      data: payload,
     };
 
-    // Make the POST request using axios
     axios
       .request(options)
       .then((response) => {
-        // Handle the response here, e.g., notify the user of success
         localStorage.setItem("token", response.data.access_token);
         localStorage.setItem("username", name);
         localStorage.setItem("School_email", email);
@@ -310,16 +276,16 @@ const ApplyForm = () => {
           progress: undefined,
           theme: "light",
         });
-        setTimeout(() => {
-          window.location.href =
-            "/dashboard/candidate-dashboard/career-aptitude";
-        }, 1000);
+        if (onSuccess) {
+          onSuccess();
+        } else {
+          setTimeout(() => {
+            window.location.href = "/dashboard/candidate-dashboard/career-aptitude";
+          }, 1000);
+        }
       })
       .catch((error) => {
-        // Handle any errors here, e.g., notify the user of the failure
         let errorMessage = "Registration Failed 😵‍💫";
-
-        // Check if the error response contains a specific message for mobile or email
         if (error.response && error.response.data) {
           if (error.response.data.mobile && error.response.data.email) {
             errorMessage = "Email and mobile number is already taken";
@@ -547,7 +513,7 @@ const ApplyForm = () => {
                   className="spinner-border spinner-border-sm me-2"
                   role="status"
                   aria-hidden="true"
-                  style={{ width: '1.5rem', height: '1.5rem' }}
+                  style={{ width: "1.5rem", height: "1.5rem" }}
                 ></span>
               )}
               {loading ? "" : "Apply Now!"}
@@ -558,4 +524,5 @@ const ApplyForm = () => {
     </>
   );
 };
+
 export default ApplyForm;

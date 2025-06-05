@@ -1,6 +1,6 @@
 // Map streamId to custom URL slug (path segment only)
 const streamCustomSlugs: Record<number, string> = {
-     17:"top-pharmacy-colleges-inDehradun-Uttarakhand",
+     17:"top-pharmacy-colleges-in-dehradun-uttarakhand",
   
      // Add more as needed
 };

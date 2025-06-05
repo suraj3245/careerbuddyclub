@@ -140,8 +140,10 @@ const BlogSection: React.FC<BlogSectionProps> = ({
             </Typography>
             <Box
               sx={{
+                // Enables horizontal scroll with momentum on iOS (iPhone/iPad) and nice scrollbars on desktop.
                 overflowX: "auto",
-                width: "100%",
+                WebkitOverflowScrolling: "touch",
+                
                 border: "1px solid #ccc",
                 borderRadius: "8px",
                 mt: 2,
@@ -155,7 +157,7 @@ const BlogSection: React.FC<BlogSectionProps> = ({
                 },
               }}
             >
-              <Table sx={{ minWidth: 1000 }}>
+              <Table sx={{ minWidth: 800 }}>
                 <TableHead>
                   <TableRow>
                     {[
