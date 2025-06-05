@@ -20,6 +20,7 @@ import FilterPanel from "./filterpanel";
 import axios from "axios";
 import { createSlug } from "@/utils/slugify";
 import { getStreamSlug } from "@/utils/customslugs";
+import ModalHeader from "@/app/components/homeModal"; // Import the modal
 
 interface Stream {
   id: number;
@@ -88,16 +89,27 @@ const FloatingButton = styled(Button)(({ theme }) => ({
   [theme.breakpoints.up("lg")]: { display: "none" },
 }));
 
-export default function CollegeModulePage() {
+export default function FilterPage() {
   const searchParams = useSearchParams();
   const router = useRouter();
 
-  // Query params from URL
+  // Modal state for Apply Now
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalType, setModalType] = useState<string | null>(null);
+
+  // Check if user is logged in (token in localStorage)
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setIsLoggedIn(!!localStorage.getItem("token"));
+    }
+  }, []);
+
+  // Query params from URL (initialize from URL, re-sync via effect if changed)
   const streamIdParam = searchParams.get("streamId");
+  const cityParam = searchParams.get("city");
   const [streamId, setStreamId] = useState<string | null>(streamIdParam);
   const [collegeId, setCollegeId] = useState<string | null>(searchParams.get("collegeId"));
-  // const [companyId, setCompanyId] = useState<string | null>(searchParams.get("companyId"));
-  // const [careerId, setCareerId] = useState<string | null>(searchParams.get("careerId"));
   const [courseId, setCourseId] = useState<string | null>(searchParams.get("courseId"));
 
   const [allColleges, setAllColleges] = useState<College[]>([]);
@@ -110,7 +122,7 @@ export default function CollegeModulePage() {
     [allColleges]
   );
 
-  // Fetch data
+  // Fetch data once
   useEffect(() => {
     axios.post("https://test.careerbuddyclub.com:8080/api/students/getallcollegesdetails")
       .then((res) => setAllColleges(res?.data?.colleges || []))
@@ -126,43 +138,47 @@ export default function CollegeModulePage() {
     [streams, streamId]
   );
 
-  // Keep selectedFilters in sync with URL streamId on first load or when streamId/streams change
-  useEffect(() => {
-    if (!streams.length) return;
-    if (streamId) {
-      const stream = streams.find((s) => s.id.toString() === streamId);
-      if (stream) {
-        setSelectedFilters([`Streams|${stream.id}|${stream.title}`]);
-      }
-    } else {
-      setSelectedFilters([]);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [streamId, streams]);
-
   // Handler: When stream filter is changed via FilterPanel or Finder
   const handleStreamChange = (id: string | number | null) => {
-  let newStreamId = id ? String(id) : null;
-  setStreamId(newStreamId);
+    setStreamId(id ? String(id) : null);
+  };
 
-  if (newStreamId) {
-    const stream = streams.find((s) => s.id.toString() === newStreamId);
-    const slug = getStreamSlug(stream?.title ?? "", stream?.id ?? 0); // Use your custom slug function!
-    const params = new URLSearchParams(Array.from(searchParams.entries()));
-    params.set("streamId", newStreamId);
-    params.delete("streamTitle");
-    router.replace(`/colleges/${slug}?${params.toString()}`, { scroll: false });
-    setSelectedFilters([`Streams|${newStreamId}|${stream?.title ?? ""}`]);
-  } else {
-    router.replace(`/colleges`, { scroll: false });
-    setSelectedFilters([]);
-  }
-};
+  // Sync URL and selectedFilters with state/URL params (streamId, city)
+  useEffect(() => {
+    // Handle no stream selected
+    if (!streamId) {
+      router.replace(`/colleges`, { scroll: false });
+      setSelectedFilters(cityParam ? [`Location||${cityParam}`] : []);
+      return;
+    }
+
+    // Find stream, update slug and filters
+    const stream = streams.find((s) => s.id.toString() === streamId);
+    if (stream) {
+      const slug = getStreamSlug(stream.title, stream.id);
+      const params = new URLSearchParams(Array.from(searchParams.entries()));
+      params.set("streamId", streamId);
+      params.delete("streamTitle"); // cleanup if exists
+
+      // Build filters: Always include stream, include city if present
+      const filters = [`Streams|${streamId}|${stream.title}`];
+      const city = params.get("city");
+      if (city) {
+        filters.push(`Location||${city}`);
+      }
+
+      router.replace(`/colleges/${slug}?${params.toString()}`, { scroll: false });
+      setSelectedFilters(filters);
+    }
+  // Only return if these change (avoid infinite loop)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [streamId, streams, searchParams, router, cityParam]);
 
   // Main filter logic
   const displayedColleges = useMemo(() => {
     let baseColleges: College[] = allColleges;
 
+    // Course filter
     const selectedCourseIds = selectedFilters.filter(f => f.startsWith("Courses|")).map(f => f.split("|")[1]);
     if (selectedCourseIds.length > 0) {
       const validCollegeIds = new Set<number>();
@@ -176,26 +192,7 @@ export default function CollegeModulePage() {
       baseColleges = baseColleges.filter((college) => validCollegeIds.has(college.id));
     }
 
-     ///Filtering Company & Career 
-
-    // const selectedCompanyIds = selectedFilters.filter(f => f.startsWith("Companies|")).map(f => f.split("|")[1]);
-    // if (selectedCompanyIds.length > 0) {
-    //   const validCollegeIds = new Set<number>();
-    //   streams.forEach((stream) => {
-    //     const hasMatchingCompany = stream.companies.some((company) => selectedCompanyIds.includes(company.id.toString()));
-    //     if (hasMatchingCompany) stream.colleges.forEach((college) => validCollegeIds.add(college.id));
-    //   });
-    //   baseColleges = baseColleges.filter((college) => validCollegeIds.has(college.id));
-    // }
-    // const selectedCareerIds = selectedFilters.filter(f => f.startsWith("Careers|")).map(f => f.split("|")[1]);
-    // if (selectedCareerIds.length > 0) {
-    //   const validCollegeIds = new Set<number>();
-    //   streams.forEach((stream) => {
-    //     const hasMatchingCareer = stream.careers.some((career) => selectedCareerIds.includes(career.id.toString()));
-    //     if (hasMatchingCareer) stream.colleges.forEach((college) => validCollegeIds.add(college.id));
-    //   });
-    //   baseColleges = baseColleges.filter((college) => validCollegeIds.has(college.id));
-    // }
+    // Add other filters (Company/Career) if needed...
 
     if (selectedFilters.length === 0) return baseColleges;
     const filtersByCategory = selectedFilters.reduce((acc, filter) => {
@@ -205,10 +202,12 @@ export default function CollegeModulePage() {
       return acc;
     }, {} as Record<string, Set<string>>);
 
+    // Stream filter
     if (selectedStream && !filtersByCategory.Streams) {
       const ids = new Set(selectedStream.colleges.map((c) => c.id));
       baseColleges = baseColleges.filter((col) => ids.has(col.id));
     }
+    // Filter by streams (multi)
     if (filtersByCategory.Streams) {
       const streamIds = filtersByCategory.Streams;
       const validCollegeIds = new Set<number>();
@@ -220,6 +219,7 @@ export default function CollegeModulePage() {
       baseColleges = baseColleges.filter((college) => validCollegeIds.has(college.id));
     }
 
+    // Location, Type, ApprovedBy
     return baseColleges.filter((college) => {
       if (filtersByCategory.Location && !filtersByCategory.Location.has(college.city)) return false;
       if (filtersByCategory.Type && !filtersByCategory.Type.has(college.type)) return false;
@@ -228,6 +228,7 @@ export default function CollegeModulePage() {
     });
   }, [allColleges, selectedStream, selectedFilters, streams]);
 
+  // Only the button is hidden, not the banner itself!
   const RegisterContent = () => (
     <Box
       sx={{
@@ -242,38 +243,51 @@ export default function CollegeModulePage() {
       }}
     >
       <Typography variant="h6" gutterBottom>
-        Get personalised college<br/>recommendations
+        Get personalised college<br />recommendations
       </Typography>
-      <Typography variant="body2" sx={{ mb: 2}}>
-        Registering gives you the benefit to browse variety of colleges based on your preferences
+      <Typography variant="body2" sx={{ mb: 2 }}>
+       Registering gives you the benefit to browse variety of colleges based on your preferences.
       </Typography>
-      <Button
-        variant="contained"
-        fullWidth
-        sx={{
-          bgcolor: "#00B5D1",
-          boxShadow: "0 4px 10px 0 rgba(0,0,0,0.08)",
-          borderRadius: 2,
-          fontWeight: 600,
-          fontSize: 18,
-          py: 1.25,
-          mt: 2,
-          "&:hover": {
-            bgcolor: "#009BB3",
-          },
-        }}
-      >
-        Register
-      </Button>
+      {!isLoggedIn && (
+        <Button
+          variant="contained"
+          fullWidth
+          sx={{
+            bgcolor: "#00B5D1",
+            boxShadow: "0 4px 10px 0 rgba(0,0,0,0.08)",
+            borderRadius: 2,
+            fontWeight: 600,
+            fontSize: 18,
+            py: 1.25,
+            mt: 2,
+            "&:hover": {
+              bgcolor: "#009BB3",
+            },
+          }}
+          onClick={() => {
+            setModalType("student");
+            setIsModalOpen(true);
+          }}
+        >
+          Register
+        </Button>
+      )}
     </Box>
   );
 
+  // Handler for Apply Now button on college card
+  const handleApplyNow = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setModalType("student");
+    setIsModalOpen(true);
+  };
+
   return (
     <ThemeProvider theme={theme}>
-      <CssBaseline/>
+      <CssBaseline />
       <Container maxWidth="lg" sx={{ py: 4, pt: 20 }}>
         {/* Add BlogSection at the top */}
-       <BlogSection
+        <BlogSection
           streams={streams}
           clgLocation={clgLocation}
           selectedFilters={selectedFilters}
@@ -282,13 +296,11 @@ export default function CollegeModulePage() {
         <Grid container spacing={3}>
           {/* Left Sidebar */}
           <Grid item xs={12} md={3} lg={3}>
-             <FilterPanel
+            <FilterPanel
               streams={streams}
               allColleges={allColleges}
               selectedStreamId={streamId}
               collegeId={collegeId}
-              // companyId={companyId}
-              // careerId={careerId}
               courseId={courseId}
               selectedFilters={selectedFilters}
               setSelectedFilters={setSelectedFilters}
@@ -298,35 +310,19 @@ export default function CollegeModulePage() {
 
           {/* College Listings */}
           <Grid item xs={12} md={9} lg={6}>
-            {/* <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
-              <Box sx={{ flexGrow: 1 }} />
-              <FormControl size="small" sx={{ minWidth: 200 }}>
-                <Select
-                  value={sortBy}
-                  onChange={(e) => setSortBy(e.target.value as string)}
-                  displayEmpty
-                  sx={{
-                    borderRadius: "20px",
-                    "& .MuiOutlinedInput-notchedOutline": {
-                      borderColor: theme.palette.primary.main,
-                    },
-                    "&:hover .MuiOutlinedInput-notchedOutline": {
-                      borderColor: theme.palette.primary.dark,
-                    },
-                  }}
-                >
-                  <MenuItem value="Featured">Sort by: Featured</MenuItem>
-                  <MenuItem value="Alphabetical">
-                    Sort by: Alphabetical
-                  </MenuItem>
-                  <MenuItem value="Established">
-                    Sort by: Established Year
-                  </MenuItem>
-                </Select>
-              </FormControl>
-            </Box> */}
             {displayedColleges.map((college) => (
-              <CollegeCard key={college.id}>
+              <CollegeCard
+                key={college.id}
+                onClick={() => router.push(`/college-details/${college.college_short_name}`)}
+                sx={{
+                  cursor: "pointer",
+                  transition: "box-shadow 0.2s",
+                  "&:hover": {
+                    boxShadow: "0 4px 16px 0 rgba(0,0,0,0.12)",
+                    // backgroundColor: "#e7f7fb",
+                  },
+                }}
+              >
                 <CardContent>
                   <Box
                     sx={{
@@ -345,22 +341,6 @@ export default function CollegeModulePage() {
                         minWidth: 0,
                       }}
                     >
-                      {/* <Box
-                        sx={{
-                          position: "relative",
-                          width: 60,
-                          height: 60,
-                          mr: 2,
-                          flexShrink: 0,
-                        }}
-                      >
-                        <Image
-                          src="/placeholder.svg"
-                          alt={`${college?.college_short_name} logo`}
-                          layout="fill"
-                          objectFit="contain"
-                        />
-                      </Box> */}
                       <Box>
                         <Typography variant="subtitle1">
                           {college?.college_full_name} (
@@ -376,9 +356,6 @@ export default function CollegeModulePage() {
                         </Box>
                       </Box>
                     </Box>
-                    {/* <IconButton sx={{ alignSelf: "flex-start" }}>
-                      <FavoriteBorder />
-                    </IconButton> */}
                   </Box>
 
                   {/* Details Section: full width */}
@@ -425,16 +402,21 @@ export default function CollegeModulePage() {
                             gap: 2,
                           }}
                         >
-                          <a
-                            href={college?.website}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            <Button variant="outlined" startIcon={<Link />}>
-                              Visit Website
+                          {!isLoggedIn && (
+                            <Button
+                              variant="outlined"
+                              startIcon={<Link />}
+                              onClick={handleApplyNow}
+                            >
+                              Apply Now
                             </Button>
-                          </a>
-                          <Button variant="contained">Brochure</Button>
+                          )}
+                          <Button
+                            variant="contained"
+                            onClick={e => e.stopPropagation()}
+                          >
+                            Brochure
+                          </Button>
                         </Box>
                       </Grid>
                     </Grid>
@@ -458,20 +440,25 @@ export default function CollegeModulePage() {
         </Grid>
 
         {/* Floating Button */}
-        <FloatingButton
-          variant="contained"
-          color="primary"
-          onClick={() => setDialogOpen(true)}
-          sx={{
-            minWidth: "120px",
-            py: 1,
-            px: 2,
-            borderRadius: "8px",
-            boxShadow: "0 4px 10px rgba(0, 0, 0, 0.15)",
-          }}
-        >
-          Register
-        </FloatingButton>
+        {!isLoggedIn && (
+          <FloatingButton
+            variant="contained"
+            color="primary"
+            onClick={() => {
+              setModalType("student");
+              setIsModalOpen(true);
+            }}
+            sx={{
+              minWidth: "120px",
+              py: 1,
+              px: 2,
+              borderRadius: "8px",
+              boxShadow: "0 4px 10px rgba(0, 0, 0, 0.15)",
+            }}
+          >
+            Apply Now
+          </FloatingButton>
+        )}
 
         {/* Dialog for small screens */}
         <Dialog
@@ -488,6 +475,16 @@ export default function CollegeModulePage() {
         >
           <RegisterContent />
         </Dialog>
+        {/* Modal for Apply Now */}
+        <ModalHeader
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          modalType={modalType}
+          onSuccess={() => {
+            setIsModalOpen(false);
+            router.push("/dashboard/candidate-dashboard/profile");
+          }}
+        />
       </Container>
     </ThemeProvider>
   );

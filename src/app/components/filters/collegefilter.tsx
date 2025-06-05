@@ -11,11 +11,12 @@ import {
   Tab,
   useTheme,
   useMediaQuery,
+  CircularProgress,
 } from "@mui/material";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import { createSlug } from "@/utils/slugify";
-import { getStreamSlug } from "@/utils/customslugs";  //added custom slug
+import { getStreamSlug } from "@/utils/customslugs"; //added custom slug
 
 interface Stream {
   id: number;
@@ -44,11 +45,25 @@ interface Course {
 }
 
 const CollegeFinder: React.FC = () => {
-  const [streamId, setStreamId] = useState(1);
+  const [streamId, setStreamId] = useState<number | null>(null);
   const [streams, setStreams] = useState<Stream[]>([]);
+  const [loading, setLoading] = useState(true);
   const theme = useTheme();
   const router = useRouter();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+
+  // Only keep streams that have at least one college
+  const filteredStreams = useMemo(
+    () => streams.filter((stream) => stream.colleges && stream.colleges.length > 0),
+    [streams]
+  );
+
+  // Set default streamId to the first valid stream (with data) when streams are loaded or changed
+  useEffect(() => {
+    if (filteredStreams.length && (streamId === null || !filteredStreams.some(s => s.id === streamId))) {
+      setStreamId(filteredStreams[0].id);
+    }
+  }, [filteredStreams, streamId]);
 
   const handleStreamChange = (
     event: React.SyntheticEvent,
@@ -58,6 +73,7 @@ const CollegeFinder: React.FC = () => {
   };
 
   const fetchStreams = async () => {
+    setLoading(true);
     try {
       const response = await axios({
         method: "POST",
@@ -66,10 +82,12 @@ const CollegeFinder: React.FC = () => {
           Accept: "*/*",
         },
       });
-      setStreams(response?.data?.streams);
+      setStreams(response?.data?.streams || []);
     } catch (error) {
       console.error(error);
-      // Handle error, e.g., set some state to show an error message
+      setStreams([]);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -79,14 +97,63 @@ const CollegeFinder: React.FC = () => {
 
   // Filtered lists based on streamId
   const selectedStream = useMemo(() => {
-    return streams.find((stream) => stream.id === streamId);
-  }, [streamId, streams]);
+    return filteredStreams.find((stream) => stream.id === streamId) || null;
+  }, [streamId, filteredStreams]);
   const selectedStreamTitle = selectedStream?.title || "";
 
   const colleges = selectedStream?.colleges || [];
   const companies = selectedStream?.companies || [];
   const careers = selectedStream?.careers || [];
   const courses = selectedStream?.courses || [];
+
+  // Handlers for View All buttons
+  const handleViewAllColleges = () => {
+    if (streamId != null)
+      router.push(`/colleges/${getStreamSlug(selectedStreamTitle, streamId)}?streamId=${streamId}`);
+  };
+  const handleViewAllCompanies = () => {
+    router.push("/colleges");
+  };
+  const handleViewAllCareers = () => {
+    router.push("/colleges");
+  };
+  const handleViewAllCourses = () => {
+    router.push("/colleges");
+  };
+
+  // Handler for each item button (if you want to keep navigation for individual items)
+  const handleCollegeClick = (college: College) => {
+    if (streamId != null)
+      router.push(
+        `/colleges?stream=${createSlug(selectedStreamTitle || "unspecified")}&college=${createSlug(
+          college.college_full_name
+        )}&streamId=${streamId}&collegeId=${college.id}`
+      );
+  };
+  const handleCompanyClick = (company: Company) => {
+    if (streamId != null)
+      router.push(
+        `/colleges?stream=${createSlug(selectedStreamTitle || "unspecified")}&company=${createSlug(
+          company.name
+        )}&streamId=${streamId}&companyId=${company.id}`
+      );
+  };
+  const handleCareerClick = (career: Career) => {
+    if (streamId != null)
+      router.push(
+        `/colleges?stream=${createSlug(selectedStreamTitle || "unspecified")}&career=${createSlug(
+          career.title
+        )}&streamId=${streamId}&careerId=${career.id}`
+      );
+  };
+  const handleCourseClick = (course: Course) => {
+    if (streamId != null)
+      router.push(
+        `/colleges?stream=${createSlug(selectedStreamTitle || "unspecified")}&course=${createSlug(
+          course.name
+        )}&streamId=${streamId}&courseId=${course.id}`
+      );
+  };
 
   return (
     <div className="container mt-80">
@@ -112,126 +179,55 @@ const CollegeFinder: React.FC = () => {
             flexWrap: "wrap",
           }}
         >
-          <Tabs
-            value={streamId}
-            onChange={handleStreamChange}
-            variant="scrollable"
-            scrollButtons="auto"
-            TabIndicatorProps={{ style: { backgroundColor: "#13adbd" } }}
-          >
-            {streams?.map((stream) => (
-              <Tab
-                key={stream.id}
-                label={stream.title}
-                value={stream.id}
-                sx={{
-                  fontWeight: "bold",
-                  color: "text.secondary",
-                  "&.Mui-selected": {
-                    color: "#13adbd",
-                  },
-                }}
-              />
-            ))}
-          </Tabs>
+          {loading ? (
+            <CircularProgress />
+          ) : filteredStreams.length > 0 ? (
+            typeof streamId === "number" && (
+              <Tabs
+                value={streamId}
+                onChange={handleStreamChange}
+                variant="scrollable"
+                scrollButtons="auto"
+                TabIndicatorProps={{ style: { backgroundColor: "#13adbd" } }}
+              >
+                {filteredStreams.map((stream) => (
+                  <Tab
+                    key={stream.id}
+                    label={stream.title}
+                    value={stream.id}
+                    sx={{
+                      fontWeight: "bold",
+                      color: "text.secondary",
+                      "&.Mui-selected": {
+                        color: "#13adbd",
+                      },
+                    }}
+                  />
+                ))}
+              </Tabs>
+            )
+          ) : (
+            <Typography color="textSecondary" sx={{ mt: 2 }}>
+              No streams available.
+            </Typography>
+          )}
         </Box>
       </Box>
 
       <Box sx={{ flexGrow: 1, p: 2, height: { xs: "auto", md: "50vh" } }}>
-        <Grid container spacing={2} sx={{ height: "100%" }}>
-          {/* First Column */}
-          {/* Featured Colleges */}
-          <Grid item xs={12} md={4} sx={{ height: { xs: "auto", md: "100%" } }}>
-            <Card
-              sx={{
-                height: "100%",
-                display: "flex",
-                flexDirection: "column",
-                overflow: "hidden",
-                backgroundColor: "#f0f8ff",
-                padding: "7px",
-              }}
-            >
-              <Typography
-                variant="h6"
-                sx={{
-                  textAlign: "left",
-                  display: "flex",
-                  justifyContent: "space-between",
-                  marginX: 2,
-                }}
-              >
-                Featured Colleges
-                <Button
-                  variant="text"
-                  size="small"
-                  onClick={() => {
-                    const slug = getStreamSlug(selectedStreamTitle, streamId); //added custom slug
-                    router.push(`/colleges/${slug}?streamId=${streamId}`);
-                  }}
-                >
-                  View All
-                </Button>
-              </Typography>
-              <CardContent sx={{ flex: 1, overflowY: "auto" }}>
-                <Box
-                  sx={{
-                    display: "flex",
-                    flexWrap: { xs: "nowrap", md: "wrap" },
-                    gap: 1,
-                    padding: 1,
-                    overflowX: { xs: "auto", md: "hidden" },
-                    whiteSpace: "nowrap",
-                  }}
-                >
-                  {colleges?.map((college, index) => (
-                    <Button
-                      key={index}
-                      variant="outlined"
-                      sx={{
-                        flex: "1 0 auto",
-                        minWidth: "120px",
-                        fontSize: ".7rem",
-                        whiteSpace: "nowrap",
-                      }}
-                      onClick={() =>
-                        router.push(
-                          `/colleges?stream=${createSlug(
-                            selectedStreamTitle || "unspecified"
-                          )}&college=${createSlug(
-                            college.college_full_name
-                          )}&streamId=${streamId}&collegeId=${college.id}`
-                        )
-                      }
-                    >
-                      {college.college_full_name}
-                    </Button>
-                  ))}
-                </Box>
-              </CardContent>
-            </Card>
-          </Grid>
-
-          {/* Middle Column with 2 Rows */}
-          <Grid
-            item
-            xs={12}
-            md={4}
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              height: { xs: "auto", md: "100%" },
-            }}
-          >
-            {/* First Row - Top Hiring Companies */}
-            <Grid
-              item
-              sx={{
-                flex: "1 1 50%",
-                overflowY: "auto",
-                paddingBottom: 1,
-              }}
-            >
+        {loading ? (
+          <Box sx={{ display: "flex", justifyContent: "center", mt: 8 }}>
+            <CircularProgress size={48} />
+          </Box>
+        ) : !selectedStream ? (
+          <Typography align="center" sx={{ mt: 8 }}>
+            No stream data found. Please select another stream.
+          </Typography>
+        ) : (
+          <Grid container spacing={2} sx={{ height: "100%" }}>
+            {/* First Column */}
+            {/* Featured Colleges */}
+            <Grid item xs={12} md={4} sx={{ height: { xs: "auto", md: "100%" } }}>
               <Card
                 sx={{
                   height: "100%",
@@ -251,12 +247,8 @@ const CollegeFinder: React.FC = () => {
                     marginX: 2,
                   }}
                 >
-                  Top Hiring Companies
-                  <Button
-                    variant="text"
-                    size="small"
-                    onClick={() => router.push(`/colleges`)}
-                  >
+                  Featured Colleges
+                  <Button variant="text" size="small" onClick={handleViewAllColleges}>
                     View All
                   </Button>
                 </Typography>
@@ -271,7 +263,7 @@ const CollegeFinder: React.FC = () => {
                       whiteSpace: "nowrap",
                     }}
                   >
-                    {companies?.map((company, index) => (
+                    {colleges?.map((college, index) => (
                       <Button
                         key={index}
                         variant="outlined"
@@ -281,17 +273,9 @@ const CollegeFinder: React.FC = () => {
                           fontSize: ".7rem",
                           whiteSpace: "nowrap",
                         }}
-                        onClick={() =>
-                          router.push(
-                            `/colleges?stream=${createSlug(
-                              selectedStreamTitle || "unspecified"
-                            )}&company=${createSlug(
-                              company.name
-                            )}&streamId=${streamId}&companyId=${company.id}`
-                          )
-                        }
+                        onClick={() => handleCollegeClick(college)}
                       >
-                        {company.name}
+                        {college.college_full_name}
                       </Button>
                     ))}
                   </Box>
@@ -299,15 +283,149 @@ const CollegeFinder: React.FC = () => {
               </Card>
             </Grid>
 
-            {/* Second Row - Top Careers */}
+            {/* Middle Column with 2 Rows */}
             <Grid
               item
+              xs={12}
+              md={4}
               sx={{
-                flex: "1 1 50%",
-                overflowY: "auto",
-                paddingTop: 1,
+                display: "flex",
+                flexDirection: "column",
+                height: { xs: "auto", md: "100%" },
               }}
             >
+              {/* First Row - Top Hiring Companies */}
+              <Grid
+                item
+                sx={{
+                  flex: "1 1 50%",
+                  overflowY: "auto",
+                  paddingBottom: 1,
+                }}
+              >
+                <Card
+                  sx={{
+                    height: "100%",
+                    display: "flex",
+                    flexDirection: "column",
+                    overflow: "hidden",
+                    backgroundColor: "#f0f8ff",
+                    padding: "7px",
+                  }}
+                >
+                  <Typography
+                    variant="h6"
+                    sx={{
+                      textAlign: "left",
+                      display: "flex",
+                      justifyContent: "space-between",
+                      marginX: 2,
+                    }}
+                  >
+                    Top Hiring Companies
+                    <Button variant="text" size="small" onClick={handleViewAllCompanies}>
+                      View All
+                    </Button>
+                  </Typography>
+                  <CardContent sx={{ flex: 1, overflowY: "auto" }}>
+                    <Box
+                      sx={{
+                        display: "flex",
+                        flexWrap: { xs: "nowrap", md: "wrap" },
+                        gap: 1,
+                        padding: 1,
+                        overflowX: { xs: "auto", md: "hidden" },
+                        whiteSpace: "nowrap",
+                      }}
+                    >
+                      {companies?.map((company, index) => (
+                        <Button
+                          key={index}
+                          variant="outlined"
+                          sx={{
+                            flex: "1 0 auto",
+                            minWidth: "120px",
+                            fontSize: ".7rem",
+                            whiteSpace: "nowrap",
+                          }}
+                          onClick={() => handleCompanyClick(company)}
+                        >
+                          {company.name}
+                        </Button>
+                      ))}
+                    </Box>
+                  </CardContent>
+                </Card>
+              </Grid>
+
+              {/* Second Row - Top Careers */}
+              <Grid
+                item
+                sx={{
+                  flex: "1 1 50%",
+                  overflowY: "auto",
+                  paddingTop: 1,
+                }}
+              >
+                <Card
+                  sx={{
+                    height: "100%",
+                    display: "flex",
+                    flexDirection: "column",
+                    overflow: "hidden",
+                    backgroundColor: "#f0f8ff",
+                    padding: "7px",
+                  }}
+                >
+                  <Typography
+                    variant="h6"
+                    sx={{
+                      textAlign: "left",
+                      display: "flex",
+                      justifyContent: "space-between",
+                      marginX: 2,
+                    }}
+                  >
+                    Top Careers
+                    <Button variant="text" size="small" onClick={handleViewAllCareers}>
+                      View All
+                    </Button>
+                  </Typography>
+                  <CardContent sx={{ flex: 1, overflowY: "auto" }}>
+                    <Box
+                      sx={{
+                        display: "flex",
+                        flexWrap: { xs: "nowrap", md: "wrap" },
+                        gap: 1,
+                        padding: 1,
+                        overflowX: { xs: "auto", md: "hidden" },
+                        whiteSpace: "nowrap",
+                      }}
+                    >
+                      {careers?.map((career, index) => (
+                        <Button
+                          key={index}
+                          variant="outlined"
+                          sx={{
+                            flex: "1 0 auto",
+                            minWidth: "120px",
+                            fontSize: ".7rem",
+                            whiteSpace: "nowrap",
+                          }}
+                          onClick={() => handleCareerClick(career)}
+                        >
+                          {career.title}
+                        </Button>
+                      ))}
+                    </Box>
+                  </CardContent>
+                </Card>
+              </Grid>
+            </Grid>
+
+            {/* Third Column */}
+            {/* Related Courses */}
+            <Grid item xs={12} md={4} sx={{ height: { xs: "auto", md: "100%" } }}>
               <Card
                 sx={{
                   height: "100%",
@@ -327,12 +445,8 @@ const CollegeFinder: React.FC = () => {
                     marginX: 2,
                   }}
                 >
-                  Top Careers
-                  <Button
-                    variant="text"
-                    size="small"
-                    onClick={() => router.push(`/top-pharmacy-colleges-inDehradun-Uttarakhand`)}
-                  >
+                  Related Courses
+                  <Button variant="text" size="small" onClick={handleViewAllCourses}>
                     View All
                   </Button>
                 </Typography>
@@ -347,9 +461,9 @@ const CollegeFinder: React.FC = () => {
                       whiteSpace: "nowrap",
                     }}
                   >
-                    {careers?.map((career, index) => (
+                    {courses?.map((course, index) => (
                       <Button
-                        key={index}
+                        key={index} 
                         variant="outlined"
                         sx={{
                           flex: "1 0 auto",
@@ -357,17 +471,9 @@ const CollegeFinder: React.FC = () => {
                           fontSize: ".7rem",
                           whiteSpace: "nowrap",
                         }}
-                        onClick={() =>
-                          router.push(
-                            `/colleges?stream=${createSlug(
-                              selectedStreamTitle || "unspecified"
-                            )}&career=${createSlug(
-                              career.title
-                            )}&streamId=${streamId}&careerId=${career.id}`
-                          )
-                        }
+                        onClick={() => handleCourseClick(course)}
                       >
-                        {career.title}
+                        {course.name}
                       </Button>
                     ))}
                   </Box>
@@ -375,77 +481,7 @@ const CollegeFinder: React.FC = () => {
               </Card>
             </Grid>
           </Grid>
-
-          {/* Third Column */}
-          {/* Related Courses */}
-          <Grid item xs={12} md={4} sx={{ height: { xs: "auto", md: "100%" } }}>
-            <Card
-              sx={{
-                height: "100%",
-                display: "flex",
-                flexDirection: "column",
-                overflow: "hidden",
-                backgroundColor: "#f0f8ff",
-                padding: "7px",
-              }}
-            >
-              <Typography
-                variant="h6"
-                sx={{
-                  textAlign: "left",
-                  display: "flex",
-                  justifyContent: "space-between",
-                  marginX: 2,
-                }}
-              >
-                Related Courses
-                <Button
-                  variant="text"
-                  size="small"
-                  onClick={() => router.push(`/colleges`)}
-                >
-                  View All
-                </Button>
-              </Typography>
-              <CardContent sx={{ flex: 1, overflowY: "auto" }}>
-                <Box
-                  sx={{
-                    display: "flex",
-                    flexWrap: { xs: "nowrap", md: "wrap" },
-                    gap: 1,
-                    padding: 1,
-                    overflowX: { xs: "auto", md: "hidden" },
-                    whiteSpace: "nowrap",
-                  }}
-                >
-                  {courses?.map((course, index) => (
-                    <Button
-                      key={index}
-                      variant="outlined"
-                      sx={{
-                        flex: "1 0 auto",
-                        minWidth: "120px",
-                        fontSize: ".7rem",
-                        whiteSpace: "nowrap",
-                      }}
-                      onClick={() =>
-                        router.push(
-                          `/colleges?stream=${createSlug(
-                            selectedStreamTitle || "unspecified"
-                          )}&course=${createSlug(
-                            course.name
-                          )}&streamId=${streamId}&courseId=${course.id}`
-                        )
-                      }
-                    >
-                      {course.name}
-                    </Button>
-                  ))}
-                </Box>
-              </CardContent>
-            </Card>
-          </Grid>
-        </Grid>
+        )}
       </Box>
     </div>
   );

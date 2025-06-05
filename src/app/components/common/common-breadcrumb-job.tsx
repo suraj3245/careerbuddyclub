@@ -260,7 +260,7 @@ const Content = ({
             marginTop: "3rem",
           }}
         >
-          {title}
+          {title} {/* Steady title, no animation or blinking */}
         </h2>
         <br />
         <h4 className="">
@@ -278,8 +278,9 @@ const Content = ({
           className="btn-five wow fadeInUp  text-black d-flex items-center justify-center gap-2 text-white"
           onClick={downloadBrochure}
         >
-          <Download size={25} />
-          Download Brochure <ChevronRight size={25} />
+          <Download size={25 }/>
+          Download Brochure 
+          {/* <ChevronRight size={25} /> */}
         </button>
       </div>
 
