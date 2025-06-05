@@ -286,8 +286,8 @@ const Content = ({
 
       {/* Widget Section with Loader */}
       <div
-        className="col-lg-6 p-5 d-flex justify-content-center align-items-center bg-transparent"
-        style={{ width: "30rem" }}
+        className="col-lg-6 p-4  d-flex justify-content-center align-items-center bg-transparent"
+        style={{ width: "26rem" }}
       >
         {loading ? (
           <Loader />
