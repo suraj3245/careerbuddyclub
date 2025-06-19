@@ -83,7 +83,7 @@ const BlogSection: React.FC<BlogSectionProps> = ({
         setSelectedFilters((prev) => [...prev, filterKey]);
       }
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [clgLocation, blogContent, selectedStream, searchParams, router]);
 
   // Final blog title with city (only if not already included)
@@ -126,7 +126,8 @@ const BlogSection: React.FC<BlogSectionProps> = ({
           transition: "max-height 0.3s ease",
         }}
       >
-        <Typography variant="body1" paragraph>
+        {/* Changed: set whiteSpace: 'pre-line' for exact line breaks */}
+        <Typography variant="body1" paragraph sx={{ whiteSpace: 'pre-line' }}>
           {blogContent?.description ||
             selectedStream.description ||
             "Explore the best colleges for this stream."}
@@ -143,7 +144,6 @@ const BlogSection: React.FC<BlogSectionProps> = ({
                 // Enables horizontal scroll with momentum on iOS (iPhone/iPad) and nice scrollbars on desktop.
                 overflowX: "auto",
                 WebkitOverflowScrolling: "touch",
-                
                 border: "1px solid #ccc",
                 borderRadius: "8px",
                 mt: 2,
