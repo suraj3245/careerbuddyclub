@@ -74,7 +74,6 @@ export default function RootLayout({
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("testStatus"); // Clear the stored test status
-    localStorage.removeItem("catResults");
     localStorage.removeItem("username");
     localStorage.removeItem("location");
     localStorage.removeItem("schoolName");

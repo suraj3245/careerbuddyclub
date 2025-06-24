@@ -1,9 +1,7 @@
 "use client";
-
 import React, { useRef, useState, useEffect } from "react";
 import Link from "next/link";
 import axios from "axios";
-import { Chart as ChartJS } from "chart.js/auto";
 import Confetti from "react-confetti";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -35,6 +33,7 @@ const QuizForm: React.FC = () => {
   const [results, setResults] = useState<any | null>(null);
   const [token, setToken] = useState<string | null>(null);
   const [testStatus, setTestStatus] = useState("");
+  const [loading, setLoading] = useState(false);
   const barColors = [
     "#FF4560",
     "#00E396",
@@ -97,8 +96,6 @@ const QuizForm: React.FC = () => {
     try {
       const response = await axios.request(options);
       const resultData = response.data;
-
-      // Update the results state with the fetched data
       setResults(resultData);
     } catch (error) {
       console.error("Error fetching cat result:", error);
@@ -161,8 +158,6 @@ const QuizForm: React.FC = () => {
             type: item.type,
           }))
         );
-        console.log(response.data);
-        // Update this according to the actual response structure
       } catch (error) {
         console.error("Error fetching questions:", error);
       }
@@ -218,8 +213,8 @@ const QuizForm: React.FC = () => {
   };
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    setLoading(true);
     event.preventDefault();
-
     if (!areAllQuestionsAnsweredOnPage()) {
       return;
     }
@@ -252,13 +247,10 @@ const QuizForm: React.FC = () => {
       };
 
       const response = await axios.request(submitOptions);
-
-      // Handle the response from the server as needed
-      console.log("Submit Response:", response.data);
-      setResults(response.data);
       setIsSubmitted(true);
       localStorage.setItem("testStatus", "Test completed");
       localStorage.setItem("quizSubmitted", "true");
+      setLoading(false);
     } catch (error) {
       console.error("Error submitting answers:", error);
     }
@@ -310,7 +302,10 @@ const QuizForm: React.FC = () => {
 
     // Ensure that all necessary data points are numbers and defined
     const categories = Object.keys(results)
-      .filter((key) => key.toLowerCase() !== "letters") // Exclude 'letters'
+      .filter(
+        (key) =>
+          key.toLowerCase() !== "letters" && key.toLowerCase() !== "resultdata"
+      ) // Exclude 'letters'
       .map(
         (key) =>
           key.charAt(0).toUpperCase() + key.slice(1).replace("_score", "")
@@ -347,15 +342,6 @@ const QuizForm: React.FC = () => {
         xaxis: {
           categories: categories,
         },
-        // yaxis: {
-        //   labels: {
-        //     offsetX: 30,
-        //     align: "right",
-        //     style: {
-        //       colors: "#fff",
-        //     },
-        //   },
-        // },
         colors: barColors,
       },
     };
@@ -382,9 +368,33 @@ const QuizForm: React.FC = () => {
         <form onSubmit={handleSubmit} className="flex flex-col p-4">
           <div className="d-flex align-items-center justify-content-between">
             <div className="text-center" style={{ flex: 1 }}>
-              <h2 className="mb-6 pb-10 pt-18 " style={{ color: "#13ADBD" }}>
+              <h2
+                className="mt-2"
+                style={{
+                  fontSize: "50px",
+                  background:
+                    "linear-gradient(270deg, #ff416c, #ff4b2b, #1e90ff, #32cd32, #ffcc00, #ff416c)",
+                  backgroundSize: "1200% 1200%",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  animation: "gradientMove 10s linear infinite", // Slow down the animation here
+                }}
+              >
                 Career Aptitude Test
               </h2>
+              <style jsx>{`
+                @keyframes gradientMove {
+                  0% {
+                    background-position: 0% 50%;
+                  }
+                  50% {
+                    background-position: 100% 50%;
+                  }
+                  100% {
+                    background-position: 0% 50%;
+                  }
+                }
+              `}</style>
               {/* Centered Header */}
             </div>
           </div>
@@ -465,9 +475,23 @@ const QuizForm: React.FC = () => {
               </button>
             )}
             {isLastPage && (
-              <button type="submit" className="text-uppercase btn-five border6">
-                Submit
-              </button>
+              <>
+                <button
+                  type="submit"
+                  className="text-uppercase btn-five border6"
+                  disabled={loading}
+                >
+                  {loading && (
+                    <span
+                      className="spinner-border spinner-border-sm me-2"
+                      role="status"
+                      aria-hidden="true"
+                      style={{ width: "1.5rem", height: "1.5rem" }}
+                    ></span>
+                  )}
+                  {loading ? "" : "SUBMIT"}
+                </button>
+              </>
             )}
           </div>
           <div
@@ -514,84 +538,113 @@ const QuizForm: React.FC = () => {
           style={{ position: "relative", zIndex: 1 }}
           className="container mx-auto"
         >
-          <div className="d-flex align-items-center justify-content-between">
-            <div className="text-center" style={{ flex: 1 }}>
+          <div className="d-flex align-items-center justify-content-between mt-4">
+            <div className="text-center mt-3" style={{ flex: 1 }}>
               <h2
-                className="mb-6 pb-10 pt-20 text-uppercase"
-                style={{ color: "#13adbd", paddingTop: "40px" }}
+                className="mt-2"
+                style={{
+                  fontSize: "50px",
+                  fontWeight: "500",
+                  color: "rgb(0, 123, 255)", // Primary blue
+                }}
               >
                 Career Aptitude Test
               </h2>
-              {/* Centered Header */}
-            </div>
-          </div>
-          <div className="text-center">
-            <h2
-              className="mb-6 pb-25"
-              style={{ color: "black", fontSize: "40px" }}
-            >
-              Quiz Result
-            </h2>
-            {/* Display the results here using the `results` state */}
-            <div
-              className="row rounded-5 d-flex flex-row justify-content-center align-items-center"
-              style={{ border: "1px solid black" }}
-            >
-              <div
-                className="chart-container"
-                style={{ flex: 2, minWidth: "300px" }}
-              >
-                {results && (
-                  <ReactApexChart
-                    options={chartData.options}
-                    series={chartData.series}
-                    type="bar"
-                    width={"100%"}
-                    height={350}
-                  />
-                )}
-              </div>
-              <div
-                className="top-scores rounded-5 fw-500 m-5"
+              <h2
+                className="mt-2"
                 style={{
-                  flex: 1,
-                  minWidth: "200px",
-                  border: "1px solid grey",
-                  fontSize: "24px",
+                  fontSize: "40px",
+                  fontWeight: "500",
+                  color: "rgb(0, 150, 136)", // Teal accent for sophistication
                 }}
               >
-                <h3
-                  className="text-uppercase"
-                  style={{ color: "#13adbd", borderBottom: "1px solid grey" }}
-                >
-                  Top Scores
-                </h3>
-                {getTopThreeScores().map((result, index) => (
-                  <p key={index}>{`${result.category}: ${result.score}`}</p>
-                ))}
+                Quiz Result
+              </h2>
+              <div className="col-md-12 mt-2">
+                <p className="text-start">
+                  This is a self-report inventory that assesses the student’s
+                  traits, interests and suggests suitable occupations. This CAT
+                  is based on the Typological Theory, which posits that most
+                  people can be loosely categorized into six types - Realistic,
+                  Investigative, Artistic , Social, Enterprising, and
+                  Conventional. It further states that occupations and work
+                  environments also can be classified by these categories. When
+                  people choose careers that match their own types, they are
+                  most likely to be both satisfied and successful. The purpose
+                  of this test is to help you identify your occupational
+                  personality, education options, and inform your decision
+                  making process.
+                </p>
               </div>
-            </div>
-            <TopCareer topCategories={getTopThreeCategoryNames()} />
-
-            <YourCareer code={results?.letters} />
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                paddingTop: "30px",
-                paddingBottom: "30px",
-              }}
-            >
-              <button
-                className="dash-btn-two tran3s me-3 fw-bold"
-                onClick={downloadResultsAsPDF}
+              {/* Display the results here using the `results` state */}
+              <div
+                className="row rounded-5 d-flex flex-row justify-content-center align-items-center"
+                style={{ border: "1px solid black" }}
               >
-                Download Your Result
-              </button>
-              <Link href="/dashboard/candidate-dashboard/profile">
-                <button className="btn-five tran3s me-3">Next Steps</button>
-              </Link>
+                <div
+                  className="chart-container"
+                  style={{ flex: 2, minWidth: "300px" }}
+                >
+                  {results && (
+                    <ReactApexChart
+                      options={chartData.options}
+                      series={chartData.series}
+                      type="bar"
+                      width={"100%"}
+                      height={350}
+                    />
+                  )}
+                </div>
+                <div
+                  className="top-scores rounded-5 fw-500 m-5"
+                  style={{
+                    flex: 1,
+                    minWidth: "200px",
+                    border: "1px solid grey",
+                    fontSize: "24px",
+                  }}
+                >
+                  <h3
+                    className="mt-1 p-3"
+                    style={{
+                      fontSize: "30px",
+                      fontWeight: "500",
+                      color: "rgb(0, 123, 655)",
+                      borderBottom: "1px solid grey",
+                    }}
+                  >
+                    Top Scores
+                  </h3>
+                  {getTopThreeScores().map((t, i) => (
+                    <p key={i} style={{ fontSize: "18px", color: "green" }}>{`${
+                      t.category.charAt(0).toUpperCase() +
+                      t.category.slice(1).toLowerCase()
+                    }: ${t.score}`}</p>
+                  ))}
+                </div>
+              </div>
+              <TopCareer topCategories={getTopThreeCategoryNames()} />
+
+              <YourCareer code={results?.resultData} />
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  paddingTop: "30px",
+                  paddingBottom: "30px",
+                }}
+              >
+                <button
+                  className="dash-btn-two tran3s me-3 fw-bold"
+                  onClick={downloadResultsAsPDF}
+                >
+                  Download Your Result
+                </button>
+                <Link href="/dashboard/candidate-dashboard/profile">
+                  <button className="btn-five tran3s me-3">Next Steps</button>
+                </Link>
+              </div>
             </div>
           </div>
         </div>

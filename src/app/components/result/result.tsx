@@ -123,7 +123,7 @@ const QuizForm: React.FC = () => {
 
       const submitOptions = {
         method: "POST",
-        url: "http://172.33.0.54:8000/api/students/submitcatanswers",
+        url: "https://test.careerbuddyclub.com:8080/api/api/students/submitcatanswers",
         headers: {
           Accept: "*/*",
           Authorization:

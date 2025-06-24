@@ -99,6 +99,7 @@ const SchoolAside = ({ isOpenSidebar, setIsOpenSidebar }: IProps) => {
     localStorage.removeItem("token");
     localStorage.removeItem("schoolName");
     localStorage.removeItem("School_email");
+    localStorage.removeItem("School_id");
   }
 
   return (
@@ -144,6 +145,9 @@ const SchoolAside = ({ isOpenSidebar, setIsOpenSidebar }: IProps) => {
               </button>
               <ul className="dropdown-menu text-center">
                 <li>
+                  <a href="/" className="dropdown-item">
+                    Home
+                  </a>
                   <a
                     href="/dashboard/school-dashboard/setting"
                     className="dropdown-item"
@@ -152,7 +156,11 @@ const SchoolAside = ({ isOpenSidebar, setIsOpenSidebar }: IProps) => {
                   </a>
                 </li>
                 <li>
-                  <a href="/schools" className="dropdown-item" onClick={onLogout}>
+                  <a
+                    href="/schools"
+                    className="dropdown-item"
+                    onClick={onLogout}
+                  >
                     logout
                   </a>
                 </li>
