@@ -1666,15 +1666,15 @@ const college_details: IcollegeType[] = [
       },
       {
         name: "",
-        info: "•	Standard Quad (Four Sharing Room) with Attached Toilet Rs.48000/-per Year.        ",
+        info: "•	Standard Quad (Four Sharing Room) with Attached Toilet Rs.48000/-per Year.",
       },
       {
         name: "",
-        info: "•	Deluxe Quad (Four Sharing Room) with Attached Toilet Rs.58000/-per Year.        ",
+        info: "•	Deluxe Quad (Four Sharing Room) with Attached Toilet Rs.58000/-per Year.",
       },
       {
         name: "",
-        info: "•	Standard (Three Sharing Room) with Attached Toilet Rs.68000/-per Year.        ",
+        info: "•	Standard (Three Sharing Room) with Attached Toilet Rs.68000/-per Year. ",
       },
       {
         name: "",

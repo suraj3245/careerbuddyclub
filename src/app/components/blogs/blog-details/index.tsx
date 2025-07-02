@@ -42,9 +42,6 @@ const BlogDetailsArea = ({ item }: { item: IBlogDataType }) => {
               </div>
             </div>
 
-            {/* <div className="col-lg-4">
-              <BlogSidebar />
-            </div> */}
           </div>
         </div>
       </div>

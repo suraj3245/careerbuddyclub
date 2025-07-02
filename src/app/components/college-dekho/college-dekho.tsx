@@ -150,7 +150,7 @@ const steps = [
   },
 ];
 
-const Collegedekhocomp = () => {
+const Collegedekhocomp:any = () => {
   return (
     <LayoutContainer>
       <FixedContent>
