@@ -55,23 +55,22 @@ const StudentScoreModal: React.FC<StudentScoreModalProps> = ({
   ];
   const downloadResultsAsPDF = async () => {
     const input = document.getElementById("resultsContainer");
-    if (!(input instanceof HTMLElement)) return; // Type check
+    if (!(input instanceof HTMLElement)) return;
     const canvas = await html2canvas(input, {
-      scale: 1, // Adjust scale as needed
-      scrollY: -window.scrollY, // Adjust for page scrolling
+      scale: 2,
+      scrollY: -window.scrollY,
+      useCORS: true,
     });
-
-    const imgData = canvas.toDataURL("image/png");
+    const imgData = canvas.toDataURL("image/jpeg", 0.8);
     const pdf = new jsPDF({
       orientation: "portrait",
       unit: "px",
       format: [canvas.width, canvas.height],
     });
-
-    pdf.addImage(imgData, "PNG", 0, 0, canvas.width, canvas.height);
+    pdf.addImage(imgData, "JPEG", 0, 0, canvas.width, canvas.height);
     pdf.save(`CAT_Results_${student?.name}.pdf`);
   };
-
+  
   const fetchCatResult = async () => {
     const token = localStorage.getItem("token");
     if (!token) {
