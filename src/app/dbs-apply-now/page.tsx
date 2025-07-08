@@ -3,22 +3,18 @@ import React, { useEffect, useState, useRef } from "react";
 import { Metadata } from "next";
 import Head from "next/head";
 import Wrapper from "@/layouts/wrapper";
-import ApplyArea from "../components/apply-now/apply-area";
-import HeaderTwo from "@/layouts/headers/header-2";
-import college_details from "@/data/college-details";
+import college_details from "@/wip/college-details";
 import CollegeDetailsArea from "../components/company-details/college-details-dbs";
 import JobListEleven from "../components/jobs/list/job-list-eleven";
-import { FaArrowUp, FaPhone, FaCommentDots } from "react-icons/fa"; // Importing the icons
+import { FaArrowUp, FaPhone, FaCommentDots } from "react-icons/fa"; 
 import HeaderSeven from "@/layouts/headers/header-7";
 import ApplyAreaDbs from "../components/apply-now/apply-area-dbs";
 
-// export const metadata: Metadata = {
-//   title: "Apply now",
-// };
+
 
 const RegisterPage = () => {
   const details = college_details[5];
-  const applyFormRef = useRef<HTMLDivElement>(null); // Specify the ref type
+  const applyFormRef = useRef<HTMLDivElement>(null); 
   const [showScrollTop, setShowScrollTop] = useState(false);
 
   useEffect(() => {
@@ -86,7 +82,7 @@ const RegisterPage = () => {
             style={{
               position: "fixed",
               bottom: "90px",
-              right: "30px", // Changed from right to left
+              right: "30px", 
               backgroundColor: "#007bff",
               color: "#fff",
               border: "none",

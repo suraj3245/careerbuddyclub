@@ -3,7 +3,6 @@ const streamCustomSlugs: Record<number, string> = {
      17:"top-pharmacy-colleges-in-dehradun-uttarakhand",
      2:"top-BBA-colleges-in-dehradun"
   
-     // Add more as needed
 };
 
 export function getStreamSlug(title: string, id: number) {
@@ -15,3 +14,4 @@ export function getStreamSlug(title: string, id: number) {
       .replace(/^-+|-+$/g, "")
       .replace(/-+/g, "-");
 }
+

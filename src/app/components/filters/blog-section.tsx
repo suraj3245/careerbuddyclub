@@ -25,7 +25,7 @@ interface Stream {
 
 interface BlogSectionProps {
   streams: Stream[];
-  clgLocation: string[]; // city names
+  clgLocation: string[]; 
   selectedFilters: string[];
   setSelectedFilters: React.Dispatch<React.SetStateAction<string[]>>;
 }

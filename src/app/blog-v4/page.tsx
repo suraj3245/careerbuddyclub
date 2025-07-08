@@ -3,13 +3,14 @@ import { Metadata } from "next";
 import Wrapper from "@/layouts/wrapper";
 import CompanyBreadcrumb from "../components/common/common-breadcrumb";
 import FooterOne from "@/layouts/footers/footer-one";
-import BlogFullWidthArea from "../components/blogs/blog-frull-width";
+import ThreeColumnBlogSection from "../components/college-blogs/three-col-blog";
+
 
 export const metadata: Metadata = {
-  title: "Blog v3",
+  title: "Blog v4",
 };
 
-const BlogV3Page = () => {
+const BlogV4Page = () => {
   return (
     <Wrapper>
       <div className="main-page-wrapper">
@@ -18,18 +19,19 @@ const BlogV3Page = () => {
 
         {/*breadcrumb start */}
         <CompanyBreadcrumb
-          title="Career Buddy Club Insights"
-          subtitle=""
+          title="Explore Best Colleges"
+          subtitle="Find the best colleges and universities in your area"
+          backgroundImage="/assets/images/blog/grad_blog1.jpg"
         />
-        {/*breadcrumb end */}
+        
 
         {/* blog v3 start */}
-        <BlogFullWidthArea />
+        {/* <BlogFullWidthArea /> */}
         {/* blog v3 end */}
+        <ThreeColumnBlogSection />
+        
 
-        {/* job portal intro start */}
-        {/* <JobPortalIntro top_border={true} /> */}
-        {/* job portal intro end */}
+        
 
         {/* footer start */}
         <FooterOne />
@@ -39,4 +41,4 @@ const BlogV3Page = () => {
   );
 };
 
-export default BlogV3Page;
+export default BlogV4Page;
