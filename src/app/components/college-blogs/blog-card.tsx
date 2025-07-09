@@ -12,7 +12,6 @@ const BlogCard = ({ blog }: { blog: IBlogDataType }) => {
       style={{
         width: "100%",
         maxWidth: "22rem",
-        borderRadius: "1rem",
         overflow: "hidden",
         background: "#fff",
       }}
@@ -49,7 +48,7 @@ const BlogCard = ({ blog }: { blog: IBlogDataType }) => {
           className="d-flex align-items-center mb-2"
           style={{ fontSize: "0.85rem", color: "#888" }}
         >
-          <span>
+          <span className="text-primary">
             {new Date(date).toLocaleDateString(undefined, {
               year: "numeric",
               month: "short",
@@ -104,7 +103,7 @@ const BlogCard = ({ blog }: { blog: IBlogDataType }) => {
               transition: "color 0.2s",
             }}
           >
-            Continue <span style={{ fontSize: "1.2em" }}>→</span>
+            Read More <span style={{ fontSize: "1.2em" }}>→</span>
           </Link>
         </div>
       </div>
