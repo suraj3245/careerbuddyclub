@@ -1,16 +1,15 @@
 import PharmacyDescription from "@/app/components/college-blogs/description/pharmacy";
 import BBAColleges from "@/app/components/college-blogs/description/bba";
-import img_1 from "@/assets/images/blog/pharam_blog.jpg";
-import img_2 from "@/assets/images/blog/bba_blog.jpg";
+
 
 
 
 const blog_data1 = [
   {
     id: "top-pharmacy-colleges-dehradun",
-    img: "/assets/images/blog/pharam_blog.jpg",
-    grid_img: "/assets/images/blog/pharma_blog6.jpg",
-    img_full: "/assets/images/blog/pharma_blog8.jpg",
+    img: "/assets/images/blog/pharma_blog362.jpg",
+    grid_img: "/assets/images/blog/pharma_blog362.jpg",
+    img_full: "/assets/images/blog/pharma_blog800.jpg",
     title: "Best Pharmacy Colleges in Dehradun (2025 Guide)",
     author: "Career Buddy Club",
     date: "8 July 2025",
@@ -24,9 +23,9 @@ const blog_data1 = [
   
   {
     id: "top-bba-colleges-dehradun",
-    img_full: "/assets/images/blog/bba_blog8.jpg",
-    img: "/assets/images/blog/bba_blog.jpg",
-    grid_img: "/assets/images/blog/bba_blog6.jpg",
+    img_full: "/assets/images/blog/bba_blog800.jpg",
+    img: "/assets/images/blog/bba_blog362.jpg",
+    grid_img: "/assets/images/blog/bba_blog800.jpg",
     title: "Top BBA Colleges in Dehradun: Fees, Location, Curriculum & Career Prospects",
     desc: "In this blog, we explore the top BBA colleges in Dehradun, their fees, location advantages, curriculum highlights, and career prospects after graduation.",
     author: "Career Buddy Club",

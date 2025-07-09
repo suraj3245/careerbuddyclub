@@ -25,22 +25,31 @@ const ThreeColumnBlogSection: React.FC = () => {
 
   return (
     <section id="blog-section" className="py-5 bg-white">
-      <div className="container text-center mb-5">
-        <h2 className="fw-bold display-5 mb-4">From the blog</h2>
+      <div className="container mb-5">
+        <h2 className="fw-bold display-5 mb-4 ">
+          
+          📚 Featured Blogs for Colleges</h2>
         <p className="lead text-muted">
           Explore top colleges and trending courses with insights tailored to you.
         </p>
+        <hr
+          className="mb-10"
+          style={{  borderBottom: "3px solid black", borderWidth: "3px", borderStyle: "solid" }}
+        />
       </div>
 
-      <div className="container">
+      <div className="container" style ={{ marginTop:"2rem"}}>
         {currentBlogs.length === 0 ? (
           <div className="text-center py-5 text-muted">
             <p>No blog posts found.</p>
           </div>
         ) : (
-          <div className="row justify-content-center g-4">
+          <div className="row justify-content-start g-4">
             {currentBlogs.map((item) => (
-              <div key={item.id} className="col-12 col-sm-6 col-lg-4 d-flex justify-content-center">
+              <div
+                key={item.id}
+                className="col-12 col-sm-6 col-lg-4 d-flex justify-content-center"
+              >
                 <BlogCard blog={item} />
               </div>
             ))}
@@ -48,7 +57,10 @@ const ThreeColumnBlogSection: React.FC = () => {
         )}
 
         {/* Pagination */}
-        <div className="d-flex justify-content-center align-items-center gap-5  flex-wrap pt-5" style={{marginTop:'5rem'}}>
+        <div
+          className="d-flex justify-content-center align-items-center gap-5 flex-wrap pt-5"
+          style={{ marginTop: "5rem" }}
+        >
           <button
             className="btn btn-outline-secondary rounded-pill px-4"
             disabled={currentPage === 1}
@@ -62,7 +74,9 @@ const ThreeColumnBlogSection: React.FC = () => {
           {Array.from({ length: totalPages }, (_, idx) => idx + 1).map((page) => (
             <button
               key={page}
-              className={`btn rounded-pill px-3 mx-1 ${page === currentPage ? "btn-primary" : "btn-outline-secondary"}`}
+              className={`btn rounded-pill px-3 mx-1 ${
+                page === currentPage ? "btn-primary" : "btn-outline-secondary"
+              }`}
               onClick={() => handlePageChange(page)}
               aria-label={`Go to page ${page}`}
               disabled={page === currentPage}
