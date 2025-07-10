@@ -17,7 +17,8 @@ const CollegeBlogDetailsArea = ({ item }: { item: IBlogDataType }) => {
 
               {/* Title */}
               <h2 className="fw-semibold mb-3 mt-5 leading-none" style={{ marginTop:'2rem', lineHeight:'3.5rem', fontSize: '2rem' }}>{item.title}</h2>
-
+               
+               <p>{item.desc}</p>
               {/* Banner */}
               <div className="mb-4">
                 <Image

@@ -27,7 +27,7 @@ const blog_data1 = [
     img: "/assets/images/blog/bba_blog362.jpg",
     grid_img: "/assets/images/blog/bba_blog800.jpg",
     title: "Top BBA Colleges in Dehradun: Fees, Location, Curriculum & Career Prospects",
-    desc: "In this blog, we explore the top BBA colleges in Dehradun, their fees, location advantages, curriculum highlights, and career prospects after graduation.",
+    desc: "If you're planning to pursue a Bachelor of Business Administration (BBA), Dehradun is emerging as a premier destination for quality management education. Known for its scenic beauty and academic atmosphere, Dehradun offers a mix of prestigious universities, an industry-aligned curriculum, affordable fees, and strong career opportunities. In this blog, we explore the top BBA colleges in Dehradun, their fees, location advantages, curriculum highlights, and career prospects after graduation.",
     author: "Career Buddy Club",
     date: "July 6, 2025",
     blog: "Explore the best BBA colleges in Dehradun with top placements and industry connections.",
