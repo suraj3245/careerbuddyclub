@@ -15,7 +15,7 @@ const colleges = [
     ],
     eligibility: "10+2 with PCB/PCM, Minimum 50%",
     fees: "₹65,000 - ₹85,000/year",
-    website: "https://gnc.edu.in/"
+    website: "https://careerbuddyclub.com/college-details/GNC?utm_source=CBC-Website&utm_medium=Online&utm_campaign=GNC"
   },
   {
     name: "Doon PG College of Agriculture and Allied Sciences",
@@ -31,7 +31,7 @@ const colleges = [
     ],
     eligibility: "10+2 Science, entrance test required",
     fees: "₹75,000 - ₹1,10,000/year",
-    website: "https://doonagriculturecollege.in/"
+    website: "https://careerbuddyclub.com/college-details/DCAAS"
   },
   {
     name: "JB Institute of Technology (JBIT), Dehradun",
@@ -47,7 +47,7 @@ const colleges = [
     ],
     eligibility: "10+2 in Science with min 45-50%",
     fees: "₹70,000 - ₹90,000/year",
-    website: "https://www.jbitdoon.com/"
+    website: "https://careerbuddyclub.com/college-details/JBIT?utm_source=CBC-Website&utm_medium=Online&utm_campaign=JBIT"
   },
   {
     name: "BFIT Group of Institutions, Dehradun",
@@ -63,7 +63,7 @@ const colleges = [
     ],
     eligibility: "10+2 (PCB/PCM), no entrance required",
     fees: "₹60,000 - ₹80,000/year",
-    website: "https://bfit.edu.in/"
+    website: "https://careerbuddyclub.com/college-details/BFIT?utm_source=CBC-Website&utm_medium=Online&utm_campaign=BFIT"
   }
 ];
 
