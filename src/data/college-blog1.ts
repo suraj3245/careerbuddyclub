@@ -1,35 +1,38 @@
 import PharmacyDescription from "@/app/components/college-blogs/description/pharmacy";
 import BBAColleges from "@/app/components/college-blogs/description/bba";
+import NursingDescription from "@/app/components/college-blogs/description/nursing";
 
 
 
 
 const blog_data1 = [
   {
-    id: "top-pharmacy-colleges-dehradun",
+    id: "best-pharmacy-colleges-in-dehradun",
     img: "/assets/images/blog/pharma_blog362.jpg",
     grid_img: "/assets/images/blog/pharma_blog362.jpg",
     img_full: "/assets/images/blog/pharma_blog800.jpg",
-    title: "Best Pharmacy Colleges in Dehradun (2025 Guide)",
+    title: "Best Pharmacy Colleges in Dehradun (2025) Guide",
     author: "Career Buddy Club",
-    date: "8 July 2025",
+    date: "10 July, 2025",
     blog: "top-pharmacy-colleges-dehradun",
     tags: ["Pharmacy", "Dehradun", "Career"],
     desc: "Explore the top pharmacy colleges in Dehradun for 2025. Get insights on courses, fees, and career opportunities in the pharmaceutical field.",
    descComponent: PharmacyDescription ,
-   metaDescription: "Explore the top pharmacy colleges in Dehradun for 2025. Get insights on courses, fees, and career opportunities in the pharmaceutical field.",
+   metaDescription: "Dehradun, nestled in the foothills of the Himalayas, is renowned for being an academic hub of North India. Over the past few years, the city has emerged as a prominent destination for pharmacy education, thanks to its peaceful environment, affordable living, and a wide range of academic institutions offering quality pharmaceutical programs.If you're a student aspiring to build a future in healthcare and pharmaceuticals, this 2025 Career Guide by Career Buddy Club will help you explore the top pharmacy colleges in Dehradun, including essential information on courses, fees, eligibility, career scope, and campus life.",
    excerpt: "Discover the best pharmacy colleges in Dehradun for 2025. This guide covers top institutions, courses offered, fees, eligibility criteria, and career prospects in the pharmaceutical industry. Make an informed choice for your future in pharmacy."
   },
+
+  // BBA Colleges Blog/////////////////////
   
   {
-    id: "top-bba-colleges-dehradun",
+    id: "top-bba-colleges-in-dehradun",
     img_full: "/assets/images/blog/bba_blog800.jpg",
     img: "/assets/images/blog/bba_blog362.jpg",
     grid_img: "/assets/images/blog/bba_blog800.jpg",
     title: "Top BBA Colleges in Dehradun: Fees, Location, Curriculum & Career Prospects",
     desc: "If you're planning to pursue a Bachelor of Business Administration (BBA), Dehradun is emerging as a premier destination for quality management education. Known for its scenic beauty and academic atmosphere, Dehradun offers a mix of prestigious universities, an industry-aligned curriculum, affordable fees, and strong career opportunities. In this blog, we explore the top BBA colleges in Dehradun, their fees, location advantages, curriculum highlights, and career prospects after graduation.",
     author: "Career Buddy Club",
-    date: "July 6, 2025",
+    date: "10 July, 2025",
     blog: "Explore the best BBA colleges in Dehradun with top placements and industry connections.",
     tags: ["Bba", "Management", "Career"],
     metaDescription: "Explore the best BBA colleges in Dehradun with top placements and industry connections.",   
@@ -37,8 +40,28 @@ const blog_data1 = [
     descComponent: BBAColleges,
   
   },
+
+  // Nursing Colleges Blog//////////////////////
   
+  {
+    id: "top-5-nursing-colleges-in-dehradun",
+    img_full: "/assets/images/blog/nursing_blog800.jpg",
+    img: "/assets/images/blog/nursing_blog362.jpg",
+    grid_img: "/assets/images/blog/nursing_blog800.jpg",
+    title: "Top 5 Nursing Colleges in Dehradun: Courses, Fees, Eligibility & Career Scope (2025 Guide)",
+    desc: "Dehradun, nestled in the picturesque hills of Uttarakhand, is increasingly becoming a hub for healthcare and medical education. Among its growing portfolio of professional courses, nursing programs are highly sought after due to rising demand in hospitals, clinics, and global healthcare settings.In this comprehensive 2025 guide by Career Buddy Club, we bring you the Top 5 Nursing Colleges in Dehradun, complete with program details, fees, eligibility, campus highlights, and career scope — with special attention to Guru Nanak College and BFIT Group of Institutions, two of the fastest emerging nursing colleges in the region.",
+    author: "Career Buddy Club",
+    date: "10 July, 2025",
+    blog: "Explore the best BBA colleges in Dehradun with top placements and industry connections.",
+    tags: ["Nursing", "Healthcare ", "Dehradun"],
+    metaDescription: "Discover the top 5 nursing colleges in Dehradun for 2025, including Guru Nanak College and BFIT. Explore courses, fees, eligibility, campus life, and career prospects in this comprehensive guide by Career Buddy Club." ,
+    descComponent: NursingDescription,
   
+  },
+  
+
+
 ];
 
 export default blog_data1;
+

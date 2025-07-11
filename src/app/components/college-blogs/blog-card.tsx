@@ -38,7 +38,7 @@ const BlogCard = ({ blog }: { blog: IBlogDataType }) => {
               fontSize: "0.9rem",
             }}
           >
-            ★ Featured
+             
           </span>
         )}
       </div>
