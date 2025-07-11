@@ -25,12 +25,12 @@ const CollegeBlogSidebar = ({ currentId }: { currentId: number | string }) => {
         {recommended.map((blog: IBlogDataType) => (
           <li key={blog.id} className="mb-3 d-flex gap-3">
             <Image
-              src={blog.img_full}
+              src={blog.img}
               alt={blog.title}
               width={80}
               height={60}
               className="rounded"
-              style={{ objectFit: 'cover' }}
+              style={{ objectFit: 'contain' }}
             />
             <div>
               <Link href={`/college-blogs/${blog.id}`} className="fw-semibold text-dark d-block">

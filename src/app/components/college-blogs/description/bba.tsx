@@ -1,20 +1,21 @@
 "use client"
 import React from "react";
 import Link from "next/link";
+import { listStyleType } from "html2canvas/dist/types/css/property-descriptors/list-style-type";
 
 const BBAColleges = () => {
   return (
-    <section className="container py-5" style={{ lineHeight: "1.8rem" }}>
+    <section className="container py-5" style={{ lineHeight: "2rem" }}>
       {/* Table of Contents */}
       <div
         className="card mb-5"
         style={{ borderRight: "3px solid #007bff", maxWidth: "800px" }}
       >
         <div className="card-body">
-          <h2 className="card-title text-primary" style={{ fontSize: "1.25rem" }}>
+          <h2 className="card-title text-success" style={{ fontSize: "1.25rem"  }}>
             Table of Contents
           </h2>
-          <ul className="list-unstyled mt-3 mb-0" style={{ lineHeight: "2.4rem" }}>
+          <ul className="list-unstyled mt-3 mb-0 text-primary" style={{ lineHeight: "2.4rem" }}>
             <li><a href="#why-dehradun" className="text-decoration-none">Why Choose Dehradun for BBA?</a></li>
             <li><a href="#top-colleges" className="text-decoration-none">Top BBA Colleges in Dehradun</a></li>
             <li><a href="#advantages" className="text-decoration-none">Key Advantages of Doing BBA</a></li>
@@ -27,7 +28,8 @@ const BBAColleges = () => {
         </div>
       </div>
       {/* Why Dehradun */}
-      <h2 id="why-dehradun" className="mt-5 mb-4" style={{ fontSize: "1.75rem", marginTop:'4rem' }}>
+      <div className=""style={{ marginTop:'3rem !important'}} id="why-dehradun">
+      <h2 id="top-colleges" className="mt-5 mb-4" style={{ fontSize: "1.75rem", marginTop:'4rem' }}>
         Why Choose Dehradun for a BBA?
       </h2>
       <ol className="mb-5">
@@ -37,14 +39,19 @@ const BBAColleges = () => {
         </li>
       </ol>
 
+        <hr
+          className="mt-10"
+          style={{  borderBottom: "2px solid black", borderWidth: "3px", borderStyle: "solid" ,"marginTop":"2rem !important"}}
+        />
+
       {/* Top Colleges */}
-      <h2 id="top-colleges" className="mt-5 mb-4" style={{ fontSize: '1.75rem', marginTop:'4rem' }}>
+      <h2 id="" className="mt-5 mb-4" style={{ fontSize: '1.75rem', marginTop:'2rem !important' }}>
         Top BBA Colleges in Dehradun
       </h2>
 
-      <ul className="mb-5">
+      <ul className="mb-5" style={{listStyleType:"none"}}>
         <li>
-          <strong>1. Graphic Era (Deemed to be University)</strong><br/>
+          <h3 id="">1. Graphic Era (Deemed to be University)</h3><br/>
           • Affiliation: UGC-approved Deemed University<br/>
           • NAAC: A+<br />
           • Fees: ₹1,15,000/year<br/>
@@ -53,7 +60,7 @@ const BBAColleges = () => {
           <strong>Highlights:</strong> Strong industry interface, excellent infrastructure, international collaborations
         </li>
         <li className="mt-4">
-          <strong>2. UPES (University of Petroleum and Energy Studies)</strong><br />
+          <h3>2. UPES (University of Petroleum and Energy Studies)</h3><br />
           • Affiliation: UGC, AIU<br/>
           • NAAC: A<br/>
           • Fees: ₹2,60,000/year<br />
@@ -62,7 +69,7 @@ const BBAColleges = () => {
           <strong>Highlights:</strong> Unique industry-aligned BBA programs, 94% placement rate
         </li>
         <li className="mt-4">
-          <strong>3. DIT University</strong><br />
+          <h3>3. DIT University</h3><br />
           • Affiliation: UGC-approved Private University<br />
           • NAAC: In process<br />
           • Fees: ₹1,10,000/year<br />
@@ -71,7 +78,7 @@ const BBAColleges = () => {
           <strong>Highlights:</strong> Case-based pedagogy, strong internships & placements
         </li>
         <li className="mt-4">
-          <strong>4. IMS Unison University</strong><br />
+          <h3>4. IMS Unison University</h3><br />
           • Affiliation: UGC-recognized Private University<br />
           • NAAC: B+<br />
           • Fees: ₹1,05,000/year<br />
@@ -80,14 +87,14 @@ const BBAColleges = () => {
           <strong>Highlights:</strong> Good faculty-student ratio, skill-building workshops
         </li>
         <li className="mt-4">
-          <strong>5. Guru Nanak College, Dehradun</strong><br />
+          <h3>5. Guru Nanak College, Dehradun</h3><br />
           • Affiliation: Sri Dev Suman Uttarakhand University<br />
           • Fees: ₹50,000–₹60,000/year<br />
           • Specializations: General BBA<br />
           <strong>Highlights:</strong> Affordable, individual academic focus, Wi-Fi & digital campus
         </li>
         <li className="mt-4">
-          <strong>6. JBIT (JB Institute of Technology)</strong><br />
+          <h3>6. JBIT (JB Institute of Technology)</h3><br />
           • Affiliation: Sri Dev Suman Uttarakhand University<br />
           • Fees: ₹70,000–₹85,000/year<br />
           • Specializations: HR, Marketing, Finance<br />
@@ -95,7 +102,7 @@ const BBAColleges = () => {
           <strong>Highlights:</strong> ERP-integrated learning, strong placements, regular industry visits
         </li>
         <li className="mt-4">
-          <strong>7. BFIT Group of Institutions</strong><br />
+          <h3 id="advantages">7. BFIT Group of Institutions</h3><br />
           • Affiliation: HNB Garhwal Central University<br />
           • Fees: ₹60,000–₹75,000/year<br />
           • Specializations: General BBA, Entrepreneurship<br />
@@ -104,8 +111,13 @@ const BBAColleges = () => {
         </li>
       </ul>
 
+       <hr
+          className="mt-10"
+          style={{  borderBottom: "2px solid black", borderWidth: "3px", borderStyle: "solid" ,"marginTop":"2rem !important"}}
+        />
+
       {/* Key Advantages */}
-      <h2 id="advantages" className="mt-5 mb-3" style={{ fontSize: "1.75rem" }}>
+      <h2 id="curriculum" className="mt-5 mb-3" style={{ fontSize: "1.75rem", marginTop:"2rem !important" }}>
         Key Advantages of Doing BBA in Dehradun
       </h2>
       <ul className="mb-5">
@@ -119,8 +131,14 @@ const BBAColleges = () => {
           centers.</li>
       </ul>
 
+
+      <hr
+          className="mt-10"
+          style={{  borderBottom: "2px solid black", borderWidth: "3px", borderStyle: "solid" ,"marginTop":"2rem !important"}}
+        />
+
       {/* Curriculum Overview */}
-      <h2 id="curriculum" className="mt-5 mb-3" style={{ fontSize: "1.75rem" }}>
+      <h2 id="" className="mt-5 mb-3" style={{ fontSize: "1.75rem" , marginTop:"2rem !important" }}>
         Curriculum Overview of BBA Programs
       </h2>
       <p>A typical BBA program in Dehradun includes:</p>
@@ -145,7 +163,7 @@ const BBAColleges = () => {
         <li>International Business</li>
       </ul>
 
-      <h5 className="mt-4">Skill Enhancement Courses</h5>
+      <h5 className="mt-4" id="careers">Skill Enhancement Courses</h5>
       <ul>
         <li>Excel & Data Tools</li>
         <li>Presentation & Soft Skills</li>
@@ -155,8 +173,13 @@ const BBAColleges = () => {
 
       <p className="mb-5"><strong>Internships:</strong> 6–8 weeks mandatory after 4th or 5th semester</p>
 
+       <hr
+          className="mt-10"
+          style={{  borderBottom: "2px solid black", borderWidth: "3px", borderStyle: "solid" ,"marginTop":"2rem !important"}}
+        />
+
       {/* Career Prospects */}
-      <h2 id="careers" className="mt-5 mb-3" style={{ fontSize: '1.75rem' }}>
+      <h2 id="" className="mt-5 mb-3" style={{ fontSize: '1.75rem' , marginTop:"2rem !important" }}>
         Career Prospects After BBA
       </h2>
 
@@ -177,27 +200,42 @@ const BBAColleges = () => {
         <li>Banking & Finance Associate</li>
       </ul>
 
-      <h5 className="mt-4">Entrepreneurship</h5>
+      <h5 className="mt-4" id="final-thoughts">Entrepreneurship</h5>
       <p className="mb-5">Incubation centers and mentorship in Dehradun help students launch startups.</p>
 
+       <hr
+          className="mt-10"
+          style={{  borderBottom: "2px solid black", borderWidth: "3px", borderStyle: "solid" ,"marginTop":"2rem !important"}}
+        />
+
       {/* Final Thoughts */}
-      <h2 id="final-thoughts" className="mt-5 mb-3" style={{ fontSize: '1.75rem' }}>
+      <h2 id="faq" className="mt-5 mb-3" style={{ fontSize: '1.75rem', marginTop:"2rem !important" }}>
         Final Thoughts
       </h2>
       <p className="mb-5">
         Pursuing a BBA in Dehradun is more than earning a degree—it's about building leadership skills, corporate readiness, and entrepreneurial mindset. Affordable costs, serene learning environments, and strong industry links make Dehradun a top choice for BBA aspirants.
       </p>
 
+       <hr
+          className="mt-10"
+          style={{  borderBottom: "2px solid black", borderWidth: "3px", borderStyle: "solid" ,"marginTop":"2rem !important"}}
+        />
+
       {/* FAQs */}
-      <h2 id="faq" className="mt-5 mb-3" style={{ fontSize: '1.75rem' }}>
+      <h2 id="cbc" className="mt-5 mb-3" style={{ fontSize: '1.75rem', marginTop:"2rem !important" }}>
         Frequently Asked Questions (FAQs)
       </h2>
       <p><strong>Q1. What is the average fee for BBA in Dehradun?</strong><br />A: Fees range from ₹85,000 to ₹2.6 Lakhs per year, depending on the university.</p>
       <p><strong>Q2. Is hostel accommodation available?</strong><br />A: Yes, most colleges offer on-campus or partnered hostel facilities.</p>
       <p><strong>Q3. Are BBA programs UGC approved?</strong><br />A: Yes, all the colleges mentioned above are UGC-recognized and follow NEP-aligned curriculums.</p>
 
+       <hr
+          className="mt-10"
+          style={{  borderBottom: "2px solid black", borderWidth: "3px", borderStyle: "solid" ,"marginTop":"2rem !important"}}
+        />
+
       {/* Career Buddy Club */}
-      <h2 id="cbc" className="mt-5 mb-3" style={{ fontSize: '1.75rem' }}>
+      <h2 id="" className="mt-5 mb-3" style={{ fontSize: '1.75rem' , marginTop:"2rem !important" }}>
         Explore More with Career Buddy Club
       </h2>
       <p>
@@ -205,9 +243,16 @@ const BBAColleges = () => {
         Want personalized guidance to select the best BBA college for you? Contact Career Buddy Club for free counseling, college comparison, and career advice.
       </p>
 
+      </div>
+
+       <hr
+          className="mt-10"
+          style={{  borderBottom: "2px solid black", borderWidth: "3px", borderStyle: "solid" ,"marginTop":"2rem !important"}}
+        />
+
       {/* Table  */}
 
-      <div className="table-responsive mt-4">
+      {/* <div className="table-responsive mt-4">
         <table className="table table-bordered table-striped">
           <thead className="table-dark">
             <tr>
@@ -286,7 +331,7 @@ const BBAColleges = () => {
             </tr>
           </tbody>
         </table>
-      </div>
+      </div> */}
 
 
       {/* Global style for smooth scrolling */}
