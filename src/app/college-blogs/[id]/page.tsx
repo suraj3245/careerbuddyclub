@@ -20,7 +20,7 @@ export async function generateMetadata(
     };
   }
 
-  const canonicalUrl = `https://careerbuddyclub.com/college-blog/${params.id}`;
+  const canonicalUrl = `https://careerbuddyclub.com/college-blogs/${params.id}`;
   const metaDescription =
     blog.metaDescription ||
     blog.excerpt?.slice(0, 150) ||

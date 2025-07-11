@@ -260,12 +260,12 @@ const NursingDescription = () => {
 
                         </p>
 
-                        <ul className="mt-3" style={{ listStyleType: "upper-roman", }}>
+                        <ul className="mt-3" style={{ listStyleType: "upper-roman"}}>
 
 
                             <li>
-                                <strong>Fees:</strong><br />
-                                • ₹1.2 to ₹1.3 lakhs/year <br />
+                                <strong>Fees:</strong><br/>
+                                • ₹1.2 to ₹1.3 lakhs/year<br/>
 
                             </li>
 
@@ -273,15 +273,10 @@ const NursingDescription = () => {
                             <li>
                                 <strong>Campus Perks:</strong><br />
                                 • Interdisciplinary learning, advanced labs, research-driven teaching
-
+                               
                             </li>
 
-
-
-
-
-
-                        </ul>
+                       </ul>
                     </li>
                 </ul>
 
@@ -297,7 +292,7 @@ const NursingDescription = () => {
 
                 <ul className="mt-5" style={{  marginTop: "2rem !important" , listStyleType: "none"}}>
                     <li id="career">
-                        <h3>5. Doon Institute of Medical Sciences (DIMS)  </h3><br />
+                        <h3>5. Doon Institute of Medical Sciences (DIMS)  </h3><br/>
                         <p>
                             <Link href="https://careerbuddyclub.com/college-details/DIMS" className="text-primary">
                                 🔗 Visit Website
@@ -313,8 +308,8 @@ const NursingDescription = () => {
 
 
                             <li>
-                                <strong>Fees:</strong><br />
-                                • ₹45,000 to ₹85,000/year <br />
+                                <strong>Fees:</strong><br/>
+                                • ₹45,000 to ₹85,000/year <br/>
 
                             </li>
 
