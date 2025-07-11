@@ -74,6 +74,11 @@ const NursingDescription = () => {
                 <ul className="mb-5" style={{listStyleType: "none"}}>
                     <li>
                         <h3 id="">1. Guru Nanak College (GNC), Dehradun</h3><br />
+                        <p>
+                            <Link href="https://careerbuddyclub.com/college-details/GNC?utm_source=CBC-Website&utm_medium=Online&utm_campaign=GNC" className="text-primary">
+                                🔗 Visit Website
+                            </Link>
+                            </p>
                         <p className="mt-5">
                             <strong>Guru Nanak College (GNC)</strong> is one of the most trusted institutions for nursing education in Dehradun, offering a blend of academic excellence, ethical learning, and clinical exposure. What sets GNC apart is its recognition and accreditation by NAAC (National Assessment and Accreditation Council) and approval by the Indian Nursing Council (INC) and the Uttarakhand Nurses & Midwives Council, ensuring students receive education that meets national quality benchmarks.
                         </p>
@@ -134,6 +139,11 @@ const NursingDescription = () => {
                 <ul className="mb-5" style={{  marginTop: "2rem !important" , listStyleType: "none"}}>
                     <li className="mt-5">
                         <h3 id="bfit">2. BFIT Group of Institutions, Dehradun</h3><br />
+                        <p>
+                            <Link href="https://careerbuddyclub.com/college-details/BFIT?utm_source=CBC-Website&utm_medium=Online&utm_campaign=BFIT" className="text-primary">
+                                🔗 Visit Website
+                            </Link>
+                            </p>
                         <p className="mt-5">
                             <strong>BFIT (Baba Farid Institute of Technology)</strong>  is a premier institution in Dehradun known for its state-of
                             the-art infrastructure, multi-disciplinary programs, and modern approach to healthcare education.
@@ -191,6 +201,11 @@ const NursingDescription = () => {
                     <li>
                         <h3 id="himalayan">3. Shri Guru Ram Rai Institute of Medical & Health Sciences (SGRRIM&HS) </h3><br />
                         <p>
+                            <Link href="https://careerbuddyclub.com/college-details/SGRRIM" className="text-primary">
+                                🔗 Visit Website
+                            </Link>
+                            </p>
+                        <p>
                             <strong>Shri Guru Ram Rai Institute of Medical & Health Sciences (SGRRIM&HS)</strong>One of Dehradun’s oldest and most reputed health science institutions, SGRRIM&HS offers B.Sc, Post
                             Basic, and M.Sc Nursing programs. Backed by a 1000+ bedded hospital, the college provides real
                             time clinical training and comprehensive learning.
@@ -233,6 +248,11 @@ const NursingDescription = () => {
                 <ul className="mb-5" style={{  marginTop: "2rem !important" , listStyleType: "none"}}>
                     <li>
                         <h3 id="dims">4. Himalayan College of Nursing, Jolly Grant </h3><br />
+                        <p>
+                            <Link href="https://careerbuddyclub.com/college-details/HCN" className="text-primary">
+                                🔗 Visit Website
+                            </Link>
+                            </p>
                         <p className="mt-5">
                             Affiliated with SRHU, this nursing college is known for simulation-based learning, clinical exposure at
                             Himalayan Hospital, and globally relevant education practices.
@@ -278,6 +298,11 @@ const NursingDescription = () => {
                 <ul className="mt-5" style={{  marginTop: "2rem !important" , listStyleType: "none"}}>
                     <li id="career">
                         <h3>5. Doon Institute of Medical Sciences (DIMS)  </h3><br />
+                        <p>
+                            <Link href="https://careerbuddyclub.com/college-details/DIMS" className="text-primary">
+                                🔗 Visit Website
+                            </Link>
+                            </p>
                         <p className="mt-5">
                             DIMS offers value-for-money nursing education with GNM, ANM, and B.Sc Nursing programs.Emphasizing rural outreach and clinical application, DIMS is suitable for students from both urban and semi-urban backgrounds.
 

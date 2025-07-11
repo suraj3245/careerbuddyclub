@@ -52,6 +52,11 @@ const BBAColleges = () => {
       <ul className="mb-5" style={{listStyleType:"none"}}>
         <li>
           <h3 id="">1. Graphic Era (Deemed to be University)</h3><br/>
+             <p>
+                  <Link href="https://careerbuddyclub.com/college-details/GEU" className="text-primary">
+                     🔗 Visit Website
+                  </Link>
+            </p>
           • Affiliation: UGC-approved Deemed University<br/>
           • NAAC: A+<br />
           • Fees: ₹1,15,000/year<br/>
@@ -61,6 +66,11 @@ const BBAColleges = () => {
         </li>
         <li className="mt-4">
           <h3>2. UPES (University of Petroleum and Energy Studies)</h3><br />
+           <p>
+                  <Link href="https://careerbuddyclub.com/college-details/UPES?utm_source=CBC-Website&utm_medium=Online&utm_campaign=UPES" className="text-primary">
+                     🔗 Visit Website
+                  </Link>
+            </p>
           • Affiliation: UGC, AIU<br/>
           • NAAC: A<br/>
           • Fees: ₹2,60,000/year<br />
@@ -70,6 +80,11 @@ const BBAColleges = () => {
         </li>
         <li className="mt-4">
           <h3>3. DIT University</h3><br />
+          <p>
+                  <Link href="http://careerbuddyclub.com/college-details/DIT" className="text-primary">
+                     🔗 Visit Website
+                  </Link>
+            </p>
           • Affiliation: UGC-approved Private University<br />
           • NAAC: In process<br />
           • Fees: ₹1,10,000/year<br />
@@ -79,6 +94,11 @@ const BBAColleges = () => {
         </li>
         <li className="mt-4">
           <h3>4. IMS Unison University</h3><br />
+            <p>
+                  <Link href="https://careerbuddyclub.com/college-details/IMSUU" className="text-primary">
+                     🔗 Visit Website
+                  </Link>
+            </p>
           • Affiliation: UGC-recognized Private University<br />
           • NAAC: B+<br />
           • Fees: ₹1,05,000/year<br />
@@ -88,6 +108,11 @@ const BBAColleges = () => {
         </li>
         <li className="mt-4">
           <h3>5. Guru Nanak College, Dehradun</h3><br />
+           <p>
+                  <Link href="https://careerbuddyclub.com/college-details/GNC?utm_source=CBC-Website&utm_medium=Online&utm_campaign=GNC" className="text-primary">
+                     🔗 Visit Website
+                  </Link>
+            </p>
           • Affiliation: Sri Dev Suman Uttarakhand University<br />
           • Fees: ₹50,000–₹60,000/year<br />
           • Specializations: General BBA<br />
@@ -95,6 +120,11 @@ const BBAColleges = () => {
         </li>
         <li className="mt-4">
           <h3>6. JBIT (JB Institute of Technology)</h3><br />
+          <p>
+                  <Link href="https://careerbuddyclub.com/college-details/JBIT?utm_source=CBC-Website&utm_medium=Online&utm_campaign=JBIT" className="text-primary">
+                     🔗 Visit Website
+                  </Link>
+            </p>
           • Affiliation: Sri Dev Suman Uttarakhand University<br />
           • Fees: ₹70,000–₹85,000/year<br />
           • Specializations: HR, Marketing, Finance<br />
@@ -103,6 +133,11 @@ const BBAColleges = () => {
         </li>
         <li className="mt-4">
           <h3 id="advantages">7. BFIT Group of Institutions</h3><br />
+          <p>
+                  <Link href="https://careerbuddyclub.com/college-details/BFIT?utm_source=CBC-Website&utm_medium=Online&utm_campaign=BFIT" className="text-primary">
+                     🔗 Visit Website
+                  </Link>
+            </p>
           • Affiliation: HNB Garhwal Central University<br />
           • Fees: ₹60,000–₹75,000/year<br />
           • Specializations: General BBA, Entrepreneurship<br />

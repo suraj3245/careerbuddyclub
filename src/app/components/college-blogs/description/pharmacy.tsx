@@ -84,6 +84,11 @@ const PharmacyDescription = () => {
           <li>
             <h3 id="bfit">1. Guru Nanak College (GNC), Dehradun</h3><br />
             <p>
+                              <Link href="https://careerbuddyclub.com/college-details/GNC?utm_source=CBC-Website&utm_medium=Online&utm_campaign=GNC" className="text-primary">
+                                 🔗 Visit Website
+                              </Link>
+                        </p>
+            <p>
               <strong>Guru Nanak College (GNC)</strong>is one of Dehradun’s premier institutes for pharmacy education. Known for its focus on ethical learning and professional development, GNC blends academic knowledge with real-world skills to prepare students for the evolving pharmaceutical industry.
               The college offers <strong> Diploma in Pharmacy (D.Pharm) </strong>and <strong>Bachelor of Pharmacy (B.Pharm)</strong> programs, both of which are approved by the <strong>Pharmacy Council of India (PCI) and AICTE. </strong>
             </p>
@@ -133,6 +138,11 @@ const PharmacyDescription = () => {
         <ul className="mb-5" style={{ listStyleType: "none" }}>
           <li>
             <h3 id="dpc">2. BFIT Group of Institutions, Dehradun</h3><br />
+            <p>
+                              <Link href="https://careerbuddyclub.com/college-details/BFIT?utm_source=CBC-Website&utm_medium=Online&utm_campaign=BFIT" className="text-primary">
+                                 🔗 Visit Website
+                              </Link>
+                        </p>
             <p>
               <strong>BFIT (Baba Farid Institute of Technology)</strong> is a multi-disciplinary institute that has made a significant
               mark in science and technology education. Its School of Pharmacy is known for advanced teaching
@@ -188,6 +198,11 @@ const PharmacyDescription = () => {
         <ul className="mb-5" style={{ listStyleType: "none" }}>
           <li>
             <h3 id="jbit">3. Doon PG College of Agriculture and Allied Sciences</h3><br />
+            <p>
+                              <Link href="https://careerbuddyclub.com/college-details/DCAAS" className="text-primary">
+                                 🔗 Visit Website
+                              </Link>
+                        </p>
             <p>
               <strong>Doon PG College</strong>Doon PG College, part of the prestigious Doon Group of Colleges, offers pharmacy education with a research and community-based learning approach. The college focuses on skill-based education and fosters real-world exposure through pharmaceutical workshops and seminars.
 
@@ -249,6 +264,11 @@ const PharmacyDescription = () => {
         <ul className="mb-5" style={{ listStyleType: "none" }}>
           <li>
             <h3 id="">4. JB Institute of Technology (JBIT), Dehradun</h3><br />
+            <p>
+                              <Link href="https://careerbuddyclub.com/college-details/JBIT?utm_source=CBC-Website&utm_medium=Online&utm_campaign=JBIT" className="text-primary">
+                                 🔗 Visit Website
+                              </Link>
+                        </p>
             <p>
               <strong>JB Institute of Technology (JBIT)</strong> is one of the fastest-growing technical colleges in Dehradun. Known for its engineering and management programs, JBIT has expanded into pharmacy with a strong emphasis on innovation and real-world applicability.
 
