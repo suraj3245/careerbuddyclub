@@ -61,13 +61,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `${baseUrl}/college-blogs/best-pharmacy-colleges-in-dehradun`,
       lastModified,
       changeFrequency: 'monthly',
-      priority: 0.7,
+      priority: 0.9,
     },
     {
       url: `${baseUrl}/college-blogs/top-bba-colleges-in-dehradun`,
       lastModified,
       changeFrequency: 'monthly',
-      priority: 0.7,
+      priority: 0.9,
+    },
+     {
+      url: `${baseUrl}/college-blogs/top-5-nursing-colleges-in-dehradun`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.9,
     },
   ]
 

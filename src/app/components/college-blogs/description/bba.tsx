@@ -5,17 +5,15 @@ import { listStyleType } from "html2canvas/dist/types/css/property-descriptors/l
 
 const BBAColleges = () => {
   return (
-    <section className="container py-5" style={{ lineHeight: "2rem" }}>
+    <section className="container py-5 lh-lg">
       {/* Table of Contents */}
       <div
-        className="card mb-5"
-        style={{ borderRight: "3px solid #007bff", maxWidth: "800px" }}
-      >
+        className="card mb-5 mx-auto" style={{ maxWidth: "800px" }}>
         <div className="card-body">
-          <h2 className="card-title text-success" style={{ fontSize: "1.25rem"  }}>
+          <h2 className="card-title text-success fs-2">
             Table of Contents
           </h2>
-          <ul className="list-unstyled mt-3 mb-0 text-primary" style={{ lineHeight: "2.4rem" }}>
+          <ul className="list-unstyled mt-3 mb-0 text-primary lh-lg">
             <li><a href="#why-dehradun" className="text-decoration-none">Why Choose Dehradun for BBA?</a></li>
             <li><a href="#top-colleges" className="text-decoration-none">Top BBA Colleges in Dehradun</a></li>
             <li><a href="#advantages" className="text-decoration-none">Key Advantages of Doing BBA</a></li>
@@ -28,8 +26,8 @@ const BBAColleges = () => {
         </div>
       </div>
       {/* Why Dehradun */}
-      <div className=""style={{ marginTop:'3rem !important'}} id="why-dehradun">
-      <h2 id="top-colleges" className="mt-5 mb-4" style={{ fontSize: "1.75rem", marginTop:'4rem' }}>
+      <div className="mt-3" id="why-dehradun">
+      <h2 id="top-colleges" className="mb-4 fs-2 mt-4">
         Why Choose Dehradun for a BBA?
       </h2>
       <ol className="mb-5">
@@ -40,16 +38,16 @@ const BBAColleges = () => {
       </ol>
 
         <hr
-          className="mt-10"
-          style={{  borderBottom: "2px solid black", borderWidth: "3px", borderStyle: "solid" ,"marginTop":"2rem !important"}}
+          className="mt-10 border-bottom border-3 border-dark mt-4"
+          
         />
 
       {/* Top Colleges */}
-      <h2 id="" className="mt-5 mb-4" style={{ fontSize: '1.75rem', marginTop:'2rem !important' }}>
+      <h2 id="" className="mb-3 fs-3 mt-4">
         Top BBA Colleges in Dehradun
       </h2>
 
-      <ul className="mb-5" style={{listStyleType:"none"}}>
+      <ul className="mb-5 list-unstyled">
         <li>
           <h3 id="">1. Graphic Era (Deemed to be University)</h3><br/>
              <p>
@@ -147,12 +145,12 @@ const BBAColleges = () => {
       </ul>
 
        <hr
-          className="mt-10"
-          style={{  borderBottom: "2px solid black", borderWidth: "3px", borderStyle: "solid" ,"marginTop":"2rem !important"}}
+          className="mt-10 border-bottom border-3 border-dark mt-4"
+          
         />
 
       {/* Key Advantages */}
-      <h2 id="curriculum" className="mt-5 mb-3" style={{ fontSize: "1.75rem", marginTop:"2rem !important" }}>
+      <h2 id="curriculum" className="mb-3 fs-3 mt-4">
         Key Advantages of Doing BBA in Dehradun
       </h2>
       <ul className="mb-5">
@@ -168,12 +166,12 @@ const BBAColleges = () => {
 
 
       <hr
-          className="mt-10"
-          style={{  borderBottom: "2px solid black", borderWidth: "3px", borderStyle: "solid" ,"marginTop":"2rem !important"}}
+          className="mt-10 border-bottom border-3 border-dark mt-4"
+          
         />
 
       {/* Curriculum Overview */}
-      <h2 id="" className="mt-5 mb-3" style={{ fontSize: "1.75rem" , marginTop:"2rem !important" }}>
+      <h2 id="" className="mb-3 fs-3 mt-4">
         Curriculum Overview of BBA Programs
       </h2>
       <p>A typical BBA program in Dehradun includes:</p>
@@ -209,12 +207,12 @@ const BBAColleges = () => {
       <p className="mb-5"><strong>Internships:</strong> 6–8 weeks mandatory after 4th or 5th semester</p>
 
        <hr
-          className="mt-10"
-          style={{  borderBottom: "2px solid black", borderWidth: "3px", borderStyle: "solid" ,"marginTop":"2rem !important"}}
+          className="mt-10 border-bottom border-3 border-dark mt-4"
+          
         />
 
       {/* Career Prospects */}
-      <h2 id="" className="mt-5 mb-3" style={{ fontSize: '1.75rem' , marginTop:"2rem !important" }}>
+      <h2 id="" className="mb-3 fs-3 mt-4">
         Career Prospects After BBA
       </h2>
 
@@ -239,12 +237,12 @@ const BBAColleges = () => {
       <p className="mb-5">Incubation centers and mentorship in Dehradun help students launch startups.</p>
 
        <hr
-          className="mt-10"
-          style={{  borderBottom: "2px solid black", borderWidth: "3px", borderStyle: "solid" ,"marginTop":"2rem !important"}}
+          className="mt-10 border-bottom border-3 border-dark mt-4"
+          
         />
 
       {/* Final Thoughts */}
-      <h2 id="faq" className="mt-5 mb-3" style={{ fontSize: '1.75rem', marginTop:"2rem !important" }}>
+      <h2 id="faq" className="mb-3 fs-3 mt-4">
         Final Thoughts
       </h2>
       <p className="mb-5">
@@ -252,25 +250,24 @@ const BBAColleges = () => {
       </p>
 
        <hr
-          className="mt-10"
-          style={{  borderBottom: "2px solid black", borderWidth: "3px", borderStyle: "solid" ,"marginTop":"2rem !important"}}
+          className="mt-10 border-bottom border-3 border-dark mt-4"
+          
         />
 
       {/* FAQs */}
-      <h2 id="cbc" className="mt-5 mb-3" style={{ fontSize: '1.75rem', marginTop:"2rem !important" }}>
+      <h2 id="cbc" className="mb-3 fs-3 mt-4" >
         Frequently Asked Questions (FAQs)
       </h2>
       <p><strong>Q1. What is the average fee for BBA in Dehradun?</strong><br />A: Fees range from ₹85,000 to ₹2.6 Lakhs per year, depending on the university.</p>
       <p><strong>Q2. Is hostel accommodation available?</strong><br />A: Yes, most colleges offer on-campus or partnered hostel facilities.</p>
       <p><strong>Q3. Are BBA programs UGC approved?</strong><br />A: Yes, all the colleges mentioned above are UGC-recognized and follow NEP-aligned curriculums.</p>
 
-       <hr
-          className="mt-10"
-          style={{  borderBottom: "2px solid black", borderWidth: "3px", borderStyle: "solid" ,"marginTop":"2rem !important"}}
+       <hr className="mt-10 border-bottom border-3 border-dark mt-4"
+          
         />
 
       {/* Career Buddy Club */}
-      <h2 id="" className="mt-5 mb-3" style={{ fontSize: '1.75rem' , marginTop:"2rem !important" }}>
+      <h2 id="" className="mb-3 fs-3 mt-4">
         Explore More with Career Buddy Club
       </h2>
       <p>
@@ -280,10 +277,7 @@ const BBAColleges = () => {
 
       </div>
 
-       <hr
-          className="mt-10"
-          style={{  borderBottom: "2px solid black", borderWidth: "3px", borderStyle: "solid" ,"marginTop":"2rem !important"}}
-        />
+       <hr className="mt-10 border-bottom border-3 border-dark mt-4"/>
 
       {/* Table  */}
 
@@ -369,12 +363,7 @@ const BBAColleges = () => {
       </div> */}
 
 
-      {/* Global style for smooth scrolling */}
-      <style jsx global>{`
-        html {
-          scroll-behavior: smooth;
-        }
-      `}</style>
+      
     </section>
   );
 };
