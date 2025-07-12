@@ -4,21 +4,21 @@ import Link from "next/link";
 
 const NursingDescription = () => {
     return (
-        <section className="container py-5" style={{ lineHeight: "2rem" }}>
+        <section className="container py-5 lh-lg">
             {/* Table of Contents */}
             <div
-                className="card mb-5"
-                style={{ borderRight: "3px solid #007bff", maxWidth: "800px" }}
+                className="card mb-5 mx-auto" style={{ maxWidth: "800px" }}
+                
             >
                 <div className="card-body">
-                    <h2 className="card-title text-success" style={{ fontSize: "1.25rem" }}>
+                    <h2 className="card-title text-success fs-2">
                         Table of Contents
                     </h2>
-                    <ul className="list-unstyled mt-3 mb-0 text-primary" style={{ lineHeight: "2.4rem" }}>
+                    <ul className="list-unstyled mt-3 mb-0 text-primary lh-lg">
                         <li ><a href="#why-nursing" className="text-decoration-none">Why Choose Nursing as a Career? </a></li>
                         <li><a href="#top-colleges" className="text-decoration-none">Top Nursing Colleges in Dehradun (2025)</a>
 
-                            <ul className="ps-3" style={{ listStyleType: "disc", marginLeft: "1.8rem" }}>
+                            <ul className="ps-3 ms-4" style={{ listStyleType: "disc" }}>
                                 <li><a href="#gnc" className="text-decoration-none">Guru Nanak College (GNC), Dehradun</a></li>
                                 <li><a href="#bfit" className="text-decoration-none">BFIT Group of Institutions, Dehradun</a></li>
                                 <li><a href="#himalayan" className="text-decoration-none">SGRRIM&HS</a></li>
@@ -35,8 +35,8 @@ const NursingDescription = () => {
                 </div>
             </div>
             {/* Why Dehradun */}
-            <div className="" style={{ marginTop: '3rem !important' }}>
-                <h2 id="why-nursing" className="mt-5 mb-4" style={{ fontSize: "1.75rem", marginTop: '4rem' }}>
+            <div className="mt-4">
+                <h2 id="why-nursing" className="mt-5 mb-4 fs-3 mt-4">
                     Why Choose Nursing as a Career?
                 </h2>
 
@@ -56,13 +56,11 @@ const NursingDescription = () => {
                     <li>Social respect and lifelong professional growth</li>
                 </ol>
 
-                <hr
-                    className="mt-10"
-                    style={{ borderBottom: "2px solid black", borderWidth: "3px", borderStyle: "solid", "marginTop": "2rem !important" }}
+                <hr className="mt-10 border-bottom border-3 border-dark mt-4"
                 />
 
                 {/* Top Colleges */}
-                <h2 className="mt-5 mb-4" style={{ fontSize: '1.75rem', marginTop: '2rem !important' }} id="gnc">
+                <h2 className="mt-5 mb-4 fs-2 mt-4"  id="gnc">
                     Top Nursing Colleges in Dehradun (2025)
                 </h2>
 
@@ -71,7 +69,7 @@ const NursingDescription = () => {
 
                 {/* GNC College */}
 
-                <ul className="mb-5" style={{listStyleType: "none"}}>
+                <ul className="mb-5 list-unstyled">
                     <li>
                         <h3 id="">1. Guru Nanak College (GNC), Dehradun</h3><br />
                         <p>
@@ -129,14 +127,13 @@ const NursingDescription = () => {
 
 
                 <hr
-                    className="mt-10"
-                    style={{ borderBottom: "2px solid black", borderWidth: "3px", borderStyle: "solid", "marginTop": "2rem !important" }}
+                    className="mt-10 border-bottom border-3 border-dark mt-4"
                 />
 
                 {/* BFIT GROUP OF Institutions */}
 
 
-                <ul className="mb-5" style={{  marginTop: "2rem !important" , listStyleType: "none"}}>
+                <ul className="mb-5 mt-4 list-unstyled">
                     <li className="mt-5">
                         <h3 id="bfit">2. BFIT Group of Institutions, Dehradun</h3><br />
                         <p>
@@ -189,15 +186,14 @@ const NursingDescription = () => {
 
 
                 <hr
-                    className="mt-10"
-                    style={{ borderBottom: "2px solid black", borderWidth: "3px", borderStyle: "solid", "marginTop": "2rem !important" }}
+                    className="mt-10 border-bottom border-3 border-dark mt-4"
                 />
 
 
                 {/* Shri Guru Ram Rai Institute of Medical & Health Sciences (SGRRIM&HS) */}
 
 
-                <ul className="mb-5" style={{  marginTop: "2rem !important" , listStyleType: "none" }}>
+                <ul className="mb-4 list-unstyled">
                     <li>
                         <h3 id="himalayan">3. Shri Guru Ram Rai Institute of Medical & Health Sciences (SGRRIM&HS) </h3><br />
                         <p>
@@ -238,14 +234,13 @@ const NursingDescription = () => {
 
 
                 <hr
-                    className="mt-10"
-                    style={{ borderBottom: "2px solid black", borderWidth: "3px", borderStyle: "solid", "marginTop": "2rem !important" }}
+                    className="mt-10 border-bottom border-3 border-dark mt-4"
                 />
 
 
                 {/*  Himalayan College of Nursing, Jolly Grant    */}
 
-                <ul className="mb-5" style={{  marginTop: "2rem !important" , listStyleType: "none"}}>
+                <ul className="mb-4 list-unstyled">
                     <li>
                         <h3 id="dims">4. Himalayan College of Nursing, Jolly Grant </h3><br />
                         <p>
@@ -282,15 +277,14 @@ const NursingDescription = () => {
 
 
 
-                <hr
-                    className="mt-10"
-                    style={{ borderBottom: "2px solid black", borderWidth: "3px", borderStyle: "solid", "marginTop": "2rem !important" }}
+                <hr className="mt-10 border-bottom border-3 border-dark mt-4"
+                    
                 />
 
 
                 {/*  Doon Institute of Medical Sciences (DIMS)    */}
 
-                <ul className="mt-5" style={{  marginTop: "2rem !important" , listStyleType: "none"}}>
+                <ul className="mt-4 list-unstyled" >
                     <li id="career">
                         <h3>5. Doon Institute of Medical Sciences (DIMS)  </h3><br/>
                         <p>
@@ -332,8 +326,7 @@ const NursingDescription = () => {
 
 
                 <hr
-                    className="mt-10"
-                    style={{ borderBottom: "2px solid black", borderWidth: "3px", borderStyle: "solid", "marginTop": "2rem !important" }}
+                    className="mt-10 border-bottom border-3 border-dark mt-4"
                 />
 
 
@@ -342,7 +335,7 @@ const NursingDescription = () => {
 
 
                 {/* Career Prospects */}
-                <h2 id="conclude" className="mt-5 mb-3" style={{ fontSize: '1.75rem', marginTop: "2rem !important" }}>
+                <h2 id="conclude" className="mt-4 mb-3 fs-2">
                     Career Opportunities After Nursing
                 </h2>
 
@@ -367,12 +360,11 @@ const NursingDescription = () => {
                 </ul>
 
                 <hr
-                    className="mt-10"
-                    style={{ borderBottom: "2px solid black", borderWidth: "3px", borderStyle: "solid", "marginTop": "2rem !important" }}
+                    className="mt-10 border-bottom border-3 border-dark mt-4"
                 />
 
                 {/* Final Thoughts */}
-                <h2 id="tags" className="mt-5 mb-3" style={{ fontSize: '1.75rem', marginTop: "2rem !important" }}>
+                <h2 id="tags" className="mt-4 mb-3 fs-2">
                     Conclusion
                 </h2>
                 <p className="mb-5">
@@ -384,12 +376,11 @@ const NursingDescription = () => {
                     in Uttarakhand.</p>
 
                 <hr
-                    className="mt-10"
-                    style={{ borderBottom: "2px solid black", borderWidth: "3px", borderStyle: "solid", "marginTop": "2rem !important" }}
+                   className="mt-10 border-bottom border-3 border-dark mt-4"
                 />
 
                 {/* Tags */}
-                <h2  className="mt-5 mb-3" style={{ fontSize: '1.75rem', marginTop: "3rem !important" }}>
+                <h2  className="mt-4 mb-3 fs-2">
                     Tags
                 </h2>
                 <p><strong>Top Nursing Colleges in Dehradun, Best B.Sc Nursing Dehradun, GNM College Dehradun 2025,
@@ -407,12 +398,7 @@ const NursingDescription = () => {
 
 
 
-            {/* Global style for smooth scrolling */}
-            <style jsx global>{`
-        html {
-          scroll-behavior: smooth;
-        }
-      `}</style>
+           
         </section>
     );
 };

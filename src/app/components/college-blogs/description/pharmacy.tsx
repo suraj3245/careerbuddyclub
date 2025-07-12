@@ -12,14 +12,14 @@ const PharmacyDescription = () => {
         style={{ borderRight: "3px solid #007bff", maxWidth: "800px" }}
       >
         <div className="card-body">
-          <h2 className="card-title text-success" style={{ fontSize: "1.25rem" }}>
+          <h2 className="card-title text-success fs-2">
             Table of Contents
           </h2>
-          <ul className="list-unstyled mt-3 mb-0 text-primary" style={{ lineHeight: "2.4rem" }}>
+          <ul className="list-unstyled mt-3 mb-0 text-primary lh-lg">
             <li><a href="#why-pharmacy" className="text-decoration-none">Why Choose Pharmacy as a Career?</a></li>
             <li><a href="#top-colleges" className="text-decoration-none">Top Pharmacy Colleges in Dehradun (2025) </a>
 
-                   <ul className="ps-3" style={{ listStyleType: "disc", marginLeft:"1.5rem" }}>
+                   <ul className="ps-3 ms-2" style={{ listStyleType: "disc",}}>
                     <li><a href="#gnc" className="text-decoration-none">Guru Nanak College (GNC), Dehradun</a></li>
                     <li><a href="#bfit" className="text-decoration-none">BFIT Group of Institutions, Dehradun</a></li>
                     <li><a href="#dpc" className="text-decoration-none">Doon PG College of Agriculture and Allied Sciences </a></li>
@@ -39,8 +39,8 @@ const PharmacyDescription = () => {
         </div>
       </div>
       {/* Why Dehradun */}
-      <div className="" style={{ marginTop: '3rem !important' }} id="why-pharmacy">
-        <h2 id="top-colleges" className="mt-5 mb-4" style={{ fontSize: "1.75rem", marginTop: '4rem' }}>
+      <div className="mt-4"  id="why-pharmacy">
+        <h2 id="top-colleges" className="mt-4 mb-4 fs-2">
           Why Choose Pharmacy as a Career?
         </h2>
 
@@ -65,12 +65,11 @@ const PharmacyDescription = () => {
         </ol>
 
         <hr
-          className="mt-10"
-          style={{ borderBottom: "2px solid black", borderWidth: "3px", borderStyle: "solid", "marginTop": "2rem !important" }}
+          className="mt-10 border-bottom border-3 border-dark mt-4"
         />
 
         {/* Top Colleges */}
-        <h2 id="gnc" className="mt-5 mb-4" style={{ fontSize: '1.75rem', marginTop: '2rem !important' }}>
+        <h2 id="gnc" className="mt-5 mb-4 fs-2 mt-4">
           Top Pharmacy Colleges in Dehradun (2025)
         </h2>
 
@@ -80,7 +79,7 @@ const PharmacyDescription = () => {
 
         {/* GNC College */}
 
-        <ul className="mb-5" style={{ listStyleType: "none" }}>
+        <ul className="mb-5 list-unstyled">
           <li>
             <h3 id="bfit">1. Guru Nanak College (GNC), Dehradun</h3><br />
             <p>
@@ -128,14 +127,13 @@ const PharmacyDescription = () => {
 
 
         <hr
-          className="mt-10"
-          style={{ borderBottom: "2px solid black", borderWidth: "3px", borderStyle: "solid", "marginTop": "2rem !important" }}
+          className="mt-10 border-bottom border-3 border-dark mt-4"
         />
 
         {/* BFIT GROUP OF Institutions */}
 
 
-        <ul className="mb-5" style={{ listStyleType: "none" }}>
+        <ul className="mb-5 list-unstyled" >
           <li>
             <h3 id="dpc">2. BFIT Group of Institutions, Dehradun</h3><br />
             <p>
@@ -187,15 +185,14 @@ const PharmacyDescription = () => {
 
 
         <hr
-          className="mt-10"
-          style={{ borderBottom: "2px solid black", borderWidth: "3px", borderStyle: "solid", "marginTop": "2rem !important" }}
+          className="mt-10 border-bottom border-3 border-dark mt-4"
         />
 
 
         {/* Doon Pg College Of Agriculture and  Allied Sciences */}
 
 
-        <ul className="mb-5" style={{ listStyleType: "none" }}>
+        <ul className="mb-5 list-unstyled">
           <li>
             <h3 id="jbit">3. Doon PG College of Agriculture and Allied Sciences</h3><br />
             <p>
@@ -254,14 +251,13 @@ const PharmacyDescription = () => {
 
 
         <hr
-          className="mt-10"
-          style={{ borderBottom: "2px solid black", borderWidth: "3px", borderStyle: "solid", "marginTop": "2rem !important" }}
+          className="mt-10 border-bottom border-3 border-dark mt-4"
         />
 
 
         {/*  JB Institute of Technology (JBIT), Dehradun   */}
 
-        <ul className="mb-5" style={{ listStyleType: "none" }}>
+        <ul className="mb-5 list-unstyled">
           <li>
             <h3 id="">4. JB Institute of Technology (JBIT), Dehradun</h3><br />
             <p>
@@ -320,8 +316,7 @@ const PharmacyDescription = () => {
 
 
         <hr
-          className="mt-10"
-          style={{ borderBottom: "2px solid black", borderWidth: "3px", borderStyle: "solid", "marginTop": "2rem !important" }}
+          className="mt-10 border-bottom border-3 border-dark mt-4"
         />
 
 
@@ -329,7 +324,7 @@ const PharmacyDescription = () => {
 
 
         {/* Career Prospects */}
-        <h2 id="" className="mt-5 mb-3" style={{ fontSize: '1.75rem', marginTop: "2rem !important" }}>
+        <h2 id="" className="mb-3 fs-2 mt-4">
           Career Opportunities After Pharmacy
         </h2>
 
@@ -365,12 +360,11 @@ const PharmacyDescription = () => {
         </ul>
 
         <hr
-          className="mt-10"
-          style={{ borderBottom: "2px solid black", borderWidth: "3px", borderStyle: "solid", "marginTop": "2rem !important" }}
+          className="mt-10 border-bottom border-3 border-dark mt-4"
         />
 
         {/* Conclusion*/}
-        <h2 id="tags" className="mt-5 mb-3" style={{ fontSize: '1.75rem', marginTop: "2rem !important" }}>
+        <h2 id="tags" className="mb-3 fs-2 mt-4">
           Conclusion
         </h2>
         <p className="mb-5">
@@ -388,12 +382,11 @@ const PharmacyDescription = () => {
         </p>
 
         <hr
-          className="mt-10"
-          style={{ borderBottom: "2px solid black", borderWidth: "3px", borderStyle: "solid", "marginTop": "2rem !important" }}
+         className="mt-10 border-bottom border-3 border-dark mt-4"
         />
 
         {/* Tags*/}
-        <h2 id="" className="mt-5 mb-3" style={{ fontSize: '1.75rem', marginTop: "3rem !important" }}>
+        <h2 id="" className="mt-4 mb-3 fs-2">
           Tags
         </h2>
         <p><strong>Pharmacy Colleges in Dehradun, Best D.Pharm Colleges Dehradun, Top B.Pharm Colleges
@@ -409,86 +402,7 @@ const PharmacyDescription = () => {
 
       
 
-      {/* <div className="table-responsive mt-4">
-        <table className="table table-bordered table-striped">
-          <thead className="table-dark">
-            <tr>
-              <th>College</th>
-              <th>Courses</th>
-              <th>Short Description</th>
-              <th>Key Benefits</th>
-              <th>Eligibility</th>
-              <th>Fees</th>
-              <th>Website</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Graphic Era (Deemed to be University)</td>
-              <td>Finance, HR, Marketing, Digital Marketing, International Business</td>
-              <td>A+ NAAC, UGC Approved, Industry-focused curriculum</td>
-              <td>Strong industry interface, Excellent infrastructure, International collaborations</td>
-              <td>10+2 (any stream), min. 50%</td>
-              <td>₹1,15,000/year (approx.)</td>
-              <td><Link href="https://careerbuddyclub.com/college-details/GEU" className="text-primary">Visit</Link></td>
-            </tr>
-            <tr>
-              <td>UPES</td>
-              <td>Oil & Gas Marketing, Logistics, Finance, Marketing, HR</td>
-              <td>Unique industry-aligned specializations, A NAAC</td>
-              <td>Industry-integrated curriculum, 94% placement rate</td>
-              <td>10+2 (any stream), min. 50%</td>
-              <td>₹2,60,000/year (approx.)</td>
-              <td><Link href="https://careerbuddyclub.com/college-details/UPES?utm_source=CBC-Website&utm_medium=Online&utm_campaign=UPES" className="text-primary">Visit</Link></td>
-            </tr>
-            <tr>
-              <td>DIT University</td>
-              <td>HR, Finance, Digital Business, Data Analytics</td>
-              <td>Modern pedagogy, internships, strong placements</td>
-              <td>Case-based learning, Excellent placement & internship support</td>
-              <td>10+2 (any stream),min. 50%</td>
-              <td>₹1,10,000/year (approx.)</td>
-              <td><Link href="http://careerbuddyclub.com/college-details/DIT" className="text-primary">Visit</Link></td>
-            </tr>
-            <tr>
-              <td>IMS Unison University</td>
-              <td>HR, Finance, Marketing, International Business</td>
-              <td>Good student-faculty ratio, B+ NAAC</td>
-              <td>Skill development workshops</td>
-              <td>10+2 (any stream), min. 45%</td>
-              <td>₹1,05,000/year (approx.)</td>
-              <td><Link href="https://careerbuddyclub.com/college-details/IMSUU" className="text-primary">Visit</Link></td>
-            </tr>
-            <tr>
-              <td>Guru Nanak College</td>
-              <td>General BBA</td>
-              <td>Affordable private college, holistic development</td>
-              <td>Personalized academic attention, Affordable fees, Student activities</td>
-              <td>10+2 (any stream), min. 45%</td>
-              <td>₹50,000–₹60,000/year (approx.)</td>
-              <td><Link href="https://careerbuddyclub.com/college-details/GNC?utm_source=CBC-Website&utm_medium=Online&utm_campaign=GNC" className="text-primary">Visit</Link></td>
-            </tr>
-            <tr>
-              <td>JBIT</td>
-              <td>HR, Marketing, Finance</td>
-              <td>ERP-integrated learning, industry connect</td>
-              <td>Strong placement & career support, Industrial visits, Guest lectures</td>
-              <td>10+2 (any stream), min. 45%</td>
-              <td>₹70,000–₹85,000/year (approx.)</td>
-              <td><Link href="https://careerbuddyclub.com/college-details/JBIT?utm_source=CBC-Website&utm_medium=Online&utm_campaign=JBIT" className="text-primary">Visit</Link></td>
-            </tr>
-            <tr>
-              <td>BFIT Group of Institutions</td>
-              <td>General BBA, Entrepreneurship</td>
-              <td>Oldest & largest group, startup support</td>
-              <td>Affordable, Practical learning, Startup incubation</td>
-              <td>10+2 (any stream), min. 45%</td>
-              <td>₹60,000–₹75,000/year (approx.)</td>
-              <td><Link href="https://careerbuddyclub.com/college-details/BFIT?utm_source=CBC-Website&utm_medium=Online&utm_campaign=BFIT" className="text-primary">Visit</Link></td>
-            </tr>
-          </tbody>
-        </table>
-      </div> */}
+      
 
 
      
