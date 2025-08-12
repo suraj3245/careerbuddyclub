@@ -1,6 +1,7 @@
 import PharmacyDescription from "@/app/components/college-blogs/description/pharmacy";
 import BBAColleges from "@/app/components/college-blogs/description/bba";
 import NursingDescription from "@/app/components/college-blogs/description/nursing";
+import bptDescription from "@/app/components/college-blogs/description/bpt";
 
 
 
@@ -57,6 +58,21 @@ const blog_data1 = [
     metaDescription: "Discover the top 5 nursing colleges in Dehradun for 2025, including Guru Nanak College and BFIT. Explore courses, fees, eligibility, campus life, and career prospects in this comprehensive guide by Career Buddy Club." ,
     descComponent: NursingDescription,
   
+  },
+  {
+    id: "top-bpt-colleges-in-dehradun",
+    img_full: "/assets/images/blog/bpt_blog220.jpg",
+    img: "/assets/images/blog/bpt_blog220.jpg",
+    grid_img: "/assets/images/blog/bpt_blog220.jpg",
+    title: "Top BPT Colleges in Dehradun (2025)",
+    desc: "Dehradun, nestled in the picturesque hills of Uttarakhand, is steadily gaining recognition as a center for healthcare and rehabilitation education. Among its growing range of professional courses, Bachelor of Physiotherapy (BPT) programs are in high demand, driven by the increasing need for qualified physiotherapists in hospitals, rehabilitation centers, sports institutions, and global healthcare facilities. In this comprehensive 2025 guide by Career Buddy Club, we bring you the Top 5 BPT Colleges in Dehradun, complete with program details, fees, eligibility, campus highlights, and career scope — with special attention to Guru Nanak College and BFIT Group of Institutions, two of the fastest-emerging names in physiotherapy education in the region.",
+    author: "Career Buddy Club",
+    date: "12 August, 2025",
+    blog: "Explore the best BPT colleges in Dehradun with top placements and industry connections.",
+    tags: ["Physiotherapy", "Healthcare Education ", "Dehradun"],
+    metaDescription: "Discover the top bpt colleges in Dehradun for 2025, including Guru Nanak College and BFIT. Explore courses, fees, eligibility, campus life, and career prospects in this comprehensive guide by Career Buddy Club." ,
+    descComponent: bptDescription,
+
   },
   
 
