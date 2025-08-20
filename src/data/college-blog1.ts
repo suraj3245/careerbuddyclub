@@ -2,9 +2,7 @@ import PharmacyDescription from "@/app/components/college-blogs/description/phar
 import BBAColleges from "@/app/components/college-blogs/description/bba";
 import NursingDescription from "@/app/components/college-blogs/description/nursing";
 import bptDescription from "@/app/components/college-blogs/description/bpt";
-
-
-
+import UttarakhandParamedicalAdmission from "@/app/components/college-blogs/description/paramedical";
 
 const blog_data1 = [
   {
@@ -59,6 +57,7 @@ const blog_data1 = [
     descComponent: NursingDescription,
   
   },
+  // BPT Colleges Blog//////////////////////
   {
     id: "top-bpt-colleges-in-dehradun",
     img_full: "/assets/images/blog/bpt_blog220.jpg",
@@ -72,6 +71,24 @@ const blog_data1 = [
     tags: ["Physiotherapy", "Healthcare Education ", "Dehradun"],
     metaDescription: "Discover the top bpt colleges in Dehradun for 2025, including Guru Nanak College and BFIT. Explore courses, fees, eligibility, campus life, and career prospects in this comprehensive guide by Career Buddy Club." ,
     descComponent: bptDescription,
+
+  },
+
+  // Uttarakhand Paramedical Colleges Blog//////////////////////
+
+  {
+    id: "uttarakhand-paramedical-admission",
+    img_full: "/assets/images/blog/para800.jpg",
+    img: "/assets/images/blog/para352.jpg",
+    grid_img: "/assets/images/blog/para800.jpg",
+    title: "Uttarakhand Paramedical Admission 2025: Dates, Eligibility, Colleges",
+    desc: "Get complete details on Uttarakhand Paramedical Admission 2025 – application form, eligibility, entrance exam, counselling & top colleges in Uttarakhand.",
+    author: "Career Buddy Club",
+    date: "19 August, 2025",
+    blog: "Uttarakhand Paramedical Admission 2025: Application Form, Dates, Eligibility, Colleges, and Process",
+    tags: ["Paramedical", "HNBUMU", "Admission"],
+    metaDescription: "Discover the top bpt colleges in Dehradun for 2025, including Guru Nanak College and BFIT. Explore courses, fees, eligibility, campus life, and career prospects in this comprehensive guide by Career Buddy Club." ,
+    descComponent: UttarakhandParamedicalAdmission,
 
   },
   

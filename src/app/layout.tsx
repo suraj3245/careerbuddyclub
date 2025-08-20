@@ -146,11 +146,12 @@ export default function RootLayout({
           !isCandidateDashboardPage &&
           !isapplynow &&
           !isSchoolDashboard && !dbsapplynow && (
-            <HeaderFour user={user} onLogout={handleLogout} key={key} index={0} />
+            <div suppressHydrationWarning={true}>
+            <HeaderFour user={user} onLogout={handleLogout} key={key} index={0} /></div>
           )}
 
         <Providers>{children}</Providers>
-        <ToastContainer />
+        <ToastContainer/>
         {/* <BackToTopCom /> */}
       </body>
     </html>
