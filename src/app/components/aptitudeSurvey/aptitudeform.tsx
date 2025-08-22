@@ -47,104 +47,111 @@ const QuizForm: React.FC = () => {
     "#775DD0",
     "#FEB019",
   ];
+
   const downloadResultsAsPDF = async () => {
     const input = document.getElementById("resultsContainer");
     if (!(input instanceof HTMLElement)) return;
-  
+
+    // ✅ Use smaller scale for speed but still good quality
     const canvas = await html2canvas(input, {
-      scale: 2,
+      scale: 1.5, // lower = faster, 2 = sharper but slower
       useCORS: true,
       backgroundColor: "#ffffff",
     });
-  
+
     const imgWidth = 595.28; // A4 width in pt
     const pageHeight = 841.89; // A4 height in pt
-    const marginTop = 10;
+    const marginTop = 15;
     const marginBottom = 40;
     const usablePageHeight = pageHeight - marginTop - marginBottom;
-  
+
     const pdf = new jsPDF("p", "pt", "a4");
-  
+
     let yPosition = 0;
     let pageIndex = 0;
-  
+
     const ctx = canvas.getContext("2d");
-    
     if (!ctx) {
       console.error("Failed to get 2D context from canvas.");
       return;
     }
-    
+
+    // ✅ Create one reusable canvas instead of new every loop
+    const pageCanvas = document.createElement("canvas");
+    const pageContext = pageCanvas.getContext("2d");
+
     while (yPosition < canvas.height) {
       let sliceHeight = (usablePageHeight * canvas.width) / imgWidth;
-    
+
       if (yPosition + sliceHeight > canvas.height) {
         sliceHeight = canvas.height - yPosition;
       }
-    
+
       let cutLine = yPosition + sliceHeight;
-      const scanStep = 2; // pixel step for scanning
+      const scanStep = 5; // ✅ scan fewer rows for speed
       const threshold = 250; // white tolerance
-    
-      // 🔎 Scan upwards from cutLine to find a pure white row
+
+      // 🔎 Scan upwards from cutLine to find a white gap
       for (let y = cutLine; y > yPosition + 20; y -= scanStep) {
         const row = ctx.getImageData(0, y, canvas.width, 1).data;
-    
+
         let whitePixels = 0;
         for (let i = 0; i < row.length; i += 4) {
-          const r = row[i], g = row[i + 1], b = row[i + 2];
+          const r = row[i],
+            g = row[i + 1],
+            b = row[i + 2];
           if (r > threshold && g > threshold && b > threshold) {
             whitePixels++;
           }
         }
-    
+
         if (whitePixels > canvas.width * 0.98) {
           cutLine = y;
           break;
         }
       }
-  
+
       const actualSliceHeight = cutLine - yPosition;
-  
-      // 🚫 Skip very small slices (prevents extra blank page)
-      if (actualSliceHeight < 20) {
-        break;
-      }
-  
-      const pageCanvas = document.createElement("canvas");
+
+      // 🚫 Skip tiny slices to avoid blank last page
+      if (actualSliceHeight < 20) break;
+
+      // ✅ Reuse canvas
       pageCanvas.width = canvas.width;
       pageCanvas.height = actualSliceHeight;
-  
-      const pageContext = pageCanvas.getContext("2d");
       if (pageContext) {
-        pageContext.drawImage(
-          canvas,
-          0,
-          yPosition,
-          canvas.width,
-          actualSliceHeight,
-          0,
-          0,
-          canvas.width,
-          actualSliceHeight
-        );
+        pageContext.clearRect(0, 0, pageCanvas.width, pageCanvas.height);
+      } else {
+        console.error("Failed to get 2D context from pageCanvas.");
+        return;
       }
-  
-      const imgData = pageCanvas.toDataURL("image/webp");
+
+      pageContext.drawImage(
+        canvas,
+        0,
+        yPosition,
+        canvas.width,
+        actualSliceHeight,
+        0,
+        0,
+        canvas.width,
+        actualSliceHeight
+      );
+
+      // ✅ JPEG is faster + smaller, quality = 0.8
+      const imgData = pageCanvas.toDataURL("image/jpeg", 0.8);
+
       if (pageIndex > 0) pdf.addPage();
-  
+
       const imgHeight = (actualSliceHeight * imgWidth) / canvas.width;
-      pdf.addImage(imgData, "WEBP", 0, marginTop, imgWidth, imgHeight);
-  
+      pdf.addImage(imgData, "JPEG", 0, marginTop, imgWidth, imgHeight);
+
       yPosition += actualSliceHeight;
       pageIndex++;
     }
-  
+
     pdf.save("Career-Aptitude-Test.pdf");
   };
-  
-  
-  
 
   useEffect(() => {
     // Assuming you need the token to fetch the results
@@ -413,7 +420,7 @@ const QuizForm: React.FC = () => {
       options: {
         chart: {
           type: "bar",
-          height: 350,
+          height: 400,
         },
         plotOptions: {
           bar: {
@@ -426,16 +433,21 @@ const QuizForm: React.FC = () => {
         },
         xaxis: {
           categories: categories,
+          labels: {
+            style: {
+              fontSize: "15px", // bigger numbers on x-axis
+              fontWeight: 600,
+            },
+          },
         },
-        // yaxis: {
-        //   labels: {
-        //     offsetX: 30,
-        //     align: "right",
-        //     style: {
-        //       colors: "#fff",
-        //     },
-        //   },
-        // },
+        yaxis: {
+          labels: {
+            style: {
+              fontSize: "17px", // bigger category names on y-axis
+              fontWeight: 600,
+            },
+          },
+        },
         colors: barColors,
       },
     };
@@ -595,23 +607,35 @@ const QuizForm: React.FC = () => {
           className="container mx-auto"
         >
           <div className="d-flex align-items-center justify-content-between">
-            <div className="text-center" style={{ flex: 1 }}>
-              <h2
-                className="mb-6 pb-10 pt-20 text-uppercase"
-                style={{ color: "#13adbd", paddingTop: "40px" }}
-              >
-                Career Aptitude Test
-              </h2>
-              {/* Centered Header */}
+            <div className="container my-5">
+              <div className="row align-items-center text-center justify-between">
+                {/* Left Side - Title */}
+                <div className="col-12 col-md-8 mb-4">
+                  <h1
+                    className="fw-bold display-5"
+                    style={{ color: "#13ADBD" }}
+                  >
+                    Career Aptitude Test
+                  </h1>
+                  <h2
+                    className="mb-6 pb-25"
+                    style={{ color: "black", fontSize: "40px" }}
+                  >
+                    Quiz Result
+                  </h2>
+                </div>
+
+                {/* Right Side - Contact Info */}
+                <div className="col-12 col-md-4">
+                  <div className="p-2 rounded-4 shadow-sm bg-light">
+                    <h5 className="mb-3">For Enquiry:</h5>
+                    <p className="mb-0 fs-5 fw-semibold">📞 7456000100</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <div className="text-center">
-            <h2
-              className="mb-6 pb-25"
-              style={{ color: "black", fontSize: "40px" }}
-            >
-              Quiz Result
-            </h2>
             {/* Display the results here using the `results` state */}
             <div
               className="row rounded-5 d-flex flex-row justify-content-center align-items-center"
@@ -642,7 +666,11 @@ const QuizForm: React.FC = () => {
               >
                 <h3
                   className="text-uppercase"
-                  style={{ color: "#13adbd", borderBottom: "1px solid grey" }}
+                  style={{
+                    color: "#13adbd",
+                    borderBottom: "1px solid grey",
+                    padding: "18px",
+                  }}
                 >
                   Top Scores
                 </h3>
