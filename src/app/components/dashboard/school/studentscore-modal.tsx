@@ -284,7 +284,7 @@ const StudentScoreModal: React.FC<StudentScoreModalProps> = ({
         },
       };
     };
-    
+
   useEffect(() => {
     setIsLoading(true); // Ensure loading state is set before starting async operations
     Promise.all([fetchCatResult()])
@@ -357,7 +357,7 @@ const StudentScoreModal: React.FC<StudentScoreModalProps> = ({
                         {/* Right Side - Contact Info */}
                         <div className="col-12 col-md-4">
                           <div className="p-2 rounded-4 shadow-sm bg-light">
-                            <h5 className="mb-3">For Enquiry:</h5>
+                            <h5 className="mb-3">For Counseling:</h5>
                             <p className="mb-0 fs-5 fw-semibold">
                               📞 7456000100
                             </p>
