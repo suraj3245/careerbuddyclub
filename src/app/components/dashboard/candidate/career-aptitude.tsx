@@ -424,8 +424,8 @@ const DashboardResult = ({ setIsOpenSidebar }: IProps) => {
                   
                     {/* Display the results here using the `results` state */}
 
-                    <div className="row">
-                      <div className="chart-container  col-12 col-md-8">
+                    <div className="row container justify-content-around">
+                      <div className="chart-container col-12 col-md-6 col-lg-6">
                         {results && (
                           <ReactApexChart
                             options={chartData.options}
@@ -436,7 +436,7 @@ const DashboardResult = ({ setIsOpenSidebar }: IProps) => {
                           />
                         )}
                       </div>
-                      <div className="top-scores col-12 col-md-4">
+                      <div className="top-scores col-12 col-md-4 col-lg-4">
                         <h3>Top Scores</h3>
                         {getTopThreeScores().map((result, index) => (
                           <p

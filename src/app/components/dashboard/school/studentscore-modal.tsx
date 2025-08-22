@@ -370,7 +370,7 @@ const StudentScoreModal: React.FC<StudentScoreModalProps> = ({
                     {/* Display the results here using the `results` state */}
 
                     <div className="row d-flex justify-content-center">
-                      <div className="chart-container col-lg-8 col-md-12">
+                      <div className="chart-container col-md-6 col-lg-6">
                         {results && (
                           <ReactApexChart
                             options={chartData.options}

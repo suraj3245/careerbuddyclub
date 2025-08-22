@@ -637,48 +637,28 @@ const QuizForm: React.FC = () => {
           </div>
           <div className="text-center">
             {/* Display the results here using the `results` state */}
-            <div
-              className="row rounded-5 d-flex flex-row justify-content-center align-items-center"
-              style={{ border: "1px solid black" }}
-            >
-              <div
-                className="chart-container"
-                style={{ flex: 2, minWidth: "300px" }}
-              >
-                {results && (
-                  <ReactApexChart
-                    options={chartData.options}
-                    series={chartData.series}
-                    type="bar"
-                    width={"100%"}
-                    height={350}
-                  />
-                )}
-              </div>
-              <div
-                className="top-scores rounded-5 fw-500 m-5"
-                style={{
-                  flex: 1,
-                  minWidth: "200px",
-                  border: "1px solid grey",
-                  fontSize: "24px",
-                }}
-              >
-                <h3
-                  className="text-uppercase"
-                  style={{
-                    color: "#13adbd",
-                    borderBottom: "1px solid grey",
-                    padding: "18px",
-                  }}
-                >
-                  Top Scores
-                </h3>
-                {getTopThreeScores().map((result, index) => (
-                  <p key={index}>{`${result.category}: ${result.score}`}</p>
-                ))}
-              </div>
-            </div>
+            <div className="row container justify-content-around border-2 rounded">
+                      <div className="chart-container col-12 col-md-6 col-lg-6">
+                        {results && (
+                          <ReactApexChart
+                            options={chartData.options}
+                            series={chartData.series}
+                            type="bar"
+                            width={"100%"}
+                            height={350}
+                          />
+                        )}
+                      </div>
+                      <div className="top-scores col-12 col-md-4 col-lg-4">
+                        <h3>Top Scores</h3>
+                        {getTopThreeScores().map((result, index) => (
+                          <p
+                            key={index}
+                            className="fw-bold fs-6"
+                          >{`${result.category}: ${result.score}`}</p>
+                        ))}
+                      </div>
+                    </div>
             <TopCareer topCategories={getTopThreeCategoryNames()} />
 
             <YourCareer code={results?.letters} />
