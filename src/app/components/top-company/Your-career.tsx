@@ -94,8 +94,8 @@ const YourCareer: React.FC<YourCareerProps> = ({ code }) => {
               className="card-style-nine tran3s mt-10 rounded-5 bg-transparent"
               style={{ border: "1px solid black", textAlign: "left" }}
             >
-              <div style={textStyle}>
-                <div className="fw-100 text-dark" style={{ flex: 1, fontSize: '18px'}}>
+              <div style={textStyle} className="p-2">
+                <div className="fw-100 text-dark mt-3" style={{ flex: 1, fontSize: '18px'}}>
                   Specific Domain:
                 </div>
                 <div
@@ -103,9 +103,9 @@ const YourCareer: React.FC<YourCareerProps> = ({ code }) => {
                   style={{ flex: 2, fontSize: "15px" }}
                 >
                   {item?.Domain}
-                </div>
+                </div> 
               </div>
-              <div style={textStyle}>
+              <div style={textStyle} className="p-2" >
                 <div className="fw-100 text-dark" style={{ flex: 1, fontSize: '18px' }}>
                   Average Package:
                 </div>
@@ -122,7 +122,7 @@ const YourCareer: React.FC<YourCareerProps> = ({ code }) => {
                   </div>
                 </div>
               </div>
-              <div style={textStyle}>
+              <div style={textStyle} className="p-2">
                 <div
                   className="fw-100 text-dark"
                   style={{ flex: 1, fontSize: "18px" }}
@@ -140,7 +140,7 @@ const YourCareer: React.FC<YourCareerProps> = ({ code }) => {
                   ))}
                 </div>
               </div>
-              <div style={{ ...textStyle, borderBottom: "none"}}>
+              <div style={{ ...textStyle, borderBottom: "none"}} className="p-2">
                 <div className="fw-100 text-dark" style={{ flex: 1, fontSize: '18px' }}>
                   Skills to Acquire:
                 </div>

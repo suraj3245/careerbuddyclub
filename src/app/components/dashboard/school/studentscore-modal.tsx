@@ -56,23 +56,101 @@ const StudentScoreModal: React.FC<StudentScoreModalProps> = ({
   ];
   const downloadResultsAsPDF = async () => {
     const input = document.getElementById("resultsContainer");
-    if (!(input instanceof HTMLElement)) return; // Type check
-
+    if (!(input instanceof HTMLElement)) return;
+  
     const canvas = await html2canvas(input, {
-      scale: 1, // Adjust scale as needed
-      scrollY: -window.scrollY, // Adjust for page scrolling
+      scale: 2,
+      useCORS: true,
+      backgroundColor: "#ffffff",
     });
-
-    const imgData = canvas.toDataURL("image/png");
-    const pdf = new jsPDF({
-      orientation: "portrait",
-      unit: "px",
-      format: [canvas.width, canvas.height],
-    });
-
-    pdf.addImage(imgData, "PNG", 0, 0, canvas.width, canvas.height);
-    pdf.save(`CAT_Results_${student?.name}.pdf`);
+  
+    const imgWidth = 595.28; // A4 width in pt
+    const pageHeight = 841.89; // A4 height in pt
+    const marginTop = 10;
+    const marginBottom = 40;
+    const usablePageHeight = pageHeight - marginTop - marginBottom;
+  
+    const pdf = new jsPDF("p", "pt", "a4");
+  
+    let yPosition = 0;
+    let pageIndex = 0;
+  
+    const ctx = canvas.getContext("2d");
+    
+    if (!ctx) {
+      console.error("Failed to get 2D context from canvas.");
+      return;
+    }
+    
+    while (yPosition < canvas.height) {
+      let sliceHeight = (usablePageHeight * canvas.width) / imgWidth;
+    
+      if (yPosition + sliceHeight > canvas.height) {
+        sliceHeight = canvas.height - yPosition;
+      }
+    
+      let cutLine = yPosition + sliceHeight;
+      const scanStep = 2; // pixel step for scanning
+      const threshold = 250; // white tolerance
+    
+      // 🔎 Scan upwards from cutLine to find a pure white row
+      for (let y = cutLine; y > yPosition + 20; y -= scanStep) {
+        const row = ctx.getImageData(0, y, canvas.width, 1).data;
+    
+        let whitePixels = 0;
+        for (let i = 0; i < row.length; i += 4) {
+          const r = row[i], g = row[i + 1], b = row[i + 2];
+          if (r > threshold && g > threshold && b > threshold) {
+            whitePixels++;
+          }
+        }
+    
+        if (whitePixels > canvas.width * 0.98) {
+          cutLine = y;
+          break;
+        }
+      }
+  
+      const actualSliceHeight = cutLine - yPosition;
+  
+      // 🚫 Skip very small slices (prevents extra blank page)
+      if (actualSliceHeight < 20) {
+        break;
+      }
+  
+      const pageCanvas = document.createElement("canvas");
+      pageCanvas.width = canvas.width;
+      pageCanvas.height = actualSliceHeight;
+  
+      const pageContext = pageCanvas.getContext("2d");
+      if (pageContext) {
+        pageContext.drawImage(
+          canvas,
+          0,
+          yPosition,
+          canvas.width,
+          actualSliceHeight,
+          0,
+          0,
+          canvas.width,
+          actualSliceHeight
+        );
+      }
+  
+      const imgData = pageCanvas.toDataURL("image/webp");
+      if (pageIndex > 0) pdf.addPage();
+  
+      const imgHeight = (actualSliceHeight * imgWidth) / canvas.width;
+      pdf.addImage(imgData, "WEBP", 0, marginTop, imgWidth, imgHeight);
+  
+      yPosition += actualSliceHeight;
+      pageIndex++;
+    }
+  
+    pdf.save("Career-Aptitude-Test.pdf");
   };
+  
+  
 
   const fetchCatResult = async () => {
     const token = localStorage.getItem("token");
