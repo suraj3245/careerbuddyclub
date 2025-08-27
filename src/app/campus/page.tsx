@@ -46,7 +46,7 @@ const campus = () => {
         {/* how it works end */}
         <FeatureNineteen/>
         {/* <CategorySectionThree /> */}
-        <ThreeColumnBlogSection/>
+        <ThreeColumnBlogSection mode="campus"/>
         {/* feature three end */}
         <section className="contact-us-section pt-50 lg-pt-50">
           <div className="container">
