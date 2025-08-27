@@ -11,6 +11,7 @@ import Aptibannerthree from "../components/fancy-banner/apti-banner";
 import FlipCard from "../components/card/townandapt";
 import HeroBannerThree from "../components/hero-banners/hero-banner-three";
 import FeatureFour from "../components/features/feature-four";
+import ThreeColumnBlogSection from "../components/college-blogs/three-col-blog";
 
 export const metadata: Metadata = {
   title: "Schools",
@@ -27,7 +28,8 @@ const schools = () => {
       <FeatureFive />
       <Aptibannerthree />
 
-      <FeedbackThree />
+      {/* <FeedbackThree /> */}
+      <ThreeColumnBlogSection mode="schools" />
 
       <FeatureSix />
       <ContactSchoolArea />

@@ -3,42 +3,41 @@ import { Metadata } from "next";
 import Wrapper from "@/layouts/wrapper";
 import CompanyBreadcrumb from "../components/common/common-breadcrumb";
 import FooterOne from "@/layouts/footers/footer-one";
-import ThreeColumnBlogSection from "../components/college-blogs/three-col-blog";
-
+import CollegeBlogDetailsArea from "@/app/components/college-blogs/blog-details/index";
+import blog_data from "@/data/school-blog";
 
 export const metadata: Metadata = {
-  title: "Blog v4",
+  title: "Blog Details",
 };
 
-const BlogV4Page = () => {
+const BlogDetailsPage = () => {
+  const blog = blog_data[0];
   return (
     <Wrapper>
       <div className="main-page-wrapper">
         {/* header start */}
+
         {/* header end */}
 
         {/*breadcrumb start */}
         <CompanyBreadcrumb
-          title="Explore Best Colleges"
-          subtitle="Find the best colleges and universities in your area"
-          backgroundImage="/assets/images/blog/grad_blog1.jpg"
+          title="Blog"
+          subtitle="Read our blog from top talents"
         />
-        
+        {/*breadcrumb end */}
 
-        {/* blog v3 start */}
-        {/* <BlogFullWidthArea /> */}
-        {/* blog v3 end */}
-        <ThreeColumnBlogSection mode="campus" />
-        
+        {/* blog details start */}
+        <CollegeBlogDetailsArea item={blog} />
+        {/* blog details end */}
 
-        
+       
 
         {/* footer start */}
-        <FooterOne />
+        <FooterOne/>
         {/* footer end */}
       </div>
     </Wrapper>
   );
 };
 
-export default BlogV4Page;
+export default BlogDetailsPage;

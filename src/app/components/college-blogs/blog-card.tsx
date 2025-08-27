@@ -3,7 +3,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { IBlogDataType } from "@/types/blog-type";
 
-const BlogCard = ({ blog }: { blog: IBlogDataType }) => {
+const BlogCard = ({
+  blog,
+  type,
+}: {
+  blog: IBlogDataType;
+  type: "schools" | "campus";
+}) => {
   const { id, img_full, date, featured, tags, title, desc, img } = blog || {};
 
   return (
@@ -16,7 +22,10 @@ const BlogCard = ({ blog }: { blog: IBlogDataType }) => {
         background: "#fff",
       }}
     >
-      <div className="position-relative" style={{ height: "160px", background: "#f5f5f5" }}>
+      <div
+        className="position-relative"
+        style={{ height: "160px", background: "#f5f5f5" }}
+      >
         <Image
           src={img}
           alt={title}
@@ -38,7 +47,7 @@ const BlogCard = ({ blog }: { blog: IBlogDataType }) => {
               fontSize: "0.9rem",
             }}
           >
-             
+            {/* Featured Badge Content */}
           </span>
         )}
       </div>
@@ -59,7 +68,12 @@ const BlogCard = ({ blog }: { blog: IBlogDataType }) => {
 
         <h5
           className="card-title fw-bold mb-2 text-truncate"
-          style={{ fontSize: "1.15rem", lineHeight: "1.3em", maxHeight: "2.6em", overflow: "hidden" }}
+          style={{
+            fontSize: "1.15rem",
+            lineHeight: "1.3em",
+            maxHeight: "2.6em",
+            overflow: "hidden",
+          }}
         >
           {title}
         </h5>
@@ -96,7 +110,7 @@ const BlogCard = ({ blog }: { blog: IBlogDataType }) => {
 
         <div className="mt-auto d-flex justify-content-end">
           <Link
-            href={`/college-blogs/${blog.id}`}
+            href={type === "schools" ? `/school-blog/${blog.id}` : `/college-blogs/${blog.id}`}
             className="text-primary fw-medium text-decoration-none d-flex align-items-center gap-1"
             style={{
               fontSize: "0.95rem",

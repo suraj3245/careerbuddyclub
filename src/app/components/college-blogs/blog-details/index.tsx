@@ -5,7 +5,7 @@ import CollegeBlogSidebar from '../blog-sidebar/aside';
 
 const CollegeBlogDetailsArea = ({ item }: { item: IBlogDataType }) => {
   return (
-    <section className="pt-5 pb-5" style={{ background: '#F1F1E9' }}>
+    <section className="pt-5 pb-5" style={{ background: '#ebebebff' }}>
       <div className="container">
         <div className="row gy-5">
           {/* Main Content */}

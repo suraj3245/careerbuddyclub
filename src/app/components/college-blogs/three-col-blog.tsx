@@ -2,17 +2,25 @@
 import React, { useState } from "react";
 import BlogCard from "@/app/components/college-blogs/blog-card";
 import blog_data1 from "@/data/college-blog1";
-import { IBlogDataType } from "@/types/blog-type";
+import school_data from "@/data/school-blog";
 
+// Type for mode prop, can be 'schools' or 'campus'
+type BlogSectionMode = "schools" | "campus";
+
+// If you want to use route/query param, you can remove the prop
 const ITEMS_PER_PAGE = 9;
 
-const ThreeColumnBlogSection: React.FC = () => {
+// Accept mode as a prop
+const ThreeColumnBlogSection: React.FC<{ mode: BlogSectionMode }> = ({ mode }) => {
+  // Select data source based on mode
+  const dataSource = mode === "schools" ? school_data : blog_data1;
+
   const [currentPage, setCurrentPage] = useState(1);
-  const totalPages = Math.ceil(blog_data1.length / ITEMS_PER_PAGE);
+  const totalPages = Math.ceil(dataSource.length / ITEMS_PER_PAGE);
 
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
   const endIndex = startIndex + ITEMS_PER_PAGE;
-  const currentBlogs = blog_data1.slice(startIndex, endIndex);
+  const currentBlogs = dataSource.slice(startIndex, endIndex);
 
   // Scroll to top of section on page change
   const handlePageChange = (page: number) => {
@@ -27,18 +35,20 @@ const ThreeColumnBlogSection: React.FC = () => {
     <section id="blog-section" className="py-5 bg-white">
       <div className="container mb-5">
         <h2 className="fw-bold display-5 mb-4 ">
-          
-          📚 Featured Blogs for Colleges</h2>
+          {mode === "schools" ? "🏫 Featured Blogs for Schools" : "📚 Featured Blogs for Colleges"}
+        </h2>
         <p className="lead text-muted">
-          Explore top colleges and trending courses with insights tailored to you.
+          {mode === "schools"
+            ? "Explore top schools and trending topics with insights tailored to you."
+            : "Explore top colleges and trending courses with insights tailored to you."}
         </p>
         <hr
           className="mb-10"
-          style={{  borderBottom: "3px solid black", borderWidth: "3px", borderStyle: "solid" }}
+          style={{ borderBottom: "3px solid black", borderWidth: "3px", borderStyle: "solid" }}
         />
       </div>
 
-      <div className="container" style ={{ marginTop:"2rem"}}>
+      <div className="container" style={{ marginTop: "2rem" }}>
         {currentBlogs.length === 0 ? (
           <div className="text-center py-5 text-muted">
             <p>No blog posts found.</p>
@@ -48,9 +58,9 @@ const ThreeColumnBlogSection: React.FC = () => {
             {currentBlogs.map((item) => (
               <div
                 key={item.id}
-                className="col-12 col-sm-6 col-lg-4 d-flex justify-content-center"
+                className="col-12 col-sm-6 col-lg-4 d-flex justify-content-center mb-4"
               >
-                <BlogCard blog={item} />
+                <BlogCard blog={item} type={mode}/>
               </div>
             ))}
           </div>

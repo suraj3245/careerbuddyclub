@@ -14,7 +14,10 @@ export interface IBlogDataType {
   descComponent?: React.ComponentType;
   metaDescription?: string;
   excerpt?: string;
-  blog: string;
+  blog?: string;
+  content?: string;
+  category?: string;
+  image?: string | StaticImageData;
   table?: {
     heading: string;
     rows: {
