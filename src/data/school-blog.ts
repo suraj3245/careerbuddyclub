@@ -4,9 +4,9 @@ import TopSchoolsDehradun2025 from "@/app/components/college-blogs/schoolDesc/de
 const blog_data1 = [
   {
     id: "top-boarding-schools-dehradun",
-    img: "/assets/images/blog/school_800.png",
-    grid_img: "/assets/images/blog/school_800.png",
-    img_full: "/assets/images/blog/school_800.png",
+    img: "/assets/images/blog/352_School.jpg",
+    grid_img: "/assets/images/blog/352_School.jpg",
+    img_full: "/assets/images/blog/800_School.jpg",
     title: "Top Day & Boarding Schools in Dehradun 2025 | Best Schools with Fees & Admission Details",
     author: "Career Buddy Club",
     date: "27 Aug, 2025",

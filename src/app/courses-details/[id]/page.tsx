@@ -5,7 +5,6 @@ import JobPortalIntro from "@/app/components/job-portal-intro/job-portal-intro";
 import CompanyBreadcrumbjob from "@/app/components/common/common-breadcrumb-job";
 import FooterOne from "@/layouts/footers/footer-one";
 import course_details from "@/data/courses-details";
-import CollegeDetailsArea from "@/app/components/company-details/college-details";
 import CoursesDetailsArea from "@/app/components/company-details/courses-details-area";
 
 export const metadata: Metadata = {
