@@ -5,12 +5,10 @@ import HeaderFour from "@/layouts/headers/header-4";
 import FooterOne from "@/layouts/footers/footer-one";
 import FeatureFive from "../components/features/feature-five";
 import FeatureSix from "../components/features/feature-six";
-import FeedbackThree from "../components/feedBacks/feedback-three";
 import ContactSchoolArea from "../components/contactSchools/contactSchools-area";
 import Aptibannerthree from "../components/fancy-banner/apti-banner";
 import FlipCard from "../components/card/townandapt";
 import HeroBannerThree from "../components/hero-banners/hero-banner-three";
-import FeatureFour from "../components/features/feature-four";
 import ThreeColumnBlogSection from "../components/college-blogs/three-col-blog";
 
 export const metadata: Metadata = {
@@ -40,4 +38,8 @@ const schools = () => {
   );
 };
 
+
 export default schools;
+
+
+
