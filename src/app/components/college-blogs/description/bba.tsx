@@ -28,12 +28,15 @@ const BBAColleges = () => {
       {/* Why Dehradun */}
       <div className="mt-3" id="why-dehradun">
       <h2 id="top-colleges" className="mb-4 fs-2 mt-4">
-        Why Choose Dehradun for a BBA?
+       Why Choose Dehradun for a BBA?
       </h2>
       <ol className="mb-5">
-        <li><strong>Educational Hub with Quality Institutions</strong> Dehradun is home to several reputable universities and colleges that offer top-rated BBA programs recognized by UGC and accredited bodies like NAAC and AICTE.</li>
-        <li><strong>Strategic Location:</strong> Located in Uttarakhand, Dehradun is well-connected to major cities like Delhi, Haridwar, and Chandigarh. It also provides a peaceful learning environment and proximity to industrial hubs for practical exposure.</li>
-        <li><strong>Affordable Living & Education</strong> Compared to metro cities, Dehradun offers affordable tuition fees and cost of living, making it ideal for students from across India.
+        <li><strong>Educational Hub with Quality Institutions</strong> <br></br>
+        Dehradun is home to several reputable universities and colleges that offer top-rated BBA programs recognized by UGC and accredited bodies like NAAC and AICTE.</li>
+        <li><strong>Strategic Location:</strong> <br></br>
+        Located in Uttarakhand, Dehradun is well-connected to major cities like Delhi, Haridwar, and Chandigarh. It also provides a peaceful learning environment and proximity to industrial hubs for practical exposure. </li>
+        <li><strong>Affordable Living & Education</strong> <br></br>
+        Compared to metro cities, Dehradun offers affordable tuition fees and cost of living, making it ideal for students from across India.
         </li>
       </ol>
 
@@ -44,23 +47,26 @@ const BBAColleges = () => {
 
       {/* Top Colleges */}
       <h2 id="" className="mb-3 fs-3 mt-4">
-        Top BBA Colleges in Dehradun
+       Top BBA Colleges in Dehradun
       </h2>
-
+      <p className="mb-5">Here are some of the best colleges for BBA in Dehradun, based on curriculum, placements, industry 
+        interface, and student reviews:</p>
       <ul className="mb-5 list-unstyled">
         <li>
-          <h3 id="">1. Graphic Era (Deemed to be University)</h3><br/>
+          <h3 id="">1.Graphic Era (Deemed to be University) </h3><br/>
              <p>
                   <Link href="https://careerbuddyclub.com/college-details/GEU" className="text-primary">
                      🔗 Visit Website
                   </Link>
             </p>
-          • Affiliation: UGC-approved Deemed University<br/>
-          • NAAC: A+<br />
-          • Fees: ₹1,15,000/year<br/>
+          • Affiliation: Deemed University (UGC approved) <br/>
+          • NAAC Rating: A+<br />
+          • Fees: ₹1,15,000 per year (approx.) <br/>
           • Specializations: Finance, HR, Marketing, Digital Marketing, International Business<br />
-          • Placement: Amazon, Wipro, Deloitte, HCL, Infosys<br />
-          <strong>Highlights:</strong> Strong industry interface, excellent infrastructure, international collaborations
+          • Placement Partners: Amazon, Wipro, Deloitte, HCL, Infosys<br />
+          <strong>Highlights:</strong> <ul><li>Strong industry interface</li>
+          <li>Excellent Infrastructure</li>
+          <li>International Collaborations</li></ul> 
         </li>
         <li className="mt-4">
           <h3>2. UPES (University of Petroleum and Energy Studies)</h3><br />
@@ -74,7 +80,10 @@ const BBAColleges = () => {
           • Fees: ₹2,60,000/year<br />
           • Specializations: Oil & Gas Marketing, Logistics, Finance, Marketing, HR<br />
           • Recruiters: Schlumberger, Reliance, ONGC, Accenture<br />
-          <strong>Highlights:</strong> Unique industry-aligned BBA programs, 94% placement rate
+          <strong>Highlights:</strong> <ul><li>Unique BBA specializations tailored to emerging industries</li>
+          <li>Industry-integrated curriculum </li>
+          <li>94% placement rate </li></ul>
+          
         </li>
         <li className="mt-4">
           <h3>3. DIT University</h3><br />
@@ -88,7 +97,10 @@ const BBAColleges = () => {
           • Fees: ₹1,10,000/year<br />
           • Specializations: HR, Finance, Digital Business, Data Analytics<br />
           • Recruiters: TCS, Infosys, Deloitte, HDFC<br />
-          <strong>Highlights:</strong> Case-based pedagogy, strong internships & placements
+          <strong>Highlights:</strong> <ul><li>Modern pedagogy with case-based learning </li>
+          <li>Excellent placement and internship support </li>
+          </ul>
+          
         </li>
         <li className="mt-4">
           <h3>4. IMS Unison University</h3><br />
@@ -102,19 +114,25 @@ const BBAColleges = () => {
           • Fees: ₹1,05,000/year<br />
           • Specializations: HR, Finance, Marketing, International Business<br />
           • Recruiters: Axis Bank, Byju's, Justdial, Decathlon<br />
-          <strong>Highlights:</strong> Good faculty-student ratio, skill-building workshops
+          <strong>Highlights:</strong> 
+          <ul><li>Good student-faculty ratio</li>
+          <li>Skill development workshops </li></ul>
+          
         </li>
         <li className="mt-4">
           <h3>5. Guru Nanak College, Dehradun</h3><br />
            <p>
-                  <Link href="https://careerbuddyclub.com/college-details/GNC?utm_source=CBC-Website&utm_medium=Online&utm_campaign=GNC" className="text-primary">
+                  <Link href="https://gnc.edu.in/best-bba-college-in-dehradun" className="text-primary">
                      🔗 Visit Website
                   </Link>
             </p>
-          • Affiliation: Sri Dev Suman Uttarakhand University<br />
+          • Affiliation: Sri Dev Suman Uttarakhand University<br/>
           • Fees: ₹50,000–₹60,000/year<br />
           • Specializations: General BBA<br />
-          <strong>Highlights:</strong> Affordable, individual academic focus, Wi-Fi & digital campus
+          <strong>Highlights:</strong>  <ul><li>Personalized academic attention </li>
+          <li>Affordable fees </li>
+          <li>Strong focus on student activities</li></ul>
+          
         </li>
         <li className="mt-4">
           <h3>6. JBIT (JB Institute of Technology)</h3><br />
@@ -127,7 +145,10 @@ const BBAColleges = () => {
           • Fees: ₹70,000–₹85,000/year<br />
           • Specializations: HR, Marketing, Finance<br />
           • Recruiters: Byju’s, Infosys, ICICI Bank, Wipro<br />
-          <strong>Highlights:</strong> ERP-integrated learning, strong placements, regular industry visits
+          <strong>Highlights:</strong> <ul><li>Strong placement and career support</li>
+          <li>Regular industrial visits and guest lectures </li>
+          <li>Modern infrastructure with ERP-integrated learning </li></ul>
+          
         </li>
         <li className="mt-4">
           <h3 id="advantages">7. BFIT Group of Institutions</h3><br />
@@ -140,7 +161,11 @@ const BBAColleges = () => {
           • Fees: ₹60,000–₹75,000/year<br />
           • Specializations: General BBA, Entrepreneurship<br />
           • Recruiters: PolicyBazaar, Tech Mahindra, HDFC, Reliance<br />
-          <strong>Highlights:</strong> Largest education group in Doon, startup incubation, hands-on learning
+          <strong>Highlights:</strong> <ul><li>One of the largest and oldest groups in Dehradun</li>
+          <li>Affordable yet comprehensive curriculum</li>
+          <li>Emphasis on practical learning and startup incubation 
+</li></ul>
+          
         </li>
       </ul>
 
@@ -154,14 +179,11 @@ const BBAColleges = () => {
         Key Advantages of Doing BBA in Dehradun
       </h2>
       <ul className="mb-5">
-        <li><strong>Industry Exposure:</strong> Thanks to proximity to industrial cities like Haridwar and Roorkee, students get ample internship and live project opportunities.</li>
-        <li><strong>Strong Placement Support</strong> Colleges in Dehradun maintain active placement cells with strong connections in the corporate
-          world.</li>
-        <li><strong>Ideal for Competitive Exam Preparation</strong> The peaceful learning environment is perfect for those preparing for MBA entrance exams like CAT,
-          XAT, or government exams alongside their BBA.
+        <li><strong>Industry Exposure:</strong><br></br>Thanks to proximity to industrial cities like Haridwar and Roorkee, students get ample internship and live project opportunities.</li>
+        <li><strong>Strong Placement Support</strong> <br></br>Colleges in Dehradun maintain active placement cells with strong connections in the corporate world.</li>
+        <li><strong>Ideal for Competitive Exam Preparation</strong><br></br> The peaceful learning environment is perfect for those preparing for MBA entrance exams like CAT, XAT, or government exams alongside their BBA. 
         </li>
-        <li><strong>Modern Infrastructure</strong> Most colleges are equipped with smart classrooms, libraries, entrepreneurship cells, and incubation
-          centers.</li>
+        <li><strong>Modern Infrastructure</strong><br></br> Most colleges are equipped with smart classrooms, libraries, entrepreneurship cells, and incubation centers.</li>
       </ul>
 
 
@@ -204,7 +226,7 @@ const BBAColleges = () => {
         <li>Case Study Analysis</li>
       </ul>
 
-      <p className="mb-5"><strong>Internships:</strong> 6–8 weeks mandatory after 4th or 5th semester</p>
+      <p className="mb-5"><strong>Internships:</strong><br></br> Most universities mandate 6–8 weeks of internships after the 4th or 5th semester. r</p>
 
        <hr
           className="mt-10 border-bottom border-3 border-dark mt-4"
@@ -215,11 +237,11 @@ const BBAColleges = () => {
       <h2 id="" className="mb-3 fs-3 mt-4">
         Career Prospects After BBA
       </h2>
-
+      <p className="mb-5">Graduating with a BBA from a reputed college in Dehradun opens a wide range of opportunities:</p>
       <h5 className="mt-3">Higher Education</h5>
       <ul>
         <li>MBA/PGDM (IIMs, XLRI, FMS, etc.)</li>
-        <li>Specialized Masters (Finance, Analytics, etc.)</li>
+        <li>Specialized Masters (MSc in Finance, Data Analytics, etc.) </li>
         <li>International programs (MS, MBA abroad)</li>
       </ul>
 
@@ -234,7 +256,8 @@ const BBAColleges = () => {
       </ul>
 
       <h5 className="mt-4" id="final-thoughts">Entrepreneurship</h5>
-      <p className="mb-5">Incubation centers and mentorship in Dehradun help students launch startups.</p>
+      <p className="mb-5">With incubation centers and startup support, many BBA graduates go on to launch their own 
+businesses.</p>
 
        <hr
           className="mt-10 border-bottom border-3 border-dark mt-4"
@@ -246,7 +269,7 @@ const BBAColleges = () => {
         Final Thoughts
       </h2>
       <p className="mb-5">
-        Pursuing a BBA in Dehradun is more than earning a degree—it's about building leadership skills, corporate readiness, and entrepreneurial mindset. Affordable costs, serene learning environments, and strong industry links make Dehradun a top choice for BBA aspirants.
+      Pursuing a BBA in Dehradun is not just about gaining a degree—it's about building a foundation for leadership, corporate readiness, and entrepreneurial thinking. With a blend of academic excellence, industry alignment, affordable costs, and scenic surroundings, Dehradun has earned its place among India's emerging educational destinations. 
       </p>
 
        <hr
@@ -270,98 +293,20 @@ const BBAColleges = () => {
       <h2 id="" className="mb-3 fs-3 mt-4">
         Explore More with Career Buddy Club
       </h2>
-      <p>
-        
-        Want personalized guidance to select the best BBA college for you? Contact Career Buddy Club for free counseling, college comparison, and career advice.
+     <p>
+      Want personalized guidance to select the best BBA college for you? 
+      <Link href="https://careerbuddyclub.com/contact"
+      className="text-primary underline hover:text-primary/80">
+        Contact Career Buddy Club
+      </Link> for free counseling, college comparison, and career advice.
+      
       </p>
 
       </div>
 
        <hr className="mt-10 border-bottom border-3 border-dark mt-4"/>
 
-      {/* Table  */}
-
-      {/* <div className="table-responsive mt-4">
-        <table className="table table-bordered table-striped">
-          <thead className="table-dark">
-            <tr>
-              <th>College</th>
-              <th>Courses</th>
-              <th>Short Description</th>
-              <th>Key Benefits</th>
-              <th>Eligibility</th>
-              <th>Fees</th>
-              <th>Website</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Graphic Era (Deemed to be University)</td>
-              <td>Finance, HR, Marketing, Digital Marketing, International Business</td>
-              <td>A+ NAAC, UGC Approved, Industry-focused curriculum</td>
-              <td>Strong industry interface, Excellent infrastructure, International collaborations</td>
-              <td>10+2 (any stream), min. 50%</td>
-              <td>₹1,15,000/year (approx.)</td>
-              <td><Link href="https://careerbuddyclub.com/college-details/GEU" className="text-primary">Visit</Link></td>
-            </tr>
-            <tr>
-              <td>UPES</td>
-              <td>Oil & Gas Marketing, Logistics, Finance, Marketing, HR</td>
-              <td>Unique industry-aligned specializations, A NAAC</td>
-              <td>Industry-integrated curriculum, 94% placement rate</td>
-              <td>10+2 (any stream), min. 50%</td>
-              <td>₹2,60,000/year (approx.)</td>
-              <td><Link href="https://careerbuddyclub.com/college-details/UPES?utm_source=CBC-Website&utm_medium=Online&utm_campaign=UPES" className="text-primary">Visit</Link></td>
-            </tr>
-            <tr>
-              <td>DIT University</td>
-              <td>HR, Finance, Digital Business, Data Analytics</td>
-              <td>Modern pedagogy, internships, strong placements</td>
-              <td>Case-based learning, Excellent placement & internship support</td>
-              <td>10+2 (any stream), min. 50%</td>
-              <td>₹1,10,000/year (approx.)</td>
-              <td><Link href="http://careerbuddyclub.com/college-details/DIT" className="text-primary">Visit</Link></td>
-            </tr>
-            <tr>
-              <td>IMS Unison University</td>
-              <td>HR, Finance, Marketing, International Business</td>
-              <td>Good student-faculty ratio, B+ NAAC</td>
-              <td>Skill development workshops</td>
-              <td>10+2 (any stream), min. 45%</td>
-              <td>₹1,05,000/year (approx.)</td>
-              <td><Link href="https://careerbuddyclub.com/college-details/IMSUU" className="text-primary">Visit</Link></td>
-            </tr>
-            <tr>
-              <td>Guru Nanak College</td>
-              <td>General BBA</td>
-              <td>Affordable private college, holistic development</td>
-              <td>Personalized academic attention, Affordable fees, Student activities</td>
-              <td>10+2 (any stream), min. 45%</td>
-              <td>₹50,000–₹60,000/year (approx.)</td>
-              <td><Link href="https://careerbuddyclub.com/college-details/GNC?utm_source=CBC-Website&utm_medium=Online&utm_campaign=GNC" className="text-primary">Visit</Link></td>
-            </tr>
-            <tr>
-              <td>JBIT</td>
-              <td>HR, Marketing, Finance</td>
-              <td>ERP-integrated learning, industry connect</td>
-              <td>Strong placement & career support, Industrial visits, Guest lectures</td>
-              <td>10+2 (any stream), min. 45%</td>
-              <td>₹70,000–₹85,000/year (approx.)</td>
-              <td><Link href="https://careerbuddyclub.com/college-details/JBIT?utm_source=CBC-Website&utm_medium=Online&utm_campaign=JBIT" className="text-primary">Visit</Link></td>
-            </tr>
-            <tr>
-              <td>BFIT Group of Institutions</td>
-              <td>General BBA, Entrepreneurship</td>
-              <td>Oldest & largest group, startup support</td>
-              <td>Affordable, Practical learning, Startup incubation</td>
-              <td>10+2 (any stream), min. 45%</td>
-              <td>₹60,000–₹75,000/year (approx.)</td>
-              <td><Link href="https://careerbuddyclub.com/college-details/BFIT?utm_source=CBC-Website&utm_medium=Online&utm_campaign=BFIT" className="text-primary">Visit</Link></td>
-            </tr>
-          </tbody>
-        </table>
-      </div> */}
-
+      
 
       
     </section>
