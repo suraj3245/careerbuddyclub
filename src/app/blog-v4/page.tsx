@@ -7,7 +7,7 @@ import ThreeColumnBlogSection from "../components/college-blogs/three-col-blog";
 
 
 export const metadata: Metadata = {
-  title: "Blog v4",
+  title: "Explore Best Colleges & Universities | Career Buddy Club",
 };
 
 const BlogV4Page = () => {
@@ -28,7 +28,7 @@ const BlogV4Page = () => {
         {/* blog v3 start */}
         {/* <BlogFullWidthArea /> */}
         {/* blog v3 end */}
-        <ThreeColumnBlogSection mode="campus" />
+        <ThreeColumnBlogSection mode="campus"/>
         
 
         

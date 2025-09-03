@@ -8,7 +8,7 @@ import ThreeColumnBlogSection from "../components/college-blogs/three-col-blog";
 
 
 export const metadata: Metadata = {
-  title: "Blog v5",
+  title: "Top Day & Boarding Schools in Dehradun 2025",
 };
 
 const BlogV5Page = () => {

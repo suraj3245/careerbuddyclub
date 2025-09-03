@@ -377,7 +377,10 @@ const PharmacyDescription = () => {
           with the skills, knowledge, and opportunities to excel in the ever-expanding pharmaceutical industry.<br />
 
           <strong>Need help with admissions or career counselling? </strong>
-          Get in touch with <strong>Career Buddy Club</strong> for <strong>free expert guidance, college shortlisting, and end-to-end
+          Get in touch with  <Link href="https://careerbuddyclub.com/contact"
+      className="text-primary underline hover:text-primary/80">
+        Career Buddy Club
+      </Link> for <strong>free expert guidance, college shortlisting, and end-to-end
             support</strong> on your academic journey.
         </p>
 

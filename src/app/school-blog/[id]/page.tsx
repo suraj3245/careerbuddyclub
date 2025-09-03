@@ -14,17 +14,17 @@ export async function generateMetadata(
 
   if (!blog) {
     return {
-      title: "Blog Not Found | College Blog",
+      title: "Blog Not Found | School Blog",
       description: "Oops! The blog you’re looking for doesn’t exist. Explore other great reads on Career Buddy Club.",
       robots: "noindex",
     };
   }
 
-  const canonicalUrl = `https://careerbuddyclub.com/college-blogs/${params.id}`;
+  const canonicalUrl = `https://careerbuddyclub.com/school-blog/${params.id}`;
   const metaDescription =
     blog.metaDescription ||
     blog.excerpt?.slice(0, 150) ||
-    "Get expert insights into top colleges, courses, and careers.";
+    "Get expert insights into top borading schools in dehradun.";
 
   return {
     title: `${blog.title} | Career Buddy Club`,
@@ -69,7 +69,7 @@ const BlogDetailsDynamicPage = ({ params }: { params: { id: string } }) => {
           subtitle="Read our blog from top talents"
         />
         <CollegeBlogDetailsArea item={blog} />
-        <FooterOne />
+        <FooterOne/>
       </div>
     </Wrapper>
   );
