@@ -7,9 +7,10 @@ import HeaderFour from "@/layouts/headers/header-4";
 import React, { useEffect, useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import Script from "next/script";
-import { ToastContainer, toast } from "react-toastify"; 
+import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import HeaderTop from "@/layouts/headers/header-top";
+
 const gordita = localFont({
   src: [
     {
@@ -35,6 +36,7 @@ const gordita = localFont({
   ],
   variable: "--gorditas-font",
 });
+
 export default function RootLayout({
   children,
 }: {
@@ -47,25 +49,21 @@ export default function RootLayout({
   const [isMobile, setIsMobile] = useState(false);
 
   const handleResize = () => {
-    // Update isMobile based on window width
     setIsMobile(window.innerWidth <= 767);
   };
+
   useEffect(() => {
     if (typeof window !== "undefined") {
-      // Initialize and set up resize event listener
       handleResize();
       window.addEventListener("resize", handleResize);
     }
-
-    // Clean up event listener
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
   useEffect(() => {
     if (typeof window !== "undefined") {
       const tempToken = localStorage.getItem("token");
       setToken(tempToken);
-
-      // Set the user state with the tempToken directly
       setUser({ value: tempToken });
       setKey(Math.random());
     }
@@ -73,23 +71,16 @@ export default function RootLayout({
 
   const handleLogout = () => {
     localStorage.removeItem("token");
-    localStorage.removeItem("testStatus"); // Clear the stored test status
+    localStorage.removeItem("testStatus");
     localStorage.removeItem("catResults");
     localStorage.removeItem("username");
     localStorage.removeItem("location");
     localStorage.removeItem("schoolName");
     localStorage.removeItem("School_email");
-
-    setUser({ value: null }); // Update the user state to reflect logout
-    // Any additional logout logic goes here
-
+    setUser({ value: null });
     setKey(Math.random());
   };
-  // const handleLogout1 = () => {
-  //   localStorage.removeItem("token");
-  //   localStorage.removeItem("userName");
-  // }
-  // Check if the current page is 'aptitudetest'
+
   const pathname = usePathname();
   const isRedirectPage = pathname.startsWith("/redirect");
   const isAptitudeTestPage = usePathname() === "/aptitudetest";
@@ -98,9 +89,8 @@ export default function RootLayout({
   );
   const isapplynow = pathname.startsWith("/apply-now");
   const isSchoolDashboard = pathname.startsWith("/dashboard/");
-  const dbsapplynow=pathname.startsWith("/dbs-apply-now");
+  const dbsapplynow = pathname.startsWith("/dbs-apply-now");
 
-  // const isCollegeDetailsPage = pathname.startsWith("/college-details");
   return (
     <html lang="en">
       <head>
@@ -145,13 +135,49 @@ export default function RootLayout({
           !isAptitudeTestPage &&
           !isCandidateDashboardPage &&
           !isapplynow &&
-          !isSchoolDashboard && !dbsapplynow && (
+          !isSchoolDashboard &&
+          !dbsapplynow && (
             <div suppressHydrationWarning={true}>
-            <HeaderFour user={user} onLogout={handleLogout} key={key} index={0} /></div>
+              <HeaderFour
+                user={user}
+                onLogout={handleLogout}
+                key={key}
+                index={0}
+              />
+            </div>
           )}
 
         <Providers>{children}</Providers>
-        <ToastContainer/>
+        <ToastContainer />
+
+        {/* WhatsApp Floating Chat Button */}
+        <a
+          href="https://wa.me/917456000100" // Replace with your WhatsApp number
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            position: "fixed",
+            bottom: "100px",
+            right: "24px",
+            zIndex: 9999,
+            backgroundColor: "#25d366",
+            borderRadius: "50%",
+            width: "60px",
+            height: "60px",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            boxShadow: "0 2px 5px rgba(0,0,0,0.2)",
+          }}
+        >
+          <img
+            src="https://img.icons8.com/color/48/000000/whatsapp--v1.png"
+            alt="WhatsApp"
+            style={{ width: "36px", height: "36px" }}
+          />
+        </a>
+        {/* End WhatsApp Button */}
+
         {/* <BackToTopCom /> */}
       </body>
     </html>
