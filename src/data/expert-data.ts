@@ -1,7 +1,6 @@
 import { StaticImageData } from 'next/image';
 import img_4 from '@/assets/images/assets/img_99.png';
 import img_5 from '@/assets/images/assets/img_100.png';
-import img_6 from '@/assets/images/assets/img_101.png';
 import img_7 from '@/assets/images/assets/img_103.png';
 // expert data type 
 type IExpertType = {
@@ -16,24 +15,24 @@ const expert_data:IExpertType[] = [
  
   {
     id:1,
-    img:img_4,
-    name:'Anupam Singh',
-    designation:'Vice President (VP)-Marketing',
-    description: "",
-  },
-  {
-    id:2,
     img:img_7,
     name:'Sunil Kumar Malik',
     designation:'Vice President (VP)-Campus Relations',
     description: "",
   },
-  
   {
-    id:3,
+    id:2,
     img:img_5,
     name:'Ashish Jain',
     designation:'Vice President (VP)-Corporate Relations',
+    description: "",
+  },
+  
+  {
+    id:3,
+    img:img_4,
+    name:'Rikki Porwal',
+    designation:'Campus Manager',
     description: "",
   },
  /* {

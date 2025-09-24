@@ -129,18 +129,14 @@ const bptDescription = () => {
             <br />
             <p>
               <Link
-                href="https://careerbuddyclub.com/college-details/GNC?utm_source=CBC-Website&utm_medium=Online&utm_campaign=GNC"
+                href="https://gnc.edu.in/Best-BPT-college-in-Dehradun-Uttarakhand"
                 className="text-primary"
               >
                 🔗 Visit Website
               </Link>
             </p>
             <p>
-              <strong>Guru Nanak College (GNC)</strong> is one of the leading
-              institutions for physiotherapy education in Uttarakhand. Known for
-              its patient-centered teaching and modern rehabilitation
-              facilities, GNC prepares students for both national and
-              international careers in physiotherapy.
+              <strong>Guru Nanak College (GNC)</strong> is one of the leading institutions for physiotherapy education in Uttarakhand. Known for its patient-centered teaching and modern rehabilitation facilities, GNC prepares students for both national and international careers in physiotherapy.
             </p>
             <ul className="mt-3">
               <li>
