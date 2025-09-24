@@ -9,20 +9,20 @@ import AccordionItemTwo from "../accordion/accordian-item-two";
 
 export function FeatureImgBox() {
   return (
-    <div className="img-box position-relative d-flex align-items-center justify-content-center wow fadeInLeft">
+    <div className="img-box position-relative d-flex align-items-center justify-content-center wow fadeInLeft mt-4">
       <Image src={screen_1} alt="screen" className="lazy-img" />
-      <Image
+      {/* <Image
         src={screen_2}
         alt="screen"
         className="lazy-img shapes screen_01"
-      />
+      /> */}
       <Image src={shape} alt="shape" className="lazy-img shapes shape_01" />
     </div>
   );
 }
 const FeatureFour = () => {
   return (
-    <section className="text-feature-three position-relative pt-10 lg-pt-150 md-pt-100">
+    <section className="text-feature-three position-relative pt-10 lg-pt-150 md-pt-100 ">
       <div className="container">
         <div className="row align-items-center">
           <div className="col-lg-5 order-lg-last ms-auto">
