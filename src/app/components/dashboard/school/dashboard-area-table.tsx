@@ -10,7 +10,7 @@ type IProps = {
 
 const DashboardStudent = ({ setIsOpenSidebar }: IProps) => {
   return (
-    <div className="dashboard-body" style={{ backgroundColor: "#f0f5f3", padding: "60px 55px 50px" }}>
+    <div className="dashboard-body" style={{ backgroundColor: "#f0f5f3", padding: "70px 15px 20px" }}>
       <div className="position-relative">
         {/* header start */}
         <DashboardHeader setIsOpenSidebar={setIsOpenSidebar} />

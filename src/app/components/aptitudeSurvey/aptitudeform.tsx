@@ -1,9 +1,7 @@
 "use client";
-
 import React, { useRef, useState, useEffect } from "react";
 import Link from "next/link";
 import axios from "axios";
-import { Chart as ChartJS } from "chart.js/auto";
 import Confetti from "react-confetti";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -35,6 +33,7 @@ const QuizForm: React.FC = () => {
   const [results, setResults] = useState<any | null>(null);
   const [token, setToken] = useState<string | null>(null);
   const [testStatus, setTestStatus] = useState("");
+  const [loading, setLoading] = useState(false);
   const barColors = [
     "#FF4560",
     "#00E396",
@@ -184,8 +183,6 @@ const QuizForm: React.FC = () => {
     try {
       const response = await axios.request(options);
       const resultData = response.data;
-
-      // Update the results state with the fetched data
       setResults(resultData);
     } catch (error) {
       console.error("Error fetching cat result:", error);
@@ -248,8 +245,6 @@ const QuizForm: React.FC = () => {
             type: item.type,
           }))
         );
-        console.log(response.data);
-        // Update this according to the actual response structure
       } catch (error) {
         console.error("Error fetching questions:", error);
       }
@@ -305,8 +300,8 @@ const QuizForm: React.FC = () => {
   };
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    setLoading(true);
     event.preventDefault();
-
     if (!areAllQuestionsAnsweredOnPage()) {
       return;
     }
@@ -339,13 +334,10 @@ const QuizForm: React.FC = () => {
       };
 
       const response = await axios.request(submitOptions);
-
-      // Handle the response from the server as needed
-      console.log("Submit Response:", response.data);
-      setResults(response.data);
       setIsSubmitted(true);
       localStorage.setItem("testStatus", "Test completed");
       localStorage.setItem("quizSubmitted", "true");
+      setLoading(false);
     } catch (error) {
       console.error("Error submitting answers:", error);
     }
@@ -397,7 +389,10 @@ const QuizForm: React.FC = () => {
 
     // Ensure that all necessary data points are numbers and defined
     const categories = Object.keys(results)
-      .filter((key) => key.toLowerCase() !== "letters") // Exclude 'letters'
+      .filter(
+        (key) =>
+          key.toLowerCase() !== "letters" && key.toLowerCase() !== "resultdata"
+      ) // Exclude 'letters'
       .map(
         (key) =>
           key.charAt(0).toUpperCase() + key.slice(1).replace("_score", "")
@@ -474,9 +469,33 @@ const QuizForm: React.FC = () => {
         <form onSubmit={handleSubmit} className="flex flex-col p-4">
           <div className="d-flex align-items-center justify-content-between">
             <div className="text-center" style={{ flex: 1 }}>
-              <h2 className="mb-6 pb-10 pt-18 " style={{ color: "#13ADBD" }}>
+              <h2
+                className="mt-2"
+                style={{
+                  fontSize: "50px",
+                  background:
+                    "linear-gradient(270deg, #ff416c, #ff4b2b, #1e90ff, #32cd32, #ffcc00, #ff416c)",
+                  backgroundSize: "1200% 1200%",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  animation: "gradientMove 10s linear infinite", // Slow down the animation here
+                }}
+              >
                 Career Aptitude Test
               </h2>
+              <style jsx>{`
+                @keyframes gradientMove {
+                  0% {
+                    background-position: 0% 50%;
+                  }
+                  50% {
+                    background-position: 100% 50%;
+                  }
+                  100% {
+                    background-position: 0% 50%;
+                  }
+                }
+              `}</style>
               {/* Centered Header */}
             </div>
           </div>
@@ -557,9 +576,23 @@ const QuizForm: React.FC = () => {
               </button>
             )}
             {isLastPage && (
-              <button type="submit" className="text-uppercase btn-five border6">
-                Submit
-              </button>
+              <>
+                <button
+                  type="submit"
+                  className="text-uppercase btn-five border6"
+                  disabled={loading}
+                >
+                  {loading && (
+                    <span
+                      className="spinner-border spinner-border-sm me-2"
+                      role="status"
+                      aria-hidden="true"
+                      style={{ width: "1.5rem", height: "1.5rem" }}
+                    ></span>
+                  )}
+                  {loading ? "" : "SUBMIT"}
+                </button>
+              </>
             )}
           </div>
           <div
@@ -632,6 +665,22 @@ const QuizForm: React.FC = () => {
                     <p className="mb-0 fs-5 fw-semibold">📞 7456000100</p>
                   </div>
                 </div>
+                <div className="col-md-12 mt-2">
+                <p className="text-start">
+                  This is a self-report inventory that assesses the student’s
+                  traits, interests and suggests suitable occupations. This CAT
+                  is based on the Typological Theory, which posits that most
+                  people can be loosely categorized into six types - Realistic,
+                  Investigative, Artistic , Social, Enterprising, and
+                  Conventional. It further states that occupations and work
+                  environments also can be classified by these categories. When
+                  people choose careers that match their own types, they are
+                  most likely to be both satisfied and successful. The purpose
+                  of this test is to help you identify your occupational
+                  personality, education options, and inform your decision
+                  making process.
+                </p>
+              </div>
               </div>
             </div>
           </div>

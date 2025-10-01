@@ -1,58 +1,60 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import data from "@/assets/text/career_choices.json";
+import { PackageX } from "lucide-react";
 
 type CareerChoiceKeys = keyof typeof data;
 
 interface YourCareerProps {
-  code: CareerChoiceKeys; // Now expecting the code directly
+  code: ResultItem | ResultItem[];
+}
+
+interface Career {
+  // Define fields of each career object
+  title: string;
+  careers: string;
+  Domain: string;
+  companies?: string[];
+  skills: string[];
+  streams: string[];
+  courses: string[];
+  average_package: string;
+}
+
+interface Company {
+  name: string;
+  location: string;
+}
+
+interface ResultItem {
+  id: number;
+  letter_id: string;
+  similar_letter_id: string;
+  created_at: string;
+  updated_at: string;
+  careers: Career[]; // Array of Career objects
 }
 
 const YourCareer: React.FC<YourCareerProps> = ({ code }) => {
-  const [companyData, setCompanyData] = useState([]);
-  const [careerChoices, setCareerChoices] = useState<
-    (typeof data)[CareerChoiceKeys] | null
-  >(null);
+  const [result, setResult] = useState<ResultItem[]>([]);
 
   useEffect(() => {
-    if (code && data[code]) {
-      setCareerChoices(data[code]); // Fetch data directly using the code
+    if (code) {
+      const normalized = Array.isArray(code) ? code : [code]; // Convert to array if it's a single object
+      setResult(normalized);
     } else {
-      setCareerChoices(null); // Reset if no valid code is provided
+      setResult([]);
     }
   }, [code]);
 
-  useEffect(() => {
-    // Make a request to get the career choices from Thunder Client
-    const temptoken = localStorage.getItem("token");
-    const options = {
-      method: "POST",
-      url: "https://test.careerbuddyclub.com:8080/api/students/careerresultskills",
-      headers: {
-        Accept: "*/*",
-        Authorization: `Bearer ${temptoken}`,
-      },
-      data: { result_letters: "RCE" },
-    };
-
-    axios
-      .request(options)
-      .then((response) => {
-        // Update the state with the received data
-        // console.log(response.data);
-        setCompanyData(response.data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, []);
   const headingStyle = {
     fontSize: "17px",
     fontWeight: "bold",
-    marginTop: "-35px",
-    backgroundColor: "#eed30d",
+    marginTop: "-19px",
+    backgroundColor: "yellow",
     borderRadius: "20px",
-    padding: "6px",
+    color: "grey",
+    border: "1px solid yellow",
   };
 
   const textStyle = {
@@ -60,6 +62,7 @@ const YourCareer: React.FC<YourCareerProps> = ({ code }) => {
     borderBottom: "1px solid grey",
     display: "flex",
     justifyContent: "space-between",
+    padding: "8px",
   };
   return (
     <div
@@ -67,16 +70,16 @@ const YourCareer: React.FC<YourCareerProps> = ({ code }) => {
       style={{ border: "1px solid black" }}
     >
       <div className="container-fluid">
-          <div
-            className="text-sm fm-600 text-uppercase p-3"
-            data-wow-delay="0.3s"
-            style={headingStyle}
-          >
-            Popular Career Choices According To Your Score
-          </div>
+        <div
+          className="text-sm fm-500 text-uppercase p-2"
+          data-wow-delay="0.3s"
+          style={headingStyle}
+        >
+          Popular Career Choices According To Your Score
+        </div>
       </div>
       <div className="container-fluid">
-        {careerChoices?.map((item, index) => (
+        {result.map((item, index) => (
           <div key={index}>
             <div
               className="text-center tran3s mt-10 wow fadeInUp rounded-4 p-3"
@@ -110,17 +113,21 @@ const YourCareer: React.FC<YourCareerProps> = ({ code }) => {
                   Average Package:
                 </div>
                 <div
-                  className="text-lg fw-500 text-dark"
-                  style={{ flex: 2, fontSize: "17px" }}
+                  className="text-center tran3s mt-2 wow fadeInUp rounded-5"
+                  style={{
+                    backgroundColor: index % 2 === 0 ? "#13adbd" : "eed30d",
+                    color: index % 2 === 0 ? "white" : "black",
+                    width: "100%",
+                  }}
                 >
-                  <div style={{fontSize: "15px"}}>1. Freshers: {item?.Package?.Freshers || "N/A"}</div>
-                  <div style={{fontSize: "15px"}}>
-                    2. Experienced Professionals:{" "}
-                    {"Experienced Professionals" in item?.Package
-                      ? item.Package["Experienced Professionals"]
-                      : "N/A"}
+                  <div
+                    className="text-sm fw-500 p-2"
+                    style={{ fontSize: "17px" }}
+                  >
+                    {career.title}
                   </div>
                 </div>
+
               </div>
               <div style={textStyle} className="p-2">
                 <div
@@ -130,12 +137,15 @@ const YourCareer: React.FC<YourCareerProps> = ({ code }) => {
                   Top 3 Hiring Companies:
                 </div>
                 <div
-                  className="text-lg fw-500 text-dark"
-                  style={{ flex: 2, fontSize: '15px' }}
+                  className="card-style-nine tran3s mt-10 rounded-5 mb-2"
+                  style={{ border: "1px solid black", textAlign: "left" }}
                 >
-                  {item?.Companies?.map((company, idx) => (
-                    <div key={idx}>
-                      {idx + 1}. {company}
+                  <div style={textStyle}>
+                    <div
+                      className="fw-100 text-dark"
+                      style={{ flex: 1, fontSize: "17px" }}
+                    >
+                      Courses:  
                     </div>
                   ))}
                 </div>
@@ -152,10 +162,64 @@ const YourCareer: React.FC<YourCareerProps> = ({ code }) => {
                     <div key={idx}>
                       {idx + 1}. {skill}
                     </div>
-                  ))}
+                    <div
+                      className="text-lg fw-500 text-dark"
+                      style={{ flex: 2, fontSize: "15px" }}
+                    >
+                      {career.average_package
+                        .split(/(?=\d+\.\s)/g) // Split where a number followed by a dot and space starts
+                        .map((item, index) => (
+                          <div key={index}>{item.trim()}</div>
+                        ))}
+                    </div>
+                  </div>
+
+                  <div style={textStyle}>
+                    <div
+                      className="fw-100 text-dark"
+                      style={{ flex: 1, fontSize: "17px" }}
+                    >
+                      Top 3 Hiring Companies:
+                    </div>
+                    <div
+                      className="text-lg fw-500 text-dark"
+                      style={{ flex: 2, fontSize: "15px" }}
+                    >
+                      {Array.isArray(career.companies) &&
+                      career.companies.length > 0
+                        ? career.companies.map((company: any, cidx) => (
+                            <div key={cidx}>
+                              {cidx + 1}.&nbsp;
+                              {company.name}
+                            </div>
+                          ))
+                        : "N/A"}
+                    </div>
+                  </div>
+                  <div className="d-flex justify-content-betweeen p-2">
+                    <div
+                      className="fw-100 text-dark"
+                      style={{ flex: 1, fontSize: "17px" }}
+                    >
+                      Skills to Acquire:
+                    </div>
+                    <div
+                      className="text-lg fw-500 text-dark"
+                      style={{ flex: 2, fontSize: "15px" }}
+                    >
+                      {Array.isArray(career.skills) && career.skills.length > 0
+                        ? career.skills.map((skill: any, cidx) => (
+                            <div key={cidx}>
+                              {cidx + 1}.&nbsp;
+                              {skill.title}
+                            </div>
+                          ))
+                        : "N/A"}
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
+            ))}
           </div>
         ))}
       </div>
