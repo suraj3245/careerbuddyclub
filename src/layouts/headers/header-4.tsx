@@ -8,20 +8,17 @@ import useSticky from "@/hooks/use-sticky";
 import LoginModal from "@/app/components/common/popup/login-modal";
 import PhoneModal from "@/app/components/common/popup/phone-modal";
 import ScheduleModal from "@/app/components/common/popup/schedule";
-import img_1 from "@/assets/images/assets/user-icon.png";
 import dynamic from "next/dynamic";
 import { usePathname } from "next/navigation";
 import axios from "axios";
 import SchoolPhoneFormModal from "@/app/components/common/popup/schoolphone-modal";
 import SchoolLoginFormModal from "@/app/components/common/popup/schoolloginmodal";
 import StudentFormModal from "@/app/components/common/popup/studentloginmodal";
-import ApplyModal from "@/app/components/common/popup/apply-modal";
 import ApplyModalSchool from "@/app/components/common/popup/apply-modal2";
-import "react-toastify/dist/ReactToastify.css";
 import { useLocation } from "react-use";
 import ModalHeader from "@/app/components/homeModal";
+import { notifyError, notifySuccess } from "@/utils/toast";
 
-// Interface defining props for HeaderFour component
 interface HeaderFourProps {
   user: {
     value: string | null;
@@ -30,28 +27,24 @@ interface HeaderFourProps {
   index: number; // Changed 'key' to 'index'
 }
 
-// HeaderFour component definition
 const HeaderFour: React.FC<HeaderFourProps> = ({ user, index, onLogout }) => {
   const { sticky } = useSticky();
   const isUserLoggedIn = Boolean(user.value);
-  const [showDropdown, setShowDropdown] = useState(false);
   const [userName, setUserName] = useState("");
   const [userType, setUserType] = useState("");
-  const pathname = usePathname();
   const location = useLocation();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalType, setModalType] = useState<string | null>(null);
+
   const openApplyModal = (type: string) => {
     setModalType(type);
     setIsModalOpen(true);
   };
-  // Function to fetch user data
+
+  // Fetch user profile info
   const fetchUserData = async () => {
     const token = localStorage.getItem("token");
-
-    if (!token) {
-      return;
-    }
+    if (!token) return;
 
     const storedUserName = localStorage.getItem("username");
     if (storedUserName) {
@@ -59,20 +52,20 @@ const HeaderFour: React.FC<HeaderFourProps> = ({ user, index, onLogout }) => {
       return;
     }
 
-    const options = {
-      method: "POST",
-      url: "https://test.careerbuddyclub.com:8080/api/students/getstudentsprofile",
-      headers: {
-        Accept: "*/*",
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-      },
-      data: {},
-    };
     try {
-      const response = await axios.request(options);
-      const data = response.data;
+      const response = await axios.post(
+        "https://test.careerbuddyclub.com:8080/api/students/getstudentsprofile",
+        {},
+        {
+          headers: {
+            Accept: "*/*",
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
+      const data = response.data;
       if (data.student && data.student.name) {
         localStorage.setItem("username", data.student.name);
         setUserName(data.student.name);
@@ -85,10 +78,16 @@ const HeaderFour: React.FC<HeaderFourProps> = ({ user, index, onLogout }) => {
     }
   };
 
-  // Effect to fetch user data and simulate click on Apply Modal
+  // Auto-open modal for certain paths after delay
   useEffect(() => {
     fetchUserData();
-    if (!localStorage.getItem("token") && location.pathname === '/' || location.pathname === '/about-us' || location.pathname === '/campus' || location.pathname === '/corporate') {
+    if (
+      !localStorage.getItem("token") &&
+      (location.pathname === "/" ||
+        location.pathname === "/about-us" ||
+        location.pathname === "/campus" ||
+        location.pathname === "/corporate")
+    ) {
       setTimeout(() => {
         setModalType("student");
         setIsModalOpen(true);
@@ -96,7 +95,7 @@ const HeaderFour: React.FC<HeaderFourProps> = ({ user, index, onLogout }) => {
     }
   }, [isUserLoggedIn]);
 
-  // Effect to determine user type based on stored data
+  // Determine user type
   useEffect(() => {
     const username = localStorage.getItem("username");
     const schoolname = localStorage.getItem("schoolName");
@@ -107,8 +106,7 @@ const HeaderFour: React.FC<HeaderFourProps> = ({ user, index, onLogout }) => {
     }
   }, []);
 
-  // Function to get initials from username
-  const getInitials = (userNames: string) => {
+  const getInitials = () => {
     const username = localStorage.getItem("username");
     const schoolName = localStorage.getItem("schoolName");
     const nameToUse = username || schoolName || "";
@@ -118,33 +116,41 @@ const HeaderFour: React.FC<HeaderFourProps> = ({ user, index, onLogout }) => {
   return (
     <>
       <header
-        className={`theme-main-menu menu-overlay sticky-menu ${
-          sticky ? "fixed" : ""
-        }`}
+        className={`theme-main-menu menu-overlay sticky-menu ${sticky ? "fixed" : ""}`}
         style={{ marginTop: "30px" }}
       >
         <div className="inner-content position-relative">
           <div className="top-header">
             <div className="d-flex align-items-center justify-content-between">
+              {/* Logo */}
               <div className="logo order-lg-0">
                 <Link href="/" className="d-flex align-items-center">
                   <Image
                     src={logo}
                     alt="logo"
-                    width="125"
-                    height="75"
+                    width={125}
+                    height={75}
                     priority
                   />
                 </Link>
               </div>
+
+              {/* Right widget - Login / Apply */}
               <div className="right-widget ms-auto ms-lg-0 order-lg-2">
                 {!isUserLoggedIn && (
                   <ul className="d-flex align-items-center style-none">
                     <li>
-                      <a className="cursor-pointer" onClick={() => openApplyModal("emailLogin")}>Login</a>
+                      <a
+                        suppressHydrationWarning
+                        className="cursor-pointer"
+                        onClick={() => openApplyModal("emailLogin")}
+                      >
+                        Login
+                      </a>
                     </li>
                     <li className="d-none d-md-block ms-4">
                       <button
+                        suppressHydrationWarning
                         className="fw-500 btn-five"
                         onClick={() => openApplyModal("student")}
                       >
@@ -153,10 +159,13 @@ const HeaderFour: React.FC<HeaderFourProps> = ({ user, index, onLogout }) => {
                     </li>
                   </ul>
                 )}
+
+                {/* Logged in -> dropdown */}
                 {isUserLoggedIn && (
                   <ul className="d-flex align-items-center style-none">
                     <li className="nav-item dropdown">
                       <a
+                        suppressHydrationWarning
                         className="nav-link"
                         href="#"
                         role="button"
@@ -174,10 +183,10 @@ const HeaderFour: React.FC<HeaderFourProps> = ({ user, index, onLogout }) => {
                             fontSize: "30px",
                           }}
                         >
-                          {getInitials(userName)}
+                          {getInitials()}
                         </div>
                       </a>
-                      <ul className="dropdown-menu">
+                      <ul className="dropdown-menu" suppressHydrationWarning>
                         {userType === "student" && (
                           <>
                             <li>
@@ -241,8 +250,11 @@ const HeaderFour: React.FC<HeaderFourProps> = ({ user, index, onLogout }) => {
                   </ul>
                 )}
               </div>
+
+              {/* Navbar menus */}
               <nav className="navbar navbar-expand-lg p0 ms-3 ms-lg-0 order-lg-1">
                 <button
+                  suppressHydrationWarning
                   className="navbar-toggler d-block d-lg-none"
                   type="button"
                   data-bs-toggle="collapse"
@@ -258,7 +270,7 @@ const HeaderFour: React.FC<HeaderFourProps> = ({ user, index, onLogout }) => {
                     <li className="d-block d-lg-none">
                       <div className="logo">
                         <Link href="/" className="d-block">
-                          <Image src={logo} alt="logo" priority width="100" />
+                          <Image src={logo} alt="logo" priority width={100} />
                         </Link>
                       </div>
                     </li>
@@ -268,6 +280,7 @@ const HeaderFour: React.FC<HeaderFourProps> = ({ user, index, onLogout }) => {
                     {!isUserLoggedIn && (
                       <li className="d-md-none mt-5">
                         <button
+                          suppressHydrationWarning
                           className="fw-500 btn-five"
                           onClick={() => openApplyModal("student")}
                         >

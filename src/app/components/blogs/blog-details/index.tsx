@@ -4,7 +4,7 @@ import Link from 'next/link';
 import BlogSidebar from '../blog-postbox/sidebar';
 import BlogCommentForm from '../../forms/blog-comment-form';
 import { IBlogDataType } from '@/types/blog-type';
-import img_1 from '@/assets/images/blog/blog_img_32.jpg';
+
 
 const BlogDetailsArea = ({ item }: { item: IBlogDataType }) => {
   return (
@@ -33,7 +33,7 @@ const BlogDetailsArea = ({ item }: { item: IBlogDataType }) => {
                   <p>In today’s competitive landscape, success requires more than just talent; it demands relentless dedication and hard work. At Career Buddy Club, we understand the pivotal role that commitment plays in advancing your career. Our community is dedicated to helping you harness your potential and achieve your professional goals.</p> <br />
                   <p></p>
                   <p></p>
-                  <p>Follow Career Buddy Club for education and career news.</p>
+                  <p>Follow Career Buddy Club for education and career news</p>
 
                   
                 </article>
@@ -42,9 +42,6 @@ const BlogDetailsArea = ({ item }: { item: IBlogDataType }) => {
               </div>
             </div>
 
-            {/* <div className="col-lg-4">
-              <BlogSidebar />
-            </div> */}
           </div>
         </div>
       </div>

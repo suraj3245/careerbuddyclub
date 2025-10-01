@@ -12,6 +12,7 @@ import FeatureTwenty from "../components/features/feature-twenty";
 import PartnersSlider3 from "../components/partners/parners-slider3";
 // import ContactCollegeArea from "../components/contactCollege/contactCollege-area";
 import ContactCollegeForm from "../components/forms/contactCollege-form";
+import ThreeColumnBlogSection from "../components/college-blogs/three-col-blog";
 
 
 export const metadata: Metadata = {
@@ -43,8 +44,9 @@ const campus = () => {
         <FeatureOne />
 
         {/* how it works end */}
-        <FeatureNineteen />
-        <CategorySectionThree />
+        <FeatureNineteen/>
+        {/* <CategorySectionThree /> */}
+        <ThreeColumnBlogSection mode="campus"/>
         {/* feature three end */}
         <section className="contact-us-section pt-50 lg-pt-50">
           <div className="container">

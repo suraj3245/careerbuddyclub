@@ -9,7 +9,6 @@ import TopCareer from "../../top-company/top-career";
 import YourCareer from "../../top-company/Your-career";
 import { jsPDF } from "jspdf";
 import html2canvas from "html2canvas";
-
 import { ApexOptions } from "apexcharts";
 const ReactApexChart = dynamic(() => import("react-apexcharts"), {
   ssr: false,
@@ -38,6 +37,110 @@ const DashboardResult = ({ setIsOpenSidebar }: IProps) => {
     "#775DD0",
     "#FEB019",
   ];
+  const downloadResultsAsPDF = async () => {
+    const input = document.getElementById("resultsContainer");
+    if (!(input instanceof HTMLElement)) return;
+
+    // ✅ Use smaller scale for speed but still good quality
+    const canvas = await html2canvas(input, {
+      scale: 1.5, // lower = faster, 2 = sharper but slower
+      useCORS: true,
+      backgroundColor: "#ffffff",
+    });
+
+    const imgWidth = 595.28; // A4 width in pt
+    const pageHeight = 841.89; // A4 height in pt
+    const marginTop = 15;
+    const marginBottom = 40;
+    const usablePageHeight = pageHeight - marginTop - marginBottom;
+
+    const pdf = new jsPDF("p", "pt", "a4");
+
+    let yPosition = 0;
+    let pageIndex = 0;
+
+    const ctx = canvas.getContext("2d");
+    if (!ctx) {
+      console.error("Failed to get 2D context from canvas.");
+      return;
+    }
+
+    // ✅ Create one reusable canvas instead of new every loop
+    const pageCanvas = document.createElement("canvas");
+    const pageContext = pageCanvas.getContext("2d");
+
+    while (yPosition < canvas.height) {
+      let sliceHeight = (usablePageHeight * canvas.width) / imgWidth;
+
+      if (yPosition + sliceHeight > canvas.height) {
+        sliceHeight = canvas.height - yPosition;
+      }
+
+      let cutLine = yPosition + sliceHeight;
+      const scanStep = 5; // ✅ scan fewer rows for speed
+      const threshold = 250; // white tolerance
+
+      // 🔎 Scan upwards from cutLine to find a white gap
+      for (let y = cutLine; y > yPosition + 20; y -= scanStep) {
+        const row = ctx.getImageData(0, y, canvas.width, 1).data;
+
+        let whitePixels = 0;
+        for (let i = 0; i < row.length; i += 4) {
+          const r = row[i],
+            g = row[i + 1],
+            b = row[i + 2];
+          if (r > threshold && g > threshold && b > threshold) {
+            whitePixels++;
+          }
+        }
+
+        if (whitePixels > canvas.width * 0.98) {
+          cutLine = y;
+          break;
+        }
+      }
+
+      const actualSliceHeight = cutLine - yPosition;
+
+      // 🚫 Skip tiny slices to avoid blank last page
+      if (actualSliceHeight < 20) break;
+
+      // ✅ Reuse canvas
+      pageCanvas.width = canvas.width;
+      pageCanvas.height = actualSliceHeight;
+      if (pageContext) {
+        pageContext.clearRect(0, 0, pageCanvas.width, pageCanvas.height);
+      } else {
+        console.error("Failed to get 2D context from pageCanvas.");
+        return;
+      }
+
+      pageContext.drawImage(
+        canvas,
+        0,
+        yPosition,
+        canvas.width,
+        actualSliceHeight,
+        0,
+        0,
+        canvas.width,
+        actualSliceHeight
+      );
+
+      // ✅ JPEG is faster + smaller, quality = 0.8
+      const imgData = pageCanvas.toDataURL("image/jpeg", 0.8);
+
+      if (pageIndex > 0) pdf.addPage();
+
+      const imgHeight = (actualSliceHeight * imgWidth) / canvas.width;
+      pdf.addImage(imgData, "JPEG", 0, marginTop, imgWidth, imgHeight);
+
+      yPosition += actualSliceHeight;
+      pageIndex++;
+    }
+
+    pdf.save("Career-Aptitude-Test.pdf");
+  };
 
   const fetchCatResult = async () => {
     const token = localStorage.getItem("token");
@@ -115,13 +218,8 @@ const DashboardResult = ({ setIsOpenSidebar }: IProps) => {
     series: ApexAxisChartSeries;
     options: ApexOptions;
   } => {
-    if (!results || Object.keys(results).length === 0) {
-      return {
-        series: [{ name: "Score", data: [] }],
-        options: { chart: { type: "bar" } },
-      };
-    }
-
+    if (!results || Object.keys(results).length === 0)
+      return { series: [], options: {} };
     const categories = Object.keys(results)
       .filter(
         (key) =>
@@ -131,29 +229,70 @@ const DashboardResult = ({ setIsOpenSidebar }: IProps) => {
         (key) =>
           key.charAt(0).toUpperCase() + key.slice(1).replace("_score", "")
       );
-
-    const dataPoints = categories.map((category, index) => {
-      const key = category.toLowerCase() + "_score";
-      const value = Number(results[key]);
-      return {
-        x: category,
-        y: isNaN(value) ? 0 : value,
-        fillColor: barColors[index % barColors.length],
-      };
-    });
-
+  
+    const dataPoints = categories
+      .filter((category) => category.toLowerCase() !== "letters")
+      .map((category, index) => {
+        const key = category.toLowerCase() + "_score";
+        const value = results[key];
+        return {
+          x: category,
+          y: Number(value),
+          fillColor: barColors[index % barColors.length],
+        };
+      });
+  
     return {
       series: [{ name: "Score", data: dataPoints }],
       options: {
-        chart: { type: "bar", height: 350 },
-        plotOptions: { bar: { borderRadius: 4, horizontal: true } },
-        dataLabels: { enabled: false },
-        xaxis: { categories },
+        chart: {
+          type: "bar",
+          height: 400,
+        },
+        plotOptions: {
+          bar: {
+            borderRadius: 4,
+            horizontal: true,
+          },
+        },
+        dataLabels: {
+          enabled: false,
+        },
+        xaxis: {
+          categories: categories,
+          labels: {
+            style: {
+              fontSize: "15px", // bigger numbers on x-axis
+              fontWeight: 600,
+            },
+          },
+        },
+        yaxis: {
+          labels: {
+            style: {
+              fontSize: "17px", // bigger category names on y-axis
+              fontWeight: 600,
+            },
+          },
+        },
         colors: barColors,
       },
     };
   };
 
+  useEffect(() => {
+    setIsLoading(true); // Ensure loading state is set before starting async operations
+    Promise.all([fetchCatResult(), checkTestStatus()])
+      .then(() => {
+        setIsLoading(false); // Set loading to false when both functions have completed
+      })
+      .catch((error) => {
+        console.error("An error occurred:", error);
+        setIsLoading(false); // Ensure loading state is updated even if there's an error
+      });
+    const timer = setTimeout(() => {
+      setShowLoader(false); // Hide loader after 3 seconds
+    }, 3000);
   const getTopThree = () => {
     if (!results) return [];
     return Object.entries(results)
@@ -244,20 +383,18 @@ const DashboardResult = ({ setIsOpenSidebar }: IProps) => {
                     color: "rgb(0, 123, 255)", // Primary blue
                   }}
                 >
-                  Career Aptitude Test
-                </h2>
-                <h2
-                  className="mt-2"
-                  style={{
-                    fontSize: "40px",
-                    fontWeight: "500",
-                    color: "rgb(0, 150, 136)", // Teal accent for sophistication
-                  }}
-                >
-                  Quiz Result
-                </h2>
-                <div className="row">
-                  <div className="col-md-12 mt-2">
+                  <div className="container my-5">
+                    <div className="row align-items-center text-center justify-between">
+                      {/* Left Side - Title */}
+                      <div className="col-12 col-md-8 mb-4 mb-md-0">
+                        <h2 className="fw-bold display-5">
+                          Career Aptitude Test
+                        </h2>
+                        <h2 className="mb-6 pb-25" style={{ fontSize: "40px" }}>
+                      Quiz Result
+                    </h2>
+                      </div>
+                       <div className="col-md-12 mt-2">
                     <p className="text-start">
                       This is a self-report inventory that assesses the
                       student’s traits, interests and suggests suitable
@@ -274,15 +411,23 @@ const DashboardResult = ({ setIsOpenSidebar }: IProps) => {
                       process.
                     </p>
                   </div>
-                  <div className="col-lg-12 col-md-8">
-                    <div
-                      className="row rounded-5 d-flex flex-row justify-content-center align-items-center"
-                      style={{ border: "1px solid grey" }}
-                    >
-                      <div
-                        className="chart-container"
-                        style={{ flex: 2, minWidth: "250px" }}
-                      >
+
+                      {/* Right Side - Contact Info */}
+                      <div className="col-12 col-md-4">
+                        <div className="p-2 rounded-4 shadow-sm bg-light">
+                          <h5 className="mb-3">For Counseling:</h5>
+                          <p className="mb-0 fs-5 fw-semibold">📞 7456000100</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="text-center">
+                  
+                    {/* Display the results here using the `results` state */}
+
+                    <div className="row container justify-content-around">
+                      <div className="chart-container col-12 col-md-6 col-lg-6">
                         {results && (
                           <ReactApexChart
                             options={chartData.options}

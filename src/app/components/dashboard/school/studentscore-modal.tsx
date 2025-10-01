@@ -53,22 +53,110 @@ const StudentScoreModal: React.FC<StudentScoreModalProps> = ({
     "#775DD0",
     "#FEB019",
   ];
+
   const downloadResultsAsPDF = async () => {
     const input = document.getElementById("resultsContainer");
     if (!(input instanceof HTMLElement)) return;
+
+    // ✅ Use smaller scale for speed but still good quality
     const canvas = await html2canvas(input, {
-      scale: 2,
-      scrollY: -window.scrollY,
+      scale: 1.5, // lower = faster, 2 = sharper but slower
       useCORS: true,
+      backgroundColor: "#ffffff",
     });
-    const imgData = canvas.toDataURL("image/jpeg", 0.8);
-    const pdf = new jsPDF({
-      orientation: "portrait",
-      unit: "px",
-      format: [canvas.width, canvas.height],
-    });
-    pdf.addImage(imgData, "JPEG", 0, 0, canvas.width, canvas.height);
-    pdf.save(`CAT_Results_${student?.name}.pdf`);
+
+    const imgWidth = 595.28; // A4 width in pt
+    const pageHeight = 841.89; // A4 height in pt
+    const marginTop = 15;
+    const marginBottom = 40;
+    const usablePageHeight = pageHeight - marginTop - marginBottom;
+
+    const pdf = new jsPDF("p", "pt", "a4");
+
+    let yPosition = 0;
+    let pageIndex = 0;
+
+    const ctx = canvas.getContext("2d");
+    if (!ctx) {
+      console.error("Failed to get 2D context from canvas.");
+      return;
+    }
+
+    // ✅ Create one reusable canvas instead of new every loop
+    const pageCanvas = document.createElement("canvas");
+    const pageContext = pageCanvas.getContext("2d");
+
+    while (yPosition < canvas.height) {
+      let sliceHeight = (usablePageHeight * canvas.width) / imgWidth;
+
+      if (yPosition + sliceHeight > canvas.height) {
+        sliceHeight = canvas.height - yPosition;
+      }
+
+      let cutLine = yPosition + sliceHeight;
+      const scanStep = 5; // ✅ scan fewer rows for speed
+      const threshold = 250; // white tolerance
+
+      // 🔎 Scan upwards from cutLine to find a white gap
+      for (let y = cutLine; y > yPosition + 20; y -= scanStep) {
+        const row = ctx.getImageData(0, y, canvas.width, 1).data;
+
+        let whitePixels = 0;
+        for (let i = 0; i < row.length; i += 4) {
+          const r = row[i],
+            g = row[i + 1],
+            b = row[i + 2];
+          if (r > threshold && g > threshold && b > threshold) {
+            whitePixels++;
+          }
+        }
+
+        if (whitePixels > canvas.width * 0.98) {
+          cutLine = y;
+          break;
+        }
+      }
+
+      const actualSliceHeight = cutLine - yPosition;
+
+      // 🚫 Skip tiny slices to avoid blank last page
+      if (actualSliceHeight < 20) break;
+
+      // ✅ Reuse canvas
+      pageCanvas.width = canvas.width;
+      pageCanvas.height = actualSliceHeight;
+      if (pageContext) {
+        pageContext.clearRect(0, 0, pageCanvas.width, pageCanvas.height);
+      } else {
+        console.error("Failed to get 2D context from pageCanvas.");
+        return;
+      }
+
+      pageContext.drawImage(
+        canvas,
+        0,
+        yPosition,
+        canvas.width,
+        actualSliceHeight,
+        0,
+        0,
+        canvas.width,
+        actualSliceHeight
+      );
+
+      // ✅ JPEG is faster + smaller, quality = 0.8
+      const imgData = pageCanvas.toDataURL("image/jpeg", 0.8);
+
+      if (pageIndex > 0) pdf.addPage();
+
+      const imgHeight = (actualSliceHeight * imgWidth) / canvas.width;
+      pdf.addImage(imgData, "JPEG", 0, marginTop, imgWidth, imgHeight);
+
+      yPosition += actualSliceHeight;
+      pageIndex++;
+    }
+
+    pdf.save("Career-Aptitude-Test.pdf");
   };
   
   const fetchCatResult = async () => {
@@ -165,17 +253,37 @@ const StudentScoreModal: React.FC<StudentScoreModalProps> = ({
             borderRadius: 4,
             horizontal: true,
           },
+          plotOptions: {
+            bar: {
+              borderRadius: 4,
+              horizontal: true,
+            },
+          },
+          dataLabels: {
+            enabled: false,
+          },
+          xaxis: {
+            categories: categories,
+            labels: {
+              style: {
+                fontSize: "15px", // bigger numbers on x-axis
+                fontWeight: 600,
+              },
+            },
+          },
+          yaxis: {
+            labels: {
+              style: {
+                fontSize: "17px", // bigger category names on y-axis
+                fontWeight: 600,
+              },
+            },
+          },
+          colors: barColors,
         },
-        dataLabels: {
-          enabled: false,
-        },
-        xaxis: {
-          categories: categories,
-        },
-        colors: barColors,
-      },
+      };
     };
-  };
+
   useEffect(() => {
     setIsLoading(true); // Ensure loading state is set before starting async operations
     Promise.all([fetchCatResult()])
@@ -206,24 +314,90 @@ const StudentScoreModal: React.FC<StudentScoreModalProps> = ({
       <Modal.Header closeButton></Modal.Header>
       <Modal.Body>
         <div ref={modalContentRef}>
-          <>
-            <div
-              id="resultsContainer"
-              style={{ position: "relative", zIndex: 1 }}
-            >
-              <div className="d-flex align-items-center justify-content-between">
-                <div className="text-center" style={{ flex: 1 }}>
-                  <h2
-                    className="mt-2"
-                    style={{
-                      fontSize: "50px",
-                      fontWeight: "500",
-                      color: "rgb(0, 123, 255)", // Primary blue
-                    }}
-                  >
-                    Career Aptitude Test
-                  </h2>
-                  {/* Centered Header */}
+          {student ? (
+            student.realistic_score !== "N/A" ? (
+              <>
+                <div
+                  id="resultsContainer"
+                  style={{ position: "relative", zIndex: 1 }}
+                >
+                  <div className="d-flex align-items-center justify-content-between">
+                    <div className="container my-5">
+                      <div className="row align-items-center text-center justify-between">
+                        {/* Left Side - Title */}
+                        <div className="col-12 col-md-8 mb-4">
+                          <h1
+                            className="fw-bold display-5"
+                            style={{ color: "#13ADBD" }}
+                          >
+                            Career Aptitude Test
+                          </h1>
+                          <h2
+                            className="mb-6 pb-20"
+                            style={{ fontSize: "23px" }}
+                          >
+                            Quiz Results of {student?.name}
+                          </h2>
+                        </div>
+                        
+                        {/* Right Side - Contact Info */}
+                        <div className="col-12 col-md-4">
+                          <div className="p-2 rounded-4 shadow-sm bg-light">
+                            <h5 className="mb-3">For Counseling:</h5>
+                            <p className="mb-0 fs-5 fw-semibold">
+                              📞 7456000100
+                            </p>
+                          </div>
+                        </div>
+                          <div className="col-md-12 mt-2">
+                    <p className="text-start">
+                      This is a self-report inventory that assesses the
+                      student’s traits, interests and suggests suitable
+                      occupations. This CAT is based on the Typological Theory,
+                      which posits that most people can be loosely categorized
+                      into six types - Realistic, Investigative, Artistic ,
+                      Social, Enterprising, and Conventional. It further states
+                      that occupations and work environments also can be
+                      classified by these categories. When people choose careers
+                      that match their own types, they are most likely to be
+                      both satisfied and successful. The purpose of this test is
+                      to help you identify your occupational personality,
+                      education options, and inform your decision making
+                      process.
+                    </p>
+                  </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="text-center">
+                    {/* Display the results here using the `results` state */}
+
+                    <div className="row d-flex justify-content-center">
+                      <div className="chart-container col-md-6 col-lg-6">
+                        {results && (
+                          <ReactApexChart
+                            options={chartData.options}
+                            series={chartData.series}
+                            type="bar"
+                            width={"100%"}
+                            height={350}
+                          />
+                        )}
+                      </div>
+                      <div className="top-scores col-lg-4 col-md-6">
+                        <h3>Top Scores</h3>
+                        {getTopThreeScores().map((result, index) => (
+                          <p
+                            key={index}
+                          >{`${result.category}: ${result.score}`}</p>
+                        ))}
+                      </div>
+                    </div>
+
+                    <TopCareer topCategories={getTopThreeCategoryNames()} />
+                    {/* <YourCareer /> */}
+                    <YourCareer code={results?.letters} />
+                  </div>
                 </div>
               </div>
               <div className="text-center">

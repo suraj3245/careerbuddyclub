@@ -1,77 +1,136 @@
 "use client";
-import Image from "next/image";
 import React from "react";
-import Slider from "react-slick";
+import Image from "next/image";
+import expert_data_two from "@/data/expert-data-two";
 import expert_data from "@/data/expert-data";
 
-// slider setting
-const slider_setting = {
-  dots: false,
-  arrows: false,
-  centerPadding: "0px",
-  slidesToShow: 3,
-  slidesToScroll: 1,
-  autoplay: true,
-  autoplaySpeed: 2000,
-  responsive: [
-    {
-      breakpoint: 1200,
-      settings: {
-        slidesToShow: 3,
-      },
-    },
-    {
-      breakpoint: 992,
-      settings: {
-        slidesToShow: 2,
-      },
-    },
-    {
-      breakpoint: 576,
-      settings: {
-        slidesToShow: 1,
-      },
-    },
-  ],
-};
-const ExpertSectionOne = () => {
+export default function TeamOfExperts() {
+  const topMembers = expert_data_two.slice(0, 3); // first 3
+  const bottomMembers = expert_data.slice(0, 3); // first 3
+
   return (
-    <>
-      <section className="expert-section-one position-relative mt-100 xl-mt-100 md-mt-100">
-        <div className="container position-relative">
-          <div className="row justify-content-between align-items-center">
-            <div className="col-lg-6">
-              <div className="title-one">
-                <h2 className="main-font wow fadeInUp" data-wow-delay="0.3s">
-                  Team Of Experts
-                </h2>
+    <section className="toe-section">
+      <div className="toe-grid">
+        {/* Top row heading */}
+        <h2 className="toe-row-heading">Meet Our Leadership</h2>
+        <div className="toe-row">
+          {topMembers.map((m) => (
+            <div className="toe-imgcell" key={m.id}>
+              <div className="toe-img-wrap">
+                <Image
+                  src={m.img}
+                  alt={m.name}
+                  className="toe-img"
+                  fill
+                  style={{ objectFit: "contain" }}
+                />
+              </div>
+              <div className="toe-info">
+                <span className="toe-name">{m.name}</span>
+                <br />
+                <span className="toe-role">{m.designation}</span>
               </div>
             </div>
-          </div>
-
-          <Slider
-            {...slider_setting}
-            className="expert-slider-two pt-70 lg-pt-40"
-          >
-            {expert_data.map((item) => (
-              <div key={item.id} className="item">
-                <div className="card-style-eight">
-                  <div className="img-meta mb-20">
-                    <Image src={item.img} alt="team img" className="m-auto" />
-                  </div>
-                  <div className="name fw-500 tran3s text-center">
-                    {item.name}
-                  </div>
-                  <div className="post text-center">{item.designation}</div>
-                  <p className="message text-center">{item.description}</p>
-                </div>
-              </div>
-            ))}
-          </Slider>
+          ))}
         </div>
-      </section>
-    </>
-  );
-};
 
-export default ExpertSectionOne;
+        {/* Bottom row heading */}
+        <h2 className="toe-row-heading" style={{marginTop:"3rem"}}>Team of Experts</h2>
+        <div className="toe-row">
+          {bottomMembers.map((m) => (
+            <div className="toe-imgcell" key={m.id}>
+              <div className="toe-img-wrap">
+                <Image
+                  src={m.img}
+                  alt={m.name}
+                  className="toe-img"
+                  fill
+                  style={{ objectFit: "contain" }}
+                />
+              </div>
+              <div className="toe-info">
+                <span className="toe-name">{m.name}</span>
+                <br />
+                <span className="toe-role">{m.designation}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <style jsx>{`
+        .toe-section {
+          background: #f4f7fa;
+          padding: 40px 0;
+          margin-top: 3rem;
+        }
+        .toe-row-heading {
+          font-weight: 600;
+          margin: 20px 0;
+          color: #181c2a;
+          text-align: left;
+          margin-top:1rem;
+          font-size:2rem;
+          font-family: 'Inter', Arial, sans-serif;
+        }
+        .toe-grid {
+          display: flex;
+          flex-direction: column;
+          padding: 0 48px;
+          width: 100%;
+          
+          
+        }
+        .toe-row {
+           display: flex;
+           flex-wrap: wrap;
+           justify-content: space-evenly; 
+           align-items: center;
+           margin-top: 2rem;
+        }
+        .toe-imgcell {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 14px; 
+        }
+        .toe-img-wrap {
+          position: relative;
+          width: 350px; 
+          height: 350px; 
+          border-radius: 50%;
+          overflow: hidden;
+          border: 6px solid #fff;
+          box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+        }
+        .toe-img {
+          object-fit: contain;
+          border-radius: 50%;
+        }
+        .toe-info {
+          text-align: center;
+          line-height: 1.6; 
+        }
+        .toe-name {
+          font-weight: 700;
+          font-size: 1.3rem;
+          color: #181c2a;
+        }
+        .toe-role {
+          font-size: 1rem;
+          color: #62687a;
+        }
+        @media (max-width: 900px) {
+          .toe-row {
+            flex-direction: column;
+            align-items: center;
+          }
+          .toe-img-wrap {
+            width: 220px;
+            height: 220px;
+          }
+        }
+      `}</style>
+    </section>
+  );
+}

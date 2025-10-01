@@ -81,8 +81,37 @@ const YourCareer: React.FC<YourCareerProps> = ({ code }) => {
       <div className="container-fluid">
         {result.map((item, index) => (
           <div key={index}>
-            {item.careers.map((career, idx) => (
-              <div key={idx}>
+            <div
+              className="text-center tran3s mt-10 wow fadeInUp rounded-4 p-3"
+              style={{
+                backgroundColor: index % 2 === 0 ? "#13adbd" : "#eed30d",
+                color: index % 2 === 0 ? "white" : "black",
+                width: "100%",
+              }}
+            >
+              <div className="text-sm fw-600" style={{ fontSize: "16px" }}>
+                {item?.Career}
+              </div>
+            </div>
+            <div
+              className="card-style-nine tran3s mt-10 rounded-5 bg-transparent"
+              style={{ border: "1px solid black", textAlign: "left" }}
+            >
+              <div style={textStyle} className="p-2">
+                <div className="fw-100 text-dark mt-3" style={{ flex: 1, fontSize: '18px'}}>
+                  Specific Domain:
+                </div>
+                <div
+                  className="fw-500 text-dark"
+                  style={{ flex: 2, fontSize: "15px" }}
+                >
+                  {item?.Domain}
+                </div> 
+              </div>
+              <div style={textStyle} className="p-2" >
+                <div className="fw-100 text-dark" style={{ flex: 1, fontSize: '18px' }}>
+                  Average Package:
+                </div>
                 <div
                   className="text-center tran3s mt-2 wow fadeInUp rounded-5"
                   style={{
@@ -98,6 +127,15 @@ const YourCareer: React.FC<YourCareerProps> = ({ code }) => {
                     {career.title}
                   </div>
                 </div>
+
+              </div>
+              <div style={textStyle} className="p-2">
+                <div
+                  className="fw-100 text-dark"
+                  style={{ flex: 1, fontSize: "18px" }}
+                >
+                  Top 3 Hiring Companies:
+                </div>
                 <div
                   className="card-style-nine tran3s mt-10 rounded-5 mb-2"
                   style={{ border: "1px solid black", textAlign: "left" }}
@@ -109,43 +147,20 @@ const YourCareer: React.FC<YourCareerProps> = ({ code }) => {
                     >
                       Courses:  
                     </div>
-                    <div
-                      className="fw-500 text-dark"
-                      style={{ flex: 2, fontSize: "15px" }}
-                    >
-                      {Array.isArray(career.courses) &&
-                      career.courses.length > 0
-                        ? career.courses
-                            .map((course: any, cidx) => course.name)
-                            .join(", ")
-                        : "N/A"}
-                    </div>
-                  </div>
-                  <div style={textStyle}>
-                    <div
-                      className="fw-100 text-dark"
-                      style={{ flex: 1, fontSize: "17px" }}
-                    >
-                      Stream:
-                    </div>
-                    <div
-                      className="text-lg fw-500 text-dark"
-                      style={{ flex: 2, fontSize: "15px" }}
-                    >
-                      {Array.isArray(career.streams) &&
-                      career.streams.length > 0
-                        ? career.streams.map((stream: any, cidx) => (
-                            <div key={cidx}>{stream.title}</div>
-                          ))
-                        : "N/A"}
-                    </div>
-                  </div>
-                  <div style={textStyle}>
-                    <div
-                      className="fw-100 text-dark"
-                      style={{ flex: 1, fontSize: "17px" }}
-                    >
-                      Average Package:
+                  ))}
+                </div>
+              </div>
+              <div style={{ ...textStyle, borderBottom: "none"}} className="p-2">
+                <div className="fw-100 text-dark" style={{ flex: 1, fontSize: '18px' }}>
+                  Skills to Acquire:
+                </div>
+                <div
+                  className="text-lg fw-500 text-dark"
+                  style={{ flex: 2, fontSize: "15px" }}
+                >
+                  {item?.Skills?.map((skill, idx) => (
+                    <div key={idx}>
+                      {idx + 1}. {skill}
                     </div>
                     <div
                       className="text-lg fw-500 text-dark"

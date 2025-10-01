@@ -1,8 +1,6 @@
 import React from "react";
 import { Metadata } from "next";
-import Header from "@/layouts/headers/header";
 import Wrapper from "@/layouts/wrapper";
-import JobPortalIntro from "../components/job-portal-intro/job-portal-intro";
 import CompanyBreadcrumb from "../components/common/common-breadcrumb";
 import FooterOne from "@/layouts/footers/footer-one";
 import BlogFullWidthArea from "../components/blogs/blog-frull-width";
@@ -41,4 +39,4 @@ const BlogV3Page = () => {
   );
 };
 
-export default BlogV3Page;
+export default BlogV3Page;

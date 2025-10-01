@@ -4,7 +4,7 @@ import blog_data from "@/data/blog-data";
 import blog_data1 from "@/data/blog-data1";
 import FullWidthItem from "./full-width-item";
 
-const itemsPerPage = 8; // Adjust based on your preference
+const itemsPerPage = 8; 
 
 const BlogFullWidthArea = () => {
   const [currentPage, setCurrentPage] = useState(1);

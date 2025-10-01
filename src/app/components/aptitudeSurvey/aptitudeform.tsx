@@ -46,25 +46,112 @@ const QuizForm: React.FC = () => {
     "#775DD0",
     "#FEB019",
   ];
+
   const downloadResultsAsPDF = async () => {
     const input = document.getElementById("resultsContainer");
-    if (!(input instanceof HTMLElement)) return; // Type check
+    if (!(input instanceof HTMLElement)) return;
 
+    // ✅ Use smaller scale for speed but still good quality
     const canvas = await html2canvas(input, {
-      scale: 1, // Adjust scale as needed
-      scrollY: -window.scrollY, // Adjust for page scrolling
+      scale: 1.5, // lower = faster, 2 = sharper but slower
+      useCORS: true,
+      backgroundColor: "#ffffff",
     });
 
-    const imgData = canvas.toDataURL("image/png");
-    const pdf = new jsPDF({
-      orientation: "portrait",
-      unit: "px",
-      format: [canvas.width, canvas.height],
-    });
+    const imgWidth = 595.28; // A4 width in pt
+    const pageHeight = 841.89; // A4 height in pt
+    const marginTop = 15;
+    const marginBottom = 40;
+    const usablePageHeight = pageHeight - marginTop - marginBottom;
 
-    pdf.addImage(imgData, "PNG", 0, 0, canvas.width, canvas.height);
-    pdf.save("Career-Aptitude-test.pdf");
+    const pdf = new jsPDF("p", "pt", "a4");
+
+    let yPosition = 0;
+    let pageIndex = 0;
+
+    const ctx = canvas.getContext("2d");
+    if (!ctx) {
+      console.error("Failed to get 2D context from canvas.");
+      return;
+    }
+
+    // ✅ Create one reusable canvas instead of new every loop
+    const pageCanvas = document.createElement("canvas");
+    const pageContext = pageCanvas.getContext("2d");
+
+    while (yPosition < canvas.height) {
+      let sliceHeight = (usablePageHeight * canvas.width) / imgWidth;
+
+      if (yPosition + sliceHeight > canvas.height) {
+        sliceHeight = canvas.height - yPosition;
+      }
+
+      let cutLine = yPosition + sliceHeight;
+      const scanStep = 5; // ✅ scan fewer rows for speed
+      const threshold = 250; // white tolerance
+
+      // 🔎 Scan upwards from cutLine to find a white gap
+      for (let y = cutLine; y > yPosition + 20; y -= scanStep) {
+        const row = ctx.getImageData(0, y, canvas.width, 1).data;
+
+        let whitePixels = 0;
+        for (let i = 0; i < row.length; i += 4) {
+          const r = row[i],
+            g = row[i + 1],
+            b = row[i + 2];
+          if (r > threshold && g > threshold && b > threshold) {
+            whitePixels++;
+          }
+        }
+
+        if (whitePixels > canvas.width * 0.98) {
+          cutLine = y;
+          break;
+        }
+      }
+
+      const actualSliceHeight = cutLine - yPosition;
+
+      // 🚫 Skip tiny slices to avoid blank last page
+      if (actualSliceHeight < 20) break;
+
+      // ✅ Reuse canvas
+      pageCanvas.width = canvas.width;
+      pageCanvas.height = actualSliceHeight;
+      if (pageContext) {
+        pageContext.clearRect(0, 0, pageCanvas.width, pageCanvas.height);
+      } else {
+        console.error("Failed to get 2D context from pageCanvas.");
+        return;
+      }
+
+      pageContext.drawImage(
+        canvas,
+        0,
+        yPosition,
+        canvas.width,
+        actualSliceHeight,
+        0,
+        0,
+        canvas.width,
+        actualSliceHeight
+      );
+
+      // ✅ JPEG is faster + smaller, quality = 0.8
+      const imgData = pageCanvas.toDataURL("image/jpeg", 0.8);
+
+      if (pageIndex > 0) pdf.addPage();
+
+      const imgHeight = (actualSliceHeight * imgWidth) / canvas.width;
+      pdf.addImage(imgData, "JPEG", 0, marginTop, imgWidth, imgHeight);
+
+      yPosition += actualSliceHeight;
+      pageIndex++;
+    }
+
+    pdf.save("Career-Aptitude-Test.pdf");
   };
+
   useEffect(() => {
     // Assuming you need the token to fetch the results
     const fetchToken = async () => {
@@ -328,7 +415,7 @@ const QuizForm: React.FC = () => {
       options: {
         chart: {
           type: "bar",
-          height: 350,
+          height: 400,
         },
         plotOptions: {
           bar: {
@@ -341,6 +428,20 @@ const QuizForm: React.FC = () => {
         },
         xaxis: {
           categories: categories,
+          labels: {
+            style: {
+              fontSize: "15px", // bigger numbers on x-axis
+              fontWeight: 600,
+            },
+          },
+        },
+        yaxis: {
+          labels: {
+            style: {
+              fontSize: "17px", // bigger category names on y-axis
+              fontWeight: 600,
+            },
+          },
         },
         colors: barColors,
       },
@@ -538,29 +639,33 @@ const QuizForm: React.FC = () => {
           style={{ position: "relative", zIndex: 1 }}
           className="container mx-auto"
         >
-          <div className="d-flex align-items-center justify-content-between mt-4">
-            <div className="text-center mt-3" style={{ flex: 1 }}>
-              <h2
-                className="mt-2"
-                style={{
-                  fontSize: "50px",
-                  fontWeight: "500",
-                  color: "rgb(0, 123, 255)", // Primary blue
-                }}
-              >
-                Career Aptitude Test
-              </h2>
-              <h2
-                className="mt-2"
-                style={{
-                  fontSize: "40px",
-                  fontWeight: "500",
-                  color: "rgb(0, 150, 136)", // Teal accent for sophistication
-                }}
-              >
-                Quiz Result
-              </h2>
-              <div className="col-md-12 mt-2">
+          <div className="d-flex align-items-center justify-content-between">
+            <div className="container my-5">
+              <div className="row align-items-center text-center justify-between">
+                {/* Left Side - Title */}
+                <div className="col-12 col-md-8 mb-4">
+                  <h1
+                    className="fw-bold display-5"
+                    style={{ color: "#13ADBD" }}
+                  >
+                    Career Aptitude Test
+                  </h1>
+                  <h2
+                    className="mb-6 pb-25"
+                    style={{ color: "black", fontSize: "40px" }}
+                  >
+                    Quiz Result
+                  </h2>
+                </div>
+
+                {/* Right Side - Contact Info */}
+                <div className="col-12 col-md-4">
+                  <div className="p-2 rounded-4 shadow-sm bg-light">
+                    <h5 className="mb-3">For Counseling:</h5>
+                    <p className="mb-0 fs-5 fw-semibold">📞 7456000100</p>
+                  </div>
+                </div>
+                <div className="col-md-12 mt-2">
                 <p className="text-start">
                   This is a self-report inventory that assesses the student’s
                   traits, interests and suggests suitable occupations. This CAT
@@ -576,75 +681,54 @@ const QuizForm: React.FC = () => {
                   making process.
                 </p>
               </div>
-              {/* Display the results here using the `results` state */}
-              <div
-                className="row rounded-5 d-flex flex-row justify-content-center align-items-center"
-                style={{ border: "1px solid black" }}
-              >
-                <div
-                  className="chart-container"
-                  style={{ flex: 2, minWidth: "300px" }}
-                >
-                  {results && (
-                    <ReactApexChart
-                      options={chartData.options}
-                      series={chartData.series}
-                      type="bar"
-                      width={"100%"}
-                      height={350}
-                    />
-                  )}
-                </div>
-                <div
-                  className="top-scores rounded-5 fw-500 m-5"
-                  style={{
-                    flex: 1,
-                    minWidth: "200px",
-                    border: "1px solid grey",
-                    fontSize: "24px",
-                  }}
-                >
-                  <h3
-                    className="mt-1 p-3"
-                    style={{
-                      fontSize: "30px",
-                      fontWeight: "500",
-                      color: "rgb(0, 123, 655)",
-                      borderBottom: "1px solid grey",
-                    }}
-                  >
-                    Top Scores
-                  </h3>
-                  {getTopThreeScores().map((t, i) => (
-                    <p key={i} style={{ fontSize: "18px", color: "green" }}>{`${
-                      t.category.charAt(0).toUpperCase() +
-                      t.category.slice(1).toLowerCase()
-                    }: ${t.score}`}</p>
-                  ))}
-                </div>
               </div>
-              <TopCareer topCategories={getTopThreeCategoryNames()} />
+            </div>
+          </div>
+          <div className="text-center">
+            {/* Display the results here using the `results` state */}
+            <div className="row container justify-content-around border-2 rounded">
+                      <div className="chart-container col-12 col-md-6 col-lg-6">
+                        {results && (
+                          <ReactApexChart
+                            options={chartData.options}
+                            series={chartData.series}
+                            type="bar"
+                            width={"100%"}
+                            height={350}
+                          />
+                        )}
+                      </div>
+                      <div className="top-scores col-12 col-md-4 col-lg-4">
+                        <h3>Top Scores</h3>
+                        {getTopThreeScores().map((result, index) => (
+                          <p
+                            key={index}
+                            className="fw-bold fs-6"
+                          >{`${result.category}: ${result.score}`}</p>
+                        ))}
+                      </div>
+                    </div>
+            <TopCareer topCategories={getTopThreeCategoryNames()} />
 
-              <YourCareer code={results?.resultData} />
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  paddingTop: "30px",
-                  paddingBottom: "30px",
-                }}
+            <YourCareer code={results?.letters} />
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                paddingTop: "30px",
+                paddingBottom: "30px",
+              }}
+            >
+              <button
+                className="dash-btn-two tran3s me-3 fw-bold"
+                onClick={downloadResultsAsPDF}
               >
-                <button
-                  className="dash-btn-two tran3s me-3 fw-bold"
-                  onClick={downloadResultsAsPDF}
-                >
-                  Download Your Result
-                </button>
-                <Link href="/dashboard/candidate-dashboard/profile">
-                  <button className="btn-five tran3s me-3">Next Steps</button>
-                </Link>
-              </div>
+                Download Your Result
+              </button>
+              <Link href="/dashboard/candidate-dashboard/profile">
+                <button className="btn-five tran3s me-3">Next Steps</button>
+              </Link>
             </div>
           </div>
         </div>

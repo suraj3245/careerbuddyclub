@@ -6,8 +6,6 @@ import FooterOne from "@/layouts/footers/footer-one";
 import FeatureEleven from "../components/features/feature-eleven";
 import FeatureOne from "../components/features/feature-one";
 import HowItWorks from "../components/how-it-works/how-it-works";
-import FeedbackOne from "../components/feedBacks/feedback-one";
-import HeaderFour from "@/layouts/headers/header-4";
 import FeatureEighteen from "../components/features/feature-eighteen";
 import FeatureFour from "../components/features/feature-four";
 import FancyBannerTwo from "../components/fancy-banner/fancy-banner-2";
@@ -46,13 +44,13 @@ const AboutUsPage = () => {
         <HowItWorks />
         {/* how works end */}
         <FancyBannerTwo />
-        <FeedbackSix />
+        {/* <FeedbackSix /> */}
         <FeedbackSeven />
         {/* feedback one start */}
 
         {/* feedback one end */}
         <FeatureFour />
-        <ExpertSectionTwo />
+        {/* <ExpertSectionTwo /> */}
         {/* job portal intro start */}
         <ExpertSectionOne />
 

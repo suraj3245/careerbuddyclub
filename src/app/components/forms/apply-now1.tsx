@@ -145,7 +145,23 @@ const ApplyForm1 = ({ onSuccess }: { onSuccess: () => void }) => {
     }
     return () => clearInterval(interval);
   }, [isVerificationSent, countdown]);
-  const onSubmit = (data: IFormData) => {
+  const verifyOTP = async (mobile: number, otp: string) => {
+    try {
+      const response = await axios.post(
+        "https://test.careerbuddyclub.com:8080/api/students/verifywhatsappotp",
+        {
+          mobile,
+          verificationCode: otp,
+        }
+      );
+  
+      return response.data.success === true;
+    } catch (error) {
+      return false;
+    }
+  };
+  
+  const onSubmit = async (data: IFormData) => {
     setLoading(true);
     const {
       School_name,
@@ -155,6 +171,21 @@ const ApplyForm1 = ({ onSuccess }: { onSuccess: () => void }) => {
       level,
       board,
     } = data;
+  
+    // Step 1: Verify OTP
+    const isVerified = await verifyOTP(School_mobile, otp);
+  
+    if (!isVerified) {
+      toast.error("Verification Failed 😵‍💫", {
+        position: "top-left",
+        autoClose: 3000,
+        theme: "light",
+      });
+      setLoading(false);
+      return;
+    }
+  
+    // Step 2: Prepare payload and request options
     const payload = {
       School_name,
       School_email,
@@ -164,6 +195,7 @@ const ApplyForm1 = ({ onSuccess }: { onSuccess: () => void }) => {
       level,
       LeadCampaign: utmParams.utm_campaign,
     };
+  
     const options = {
       method: "POST",
       url: "https://test.careerbuddyclub.com:8080/api/students/registerschool",
@@ -172,45 +204,49 @@ const ApplyForm1 = ({ onSuccess }: { onSuccess: () => void }) => {
       },
       data: payload,
     };
-    axios
-      .request(options)
-      .then((response: any) => {
-        onSuccess();
+  
+    try {
+      const response = await axios.request(options);
+      console.log("Registration response:", response);
+      console.log("Backend response.data:", response.data);
+  
+      // Step 3: Check access_token as success signal
+      if (response.status === 200 && response.data.access_token) {
         toast.success(
-          "Registration Successfull, Your request will be processed within 24 hours",
+          "Registration Successful! Your request will be processed within 24 hours.",
           {
             position: "top-left",
             autoClose: 3000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
             theme: "light",
           }
         );
-      })
-      .catch((error) => {
-        let errorMessage = "Registration Failed 😵‍💫";
-        if (error.response && error.response.data) {
-          // Customize error message based on server response
-          errorMessage = error.response.data.message || errorMessage;
-        }
-        toast.error(errorMessage, {
+        reset(); // reset form only on success
+      } else {
+        toast.error("Registration Failed 😵‍💫", {
           position: "top-left",
           autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
           theme: "light",
         });
-      }).finally(()=>{
-        reset();
-        setLoading(false);
+      }
+    } catch (error: any) {
+      console.error("Registration error:", error);
+  
+      let errorMessage = "Registration Failed 😵‍💫";
+      if (error.response?.data?.message) {
+        errorMessage = error.response.data.message;
+      }
+  
+      toast.error(errorMessage, {
+        position: "top-left",
+        autoClose: 3000,
+        theme: "light",
       });
+    } finally {
+      setLoading(false);
+    }
   };
+  
+  
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>

@@ -260,7 +260,7 @@ const Content = ({
             marginTop: "3rem",
           }}
         >
-          {title}
+          {title} {/* Steady title, no animation or blinking */}
         </h2>
         <br />
         <h4 className="">
@@ -278,15 +278,16 @@ const Content = ({
           className="btn-five wow fadeInUp  text-black d-flex items-center justify-center gap-2 text-white"
           onClick={downloadBrochure}
         >
-          <Download size={25} />
-          Download Brochure <ChevronRight size={25} />
+          <Download size={25 }/>
+          Download Brochure 
+          {/* <ChevronRight size={25} /> */}
         </button>
       </div>
 
       {/* Widget Section with Loader */}
       <div
-        className="col-lg-6 p-5 d-flex justify-content-center align-items-center bg-transparent"
-        style={{ width: "30rem" }}
+        className="col-lg-6 p-4  d-flex justify-content-center align-items-center bg-transparent"
+        style={{ width: "26rem" }}
       >
         {loading ? (
           <Loader />

@@ -10,6 +10,8 @@ import Script from "next/script";
 import { ToastContainer, toast } from "react-toastify"; 
 import "react-toastify/dist/ReactToastify.css";
 import HeaderTop from "@/layouts/headers/header-top";
+import WhatsappChatButton from "./components/modal/whatsappChat";
+
 const gordita = localFont({
   src: [
     {
@@ -145,11 +147,13 @@ export default function RootLayout({
           !isCandidateDashboardPage &&
           !isapplynow &&
           !isSchoolDashboard && !dbsapplynow && (
-            <HeaderFour user={user} onLogout={handleLogout} key={key} index={0} />
+            <div suppressHydrationWarning={true}>
+            <HeaderFour user={user} onLogout={handleLogout} key={key} index={0} /></div>
           )}
 
         <Providers>{children}</Providers>
-        <ToastContainer />
+        <ToastContainer/>
+        <WhatsappChatButton />
         {/* <BackToTopCom /> */}
       </body>
     </html>

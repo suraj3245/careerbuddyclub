@@ -29,19 +29,19 @@ export async function generateMetadata(
 
   if (streamId === "17") {
     return {
-      title: "Best Pharmacy Colleges in Dehradun, Uttarakhand | Best Pharmacy colleges in Dehradun Courses, Fees, Admissions 2025",
+      title: "Best Pharmacy Colleges in Dehradun (2025 Guide) | Best Pharmacy Colleges in Dehradun, Uttarakhand",
       description:
         "Discover the best pharmacy colleges in Dehradun, Uttarakhand for B.Pharm, D.Pharm, and M.Pharm programs. Compare colleges by rankings, placements, fees, and admission details for 2025.",
       keywords:
         "Top Pharmacy Colleges in Dehradun, Best Pharmacy Colleges in Uttarakhand, B.Pharm Colleges in Dehradun, D.Pharm Colleges, Pharmacy Admission 2025, Pharmacy Colleges Fees, Pharmacy Placement Dehradun",
       alternates: {
-        canonical: "https://careerbuddyclub.com/colleges/top-pharmacy-colleges-inDehradun-Uttarakhand?streamId=17&city=Dehradun",
+        canonical: "https://careerbuddyclub.com/colleges/top-pharmacy-colleges-in-dehradun-uttarakhand?streamId=17&city=Dehradun",
       },
       openGraph: {
         title: "Top Pharmacy Colleges in Dehradun, Uttarakhand | Career Buddy Club",
         description:
           "Explore top-ranked pharmacy colleges in Dehradun, Uttarakhand with high-quality education in B.Pharm, D.Pharm, and M.Pharm. Get details on fees, placements, rankings, and admissions.",
-        url: "https://careerbuddyclub.com/colleges/top-pharmacy-colleges-inDehradun-Uttarakhand?streamId=17&city=Dehradun",
+        url: "https://careerbuddyclub.com/colleges/top-pharmacy-colleges-in-dehradun-uttarakhand?streamId=17&city=Dehradun",
         type: "website",
         locale: "en_US",
         siteName: "Career Buddy Club",
