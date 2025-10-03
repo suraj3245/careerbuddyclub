@@ -1,183 +1,287 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import axios from "axios";
-import static_menu_data from "@/data/menu-data";
 
 const Menus = () => {
-  const [menuData, setMenuData] = useState<any[]>(static_menu_data);
-
-  useEffect(() => {
-    axios
-      .post("https://test.careerbuddyclub.com:8080/api/students/getallcollegesdetails")
-      .then((res) => {
-        const colleges = res?.data?.colleges || [];
-
-        const formattedColleges = colleges.map((college: any) => ({
-          title: college.college_full_name,
-          link: `/college-details/${college.college_short_name}`,
-        }));
-
-        const updatedMenus = static_menu_data.map((menu) => {
-          if (menu.title === "Admission") {
-            return {
-              ...menu,
-              mega_menus: [
-                {
-                  id: 99,
-                  title: "For College/University",
-                  sub_menus: formattedColleges,
-                },
-                ...(menu.mega_menus || []),
-              ],
-            };
-          }
-          return menu;
-        });
-
-        setMenuData(updatedMenus);
-      })
-      .catch((error) => {
-        console.error("Error fetching college data:", error);
-      });
-  }, []);
-
+  const [colleges, setColleges] = useState<any[]>([]);
   return (
     <>
-      {menuData.map((menu) =>
-        menu.sub_menus ? (
-          <li key={menu.id} className="nav-item dropdown">
-            <a
-              className="nav-link dropdown-toggle"
-              href="#"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              {menu.title}
-            </a>
-            <ul className="dropdown-menu">
-              {menu.sub_menus.map((sub: any, idx: number) => (
-                <li key={idx}>
-                  <a href={sub.link} className="dropdown-item">
-                    {sub.title}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </li>
-        ) : menu.mega_menus ? (
-          <li key={menu.id} className="nav-item dropdown mega-dropdown-sm">
-            <a
-              className="nav-link dropdown-toggle"
-              href="#"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              {menu.title}
-            </a>
-            <ul
-              className="dropdown-menu"
-              style={{
-                width: "70vw",
-                maxWidth: "1300px",
-                maxHeight: "80vh",
-                overflowY: "auto",
-              }}
-            >
-              <li>
-                <div className="container-fluid">
-                  <div className="row">
-                    {menu.mega_menus.map((m: any) => {
-                      if (m.title === "For College/University") {
-                        const chunkSize = Math.ceil(m.sub_menus.length / 3);
-                        const chunks = Array.from({ length: 3 }, (_, i) =>
-                          m.sub_menus.slice(i * chunkSize, (i + 1) * chunkSize)
-                        );
+      {/* Home */}
+      <li className="nav-item me-3">
+        <a className="nav-link" href="/">
+          Home
+        </a>
+      </li>
+      <li className="nav-item dropdown">
+        <a
+          className="nav-link dropdown-toggle d-flex align-items-center"
+          href="#"
+          role="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Admission
+          <i
+            className="bi bi-chevron-down ms-1 mt-1"
+            style={{ fontSize: "0.75rem", fontWeight: 300 }}
+          ></i>
+        </a>
 
-                        return (
-                          <div key={m.id} className="col-12 mb-4">
-                            <div
-                              className="row"
-                              style={{
-                                backgroundColor: "#f0f8ff", // Light blue background for content
-                                padding: "1rem",
-                                borderRadius: "8px",
-                                border: "1px solid #cce7ff", // Subtle border to define the section
-                                maxHeight: "330px", // Ensuring scroll area is available
-                                overflowY: "auto", // Scroll functionality
-                              }}
-                            >
-                              <h6
-                                className="mega-menu-title"
-                                style={{
-                                  color: "#eed30d", // Dark blue color for the title
-                                  fontWeight: "bold",
-                                  marginBottom: "1rem",
-                                }}
-                              >
-                                {m.title}
-                              </h6>
-                              {chunks.map((chunk, idx) => (
-                                <div key={idx} className="col-12 col-md-4 mb-3">
-                                  <ul className="style-none mega-dropdown-list p-0">
-                                    {chunk.map((s: any, i: number) => (
-                                      <li key={i}>
-                                        <a
-                                          href={s.link}
-                                          className="dropdown-item"
-                                          style={{
-                                            whiteSpace: "normal",
-                                            wordBreak: "break-word",
-                                            overflowWrap: "break-word",
-                                            fontSize: "0.95rem",
-                                          }}
-                                        >
-                                          {s.title}
-                                        </a>
-                                      </li>
-                                    ))}
-                                  </ul>
-                                </div>
-                              ))}
-                            </div>
-                          </div>
-                        );
-                      }
+        <ul
+          className="dropdown-menu p-3 shadow-lg border-0"
+          style={{
+            width: "1020px",
+            borderRadius: "8px",
+            backgroundColor: "#ffffff",
+          }}
+        >
+          <div className="container-fluid">
+            <div className="row">
+              {/* Column 1 - Local Colleges */}
+              <div className="col-12 col-md-4 mb-3">
+                <h6
+                  className="mega-menu-title mb-2"
+                  style={{
+                    color: "#eed30d",
+                    fontWeight: "bold",
+                    borderBottom: "2px solid #eed30d",
+                    paddingBottom: "5px",
+                  }}
+                >
+                  For College/University
+                </h6>
+                <ul className="list-unstyled p-0">
+                  <li>
+                    <a
+                      href={`/college-details/GNC`}
+                      className="dropdown-item py-1"
+                    >
+                      Guru Nanak College
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href={`/college-details/RBS`}
+                      className="dropdown-item py-1"
+                    >
+                      Rajagiri Business School
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href={`/college-details/IIMB`}
+                      className="dropdown-item py-1"
+                    >
+                      IIM Bangalore
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href={`/college-details/IIMK`}
+                      className="dropdown-item py-1"
+                    >
+                      IIM Kozhikode
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href={`/college-details/BFIT`}
+                      className="dropdown-item py-1"
+                    >
+                      BFIT Group of Institutions
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href={`/college-details/UPES`}
+                      className="dropdown-item py-1"
+                    >
+                      University of Petroleum And Energy Studies
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/colleges"
+                      className="dropdown-item py-1 fw-bold text-primary"
+                      style={{ color: "#13ADBD" }}
+                    >
+                      View All
+                    </a>
+                  </li>
+                </ul>
+              </div>
 
-                      return (
-                        <div key={m.id} className="col-12 col-md-6 mb-4">
-                          <h6
-                            className="mega-menu-title"
-                            style={{ color: "#eed30d", fontWeight: "bold" }}
-                          >
-                            {m.title}
-                          </h6>
-                          <ul className="style-none mega-dropdown-list">
-                            {m.sub_menus.map((s: any, i: number) => (
-                              <li key={i}>
-                                <a href={s.link} className="dropdown-item">
-                                  {s.title}
-                                </a>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </li>
-        ) : (
-          <li key={menu.id} className="nav-item">
-            <a className="nav-link" href={menu.link}>
-              {menu.title}
+              {/* Column 2 - International University */}
+              <div className="col-12 col-md-4 mb-3">
+                <h6
+                  className="mega-menu-title mb-2"
+                  style={{
+                    color: "#eed30d",
+                    fontWeight: "bold",
+                    borderBottom: "2px solid #eed30d",
+                    paddingBottom: "5px",
+                  }}
+                >
+                  International University
+                </h6>
+                <ul className="list-unstyled p-0">
+                  <li>
+                    <a
+                      href="/university-details/1"
+                      className="dropdown-item py-1"
+                    >
+                      OSMU
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/university-details/2"
+                      className="dropdown-item py-1"
+                    >
+                      Mari State University
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/university-details/3"
+                      className="dropdown-item py-1"
+                    >
+                      Perm State Medical University
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Column 3 - Dubai University */}
+              <div className="col-12 col-md-4 mb-3">
+                <h6
+                  className="mega-menu-title mb-2"
+                  style={{
+                    color: "#eed30d",
+                    fontWeight: "bold",
+                    borderBottom: "2px solid #eed30d",
+                    paddingBottom: "5px",
+                  }}
+                >
+                  Dubai University
+                </h6>
+                <ul className="list-unstyled p-0">
+                  <li>
+                    <a href="/dubai-colleges/1" className="dropdown-item py-1">
+                      De Montfort University
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/dubai-colleges/2" className="dropdown-item py-1">
+                      University of Europe
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/dubai-colleges/3" className="dropdown-item py-1">
+                      Manipal Academy of Higher Education Dubai
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/dubai-colleges/4" className="dropdown-item py-1">
+                      Rochester Institute of Technology Dubai
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/dubai-colleges/5" className="dropdown-item py-1">
+                      University of Debrecen Dubai
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </ul>
+      </li>
+
+      <li className="nav-item dropdown">
+        <a
+          className="nav-link dropdown-toggle"
+          href="#"
+          role="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Placement
+          <i
+            className="bi bi-chevron-down ms-1 mt-1"
+            style={{ fontSize: "0.75rem", fontWeight: 300 }}
+          ></i>
+        </a>
+        <ul className="dropdown-menu">
+          <li>
+            <a
+              href="https://jobs.careerbuddyclub.com"
+              className="dropdown-item"
+            >
+              See Jobs Live Now
             </a>
           </li>
-        )
-      )}
+          <li>
+            <a href="/company-v1" className="dropdown-item">
+              Partner Companies
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      {/* Best Career */}
+      <li className="nav-item">
+        <a className="nav-link" href="/career-aptitude">
+          Best Career For You
+        </a>
+      </li>
+
+      {/* Services */}
+      <li className="nav-item dropdown">
+        <a
+          className="nav-link dropdown-toggle d-flex align-items-center"
+          href="#"
+          role="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Services
+          <i
+            className="bi bi-chevron-down ms-1 mt-1"
+            style={{ fontSize: "0.75rem", fontWeight: 300 }}
+          ></i>
+        </a>
+        <ul className="dropdown-menu">
+          <li>
+            <a href="/campus" className="dropdown-item">
+              For College/University
+            </a>
+          </li>
+          <li>
+            <a href="/schools" className="dropdown-item">
+              For Schools
+            </a>
+          </li>
+          <li>
+            <a href="/corporate" className="dropdown-item">
+              For Corporate
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      {/* About Us */}
+      <li className="nav-item">
+        <a className="nav-link" href="/about-us">
+          About Us
+        </a>
+      </li>
+
+      {/* Contact */}
+      <li className="nav-item">
+        <a className="nav-link" href="/contact">
+          Contact Us
+        </a>
+      </li>
     </>
   );
 };

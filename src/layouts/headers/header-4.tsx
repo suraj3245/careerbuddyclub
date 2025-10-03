@@ -274,9 +274,7 @@ const HeaderFour: React.FC<HeaderFourProps> = ({ user, index, onLogout }) => {
                         </Link>
                       </div>
                     </li>
-                    {/* menus start */}
                     <Menus />
-                    {/* menus end */}
                     {!isUserLoggedIn && (
                       <li className="d-md-none mt-5">
                         <button

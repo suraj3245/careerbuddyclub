@@ -19,15 +19,7 @@ const expert_data:IExpertType[] = [
     name:'Sunil Kumar Malik',
     designation:'Vice President (VP)-Campus Relations',
     description: "",
-  },
-  {
-    id:2,
-    img:img_5,
-    name:'Ashish Jain',
-    designation:'Vice President (VP)-Corporate Relations',
-    description: "",
-  },
-  
+  },  
   {
     id:3,
     img:img_4,

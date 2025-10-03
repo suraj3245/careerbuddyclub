@@ -1,24 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import data from "@/assets/text/career_choices.json";
-import { PackageX } from "lucide-react";
+import { fontStyle } from "html2canvas/dist/types/css/property-descriptors/font-style";
 
-type CareerChoiceKeys = keyof typeof data;
+// type CareerChoiceKeys = keyof typeof data;
 
 interface YourCareerProps {
   code: ResultItem | ResultItem[];
-}
-
-interface Career {
-  // Define fields of each career object
-  title: string;
-  careers: string;
-  Domain: string;
-  companies?: string[];
-  skills: string[];
-  streams: string[];
-  courses: string[];
-  average_package: string;
 }
 
 interface Company {
@@ -27,12 +14,14 @@ interface Company {
 }
 
 interface ResultItem {
-  id: number;
-  letter_id: string;
-  similar_letter_id: string;
-  created_at: string;
-  updated_at: string;
-  careers: Career[]; // Array of Career objects
+  Career?: string;
+  Domain?: string;
+  companies?: { name: string }[];
+  streams?: { title: string }[];
+  skills?: { title: string }[];
+  title?: string;
+  courses?: { name: string }[];
+  average_package?: string;
 }
 
 const YourCareer: React.FC<YourCareerProps> = ({ code }) => {
@@ -40,7 +29,12 @@ const YourCareer: React.FC<YourCareerProps> = ({ code }) => {
 
   useEffect(() => {
     if (code) {
-      const normalized = Array.isArray(code) ? code : [code]; // Convert to array if it's a single object
+      // If code is an array of objects with careers inside
+      const normalized = Array.isArray(code)
+        ? code.flatMap((c: any) => c.careers ?? [])
+        : code.Career
+        ? [code.Career]
+        : [];
       setResult(normalized);
     } else {
       setResult([]);
@@ -50,6 +44,8 @@ const YourCareer: React.FC<YourCareerProps> = ({ code }) => {
   const headingStyle = {
     fontSize: "17px",
     fontWeight: "bold",
+    fontFamily: "'Georgia', serif",
+    fontStyle: "italic",
     marginTop: "-19px",
     backgroundColor: "yellow",
     borderRadius: "20px",
@@ -64,33 +60,37 @@ const YourCareer: React.FC<YourCareerProps> = ({ code }) => {
     justifyContent: "space-between",
     padding: "8px",
   };
+
   return (
     <div
       className="rounded-5 bg-transparent"
-      style={{ border: "1px solid black" }}
+      style={{ border: "1px solid black", marginTop: '-10px' }}
     >
       <div className="container-fluid">
         <div
-          className="text-sm fm-500 text-uppercase p-2"
+          className="text-sm fm-500 text-uppercase text-center p-2 mb-1"
           data-wow-delay="0.3s"
           style={headingStyle}
         >
           Popular Career Choices According To Your Score
         </div>
       </div>
-      <div className="container-fluid">
+      <div className="container-fluid mb-2">
         {result.map((item, index) => (
           <div key={index}>
             <div
-              className="text-center tran3s mt-10 wow fadeInUp rounded-4 p-3"
+              className="text-center tran3s mt-10 wow fadeInUp rounded-3 p-2"
               style={{
-                backgroundColor: index % 2 === 0 ? "#13adbd" : "#eed30d",
-                color: index % 2 === 0 ? "white" : "black",
+                backgroundColor: "#13adbd",
+                color: "white",
                 width: "100%",
               }}
             >
-              <div className="text-sm fw-600" style={{ fontSize: "16px" }}>
-                {item?.Career}
+              <div
+                className="fw-600 mb-1"
+                style={{ fontSize: "16px", fontFamily: "'Georgia', serif" }}
+              >
+                {item?.title || "N/A"}
               </div>
             </div>
             <div
@@ -98,128 +98,157 @@ const YourCareer: React.FC<YourCareerProps> = ({ code }) => {
               style={{ border: "1px solid black", textAlign: "left" }}
             >
               <div style={textStyle} className="p-2">
-                <div className="fw-100 text-dark mt-3" style={{ flex: 1, fontSize: '18px'}}>
-                  Specific Domain:
-                </div>
                 <div
-                  className="fw-500 text-dark"
-                  style={{ flex: 2, fontSize: "15px" }}
-                >
-                  {item?.Domain}
-                </div> 
-              </div>
-              <div style={textStyle} className="p-2" >
-                <div className="fw-100 text-dark" style={{ flex: 1, fontSize: '18px' }}>
-                  Average Package:
-                </div>
-                <div
-                  className="text-center tran3s mt-2 wow fadeInUp rounded-5"
+                  className="fw-100 text-dark mt-3"
                   style={{
-                    backgroundColor: index % 2 === 0 ? "#13adbd" : "eed30d",
-                    color: index % 2 === 0 ? "white" : "black",
-                    width: "100%",
+                    flex: 1,
+                    fontSize: "16px",
+                    fontWeight: "bold",
+                    fontFamily: "'Georgia', serif",
                   }}
                 >
-                  <div
-                    className="text-sm fw-500 p-2"
-                    style={{ fontSize: "17px" }}
-                  >
-                    {career.title}
-                  </div>
+                  Courses:
                 </div>
-
+                <div
+                  className="text-dark fw-500"
+                  style={{
+                    flex: 2,
+                    fontSize: "15px",
+                    lineHeight: "1.7",
+                    color: "#333",
+                    fontFamily: "'Georgia', serif",
+                    fontStyle: "italic",
+                  }}
+                >
+                  {item?.courses?.map((itm) => itm.name).join(", ") || "N/A"}
+                </div>
               </div>
+
               <div style={textStyle} className="p-2">
                 <div
                   className="fw-100 text-dark"
-                  style={{ flex: 1, fontSize: "18px" }}
+                  style={{
+                    flex: 1,
+                    fontSize: "16px",
+                    fontWeight: "bold",
+                    fontFamily: "'Georgia', serif",
+                  }}
+                >
+                  Stream:
+                </div>
+                <div
+                  className="text-lg fw-500 text-dark"
+                  style={{
+                    flex: 2,
+                    fontSize: "15px",
+                    fontFamily: "'Georgia', serif",
+                    fontStyle: "italic",
+                  }}
+                >
+                  {Array.isArray(item?.streams) && item.streams.length > 0
+                    ? item.streams.map((strm, idx) => (
+                        <div key={idx}>{strm.title}</div>
+                      ))
+                    : "N/A"}
+                </div>
+              </div>
+
+              <div style={textStyle} className="p-2">
+                <div
+                  className="fw-100 text-dark mt-3"
+                  style={{
+                    flex: 1,
+                    fontSize: "16px",
+                    fontWeight: "bold",
+                    fontFamily: "'Georgia', serif",
+                  }}
+                >
+                  Average Package:
+                </div>
+                <div
+                  className="fw-500 text-dark"
+                  style={{
+                    flex: 2,
+                    fontSize: "15px",
+                    fontFamily: "'Georgia', serif",
+                    fontStyle: "italic",
+                  }}
+                >
+                  {item?.average_package
+                    ? item.average_package
+                        .split(/(?=\d\.)/)
+                        .map((line, idx) => <div key={idx}>{line.trim()}</div>)
+                    : "N/A"}
+                </div>
+              </div>
+
+              {/* Top 3 Hiring Companies */}
+              <div style={textStyle} className="p-2">
+                <div
+                  className="fw-100 text-dark"
+                  style={{
+                    flex: 1,
+                    fontSize: "16px",
+                    fontWeight: "bold",
+                    fontFamily: "'Georgia', serif",
+                  }}
                 >
                   Top 3 Hiring Companies:
                 </div>
                 <div
-                  className="card-style-nine tran3s mt-10 rounded-5 mb-2"
-                  style={{ border: "1px solid black", textAlign: "left" }}
+                  className="text-lg fw-500 text-dark"
+                  style={{
+                    flex: 2,
+                    fontSize: "15px",
+                    fontFamily: "'Georgia', serif",
+                    fontStyle: "italic",
+                  }}
                 >
-                  <div style={textStyle}>
-                    <div
-                      className="fw-100 text-dark"
-                      style={{ flex: 1, fontSize: "17px" }}
-                    >
-                      Courses:  
-                    </div>
-                  ))}
+                  {Array.isArray(item?.companies) && item.companies.length > 0
+                    ? item.companies.slice(0, 3).map((company, cidx) => (
+                        <div key={cidx}>
+                          {cidx + 1}. {company.name}
+                        </div>
+                      ))
+                    : "N/A"}
                 </div>
               </div>
-              <div style={{ ...textStyle, borderBottom: "none"}} className="p-2">
-                <div className="fw-100 text-dark" style={{ flex: 1, fontSize: '18px' }}>
+
+              {/* Skills */}
+              <div
+                style={{ ...textStyle, borderBottom: "none" }}
+                className="p-2"
+              >
+                <div
+                  className="fw-100 text-dark"
+                  style={{
+                    flex: 1,
+                    fontSize: "16px",
+                    fontWeight: "bold",
+                    fontFamily: "'Georgia', serif",
+                  }}
+                >
                   Skills to Acquire:
                 </div>
                 <div
                   className="text-lg fw-500 text-dark"
-                  style={{ flex: 2, fontSize: "15px" }}
+                  style={{
+                    flex: 2,
+                    fontSize: "15px",
+                    fontFamily: "'Georgia', serif",
+                    fontStyle: "italic",
+                  }}
                 >
-                  {item?.Skills?.map((skill, idx) => (
-                    <div key={idx}>
-                      {idx + 1}. {skill}
-                    </div>
-                    <div
-                      className="text-lg fw-500 text-dark"
-                      style={{ flex: 2, fontSize: "15px" }}
-                    >
-                      {career.average_package
-                        .split(/(?=\d+\.\s)/g) // Split where a number followed by a dot and space starts
-                        .map((item, index) => (
-                          <div key={index}>{item.trim()}</div>
-                        ))}
-                    </div>
-                  </div>
-
-                  <div style={textStyle}>
-                    <div
-                      className="fw-100 text-dark"
-                      style={{ flex: 1, fontSize: "17px" }}
-                    >
-                      Top 3 Hiring Companies:
-                    </div>
-                    <div
-                      className="text-lg fw-500 text-dark"
-                      style={{ flex: 2, fontSize: "15px" }}
-                    >
-                      {Array.isArray(career.companies) &&
-                      career.companies.length > 0
-                        ? career.companies.map((company: any, cidx) => (
-                            <div key={cidx}>
-                              {cidx + 1}.&nbsp;
-                              {company.name}
-                            </div>
-                          ))
-                        : "N/A"}
-                    </div>
-                  </div>
-                  <div className="d-flex justify-content-betweeen p-2">
-                    <div
-                      className="fw-100 text-dark"
-                      style={{ flex: 1, fontSize: "17px" }}
-                    >
-                      Skills to Acquire:
-                    </div>
-                    <div
-                      className="text-lg fw-500 text-dark"
-                      style={{ flex: 2, fontSize: "15px" }}
-                    >
-                      {Array.isArray(career.skills) && career.skills.length > 0
-                        ? career.skills.map((skill: any, cidx) => (
-                            <div key={cidx}>
-                              {cidx + 1}.&nbsp;
-                              {skill.title}
-                            </div>
-                          ))
-                        : "N/A"}
-                    </div>
-                  </div>
+                  {Array.isArray(item?.skills) && item.skills.length > 0
+                    ? item.skills.map((skill, idx) => (
+                        <div key={idx}>
+                          {idx + 1}. {skill.title}
+                        </div>
+                      ))
+                    : "N/A"}
                 </div>
               </div>
-            ))}
+            </div>
           </div>
         ))}
       </div>
