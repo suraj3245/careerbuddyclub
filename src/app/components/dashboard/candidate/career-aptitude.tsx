@@ -519,12 +519,7 @@ const DashboardResult = ({ setIsOpenSidebar }: IProps) => {
                 {/* Careers section */}
                 <TopCareer topCategories={topThree.map((t) => t.category)} />
                 <YourCareer code={results?.resultData} />
-
-             
-              </div>
-              
-            )}
-               <div
+                <div
                   style={{
                     display: "flex",
                     justifyContent: "center",
@@ -543,6 +538,9 @@ const DashboardResult = ({ setIsOpenSidebar }: IProps) => {
                     </button>
                   </Link>
                 </div>
+              </div>
+            )}
+              
           </div>
         </div>
       )}
