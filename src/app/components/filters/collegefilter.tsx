@@ -115,7 +115,7 @@ const CollegeFinder: React.FC = () => {
     router.push("/colleges");
   };
   const handleViewAllCareers = () => {
-    router.push("/colleges");
+    router.push("/careers");
   };
   const handleViewAllCourses = () => {
     router.push("/colleges");
