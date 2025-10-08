@@ -1,11 +1,28 @@
 import type { MetadataRoute } from 'next';
- 
+
 export default function robots(): MetadataRoute.Robots {
-  return {
-    rules: {
-      userAgent: '*',
-      allow: '/',
-    },
-    sitemap: 'https://careerbuddyclub.com/sitemap.xml',
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://careerbuddyclub.com';
+
+  // Check if the current domain is the test domain
+  const isTestDomain = siteUrl.includes('test.');
+
+  if (isTestDomain) {
+    return {
+      rules: [
+        {
+          userAgent: '*',
+          disallow: '/',
+        },
+      ],
+    };
   }
+  return {
+    rules: [
+      {
+        userAgent: '*',
+        allow: '/',
+      },
+    ],
+    sitemap: `${siteUrl}/sitemap.xml`,
+  };
 }

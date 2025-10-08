@@ -241,7 +241,7 @@ const StudentTable: React.FC = () => {
                 </div>
               </div>
 
-              <div className="table-responsive">
+              <div className="table-responsive" style={{overflow: 'auto'}}>
                 <table className="table card-table table-vcenter text-nowrap">
                   <thead className="table-light">
                     <tr>
