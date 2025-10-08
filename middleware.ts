@@ -1,17 +1,18 @@
+// middleware.ts
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
-const forbiddenHostnames = ['test.careerbuddyclub.com'];
+const allowedHostnames = ['careerbuddyclub.com', 'www.careerbuddyclub.com'];
 
 export function middleware(request: NextRequest) {
   const hostname = request.nextUrl.hostname;
 
-  if (forbiddenHostnames.includes(hostname)) {
-    // Redirect to main domain
-    return NextResponse.redirect('https://careerbuddyclub.com');
+  if (!allowedHostnames.includes(hostname)) {
+    const url = request.nextUrl.clone();
+    url.hostname = 'careerbuddyclub.com';
+    return NextResponse.redirect(url);
   }
 
-  // Allow all other hostnames
   return NextResponse.next();
 }
 
