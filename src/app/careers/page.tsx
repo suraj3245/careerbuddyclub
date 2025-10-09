@@ -25,7 +25,7 @@ const Career = () => {
                   fontStyle: "italic",
                 }}
               >
-                🌟 List of Careers in India
+                 List of Careers in India
               </h4>
               <p
                 className="lead mb-4 text-dark animate__animated animate__fadeInUp"
@@ -37,7 +37,7 @@ const Career = () => {
                 Discover diverse career opportunities across industries and
                 domains. <br /> Find the right path that aligns with your
                 passion and future
-                <span className="fw-semibold text-warning"> career goals</span>.
+                <span className="fw-semibold text-success"> career goals</span>.
               </p>
               <button className="btn btn-dark px-4 py-2 rounded-pill fs-5 animate__animated animate__fadeInUp">
                 Learn More

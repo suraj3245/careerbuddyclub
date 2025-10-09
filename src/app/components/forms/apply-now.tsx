@@ -62,6 +62,9 @@ const ApplyForm: React.FC<ApplyFormProps> = ({ onSuccess }) => {
   const [loading, setLoading] = useState(false);
 
   const [streamOptions] = useState<IOption[]>([
+    { value: "Arts", label: "Arts " },
+    { value: "Commerce", label: "Commerce" },
+    { value: "Science", label: "Science" },
     { value: "Arts & Humanities", label: "Arts & Humanities" },
     { value: "Business & Management", label: "Business & Management" },
     { value: "Engineering & Technology", label: "Engineering & Technology" },
@@ -109,15 +112,18 @@ const ApplyForm: React.FC<ApplyFormProps> = ({ onSuccess }) => {
     utm_content: null,
   });
   const [levelOptions] = useState<IOption[]>([
-    { value: "Not known", label: "Not Known" },
-    { value: "UG", label: "Undergraduate (UG)" },
-    { value: "PG", label: "Postgraduate (PG)" },
-    { value: "Diploma", label: "Diploma" },
-    { value: "Doctorate (PhD)", label: "Doctorate (PhD)" },
-    { value: "9", label: "IX" },
-    { value: "10", label: "X" },
-    { value: "11", label: "XI" },
-    { value: "12", label: "XII" },
+     { value: "9", label: "IX" },
+     { value: "10", label: "X" },
+     { value: "11", label: "XI" },
+     { value: "12", label: "XII" },
+     { value: "Diploma", label: "Diploma" },
+     { value: "UG", label: "Undergraduate (UG)" },
+     { value: "PG", label: "Postgraduate (PG)" },
+     { value: "Doctorate (PhD)", label: "Doctorate (PhD)" },
+   
+    
+   
+   
   ]);
 
   useEffect(() => {
@@ -449,32 +455,6 @@ const ApplyForm: React.FC<ApplyFormProps> = ({ onSuccess }) => {
             </div>
           )}
 
-          <div className="col-12">
-            <select
-              {...register("stream", { required: `Stream is required!` })}
-              name="stream"
-              className="form-select mt-2"
-              style={{
-                backgroundColor: "white",
-                padding: "8px 12px",
-                fontSize: "14px",
-                height: "40px",
-                width: "100%",
-                border: "1px solid #e3e3e3",
-                borderRadius: "4px",
-              }}
-            >
-              <option value="">Stream</option>
-              {streamOptions.map((option) => (
-                <option key={option.value} value={option.value}>
-                  {option.label}
-                </option>
-              ))}
-            </select>
-            <div className="help-block with-errors">
-              <ErrorMsg msg={errors.stream?.message!} />
-            </div>
-          </div>
 
           <div className="col-12">
             <select
@@ -491,7 +471,7 @@ const ApplyForm: React.FC<ApplyFormProps> = ({ onSuccess }) => {
                 borderRadius: "4px",
               }}
             >
-              <option value="">Level</option>
+              <option value=""disabled selected hidden>Level</option>
               {levelOptions.map((option) => (
                 <option key={option.value} value={option.value}>
                   {option.label}
@@ -502,6 +482,36 @@ const ApplyForm: React.FC<ApplyFormProps> = ({ onSuccess }) => {
               <ErrorMsg msg={errors.level?.message!} />
             </div>
           </div>
+
+
+           
+           <div className="col-12">
+            <select
+              {...register("stream", { required: `Stream is required!` })}
+              name="stream"
+              className="form-select mt-2"
+              style={{
+                backgroundColor: "white",
+                padding: "8px 12px",
+                fontSize: "14px",
+                height: "40px",
+                width: "100%",
+                border: "1px solid #e3e3e3",
+                borderRadius: "4px",
+              }}
+            >
+              <option value=""disabled selected hidden>Stream</option>
+              {streamOptions.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+            <div className="help-block with-errors">
+              <ErrorMsg msg={errors.stream?.message!} />
+            </div>
+          </div>
+
           <div className="col-12">
             <button
               type="submit"
