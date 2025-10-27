@@ -112,13 +112,13 @@ const CollegeFinder: React.FC = () => {
       router.push(`/colleges/${getStreamSlug(selectedStreamTitle, streamId)}?streamId=${streamId}`);
   };
   const handleViewAllCompanies = () => {
-    router.push("/colleges");
+    router.push("/company-v1");
   };
   const handleViewAllCareers = () => {
     router.push("/careers");
   };
   const handleViewAllCourses = () => {
-    router.push("/colleges");
+    router.push("/courses");
   };
 
   // Handler for each item button (if you want to keep navigation for individual items)
