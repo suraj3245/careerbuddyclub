@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import { JSX } from "react/jsx-runtime";
 
 // Define the props interface
 interface Statistic {

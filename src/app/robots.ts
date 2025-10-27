@@ -3,10 +3,8 @@ import type { MetadataRoute } from 'next';
 export default function robots(): MetadataRoute.Robots {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://careerbuddyclub.com';
 
-  // Check if the current domain is the test domain
-  const isTestDomain = siteUrl.includes('test.');
-
-  if (isTestDomain) {
+  // Block all for test domains, allow for main site
+  if (siteUrl.includes('test.')) {
     return {
       rules: [
         {
@@ -16,6 +14,7 @@ export default function robots(): MetadataRoute.Robots {
       ],
     };
   }
+
   return {
     rules: [
       {
@@ -24,5 +23,6 @@ export default function robots(): MetadataRoute.Robots {
       },
     ],
     sitemap: `${siteUrl}/sitemap.xml`,
+    host: siteUrl, // Optional: helps some crawlers know the canonical host
   };
 }

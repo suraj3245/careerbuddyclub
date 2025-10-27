@@ -38,7 +38,6 @@ const Careerlist: React.FC = () => {
     };
   }, []);
 
-  // Intersection Observer for animations
   useEffect(() => {
     if (!careersData.length) return;
     const observer = new IntersectionObserver(
@@ -60,7 +59,6 @@ const Careerlist: React.FC = () => {
     return () => observer.disconnect();
   }, [careersData]);
 
-  // Unique streams
   const allStreams = useMemo(
     () =>
       Array.from(
@@ -76,7 +74,6 @@ const Careerlist: React.FC = () => {
     [careersData]
   );
 
-  // Filtered careers
   const filteredCareers = useMemo(
     () =>
       selectedStream === "All"
@@ -91,7 +88,6 @@ const Careerlist: React.FC = () => {
     [careersData, selectedStream]
   );
 
-  // Loader
   if (loading)
     return (
       <div
@@ -116,12 +112,7 @@ const Careerlist: React.FC = () => {
         {/* Sidebar */}
         <div className="col-lg-3 mb-4">
           <div className="stream-sidebar p-3 rounded-4 shadow-sm">
-            <h5
-              className="mb-3 fw-bold text-center"
-              style={{ marginTop: "-20px" }}
-            >
-              Streams
-            </h5>
+            <h5 className="mb-3 fw-bold text-center">Streams</h5>
             <ul className="list-unstyled">
               <li>
                 <button
@@ -150,14 +141,15 @@ const Careerlist: React.FC = () => {
         </div>
 
         {/* Career Cards */}
-
         <div className="col-lg-9">
           <div className="row g-4">
             {filteredCareers.map((career: any, index: number) => (
               <div
                 className="col-md-6 col-lg-6"
                 key={career.id || index}
-                ref={(el) => (cardsRef.current[index] = el)}
+                ref={(el) => {
+                  cardsRef.current[index] = el;
+                }}
                 data-index={index}
               >
                 <div
@@ -197,20 +189,11 @@ const Careerlist: React.FC = () => {
                             {career.skills
                               ?.slice(0, 3)
                               .map((skill: any, i: number) => (
-                                  <span
-                                    key={i}
-                                    style={{
-                                      backgroundColor: "#d1ecf1",
-                                      padding: "2px 6px",
-                                      borderRadius: "10px",
-                                      color: "black",
-                                      fontSize: "0.75rem",
-                                    }}
-                                  >
-                                    {typeof skill === "object"
-                                      ? skill.title || skill.name
-                                      : skill}
-                                  </span>
+                                <span key={i} className="skill-badge">
+                                  {typeof skill === "object"
+                                    ? skill.title || skill.name
+                                    : skill}
+                                </span>
                               ))}
                           </div>
                         </div>
@@ -219,21 +202,15 @@ const Careerlist: React.FC = () => {
                         <div>
                           <h6 className="fw-bold mb-1">Top Companies:</h6>
                           <div className="d-flex flex-wrap gap-1">
-                          {career.companies
+                            {career.companies
                               ?.slice(0, 3)
                               .map((company: any, i: number) => (
-                                <span key={i} style={{
-                                  backgroundColor: "#d1ecf1",
-                                  padding: "2px 6px",
-                                  borderRadius: "4px",
-                                  color: "black",
-                                  fontSize: "0.80rem",
-                                }}>
+                                <span key={i} className="company-badge">
                                   {typeof company === "object"
                                     ? company.title || company.name
                                     : company}
                                 </span>
-                              ))}&nbsp;
+                              ))}
                           </div>
                         </div>
                       </div>
@@ -248,91 +225,99 @@ const Careerlist: React.FC = () => {
 
       {/* Styles */}
       <style jsx>{`
+        @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap");
+
         .stream-sidebar {
           background: #ffffff;
           border-left: 4px solid #14adbd;
-          border-radius: 10px;
-          padding: 15px 20px;
-          max-height: 60vh;
+          border-radius: 12px;
+          padding: 20px;
+          max-height: 70vh;
           overflow-y: auto;
-          position: relative; /* change sticky to relative */
-          font-family: "Segoe UI", sans-serif;
+          position: sticky;
+          top: 2rem;
+          font-family: "Inter", sans-serif;
           color: #0b3d91;
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
         }
 
-        /* Make the Streams heading fixed within sidebar */
         .stream-sidebar h5 {
           position: sticky;
-          top: 0; /* sticks to the top of sidebar */
+          top: 0;
           background: #ffffff;
           z-index: 10;
           padding-bottom: 10px;
           margin-bottom: 10px;
           border-bottom: 1px solid #14adbd;
-          z-index: 100;
+          font-weight: 600;
         }
 
         .career-list {
-          font-family: "Georgia", serif;
-          font-style: italic;
+          font-family: "Inter", sans-serif;
         }
+
         h3 {
-          font-size: 2rem;
+          font-size: 2.2rem;
           color: #0b3d91;
+          font-weight: 700;
+          letter-spacing: -0.5px;
         }
+
         .highlight {
           color: #14adbd;
         }
+
+        .card {
+          background: #fff;
+          border-radius: 16px;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+          transition: all 0.35s ease;
+          border: 1px solid #f1f1f1;
+        }
+
+        .card:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+        }
+
         .career-title {
-          color: #14adbd;
-          font-size: 1.3rem;
+          color: #0b3d91;
+          font-size: 1.25rem;
+          font-weight: 600;
+          text-align: center;
+          letter-spacing: -0.3px;
+          font-family: "Poppins", sans-serif;
         }
-        .career-badge {
-          font-size: 0.75rem;
-          background-color: #d1ecf1;
-          color: #0c5460;
-          padding: 4px 8px;
-          border-radius: 12px;
-          margin: 2px;
+
+        .career-badge,
+        .skill-badge,
+        .company-badge {
+          font-size: 0.8rem;
+          background-color: #eaf7f9;
+          color: #0b3d91;
+          padding: 5px 10px;
+          border-radius: 8px;
+          font-weight: 500;
         }
+
         .hidden-card {
           opacity: 0;
-          transform: translateY(30px);
+          transform: translateY(20px);
         }
+
         .slide-left,
         .slide-right {
           opacity: 1;
           transform: translateX(0);
-          transition: all 0.8s ease-out;
+          transition: all 0.6s ease-out;
         }
-        .hover-animate {
-          transition: all 0.4s ease;
-          background: #fff;
-          box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
-        }
-        .hover-animate:hover {
-          transform: translateY(-6px) scale(1.03);
-          box-shadow: 0 14px 28px rgba(0, 0, 0, 0.18);
-          background: linear-gradient(135deg, #e6f7ff, #ffffff);
-        }
-        .stream-sidebar {
-          background: #ffffff;
-          border-left: 4px solid #14adbd;
-          border-radius: 10px;
-          padding: 15px 20px;
-          max-height: 60vh;
-          overflow-y: auto;
-          position: sticky;
-          top: 2rem;
-          font-family: "Segoe UI", sans-serif;
-          color: #0b3d91;
-        }
+
         .stream-item {
           display: block;
           width: 100%;
           padding: 10px 15px;
           margin-bottom: 8px;
-          border-radius: 12px;
+          border-radius: 10px;
           border: 1px solid #14adbd;
           background: #fff;
           color: #0b3d91;
@@ -340,10 +325,23 @@ const Careerlist: React.FC = () => {
           cursor: pointer;
           transition: all 0.3s ease;
         }
+
         .stream-item:hover,
         .stream-item.active {
           background-color: #14adbd;
           color: #fff;
+          box-shadow: 0 4px 8px rgba(20, 173, 189, 0.3);
+        }
+
+        h6 {
+          font-weight: 600;
+          color: #0b3d91;
+          margin-bottom: 5px;
+        }
+
+        hr {
+          border-top: 1px solid #e5e5e5;
+          margin: 10px 0 15px;
         }
       `}</style>
     </div>
