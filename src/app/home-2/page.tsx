@@ -34,8 +34,9 @@ const HomeTwo = () => {
         <CollegeFinder />
 
         {/* feedback two start */}
-        <FeedbackTwo />
         <Collegedekhocomp />
+        <FeedbackTwo />
+        
         <BlogOne />
         <FeatureEleven />
         <div className="container">
