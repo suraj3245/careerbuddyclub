@@ -148,7 +148,7 @@ const FeedbackTwo = () => {
             boxShadow:
               "0 20px 40px rgba(99,102,241,0.35), 0 0 15px rgba(236,72,153,0.15)",
             padding: "1.4rem 1.6rem",
-            borderLeft: "6px solid #6366f1",
+            borderLeft: "6px solid #facc15",
             zIndex: 10,
             marginRight: "3rem",
             transform: "scale(1.04)",
