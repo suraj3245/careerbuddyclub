@@ -120,7 +120,7 @@ const FancyBanner16 = () => {
           display: flex;
           align-items: baseline;
           gap: 0.5rem;
-          margin-bottom: 1.5rem;
+          margin-bottom: 2.2rem;
         }
 
         .blog-section-title {

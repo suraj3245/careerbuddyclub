@@ -25,7 +25,7 @@ const HowItWorksTwo = ({ style_2 }: { style_2?: boolean }) => {
                   <div className="numb fw-500 d-flex align-items-center justify-content-center m-auto">
                     <span>0{item.id}</span>
                   </div>
-                  <div className="title fw-500 text-lg text-dark mt-25 mb-10">
+                  <div className="title fw-500 text-lg text-dark mt-25 mb-10 [text-wrap:balance]">
                     {item.title}
                   </div>
                   <p>{item.sub_title}</p>

@@ -1,8 +1,10 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { colleges } from "@/data/college-data";
 
 const Menus = () => {
-  const [colleges, setColleges] = useState<any[]>([]);
+  const collegeList = colleges;
+
   return (
     <>
       {/* Home */}
@@ -11,7 +13,9 @@ const Menus = () => {
           Home
         </a>
       </li>
-      <li className="nav-item dropdown">
+
+      {/* Admission Dropdown */}
+      <li className="nav-item dropdown position-static">
         <a
           className="nav-link dropdown-toggle d-flex align-items-center"
           href="#"
@@ -27,169 +31,142 @@ const Menus = () => {
         </a>
 
         <ul
-          className="dropdown-menu p-3 shadow-lg border-0"
+          className="dropdown-menu w-auto py-4"
           style={{
-            width: "1020px",
-            borderRadius: "8px",
-            backgroundColor: "#ffffff",
+            marginLeft: "0px",
+            paddingRight: "18px",
           }}
         >
+          <style jsx>{`
+            @media (min-width: 1024px) {
+              ul.dropdown-menu {
+                margin-left: 300px !important;
+              }
+            }
+          `}</style>
+
           <div className="container-fluid">
-            <div className="row">
-              {/* Column 1 - Local Colleges */}
+            <div className="row g-4">
+              {/* Column 1 - Indian Colleges */}
               <div className="col-12 col-md-4 mb-3">
                 <h6
-                  className="mega-menu-title mb-2"
+                  className="mb-3 text-[#eed30d] font-bold"
                   style={{
-                    color: "#eed30d",
-                    fontWeight: "bold",
                     borderBottom: "2px solid #eed30d",
                     paddingBottom: "5px",
+                    letterSpacing: "0.3px",
                   }}
                 >
-                  For College/University
+                  Indian Colleges / Universities
                 </h6>
                 <ul className="list-unstyled p-0">
-                  <li>
-                    <a
-                      href={`/college-details/GNC`}
-                      className="dropdown-item py-1"
-                    >
-                      Guru Nanak College
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href={`/college-details/RBS`}
-                      className="dropdown-item py-1"
-                    >
-                      Rajagiri Business School
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href={`/college-details/IIMB`}
-                      className="dropdown-item py-1"
-                    >
-                      IIM Bangalore
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href={`/college-details/IIMK`}
-                      className="dropdown-item py-1"
-                    >
-                      IIM Kozhikode
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href={`/college-details/BFIT`}
-                      className="dropdown-item py-1"
-                    >
-                      BFIT Group of Institutions
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href={`/college-details/UPES`}
-                      className="dropdown-item py-1"
-                    >
-                      University of Petroleum And Energy Studies
-                    </a>
-                  </li>
-                  <li>
+                  {collegeList.slice(0, 8).map((college, index) => (
+                    <li key={index} className="mb-2">
+                      <a
+                        href={`/college-details/${college.code}`}
+                        className="dropdown-item py-1 px-2 text-gray-700 hover:bg-gray-100 hover:scale-105 rounded-md transition-all duration-200 text-wrap"
+                      >
+                        {college.name}
+                      </a>
+                    </li>
+                  ))}
+
+                  {/* View All Link */}
+                  <li className="mt-3">
                     <a
                       href="/colleges"
-                      className="dropdown-item py-1 fw-bold text-primary"
-                      style={{ color: "#13ADBD" }}
+                      className="dropdown-item py-1 fw-bold text-[#13ADBD] hover:text-[#0e8792] border-t border-gray-200 pt-2 text-wrap"
                     >
-                      View All
+                      View All →
                     </a>
                   </li>
                 </ul>
               </div>
 
-              {/* Column 2 - International University */}
+              {/* Column 2 - International Universities */}
               <div className="col-12 col-md-4 mb-3">
                 <h6
-                  className="mega-menu-title mb-2"
+                  className="mb-3 text-[#eed30d] font-bold"
                   style={{
-                    color: "#eed30d",
-                    fontWeight: "bold",
                     borderBottom: "2px solid #eed30d",
                     paddingBottom: "5px",
+                    letterSpacing: "0.3px",
                   }}
                 >
-                  International University
+                  International Universities
                 </h6>
                 <ul className="list-unstyled p-0">
-                  <li>
-                    <a
-                      href="/university-details/1"
-                      className="dropdown-item py-1"
-                    >
-                      OSMU
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="/university-details/2"
-                      className="dropdown-item py-1"
-                    >
-                      Mari State University
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="/university-details/3"
-                      className="dropdown-item py-1"
-                    >
-                      Perm State Medical University
-                    </a>
-                  </li>
+                  {[
+                    {
+                      href: "/university-details/osmu",
+                      name: "Orenburg State Medical University (OSMU)",
+                    },
+                    {
+                      href: "/university-details/mari-state",
+                      name: "Mari State University",
+                    },
+                    {
+                      href: "/university-details/perm-state",
+                      name: "Perm State Medical University",
+                    },
+                  ].map((u, i) => (
+                    <li key={i} className="mb-2">
+                      <a
+                        href={u.href}
+                        className="dropdown-item py-1 px-2 text-gray-700 hover:bg-gray-100 hover:scale-105 rounded-md transition-all duration-200"
+                      >
+                        {u.name}
+                      </a>
+                    </li>
+                  ))}
                 </ul>
               </div>
 
-              {/* Column 3 - Dubai University */}
-              <div className="col-12 col-md-4 mb-3">
+              {/* Column 3 - Dubai Universities */}
+              <div className="col-12 col-md-4 mb-3 text-right">
                 <h6
-                  className="mega-menu-title mb-2"
+                  className="inline-block mb-3 text-[#eed30d] font-bold border-b-2 border-[#eed30d] pb-[5px]"
                   style={{
-                    color: "#eed30d",
-                    fontWeight: "bold",
+                    letterSpacing: "0.3px",
                     borderBottom: "2px solid #eed30d",
                     paddingBottom: "5px",
                   }}
                 >
-                  Dubai University
+                  Dubai Universities
                 </h6>
-                <ul className="list-unstyled p-0">
-                  <li>
-                    <a href="/dubai-colleges/1" className="dropdown-item py-1">
-                      De Montfort University
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/dubai-colleges/2" className="dropdown-item py-1">
-                      University of Europe
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/dubai-colleges/3" className="dropdown-item py-1">
-                      Manipal Academy of Higher Education Dubai
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/dubai-colleges/4" className="dropdown-item py-1">
-                      Rochester Institute of Technology Dubai
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/dubai-colleges/5" className="dropdown-item py-1">
-                      University of Debrecen Dubai
-                    </a>
-                  </li>
+
+                <ul className="list-unstyled mt-3 inline-block text-right">
+                  {[
+                    {
+                      href: "/dubai-colleges/de-montfort",
+                      name: "De Montfort University",
+                    },
+                    {
+                      href: "/dubai-colleges/university-of-europe",
+                      name: "University of Europe",
+                    },
+                    {
+                      href: "/dubai-colleges/manipal",
+                      name: "Manipal Academy of Higher Education Dubai",
+                    },
+                    {
+                      href: "/dubai-colleges/rit",
+                      name: "Rochester Institute of Technology Dubai",
+                    },
+                    {
+                      href: "/dubai-colleges/debrecen",
+                      name: "University of Debrecen Dubai",
+                    },
+                  ].map((d, i) => (
+                    <li key={i} className="mb-2">
+                      <a
+                        href={d.href}
+                        className="dropdown-item py-1 px-2 text-gray-700 hover:bg-gray-100 hover:scale-105 rounded-md transition-all duration-200 text-right"
+                      >
+                        {d.name}
+                      </a>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
@@ -197,6 +174,7 @@ const Menus = () => {
         </ul>
       </li>
 
+      {/* Placement */}
       <li className="nav-item dropdown">
         <a
           className="nav-link dropdown-toggle"
@@ -215,13 +193,13 @@ const Menus = () => {
           <li>
             <a
               href="https://jobs.careerbuddyclub.com"
-              className="dropdown-item"
+              className="dropdown-item text-wrap"
             >
               See Jobs Live Now
             </a>
           </li>
           <li>
-            <a href="/company-v1" className="dropdown-item">
+            <a href="/company-v1" className="dropdown-item text-wrap">
               Partner Companies
             </a>
           </li>
