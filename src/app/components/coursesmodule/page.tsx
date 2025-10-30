@@ -128,7 +128,7 @@ const Careerlist: React.FC = () => {
         {/* ✅ Sidebar */}
         <div className="col-lg-2 mb-4">
           <div className="filter-box p-3 rounded-4 shadow-sm mb-4">
-            <h5 className="mb-3 fw-bold text-center" style={{'position': 'fixed'}}>Streams</h5>
+            <h5 className="mb-3 fw-bold text-center">Streams</h5>
             <ul className="list-unstyled">
               <li>
                 <button

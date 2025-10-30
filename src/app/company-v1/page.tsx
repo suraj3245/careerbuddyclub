@@ -29,13 +29,6 @@ const CompanyV1Page = () => {
 
         {/* company v1 area start */}
         <CompanyV1Area />
-        {/* company v1 area end */}
-
-        {/* job portal intro start */}
-
-        {/* job portal intro end */}
-
-        {/* footer start */}
         <FooterOne />
         {/* footer end */}
       </div>

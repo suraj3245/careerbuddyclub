@@ -3,74 +3,88 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 
 const ImportStudentsWithCatForm: React.FC = () => {
   const [file, setFile] = useState<File | null>(null);
   const [School_id, setSchool_id] = useState<string | null>(null);
+  const [school_name, setSchool_name] = useState<string | null>(null);
+  const [loading, setLoading] = useState<boolean>(false);
+  const router = useRouter();
 
+  // ✅ Load School ID from localStorage
   useEffect(() => {
-    const fetchSchool = async () => {
-      const School_id = localStorage.getItem("School_id");
-      if (School_id) {
-        setSchool_id(School_id);
-      }
-    };
-    fetchSchool();
+    const id = localStorage.getItem("School_id");
+    const name = localStorage.getItem("schoolName");
+    if (id){
+     setSchool_id(id);
+     setSchool_name(name);
+    }  
   }, []);
 
-  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (event.target.files && event.target.files[0]) {
-      setFile(event.target.files[0]);
+  // ✅ Handle File Input
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      setFile(e.target.files[0]);
     }
   };
 
-  const handleSubmit = async (event: React.FormEvent) => {
-    event.preventDefault();
+  // ✅ Submit Handler
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
 
     if (!file) {
-      toast.error("Please select a file to upload.");
+      toast.error("Please select a file.");
       return;
     }
 
-    const formData = new FormData();
-    formData.append("file", file);
-    formData.append("School_id", School_id!);
+    if (!School_id) {
+      toast.error("School ID missing.");
+      return;
+    }
+
+    setLoading(true);
 
     try {
-      const response = await axios.post(
-        "https://test.careerbuddyclub.com:8080/api/students/importwithresults",
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
-      if (response.status === 200) {
-        toast.success(
-          response?.data?.message || "Data imported successfully!",
-          {
-            position: "top-left",
-            autoClose: 1000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-          }
-        );
-        setTimeout(() => {
-          window.location.href = "/dashboard/school-dashboard/dashboard";
-        }, 1000);
-      } else {
-        toast.error(
-          response?.data?.message || "An error occurred during the import."
-        );
+      // ✅ Create a new FormData object properly
+      const formData = new FormData();
+      formData.append("file", file, file.name);
+      formData.append("School_id", School_id);
+      formData.append("school_name", school_name || "");  
+
+      // ✅ Debug check — log what is inside FormData
+      for (const [key, value] of formData.entries()) {
+        console.log(`${key}:`, value);
       }
-    } catch (error) {
-      console.error("Error:", error);
-      toast.error("Failed to import data.");
+
+      const response = await axios({
+        method: "post",
+        url: "http://127.0.0.1:8000/api/students/importwithresults",
+        data: formData,
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "multipart/form-data",
+        },
+        onUploadProgress: (progressEvent) => {
+          const percentCompleted = Math.round(
+            (progressEvent.loaded * 100) / (progressEvent.total ?? 1)
+          );
+          console.log(`Upload progress: ${percentCompleted}%`);
+        },
+      });
+
+      toast.success(response.data.message || "Data imported successfully!");
+      setTimeout(
+        () => router.push("/dashboard/school-dashboard/dashboard"),
+        1000
+      );
+    } catch (error: any) {
+      console.error("Upload Error:", error.response?.data || error);
+      toast.error(
+        error.response?.data?.message || "Failed to import data. Please try again."
+      );
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -99,8 +113,9 @@ const ImportStudentsWithCatForm: React.FC = () => {
             <button
               type="submit"
               className="btn btn-primary btn-lg mt-4 buttn-save"
+              disabled={loading}
             >
-              Import Data
+              {loading ? "Importing..." : "Import Data"}
             </button>
           </div>
         </div>
