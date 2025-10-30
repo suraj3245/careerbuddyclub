@@ -59,7 +59,7 @@ const ImportStudentsWithCatForm: React.FC = () => {
 
       const response = await axios({
         method: "post",
-        url: "http://127.0.0.1:8000/api/students/importwithresults",
+        url: "https://test.careerbuddyclub.com:8080/api/students/importwithresults",
         data: formData,
         headers: {
           Accept: "application/json",
