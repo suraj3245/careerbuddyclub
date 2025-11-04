@@ -3,6 +3,7 @@ import BBAColleges from "@/app/components/college-blogs/description/bba";
 import NursingDescription from "@/app/components/college-blogs/description/nursing";
 import bptDescription from "@/app/components/college-blogs/description/bpt";
 import UttarakhandParamedicalAdmission from "@/app/components/college-blogs/description/paramedical";
+import BScNursingUttarakhandAdmission2026 from "@/app/components/college-blogs/description/bsc-nursing-uttarakhand-2026";
 
 const blog_data1 = [
   {
@@ -16,7 +17,7 @@ const blog_data1 = [
     blog: "top-pharmacy-colleges-dehradun",
     tags: ["Pharmacy", "Dehradun", "Career"],
     desc: "Explore the top pharmacy colleges in Dehradun for 2025. Get insights on courses, fees, and career opportunities in the pharmaceutical field.",
-   descComponent: PharmacyDescription ,
+   descComponent: PharmacyDescription,
    metaDescription: "Dehradun, nestled in the foothills of the Himalayas, is renowned for being an academic hub of North India. Over the past few years, the city has emerged as a prominent destination for pharmacy education, thanks to its peaceful environment, affordable living, and a wide range of academic institutions offering quality pharmaceutical programs.If you're a student aspiring to build a future in healthcare and pharmaceuticals, this 2025 Career Guide by Career Buddy Club will help you explore the top pharmacy colleges in Dehradun, including essential information on courses, fees, eligibility, career scope, and campus life.",
    excerpt: "Discover the best pharmacy colleges in Dehradun for 2025. This guide covers top institutions, courses offered, fees, eligibility criteria, and career prospects in the pharmaceutical industry. Make an informed choice for your future in pharmacy."
   },
@@ -90,6 +91,34 @@ const blog_data1 = [
     metaDescription: "Discover the top bpt colleges in Dehradun for 2025, including Guru Nanak College and BFIT. Explore courses, fees, eligibility, campus life, and career prospects in this comprehensive guide by Career Buddy Club." ,
     descComponent: UttarakhandParamedicalAdmission,
 
+  },
+
+  // BSc Nursing Admission Process in Uttarakhand (2026)
+
+  {
+    id: "bsc-nursing-admission-uttarakhand-2026",
+    img_full: "/assets/images/blog/nursing_blog.webp",
+    img: "/assets/images/blog/nursing_blog.webp",
+    grid_img: "/assets/images/blog/nursing_blog.webp",
+    title: "BSc Nursing Admission Process in Uttarakhand 2026 | Eligibility, Entrance Exam & Top Colleges",
+    desc: "Discover the complete BSc Nursing admission process in Uttarakhand 2026 — including eligibility, entrance exam (HNBUMU), counseling, top colleges, and career opportunities.",
+    author: "Career Buddy Club",
+    date: "03 November, 2025",
+    blog: "BSc Nursing Admission Process in Uttarakhand 2026",
+    tags: [
+      "BSc Nursing Admission in Uttarakhand",
+      "BSc Nursing Admission Process 2026",
+      "Uttarakhand Nursing Entrance Exam",
+      "HNBUMU BSc Nursing Admission",
+      "Top BSc Nursing Colleges in Uttarakhand",
+      "Nursing Colleges in Dehradun",
+      "Eligibility for BSc Nursing in Uttarakhand",
+      "Career after BSc Nursing",
+      "Direct BSc Nursing Admission in Uttarakhand"
+    ],
+    metaDescription: "Discover the complete BSc Nursing admission process in Uttarakhand 2026 — including eligibility, entrance exam (HNBUMU), counseling, top colleges, and career opportunities. Get expert guidance from Career Buddy Club, your trusted education portal.",
+    excerpt: "Complete guide to BSc Nursing admission in Uttarakhand 2026: eligibility, HNBUMU entrance exam, counselling, top colleges, and careers.",
+    descComponent: BScNursingUttarakhandAdmission2026,
   },
   
 
