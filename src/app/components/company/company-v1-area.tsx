@@ -17,7 +17,7 @@ const CompanyV1Area = ({ style_2 = false }: { style_2?: boolean }) => {
     const fetchCompanies = async () => {
       try {
         setLoading(true);
-        const res = await fetch("http://127.0.0.1:8000/api/students/getallcompanies", {
+        const res = await fetch("https://test.careerbuddyclub.com:8080/api/students/getallcompanies", {
           headers: { "Content-Type": "application/json", Accept: "application/json" },
           signal: controller.signal,
         });
