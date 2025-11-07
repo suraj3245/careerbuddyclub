@@ -16,6 +16,7 @@ import {
 } from "@mui/material";
 import { ExpandMore, ExpandLess } from "@mui/icons-material";
 import blogData, { BlogContent } from "@/data/college-blog";
+import { FiltersObject, setFilterCategory } from "@/utils/filters.utils";
 
 interface Stream {
   id: number | null;
@@ -25,29 +26,26 @@ interface Stream {
 
 interface BlogSectionProps {
   streams: Stream[];
-  clgLocation: string[]; 
-  selectedFilters: string[];
-  setSelectedFilters: React.Dispatch<React.SetStateAction<string[]>>;
+  clgLocation: string[];
+  filters: FiltersObject;
+  router: any;
 }
 
 const BlogSection: React.FC<BlogSectionProps> = ({
   streams,
   clgLocation,
-  selectedFilters,
-  setSelectedFilters,
+  filters = {},
+  router,
 }) => {
   const searchParams = useSearchParams();
-  const router = useRouter();
 
-  const streamIdParam = searchParams.get("streamId");
-  const streamId = streamIdParam ? parseInt(streamIdParam, 10) : null;
-
-  const selectedStream =
-    streams.find((stream) => stream.id === streamId) || {
+  // Use commmon canonical filters object (filters param)
+  const streamId = filters.Streams?.[0] ? parseInt(filters.Streams[0], 10) : null;
+  const selectedStream = streams.find((stream) => stream.id === streamId) ||
+    {
       id: null,
       title: "Best: Ranking 2025, Admissions, Courses, Fees, Placements,Campus,Reviews",
-      description:
-        "India boasts a rich educational landscape with a diverse range of colleges and universities offering many courses...",
+      description: "India boasts a rich educational landscape with a diverse range of colleges and universities offering many courses...",
     };
 
   const blogContent: BlogContent | undefined = streamId ? blogData[streamId] : undefined;
@@ -57,40 +55,26 @@ const BlogSection: React.FC<BlogSectionProps> = ({
 
   const maxPreviewHeight = 120;
 
-  // City match logic: If blog title contains a city from clgLocation, add city to URL and selectedFilters
+  // Always update city filter via URL
   useEffect(() => {
-    // 1. Find city in title
     const titleToCheck = (blogContent?.title || selectedStream.title || "").toLowerCase();
     const foundCity =
-      clgLocation.find((city) =>
-        titleToCheck.includes(city.toLowerCase())
-      ) || null;
+      clgLocation.find((city) => titleToCheck.includes(city.toLowerCase())) || null;
 
     if (foundCity) {
       setMatchedCity(foundCity);
-
-      // 2. Update city in URL if needed
-      const currentCity = searchParams.get("city");
-      if (currentCity !== foundCity) {
-        const query = new URLSearchParams(Array.from(searchParams.entries()));
-        query.set("city", foundCity);
-        router.replace(`?${query.toString()}`, { scroll: false });
-      }
-
-      // 3. Update selectedFilters if city not already present
-      const filterKey = `Location||${foundCity}`;
-      if (!selectedFilters.includes(filterKey)) {
-        setSelectedFilters((prev) => [...prev, filterKey]);
+      // set if missing from canonical
+      if (!filters.Location?.includes(foundCity)) {
+        setFilterCategory(router, "Location", [foundCity], filters);
       }
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [clgLocation, blogContent, selectedStream, searchParams, router]);
+    // eslint-disable-next-line
+  }, [clgLocation, blogContent, selectedStream, filters, router]);
 
   // Final blog title with city (only if not already included)
   const finalTitle = blogContent?.title || selectedStream.title;
   const titleWithCity =
-    matchedCity &&
-    !finalTitle.toLowerCase().includes(matchedCity.toLowerCase())
+    matchedCity && !finalTitle.toLowerCase().includes(matchedCity.toLowerCase())
       ? `${finalTitle} in ${matchedCity}`
       : finalTitle;
 
@@ -126,7 +110,6 @@ const BlogSection: React.FC<BlogSectionProps> = ({
           transition: "max-height 0.3s ease",
         }}
       >
-        {/* Changed: set whiteSpace: 'pre-line' for exact line breaks */}
         <Typography variant="body1" paragraph sx={{ whiteSpace: 'pre-line' }}>
           {blogContent?.description ||
             selectedStream.description ||
@@ -141,37 +124,24 @@ const BlogSection: React.FC<BlogSectionProps> = ({
             </Typography>
             <Box
               sx={{
-                // Enables horizontal scroll with momentum on iOS (iPhone/iPad) and nice scrollbars on desktop.
                 overflowX: "auto",
                 WebkitOverflowScrolling: "touch",
                 border: "1px solid #ccc",
                 borderRadius: "8px",
                 mt: 2,
                 scrollbarWidth: "thin",
-                "&::-webkit-scrollbar": {
-                  height: "6px",
-                },
-                "&::-webkit-scrollbar-thumb": {
-                  backgroundColor: "#ccc",
-                  borderRadius: "4px",
-                },
+                "&::-webkit-scrollbar": { height: "6px" },
+                "&::-webkit-scrollbar-thumb": { backgroundColor: "#ccc", borderRadius: "4px" },
               }}
             >
               <Table sx={{ minWidth: 800 }}>
                 <TableHead>
                   <TableRow>
                     {[
-                      "College",
-                      "Courses",
-                      "Short Description",
-                      "Key Benefits",
-                      "Eligibility",
-                      "Fees",
-                      "Website",
+                      "College", "Courses", "Short Description",
+                      "Key Benefits", "Eligibility", "Fees", "Website"
                     ].map((heading, idx) => (
-                      <TableCell key={idx}>
-                        <strong>{heading}</strong>
-                      </TableCell>
+                      <TableCell key={idx}><strong>{heading}</strong></TableCell>
                     ))}
                   </TableRow>
                 </TableHead>
@@ -184,28 +154,16 @@ const BlogSection: React.FC<BlogSectionProps> = ({
                       <TableCell>
                         {row.keyBenefits?.length ? (
                           <ul style={{ paddingLeft: "1rem", margin: 0 }}>
-                            {row.keyBenefits.map((b, i) => (
-                              <li key={i}>{b}</li>
-                            ))}
+                            {row.keyBenefits.map((b, i) => (<li key={i}>{b}</li>))}
                           </ul>
-                        ) : (
-                          "-"
-                        )}
+                        ) : ("-")}
                       </TableCell>
                       <TableCell>{row.eligibility || "-"}</TableCell>
                       <TableCell>{row.fees || "-"}</TableCell>
                       <TableCell>
                         {row.website ? (
-                          <Link
-                            href={row.website}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            Visit
-                          </Link>
-                        ) : (
-                          "-"
-                        )}
+                          <Link href={row.website} target="_blank" rel="noopener noreferrer">Visit</Link>
+                        ) : ("-")}
                       </TableCell>
                     </TableRow>
                   ))}
@@ -219,28 +177,21 @@ const BlogSection: React.FC<BlogSectionProps> = ({
           <Box
             sx={{
               position: "absolute",
-              bottom: 0,
-              left: 0,
-              right: 0,
+              bottom: 0, left: 0, right: 0,
               height: "50px",
               background: "linear-gradient(transparent, #f9f9f9)",
             }}
           />
         )}
       </Box>
-
       <Button
         onClick={() => setExpanded(!expanded)}
         endIcon={expanded ? <ExpandLess /> : <ExpandMore />}
         aria-expanded={expanded}
         aria-controls="blog-content"
         sx={{
-          textTransform: "none",
-          color: "primary.main",
-          mt: 1,
-          "&:hover": {
-            backgroundColor: "transparent",
-          },
+          textTransform: "none", color: "primary.main", mt: 1,
+          "&:hover": { backgroundColor: "transparent" },
         }}
       >
         {expanded ? "Read less" : "Read more"}

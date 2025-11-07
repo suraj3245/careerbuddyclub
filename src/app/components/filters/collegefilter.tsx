@@ -13,10 +13,10 @@ import {
   useMediaQuery,
   CircularProgress,
 } from "@mui/material";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import axios from "axios";
-import { createSlug } from "@/utils/slugify";
-import { getStreamSlug } from "@/utils/customslugs"; //added custom slug
+import { toStreamPath } from "@/utils/streamPath";
+import { setFilterCategory, parseFiltersFromSearchParams } from "@/utils/filters.utils";
 
 interface Stream {
   id: number;
@@ -52,15 +52,26 @@ const CollegeFinder: React.FC = () => {
   const router = useRouter();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
-  // Only keep streams that have at least one college
-  const filteredStreams = useMemo(
-    () => streams.filter((stream) => stream.colleges && stream.colleges.length > 0),
-    [streams]
-  );
+  // canonical filter state from URL
+  const searchParams = useSearchParams();
+  const filters = useMemo(() => parseFiltersFromSearchParams(searchParams) ?? {}, [searchParams]);
+
+  // Show all streams in the selector
+  const filteredStreams = useMemo(() => streams, [streams]);
+
+  // Sync with filter URL: when Streams param is set, update local streamId
+  useEffect(() => {
+    if (filters.Streams && filters.Streams[0]) {
+      setStreamId(Number(filters.Streams[0]));
+    }
+  }, [filters.Streams]);
 
   // Set default streamId to the first valid stream (with data) when streams are loaded or changed
   useEffect(() => {
-    if (filteredStreams.length && (streamId === null || !filteredStreams.some(s => s.id === streamId))) {
+    if (
+      filteredStreams.length &&
+      (streamId === null || !filteredStreams.some((s) => s.id === streamId))
+    ) {
       setStreamId(filteredStreams[0].id);
     }
   }, [filteredStreams, streamId]);
@@ -70,6 +81,8 @@ const CollegeFinder: React.FC = () => {
     newValue: number
   ) => {
     setStreamId(newValue);
+    // Update URL and set filter officially
+    setFilterCategory(router, "Streams", [String(newValue)], filters);
   };
 
   const fetchStreams = async () => {
@@ -106,10 +119,12 @@ const CollegeFinder: React.FC = () => {
   const careers = selectedStream?.careers || [];
   const courses = selectedStream?.courses || [];
 
-  // Handlers for View All buttons
+  // View All handlers: update the filter, and optionally update the pretty URL
   const handleViewAllColleges = () => {
-    if (streamId != null)
-      router.push(`/colleges/${getStreamSlug(selectedStreamTitle, streamId)}?streamId=${streamId}`);
+    if (streamId != null) {
+      setFilterCategory(router, "Streams", [String(streamId)], filters);
+      router.push(`/colleges/${toStreamPath(selectedStreamTitle, streamId)}`);
+    }
   };
   const handleViewAllCompanies = () => {
     router.push("/company-v1");
@@ -119,40 +134,6 @@ const CollegeFinder: React.FC = () => {
   };
   const handleViewAllCourses = () => {
     router.push("/courses");
-  };
-
-  // Handler for each item button (if you want to keep navigation for individual items)
-  const handleCollegeClick = (college: College) => {
-    if (streamId != null)
-      router.push(
-        `/colleges?stream=${createSlug(selectedStreamTitle || "unspecified")}&college=${createSlug(
-          college.college_full_name
-        )}&streamId=${streamId}&collegeId=${college.id}`
-      );
-  };
-  const handleCompanyClick = (company: Company) => {
-    if (streamId != null)
-      router.push(
-        `/colleges?stream=${createSlug(selectedStreamTitle || "unspecified")}&company=${createSlug(
-          company.name
-        )}&streamId=${streamId}&companyId=${company.id}`
-      );
-  };
-  const handleCareerClick = (career: Career) => {
-    if (streamId != null)
-      router.push(
-        `/colleges?stream=${createSlug(selectedStreamTitle || "unspecified")}&career=${createSlug(
-          career.title
-        )}&streamId=${streamId}&careerId=${career.id}`
-      );
-  };
-  const handleCourseClick = (course: Course) => {
-    if (streamId != null)
-      router.push(
-        `/colleges?stream=${createSlug(selectedStreamTitle || "unspecified")}&course=${createSlug(
-          course.name
-        )}&streamId=${streamId}&courseId=${course.id}`
-      );
   };
 
   return (
@@ -273,7 +254,6 @@ const CollegeFinder: React.FC = () => {
                           fontSize: ".7rem",
                           whiteSpace: "nowrap",
                         }}
-                        onClick={() => handleCollegeClick(college)}
                       >
                         {college.college_full_name}
                       </Button>
@@ -282,7 +262,6 @@ const CollegeFinder: React.FC = () => {
                 </CardContent>
               </Card>
             </Grid>
-
             {/* Middle Column with 2 Rows */}
             <Grid
               item
@@ -348,7 +327,6 @@ const CollegeFinder: React.FC = () => {
                             fontSize: ".7rem",
                             whiteSpace: "nowrap",
                           }}
-                          onClick={() => handleCompanyClick(company)}
                         >
                           {company.name}
                         </Button>
@@ -412,7 +390,6 @@ const CollegeFinder: React.FC = () => {
                             fontSize: ".7rem",
                             whiteSpace: "nowrap",
                           }}
-                          onClick={() => handleCareerClick(career)}
                         >
                           {career.title}
                         </Button>
@@ -463,7 +440,7 @@ const CollegeFinder: React.FC = () => {
                   >
                     {courses?.map((course, index) => (
                       <Button
-                        key={index} 
+                        key={index}
                         variant="outlined"
                         sx={{
                           flex: "1 0 auto",
@@ -471,7 +448,6 @@ const CollegeFinder: React.FC = () => {
                           fontSize: ".7rem",
                           whiteSpace: "nowrap",
                         }}
-                        onClick={() => handleCourseClick(course)}
                       >
                         {course.name}
                       </Button>
