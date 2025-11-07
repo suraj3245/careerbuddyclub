@@ -1,5 +1,5 @@
 "use client";
-import { useState, useMemo, useCallback } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
   Box,
   Typography,
@@ -15,214 +15,191 @@ import {
 } from "@mui/material";
 import {
   Search,
-  Close,
-  FilterList,
   ExpandMore,
   ExpandLess,
+  Close,
+  FilterList,
 } from "@mui/icons-material";
-import { FiltersObject } from "@/utils/filters.utils";
 
+interface FilterOption {
+  name: string;
+  count: number;
+  id?: number | string;
+}
 interface Stream {
   id: number;
   title: string;
-  colleges: any[];
-  // courses: any[];
+  colleges: College[];
+  courses: Course[];
 }
-interface Props {
+interface Course {
+  id: number;
+  name: string;
+}
+interface College {
+  id: number;
+  city: string;
+  type: string;
+  approved_by: string;
+}
+interface FilterProps {
   streams: Stream[];
-  allColleges: any[];
-  filters?: FiltersObject;
-  onChangeCategory?: (cat: string, vals: string[]) => void;
-  onRemoveFilterChip?: (cat: string, val: string) => void;
-  onClearAll?: () => void;
+  allColleges: College[];
+  selectedStreamId: string | null;
+  collegeId: string | null;
+  courseId: string | null;
+  selectedFilters: string[];
+  setSelectedFilters: React.Dispatch<React.SetStateAction<string[]>>;
+  onStreamFilterChange?: (id: string | number | null) => void;
 }
+
 export default function FilterPanel({
   streams,
   allColleges,
-  filters = {},
-  onChangeCategory = () => {},
-  onRemoveFilterChip = () => {},
-  onClearAll = () => {},
-}: Props) {
-  const isLargeScreen = useMediaQuery((theme: Theme) => theme.breakpoints.up("lg"));
-  const [openCategories, setOpenCategories] = useState<Set<string>>(new Set(["Streams"]));
-  const [categorySearch, setCategorySearch] = useState<Record<string, string>>({});
+  selectedStreamId,
+  collegeId,
+  courseId,
+  selectedFilters,
+  setSelectedFilters,
+  onStreamFilterChange,
+}: FilterProps) {
+  const isLargeScreen = useMediaQuery((theme: Theme) =>
+    theme.breakpoints.up("lg")
+  );
+  const [openCategories, setOpenCategories] = useState<Set<string>>(
+    new Set(["Streams"])
+  );
+  const [searchQuery, setSearchQuery] = useState("");
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
-  // Memoized filter options (very fast)
-  const filterOptions = useMemo(() => {
-    const result: Record<string, any[]> = {};
-    result.Streams = streams.map((s) => ({
-      name: s.title,
-      count: Array.isArray(s.colleges) ? s.colleges.length : 0,
-      id: String(s.id),
-    }));
+  const isStreamSelected = !!selectedStreamId;
 
+  // Derive dynamic filter buckets: Streams hidden & related filter values shown if stream selected
+  const filters = useMemo(() => {
+    const result: Record<string, FilterOption[]> = {};
+
+    // 1️⃣ Streams - Only show if not selected
+    if (!isStreamSelected) {
+      result.Streams = streams.map((s) => ({
+        name: s.title,
+        count: s.colleges.length,
+        id: s.id,
+      }));
+    }
+
+    // 2️⃣ Location   ← from allColleges (always show all locations)
     const locMap = new Map<string, number>();
-    (allColleges ?? []).forEach((c: any) => {
-      if (!locMap.has(c.city)) locMap.set(c.city, 0);
-      locMap.set(c.city, locMap.get(c.city)! + 1);
+    allColleges.forEach((c) => {
+      locMap.set(c.city, (locMap.get(c.city) || 0) + 1);
     });
     result.Location = Array.from(locMap, ([name, count]) => ({ name, count }));
 
+    // 3️⃣ Type
     const typeMap = new Map<string, number>();
-    (allColleges ?? []).forEach((c: any) => {
-      if (!typeMap.has(c.type)) typeMap.set(c.type, 0);
-      typeMap.set(c.type, typeMap.get(c.type)! + 1);
+    allColleges.forEach((c) => {
+      typeMap.set(c.type, (typeMap.get(c.type) || 0) + 1);
     });
     result.Type = Array.from(typeMap, ([name, count]) => ({ name, count }));
 
+    // 4️⃣ ApprovedBy
     const appMap = new Map<string, number>();
-    (allColleges ?? []).forEach((c: any) => {
-      if (!appMap.has(c.approved_by)) appMap.set(c.approved_by, 0);
-      appMap.set(c.approved_by, appMap.get(c.approved_by)! + 1);
+    allColleges.forEach((c) => {
+      appMap.set(c.approved_by, (appMap.get(c.approved_by) || 0) + 1);
     });
     result.ApprovedBy = Array.from(appMap, ([name, count]) => ({ name, count }));
 
-    // let courses: any[] = [];
-    // if ((filters.Streams ?? []).length) {
-    //   const ids = new Set(filters.Streams ?? []);
-    //   (streams ?? []).forEach((s: any) => {
-    //     if (ids.has(String(s.id))) courses = s.courses ?? [];
-    //   });
-    // } else {
-    //   const courseMap = new Map<string, any>();
-    //   (streams ?? []).forEach((s: any) => (s.courses ?? []).forEach((c: any) => courseMap.set(String(c.id), c)));
-    //   courses = Array.from(courseMap.values());
-    // }
-    // result.Courses = (courses ?? []).map((c: any) => ({
-    //   id: String(c.id), name: c.name, count: 1,
-    // }));
+    // 5️⃣ Courses only (no companies/careers)
+    let courses: Course[] = [];
+    if (isStreamSelected) {
+      const stream = streams.find((s) => s.id.toString() === selectedStreamId);
+      if (stream) {
+        courses = stream.courses;
+      }
+    } else {
+      // Unique courses from all streams
+      const courseMap = new Map<number, Course>();
+      streams.forEach((s) => {
+        s.courses.forEach((c) => courseMap.set(c.id, c));
+      });
+      courses = Array.from(courseMap.values());
+    }
+
+    result.Courses = courses.map((c) => ({
+      id: c.id,
+      name: c.name,
+      count: 1,
+    }));
 
     return result;
-  }, [streams, allColleges, filters.Streams]);
+  }, [streams, allColleges, selectedStreamId, isStreamSelected]);
 
-  const getChipLabel = useCallback((cat: string, val: string) => {
-    if (cat === "Streams") {
-      const stream = streams.find(s => String(s.id) === val);
-      return stream ? stream.title : val;
+  // Select stream filter from prop on mount/URL change
+  useEffect(() => {
+    if (selectedStreamId && streams.length) {
+      const s = streams.find((s) => s.id.toString() === selectedStreamId);
+      if (s) setSelectedFilters([`Streams|${s.id}|${s.title}`]);
+      setOpenCategories((prev) => new Set(prev).add("Streams"));
     }
-    return val;
-  }, [streams]);
+    // If no selectedStreamId, clear Streams filter
+    if (!selectedStreamId) {
+      setSelectedFilters((prev) =>
+        prev.filter((f) => !f.startsWith("Streams|"))
+      );
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedStreamId, streams]);
 
-  const filterChips: { cat: string, val: string }[] = useMemo(() =>
-    Object.entries(filters).flatMap(([cat, vals]) =>
-      (vals ?? []).map(val => ({ cat, val }))
-    ), [filters]
-  );
+  useEffect(() => {
+    if (courseId && streams.length) {
+      streams.forEach((stream) =>
+        stream.courses
+          .filter((cu) => String(cu.id) === courseId)
+          .forEach((cu) =>
+            setSelectedFilters((prev) => [
+              ...new Set([...prev, `Courses|${cu.id}|${cu.name}`]),
+            ])
+          )
+      );
+      setOpenCategories((prev) => new Set(prev).add("Courses"));
+    }
+  }, [courseId, streams]);
 
-  const handleCategoryClick = useCallback((category: string) => {
-    setOpenCategories(prev => {
-      const next = new Set(prev);
-      if (next.has(category)) next.delete(category); else next.add(category);
-      return next;
-    });
-  }, []);
+  const handleCategoryClick = (category: string) => {
+    const next = new Set(openCategories);
+    next.has(category) ? next.delete(category) : next.add(category);
+    setOpenCategories(next);
+  };
 
-  const handleCheckbox = useCallback((category: string, filterValue: string) => {
-    const current = filters[category] ?? [];
-    let newSelection: string[];
-    if (category === "Streams" || category === "Location") {
-      newSelection = current.includes(filterValue) ? [] : [filterValue];
+  const handleFilterSelect = (category: string, option: FilterOption) => {
+    const key =
+      option.id != null
+        ? `${category}|${option.id}|${option.name}`
+        : `${category}||${option.name}`;
+    if (category === "Streams" && typeof option.id !== "undefined") {
+      // If user checks a stream, call parent's stream handler
+      if (selectedFilters.includes(key)) {
+        setSelectedFilters([]);
+        if (onStreamFilterChange) onStreamFilterChange(null); // cleared
+      } else {
+        setSelectedFilters([key]);
+        if (onStreamFilterChange) onStreamFilterChange(option.id);
+      }
     } else {
-      newSelection = current.includes(filterValue)
-        ? current.filter((v: string) => v !== filterValue)
-        : [...current, filterValue];
+      setSelectedFilters((prev) =>
+        prev.includes(key) ? prev.filter((f) => f !== key) : [...prev, key]
+      );
     }
-    onChangeCategory(category, newSelection);
-  }, [filters, onChangeCategory]);
+  };
 
-  function FilterContent() {
-    return (
-      <>
-        <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mb: 2 }}>
-          <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>All Filters</Typography>
-          <Button onClick={onClearAll} sx={{ textTransform: "none" }}>Clear All</Button>
-        </Box>
-        <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1, mb: 3 }}>
-          {(filterChips ?? []).map((chip) => (
-            <Chip
-              key={chip.cat + "-" + chip.val}
-              label={getChipLabel(chip.cat, chip.val)}
-              onDelete={() => onRemoveFilterChip(chip.cat, chip.val)}
-              deleteIcon={<Close />}
-            />
-          ))}
-        </Box>
-        {Object.entries(filterOptions).map(([category, options]) => {
-          const q = categorySearch[category] || "";
-          const filteredOpts = q
-            ? (options ?? []).filter((opt: any) => String(opt.name).toLowerCase().includes(q.toLowerCase()))
-            : (options ?? []);
-          const isOpen = openCategories.has(category);
-
-          return (
-            <Box key={category} sx={{ mb: 2, border: '1px solid #E0E0E0', borderRadius: 2, p: 1.5, bgcolor: '#fff' }}>
-              <Box
-                onClick={() => handleCategoryClick(category)}
-                sx={{
-                  display: "flex", justifyContent: "space-between", alignItems: "center", cursor: "pointer", py: 0.5,
-                }}
-              >
-                <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>{category}</Typography>
-                {isOpen ? <ExpandLess /> : <ExpandMore />}
-              </Box>
-              {isOpen && (
-                <Box sx={{ mt: 1 }}>
-                  <TextField
-                    fullWidth
-                    size="small"
-                    placeholder="Search"
-                    value={q}
-                    onChange={e => setCategorySearch({ ...categorySearch, [category]: e.target.value })}
-                    sx={{ bgcolor: "#F5F5F5", borderRadius: "8px", mb: 1 }}
-                    InputProps={{
-                      startAdornment: (
-                        <InputAdornment position="start">
-                          <Search />
-                        </InputAdornment>
-                      ),
-                    }}
-                  />
-                  {(filteredOpts ?? []).length === 0 ? (
-                    <Typography variant="body2" color="text.secondary">
-                      No {category.toLowerCase()} found.
-                    </Typography>
-                  ) : (
-                    <Box sx={{ maxHeight: 220, overflowY: 'auto', pr: 0.5 }}>
-                      {(filteredOpts ?? []).map((opt: any) => {
-                        const key = category === "Streams" ? String(opt.id) : opt.name;
-                        const isChecked = !!(filters[category] ?? []).includes(key);
-                        return (
-                          <Box
-                            key={key}
-                            sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", py: 0.5, cursor: 'pointer' }}
-                            onClick={() => handleCheckbox(category, key)}
-                          >
-                            <Box sx={{ display: "flex", alignItems: "center" }}>
-                              <Checkbox
-                                checked={isChecked}
-                                onChange={() => handleCheckbox(category, key)}
-                                onClick={e => e.stopPropagation()}
-                              />
-                              <Typography variant="body2">{opt.name}</Typography>
-                            </Box>
-                            <Typography variant="body2" color="text.secondary">
-                              ({opt.count})
-                            </Typography>
-                          </Box>
-                        );
-                      })}
-                    </Box>
-                  )}
-                </Box>
-              )}
-            </Box>
-          );
-        })}
-      </>
-    );
-  }
+  const handleClearAll = () => {
+    setSelectedFilters([]);
+    if (onStreamFilterChange) onStreamFilterChange(null);
+  };
+  const handleRemoveFilter = (filter: string) => {
+    setSelectedFilters((prev) => prev.filter((f) => f !== filter));
+    if (filter.startsWith("Streams|") && onStreamFilterChange)
+      onStreamFilterChange(null);
+  };
 
   return (
     <>
@@ -236,14 +213,186 @@ export default function FilterPanel({
         open={isDrawerOpen}
         onClose={() => setIsDrawerOpen(false)}
       >
-        <Box sx={{ width: 340, p: 2 }}>
-          <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mb: 2 }}>
-            <IconButton onClick={() => setIsDrawerOpen(false)}><Close /></IconButton>
+        <Box sx={{ width: 320, p: 2 }}>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              mb: 2,
+            }}
+          >
+            <IconButton onClick={() => setIsDrawerOpen(false)}>
+              <Close />
+            </IconButton>
           </Box>
-          <FilterContent />
+          <FilterContent
+            filters={filters}
+            selectedFilters={selectedFilters}
+            openCategories={openCategories}
+            handleCategoryClick={handleCategoryClick}
+            handleFilterSelect={handleFilterSelect}
+            handleClearAll={handleClearAll}
+            handleRemoveFilter={handleRemoveFilter}
+            searchQuery={searchQuery}
+            setSearchQuery={setSearchQuery}
+          />
         </Box>
       </Drawer>
-      {isLargeScreen && <Box sx={{ width: "100%", maxWidth: 340, p: 2 }}><FilterContent /></Box>}
+      {isLargeScreen && (
+        <Box sx={{ width: "100%", maxWidth: 320, p: 2 }}>
+          <FilterContent
+            filters={filters}
+            selectedFilters={selectedFilters}
+            openCategories={openCategories}
+            handleCategoryClick={handleCategoryClick}
+            handleFilterSelect={handleFilterSelect}
+            handleClearAll={handleClearAll}
+            handleRemoveFilter={handleRemoveFilter}
+            searchQuery={searchQuery}
+            setSearchQuery={setSearchQuery}
+          />
+        </Box>
+      )}
+    </>
+  );
+}
+
+interface FilterContentProps {
+  filters: Record<string, FilterOption[]>;
+  selectedFilters: string[];
+  openCategories: Set<string>;
+  handleCategoryClick: (c: string) => void;
+  handleFilterSelect: (category: string, option: FilterOption) => void;
+  handleClearAll: () => void;
+  handleRemoveFilter: (filter: string) => void;
+  searchQuery: string;
+  setSearchQuery: (q: string) => void;
+}
+
+function FilterContent({
+  filters,
+  selectedFilters,
+  openCategories,
+  handleCategoryClick,
+  handleFilterSelect,
+  handleClearAll,
+  handleRemoveFilter,
+  searchQuery,
+  setSearchQuery,
+}: FilterContentProps) {
+  const isSearchActive = searchQuery.trim().length > 0;
+  return (
+    <>
+      <Box sx={{ mb: 2 }}>
+        <TextField
+          fullWidth
+          size="small"
+          placeholder="Search all filters"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          sx={{ bgcolor: "#F5F5F5", borderRadius: "8px" }}
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <Search />
+              </InputAdornment>
+            ),
+          }}
+        />
+      </Box>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          mb: 2,
+        }}
+      >
+        <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>
+          All Filters
+        </Typography>
+        <Button onClick={handleClearAll} sx={{ textTransform: "none" }}>
+          Clear All
+        </Button>
+      </Box>
+      <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1, mb: 3 }}>
+        {selectedFilters.map((f) => (
+          <Chip
+            key={f}
+            label={f.split("|")[2] || f}
+            onDelete={() => handleRemoveFilter(f)}
+            deleteIcon={<Close />}
+          />
+        ))}
+      </Box>
+
+      {Object.entries(filters).map(([category, options]) => {
+        const filtered = searchQuery
+          ? options.filter((opt) =>
+              opt.name.toLowerCase().includes(searchQuery.toLowerCase())
+            )
+          : options;
+        const isOpen = isSearchActive || openCategories.has(category);
+
+        return (
+          <Box key={category} sx={{ mb: 2 }}>
+            <Box
+              onClick={() => handleCategoryClick(category)}
+              sx={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                cursor: "pointer",
+                py: 1,
+              }}
+            >
+              <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>
+                {category}
+              </Typography>
+              {isOpen ? <ExpandLess /> : <ExpandMore />}
+            </Box>
+            {isOpen && (
+              <Box sx={{ mt: 1 }}>
+                {filtered.length === 0 ? (
+                  <Typography variant="body2" color="text.secondary">
+                    No {category.toLowerCase()} found.
+                  </Typography>
+                ) : (
+                  filtered.map((opt) => {
+                    const key =
+                      opt.id != null
+                        ? `${category}|${opt.id}|${opt.name}`
+                        : `${category}||${opt.name}`;
+                    return (
+                      <Box
+                        key={opt.name}
+                        sx={{
+                          display: "flex",
+                          justifyContent: "space-between",
+                          alignItems: "center",
+                          py: 0.5,
+                        }}
+                      >
+                        <Box sx={{ display: "flex", alignItems: "center" }}>
+                          <Checkbox
+                            checked={selectedFilters.includes(key)}
+                            onChange={() => handleFilterSelect(category, opt)}
+                          />
+                          <Typography variant="body2">{opt.name}</Typography>
+                        </Box>
+                        <Typography variant="body2" color="text.secondary">
+                          ({opt.count})
+                        </Typography>
+                      </Box>
+                    );
+                  })
+                )}
+              </Box>
+            )}
+          </Box>
+        );
+      })}
     </>
   );
 }
