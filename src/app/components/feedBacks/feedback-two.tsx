@@ -10,6 +10,9 @@ const FeedbackTwo = () => {
     <>
       <style>
         {`
+        /* Default featured card offset */
+        .feedback-card.featured { margin-right: 5rem; }
+
         /* Tablets (below 1024px) */
         @media (max-width: 1024px) {
           section.feedback-two {
@@ -25,10 +28,13 @@ const FeedbackTwo = () => {
             flex: 1 0 100%;
             top: 0;
             gap: 1.2rem;
+            align-items: stretch;
           }
           .feedback-card {
             padding: 1rem 1.2rem;
+            width: 100% !important;
           }
+          .feedback-card.featured { margin-right: 2rem !important; }
           .feedback-card p {
             font-size: 0.85rem !important;
           }
@@ -49,7 +55,7 @@ const FeedbackTwo = () => {
             padding: 3rem 5%;
           }
           .feedback-left h2 {
-            font-size: 2rem !important;
+            font-size: 2.6rem !important;
           }
           .feedback-left p {
             font-size: 1.8rem !important;
@@ -63,6 +69,7 @@ const FeedbackTwo = () => {
             padding: 0.9rem 1rem !important;
             gap: 0.8rem;
           }
+          .feedback-card.featured { margin-right: 0 !important; }
           .feedback-card img {
             width: 55px !important;
             height: 55px !important;
@@ -83,7 +90,7 @@ const FeedbackTwo = () => {
             padding: 2.5rem 5%;
           }
           .feedback-left h2 {
-            font-size: 2rem !important;
+            font-size: 2.6rem !important;
             line-height: 1.2 !important;
           }
           .feedback-left p {
@@ -136,24 +143,37 @@ const FeedbackTwo = () => {
               fontSize: "3rem",
               fontWeight: 600,
               color: "#000",
-              lineHeight: 1.3,
-              marginBottom: "1.2rem",
+              lineHeight: 1.2,
+              marginBottom: "0.4rem",
             }}
           >
-            Success Stories made by <br /> Career Buddy
+            Success Stories made by
           </h2>
-          <p
+          <h2
             style={{
               fontSize: "3rem",
-              color: "#14adbd",
               fontWeight: 700,
+              color: "#14adbd",
+              lineHeight: 1.2,
+              marginBottom: "2rem",
+            }}
+          >
+            Career Buddy
+          </h2>
+          <h2
+            style={{
+              fontSize: "3rem",
+              fontWeight: 600,
+              color: "#14adbd",
+              marginBottom: "2rem",
             }}
           >
             JOIN US
-          </p>
+          </h2>
           <h5
             style={{
               color: "#6b7280",
+              marginTop: "2rem",
             }}
           >
             You might be Next.
@@ -167,9 +187,10 @@ const FeedbackTwo = () => {
             flex: "0 0 55%",
             display: "flex",
             flexDirection: "column",
-            gap: "1.5rem",
+            gap: "1.25rem",
             position: "relative",
             top: "1rem",
+            alignItems: "flex-end",
           }}
         >
           {/* Card 1 */}
@@ -180,12 +201,13 @@ const FeedbackTwo = () => {
               alignItems: "center",
               background: "#fff",
               borderRadius: "5px",
-              boxShadow: "0 2px 8px rgba(0,0,0,0.05)",
-              padding: "1rem 1.5rem",
-              border: "1px solid grey",
-              borderLeft: "6px solid #4d4d4eff",
-              transform: "translateY(0px) scale(0.96)",
-              opacity: 0.9,
+              boxShadow: "0 6px 20px rgba(0,0,0,0.05)",
+              padding: "1rem 2.75rem 1rem 1.5rem",
+              border: "1px solid #EAEFF5",
+              borderLeft: "6px solid #c1c3c6ff",
+              position: "relative",
+              width: "520px",
+              maxWidth: "100%",
             }}
           >
             <Image
@@ -217,11 +239,17 @@ const FeedbackTwo = () => {
             </div>
             <span
               style={{
-                marginLeft: "auto",
-                color: "#9ca3af",
-                fontSize: "3.8rem",
+                position: "absolute",
+                right: "15px",
+                top: "1%",
+                transform: "scaleY(-1)",
+                color: "#6b7280",
+                fontSize: "5rem",
                 fontFamily: "serif",
-                opacity: 0.7,
+                lineHeight: 1,
+                opacity: 0.2,
+                pointerEvents: "none",
+                display: "inline-block",
               }}
             >
               ”
@@ -230,23 +258,22 @@ const FeedbackTwo = () => {
 
           {/* Card 2 */}
           <div
-            className="feedback-card"
+            className="feedback-card featured"
             style={{
               display: "flex",
               alignItems: "center",
               background: "#fff",
               borderRadius: "5px",
-              boxShadow:
-                "0 20px 40px rgba(99,102,241,0.35), 0 0 15px rgba(236,72,153,0.15)",
-              padding: "1.4rem 1.6rem",
-              borderLeft: "6px solid #facc15",
+              boxShadow: "0 16px 36px rgba(108,99,255,0.25)",
+              padding: "1.4rem 3rem 1.4rem 1.6rem",
+              borderLeft: "6px solid #0e0791ff",
               zIndex: 10,
-              marginRight: "3rem",
-              transform: "scale(1.04)",
               transition:
                 "transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease",
-              filter: "brightness(1.05)",
-              cursor: "pointer",
+              filter: "brightness(1.02)",
+              position: "relative",
+              width: "520px",
+              maxWidth: "100%",
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.transform = "scale(1.07)";
@@ -289,10 +316,16 @@ const FeedbackTwo = () => {
             </div>
             <span
               style={{
-                marginLeft: "auto",
-                color: "#facc15",
-                fontSize: "3.8rem",
+                position: "absolute",
+                right: "30px",
+                top: "1%",
+                transform: "scaleY(-1)",
+                color: "#0e0791ff",
+                fontSize: "5rem",
                 fontFamily: "serif",
+                lineHeight: 1,
+                pointerEvents: "none",
+                display: "inline-block",
               }}
             >
               ”
@@ -307,12 +340,13 @@ const FeedbackTwo = () => {
               alignItems: "center",
               background: "#fff",
               borderRadius: "5px",
-              boxShadow: "0 2px 8px rgba(0,0,0,0.05)",
-              padding: "1rem 1.5rem",
-              border: "1px solid grey",
-              borderLeft: "6px solid #4d4d4eff",
-              transform: "translateY(-5px) scale(0.96)",
-              opacity: 0.9,
+              boxShadow: "0 6px 20px rgba(0,0,0,0.05)",
+              padding: "1rem 2.75rem 1rem 1.5rem",
+              border: "1px solid #EAEFF5",
+              borderLeft: "6px solid #c1c3c6ff",
+              position: "relative",
+              width: "520px",
+              maxWidth: "100%",
             }}
           >
             <Image
@@ -344,11 +378,17 @@ const FeedbackTwo = () => {
             </div>
             <span
               style={{
-                marginLeft: "auto",
-                color: "#9ca3af",
-                fontSize: "3.8rem",
+                 position: "absolute",
+                right: "30px",
+                top: "1%",
+                transform: "scaleY(-1)",
+                color: "#6b7280",
+                fontSize: "5rem",
                 fontFamily: "serif",
-                opacity: 0.7,
+                lineHeight: 1,
+                opacity: 0.2,
+                pointerEvents: "none",
+                display: "inline-block",
               }}
             >
               ”

@@ -61,6 +61,8 @@ const HeroBanner = () => {
               src={main_img}
               alt="main-img"
               className="lazy-img main-img w-100 h-100"
+              priority
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
             />
           </div>
         </div>

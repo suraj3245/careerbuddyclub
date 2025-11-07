@@ -196,7 +196,7 @@ const Careerlist: React.FC = () => {
                 <div
                   className="col-md-6"
                   key={career.id || index}
-                  ref={(el) => (cardsRef.current[index] = el)}
+                  ref={(el) => { cardsRef.current[index] = el; }}
                   data-index={index}
                 >
                   <div

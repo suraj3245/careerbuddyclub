@@ -461,6 +461,7 @@ const ApplyForm: React.FC<ApplyFormProps> = ({ onSuccess }) => {
               {...register("level", { required: `Level is required!` })}
               name="level"
               className="form-select mt-2"
+              defaultValue=""
               style={{
                 backgroundColor: "white",
                 padding: "8px 12px",
@@ -471,7 +472,7 @@ const ApplyForm: React.FC<ApplyFormProps> = ({ onSuccess }) => {
                 borderRadius: "4px",
               }}
             >
-              <option value=""disabled selected hidden>Level</option>
+              <option value="" disabled hidden>Level</option>
               {levelOptions.map((option) => (
                 <option key={option.value} value={option.value}>
                   {option.label}
@@ -490,6 +491,7 @@ const ApplyForm: React.FC<ApplyFormProps> = ({ onSuccess }) => {
               {...register("stream", { required: `Stream is required!` })}
               name="stream"
               className="form-select mt-2"
+              defaultValue=""
               style={{
                 backgroundColor: "white",
                 padding: "8px 12px",
@@ -500,7 +502,7 @@ const ApplyForm: React.FC<ApplyFormProps> = ({ onSuccess }) => {
                 borderRadius: "4px",
               }}
             >
-              <option value=""disabled selected hidden>Stream</option>
+              <option value="" disabled hidden>Stream</option>
               {streamOptions.map((option) => (
                 <option key={option.value} value={option.value}>
                   {option.label}
