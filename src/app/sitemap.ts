@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next'
 import fs from 'fs'
 import path from 'path'
 import axios from 'axios'
-import { getStreamSlug } from '@/utils/customslugs'
+// Removed slug utilities usage
 
 function getAllStaticPagePaths(dir: string, baseUrl = '', pages: string[] = []): string[] {
   let entries: fs.Dirent[]
@@ -97,7 +97,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }
 
   const streamUrls = streams.map(stream => ({
-    url: `${baseUrl}/colleges/${getStreamSlug(stream.title, stream.id)}`,
+    url: `${baseUrl}/colleges/${(stream.title || '').toLowerCase().trim().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'')}`,
     lastModified,
     changeFrequency: 'weekly' as ChangeFreq,
     priority: 0.8,
