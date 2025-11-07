@@ -12,6 +12,7 @@ const CompanyV1Area = ({ style_2 = false }: { style_2?: boolean }) => {
   const [error, setError] = useState<string | null>(null);
   const [isPending, startTransition] = useTransition();
 
+  // ✅ Fetch companies from backend
   useEffect(() => {
     const controller = new AbortController();
     const fetchCompanies = async () => {
@@ -22,7 +23,8 @@ const CompanyV1Area = ({ style_2 = false }: { style_2?: boolean }) => {
           signal: controller.signal,
         });
         const data = await res.json();
-        const list = Array.isArray(data?.data) ? data.data : [];
+        console.log("Fetched companies:", data);
+        const list = Array.isArray(data) ? data : data?.data || [];
         setCompanies(list);
         setFilteredCompanies(list);
       } catch (err: any) {
@@ -37,6 +39,7 @@ const CompanyV1Area = ({ style_2 = false }: { style_2?: boolean }) => {
     return () => controller.abort();
   }, []);
 
+  // ✅ Filter change handler
   const handleFilterChange = (type: string) => {
     setSelectedJobType(type);
     startTransition(() => {
@@ -49,6 +52,9 @@ const CompanyV1Area = ({ style_2 = false }: { style_2?: boolean }) => {
       }
     });
   };
+
+  // ✅ Extract unique job types dynamically
+  const jobTypes = Array.from(new Set(companies.map((c) => c.job_types).filter(Boolean)));
 
   return (
     <section className="company-section py-5 bg-light">
@@ -66,7 +72,7 @@ const CompanyV1Area = ({ style_2 = false }: { style_2?: boolean }) => {
               </h5>
 
               <div className="filter-options">
-                {["all", "Full-Time Jobs", "Part-Time Jobs", "Internships"].map((type) => (
+                {["all", ...jobTypes].map((type) => (
                   <button
                     key={type}
                     onClick={() => handleFilterChange(type)}
@@ -189,11 +195,6 @@ const CompanyV1Area = ({ style_2 = false }: { style_2?: boolean }) => {
                               </small>
                             </div>
                           </div>
-                          <p className="text-muted small mb-0">
-                            {item.company_index_info
-                              ? item.company_index_info.slice(0, 80) + "..."
-                              : "No details available."}
-                          </p>
                         </div>
                       </div>
                     ))}
@@ -218,11 +219,6 @@ const CompanyV1Area = ({ style_2 = false }: { style_2?: boolean }) => {
                     <small className="text-muted d-block mb-1">
                       <i className="bi bi-briefcase me-1"></i>
                       {item.job_types || "Not specified"}
-                    </small>
-                    <small className="text-muted">
-                      {item.company_index_info
-                        ? item.company_index_info.slice(0, 120) + "..."
-                        : "No company description available."}
                     </small>
                   </div>
                 ))}
