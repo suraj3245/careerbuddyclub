@@ -21,6 +21,7 @@ const AccordionItem = ({ id, title, isShow, desc, parent }: IPropType) => {
           data-bs-target={`#collapse-${id}`}
           aria-expanded={isShow ? "true" : "false"}
           aria-controls={`collapse-${id}`}
+          suppressHydrationWarning
         >
           <span style={{color:"#14adbd"}}>{title}</span>
         </button>

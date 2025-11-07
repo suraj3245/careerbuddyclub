@@ -126,8 +126,8 @@ export default function RootLayout({
     `,
           }}
         />
-        <script src="https://cdn.botpress.cloud/webchat/v2/inject.js"></script>
-        <script src="https://mediafiles.botpress.cloud/e34ea3b0-fab4-4ffb-b126-e7a6ec557ea3/webchat/v2/config.js"></script>
+        <Script src="https://cdn.botpress.cloud/webchat/v2/inject.js" strategy="afterInteractive" />
+        <Script src="https://mediafiles.botpress.cloud/e34ea3b0-fab4-4ffb-b126-e7a6ec557ea3/webchat/v2/config.js" strategy="afterInteractive" />
       </head>
       <body
         suppressHydrationWarning={true}
