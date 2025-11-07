@@ -22,4 +22,4 @@ const CollegePage = () => {
   );
 };
 
-export default CollegePage;
+export default CollegePage;

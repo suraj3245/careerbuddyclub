@@ -7,6 +7,7 @@
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
+    "types": ["node"],
     "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "node",
@@ -21,9 +22,21 @@
     ],
     "paths": {
       "@/*": ["./src/*"],
-      "@/assets/*": ["./public/assets/*"],
+      "@/assets/*": ["./public/assets/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/collegeselection", "src/app/components/gurunanakwidget.tsx", "public/scripts/gurunanakscirpt.js", "src/app/components/college-blogs/blog-sidebar", "src/app/components/college-blogs/blog-details", "src/app/components/college-blogs/description"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "src/app/collegeselection",
+    "src/app/components/gurunanakwidget.tsx",
+    "public/scripts/gurunanakscirpt.js",
+    "src/app/components/college-blogs/blog-sidebar",
+    "src/app/components/college-blogs/blog-details",
+    "src/app/components/college-blogs/description"
+  ],
   "exclude": ["node_modules"]
 }
+

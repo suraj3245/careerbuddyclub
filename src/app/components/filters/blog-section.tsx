@@ -75,8 +75,8 @@ const BlogSection: React.FC<BlogSectionProps> = ({
   const finalTitle = blogContent?.title || selectedStream.title;
   const titleWithCity =
     matchedCity && !finalTitle.toLowerCase().includes(matchedCity.toLowerCase())
-      ? `${finalTitle} in ${matchedCity}`
-      : finalTitle;
+      ? `${finalTitle} in ${matchedCity}` 
+            : finalTitle;
 
   return (
     <Paper
