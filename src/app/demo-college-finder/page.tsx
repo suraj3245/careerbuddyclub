@@ -1,5 +1,6 @@
 import React from "react";
 import Wrapper from "@/layouts/wrapper";
+import { Suspense } from "react";
 import CollegeFinder from "../components/filters/collegefilter";
 
 const CollegeFinderDemo = () => {
@@ -7,7 +8,11 @@ const CollegeFinderDemo = () => {
     <Wrapper>
       <div className="main-page-wrapper">
         <div className="container" style={{ marginTop: "200px" }}>
-          <CollegeFinder />
+          
+         <Suspense fallback={<div>Loading...</div>}>
+         <CollegeFinder />
+         </Suspense>
+          
         </div>
       </div>
     </Wrapper>

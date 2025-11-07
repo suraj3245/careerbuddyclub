@@ -12,6 +12,7 @@ import FeatureEleven from "../components/features/feature-eleven";
 import Collegedekhocomp from "../components/college-dekho/college-dekho";
 import FancyBanner16 from "../components/fancy-banner/fancy-banner-16";
 import CollegeFinder from "../components/filters/collegefilter";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "Home two",
@@ -31,10 +32,15 @@ const HomeTwo = () => {
         {/* hero banner end */}
         <HowItWorksTwo />
         <MainBanner />
+        <Suspense fallback={<div>Loading...</div>}>
         <CollegeFinder />
+        </Suspense>
 
         {/* feedback two start */}
-        <Collegedekhocomp />
+         
+         <Collegedekhocomp />
+         
+        
         <FeedbackTwo />
         
         <BlogOne />

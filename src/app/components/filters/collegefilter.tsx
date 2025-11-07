@@ -92,7 +92,7 @@ const CollegeFinder: React.FC = () => {
         method: "POST",
         url: "https://test.careerbuddyclub.com:8080/api/students/getfilterationdata",
         headers: {
-          Accept: "*/*",
+          Accept: "/",
         },
       });
       setStreams(response?.data?.streams || []);
