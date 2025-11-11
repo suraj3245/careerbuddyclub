@@ -48,7 +48,9 @@ const StudentTable: React.FC = () => {
         JSON.stringify({ School_id }),
         { headers: { "Content-Type": "application/json" } }
       );
-      setStudents(response.data);
+
+      // ✅ Only first 250 students
+      setStudents((response.data || []).slice(0, 250));
     } catch (error) {
       console.error("Error fetching students:", error);
       toast.error("Error fetching students");
@@ -124,14 +126,12 @@ const StudentTable: React.FC = () => {
       topThreeScoresAbbr: topThreeScores.map((s) => s.name.charAt(0)).join(""),
     };
   });
-
+  const totalPages = Math.ceil(filteredByClass.length / studentsPerPage);
   const currentFilteredStudents = filteredStudentsWithScores.slice(
     indexOfFirstStudent,
     indexOfLastStudent
   );
-
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
-
   const exportToExcel = async () => {
     try {
       setLoading(true);
@@ -230,10 +230,43 @@ const StudentTable: React.FC = () => {
       ) : (
         <>
           <div className="card mb-1 card_1">
-            <div className="card-body">
-              <h3 className="heading-table text-decoration-underline fw-bold text-center">
-                Insight into Student Performance:Career Aptitude Test
+            <div className="card-body text-center">
+              <h3
+                style={{
+                  fontFamily: "'Poppins', sans-serif",
+                  fontWeight: 700,
+                  fontSize: "1.6rem",
+                  textAlign: "center",
+                  color: "#1f2d3d",
+                  letterSpacing: "0.5px",
+                  position: "relative",
+                  display: "inline-block",
+                  margin: "15px auto 20px",
+                  paddingBottom: "6px",
+                }}
+              >
+                Insight into Student Performance
+                <span style={{ color: "#0d6efd" }}>
+                  {" "}
+                  : Career Aptitude Test
+                </span>
+                {/* Elegant underline accent */}
+                <span
+                  style={{
+                    content: "''",
+                    position: "absolute",
+                    left: "50%",
+                    bottom: 0,
+                    transform: "translateX(-50%)",
+                    width: "120px",
+                    height: "3px",
+                    background:
+                      "linear-gradient(90deg, #0d6efd, #6f42c1, #0dcaf0)",
+                    borderRadius: "2px",
+                  }}
+                ></span>
               </h3>
+
               <div className="row gap-3 d-flex justify-content-around align-items-center">
                 <div className="col-lg-6 d-flex align-items-center">
                   <input
@@ -256,7 +289,7 @@ const StudentTable: React.FC = () => {
                     <option value="12th">12th</option>
                   </select>
                 </div>
-                <div className="col-lg-2 text-end mt-3">
+                <div className="col-lg-2 text-end mt-2">
                   <Button
                     variant="outline-success"
                     onClick={exportToExcel}
@@ -268,7 +301,14 @@ const StudentTable: React.FC = () => {
               </div>
 
               <div className="table-responsive" style={{ overflow: "auto" }}>
-                <table className="table card-table table-vcenter text-nowrap">
+                <table
+                  className="table card-table table-vcenter text-nowrap"
+                  style={{
+                    borderCollapse: "separate",
+                    borderSpacing: "0 2px", // 👈 adds spacing between rows
+                    width: "100%",
+                  }}
+                >
                   <thead className="table-light">
                     <tr>
                       <th>No.</th>
@@ -285,125 +325,220 @@ const StudentTable: React.FC = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    {currentFilteredStudents
-                      .slice(0, 250)
-                      .map((student, index) => (
-                        <tr key={student.id}>
-                          <td>{indexOfFirstStudent + index + 1}</td>
-                          <td>{student.name}</td>
-                          <td>{student.class}</td>
-                          <td>{student.realistic_score}</td>
-                          <td>{student.investigative_score}</td>
-                          <td>{student.artistic_score}</td>
-                          <td>{student.social_score}</td>
-                          <td>{student.enterprising_score}</td>
-                          <td>{student.conventional_score}</td>
-                          <td>{student.topThreeScoresAbbr}</td>
-                          <td>
-                            <button
-                              onClick={() => handleDownload(student)}
-                              style={{
-                                backgroundColor: "#0DCAF0",
-                                color: "white",
-                                fontWeight: "bold",
-                                fontSize: "14px",
-                                width: "60px",
-                                height: "30px",
-                                textAlign: "center",
-                                border: "1px solid #0BA5D8",
-                                boxShadow: "0 6px 6px rgba(0, 0, 0, 0.2)",
-                                display: "flex",
-                                alignItems: "center",
-                                justifyContent: "center",
-                                borderRadius: "8px",
-                              }}
-                            >
-                              {loadingStudentId === student.id ? (
-                                <span
-                                  className="spinner-border spinner-border-sm m-auto"
-                                  role="status"
-                                  aria-hidden="true"
-                                  style={{ width: "1.1rem", height: "1.1rem" }}
-                                ></span>
-                              ) : (
-                                "View"
-                              )}
-                            </button>
-                          </td>
-                        </tr>
-                      ))}
+                    {currentFilteredStudents.map((student, index) => (
+                      <tr key={student.id}>
+                        <td>{indexOfFirstStudent + index + 1}</td>
+                        <td>{student.name}</td>
+                        <td>{student.class}</td>
+                        <td>{student.realistic_score}</td>
+                        <td>{student.investigative_score}</td>
+                        <td>{student.artistic_score}</td>
+                        <td>{student.social_score}</td>
+                        <td>{student.enterprising_score}</td>
+                        <td>{student.conventional_score}</td>
+                        <td>{student.topThreeScoresAbbr}</td>
+                        <td>
+                          <button
+                            onClick={() => handleDownload(student)}
+                            style={{
+                              backgroundColor: "#0DCAF0",
+                              color: "white",
+                              fontWeight: "bold",
+                              fontSize: "14px",
+                              width: "60px",
+                              height: "30px",
+                              textAlign: "center",
+                              border: "1px solid #0BA5D8",
+                              boxShadow: "0 6px 6px rgba(0, 0, 0, 0.2)",
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "center",
+                              borderRadius: "8px",
+                            }}
+                          >
+                            {loadingStudentId === student.id ? (
+                              <span
+                                className="spinner-border spinner-border-sm m-auto"
+                                role="status"
+                                aria-hidden="true"
+                                style={{ width: "1.1rem", height: "1.1rem" }}
+                              ></span>
+                            ) : (
+                              "View"
+                            )}
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
                   </tbody>
                 </table>
               </div>
-              {/* Pagination */}
-              {currentFilteredStudents.length > 0 && (
-                <nav>
-                  <ul className="pagination justify-content-center">
+
+              {/* ✅ Polished Pagination */}
+              {filteredByClass.length > studentsPerPage && (
+                <div
+                  style={{
+                    width: "100%",
+                    backgroundColor: "#f8f9fa",
+                    padding: "14px 0",
+                    borderTop: "1px solid #dee2e6",
+                    display: "flex",
+                    justifyContent: "center",
+                    flexWrap: "wrap",
+                    borderRadius: "0 0 10px 10px",
+                  }}
+                >
+                  <ul className="pagination mb-0">
+                    {/* Prev */}
                     <li
                       className={`page-item ${
                         currentPage === 1 ? "disabled" : ""
                       }`}
+                      style={{ margin: "0 4px" }}
                     >
-                      <a
-                        href="#!"
+                      <button
                         className="page-link"
                         onClick={() =>
                           currentPage > 1 && paginate(currentPage - 1)
                         }
-                      >
-                        Previous
-                      </a>
-                    </li>
-                    {Array.from({
-                      length: Math.ceil(
-                        filteredByClass.length / studentsPerPage
-                      ),
-                    }).map((_, index) => {
-                      const pageIndex = index + 1;
-                      return (
-                        <li
-                          key={pageIndex}
-                          className={`page-item ${
-                            currentPage === pageIndex ? "active" : ""
-                          }`}
-                        >
-                          <a
-                            href="#!"
-                            className="page-link"
-                            onClick={() => paginate(pageIndex)}
-                          >
-                            {pageIndex}
-                          </a>
-                        </li>
-                      );
-                    })}
-                    <li
-                      className={`page-item ${
-                        currentPage ===
-                        Math.ceil(filteredByClass.length / studentsPerPage)
-                          ? "disabled"
-                          : ""
-                      }`}
-                    >
-                      <a
-                        href="#!"
-                        className="page-link"
-                        onClick={() =>
-                          currentPage <
-                            Math.ceil(
-                              filteredByClass.length / studentsPerPage
-                            ) && paginate(currentPage + 1)
+                        style={{
+                          borderRadius: "8px",
+                          border: "1px solid #dee2e6",
+                          color: currentPage === 1 ? "#aaa" : "#0d6efd",
+                          background: "white",
+                          transition: "all 0.3s ease",
+                        }}
+                        onMouseEnter={(e) =>
+                          (e.currentTarget.style.background = "#e9f2ff")
+                        }
+                        onMouseLeave={(e) =>
+                          (e.currentTarget.style.background = "white")
                         }
                       >
-                        Next
-                      </a>
+                        ‹ Prev
+                      </button>
+                    </li>
+
+                    {/* Page Numbers */}
+                    {Array.from({ length: totalPages })
+                      .slice(
+                        Math.max(0, currentPage - 3),
+                        Math.min(totalPages, currentPage + 2)
+                      )
+                      .map((_, index) => {
+                        const startPage = Math.max(1, currentPage - 2);
+                        const pageNumber = startPage + index;
+                        return (
+                          <li
+                            key={pageNumber}
+                            className={`page-item ${
+                              currentPage === pageNumber ? "active" : ""
+                            }`}
+                            style={{ margin: "0 4px" }}
+                          >
+                            <button
+                              className="page-link"
+                              onClick={() => paginate(pageNumber)}
+                              style={{
+                                backgroundColor:
+                                  currentPage === pageNumber
+                                    ? "#0d6efd"
+                                    : "white",
+                                color:
+                                  currentPage === pageNumber
+                                    ? "white"
+                                    : "#0d6efd",
+                                border: "1px solid #dee2e6",
+                                borderRadius: "8px",
+                                transition: "all 0.3s ease",
+                              }}
+                              onMouseEnter={(e) =>
+                                (e.currentTarget.style.background =
+                                  currentPage === pageNumber
+                                    ? "#0d6efd"
+                                    : "#e9f2ff")
+                              }
+                              onMouseLeave={(e) =>
+                                (e.currentTarget.style.background =
+                                  currentPage === pageNumber
+                                    ? "#0d6efd"
+                                    : "white")
+                              }
+                            >
+                              {pageNumber}
+                            </button>
+                          </li>
+                        );
+                      })}
+
+                    {/* Ellipsis + Last Page */}
+                    {currentPage < totalPages - 3 && (
+                      <>
+                        <li
+                          className="page-item disabled"
+                          style={{ margin: "0 3px" }}
+                        >
+                          <span className="page-link">...</span>
+                        </li>
+                        <li className="page-item" style={{ margin: "0 4px" }}>
+                          <button
+                            className="page-link"
+                            onClick={() => paginate(totalPages)}
+                            style={{
+                              borderRadius: "8px",
+                              border: "1px solid #dee2e6",
+                              color: "#0d6efd",
+                              background: "white",
+                              transition: "all 0.3s ease",
+                            }}
+                            onMouseEnter={(e) =>
+                              (e.currentTarget.style.background = "#e9f2ff")
+                            }
+                            onMouseLeave={(e) =>
+                              (e.currentTarget.style.background = "white")
+                            }
+                          >
+                            {totalPages}
+                          </button>
+                        </li>
+                      </>
+                    )}
+
+                    {/* Next */}
+                    <li
+                      className={`page-item ${
+                        currentPage === totalPages ? "disabled" : ""
+                      }`}
+                      style={{ margin: "0 4px" }}
+                    >
+                      <button
+                        className="page-link"
+                        onClick={() =>
+                          currentPage < totalPages && paginate(currentPage + 1)
+                        }
+                        style={{
+                          borderRadius: "8px",
+                          border: "1px solid #dee2e6",
+                          color:
+                            currentPage === totalPages ? "#aaa" : "#0d6efd",
+                          background: "white",
+                          transition: "all 0.3s ease",
+                        }}
+                        onMouseEnter={(e) =>
+                          (e.currentTarget.style.background = "#e9f2ff")
+                        }
+                        onMouseLeave={(e) =>
+                          (e.currentTarget.style.background = "white")
+                        }
+                      >
+                        Next ›
+                      </button>
                     </li>
                   </ul>
-                </nav>
+                </div>
               )}
             </div>
           </div>
-
           {/* Modal */}
           <Modal
             show={showModal}
