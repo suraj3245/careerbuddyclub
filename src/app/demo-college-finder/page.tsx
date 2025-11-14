@@ -8,11 +8,9 @@ const CollegeFinderDemo = () => {
     <Wrapper>
       <div className="main-page-wrapper">
         <div className="container" style={{ marginTop: "200px" }}>
-          
-         <Suspense fallback={<div>Loading...</div>}>
-         <CollegeFinder />
-         </Suspense>
-          
+          <Suspense fallback={<div>Loading...</div>}>
+            <CollegeFinder />
+          </Suspense>
         </div>
       </div>
     </Wrapper>

@@ -4,6 +4,7 @@ import NursingDescription from "@/app/components/college-blogs/description/nursi
 import bptDescription from "@/app/components/college-blogs/description/bpt";
 import UttarakhandParamedicalAdmission from "@/app/components/college-blogs/description/paramedical";
 import BScNursingUttarakhandAdmission2026 from "@/app/components/college-blogs/description/bsc-nursing-uttarakhand-2026";
+import MhaDescription from "@/app/components/college-blogs/description/MhaDescription";
 
 const blog_data1 = [
   {
@@ -121,6 +122,37 @@ const blog_data1 = [
     descComponent: BScNursingUttarakhandAdmission2026,
   },
   
+  // MHA Colleges in Dehradun  
+
+   {
+    id: "best-mha-colleges-in-dehradun-uttarakhand-2026",
+    img_full: "/assets/images/blog/MHA_800.jpg",
+    img: "/assets/images/blog/MHA_352.jpg",
+    grid_img: "/assets/images/blog/MHA_800.jpg",
+    title: "Best MHA Colleges in Dehradun 2026 | Top Hospital Administration Colleges in Uttarakhand",
+    desc: "Discover why Dehradun is emerging as a leading destination for Master of Hospital Administration (MHA) education in Uttarakhand. This guide highlights the top government and private MHA colleges, covering course details, eligibility, fees, placements, and career opportunities in the rapidly growing healthcare management field.",
+    author: "Career Buddy Club",
+    date: "14 November, 2025",
+    blog: "Best MHA Colleges in Dehradun and Nearby Uttarakhand (2026)",
+    tags: [
+      "MHA colleges in Dehradun",
+      "Best MHA colleges in Uttarakhand",
+      "Hospital Administration colleges in Dehradun",
+      "Master of Hospital Administration in Dehradun",
+      "Top MHA universities in Uttarakhand",
+      "MHA course fees in Dehradun",
+      "Eligibility for BSc Nursing in Uttarakhand",
+      "Government MHA colleges in Uttarakhand",
+      "Private MHA colleges in Dehradun",
+      "MHA admission 2026 Dehradun",
+    ],
+    metaDescription: "Explore the best MHA colleges in Dehradun and Uttarakhand for 2026. Compare fees, eligibility, placements, and courses at top government and private universities.",
+    excerpt: "Your quick guide to the top MHA colleges in Dehradun and Uttarakhand: check eligibility, fees, placements, course details, and admission process for 2026.",
+    descComponent: MhaDescription,
+  },
+
+
+
 
 
 ];

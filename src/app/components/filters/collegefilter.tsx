@@ -18,6 +18,7 @@ import axios from "axios";
 import { toStreamPath } from "@/utils/streamPath";
 import { setFilterCategory, parseFiltersFromSearchParams } from "@/utils/filters.utils";
 
+
 interface Stream {
   id: number;
   title: string;
@@ -45,8 +46,8 @@ interface Course {
 }
 
 const CollegeFinder: React.FC = () => {
-  const [streamId, setStreamId] = useState<number | null>(null);
-  const [streams, setStreams] = useState<Stream[]>([]);
+  const [activeStreamId, setActiveStreamId] = useState<number | null>(null);
+  const [allStreamsData, setAllStreamsData] = useState<Stream[]>([]);
   const [loading, setLoading] = useState(true);
   const theme = useTheme();
   const router = useRouter();
@@ -56,74 +57,55 @@ const CollegeFinder: React.FC = () => {
   const searchParams = useSearchParams();
   const filters = useMemo(() => parseFiltersFromSearchParams(searchParams) ?? {}, [searchParams]);
 
-  // Show all streams in the selector
-  const filteredStreams = useMemo(() => streams, [streams]);
-
   // Sync with filter URL: when Streams param is set, update local streamId
   useEffect(() => {
     if (filters.Streams && filters.Streams[0]) {
-      setStreamId(Number(filters.Streams[0]));
+      const id = Number(filters.Streams[0]);
+      if (id !== activeStreamId) {
+        setActiveStreamId(id);
+      }
     }
-  }, [filters.Streams]);
+  }, [filters.Streams, activeStreamId]);
 
   // Set default streamId to the first valid stream (with data) when streams are loaded or changed
   useEffect(() => {
-    if (
-      filteredStreams.length &&
-      (streamId === null || !filteredStreams.some((s) => s.id === streamId))
-    ) {
-      setStreamId(filteredStreams[0].id);
-    }
-  }, [filteredStreams, streamId]);
+    const fetchAllData = async () => {
+      setLoading(true);
+      try {
+        const response = await axios.post("https://test.careerbuddyclub.com:8080/api/students/getfilterationdata");
+        const streamsData = response?.data?.streams || [];
+        setAllStreamsData(streamsData);
+        // Set the initial active stream if not already set by URL params
+        if (!activeStreamId && streamsData.length > 0) {
+          setActiveStreamId(streamsData[0].id);
+        }
+      } catch (error) {
+        console.error("Failed to fetch data", error);
+        setAllStreamsData([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchAllData();
+  }, []); // Runs only once on initial page load
 
   const handleStreamChange = (
     event: React.SyntheticEvent,
     newValue: number
   ) => {
-    setStreamId(newValue);
-    // Update URL and set filter officially
+    // The component's state will update via the useEffect that watches the URL.
     setFilterCategory(router, "Streams", [String(newValue)], filters);
   };
 
-  const fetchStreams = async () => {
-    setLoading(true);
-    try {
-      const response = await axios({
-        method: "POST",
-        url: "https://test.careerbuddyclub.com:8080/api/students/getfilterationdata",
-        headers: {
-          Accept: "/",
-        },
-      });
-      setStreams(response?.data?.streams || []);
-    } catch (error) {
-      console.error(error);
-      setStreams([]);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    fetchStreams();
-  }, []);
-
-  // Filtered lists based on streamId
-  const selectedStream = useMemo(() => {
-    return filteredStreams.find((stream) => stream.id === streamId) || null;
-  }, [streamId, filteredStreams]);
-  const selectedStreamTitle = selectedStream?.title || "";
-
-  const colleges = selectedStream?.colleges || [];
-  const companies = selectedStream?.companies || [];
-  const careers = selectedStream?.careers || [];
-  const courses = selectedStream?.courses || [];
+  const activeStreamData = useMemo(() => allStreamsData.find(s => s.id === activeStreamId) || null, [allStreamsData, activeStreamId]);
+  const selectedStreamTitle = activeStreamData?.title || "";
+  const { colleges = [], companies = [], careers = [], courses = [] } = activeStreamData || {};
 
   // View All handlers: update the filter, and optionally update the pretty URL
   const handleViewAllColleges = () => {
-    if (streamId != null) {
-      setFilterCategory(router, "Streams", [String(streamId)], filters);
-      router.push(`/colleges/${toStreamPath(selectedStreamTitle, streamId)}`);
+    if (activeStreamId != null) {
+      setFilterCategory(router, "Streams", [String(activeStreamId)], filters);
+      router.push(`/colleges/${toStreamPath(selectedStreamTitle, activeStreamId)}`);
     }
   };
   const handleViewAllCompanies = () => {
@@ -162,16 +144,16 @@ const CollegeFinder: React.FC = () => {
         >
           {loading ? (
             <CircularProgress />
-          ) : filteredStreams.length > 0 ? (
-            typeof streamId === "number" && (
+          ) : allStreamsData.length > 0 ? (
+            typeof activeStreamId === "number" && (
               <Tabs
-                value={streamId}
+                value={activeStreamId}
                 onChange={handleStreamChange}
                 variant="scrollable"
                 scrollButtons="auto"
                 TabIndicatorProps={{ style: { backgroundColor: "#13adbd" } }}
               >
-                {filteredStreams.map((stream) => (
+                {allStreamsData.map((stream) => (
                   <Tab
                     key={stream.id}
                     label={stream.title}
@@ -200,7 +182,7 @@ const CollegeFinder: React.FC = () => {
           <Box sx={{ display: "flex", justifyContent: "center", mt: 8 }}>
             <CircularProgress size={48} />
           </Box>
-        ) : !selectedStream ? (
+        ) : !activeStreamData ? (
           <Typography align="center" sx={{ mt: 8 }}>
             No stream data found. Please select another stream.
           </Typography>
