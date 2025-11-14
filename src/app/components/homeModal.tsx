@@ -118,7 +118,7 @@ const ModalForHeader: React.FC<ModalForHeaderProps> = ({
               style={{ zIndex: 1051 }}
             />
           </div>
-          <div className="flex-grow-1" style={{ maxHeight: "74vh" }}>
+          <div className="grow" style={{ maxHeight: "74vh" }}>
             <div className="container">{getModalContent()}</div>
             <div className="container">
               {currentModalType === "student" && (

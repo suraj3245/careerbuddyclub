@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import {
   Box,
@@ -15,8 +15,14 @@ import {
   Link,
 } from "@mui/material";
 import { ExpandMore, ExpandLess } from "@mui/icons-material";
-import blogData, { BlogContent } from "@/data/college-blog";
 import { FiltersObject, setFilterCategory } from "@/utils/filters.utils";
+
+//   DATA FETCHER  For blog Section---
+
+import blogData, { type BlogContent } from "@/data/college-blog";
+async function getBlogContent(streamId: number | null, city: string | null): Promise<BlogContent | undefined> {
+  return streamId ? blogData[streamId] : undefined;
+}
 
 interface Stream {
   id: number | null;
@@ -45,59 +51,72 @@ const BlogSection: React.FC<BlogSectionProps> = ({
     {
       id: null,
       title: "Best: Ranking 2025, Admissions, Courses, Fees, Placements,Campus,Reviews",
-      description: "India boasts a rich educational landscape with a diverse range of colleges and universities offering many courses...",
+      description: "India boasts a rich educational landscape with a diverse range of colleges and universities offering many courses across various streams. Whether you're interested in engineering, medicine, arts, commerce, or emerging fields like data science and AI, India has institutions that cater to every academic pursuit. We are here to provide insights into the top colleges in India , covering aspects like rankings, admission processes, course offerings, fee structures, placement records, campus facilities, and student reviews. Stay tuned to make informed decisions about your higher education journey in India.",
     };
 
-  const blogContent: BlogContent | undefined = streamId ? blogData[streamId] : undefined;
-
   const [expanded, setExpanded] = useState(false);
-  const [matchedCity, setMatchedCity] = useState<string | null>(null);
+  const [blogContent, setBlogContent] = useState<BlogContent | undefined>(undefined);
+  const [isLoading, setIsLoading] = useState(true);
+  const [displayBlog, setDisplayBlog] = useState(true);
 
   const maxPreviewHeight = 120;
 
-  // Always update city filter via URL
-  useEffect(() => {
+  // Derive matched city from blog content and available locations
+  const matchedCity = useMemo(() => {
+    // Prioritize city from URL filter if it exists
+    const cityFromFilter = filters.Location?.[0];
+    if (cityFromFilter && clgLocation.includes(cityFromFilter)) return cityFromFilter;
+
     const titleToCheck = (blogContent?.title || selectedStream.title || "").toLowerCase();
-    const foundCity =
-      clgLocation.find((city) => titleToCheck.includes(city.toLowerCase())) || null;
+    return clgLocation.find((city) => titleToCheck.includes(city.toLowerCase())) || null;
+  }, [clgLocation, blogContent, selectedStream.title, filters.Location]);
 
-    if (foundCity) {
-      setMatchedCity(foundCity);
-      // set if missing from canonical
-      if (!filters.Location?.includes(foundCity)) {
-        setFilterCategory(router, "Location", [foundCity], filters);
+  // Fetch blog content and decide if it should be displayed
+  useEffect(() => {
+    const cityFromFilter = filters.Location?.[0];
+    setIsLoading(true);
+
+    getBlogContent(streamId, matchedCity).then(content => {
+      setBlogContent(content);
+
+      // If a city is filtered, only show the blog if its title contains that city.
+      // If no city is filtered, always show the stream-specific blog.
+      if (cityFromFilter && content?.title) {
+        setDisplayBlog(content.title.toLowerCase().includes(cityFromFilter.toLowerCase()));
+      } else {
+        setDisplayBlog(true);
       }
-    }
-    // eslint-disable-next-line
-  }, [clgLocation, blogContent, selectedStream, filters, router]);
 
-  // Final blog title with city (only if not already included)
-  const finalTitle = blogContent?.title || selectedStream.title;
-  const titleWithCity =
-    matchedCity && !finalTitle.toLowerCase().includes(matchedCity.toLowerCase())
-      ? `${finalTitle} in ${matchedCity}` 
-            : finalTitle;
+      setIsLoading(false);
+    });
+  }, [streamId, matchedCity, filters.Location]);
+
+  // Do not show the blog section if it's not relevant to the selected city filter.
+  if (!displayBlog && !isLoading) return null;
 
   return (
     <Paper
       sx={{
-        padding: "2rem",
-        backgroundColor: "#f9f9f9",
+        p: { xs: 2, md: 4 },
+        backgroundColor: "#ffffff",
+        border: "1px solid #d9d9e5",
+        borderRadius: "5px",
         position: "relative",
         marginBottom: "3rem",
       }}
     >
       {/* Blog Title */}
       <Typography
-        variant="h4"
+        variant="h1"
         gutterBottom
         sx={{
-          fontSize: { xs: "1.8rem", md: "2.2rem" },
+          fontSize: { xs: "1.75rem", md: "2rem" },
           fontWeight: "bold",
-          color: "#333",
+          color: "#13adbd", 
+          lineHeight: 1.3,
         }}
       >
-        {titleWithCity}
+        {blogContent?.title || selectedStream.title}
       </Typography>
 
       {/* Description & Table */}
@@ -107,47 +126,85 @@ const BlogSection: React.FC<BlogSectionProps> = ({
           maxHeight: expanded ? "none" : `${maxPreviewHeight}px`,
           overflow: "hidden",
           position: "relative",
-          transition: "max-height 0.3s ease",
+          transition: "max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1)", 
         }}
       >
-        <Typography variant="body1" paragraph sx={{ whiteSpace: 'pre-line' }}>
-          {blogContent?.description ||
-            selectedStream.description ||
-            "Explore the best colleges for this stream."}
-        </Typography>
-
+        {isLoading ? (
+          <Typography>Loading content...</Typography>
+        ) : (
+          <Typography
+            variant="body1"
+            paragraph
+            sx={{ whiteSpace: "pre-line", color: "text.secondary", lineHeight: 1.6 }}
+          >
+            {blogContent?.description || selectedStream.description}
+          </Typography>
+        )}
         {/* Table */}
         {blogContent?.tableData && (
           <>
-            <Typography variant="h6" sx={{ mt: 2, fontWeight: "bold" }}>
+            <Typography variant="h6" sx={{ mt: 3, mb: 1, fontWeight: "bold" }}>
               {blogContent.tableData.heading}
             </Typography>
             <Box
               sx={{
                 overflowX: "auto",
                 WebkitOverflowScrolling: "touch",
-                border: "1px solid #ccc",
+                border: "1px solid #e0e0e0",
                 borderRadius: "8px",
                 mt: 2,
                 scrollbarWidth: "thin",
                 "&::-webkit-scrollbar": { height: "6px" },
-                "&::-webkit-scrollbar-thumb": { backgroundColor: "#ccc", borderRadius: "4px" },
+                "&::-webkit-scrollbar-thumb": {
+                  backgroundColor: "#d0d0d0",
+                  borderRadius: "3px",
+                },
               }}
             >
-              <Table sx={{ minWidth: 800 }}>
-                <TableHead>
+              <Table sx={{ minWidth: 800, bgcolor: "#f0f8ff" }}>
+                <TableHead sx={{ bgcolor: "rgba(255, 255, 255, 0.6)" }}>
                   <TableRow>
                     {[
                       "College", "Courses", "Short Description",
                       "Key Benefits", "Eligibility", "Fees", "Website"
                     ].map((heading, idx) => (
-                      <TableCell key={idx}><strong>{heading}</strong></TableCell>
+                      <TableCell
+                        key={idx}
+                        sx={{
+                          fontWeight: "bold", color: "text.primary"
+                        }}
+                      >
+                        {heading}
+                      </TableCell>
                     ))}
                   </TableRow>
                 </TableHead>
                 <TableBody>
                   {blogContent.tableData.rows.map((row, index) => (
-                    <TableRow key={index}>
+                    <TableRow
+                      key={index}
+                      sx={{
+                        "& .MuiTableCell-root": {
+                          fontFamily: "Roboto, Helvetica, Arial, sans-serif",
+                          fontWeight: 500,
+                          lineHeight: 1.75,
+                          letterSpacing: "0.02857em",
+                          fontSize: "0.7rem",
+                          color: "rgb(25, 118, 210)",
+                          verticalAlign: "top", // Align content to the top for consistency
+                        },
+                        "&:nth-of-type(odd)": { bgcolor: "rgba(255, 255, 255, 0.4)" },
+                        "& .MuiTableCell-root:first-of-type": { // Override for first column
+                          fontFamily: "Roboto, Helvetica, Arial, sans-serif",
+                          fontWeight: 500,
+                          lineHeight: 1.75,
+                          letterSpacing: "0.02857em",
+                          textTransform: "uppercase",
+                          color: "rgb(25, 118, 210)",
+                          minWidth: "120px",
+                          fontSize: "0.7rem",
+                        },
+                      }}>
                       <TableCell>{row.label}</TableCell>
                       <TableCell>{row.value}</TableCell>
                       <TableCell>{row.shortDescription || "-"}</TableCell>
@@ -179,7 +236,7 @@ const BlogSection: React.FC<BlogSectionProps> = ({
               position: "absolute",
               bottom: 0, left: 0, right: 0,
               height: "50px",
-              background: "linear-gradient(transparent, #f9f9f9)",
+              background: "linear-gradient(to top, #f0f8ff, rgba(240,248,255,0))",
             }}
           />
         )}
@@ -190,8 +247,10 @@ const BlogSection: React.FC<BlogSectionProps> = ({
         aria-expanded={expanded}
         aria-controls="blog-content"
         sx={{
-          textTransform: "none", color: "primary.main", mt: 1,
-          "&:hover": { backgroundColor: "transparent" },
+          textTransform: "none",
+          fontWeight: 600,
+          mt: 1,
+          px: 0,
         }}
       >
         {expanded ? "Read less" : "Read more"}
