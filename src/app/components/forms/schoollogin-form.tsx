@@ -53,7 +53,7 @@ const SchoolLoginForm = () => {
     // Set up the request options for axios
     const options = {
       method: "POST",
-      url: "https://test.careerbuddyclub.com:8080/api/students/loginschool", // Replace with your API's URL
+      url: "http://127.0.0.1:8000/api/students/loginschool", // Replace with your API's URL
       headers: {
         "Content-Type": "application/json",
       },
