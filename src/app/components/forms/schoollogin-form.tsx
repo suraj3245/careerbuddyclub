@@ -49,11 +49,9 @@ const SchoolLoginForm = () => {
   const onSubmit = (data: IFormData) => {
     setLoading(true);
     const { School_email, School_password } = data;
-
-    // Set up the request options for axios
     const options = {
       method: "POST",
-      url: "http://127.0.0.1:8000/api/students/loginschool", // Replace with your API's URL
+      url: "https://test.careerbuddyclub.com:8080/api/students/loginschool", 
       headers: {
         "Content-Type": "application/json",
       },
