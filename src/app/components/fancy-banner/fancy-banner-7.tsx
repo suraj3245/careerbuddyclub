@@ -1,12 +1,19 @@
-import React from "react";
+"use client"
+import React, { useState } from "react";
 import Image from "next/image";
-import icon from "@/assets/images/icon/icon_46.svg";
 import img from "@/assets/images/assets/img2_0.png";
 import shape_1 from "@/assets/images/shape/shape_12.svg";
 import shape_2 from "@/assets/images/shape/shape_13.svg";
 import shape_3 from "@/assets/images/shape/shape_14.svg";
-
+import ModalHeader from "@/app/components/homeModal";
 const FancyBannerSeven = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalType, setModalType] = useState<string | null>(null);
+
+  const openApplyModal = (type: string) => {
+    setModalType(type);
+    setIsModalOpen(true);
+  };
   return (
     <section className="fancy-banner-six mt-150 xl-mt-120 lg-mt-100">
       <div className="container">
@@ -25,20 +32,13 @@ const FancyBannerSeven = () => {
                       Explore Opportunities From Across The Globe To Learn,
                       Achieve And Live Your Dream Career.
                     </p>
-                    <form
-                      action="#"
-                      className="upload-btn position-relative d-flex align-items-center justify-content-center"
-                    >
-                      {/*  <Image src={icon} alt="" className="lazy-img" />{" "} */}
-                      <a
-                        href="#"
+                     <button
+                        suppressHydrationWarning
                         className="fw-500 btn-five"
-                        data-bs-toggle="modal"
-                        data-bs-target="#ApplyModal"
+                        onClick={() => openApplyModal("student")}
                       >
                         Apply Now
-                      </a>
-                    </form>
+                      </button>
                   </div>
                 </div>
                 <div className="col-lg-6 order-lg-first">
@@ -71,7 +71,13 @@ const FancyBannerSeven = () => {
           />
         </div>
       </div>
+      <ModalHeader
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        modalType={modalType}
+      />
     </section>
+    
   );
 };
 
