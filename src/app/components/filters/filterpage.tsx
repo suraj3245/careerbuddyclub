@@ -58,6 +58,13 @@ const INIT_FETCH = {
   streams: undefined as any[] | undefined,
 };
 
+// Module-level cache to persist data across route navigations
+let DATA_CACHE: {
+  colleges?: any[];
+  streams?: any[];
+  map?: Map<string, Set<number>>;
+} = {};
+
 const FilterPage: React.FC<FilterPageProps> = ({ initialStreamPath }) => {
   const pathname = usePathname();
   const router = useRouter();
@@ -66,14 +73,19 @@ const FilterPage: React.FC<FilterPageProps> = ({ initialStreamPath }) => {
   const [modalType, setModalType] = useState<string | null>(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const isLargeScreen = useMediaQuery(theme.breakpoints.up("lg"));
-  const [allColleges, setAllColleges] = useState<any[]>([]);
-  const [streams, setStreams] = useState<any[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [streamToCollegeIdMap, setStreamToCollegeIdMap] = useState<Map<string, Set<number>>>(new Map());
+  const [allColleges, setAllColleges] = useState<any[]>(DATA_CACHE.colleges ?? []);
+  const [streams, setStreams] = useState<any[]>(DATA_CACHE.streams ?? []);
+  const [isLoading, setIsLoading] = useState(!(DATA_CACHE.colleges && DATA_CACHE.streams));
+  const [streamToCollegeIdMap, setStreamToCollegeIdMap] = useState<Map<string, Set<number>>>(DATA_CACHE.map ?? new Map());
 
   // -- Fetch data only once --
   useEffect(() => {
     let didCancel = false;
+    // If cache is available, skip network and ensure not loading
+    if (DATA_CACHE.colleges && DATA_CACHE.streams && DATA_CACHE.map) {
+      setIsLoading(false);
+      return;
+    }
     (async () => {
       const [{ data: { colleges = [] } = {} }, { data: { streams: streamsData = [] } = {} }] = await Promise.all([
         axios.post("https://test.careerbuddyclub.com:8080/api/students/getallcollegesdetails"),
@@ -90,6 +102,9 @@ const FilterPage: React.FC<FilterPageProps> = ({ initialStreamPath }) => {
         });
         setStreamToCollegeIdMap(newMap);
         setIsLoading(false);
+
+        // Populate cache
+        DATA_CACHE = { colleges, streams: streamsData, map: newMap };
       }
     })();
     return () => { didCancel = true; };
@@ -130,20 +145,16 @@ const FilterPage: React.FC<FilterPageProps> = ({ initialStreamPath }) => {
     if ((nextFilters.Streams ?? []).length === 0) delete nextFilters.Streams;
     if ((nextFilters.Location ?? []).length === 0) delete nextFilters.Location;
 
-    // --- Correct Pretty URL Logic ---
     const stream = streams.find(s => String(s.id) === (nextFilters.Streams?.[0] ?? ""));
     const streamSlug = stream ? toStreamPath(stream.title, stream.id) : null;
     const city = nextFilters.Location?.[0];
     const citySlug = city ? toCitySlug(city) : null;
 
     let prettyUrl = "/colleges";
-    // Logic to handle combined pretty URLs
     if (streamSlug) prettyUrl += `/${streamSlug}`;
     if (citySlug) prettyUrl += `/colleges-in-${citySlug}`;
 
     const qStr = filtersToURLParams(nextFilters);
-
-    // ALWAYS use router.push. This is the correct Next.js way.
     router.push(`${prettyUrl}${qStr ? `?${qStr}` : ""}`, { scroll: false });
   }, [filters, streams, router]);
 
@@ -216,7 +227,7 @@ const FilterPage: React.FC<FilterPageProps> = ({ initialStreamPath }) => {
     result.ApprovedBy = Array.from(appMap, ([name, count]) => ({ name, count })).sort((a, b) => a.name.localeCompare(b.name));
 
     return result;
-  }, [streams, allColleges]);
+  }, [streams, allColleges, filters.Streams]);
 
   const displayedColleges = useMemo(() => {
     let filtered = allColleges;
