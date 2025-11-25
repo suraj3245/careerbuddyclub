@@ -15,6 +15,7 @@ export interface BlogContent {
     heading: string;
     rows: CollegeRow[];
   };
+  variants?: Record<string, BlogContent>;
 }
 
 const blogData: Record<number, BlogContent> = {
@@ -351,7 +352,47 @@ Want personalized guidance to select the best BBA college for you? Contact Caree
         }
       ]
     }
+    ,
+    variants: {
+      bangalore: {
+        title: "Top BBA Colleges in Bangalore: Fees, Curriculum & Placements",
+        description: `Bangalore offers industry-connected BBA programs with strong placement support and modern curricula. This overview highlights leading colleges, fees, eligibility, and career prospects for business management in Bangalore.
+
+Why Bangalore for BBA?
+- Corporate exposure and internships
+- Technology ecosystem and entrepreneurship support
+- Strong placement records across domains`,
+        tableData: {
+          heading: "Top BBA Colleges in Bangalore",
+          rows: [
+            {
+              label: "Christ University",
+              value: "Finance, Marketing, Business Analytics, HR",
+              shortDescription: "NAAC A+, industry-focused BBA with strong internships",
+              keyBenefits: ["Robust placements", "Industry projects", "Global exposure"],
+              eligibility: "10+2 (any stream), min. 50%",
+              fees: "₹1,80,000/year (approx.)",
+              website: ""
+            },
+            {
+              label: "Jain (Deemed-to-be) University",
+              value: "Marketing, Finance, Entrepreneurship",
+              shortDescription: "Skill-based curriculum with startup ecosystem",
+              keyBenefits: ["Internships", "Incubation support"],
+              eligibility: "10+2 (any stream), min. 50%",
+              fees: "₹1,40,000/year (approx.)",
+              website: ""
+            }
+          ]
+        }
+      }
+    }
   }
 };
+
+ 
+
+
+
 
 export default blogData;

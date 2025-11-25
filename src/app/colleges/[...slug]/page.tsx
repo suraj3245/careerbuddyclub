@@ -1,11 +1,9 @@
 import React from "react";
 import Wrapper from "@/layouts/wrapper";
-import dynamic from "next/dynamic";
+import FilterPage from "../../components/filters/filterpage";
 import { Metadata } from "next";
 
-const FilterPage = dynamic(() => import("../../components/filters/filterpage"), {
-  ssr: false,
-});
+ 
 
 interface PageProps {
   params?: { slug?: string | string[] };

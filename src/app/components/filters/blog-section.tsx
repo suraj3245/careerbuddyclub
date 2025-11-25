@@ -20,9 +20,6 @@ import { FiltersObject, setFilterCategory } from "@/utils/filters.utils";
 //   DATA FETCHER  For blog Section---
 
 import blogData, { type BlogContent } from "@/data/college-blog";
-async function getBlogContent(streamId: number | null, city: string | null): Promise<BlogContent | undefined> {
-  return streamId ? blogData[streamId] : undefined;
-}
 
 interface Stream {
   id: number | null;
@@ -56,7 +53,7 @@ const BlogSection: React.FC<BlogSectionProps> = ({
 
   const [expanded, setExpanded] = useState(false);
   const [blogContent, setBlogContent] = useState<BlogContent | undefined>(undefined);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [displayBlog, setDisplayBlog] = useState(true);
 
   const maxPreviewHeight = 120;
@@ -71,25 +68,22 @@ const BlogSection: React.FC<BlogSectionProps> = ({
     return clgLocation.find((city) => titleToCheck.includes(city.toLowerCase())) || null;
   }, [clgLocation, blogContent, selectedStream.title, filters.Location]);
 
-  // Fetch blog content and decide if it should be displayed
+  // Resolve blog content synchronously and decide if it should be displayed
   useEffect(() => {
+    const toCitySlug = (city: string) => city?.toLowerCase().replace(/\s+/g, "-") || "";
     const cityFromFilter = filters.Location?.[0];
-    setIsLoading(true);
-
-    getBlogContent(streamId, matchedCity).then(content => {
-      setBlogContent(content);
-
-      // If a city is filtered, only show the blog if its title contains that city.
-      // If no city is filtered, always show the stream-specific blog.
-      if (cityFromFilter && content?.title) {
-        setDisplayBlog(content.title.toLowerCase().includes(cityFromFilter.toLowerCase()));
-      } else {
-        setDisplayBlog(true);
-      }
-
-      setIsLoading(false);
-    });
-  }, [streamId, matchedCity, filters.Location]);
+    const base = streamId ? blogData[streamId] : undefined;
+    const citySlug = cityFromFilter ? toCitySlug(cityFromFilter) : null;
+    const variant = citySlug && base?.variants ? base.variants[citySlug] : undefined;
+    const content = variant ?? base;
+    setBlogContent(content);
+    if (cityFromFilter) {
+      if (variant) setDisplayBlog(true);
+      else setDisplayBlog(!!content?.title && content.title.toLowerCase().includes(cityFromFilter.toLowerCase()));
+    } else {
+      setDisplayBlog(true);
+    }
+  }, [streamId, filters.Location]);
 
   // Do not show the blog section if it's not relevant to the selected city filter.
   if (!displayBlog && !isLoading) return null;
@@ -129,17 +123,13 @@ const BlogSection: React.FC<BlogSectionProps> = ({
           transition: "max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1)", 
         }}
       >
-        {isLoading ? (
-          <Typography>Loading content...</Typography>
-        ) : (
-          <Typography
-            variant="body1"
-            paragraph
-            sx={{ whiteSpace: "pre-line", color: "text.secondary", lineHeight: 1.6 }}
-          >
-            {blogContent?.description || selectedStream.description}
-          </Typography>
-        )}
+        <Typography
+          variant="body1"
+          paragraph
+          sx={{ whiteSpace: "pre-line", color: "text.secondary", lineHeight: 1.6 }}
+        >
+          {blogContent?.description || selectedStream.description}
+        </Typography>
         {/* Table */}
         {blogContent?.tableData && (
           <>

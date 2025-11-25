@@ -51,9 +51,11 @@ const FeatureNine = () => {
                   parent="accordionOne"
                 />
               </div>
-              <Link href="/candidates-v3" className="btn-five mt-45 lg-mt-20">
+
+              {/* previously passed /https://www.careerbuddyclub.com/candidates-v3 */}
+              <Link href="" className="btn-five mt-45 lg-mt-20"> 
                Join Now
-              </Link>
+               </Link>
             </div>
           </div>
           <div className="col-lg-6 col-md-11 ms-auto me-auto me-lg-0">
