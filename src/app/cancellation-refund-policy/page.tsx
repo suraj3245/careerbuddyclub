@@ -13,6 +13,9 @@ import Refundone from "../components/contact/Refund";
 
 export const metadata: Metadata = {
   title: "Cancellation Policy",
+  alternates: {
+    canonical: "https://careerbuddyclub.com/cancellation-refund-policy",
+  },
 };
 
 const Refund = () => {

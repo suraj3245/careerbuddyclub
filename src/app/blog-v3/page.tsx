@@ -7,6 +7,10 @@ import BlogFullWidthArea from "../components/blogs/blog-frull-width";
 
 export const metadata: Metadata = {
   title: "Blog v3",
+  robots: "noindex",
+  alternates: {
+    canonical: "https://careerbuddyclub.com/blog-v4",
+  },
 };
 
 const BlogV3Page = () => {

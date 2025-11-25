@@ -7,9 +7,15 @@ import FooterOne from "@/layouts/footers/footer-one";
 import university_details from "@/data/university-details";
 import UniversityDetailsArea from "@/app/components/company-details/university-details-area";
 
-export const metadata: Metadata = {
-  title: "International University Details",
-};
+export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
+  const details = university_details.find((j) => String(j.id) === String(params.id));
+  const title = details ? `${details.college} | University Details` : `University Details`;
+  const canonicalUrl = `https://careerbuddyclub.com/university-details/${params.id}`;
+  return {
+    title,
+    alternates: { canonical: canonicalUrl },
+  };
+}
 
 const UniversityDetailsPage = ({ params }: { params: { id: string } }) => {
   const details = university_details.find(
