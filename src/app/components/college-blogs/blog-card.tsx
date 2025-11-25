@@ -16,7 +16,6 @@ const BlogCard = ({
     <div
       className="card shadow-lg border-0 position-relative h-100"
       style={{
-        width: "100%",
         maxWidth: "22rem",
         overflow: "hidden",
         background: "#fff",
