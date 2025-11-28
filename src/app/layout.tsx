@@ -132,11 +132,10 @@ export default function RootLayout({
     `,
           }}
         />
-        <Script src="https://cdn.botpress.cloud/webchat/v2/inject.js" strategy="afterInteractive" />
-        <Script src="https://mediafiles.botpress.cloud/e34ea3b0-fab4-4ffb-b126-e7a6ec557ea3/webchat/v2/config.js" strategy="afterInteractive" />
+        <Script src="https://cdn.botpress.cloud/webchat/v2/inject.js" strategy="lazyOnload" />
+        <Script src="https://mediafiles.botpress.cloud/e34ea3b0-fab4-4ffb-b126-e7a6ec557ea3/webchat/v2/config.js" strategy="lazyOnload" />
       </head>
       <body
-        suppressHydrationWarning={true}
         className={`${gordita.variable} ${ebGaramond.variable}`}
       >
         <noscript>
@@ -153,7 +152,7 @@ export default function RootLayout({
           !isCandidateDashboardPage &&
           !isapplynow &&
           !isSchoolDashboard && !dbsapplynow && (
-            <div suppressHydrationWarning={true}>
+            <div>
             <HeaderFour user={user} onLogout={handleLogout} key={key} index={0} /></div>
           )}
 
