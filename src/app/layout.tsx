@@ -1,8 +1,10 @@
 "use client";
 import "./globals.scss";
 import localFont from "next/font/local";
+import { EB_Garamond } from "next/font/google";
 import BackToTopCom from "./components/common/back-to-top-com";
 import { Providers } from "@/redux/provider";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import HeaderFour from "@/layouts/headers/header-4";
 import React, { useEffect, useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
@@ -37,11 +39,25 @@ const gordita = localFont({
   ],
   variable: "--gorditas-font",
 });
+const ebGaramond = EB_Garamond({
+  subsets: ["latin"],
+  variable: "--eb_garamond-font",
+  weight: ["400", "500", "600", "700", "800"],
+});
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const [queryClient] = useState(() => new QueryClient({
+    defaultOptions: {
+      queries: {
+        staleTime: 10 * 60 * 1000,
+        gcTime: 30 * 60 * 1000,
+        refetchOnWindowFocus: false,
+      },
+    },
+  }));
   const [token, setToken] = useState<string | null>(null);
   const [user, setUser] = useState<{ value: string | null }>({ value: null });
   const [key, setKey] = useState<number>(0);
@@ -131,7 +147,7 @@ export default function RootLayout({
       </head>
       <body
         suppressHydrationWarning={true}
-        className={`${gordita.variable}`}
+        className={`${gordita.variable} ${ebGaramond.variable}`}
       >
         <noscript>
           <iframe
@@ -151,7 +167,9 @@ export default function RootLayout({
             <HeaderFour user={user} onLogout={handleLogout} key={key} index={0} /></div>
           )}
 
-        <Providers>{children}</Providers>
+        <QueryClientProvider client={queryClient}>
+          <Providers>{children}</Providers>
+        </QueryClientProvider>
         <ToastContainer/>
         <WhatsappChatButton />
         {/* <BackToTopCom /> */}

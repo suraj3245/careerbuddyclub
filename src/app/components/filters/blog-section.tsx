@@ -106,7 +106,6 @@ const BlogSection: React.FC<BlogSectionProps> = ({
         sx={{
           fontSize: { xs: "1.75rem", md: "2rem" },
           fontWeight: "bold",
-          color: "#13adbd", 
           lineHeight: 1.3,
         }}
       >

@@ -15,9 +15,9 @@
   border-radius: 10;
 }
 body {
-  font-family: var(--gorditas-font);
+  font-family: var(--eb_garamond-font);
   font-weight: normal;
-  font-size: 16px;
+  font-size: 20px;
   position: relative;
   color: $text-color;
 }
@@ -52,7 +52,8 @@ h2 {
   line-height: 1.041em;
 }
 p {
-  line-height: 2em;
+  line-height: 1.8;
+  font-size: 16px;
 }
 .text-lg {
   font-size: 22px;
@@ -283,10 +284,10 @@ hr {
 }
 .btn-five {
   font-weight: 500;
-  padding: 13px 26px;
+  padding: 13px 13px;
+  border-radius:30px;
   min-width: 150px;
   text-align: center;
-  border-radius: 50px;
   color: #fff;
   background: $color-three;
   @include transition(0.3s);

@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState, useRef, useTransition } from "react";
 import {
   Box,
   Typography,
@@ -89,12 +89,14 @@ const CollegeFinder: React.FC = () => {
     fetchAllData();
   }, []); // Runs only once on initial page load
 
+  const [isPending, startTransition] = useTransition();
   const handleStreamChange = (
     event: React.SyntheticEvent,
     newValue: number
   ) => {
-    // The component's state will update via the useEffect that watches the URL.
-    setFilterCategory(router, "Streams", [String(newValue)], filters);
+    startTransition(() => {
+      setFilterCategory(router, "Streams", [String(newValue)], filters);
+    });
   };
 
   const activeStreamData = useMemo(() => allStreamsData.find(s => s.id === activeStreamId) || null, [allStreamsData, activeStreamId]);
@@ -104,19 +106,40 @@ const CollegeFinder: React.FC = () => {
   // View All handlers: update the filter, and optionally update the pretty URL
   const handleViewAllColleges = () => {
     if (activeStreamId != null) {
-      setFilterCategory(router, "Streams", [String(activeStreamId)], filters);
-      router.push(`/colleges/${toStreamPath(selectedStreamTitle, activeStreamId)}`);
+      startTransition(() => {
+        setFilterCategory(router, "Streams", [String(activeStreamId)], filters);
+        router.push(`/colleges/${toStreamPath(selectedStreamTitle, activeStreamId)}`);
+      });
     }
   };
   const handleViewAllCompanies = () => {
-    router.push("/company-v1");
+    startTransition(() => {
+      router.push("/company-v1");
+    });
   };
   const handleViewAllCareers = () => {
-    router.push("/careers");
+    startTransition(() => {
+      router.push("/careers");
+    });
   };
   const handleViewAllCourses = () => {
-    router.push("/courses");
+    startTransition(() => {
+      router.push("/courses");
+    });
   };
+
+  const prefetchedRoutesRef = useRef<Set<string>>(new Set());
+  useEffect(() => {
+    if (typeof activeStreamId === "number" && selectedStreamTitle) {
+      const route = `/colleges/${toStreamPath(selectedStreamTitle, activeStreamId)}`;
+      if (!prefetchedRoutesRef.current.has(route)) {
+        prefetchedRoutesRef.current.add(route);
+        setTimeout(() => {
+          router.prefetch(route);
+        }, 0);
+      }
+    }
+  }, [activeStreamId, selectedStreamTitle, router]);
 
   return (
     <div className="container mt-80">
