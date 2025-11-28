@@ -4,7 +4,6 @@ import localFont from "next/font/local";
 import { EB_Garamond } from "next/font/google";
 import BackToTopCom from "./components/common/back-to-top-com";
 import { Providers } from "@/redux/provider";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import HeaderFour from "@/layouts/headers/header-4";
 import React, { useEffect, useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
@@ -49,15 +48,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const [queryClient] = useState(() => new QueryClient({
-    defaultOptions: {
-      queries: {
-        staleTime: 10 * 60 * 1000,
-        gcTime: 30 * 60 * 1000,
-        refetchOnWindowFocus: false,
-      },
-    },
-  }));
   const [token, setToken] = useState<string | null>(null);
   const [user, setUser] = useState<{ value: string | null }>({ value: null });
   const [key, setKey] = useState<number>(0);
@@ -167,9 +157,7 @@ export default function RootLayout({
             <HeaderFour user={user} onLogout={handleLogout} key={key} index={0} /></div>
           )}
 
-        <QueryClientProvider client={queryClient}>
-          <Providers>{children}</Providers>
-        </QueryClientProvider>
+        <Providers>{children}</Providers>
         <ToastContainer/>
         <WhatsappChatButton />
         {/* <BackToTopCom /> */}
