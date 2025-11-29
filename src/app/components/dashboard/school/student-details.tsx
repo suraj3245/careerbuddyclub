@@ -11,6 +11,10 @@ import { ToastContainer, toast } from "react-toastify";
 import StudentScoreModal from "./studentscore-modal";
 
 const StudentTable: React.FC = () => {
+  const [name, setName] = useState("");
+  const [studentId, setStudentId] = useState<number | null>(null);
+  const [password, setPassword] = useState("");
+  const [isUpdating, setIsUpdating] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [students, setStudents] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
@@ -48,11 +52,8 @@ const StudentTable: React.FC = () => {
         JSON.stringify({ School_id }),
         { headers: { "Content-Type": "application/json" } }
       );
-
-      // ✅ Only first 250 students
       setStudents((response.data || []).slice(0, 250));
     } catch (error) {
-      console.error("Error fetching students:", error);
       toast.error("Error fetching students");
     } finally {
       setLoading(false);
@@ -61,6 +62,39 @@ const StudentTable: React.FC = () => {
   useEffect(() => {
     fetchStudents();
   }, []);
+  const studentUpdate = async (id: number, name: string) => {
+    setStudentId(id);
+    setName(name);
+  };
+  const handleStudentUpdate = async (e: any) => {
+    e.preventDefault();
+    setIsUpdating(true);
+    const response = await fetch(
+      `https://test.careerbuddyclub.com:8080/api/students/studentEdit/${studentId}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          password,
+        }),
+      }
+    );
+    const data = await response.json();
+    if (data.status == 200) {
+      toast.success("Student Name Updated Successfully");
+      setTimeout(() => {
+        setIsUpdating(false);
+        window.location.reload();
+      }, 1000);
+    }
+    if (data.status == 401) {
+      toast.error("Error Updating Student Details");
+      setIsUpdating(false);
+    }
+  };
 
   const handleCloseModal = () => {
     setShowModal(false);
@@ -153,10 +187,8 @@ const StudentTable: React.FC = () => {
       const workbook = XLSX.utils.book_new();
       XLSX.utils.book_append_sheet(workbook, worksheet, "Students");
       XLSX.writeFile(workbook, "students_data.xlsx");
-
       toast.success("Data exported successfully");
     } catch (error) {
-      console.error("Error exporting data:", error);
       toast.error("Error exporting data");
     } finally {
       setLoading(false);
@@ -283,6 +315,7 @@ const StudentTable: React.FC = () => {
                   >
                     <option value="">Search By Class</option>
                     <option value="all">All</option>
+                    <option value="8th">8th</option>
                     <option value="9th">9th</option>
                     <option value="10th">10th</option>
                     <option value="11th">11th</option>
@@ -299,7 +332,6 @@ const StudentTable: React.FC = () => {
                   </Button>
                 </div>
               </div>
-
               <div className="table-responsive" style={{ overflow: "auto" }}>
                 <table
                   className="table card-table table-vcenter text-nowrap"
@@ -338,35 +370,68 @@ const StudentTable: React.FC = () => {
                         <td>{student.conventional_score}</td>
                         <td>{student.topThreeScoresAbbr}</td>
                         <td>
-                          <button
-                            onClick={() => handleDownload(student)}
+                          <div
+                            className=""
                             style={{
-                              backgroundColor: "#0DCAF0",
-                              color: "white",
-                              fontWeight: "bold",
-                              fontSize: "14px",
-                              width: "60px",
-                              height: "30px",
-                              textAlign: "center",
-                              border: "1px solid #0BA5D8",
-                              boxShadow: "0 6px 6px rgba(0, 0, 0, 0.2)",
                               display: "flex",
-                              alignItems: "center",
-                              justifyContent: "center",
-                              borderRadius: "8px",
+                              gap: "8px",
                             }}
                           >
-                            {loadingStudentId === student.id ? (
-                              <span
-                                className="spinner-border spinner-border-sm m-auto"
-                                role="status"
-                                aria-hidden="true"
-                                style={{ width: "1.1rem", height: "1.1rem" }}
-                              ></span>
-                            ) : (
-                              "View"
-                            )}
-                          </button>
+                            <button
+                              data-bs-toggle="modal"
+                              data-bs-target="#editModal"
+                              style={{
+                                backgroundColor: "#0DCAF0",
+                                color: "white",
+                                border: "none",
+                                padding: "4px 6px",
+                                borderRadius: "5px",
+                                cursor: "pointer",
+                              }}
+                              onClick={() =>
+                                studentUpdate(student.id, student.name)
+                              }
+                            >
+                              <img
+                                src="https://cdn-icons-png.flaticon.com/512/3597/3597075.png"
+                                alt="edit"
+                                style={{
+                                  width: "21px",
+                                  height: "20px",
+                                  filter: "brightness(0) invert(1)",
+                                }}
+                              />
+                            </button>
+                            <button
+                              onClick={() => handleDownload(student)}
+                              style={{
+                                backgroundColor: "#0DCAF0",
+                                color: "white",
+                                fontWeight: "bold",
+                                fontSize: "14px",
+                                width: "60px",
+                                height: "30px",
+                                textAlign: "center",
+                                border: "1px solid #0BA5D8",
+                                boxShadow: "0 6px 6px rgba(0, 0, 0, 0.2)",
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                borderRadius: "8px",
+                              }}
+                            >
+                              {loadingStudentId === student.id ? (
+                                <span
+                                  className="spinner-border spinner-border-sm m-auto"
+                                  role="status"
+                                  aria-hidden="true"
+                                  style={{ width: "1.1rem", height: "1.1rem" }}
+                                ></span>
+                              ) : (
+                                "View"
+                              )}
+                            </button>
+                          </div>
                         </td>
                       </tr>
                     ))}
@@ -374,7 +439,130 @@ const StudentTable: React.FC = () => {
                 </table>
               </div>
 
-              {/* ✅ Polished Pagination */}
+              <div
+                className="modal fade"
+                id="editModal"
+                aria-hidden="true"
+                aria-labelledby="editModalLabel"
+              >
+                <div className="modal-dialog modal-dialog-centered">
+                  <div
+                    className="modal-content"
+                    style={{
+                      borderRadius: "18px",
+                      border: "none",
+                      boxShadow: "0 8px 30px rgba(0,0,0,0.12)",
+                    }}
+                  >
+                    <div
+                      className="modal-header"
+                      style={{
+                        background: "#F4FBFF",
+                        borderBottom: "1px solid #E4EEF5",
+                        padding: "18px 25px",
+                      }}
+                    >
+                      <h5
+                        className="modal-title m-auto"
+                        id="editModalLabel"
+                        style={{
+                          fontWeight: 650,
+                          color: "#0E5CA8",
+                          fontSize: "18px",
+                        }}
+                      >
+                        Update Student Name
+                      </h5>
+                      <button
+                        type="button"
+                        className="btn-close"
+                        data-bs-dismiss="modal"
+                      ></button>
+                    </div>
+                    <div className="modal-body px-4 py-4">
+                      <form onSubmit={handleStudentUpdate}>
+                        <div className="input-group mb-3">
+                          <span className="input-group-text bg-white">
+                            <i className="bi bi-person"></i>
+                          </span>
+                          <input
+                            type="text"
+                            className="form-control"
+                            placeholder="Enter new name"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                            required
+                            style={{
+                              height: "45px",
+                              borderRadius: "8px",
+                              border: "1.4px solid #C9D6E2",
+                              paddingLeft: "10px",
+                            }}
+                            onFocus={(e) =>
+                              (e.target.style.border = "1.4px solid #0DCAF0")
+                            }
+                            onBlur={(e) =>
+                              (e.target.style.border = "1.4px solid #C9D6E2")
+                            }
+                          />
+                        </div>
+                        <div className="input-group">
+                          <span className="input-group-text bg-white">
+                            <i className="bi bi-lock"></i>
+                          </span>
+                          <input
+                            type="password"
+                            className="form-control"
+                            placeholder="Enter password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            required
+                            style={{
+                              height: "45px",
+                              borderRadius: "8px",
+                              border: "1.4px solid #C9D6E2",
+                              paddingLeft: "10px",
+                            }}
+                            onFocus={(e) =>
+                              (e.target.style.border = "1.4px solid #0DCAF0")
+                            }
+                            onBlur={(e) =>
+                              (e.target.style.border = "1.4px solid #C9D6E2")
+                            }
+                          />
+                        </div>
+
+                        {/* Submit Button */}
+                        <button
+                          type="submit"
+                          className="btn w-100 mt-2"
+                          disabled={isUpdating}
+                          style={{
+                            background:
+                              "linear-gradient(135deg, #6AC8F2, #0DCAF0)",
+                            color: "white",
+                            height: "46px",
+                            borderRadius: "10px",
+                            fontWeight: 600,
+                            letterSpacing: ".4px",
+                            transition: "0.3s",
+                            border: "none",
+                          }}
+                        >
+                          {isUpdating ? (
+                            <div
+                              className="spinner-border spinner-border-sm text-light"
+                              role="status"
+                            ></div>
+                          ) : (
+                            "Update"
+                          )}
+                        </button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
               {filteredByClass.length > studentsPerPage && (
                 <div
                   style={{
