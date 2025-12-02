@@ -26,11 +26,6 @@ const nextConfig = {
         permanent: true,
       },
       {
-        source: '/blog-v3',
-        destination: '/blog-v4',
-        permanent: true,
-      },
-      {
         source: '/university-details/osmu',
         destination: '/university-details/1',
         permanent: true,

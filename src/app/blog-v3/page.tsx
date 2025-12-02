@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: "Blog v3",
   robots: "noindex",
   alternates: {
-    canonical: "https://careerbuddyclub.com/blog-v4",
+    canonical: "https://careerbuddyclub.com/blog-v3",
   },
 };
 
