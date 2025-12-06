@@ -161,20 +161,6 @@ const ThreeColumnBlogSection: React.FC<{ mode: BlogSectionMode }> = ({ mode }) =
                       >
                         {blog.title}
                       </h5>
-                      <p
-                        className="card-text text-muted mb-3"
-                        style={{
-                          fontSize: "0.75rem",
-                          lineHeight: "1.4em",
-                          overflow: "hidden",
-                          textOverflow: "ellipsis",
-                          display: "-webkit-box",
-                          WebkitLineClamp: 3,
-                          WebkitBoxOrient: "vertical",
-                        }}
-                      >
-                        {blog.desc}
-                      </p>
                       <div className="d-flex flex-wrap gap-2 mb-3">
                         {blog.tags?.slice(0, 3).map((tag, idx) => (
                           <span

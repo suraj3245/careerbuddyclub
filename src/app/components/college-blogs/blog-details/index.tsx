@@ -17,8 +17,7 @@ const CollegeBlogDetailsArea = ({ item }: { item: IBlogDataType }) => {
 
               {/* Title */}
               <h2 className="fw-semibold mb-3 mt-5 leading-none" style={{ marginTop:'2rem', lineHeight:'3.5rem', fontSize: '2rem' }}>{item.title}</h2>
-               
-               <p>{item.desc}</p>
+              
               {/* Banner */}
               <div className="mb-4">
                 <Image
@@ -31,7 +30,7 @@ const CollegeBlogDetailsArea = ({ item }: { item: IBlogDataType }) => {
               </div>
 
               {/* Description */}
-              {item.descComponent ? <item.descComponent /> : <p className="lead">{item.desc}</p>}
+              {/* {item.descComponent ? <item.descComponent /> : <p className="lead">{item.desc}</p>} */}
 
               {/* Quote */}
               <blockquote className="blockquote bg-light p-4 rounded mt-4 mb-4">
@@ -52,7 +51,7 @@ const CollegeBlogDetailsArea = ({ item }: { item: IBlogDataType }) => {
 
           {/* Sidebar */}
           <div className="col-lg-4">
-            <CollegeBlogSidebar currentId={item.id} />
+            <CollegeBlogSidebar/>
           </div>
         </div>
       </div>

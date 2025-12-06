@@ -41,7 +41,7 @@ const gordita = localFont({
 const ebGaramond = EB_Garamond({
   subsets: ["latin"],
   variable: "--eb_garamond-font",
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["600", "700", "800"],
 });
 export default function RootLayout({
   children,
