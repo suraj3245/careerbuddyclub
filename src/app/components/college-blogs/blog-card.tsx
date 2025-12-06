@@ -10,7 +10,7 @@ const BlogCard = ({
   blog: IBlogDataType;
   type: "schools" | "campus";
 }) => {
-  const { id, img_full, date, featured, tags, title, desc, img } = blog || {};
+  const { id, img_full, date, featured, tags, title, img } = blog || {};
 
   return (
     <div
@@ -76,19 +76,6 @@ const BlogCard = ({
         >
           {title}
         </h5>
-
-        <p
-          className="card-text text-muted mb-3"
-          style={{
-            fontSize: "0.95rem",
-            lineHeight: "1.4em",
-            maxHeight: "4.2em",
-            overflow: "hidden",
-            textOverflow: "ellipsis",
-          }}
-        >
-          {desc}
-        </p>
 
         <div className="d-flex flex-wrap gap-2 mb-3">
           {tags?.slice(0, 3).map((tag, idx) => (

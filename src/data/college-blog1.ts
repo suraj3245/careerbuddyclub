@@ -1,10 +1,3 @@
-import PharmacyDescription from "@/app/components/college-blogs/description/pharmacy";
-import BBAColleges from "@/app/components/college-blogs/description/bba";
-import NursingDescription from "@/app/components/college-blogs/description/nursing";
-import bptDescription from "@/app/components/college-blogs/description/bpt";
-import UttarakhandParamedicalAdmission from "@/app/components/college-blogs/description/paramedical";
-import BScNursingUttarakhandAdmission2026 from "@/app/components/college-blogs/description/bsc-nursing-uttarakhand-2026";
-import MhaDescription from "@/app/components/college-blogs/description/MhaDescription";
 
 const blog_data1 = [
   {
@@ -18,13 +11,9 @@ const blog_data1 = [
     blog: "top-pharmacy-colleges-dehradun",
     tags: ["Pharmacy", "Dehradun", "Career"],
     desc: "Explore the top pharmacy colleges in Dehradun for 2025. Get insights on courses, fees, and career opportunities in the pharmaceutical field.",
-   descComponent: PharmacyDescription,
    metaDescription: "Dehradun, nestled in the foothills of the Himalayas, is renowned for being an academic hub of North India. Over the past few years, the city has emerged as a prominent destination for pharmacy education, thanks to its peaceful environment, affordable living, and a wide range of academic institutions offering quality pharmaceutical programs.If you're a student aspiring to build a future in healthcare and pharmaceuticals, this 2025 Career Guide by Career Buddy Club will help you explore the top pharmacy colleges in Dehradun, including essential information on courses, fees, eligibility, career scope, and campus life.",
    excerpt: "Discover the best pharmacy colleges in Dehradun for 2025. This guide covers top institutions, courses offered, fees, eligibility criteria, and career prospects in the pharmaceutical industry. Make an informed choice for your future in pharmacy."
   },
-
-  // BBA Colleges Blog/////////////////////
-  
   {
     id: "top-bba-colleges-in-dehradun",
     img_full: "/assets/images/blog/bba_blog800.jpg",
@@ -38,12 +27,7 @@ const blog_data1 = [
     tags: ["Bba", "Management", "Career"],
     metaDescription: "Explore the best BBA colleges in Dehradun with top placements and industry connections.",   
     excerpt: "Discover the top BBA colleges in Dehradun offering excellent placements, internships, and industry exposure. Find your perfect fit for a successful career in business management." ,
-    descComponent: BBAColleges,
-  
-  },
-
-  // Nursing Colleges Blog//////////////////////
-  
+  },  
   {
     id: "top-5-nursing-colleges-in-dehradun",
     img_full: "/assets/images/blog/nursing_blog800.jpg",
@@ -56,10 +40,8 @@ const blog_data1 = [
     blog: "Explore the best BBA colleges in Dehradun with top placements and industry connections.",
     tags: ["Nursing", "Healthcare ", "Dehradun"],
     metaDescription: "Discover the top 5 nursing colleges in Dehradun for 2025, including Guru Nanak College and BFIT. Explore courses, fees, eligibility, campus life, and career prospects in this comprehensive guide by Career Buddy Club." ,
-    descComponent: NursingDescription,
-  
+
   },
-  // BPT Colleges Blog//////////////////////
   {
     id: "top-bpt-colleges-in-dehradun",
     img_full: "/assets/images/blog/bpt_blog220.jpg",
@@ -72,12 +54,7 @@ const blog_data1 = [
     blog: "Explore the best BPT colleges in Dehradun with top placements and industry connections.",
     tags: ["Physiotherapy", "Healthcare Education ", "Dehradun"],
     metaDescription: "Discover the top bpt colleges in Dehradun for 2025, including Guru Nanak College and BFIT. Explore courses, fees, eligibility, campus life, and career prospects in this comprehensive guide by Career Buddy Club." ,
-    descComponent: bptDescription,
-
   },
-
-  // Uttarakhand Paramedical Colleges Blog//////////////////////
-
   {
     id: "uttarakhand-paramedical-admission",
     img_full: "/assets/images/blog/para800.jpg",
@@ -90,12 +67,8 @@ const blog_data1 = [
     blog: "Uttarakhand Paramedical Admission 2025: Application Form, Dates, Eligibility, Colleges, and Process",
     tags: ["Paramedical", "HNBUMU", "Admission"],
     metaDescription: "Discover the top bpt colleges in Dehradun for 2025, including Guru Nanak College and BFIT. Explore courses, fees, eligibility, campus life, and career prospects in this comprehensive guide by Career Buddy Club." ,
-    descComponent: UttarakhandParamedicalAdmission,
 
   },
-
-  // BSc Nursing Admission Process in Uttarakhand (2026)
-
   {
     id: "bsc-nursing-admission-uttarakhand-2026",
     img_full: "/assets/images/blog/nursing_blog.webp",
@@ -119,11 +92,7 @@ const blog_data1 = [
     ],
     metaDescription: "Discover the complete BSc Nursing admission process in Uttarakhand 2026 — including eligibility, entrance exam (HNBUMU), counseling, top colleges, and career opportunities. Get expert guidance from Career Buddy Club, your trusted education portal.",
     excerpt: "Complete guide to BSc Nursing admission in Uttarakhand 2026: eligibility, HNBUMU entrance exam, counselling, top colleges, and careers.",
-    descComponent: BScNursingUttarakhandAdmission2026,
   },
-  
-  // MHA Colleges in Dehradun  
-
    {
     id: "best-mha-colleges-in-dehradun-uttarakhand-2026",
     img_full: "/assets/images/blog/MHA_800.jpg",
@@ -148,13 +117,7 @@ const blog_data1 = [
     ],
     metaDescription: "Explore the best MHA colleges in Dehradun and Uttarakhand for 2026. Compare fees, eligibility, placements, and courses at top government and private universities.",
     excerpt: "Your quick guide to the top MHA colleges in Dehradun and Uttarakhand: check eligibility, fees, placements, course details, and admission process for 2026.",
-    descComponent: MhaDescription,
   },
-
-
-
-
-
 ];
 
 export default blog_data1;

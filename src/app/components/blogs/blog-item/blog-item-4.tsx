@@ -29,7 +29,6 @@ const BlogItemFour = ({ blog }: { blog: IBlogDataType }) => {
           </h4>
         </Link>
         <p className="mb-20">
-          {blog.desc}…
         </p>
         <Link href={`/blog-details/${blog.id}`} className="read-more">
           <Image src={icon} alt="icon" className="lazy-img" />

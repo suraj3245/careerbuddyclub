@@ -45,7 +45,7 @@ const Menus = () => {
             }
           `}</style>
 
-          <div className="container-fluid">
+          <div className="container-fluid" style={{width: "1040px"}}>
             <div className="row g-4">
               {/* Column 1 - Indian Colleges */}
               <div className="col-12 col-md-4 mb-3">
