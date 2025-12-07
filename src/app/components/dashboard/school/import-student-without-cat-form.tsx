@@ -3,49 +3,63 @@
 import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 
 const ImportStudentsWithOutCatForm = () => {
   const [file, setFile] = useState<File | null>(null);
   const [School_id, setSchool_id] = useState<string | null>(null);
+  const [school_name, setSchool_name] = useState<string | null>(null);
   const wrapperRef = useRef<HTMLDivElement | null>(null);
   const [visible, setVisible] = useState(false);
+  const [loading, setLoading] = useState(false); // 👈 Loader state added
+  const router = useRouter();
 
   useEffect(() => {
     const id = localStorage.getItem("School_id");
+    const name = localStorage.getItem("schoolName");
+
     if (id) setSchool_id(id);
+    if (name) setSchool_name(name);
 
     const obs = new IntersectionObserver(
       (entries) => entries[0].isIntersecting && setVisible(true),
       { threshold: 0.25 }
     );
-    if (wrapperRef.current) obs.observe(wrapperRef.current);
 
+    if (wrapperRef.current) obs.observe(wrapperRef.current);
     return () => obs.disconnect();
   }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
     if (!file) return toast.error("Please select a file!");
+    if (!School_id) return toast.error("School ID not found!");
+
+    setLoading(true); // 👈 Start loader
 
     const fd = new FormData();
     fd.append("file", file);
-    fd.append("School_id", School_id!);
+    fd.append("School_id", School_id);
+    fd.append("school_name", school_name ?? "");
 
     try {
       const res = await axios.post(
-        "http://127.0.0.1:8000/api/students/importwithoutresults",
-        fd
+        "https://test.careerbuddyclub.com:8080/api/students/importwithoutresults",
+        fd,
+        { headers: { "Content-Type": "multipart/form-data" } }
       );
-
-      if (res.status === 200) {
-        toast.success("Imported successfully!");
-        setTimeout(
-          () => (window.location.href = "/dashboard/school-dashboard/dashboard"),
-          1000
-        );
-      } else toast.error("Failed to upload");
-    } catch {
-      toast.error("Something went wrong!");
+      toast.success(res.data.message || "Data imported successfully!");
+      setTimeout(() => {
+        router.push("/dashboard/school-dashboard/dashboard");
+      }, 1200);
+    } catch (err: any) {
+      toast.error(
+        err.response?.data?.message || "Failed to import data. Please try again."
+      );
+    } finally {
+      setLoading(false); // 👈 Stop loader
+      console.log("Import attempt finished.");
     }
   };
 
@@ -56,7 +70,6 @@ const ImportStudentsWithOutCatForm = () => {
       <div className="wave wave2"></div>
       <div className="wave wave3"></div>
 
-      {/* TITLE */}
       <div className={`header ${visible ? "fadeIn" : "hiddenFade"}`}>
         <h1>
           Student Data Upload <span>Without CAT Result</span>
@@ -64,7 +77,6 @@ const ImportStudentsWithOutCatForm = () => {
         <p>Bulk upload students with an elegant & intuitive import system.</p>
       </div>
 
-      {/* MAIN CARD */}
       <div className={`upload-card ${visible ? "popIn" : "popHidden"}`}>
         <h2 className="card-title">📤 Upload Excel Sheet</h2>
         <p className="subtitle">Allowed formats: .xlsx, .csv</p>
@@ -91,14 +103,29 @@ const ImportStudentsWithOutCatForm = () => {
               📥 Download Sample File
             </a>
 
-            <button className="btn import-btn" type="submit">
-              🚀 Import Now
+            {/* 🚀 IMPORT BUTTON WITH LOADER */}
+            <button
+              className="btn import-btn"
+              type="submit"
+              disabled={loading}
+            >
+              {loading ? (
+                <>
+                  <span
+                    className="spinner-border spinner-border-sm me-2"
+                    role="status"
+                    aria-hidden="true"
+                  ></span>
+                  Importing...
+                </>
+              ) : (
+                "🚀 Import Now"
+              )}
             </button>
           </div>
         </form>
       </div>
- 
-      {/* STYLES */}
+     {/* STYLES */}
       <style jsx>{`
         /*************************************************
         🔥 BACKGROUND — Animated Waves + Glowing Particles
@@ -216,14 +243,14 @@ const ImportStudentsWithOutCatForm = () => {
           backdrop-filter: blur(15px);
           border-radius: 22px;
           box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15),
-                      0 0 20px rgba(20, 173, 189, 0.4);
+            0 0 20px rgba(20, 173, 189, 0.4);
           transition: 0.4s ease;
           position: relative;
         }
         .upload-card:hover {
           transform: translateY(-6px);
           box-shadow: 0 35px 95px rgba(0, 0, 0, 0.2),
-                      0 0 26px rgba(20, 173, 189, 0.5);
+            0 0 26px rgba(20, 173, 189, 0.5);
         }
 
         .card-title {
