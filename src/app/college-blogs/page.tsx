@@ -9,7 +9,7 @@ import ThreeColumnBlogSection from "../components/college-blogs/three-col-blog";
 export const metadata: Metadata = {
   title: "Explore Best Colleges & Universities | Career Buddy Club",
   alternates: {
-    canonical: "https://careerbuddyclub.com/blog-v4",
+    canonical: "https://careerbuddyclub.com/college-blogs",
   },
 };
 

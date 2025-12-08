@@ -19,11 +19,6 @@ const images = [
     title: "Career Buddy Club CEO Honored",
     link: "/blog-v3",
   },
-  {
-    src: "/assets/images/blog/blog_img_37.jpg",
-    title: "UP NEET UG 2024 Counselling",
-    link: "/blog-v3",
-  },
 ];
 
 const FancyBanner16 = () => {

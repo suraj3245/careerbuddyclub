@@ -99,9 +99,8 @@ export function WidgetFour({
           <Link href="/corporate">For Corporate</Link>
         </li>
         <li>
-          <Link href="/blog-v4">College Blogs</Link>
+          <Link href="/college-blogs">College Blogs</Link>
         </li>
-        
       </ul>
     </div>
   );

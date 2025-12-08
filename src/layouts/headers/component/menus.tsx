@@ -98,15 +98,15 @@ const Menus = () => {
                 <ul className="list-unstyled p-0">
                   {[
                     {
-                      href: "/university-details/osmu",
+                      href: "/university-details/1",
                       name: "Orenburg State Medical University (OSMU)",
                     },
                     {
-                      href: "/university-details/mari-state",
+                      href: "/university-details/2",
                       name: "Mari State University",
                     },
                     {
-                      href: "/university-details/perm-state",
+                      href: "/university-details/3",
                       name: "Perm State Medical University",
                     },
                   ].map((u, i) => (
@@ -138,23 +138,23 @@ const Menus = () => {
                 <ul className="list-unstyled mt-3 inline-block text-right">
                   {[
                     {
-                      href: "/dubai-colleges/de-montfort",
+                      href: "/dubai-colleges/1",
                       name: "De Montfort University",
                     },
                     {
-                      href: "/dubai-colleges/university-of-europe",
+                      href: "/dubai-colleges/2",
                       name: "University of Europe",
                     },
                     {
-                      href: "/dubai-colleges/manipal",
+                      href: "/dubai-colleges/3",
                       name: "Manipal Academy of Higher Education Dubai",
                     },
                     {
-                      href: "/dubai-colleges/rit",
+                      href: "/dubai-colleges/4",
                       name: "Rochester Institute of Technology Dubai",
                     },
                     {
-                      href: "/dubai-colleges/debrecen",
+                      href: "/dubai-colleges/5",
                       name: "University of Debrecen Dubai",
                     },
                   ].map((d, i) => (
