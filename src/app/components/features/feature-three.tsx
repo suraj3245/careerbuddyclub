@@ -40,8 +40,9 @@ const FeatureThree = () => {
                 <Link
                   href="/about-us"
                   className="btn-five border6 mt-70 md-mt-30"
+                  aria-label="Learn more about CareerBuddyClub company details"
                 >
-                  Learn More
+                  Learn More About Us
                 </Link>
               </div>
             </div>
@@ -81,8 +82,6 @@ const FeatureThree = () => {
               </div>
             </div>
           </div>
-
-          
         </div>
       </section>
 
