@@ -43,7 +43,7 @@ const FaqArea = () => {
                 <AccordionItem
                   id="four"
                   title="How can I be part of CBC?"
-                  desc='For Career Aptitude Test, <a href="/career-aptitude" style="color: blue;">click here.</a> For Admissions in Colleges/Universities, <a href="/admission" style="color: blue;">click here.</a> For Jobs, <a href="https://jobs.careerbuddyclub.com" style="color: blue;">click here.</a>.'
+                  desc='For Career Aptitude Test, <a href="/career-aptitude" style="color: blue;">Career Aptitude Program Details</a> For Admissions in Colleges/Universities, <a href="/admission" style="color: blue;">Admission Process</a> For Jobs, <a href="https://jobs.careerbuddyclub.com" style="color: blue;">View Job Openings</a>.'
                   parent="accordionTwo"
                 />
                 <AccordionItem
