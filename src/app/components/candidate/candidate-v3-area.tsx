@@ -1,6 +1,5 @@
 "use client"
 import React, { useState } from "react";
-import ShortSelect from "../common/short-select";
 import candidate_data from "@/data/candidate-data";
 import CandidateGridItem from "./candidate-grid-item";
 import CandidateListItem from "./candidate-list-item";
@@ -32,10 +31,6 @@ const CandidateV3Area = ({ style_2 }: { style_2?: boolean }) => {
                   </div>
                 </div>
                 <div className="d-flex justify-content-between align-items-center">
-                  <div className="short-filter d-flex align-items-center">
-                    <div className="text-dark fw-500 me-2">Short:</div>
-                    <ShortSelect />
-                  </div>
                   <button
                     onClick={() => setJobType("list")}
                     className={`style-changer-btn text-center rounded-circle tran3s ms-2 list-btn ${jobType === "grid" ? "active" : ""}`}

@@ -1,5 +1,4 @@
 import React from "react";
-import FilterCompanyLocation from "./filter-company-location";
 
 const CompanyV1Filter = () => {
   return (
@@ -66,11 +65,6 @@ const CompanyV1Filter = () => {
         >
           Location
         </a>
-        <div className="collapse show" id="collapseLocation">
-          <div className="main-body">
-            <FilterCompanyLocation/>
-          </div>
-        </div>
       </div>
 
       <div className="filter-block bottom-line pb-25 mt-25">

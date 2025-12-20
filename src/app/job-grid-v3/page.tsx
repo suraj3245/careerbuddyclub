@@ -5,7 +5,6 @@ import Header from "@/layouts/headers/header";
 import FooterOne from "@/layouts/footers/footer-one";
 import JobBreadcrumb from "../components/jobs/breadcrumb/job-breadcrumb";
 import JobGridV3Area from "../components/jobs/grid/job-grid-v3-area";
-import JobPortalIntro from "../components/job-portal-intro/job-portal-intro";
 import HeaderFour from "@/layouts/headers/header-4";
 
 export const metadata: Metadata = {
@@ -28,10 +27,6 @@ const JobGridThreePage = () => {
         {/* job list three start */}
         <JobGridV3Area itemsPerPage={9} />
         {/* job list three end */}
-
-        {/* job portal intro start */}
-        <JobPortalIntro top_border={true} />
-        {/* job portal intro end */}
 
         {/* footer start */}
         <FooterOne />

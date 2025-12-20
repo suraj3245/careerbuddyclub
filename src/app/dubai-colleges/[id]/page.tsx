@@ -1,7 +1,6 @@
 import React from "react";
 import { Metadata } from "next";
 import Wrapper from "@/layouts/wrapper";
-import JobPortalIntro from "@/app/components/job-portal-intro/job-portal-intro";
 import CompanyBreadcrumbuniversity from "@/app/components/common/common-breadcrumb-university";
 import FooterOne from "@/layouts/footers/footer-one";
 import dubai_details from "@/data/dubai-details";

@@ -7,8 +7,6 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Link from "next/link";
-import company_data from "@/data/company-data";
-import CompanyDashboardArea from "../../company/company-dashboard-area";
 
 // props type
 
@@ -206,9 +204,6 @@ const PowerDegree = ({ setIsOpenSidebar, courses }: IProps) => {
             ))}
           </tbody>
         </table> */}
-
-        <h2 className="main-title pt-20">Our Partner Companies</h2>
-        <CompanyDashboardArea />
 
         <div className="button-group d-inline-flex align-items-center mt-30">
           <Link type="submit" className="dash-btn-two tran3s me-3" href="/">

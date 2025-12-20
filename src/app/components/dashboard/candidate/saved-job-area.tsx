@@ -2,7 +2,6 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import DashboardHeader from "./dashboard-header";
-import ShortSelect from "../../common/short-select";
 import job_data from "@/data/job-data";
 import ActionDropdown from "./action-dropdown";
 
@@ -22,10 +21,6 @@ const SavedJobArea = ({setIsOpenSidebar}:IProps) => {
 
         <div className="d-flex align-items-center justify-content-between mb-40 lg-mb-30">
           <h2 className="main-title m0">Saved Job</h2>
-          <div className="short-filter d-flex align-items-center">
-            <div className="text-dark fw-500 me-2">Short by:</div>
-            <ShortSelect />
-          </div>
         </div>
 
         <div className="wrapper">

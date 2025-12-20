@@ -7,7 +7,6 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Link from "next/link";
-import CompanyDashboardArea from "../../company/company-dashboard-area";
 
 // props type
 type IProps = {
@@ -23,7 +22,6 @@ const PartnerCompany = ({ setIsOpenSidebar }: IProps) => {
         {/* header end */}
 
         <h2 className="main-title">Our Partner Companies</h2>
-        <CompanyDashboardArea />
 
         {/* <div className="button-group d-inline-flex align-items-center mt-30">
           <Link

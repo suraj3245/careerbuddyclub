@@ -4,7 +4,6 @@ import candidate_data from "@/data/candidate-data";
 import CandidateGridItem from "./candidate-grid-item";
 import CandidateListItem from "./candidate-list-item";
 import CandidateV1FilterArea from "./filter/candidate-v1-filter-area";
-import ShortSelect from "../common/short-select";
 
 const CandidateV1Area = ({style_2=false}:{style_2?:boolean}) => {
   const [jobType, setJobType] = useState<string>(style_2 ? "list" : "grid");
@@ -36,10 +35,6 @@ const CandidateV1Area = ({style_2=false}:{style_2?:boolean}) => {
                     candidates found
                   </div>
                   <div className="d-flex align-items-center">
-                    <div className="short-filter d-flex align-items-center">
-                      <div className="text-dark fw-500 me-2">Short:</div>
-                      <ShortSelect />
-                    </div>
                     <button
                       onClick={() => setJobType("list")}
                       className={`style-changer-btn text-center rounded-circle tran3s ms-2 list-btn ${jobType === "grid" ? "active" : ""}`}
