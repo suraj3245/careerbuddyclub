@@ -2,7 +2,6 @@ import React from "react";
 import Wrapper from "@/layouts/wrapper";
 import { Metadata } from "next";
 import JobDetailsV1Area from "@/app/components/job-details/job-details-v1-area";
-import JobPortalIntro from "@/app/components/job-portal-intro/job-portal-intro";
 import JobDetailsBreadcrumb from "@/app/components/jobs/breadcrumb/job-details-breadcrumb";
 import RelatedJobs from "@/app/components/jobs/related-jobs";
 import FooterOne from "@/layouts/footers/footer-one";
@@ -32,10 +31,6 @@ const JobDetailsDynamicPage = ({ params }: { params: { id: string } }) => {
         {/* related job start */}
         {job && <RelatedJobs category={job.category} />}
         {/* related job end */}
-
-        {/* job portal intro start */}
-        <JobPortalIntro />
-        {/* job portal intro end */}
 
         {/* footer start */}
         <FooterOne />

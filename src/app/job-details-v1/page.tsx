@@ -2,7 +2,6 @@ import React from "react";
 import { Metadata } from "next";
 import Wrapper from "@/layouts/wrapper";
 import FooterOne from "@/layouts/footers/footer-one";
-import JobPortalIntro from "../components/job-portal-intro/job-portal-intro";
 import JobDetailsBreadcrumb from "../components/jobs/breadcrumb/job-details-breadcrumb";
 import JobDetailsV1Area from "../components/job-details/job-details-v1-area";
 import job_data from "@/data/job-data";
@@ -33,10 +32,6 @@ const JobDetailsV1Page = () => {
         {/* related job start */}
         <RelatedJobs category={job.category} />
         {/* related job end */}
-
-        {/* job portal intro start */}
-        <JobPortalIntro />
-        {/* job portal intro end */}
 
         {/* footer start */}
         <FooterOne />

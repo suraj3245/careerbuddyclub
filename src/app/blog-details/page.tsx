@@ -2,7 +2,6 @@ import React from "react";
 import { Metadata } from "next";
 import Header from "@/layouts/headers/header";
 import Wrapper from "@/layouts/wrapper";
-import JobPortalIntro from "../components/job-portal-intro/job-portal-intro";
 import CompanyBreadcrumb from "../components/common/common-breadcrumb";
 import FooterOne from "@/layouts/footers/footer-one";
 import BlogDetailsArea from "../components/blogs/blog-details";
@@ -31,10 +30,6 @@ const BlogDetailsPage = () => {
         {/* blog details start */}
         <BlogDetailsArea item={blog} />
         {/* blog details end */}
-
-        {/* job portal intro start */}
-        <JobPortalIntro top_border={true} />
-        {/* job portal intro end */}
 
         {/* footer start */}
         <FooterOne/>

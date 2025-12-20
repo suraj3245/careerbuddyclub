@@ -1,7 +1,5 @@
 "use client";
 import React, { useEffect, useState, useTransition } from "react";
-import ShortSelect from "../common/short-select";
-import CompanyPagination from "./company-pagination";
 
 const CompanyV1Area = ({ style_2 = false }: { style_2?: boolean }) => {
   const [viewType, setViewType] = useState<string>(style_2 ? "list" : "grid");
@@ -115,10 +113,6 @@ const CompanyV1Area = ({ style_2 = false }: { style_2?: boolean }) => {
               </div>
 
               <div className="d-flex align-items-center gap-3">
-                <div className="d-flex align-items-center">
-                  <span className="me-2 text-muted fw-semibold">Sort:</span>
-                  <ShortSelect />
-                </div>
                 <div className="btn-group">
                   <button
                     onClick={() => setViewType("list")}
@@ -222,13 +216,6 @@ const CompanyV1Area = ({ style_2 = false }: { style_2?: boolean }) => {
                     </small>
                   </div>
                 ))}
-              </div>
-            )}
-
-            {/* ================= PAGINATION ================= */}
-            {!loading && !error && filteredCompanies.length > 9 && (
-              <div className="mt-5">
-                <CompanyPagination />
               </div>
             )}
           </div>

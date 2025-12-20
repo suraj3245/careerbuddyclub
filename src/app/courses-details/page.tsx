@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from "react";
 import Wrapper from "@/layouts/wrapper";
-import JobPortalIntro from "../components/job-portal-intro/job-portal-intro";
 import CompanyBreadcrumbjob from "../components/common/common-breadcrumb-job";
 import FooterOne from "@/layouts/footers/footer-one";
 import courses_details from "@/data/courses-details";
@@ -19,7 +18,6 @@ const CollegeDetailsPage = () => {
           subtitle={details.coursefullform}
         />
         <CoursesDetailsArea details={details} />
-        <JobPortalIntro top_border={true} />
         <FooterOne />
       </div>
     </Wrapper>
