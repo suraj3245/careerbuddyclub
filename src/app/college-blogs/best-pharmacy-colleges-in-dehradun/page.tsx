@@ -5,17 +5,50 @@ import CollegeBlogSidebar from "@/app/components/college-blogs/blog-sidebar/asid
 import FooterOne from "@/layouts/footers/footer-one";
 import CompanyBreadcrumb from "../../components/common/common-breadcrumb";
 import Link from "next/link";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Best Pharmacy Colleges in Dehradun 2026 | D.Pharm & B.Pharm",
+  description:
+    "Compare the best pharmacy colleges in Dehradun for 2026. Explore D.Pharm, B.Pharm & Pharm.D courses, fees, eligibility and PCI-approved institutes.",
+
+  robots: {
+    index: true,
+    follow: true,
+  },
+
+  alternates: {
+    canonical:
+      "https://careerbuddyclub.com/college-blogs/best-pharmacy-colleges-in-dehradun",
+  },
+
+  openGraph: {
+    title: "Best Pharmacy Colleges in Dehradun 2026 – Courses & Fees",
+    description:
+      "Looking for the best pharmacy colleges in Dehradun? Compare D.Pharm, B.Pharm & Pharm.D colleges with fees, eligibility and PCI approval.",
+    url: "https://careerbuddyclub.com/college-blogs/best-pharmacy-colleges-in-dehradun",
+    type: "article",
+    images: [
+      {
+        url: "https://careerbuddyclub.com/images/pharmacy-college-dehradun.jpeg",
+        width: 1200,
+        height: 630,
+        alt: "Best Pharmacy Colleges in Dehradun",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Best Pharmacy Colleges in Dehradun 2026",
+    description:
+      "Compare D.Pharm, B.Pharm & Pharm.D colleges in Dehradun with fees, eligibility and career scope.",
+    images: [
+      "https://careerbuddyclub.com/images/pharmacy-college-dehradun.jpg",
+    ],
+  },
+};
 const bptDescription = () => {
-  const contactDetails = {
-    email: "admission@careerbuddyclub.com",
-    phone: "+917456000100",
-    socials: {
-      facebook: "https://facebook.com/careerbuddyclub",
-      instagram: "https://instagram.com/careerbuddyclub",
-      twitter: "https://twitter.com/careerbuddyclub",
-      linkedin: "https://linkedin.com/company/careerbuddyclub",
-    },
-  };
   return (
     <Wrapper>
       <div className="main-page-wrapper">
@@ -40,7 +73,7 @@ const bptDescription = () => {
                       <p>Pharmacy · 10 July, 2025 · By Career Buddy Club</p>
                     </div>
                     {/* Title */}
-                    <h2
+                    <h1
                       className="fw-semibold mb-3 mt-5 leading-none"
                       style={{
                         marginTop: "2rem",
@@ -48,16 +81,19 @@ const bptDescription = () => {
                         fontSize: "2rem",
                       }}
                     >
-                      Best Pharmacy Colleges in Dehradun (2025) Guide
-                    </h2>
+                      Best Pharmacy Colleges in Dehradun (2026) – Complete
+                      Admission & Career Guide
+                    </h1>
                     <p>
-                      Explore the top pharmacy colleges in Dehradun for 2025.
-                      Get insights on courses, fees, and career opportunities in
-                      the pharmaceutical field.
+                      Explore the best pharmacy colleges in Dehradun for 2026.
+                      This detailed guide covers D.Pharm, B.Pharm, Pharm.D
+                      courses, eligibility criteria, fee structure, approvals,
+                      and career opportunities to help students make informed
+                      admission decisions.
                     </p>
                     <div className="mb-4">
                       <Image
-                        src="/assets/images/blog/pharma_blog800.jpg"
+                        src="/assets/images/blog/pharmacy-college-dehradun.jpeg"
                         alt="logo"
                         className="img-fluid rounded shadow-sm"
                         width={800}
@@ -95,48 +131,8 @@ const bptDescription = () => {
                                   href="#top-colleges"
                                   className="text-decoration-none"
                                 >
-                                  Top Pharmacy Colleges in Dehradun (2025){" "}
+                                  Top Pharmacy Colleges in Dehradun (2026){" "}
                                 </a>
-
-                                <ul
-                                  className="ps-3 ms-2"
-                                  style={{ listStyleType: "disc" }}
-                                >
-                                  <li>
-                                    <a
-                                      href="#gnc"
-                                      className="text-decoration-none"
-                                    >
-                                      Guru Nanak College (GNC), Dehradun
-                                    </a>
-                                  </li>
-                                  <li>
-                                    <a
-                                      href="#bfit"
-                                      className="text-decoration-none"
-                                    >
-                                      BFIT Group of Institutions, Dehradun
-                                    </a>
-                                  </li>
-                                  <li>
-                                    <a
-                                      href="#dpc"
-                                      className="text-decoration-none"
-                                    >
-                                      Doon PG College of Agriculture and Allied
-                                      Sciences{" "}
-                                    </a>
-                                  </li>
-                                  <li>
-                                    <a
-                                      href="#jbit"
-                                      className="text-decoration-none"
-                                    >
-                                      JB Institute of Technology (JBIT),
-                                      Dehradun
-                                    </a>
-                                  </li>
-                                </ul>
                               </li>
                               <li>
                                 <a
@@ -170,73 +166,53 @@ const bptDescription = () => {
                           <h2 id="top-colleges" className="mt-4 mb-4 fs-2">
                             Why Choose Pharmacy as a Career?
                           </h2>
-
                           <p>
-                            Pharmacy is a dynamic and vital part of the
-                            healthcare sector. It’s not just about dispensing
-                            medicines — it's a science that involves the
-                            development, production, and safe use of
-                            pharmaceutical drugs. As a pharmacist, you become a
-                            key player in improving public health and ensuring
-                            patients receive the right medications and dosages.
-                            With India's pharmaceutical industry growing at a
-                            rapid pace, there is a strong demand for skilled
-                            pharmacy professionals across hospitals,
-                            manufacturing units, biotech labs, research
-                            organizations, and regulatory bodies. Pharmacy also
-                            provides a flexible career path, offering roles in
-                            clinical practice, industry, research, and even
-                            entrepreneurship.
+                            Pharmacy is a vital and rapidly growing component of
+                            the healthcare ecosystem. Beyond dispensing
+                            medicines, it focuses on drug development,
+                            manufacturing, quality assurance, clinical research,
+                            regulatory compliance, and patient safety. With
+                            India emerging as a global pharmaceutical hub,
+                            demand for skilled pharmacy professionals continues
+                            to rise across hospitals, pharma companies, research
+                            labs, CROs, biotech firms, and regulatory bodies.
                           </p>
-                          <ol className="mb-5">
-                            <h3>Key Benefits of a Career in Pharmacy: </h3>
-                            <br />
+                          <h3>Key Benefits of a Career in Pharmacy: </h3>
+                          <ol className="mb-1">
                             <li>
-                              <strong>Critical Role in Healthcare:</strong>
-                              Pharmacists bridge the gap between doctors and
-                              patients.
+                              Critical role in patient care and public health
                             </li>
                             <li>
-                              <strong>Wide Career Options:</strong> Ranging from
-                              hospitals and drug manufacturing to regulatory
-                              affairs and research.
+                              Wide career scope in industry, research, and
+                              healthcare
+                            </li>
+                            <li>Global job opportunities</li>
+                            <li>
+                              Higher education options: M.Pharm, Pharm.D, MBA
+                              (Healthcare/Pharma)
                             </li>
                             <li>
-                              <strong>Global Demand:</strong> Pharmacy
-                              professionals are needed both in India and abroad.
-                            </li>
-                            <li>
-                              <strong>Higher Studies:</strong>After B.Pharm, you
-                              can pursue M.Pharm, Pharm.D, or an MBA in
-                              Healthcare.{" "}
-                            </li>
-                            <li>
-                              <strong>Job Security & Salary Growth:</strong>
-                              Especially in clinical research,
-                              pharmacovigilance, and regulatory services.
+                              Strong job security and long-term salary growth
                             </li>
                           </ol>
-
+                          <p>
+                            <strong>Important: </strong>Admission to a
+                            PCI-approved pharmacy college is mandatory for
+                            pharmacist registration in India. Students are
+                            advised to verify approvals through the official
+                            Pharmacy Council of India (PCI) portal.
+                          </p>
                           <hr className="mt-10 border-bottom border-3 border-dark mt-4" />
-
                           {/* Top Colleges */}
                           <h2 id="gnc" className="mt-5 mb-4 fs-2 mt-4">
-                            Top Pharmacy Colleges in Dehradun (2025)
+                            Top Pharmacy Colleges in Dehradun (2026)
                           </h2>
-
                           <p>
-                            Here is a detailed look at some of the{" "}
-                            <strong>
-                              best PCI and AICTE-approved pharmacy colleges in
-                              Dehradun,{" "}
-                            </strong>
-                            offering{" "}
-                            <strong>D.Pharm and B.Pharm courses </strong>with
-                            excellent infrastructure and placement support.{" "}
+                            The following colleges are known for PCI-compliant
+                            pharmacy education, infrastructure, faculty quality,
+                            and placement support.
                           </p>
-
                           {/* GNC College */}
-
                           <ul className="mb-5 list-unstyled">
                             <li>
                               <h3 id="bfit">
@@ -252,23 +228,32 @@ const bptDescription = () => {
                                 </Link>
                               </p>
                               <p>
-                                <strong>Guru Nanak College (GNC)</strong>is one
-                                of Dehradun’s premier institutes for pharmacy
-                                education. Known for its focus on ethical
-                                learning and professional development, GNC
-                                blends academic knowledge with real-world skills
-                                to prepare students for the evolving
-                                pharmaceutical industry. The college offers{" "}
-                                <strong> Diploma in Pharmacy (D.Pharm) </strong>
-                                and{" "}
-                                <strong>Bachelor of Pharmacy (B.Pharm)</strong>{" "}
-                                programs, both of which are approved by the{" "}
-                                <strong>
-                                  Pharmacy Council of India (PCI) and AICTE.{" "}
-                                </strong>
+                                Guru Nanak College (GNC) is one of Dehradun’s
+                                most trusted institutes for pharmacy education,
+                                known for its strong academic framework and
+                                industry-oriented training. The School of
+                                Pharmacy at Guru Nanak College offers
+                                PCI-approved D.Pharm and B.Pharm programs,
+                                designed to equip students with practical
+                                skills, ethical values, and professional
+                                competence required in the pharmaceutical
+                                sector.
+                              </p>
+                              <p>
+                                The pharmacy programs at GNC are conducted in
+                                accordance with norms laid down by the Pharmacy
+                                Council of India (PCI), ensuring national
+                                recognition and eligibility for registration as
+                                a pharmacist in India.
                               </p>
 
                               <ul className="mt-3">
+                                <li>
+                                  <strong>Courses Offered:</strong>
+                                  <p>• Diploma in Pharmacy (D.Pharm)</p>
+                                  <p>• Bachelor of Pharmacy (B.Pharm)</p>
+                                </li>
+
                                 <li>
                                   <strong>Eligibility Criteria:</strong>
                                   <br />
@@ -288,34 +273,27 @@ const bptDescription = () => {
                                 <li className="mt-3">
                                   <strong>Campus Highlights:</strong>
                                   <br />
-                                  • State-of-the-art pharmaceutical laboratories
+                                  • Advanced pharmaceutical laboratories
                                   <br />
-                                  • Well-stocked library and e-learning
-                                  facilities
+                                  • Industry visits, internships, and seminars
                                   <br />
-                                  • Regular industry visits, seminars, and
-                                  internships <br />• Active placement and
-                                  mentorship cell
+                                  • Experienced faculty and mentorship support
+                                  <br />• Dedicated placement assistance
                                 </li>
 
                                 <li className="mt-3">
                                   <strong>Why Choose GNC?</strong>
                                   <p>
-                                    The institute emphasizes value-based
-                                    learning and offers affordable education
-                                    with strong placement support, making it an
-                                    ideal choice for pharmacy aspirants in
-                                    Uttarakhand.
+                                    Affordable fees, PCI compliance, and
+                                    consistent placement support make Guru Nanak
+                                    College a strong choice for pharmacy
+                                    aspirants in Uttarakhand.
                                   </p>
                                 </li>
                               </ul>
                             </li>
                           </ul>
-
                           <hr className="mt-10 border-bottom border-3 border-dark mt-4" />
-
-                          {/* BFIT GROUP OF Institutions */}
-
                           <ul className="mb-5 list-unstyled">
                             <li>
                               <h3 id="dpc">
@@ -331,24 +309,22 @@ const bptDescription = () => {
                                 </Link>
                               </p>
                               <p>
-                                <strong>
-                                  BFIT (Baba Farid Institute of Technology)
-                                </strong>{" "}
-                                is a multi-disciplinary institute that has made
-                                a significant mark in science and technology
-                                education. Its School of Pharmacy is known for
-                                advanced teaching methodologies, international
-                                collaborations, and hands-on lab training. BFIT
-                                offers both
-                                <strong> D.Pharm and B.Pharm </strong> , with
-                                modern labs and a focus on career readiness
-                                through skill development and industry exposure.
+                                BFIT’s School of Pharmacy focuses on practical
+                                training, research exposure, and career
+                                readiness, supported by modern laboratories and
+                                industry collaboration.
                               </p>
 
                               <ul
                                 className="mt-3"
                                 style={{ listStyleType: "upper-roman" }}
                               >
+                                <li>
+                                  <strong>Courses Offered:</strong>
+                                  <br />
+                                  • D.Pharm
+                                  <br />• B.Pharm
+                                </li>
                                 <li>
                                   <strong>Eligibility Criteria:</strong>
                                   <br />
@@ -361,6 +337,9 @@ const bptDescription = () => {
                                   <br />
                                   • D.Pharm: ₹50,000 per year <br />• B.Pharm:
                                   ₹80,000 per year
+                                  <br />
+                                  Best For: Students seeking research-oriented
+                                  learning with strong industry interface.
                                 </li>
 
                                 <li className="mt-3">
@@ -386,11 +365,8 @@ const bptDescription = () => {
                               </ul>
                             </li>
                           </ul>
-
                           <hr className="mt-10 border-bottom border-3 border-dark mt-4" />
-
                           {/* Doon Pg College Of Agriculture and  Allied Sciences */}
-
                           <ul className="mb-5 list-unstyled">
                             <li>
                               <h3 id="jbit">
@@ -407,16 +383,10 @@ const bptDescription = () => {
                                 </Link>
                               </p>
                               <p>
-                                <strong>Doon PG College</strong>Doon PG College,
-                                part of the prestigious Doon Group of Colleges,
-                                offers pharmacy education with a research and
-                                community-based learning approach. The college
-                                focuses on skill-based education and fosters
-                                real-world exposure through pharmaceutical
-                                workshops and seminars. BFIT offers both
-                                <strong>D.Pharm and B.Pharm</strong> , with
-                                modern labs and a focus on career readiness
-                                through skill development and industry exposure.
+                                <strong>Doon PG College</strong>, Part of the
+                                Doon Group of Colleges, this institute offers
+                                pharmacy education with a focus on experiential
+                                learning and community healthcare exposure.
                               </p>
 
                               <ul className="mt-3">
@@ -427,51 +397,22 @@ const bptDescription = () => {
                                   Bachelor of Pharmacy (B.Pharm)
                                 </li>
 
-                                <li>
-                                  <strong>Eligibility Criteria:</strong>
-                                  <br />• 10+2 with PCB/PCM from a recognized
-                                  board
-                                </li>
-
                                 <li className="mt-3">
                                   <strong>Fee Structure (Approximate): </strong>
                                   <br />
                                   • D.Pharm: ₹45,000 per year
                                   <br />• B.Pharm: ₹75,000 – ₹85,000 per year
-                                </li>
-
-                                <li className="mt-3">
-                                  <strong>Campus Highlights:</strong>
                                   <br />
-                                  • Focus on experiential and lab-based learning{" "}
-                                  <br />
-                                  • Active alumni engagement and career guidance{" "}
-                                  <br />
-                                  • Health camps, seminars, and pharma industry
-                                  exposure <br />• Access to community health
-                                  initiatives
-                                </li>
-
-                                <li className="mt-3">
-                                  <strong>Why Choose Doon PG College? </strong>
-                                  <p>
-                                    The college combines academic rigor with
-                                    social responsibility and is ideal for
-                                    students who wish to explore the broader
-                                    impact of pharmacy on society.
-                                  </p>
+                                  Best For: Students interested in practical,
+                                  socially driven pharmacy education.
                                 </li>
                               </ul>
                             </li>
                           </ul>
-
                           <hr className="mt-10 border-bottom border-3 border-dark mt-4" />
-
-                          {/*  JB Institute of Technology (JBIT), Dehradun   */}
-
                           <ul className="mb-5 list-unstyled">
                             <li>
-                              <h3 id="">
+                              <h3>
                                 4. JB Institute of Technology (JBIT), Dehradun
                               </h3>
                               <br />
@@ -487,11 +428,9 @@ const bptDescription = () => {
                                 <strong>
                                   JB Institute of Technology (JBIT)
                                 </strong>{" "}
-                                is one of the fastest-growing technical colleges
-                                in Dehradun. Known for its engineering and
-                                management programs, JBIT has expanded into
-                                pharmacy with a strong emphasis on innovation
-                                and real-world applicability.
+                                is a fast-growing technical institution offering
+                                pharmacy programs aligned with innovation,
+                                research, and employability skills.
                               </p>
 
                               <ul className="mt-3">
@@ -502,28 +441,22 @@ const bptDescription = () => {
                                   Bachelor of Pharmacy (B.Pharm)
                                 </li>
 
-                                <li>
-                                  <strong>Eligibility Criteria:</strong>
-                                  <br />
-                                  • 10+2 with Physics, Chemistry, and
-                                  Biology/Mathematics <br />• Minimum 45%
-                                  aggregate marks
-                                </li>
-
                                 <li className="mt-3">
                                   <strong>Fee Structure (Approximate): </strong>
                                   <br />
                                   • D.Pharm: ₹40,000 – ₹50,000 per year <br />•
                                   B.Pharm: ₹75,000 per year
+                                  <br />
+                                  Best For: Students seeking modern
+                                  infrastructure and balanced academic exposure.
                                 </li>
 
                                 <li className="mt-3">
                                   <strong>Campus Highlights:</strong>
                                   <br />
                                   • Green, Wi-Fi-enabled campus with modern
-                                  facilities <br />
-                                  • Industry tie-ups and internship programs{" "}
-                                  <br />
+                                  facilities <br />• Industry tie-ups and
+                                  internship programs <br />
                                   • Emphasis on research, innovation, and soft
                                   skills
                                   <br />• Hostel and transportation facilities
@@ -542,33 +475,89 @@ const bptDescription = () => {
                               </ul>
                             </li>
                           </ul>
-
                           <hr className="mt-10 border-bottom border-3 border-dark mt-4" />
+                          <ul className="mb-5 list-unstyled">
+                            <li>
+                              <h3>5. Maya Devi University, Dehradun</h3>
+                              <br />
+                              <p>
+                                <Link
+                                  href="https://careerbuddyclub.com/college-details/JBIT?utm_source=CBC-Website&utm_medium=Online&utm_campaign=JBIT"
+                                  className="text-primary"
+                                >
+                                  🔗 Visit Website
+                                </Link>
+                              </p>
+                              <p>
+                                <strong>Maya Devi University</strong> is a
+                                multidisciplinary private university offering a
+                                complete pharmacy education pathway from diploma
+                                to doctoral level.
+                              </p>
 
-                          {/* Career Prospects */}
-                          <h2 id="" className="mb-3 fs-2 mt-4">
+                              <ul className="mt-3">
+                                <li>
+                                  <strong>Courses Offered:</strong>
+                                  <br />
+                                  • Diploma in Pharmacy (D.Pharm) <br />•
+                                  Bachelor of Pharmacy (B.Pharm) <br />• Pharm.D
+                                  <br />• M.Pharm
+                                </li>
+
+                                <li>
+                                  <strong>Why Choose MDU?</strong>
+                                  <br />
+                                  • PCI-approved programs
+                                  <br />
+                                  • Suitable for clinical, research, and
+                                  academic career aspirations
+                                  <br />
+                                  Best For: Students planning long-term careers
+                                  in clinical pharmacy, research, or higher
+                                  studies.
+                                </li>
+                              </ul>
+                            </li>
+                          </ul>
+                          <hr className="mt-10 border-bottom border-3 border-dark mt-4" />
+                          <ul className="mb-5 list-unstyled">
+                            <li>
+                              <h3>
+                                6. Dev Bhoomi Institute of Pharmacy & Research
+                              </h3>
+                              <br />
+                              <p>
+                                <Link
+                                  href="https://careerbuddyclub.com/college-details/JBIT?utm_source=CBC-Website&utm_medium=Online&utm_campaign=JBIT"
+                                  className="text-primary"
+                                >
+                                  🔗 Visit Website
+                                </Link>
+                              </p>
+                              <p>
+                                Known for its Pharm.D and advanced pharmacy
+                                programs, this institute is a recognized name in
+                                Uttarakhand’s pharmacy education ecosystem.
+                              </p>
+                            </li>
+                          </ul>
+                          <p>
+                            Best For: Students targeting clinical pharmacy and
+                            hospital-based roles.
+                          </p>
+                          <hr className="mt-10 border-bottom border-3 border-dark mt-4" />
+                          <h2 className="mb-3 fs-2 mt-4">
                             Career Opportunities After Pharmacy
                           </h2>
-
-                          <p>
-                            With a Diploma (D.Pharm) or Bachelor's degree
-                            (B.Pharm) in pharmacy, students are eligible for a
-                            wide range of career opportunities in India and
-                            abroad.
-                          </p>
-
                           <ul>
                             <li>
                               <strong>Career Options After D.Pharm:</strong>
                               <br />
-                              • Registered Pharmacist in retail stores or
-                              hospitals
+                              • Registered Pharmacist (Retail/Hospital)
                               <br />
                               • Medical Sales Representative
                               <br />
-                              • Drug Manufacturing Assistant
-                              <br />
-                              • Quality Control Executive
+                              • Manufacturing & Quality Control Assistant
                               <br />• Lateral Entry to B.Pharm (2nd Year)
                             </li>
                             <li>
@@ -578,15 +567,10 @@ const bptDescription = () => {
                               <br />
                               • Clinical Research Associate (CRA)
                               <br />
-                              • Pharmaceutical Marketing Executive
+                              • QA/QC Analyst
                               <br />
-                              • Production Chemist / QA Analyst
-                              <br />
-                              • Regulatory Affairs or Pharmacovigilance Officer
-                              <br />
-                              • Medical Underwriting / Medical Coding
-                              <br />• Higher Studies: M.Pharm, Pharm.D, or MBA
-                              in Healthcare
+                              • Regulatory Affairs & Pharmacovigilance Officer
+                              <br />• Pharmaceutical Marketing Executive
                             </li>
                             <li>
                               <strong id="conclude">Emerging Sectors:</strong>
@@ -599,63 +583,133 @@ const bptDescription = () => {
                               <br />• Medical Writing & Scientific Journalism
                             </li>
                           </ul>
-
                           <hr className="mt-10 border-bottom border-3 border-dark mt-4" />
-
                           {/* Conclusion*/}
                           <h2 id="tags" className="mb-3 fs-2 mt-4">
                             Conclusion
                           </h2>
                           <p className="mb-5">
-                            Choosing the right pharmacy college is a
-                            life-changing decision, and Dehradun offers some of
-                            the best options in North India. With colleges like
-                            Guru Nanak College, BFIT, Doon PG College, and JBIT,
-                            students get access to quality education,
-                            state-of-the-art labs, internship support, and a
-                            nurturing campus environment. <br />
-                            Whether you’re aiming for a diploma or a degree in
-                            pharmacy, these institutions will provide you with
-                            the skills, knowledge, and opportunities to excel in
-                            the ever-expanding pharmaceutical industry.
+                            Dehradun has emerged as one of North India’s
+                            preferred destinations for pharmacy education.
+                            Institutions such as Guru Nanak College, BFIT, Maya
+                            Devi University, Doon PG College, JBIT, and Dev
+                            Bhoomi Institute offer PCI-approved programs, modern
+                            infrastructure, and strong career pathways.
                             <br />
-                            <strong>
-                              Need help with admissions or career counselling?{" "}
-                            </strong>
-                            Get in touch with{" "}
-                            <Link
-                              href="https://careerbuddyclub.com/contact"
-                              className="text-primary underline hover:text-primary/80"
-                            >
-                              Career Buddy Club
-                            </Link>{" "}
-                            for{" "}
-                            <strong>
-                              free expert guidance, college shortlisting, and
-                              end-to-end support
-                            </strong>{" "}
-                            on your academic journey.
+                            Choosing the right college in 2026 is crucial for
+                            long-term success in the pharmaceutical industry.
+                            Students are strongly advised to verify approvals
+                            via the Pharmacy Council of India (PCI) and seek
+                            professional guidance before finalizing admissions.
+                            <br />
+                            <strong>Need help with admissions?</strong>
                           </p>
-
+                          <p>
+                            Career Buddy Club provides free counselling, college
+                            comparison, and end-to-end admission support for
+                            pharmacy aspirants across Uttarakhand.
+                          </p>
+                          Get in touch with{" "}
+                          <Link
+                            href="https://careerbuddyclub.com/contact"
+                            className="text-primary underline hover:text-primary/80"
+                          >
+                            Career Buddy Club
+                          </Link>{" "}
+                          for{" "}
+                          <strong>
+                            free expert guidance, college shortlisting, and
+                            end-to-end support
+                          </strong>{" "}
+                          on your academic journey.
                           <hr className="mt-10 border-bottom border-3 border-dark mt-4" />
-
                           {/* Tags*/}
-                          <h2 id="" className="mt-4 mb-3 fs-2">
-                            Tags
-                          </h2>
+                          <h2 className="mt-4 mb-3 fs-2">Tags</h2>
                           <p>
                             <strong>
                               Pharmacy Colleges in Dehradun, Best D.Pharm
                               Colleges Dehradun, Top B.Pharm Colleges
-                              Uttarakhand, Pharmacy Admission 2025, PCI Approved
-                              Colleges Dehradun, Career After Pharmacy, Best
-                              Pharmacy Courses in India, Dehradun Pharmacy
-                              Colleges List, Pharmacy Career Opportunities
+                              Uttarakhand, Pharmacy Admission 2026, PCI Approved
+                              Pharmacy Colleges Dehradun, Pharm.D Colleges
+                              Dehradun, Career After Pharmacy, Pharmacy Courses
+                              in India
                             </strong>
                           </p>
                         </div>
-
-                        {/* Table for Colleges */}
+                        <h4>FAQs – Pharmacy Colleges in Dehradun (2026)</h4>
+                        <div className="mb-4">
+                          <h5>
+                            1. Which are the top pharmacy colleges in Dehradun?
+                          </h5>
+                          <p>
+                            Some of the best pharmacy colleges in Dehradun for
+                            2026 include Guru Nanak College, BFIT Group of
+                            Institutions, Maya Devi University, Doon PG College
+                            of Agriculture and Allied Sciences, and JB Institute
+                            of Technology. The best choice depends on budget,
+                            course preference, and career goals.
+                          </p>
+                          <h5>
+                            2. What is the eligibility for B.Pharm admission in
+                            Dehradun colleges?
+                          </h5>
+                          <p>
+                            To apply for B.Pharm in Dehradun, candidates must
+                            have passed 10+2 with Physics and Chemistry, along
+                            with Biology or Mathematics, securing at least 45%
+                            marks (40% for reserved categories).
+                          </p>
+                          <h5>
+                            3. What is the average fee for pharmacy courses in
+                            Dehradun?
+                          </h5>
+                          <p>
+                            • D.Pharm: ₹40,000 – ₹60,000 per year
+                            <br />• B.Pharm: ₹70,000 – ₹90,000 per year
+                            <br />
+                            • Pharm.D: ₹1.8 – ₹2.5 lakh per year (varies by
+                            university) <br />
+                            Fees depend on infrastructure, university status,
+                            and facilities
+                          </p>
+                          <h5>4. Is Pharmacy a good career option in 2026?</h5>
+                          <p>
+                            Yes. Pharmacy remains a strong career option in 2026
+                            due to growth in pharmaceutical manufacturing,
+                            clinical research, e-pharmacy, pharmacovigilance,
+                            and healthcare services in India and abroad.
+                          </p>
+                          <h5>5. Can I do Pharm.D in Dehradun?</h5>
+                          <p>
+                            Yes. Maya Devi University and select institutes
+                            around Dehradun offer Pharm.D (Doctor of Pharmacy)
+                            programs approved by PCI.
+                          </p>
+                          <h5>6. What are the career options after D.Pharm?</h5>
+                          <p>
+                            After D.Pharm, students can work as:
+                            <br />
+                          </p>
+                          <ul>
+                            <li>Registered Pharmacist</li>
+                            <li> Hospital Pharmacist</li>
+                            <li>Medical Sales Representative</li>
+                            <li>
+                              Quality Control Assistant <br />
+                              They can also opt for lateral entry into B.Pharm
+                              (2nd year).
+                            </li>
+                          </ul>
+                          <h5>
+                            7. Which pharmacy course has the highest salary?
+                          </h5>
+                          <p>
+                            Among pharmacy courses, Pharm.D, M.Pharm (Regulatory
+                            Affairs/Clinical Research), and Pharmacovigilance
+                            roles generally offer higher salary potential,
+                            especially in multinational companies.
+                          </p>
+                        </div>
                       </section>
                     </div>
                     <blockquote className="blockquote bg-light p-4 rounded mt-4 mb-4">

@@ -2,10 +2,10 @@
 const blog_data1 = [
   {
     id: "best-pharmacy-colleges-in-dehradun",
-    img: "/assets/images/blog/pharma_blog362.jpg",
-    grid_img: "/assets/images/blog/pharma_blog362.jpg",
-    img_full: "/assets/images/blog/pharma_blog800.jpg",
-    title: "Best Pharmacy Colleges in Dehradun (2025) Guide",
+    img: "/assets/images/blog/pharmacy-college-dehradun.jpeg",
+    grid_img: "/assets/images/blog/pharmacy-college-dehradun.jpeg",
+    img_full: "/assets/images/blog/pharmacy-college-dehradun.jpeg",
+    title: "Best Pharmacy Colleges in Dehradun (2026) Guide",
     author: "Career Buddy Club",
     date: "10 July, 2025",
     blog: "top-pharmacy-colleges-dehradun",
