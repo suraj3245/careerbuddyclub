@@ -27,7 +27,7 @@ const CommonBreadcrumb = ({
           <div className="row">
             <div className="col-xl-6 m-auto text-center">
               <div className="title-one">
-                <h2 className="text-black blog-V3-title break-words text-balance">
+                <h2 className="text-black blog-V3-title text-balance">
                   {title}
                 </h2>
               </div>

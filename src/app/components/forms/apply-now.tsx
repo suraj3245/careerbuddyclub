@@ -421,7 +421,7 @@ const ApplyForm: React.FC<ApplyFormProps> = ({ onSuccess }) => {
                 }}
               >
                 {!isVerificationSent
-                  ? "Whatsapp OTP"
+                  ? "send otp"
                   : showResend
                   ? "Resend"
                   : `Wait for ${countdown} sec`}
