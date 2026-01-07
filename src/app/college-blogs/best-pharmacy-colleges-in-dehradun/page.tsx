@@ -221,10 +221,10 @@ const bptDescription = () => {
                               <br />
                               <p>
                                 <Link
-                                  href="https://careerbuddyclub.com/college-details/GNC?utm_source=CBC-Website&utm_medium=Online&utm_campaign=GNC"
+                                  href="https://www.gnc.edu.in/Pharmacy-College-in-Dehradun-Uttarakhand"
                                   className="text-primary"
                                 >
-                                  🔗 Visit Website
+                                  🔗 Visit Guru Nanak College Website
                                 </Link>
                               </p>
                               <p>
