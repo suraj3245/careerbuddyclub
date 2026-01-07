@@ -93,7 +93,7 @@ export function WidgetFour({
           <Link href="/schools">For Schools</Link>
         </li>
         <li>
-          <Link href="/campus">For College</Link>
+          <Link href="/universities">For Universities</Link>
         </li>
         <li>
           <Link href="/corporate">For Corporate</Link>

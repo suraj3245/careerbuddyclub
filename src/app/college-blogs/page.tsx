@@ -5,7 +5,6 @@ import CompanyBreadcrumb from "../components/common/common-breadcrumb";
 import FooterOne from "@/layouts/footers/footer-one";
 import ThreeColumnBlogSection from "../components/college-blogs/three-col-blog";
 
-
 export const metadata: Metadata = {
   title: "Explore Best Colleges & Universities | Career Buddy Club",
   alternates: {
