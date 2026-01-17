@@ -590,7 +590,7 @@ const BScNursingUttarakhandAdmission2026 = () => {
                           <p>
                             Stay connected with{" "}
                             <Link
-                              href="/college-blogs/top-5-nursing-colleges-in-dehradun"
+                              href="/college-blogs/top-7-nursing-colleges-in-dehradun"
                               className="text-primary"
                             >
                               Career Buddy Club
