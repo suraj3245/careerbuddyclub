@@ -29,18 +29,17 @@ const blog_data1 = [
     excerpt: "Discover the top BBA colleges in Dehradun offering excellent placements, internships, and industry exposure. Find your perfect fit for a successful career in business management." ,
   },  
   {
-    id: "top-5-nursing-colleges-in-dehradun",
+    id: "top-7-nursing-colleges-in-dehradun",
     img_full: "/assets/images/blog/nursing_blog800.jpg",
-    img: "/assets/images/blog/nursing_blog362.jpg",
+    img: "/assets/images/blog/nursing_blog_801.png",
     grid_img: "/assets/images/blog/nursing_blog800.jpg",
-    title: "Top 5 Nursing Colleges in Dehradun: Courses, Fees, Eligibility & Career Scope (2025 Guide)",
-    desc: "Dehradun, nestled in the picturesque hills of Uttarakhand, is increasingly becoming a hub for healthcare and medical education. Among its growing portfolio of professional courses, nursing programs are highly sought after due to rising demand in hospitals, clinics, and global healthcare settings.In this comprehensive 2025 guide by Career Buddy Club, we bring you the Top 5 Nursing Colleges in Dehradun, complete with program details, fees, eligibility, campus highlights, and career scope — with special attention to Guru Nanak College and BFIT Group of Institutions, two of the fastest emerging nursing colleges in the region.",
+    title: "Top 7 Nursing Colleges in Dehradun: Courses, Fees, Eligibility & Career Scope (2026 Guide)",
+    desc: "Dehradun, nestled in the picturesque hills of Uttarakhand, is increasingly becoming a hub for healthcare and medical education. Among its growing portfolio of professional courses, nursing programs are highly sought after due to rising demand in hospitals, clinics, and global healthcare settings.In this comprehensive 2025 guide by Career Buddy Club, we bring you the Top 7 Nursing Colleges in Dehradun, complete with program details, fees, eligibility, campus highlights, and career scope — with special attention to Guru Nanak College and BFIT Group of Institutions, two of the fastest emerging nursing colleges in the region.",
     author: "Career Buddy Club",
     date: "10 July, 2025",
     blog: "Explore the best BBA colleges in Dehradun with top placements and industry connections.",
     tags: ["Nursing", "Healthcare ", "Dehradun"],
-    metaDescription: "Discover the top 5 nursing colleges in Dehradun for 2025, including Guru Nanak College and BFIT. Explore courses, fees, eligibility, campus life, and career prospects in this comprehensive guide by Career Buddy Club." ,
-
+    metaDescription: "Discover the top 7 nursing colleges in Dehradun for 2025, including Guru Nanak College and BFIT. Explore courses, fees, eligibility, campus life, and career prospects in this comprehensive guide by Career Buddy Club." ,
   },
   {
     id: "top-bpt-colleges-in-dehradun",

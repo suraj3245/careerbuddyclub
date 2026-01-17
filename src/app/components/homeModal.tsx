@@ -125,8 +125,9 @@ const ModalForHeader: React.FC<ModalForHeaderProps> = ({
                 <button
                   className="btn col-lg-12 mt-3 text-center btnoflogin w-100"
                   style={{
-                    backgroundColor: "rgb(20, 173, 189)",
-                    color: "white",
+                    color: "rgb(20, 173, 189)",
+                    textDecoration: "underline",
+                    
                   }}
                   onClick={() => setCurrentModalType("schoolForm")}
                 >

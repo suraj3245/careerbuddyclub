@@ -35,7 +35,7 @@ const ApplyModal: React.FC<ApplyModalProps> = ({ onSuccess }) => {
         </ul>
       </div>
       <div className="col-lg-6 form-wrapper m-auto mt-2">
-        <ApplyForm onSuccess={onSuccess}/>
+        <ApplyForm/>
       </div>
     </div>
   );
