@@ -1,14 +1,13 @@
 "use client";
 import "./globals.scss";
 import localFont from "next/font/local";
-import { EB_Garamond } from "next/font/google";
 import BackToTopCom from "./components/common/back-to-top-com";
 import { Providers } from "@/redux/provider";
 import HeaderFour from "@/layouts/headers/header-4";
 import React, { useEffect, useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import Script from "next/script";
-import { ToastContainer, toast } from "react-toastify"; 
+import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import HeaderTop from "@/layouts/headers/header-top";
 import WhatsappChatButton from "./components/modal/whatsappChat";
@@ -38,10 +37,26 @@ const gordita = localFont({
   ],
   variable: "--gorditas-font",
 });
-const ebGaramond = EB_Garamond({
-  subsets: ["latin"],
+const ebGaramond = localFont({
+  src: [
+    {
+      path: "../../public/assets/fonts/EB_Garamond/EBGaramond-SemiBold.woff2",
+      weight: "600",
+      style: "normal",
+    },
+    {
+      path: "../../public/assets/fonts/EB_Garamond/EBGaramond-Bold.woff2",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "../../public/assets/fonts/EB_Garamond/EBGaramond-ExtraBold.woff2",
+      weight: "800",
+      style: "normal",
+    },
+  ],
   variable: "--eb_garamond-font",
-  weight: ["600", "700", "800"],
+  display: "swap",
 });
 export default function RootLayout({
   children,
@@ -105,7 +120,7 @@ export default function RootLayout({
   );
   const isapplynow = pathname.startsWith("/apply-now");
   const isSchoolDashboard = pathname.startsWith("/dashboard/");
-  const dbsapplynow=pathname.startsWith("/dbs-apply-now");
+  const dbsapplynow = pathname.startsWith("/dbs-apply-now");
 
   // const isCollegeDetailsPage = pathname.startsWith("/college-details");
   return (
@@ -132,12 +147,16 @@ export default function RootLayout({
     `,
           }}
         />
-        <Script src="https://cdn.botpress.cloud/webchat/v2/inject.js" strategy="lazyOnload" />
-        <Script src="https://mediafiles.botpress.cloud/e34ea3b0-fab4-4ffb-b126-e7a6ec557ea3/webchat/v2/config.js" strategy="lazyOnload" />
+        <Script
+          src="https://cdn.botpress.cloud/webchat/v2/inject.js"
+          strategy="lazyOnload"
+        />
+        <Script
+          src="https://mediafiles.botpress.cloud/e34ea3b0-fab4-4ffb-b126-e7a6ec557ea3/webchat/v2/config.js"
+          strategy="lazyOnload"
+        />
       </head>
-      <body
-        className={`${gordita.variable} ${ebGaramond.variable}`}
-      >
+      <body className={`${gordita.variable} ${ebGaramond.variable}`}>
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-W5778944"
@@ -151,13 +170,20 @@ export default function RootLayout({
           !isAptitudeTestPage &&
           !isCandidateDashboardPage &&
           !isapplynow &&
-          !isSchoolDashboard && !dbsapplynow && (
+          !isSchoolDashboard &&
+          !dbsapplynow && (
             <div>
-            <HeaderFour user={user} onLogout={handleLogout} key={key} index={0} /></div>
+              <HeaderFour
+                user={user}
+                onLogout={handleLogout}
+                key={key}
+                index={0}
+              />
+            </div>
           )}
 
         <Providers>{children}</Providers>
-        <ToastContainer/>
+        <ToastContainer />
         <WhatsappChatButton />
         {/* <BackToTopCom /> */}
       </body>
