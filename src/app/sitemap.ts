@@ -70,7 +70,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.9,
     },
      {
-      url: `${baseUrl}/college-blogs/top-5-nursing-colleges-in-dehradun`,
+      url: `${baseUrl}/college-blogs/top-7-nursing-colleges-in-dehradun`,
       lastModified,
       changeFrequency: 'monthly',
       priority: 0.9,
