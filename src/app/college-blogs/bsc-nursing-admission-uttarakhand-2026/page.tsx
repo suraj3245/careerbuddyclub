@@ -63,7 +63,7 @@ const BScNursingUttarakhandAdmission2026 = () => {
                     </p>
                     <div className="mb-4">
                       <Image
-                        src="/assets/images/blog/nursing_blog.webp"
+                        src="/assets/images/blog/nursing_blog_801.png"
                         alt="logo"
                         className="img-fluid rounded shadow-sm"
                         width={800}

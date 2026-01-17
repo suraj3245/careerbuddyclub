@@ -135,18 +135,6 @@ const ThreeColumnBlogSection: React.FC<{ mode: BlogSectionMode }> = ({ mode }) =
                       className="card-body d-flex flex-column p-3"
                       style={{ flex: 1 }} 
                     >
-                      <div
-                        className="d-flex align-items-center mb-2"
-                        style={{ fontSize: "0.85rem", color: "#888" }}
-                      >
-                        <span className="text-primary">
-                          {new Date(blog.date).toLocaleDateString(undefined, {
-                            year:"numeric",
-                            month:"short",
-                            day:"numeric",
-                          })}
-                        </span>
-                      </div>
                       <h5
                         className="card-title fw-bold mb-2"
                         style={{
