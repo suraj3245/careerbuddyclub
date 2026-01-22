@@ -5,6 +5,68 @@ import CollegeBlogSidebar from "@/app/components/college-blogs/blog-sidebar/asid
 import FooterOne from "@/layouts/footers/footer-one";
 import CompanyBreadcrumb from "../../components/common/common-breadcrumb";
 import Link from "next/link";
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Best BBA Colleges in Dehradun 2026 | Fees, Admission & Placements",
+  description:
+    "Compare the best BBA colleges in Dehradun for 2026. Explore fees, admission process, eligibility, curriculum, placements and career scope after BBA.",
+  keywords: [
+    "best bba colleges in dehradun",
+    "top bba colleges in dehradun",
+    "bba colleges in dehradun",
+    "bba colleges in dehradun fees",
+    "bba admission in dehradun 2026",
+    "bba eligibility criteria",
+    "bba course after 12th",
+    "private bba colleges in dehradun",
+    "government bba colleges in dehradun",
+    "management colleges in dehradun",
+    "bba colleges in uttarakhand",
+    "best management colleges in uttarakhand",
+    "bba placement colleges in dehradun",
+    "career after bba",
+    "jobs after bba",
+    "bba salary in india",
+    "bba marketing colleges",
+    "bba finance colleges",
+    "bba hr colleges",
+    "bba vs bcom",
+    "is bba good after 12th",
+  ],
+  category: "Education",
+  authors: [{ name: "Career Buddy Club" }],
+  robots: {
+    index: true,
+    follow: true,
+  },
+  alternates: {
+    canonical:
+      "https://careerbuddyclub.com/college-blogs/top-bba-colleges-in-dehradun",
+  },
+  openGraph: {
+    title: "Best BBA Colleges in Dehradun 2026 – Fees & Placements",
+    description:
+      "Looking for the best BBA colleges in Dehradun? Compare fees, admission, curriculum, placements and career opportunities after BBA.",
+    url: "https://careerbuddyclub.com/college-blogs/top-bba-colleges-in-dehradun",
+    type: "article",
+    images: [
+      {
+        url: "https://careerbuddyclub.com/images/top-bba-colleges-in-dehradun",
+        width: 1200,
+        height: 630,
+        alt: "Best BBA Colleges in Dehradun",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Best BBA Colleges in Dehradun 2026",
+    description:
+      "Compare top BBA colleges in Dehradun with fees, admission process, placements and career scope after BBA.",
+    images: ["https://careerbuddyclub.com/images/top-bba-colleges-in-dehradun"],
+  },
+};
+
 const bptDescription = () => {
   const contactDetails = {
     email: "admission@careerbuddyclub.com",
@@ -40,7 +102,7 @@ const bptDescription = () => {
                       <p>Bba · 10 July, 2025 · By Career Buddy Club</p>
                     </div>
                     {/* Title */}
-                    <h2
+                    <h1
                       className="fw-semibold mb-3 mt-5 leading-none"
                       style={{
                         marginTop: "2rem",
@@ -50,7 +112,7 @@ const bptDescription = () => {
                     >
                       Top BBA Colleges in Dehradun: Fees, Location, Curriculum &
                       Career Prospects
-                    </h2>
+                    </h1>
                     <p>
                       If you're planning to pursue a Bachelor of Business
                       Administration (BBA), Dehradun is emerging as a premier
@@ -284,7 +346,8 @@ const bptDescription = () => {
                                   Modern pedagogy with case-based learning{" "}
                                 </li>
                                 <li>
-                                  Excellent placement and internship support{" "}
+                                  Excellent placement and internship
+                                  support{" "}
                                 </li>
                               </ul>
                             </li>
@@ -366,7 +429,8 @@ const bptDescription = () => {
                               <ul>
                                 <li>Strong placement and career support</li>
                                 <li>
-                                  Regular industrial visits and guest lectures{" "}
+                                  Regular industrial visits and guest
+                                  lectures{" "}
                                 </li>
                                 <li>
                                   Modern infrastructure with ERP-integrated

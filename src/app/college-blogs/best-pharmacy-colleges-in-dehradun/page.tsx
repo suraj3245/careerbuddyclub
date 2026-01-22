@@ -11,22 +11,40 @@ export const metadata: Metadata = {
   title: "Best Pharmacy Colleges in Dehradun 2026 | D.Pharm & B.Pharm",
   description:
     "Compare the best pharmacy colleges in Dehradun for 2026. Explore D.Pharm, B.Pharm & Pharm.D courses, fees, eligibility and PCI-approved institutes.",
-
+  keywords: [
+    "best pharmacy colleges in dehradun",
+    "top pharmacy colleges in dehradun",
+    "pharmacy colleges in dehradun",
+    "b pharm colleges in dehradun",
+    "d pharm colleges in dehradun",
+    "pharm d colleges in dehradun",
+    "pharmacy admission in dehradun 2026",
+    "pharmacy college fees in dehradun",
+    "pharmacy admission process dehradun",
+    "pharmacy eligibility criteria dehradun",
+    "pci approved pharmacy colleges in dehradun",
+    "government pharmacy colleges in dehradun",
+    "private pharmacy colleges in dehradun",
+    "pharmacy colleges in dehradun with placement",
+    "pharmacy colleges in uttarakhand",
+  ],
+  authors: [{ name: "Career Buddy Club" }],
+  category: "Education",
   robots: {
     index: true,
     follow: true,
   },
-
   alternates: {
     canonical:
       "https://careerbuddyclub.com/college-blogs/best-pharmacy-colleges-in-dehradun",
   },
-
   openGraph: {
-    title: "Best Pharmacy Colleges in Dehradun 2026 – Courses & Fees",
+    title:
+      "Best Pharmacy Colleges in Dehradun 2026 – Fees, Courses & Admission",
     description:
-      "Looking for the best pharmacy colleges in Dehradun? Compare D.Pharm, B.Pharm & Pharm.D colleges with fees, eligibility and PCI approval.",
+      "Looking for the best pharmacy colleges in Dehradun? Compare PCI-approved D.Pharm, B.Pharm & Pharm.D colleges with fees, eligibility and placement details.",
     url: "https://careerbuddyclub.com/college-blogs/best-pharmacy-colleges-in-dehradun",
+    siteName: "Career Buddy Club",
     type: "article",
     images: [
       {
@@ -37,7 +55,6 @@ export const metadata: Metadata = {
       },
     ],
   },
-
   twitter: {
     card: "summary_large_image",
     title: "Best Pharmacy Colleges in Dehradun 2026",

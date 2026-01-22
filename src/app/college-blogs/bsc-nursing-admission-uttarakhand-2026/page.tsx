@@ -5,17 +5,71 @@ import CollegeBlogSidebar from "@/app/components/college-blogs/blog-sidebar/asid
 import FooterOne from "@/layouts/footers/footer-one";
 import CompanyBreadcrumb from "../../components/common/common-breadcrumb";
 import Link from "next/link";
-const BScNursingUttarakhandAdmission2026 = () => {
-  const contactDetails = {
-    email: "admission@careerbuddyclub.com",
-    phone: "+917456000100",
-    socials: {
-      facebook: "https://facebook.com/careerbuddyclub",
-      instagram: "https://instagram.com/careerbuddyclub",
-      twitter: "https://twitter.com/careerbuddyclub",
-      linkedin: "https://linkedin.com/company/careerbuddyclub",
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  metadataBase: new URL("https://careerbuddyclub.com"),
+  title:
+    "B.Sc Nursing Admission Uttarakhand 2026 | Eligibility, Fees, Colleges & Counselling",
+  description:
+    "Get complete details about B.Sc Nursing admission in Uttarakhand 2026 including eligibility criteria, entrance exam, application form, fees, counselling process and top nursing colleges.",
+  keywords: [
+    "bsc nursing admission uttarakhand 2026",
+    "bsc nursing admission in uttarakhand",
+    "bsc nursing colleges in uttarakhand",
+    "bsc nursing fees in uttarakhand",
+    "bsc nursing eligibility criteria 2026",
+    "bsc nursing entrance exam uttarakhand",
+    "bsc nursing counselling uttarakhand",
+    "government bsc nursing colleges in uttarakhand",
+    "private bsc nursing colleges in uttarakhand",
+    "bsc nursing colleges in dehradun",
+    "career after bsc nursing",
+    "nursing course after 12th science",
+  ],
+  authors: [{ name: "Career Buddy Club" }],
+  category: "Education",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
     },
-  };
+  },
+  alternates: {
+    canonical:
+      "https://careerbuddyclub.com/college-blogs/bsc-nursing-admission-uttarakhand-2026",
+  },
+  openGraph: {
+    title:
+      "B.Sc Nursing Admission Uttarakhand 2026 – Eligibility, Fees & Colleges",
+    description:
+      "Check B.Sc Nursing admission process in Uttarakhand 2026. Know eligibility, entrance exam, fees, counselling dates and top nursing colleges.",
+    url: "https://careerbuddyclub.com/college-blogs/bsc-nursing-admission-uttarakhand-2026",
+    siteName: "Career Buddy Club",
+    type: "article",
+    images: [
+      {
+        url: "/images/bsc-nursing-uttarakhand.jpeg",
+        width: 1200,
+        height: 630,
+        alt: "B.Sc Nursing Admission Uttarakhand 2026",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "B.Sc Nursing Admission Uttarakhand 2026",
+    description:
+      "Complete guide to B.Sc Nursing admission in Uttarakhand 2026 including eligibility, fees, counselling and top colleges.",
+    images: ["/images/bsc-nursing-uttarakhand.jpeg"],
+  },
+};
+
+const BScNursingUttarakhandAdmission2026 = () => {
   return (
     <Wrapper>
       <div className="main-page-wrapper">
@@ -33,7 +87,6 @@ const BScNursingUttarakhandAdmission2026 = () => {
           <section className="" style={{ background: "#ebebebff" }}>
             <div className="container">
               <div className="row gy-5">
-                {/* Main Content */}
                 <div className="col-lg-8">
                   <div className="pe-lg-4">
                     <div className="mb-2 text-muted small mt-5">
@@ -42,19 +95,10 @@ const BScNursingUttarakhandAdmission2026 = () => {
                         · By Career Buddy Club
                       </p>
                     </div>
-                    {/* Title */}
-                    <h2
-                      className="fw-semibold mb-3 mt-5 leading-none"
-                      style={{
-                        marginTop: "2rem",
-                        lineHeight: "3.5rem",
-                        fontSize: "2rem",
-                      }}
-                    >
+                    <h1 className="fw-semibold mb-3 mt-5 fs-2">
                       BSc Nursing Admission Process in Uttarakhand 2026 |
                       Eligibility, Entrance Exam & Top Colleges
-                    </h2>
-
+                    </h1>
                     <p>
                       Discover the complete BSc Nursing admission process in
                       Uttarakhand 2026 — including eligibility, entrance exam
@@ -64,13 +108,12 @@ const BScNursingUttarakhandAdmission2026 = () => {
                     <div className="mb-4">
                       <Image
                         src="/assets/images/blog/nursing_blog_801.png"
-                        alt="logo"
+                        alt="BSc Nursing Admission in Uttarakhand 2026"
                         className="img-fluid rounded shadow-sm"
                         width={800}
                         height={400}
                       />
                     </div>
-
                     <div className="container-fluid description">
                       <section
                         className="container py-5"
@@ -223,29 +266,19 @@ const BScNursingUttarakhandAdmission2026 = () => {
                             <strong>Key Highlights:</strong>
                           </p>
                           <ul>
+                            <li>Course Duration: 4 years</li>
                             <li>
-                              Course Duration: <pre>4 years</pre>
+                              Minimum Qualification: 10+2 with PCB (Physics,
+                              Chemistry, Biology)
+                            </li>
+                            <li>Approval: Indian Nursing Council (INC)</li>
+                            <li>
+                              Admission Basis: Entrance exam or merit-based
                             </li>
                             <li>
-                              Minimum Qualification:{" "}
-                              <pre>
-                                10+2 with PCB (Physics, Chemistry, Biology)
-                              </pre>
-                            </li>
-                            <li>
-                              Approval: <pre>Indian Nursing Council (INC)</pre>
-                            </li>
-                            <li>
-                              Admission Basis:{" "}
-                              <pre>Entrance exam or merit-based</pre>
-                            </li>
-                            <li>
-                              Career Scope:{" "}
-                              <pre>
-                                Staff Nurse, Nursing Officer, Clinical
-                                Instructor, Research Assistant, Public Health
-                                Nurse
-                              </pre>
+                              Career Scope: Staff Nurse, Nursing Officer,
+                              Clinical Instructor, Research Assistant, Public
+                              Health Nurse
                             </li>
                           </ul>
                         </div>
@@ -263,32 +296,21 @@ const BScNursingUttarakhandAdmission2026 = () => {
                           </p>
                           <ul>
                             <li>
-                              Educational Qualification:{" "}
-                              <pre>
-                                Must have passed 10+2 or equivalent with
-                                Physics, Chemistry, Biology, and English as core
-                                subjects.
-                              </pre>{" "}
+                              Educational Qualification: Must have passed 10+2
+                              or equivalent with Physics, Chemistry, Biology,
+                              and English as core subjects.
                             </li>
                             <li>
-                              Minimum Marks:{" "}
-                              <pre>
-                                45% aggregate (40% for reserved categories).
-                              </pre>
+                              Minimum Marks: 45% aggregate (40% for reserved
+                              categories).
                             </li>
                             <li>
-                              Age Limit:{" "}
-                              <pre>
-                                Minimum 17 years as of 31st December of the
-                                admission year.
-                              </pre>{" "}
+                              Age Limit: Minimum 17 years as of 31st December of
+                              the admission year.
                             </li>
                             <li>
-                              Medical Fitness:{" "}
-                              <pre>
-                                Must be medically fit as per the prescribed
-                                standards.
-                              </pre>
+                              Medical Fitness: Must be medically fit as per the
+                              prescribed standards.
                             </li>
                           </ul>
                         </div>
@@ -641,6 +663,62 @@ const BScNursingUttarakhandAdmission2026 = () => {
           </section>
         </div>
       </div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: "https://careerbuddyclub.com/",
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "College Blogs",
+                item: "https://careerbuddyclub.com/college-blogs",
+              },
+              {
+                "@type": "ListItem",
+                position: 3,
+                name: "B.Sc Nursing Admission Uttarakhand 2026",
+                item: "https://careerbuddyclub.com/college-blogs/bsc-nursing-admission-uttarakhand-2026",
+              },
+            ],
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: [
+              {
+                "@type": "Question",
+                name: "What is the eligibility for BSc Nursing in Uttarakhand?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Candidates must have passed 10+2 with Physics, Chemistry, Biology and English, with at least 45% marks.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "Which entrance exam is required for BSc Nursing in Uttarakhand?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Admission is done through the Uttarakhand Nursing Entrance Test (UNET) conducted by HNBUMU.",
+                },
+              },
+            ],
+          }),
+        }}
+      />
       <FooterOne />
     </Wrapper>
   );
