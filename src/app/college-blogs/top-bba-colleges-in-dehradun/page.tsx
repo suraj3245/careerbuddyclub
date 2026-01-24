@@ -7,6 +7,7 @@ import CompanyBreadcrumb from "../../components/common/common-breadcrumb";
 import Link from "next/link";
 import { Metadata } from "next";
 export const metadata: Metadata = {
+  metadataBase: new URL("https://careerbuddyclub.com"),
   title: "Best BBA Colleges in Dehradun 2026 | Fees, Admission & Placements",
   description:
     "Compare the best BBA colleges in Dehradun for 2026. Explore fees, admission process, eligibility, curriculum, placements and career scope after BBA.",

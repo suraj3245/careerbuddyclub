@@ -8,6 +8,7 @@ import Link from "next/link";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://careerbuddyclub.com"),
   title:
     "Uttarakhand Paramedical Admission 2026: Dates, Eligibility & Colleges",
   description:
