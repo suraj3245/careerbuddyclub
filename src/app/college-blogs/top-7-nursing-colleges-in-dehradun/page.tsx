@@ -6,16 +6,14 @@ import FooterOne from "@/layouts/footers/footer-one";
 import CompanyBreadcrumb from "../../components/common/common-breadcrumb";
 import { Metadata } from "next";
 export const metadata: Metadata = {
-  title: {
-    default:
-      "Top Nursing Colleges in Dehradun (2026) | B.Sc Nursing, GNM, ANM, Fees & Admission",
-    template: "%s | Career Buddy Club",
-  },
-
+  title:
+    "Top Nursing Colleges in Dehradun (2026) | B.Sc Nursing, GNM, ANM, Fees & Admission",
   description:
     "Discover the top and government-recognized nursing colleges in Dehradun and Uttarakhand for 2026 admissions. Compare B.Sc Nursing, GNM and ANM courses, fees structure, eligibility criteria, admission process, hospital training, placements, and career scope in India. Get free expert counselling from Career Buddy Club.",
   keywords: [
     "top nursing colleges in dehradun",
+    "best nursing colleges in dehradun",
+    "best nursing colleges in dehradun 2026",
     "nursing colleges dehradun 2026",
     "bsc nursing colleges dehradun",
     "gnm nursing college dehradun",
