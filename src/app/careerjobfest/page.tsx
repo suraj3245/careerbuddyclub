@@ -28,7 +28,7 @@ const Careerjobfest = () => {
 
     try {
       const response = await axios.post(
-        "http://127.0.0.1:8000/api/students/getcareerFestData",
+        "https://test.careerbuddyclub.com:8080/api/students/getcareerFestData",
         payload,
         {
           headers: {
