@@ -111,7 +111,7 @@ const bptDescription = () => {
                     <div className="mb-4">
                       <Image
                         src="/assets/images/blog/pharmacy-college-dehradun.jpeg"
-                        alt="logo"
+                        alt="best pharmacy college in dehradun"
                         className="img-fluid rounded shadow-sm"
                         width={800}
                         height={400}

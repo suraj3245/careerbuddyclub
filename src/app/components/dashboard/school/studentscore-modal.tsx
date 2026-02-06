@@ -152,8 +152,7 @@ const downloadResultsAsPDF = async () => {
     yPosition += adjustedSliceHeight;
     pageIndex++;
   }
-
-  pdf.save("Career-Aptitude-Test.pdf");
+  pdf.save(`${student?.name || "Student"}_CAT_Result.pdf`);
 };
 
   
