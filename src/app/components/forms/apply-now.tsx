@@ -156,7 +156,7 @@ const ApplyForm = () => {
                 <span className="spinner-border spinner-border-sm me-2" />
               </>
             ) : (
-              "Verify OTP"
+              "Verify Whatsapp OTP"
             )}
           </button>
         </>
