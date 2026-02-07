@@ -14,18 +14,16 @@ const Careerjobfest = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
-
     const form = e.currentTarget;
     const formData = new FormData(form);
-
     const payload = {
       name: String(formData.get("name")),
       email: String(formData.get("email")),
       phone: String(formData.get("phone")),
       college_name: String(formData.get("college_name")),
       course_name: String(formData.get("course_name")),
+      cv: formData.get("cv"),
     };
-
     try {
       const response = await axios.post(
         "https://test.careerbuddyclub.com:8080/api/students/getcareerFestData",
@@ -33,7 +31,7 @@ const Careerjobfest = () => {
         {
           headers: {
             Accept: "application/json",
-            "Content-Type": "application/json",
+            "Content-Type": "multipart/form-data",
           },
         },
       );
@@ -95,6 +93,7 @@ const Careerjobfest = () => {
                           backgroundColor: "#ffffff",
                           boxShadow: "0 10px 25px rgba(0,0,0,0.15)",
                           minWidth: "280px",
+                          padding: "12px 20px",
                         }}
                       >
                         <h4
@@ -203,6 +202,17 @@ const Careerjobfest = () => {
                         placeholder="Course / Qualification"
                         required
                       />
+                    </div>
+                    <div className="mb-4">
+                      <input
+                        type="file"
+                        name="cv"
+                        className="form-control rounded-3"
+                        accept=".pdf,.doc,.docx"
+                      />
+                      <small className="text-muted">
+                        Upload CV (PDF, DOC, DOCX), max size 50MB
+                      </small>
                     </div>
 
                     <button
