@@ -4,7 +4,6 @@ export const colleges = [
   { name: "BFIT Group of Institutions", code: "BFIT" },
   { name: "Uttaranchal University", code: "UU" },
   { name: "JBIT Group of Institution", code: "JBIT" },
-  { name: "Doon Group of Colleges", code: "DOON-GROUP-OF-COLLEGES" },
   { name: "Mind Power University", code: "MPU" },
   { name: "DBS Global University", code: "DBS" },
   { name: "Rajagiri Business School", code: "RBS" },
