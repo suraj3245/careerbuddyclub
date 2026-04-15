@@ -10,7 +10,6 @@ import { useRouter } from "next/navigation";
 const Careerjobfest = () => {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
@@ -35,10 +34,8 @@ const Careerjobfest = () => {
           },
         },
       );
-
-      if (response.data.status) {
+      if (response.data.status === true) {
         form.reset();
-
         toast.success("Career Fest Registration Successful!", {
           position: "top-left",
           autoClose: 1000,
@@ -47,6 +44,8 @@ const Careerjobfest = () => {
         setTimeout(() => {
           router.push("/");
         }, 2000);
+      } else {
+        toast.error("Email or phone already exist");
       }
     } catch (error: any) {
       console.error("Error submitting form:", error?.response?.data || error);
@@ -54,7 +53,6 @@ const Careerjobfest = () => {
       setLoading(false);
     }
   };
-
   return (
     <Wrapper>
       <div className="main-page-wrapper">
