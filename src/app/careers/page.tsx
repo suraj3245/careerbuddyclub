@@ -1,47 +1,62 @@
 import React from "react";
-import { Metadata } from "next";
 import Wrapper from "@/layouts/wrapper";
 import Careerlist from "../components/careers/page";
+import { Metadata } from "next";
 
-// ✅ Best SEO Metadata for Google & Social Media
 export const metadata: Metadata = {
-  title: "Explore the Best Careers in India | CareerBuddyClub",
+  title:
+    "Best Career Options in India 2026 (After 10th & 12th) | CareerBuddyClub",
   description:
-    "Explore the best careers in India across industries and domains. Find top career options after 10th & 12th that align with your passion, skills, and future goals — only on CareerBuddyClub.",
+    "Discover the best career options in India after 10th & 12th. Explore high-paying jobs, trending careers, and expert career guidance to choose the right path for your future.",
   keywords: [
-    "best careers in India",
+    "best career options in India",
+    "career options after 10th",
     "career options after 12th",
-    "career guidance",
-    "top jobs in India",
-    "career opportunities",
-    "career paths",
-    "careerbuddyclub",
-    "high paying careers in India",
-    "career list in India",
+    "high paying jobs in India",
+    "top careers in India 2026",
+    "career guidance India",
+    "future career options",
+    "highest salary jobs in India",
+    "career after graduation India",
+    "best jobs for students India",
+    "trending careers in India",
+    "government jobs vs private jobs India",
+    "career planning for students",
+    "which career is best for me",
+    "CareerBuddyClub careers",
   ],
+
+  alternates: {
+    canonical: "https://careerbuddyclub.com/careers",
+  },
+
   openGraph: {
-    title: "Explore the Best Careers in India | CareerBuddyClub",
+    title: "Best Career Options in India 2026 | CareerBuddyClub",
     description:
-      "Discover top careers in India and find the right path for your future success. Get complete career guidance and insights at CareerBuddyClub.",
+      "Find the best career options in India with salary insights, skills required, and future scope. Perfect guide for students after 10th & 12th.",
     url: "https://careerbuddyclub.com/careers",
     siteName: "CareerBuddyClub",
     images: [
       {
-        url: "https://careerbuddyclub.com/careers",
+        url: "https://careerbuddyclub.com/careers", // 👉 Use real image (IMPORTANT)
         width: 1200,
         height: 630,
-        alt: "Explore Best Careers in India",
+        alt: "Best Careers in India Guide",
       },
     ],
     locale: "en_IN",
     type: "website",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Explore the Best Careers in India | CareerBuddyClub",
-    description:
-      "Explore the best careers in India across industries and discover opportunities that match your passion and skills.",
-    images: ["https://careerbuddyclub.com/careers"],
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 
@@ -101,9 +116,13 @@ const Career = () => {
                 get personalized career guidance
               </a>{" "}
               from experts at{" "}
-              <a href="https://careerbuddyclub.com" className="fw-semibold text-dark">
+              <a
+                href="https://careerbuddyclub.com"
+                className="fw-semibold text-dark"
+              >
                 CareerBuddyClub
-              </a>.
+              </a>
+              .
             </p>
           </div>
         </div>
