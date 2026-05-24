@@ -3,246 +3,408 @@
 import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 
-const images = [
-  {
-    src: "/assets/images/blog/media6.jpg",
-    title: "Top Pharmacy Colleges in Dehradun (2025)",
-    link: "/blog-v3",
-  },
+const blogs = [
   {
     src: "/assets/images/blog/blog_img_34.jpg",
-    title: "Celebrating Ganesh Chaturthi (2024)",
+    title: "Celebrating Ganesh Chaturthi",
+    desc: "Experience the vibrant cultural celebrations and student activities.",
     link: "/blog-v3",
   },
   {
     src: "/assets/images/blog/blog_img_36.jpg",
-    title: "Career Buddy Club CEO Honored",
+    title: "CEO Honored For Excellence",
+    desc: "Recognizing innovation and leadership in the education sector.",
     link: "/blog-v3",
   },
+  {
+    src: "/assets/images/blog/blog_img_35.jpg",
+    title: "Adds-Up Day: A Success",
+    desc: "Career Buddy Club successfully hosted its Adds-Up Day",
+    link: "/blog-v3",
+  },
+    {
+    src: "/assets/images/blog/blog_img_39.jpg",
+    title: "World First Aid Day",
+    desc: "Awareness and healthcare training programs for students.",
+    link: "/blog-v3",
+  }
 ];
 
-const FancyBanner16 = () => {
-  const sectionRef = useRef<HTMLDivElement | null>(null);
-  const [isVisible, setIsVisible] = useState(false);
+const PremiumBlogSlider = () => {
+  const sliderRef = useRef<HTMLDivElement | null>(null);
 
-  // INTERSECTION OBSERVER (Triggers animation when section enters viewport)
+  const [current, setCurrent] = useState(0);
+
+  // RESPONSIVE CARD WIDTH
+  const getCardWidth = () => {
+    if (typeof window !== "undefined") {
+      return window.innerWidth <= 768 ? 260 : 320;
+    }
+    return 320;
+  };
+
+  // AUTO SLIDE
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 3500);
 
-    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => clearInterval(interval);
+  }, [current]);
 
-    return () => observer.disconnect();
-  }, []);
+  const nextSlide = () => {
+    if (!sliderRef.current) return;
 
-  const sliderStyles: React.CSSProperties = {
-    position: "relative",
-    maxWidth: "100%",
-    margin: "4rem auto",
-    padding: "0 20px",
-    overflow: "hidden",
+    const next = (current + 1) % blogs.length;
+
+    setCurrent(next);
+
+    sliderRef.current.scrollTo({
+      left: next * getCardWidth(),
+      behavior: "smooth",
+    });
   };
 
-  const containerStyles: React.CSSProperties = {
-    display: "flex",
-    justifyContent: "space-evenly",
-    flexWrap: "wrap",
-    gap: "25px",
-    maxWidth: "1200px",
-    margin: "0 auto",
-  };
+  const prevSlide = () => {
+    if (!sliderRef.current) return;
 
-  const cardStyles: React.CSSProperties = {
-    flex: "1 1 22%",
-    maxWidth: "400px",
-    minWidth: "280px",
-    display: "flex",
-    flexDirection: "column",
-    borderRadius: "14px",
-    overflow: "hidden",
-    backgroundColor: "#fff",
-    border: "none",
-    height: "100%",
-    transition: "all 0.5s ease",
-    boxShadow: "0px 4px 12px rgba(0,0,0,0.1)",
-    cursor: "pointer",
+    const prev = current === 0 ? blogs.length - 1 : current - 1;
 
-    // SCROLL ANIMATION
-    opacity: isVisible ? 1 : 0,
-    transform: isVisible ? "translateY(0px)" : "translateY(40px)",
-  };
+    setCurrent(prev);
 
-  const imageStyles: React.CSSProperties = {
-    width: "100%",
-    height: "220px",
-    objectFit: "cover",
-    transition: "transform 0.55s ease",
-  };
-
-  const contentStyles: React.CSSProperties = {
-    textAlign: "center",
-    padding: "18px",
-    backgroundColor: "#F7F9FA",
-    flexGrow: 1,
-  };
-
-  const titleStyles: React.CSSProperties = {
-    margin: "12px 0",
-    fontSize: "1.2rem",
-    fontWeight: "bold",
-    color: "#14ADBD",
-    transition: "color 0.3s ease",
-  };
-
-  const linkStyles: React.CSSProperties = {
-    color: "white",
-    textDecoration: "none",
-    background: "#14ADBD",
-    padding: "10px 22px",
-    borderRadius: "6px",
-    display: "inline-block",
-    marginTop: "10px",
-    transition: "all 0.3s ease",
-    boxShadow: "0px 4px 12px rgba(20, 173, 189, 0.4)",
+    sliderRef.current.scrollTo({
+      left: prev * getCardWidth(),
+      behavior: "smooth",
+    });
   };
 
   return (
-    <div style={sliderStyles} ref={sectionRef} className="p-3">
-      {/* SECTION HEADER */}
-      <div
-        className={`blog-section-header my-4 ${
-          isVisible ? "fade-in-trigger" : ""
-        }`}
-      >
-        <h2 className="blog-section-title">Career Buddy Club Insights</h2>
-        <a href="/blog-v3" className="see-more-link">
-          See more articles
-        </a>
+    <section className="premium-slider-section">
+      {/* HEADER */}
+      <div className="top-header">
+        <div>
+          <span className="mini-title">LATEST BLOGS</span>
+          <h2>Career Buddy Club Insights</h2>
+        </div>
+
+        <Link href="/blog-v3" className="view-all-btn">
+          View All
+        </Link>
       </div>
 
-      {/* CARDS */}
-      <div style={containerStyles}>
-        {images.map((image, index) => (
-          <div className="card-item" key={index} style={cardStyles}>
-            <div className="img-box">
-              <img src={image.src} alt={image.title} style={imageStyles} />
-            </div>
+      {/* SLIDER */}
+      <div className="slider-wrapper">
+        {/* LEFT BUTTON */}
+        <button className="nav-btn left-btn" onClick={prevSlide}>
+          ❮
+        </button>
 
-            <div style={contentStyles}>
-              <h2 className="card-title" style={titleStyles}>
-                {image.title}
-              </h2>
+        {/* TRACK */}
+        <div className="slider-track" ref={sliderRef}>
+          {blogs.map((blog, index) => (
+            <div className="premium-card" key={index}>
+              {/* IMAGE */}
+              <div className="image-box">
+                <img src={blog.src} alt={blog.title} />
 
-              <Link href={image.link} style={linkStyles} className="view-btn">
-                View More
-              </Link>
+                <div className="gradient-overlay"></div>
+              </div>
+
+              {/* CONTENT */}
+              <div className="card-content">
+                <h3>{blog.title}</h3>
+
+                <p>{blog.desc}</p>
+
+                <Link href={blog.link} className="read-btn">
+                  Read Article
+                  <span>→</span>
+                </Link>
+              </div>
+
+              {/* GLOW */}
+              <div className="card-glow"></div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
+
+        {/* RIGHT BUTTON */}
+        <button className="nav-btn right-btn" onClick={nextSlide}>
+          ❯
+        </button>
       </div>
 
-      {/* MOBILE SEE-MORE */}
-      <a href="/blog-v3" className="visually-hidden-text">
-        See more articles
-      </a>
-
-      {/* CUSTOM CSS */}
       <style jsx>{`
-        /* Header */
-        .blog-section-header {
+        .premium-slider-section {
+          width: 100%;
+          padding: 60px 16px;
+          overflow: hidden;
+          background: linear-gradient(
+            180deg,
+            #f9fdff 0%,
+            #ffffff 50%,
+            #f4fbfc 100%
+          );
+        }
+
+        /* HEADER */
+        .top-header {
+          max-width: 1300px;
+          margin: auto;
+          margin-bottom: 35px;
+
           display: flex;
-          align-items: baseline;
+          align-items: center;
           justify-content: space-between;
-          margin-bottom: 2.2rem;
-          opacity: 0;
-          transform: translateY(30px);
-          transition: all 0.6s ease;
+          gap: 20px;
         }
 
-        /* Animate when visible */
-        .fade-in-trigger {
-          opacity: 1 !important;
-          transform: translateY(0px) !important;
-        }
-
-        .blog-section-title {
-          margin: 0;
-          font-size: 2.2rem;
+        .mini-title {
+          color: #14adbd;
+          font-size: 12px;
+          letter-spacing: 2px;
           font-weight: 700;
-          color: #097681;
+        }
+
+        .top-header h2 {
+          font-size: 2.2rem;
+          font-weight: 800;
+          margin-top: 8px;
+          color: #081f32;
+        }
+
+        .view-all-btn {
+          padding: 12px 24px;
+          border-radius: 50px;
+          background: linear-gradient(135deg, #14adbd, #0f8c9a);
+          color: white;
+          text-decoration: none;
+          font-weight: 700;
+          transition: 0.4s ease;
+          box-shadow: 0 10px 25px rgba(20, 173, 189, 0.25);
+          white-space: nowrap;
+        }
+
+        .view-all-btn:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 18px 35px rgba(20, 173, 189, 0.35);
+        }
+
+        /* SLIDER */
+        .slider-wrapper {
           position: relative;
-          padding-bottom: 5px;
+          max-width: 1320px;
+          margin: auto;
         }
 
-        .blog-section-title::after {
-          content: "";
+        .slider-track {
+          display: flex;
+          gap: 20px;
+          overflow-x: hidden;
+          scroll-behavior: smooth;
+          padding: 10px 5px 20px;
+        }
+
+        /* CARD */
+        .premium-card {
+          min-width: 300px;
+          max-width: 300px;
+          border-radius: 24px;
+          overflow: hidden;
+          background: rgba(255, 255, 255, 0.95);
+          position: relative;
+          flex-shrink: 0;
+          transition: all 0.45s ease;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+          border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .premium-card:hover {
+          transform: translateY(-12px);
+          box-shadow: 0 25px 45px rgba(0, 0, 0, 0.16);
+        }
+
+        /* IMAGE */
+        .image-box {
+          position: relative;
+          height: 190px;
+          overflow: hidden;
+        }
+
+        .image-box img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.8s ease;
+        }
+
+        .premium-card:hover img {
+          transform: scale(1.12);
+        }
+
+        .gradient-overlay {
           position: absolute;
-          width: 90px;
-          height: 3px;
-          background-color: #14adbd;
-          bottom: 0;
-          left: 0;
-          border-radius: 5px;
+          inset: 0;
+          background: linear-gradient(
+            to top,
+            rgba(0, 0, 0, 0.55),
+            transparent
+          );
         }
 
-        .see-more-link {
+        /* CONTENT */
+        .card-content {
+          padding: 20px;
+        }
+
+        .card-content h3 {
+          font-size: 1.1rem;
+          line-height: 1.5;
+          margin-bottom: 12px;
+          color: #081f32;
+          font-weight: 700;
+          transition: 0.3s ease;
+        }
+
+        .premium-card:hover h3 {
+          color: #14adbd;
+        }
+
+        .card-content p {
+          color: #64748b;
+          font-size: 13px;
+          line-height: 1.7;
+          margin-bottom: 18px;
+        }
+
+        /* BUTTON */
+        .read-btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
           text-decoration: none;
           color: #14adbd;
-          font-weight: 600;
+          font-weight: 700;
+          font-size: 13px;
+          transition: 0.3s ease;
         }
 
-        /* Hover Animations */
-        .card-item:hover {
-          transform: translateY(-10px);
-          box-shadow: 0px 12px 25px rgba(0, 0, 0, 0.18) !important;
+        .read-btn span {
+          transition: 0.3s ease;
         }
 
-        .card-item:hover img {
-          transform: scale(1.1);
+        .read-btn:hover span {
+          transform: translateX(6px);
         }
 
-        .card-item:hover .card-title {
+        .read-btn:hover {
           color: #0d95a2;
         }
 
-        .view-btn:hover {
-          background: #0f8c9a;
-          transform: translateY(-3px);
-          box-shadow: 0px 6px 18px rgba(14, 149, 161, 0.55);
+        /* GLOW */
+        .card-glow {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(
+            135deg,
+            rgba(20, 173, 189, 0.08),
+            transparent,
+            rgba(20, 173, 189, 0.04)
+          );
+          opacity: 0;
+          transition: 0.4s;
+          pointer-events: none;
         }
 
-        /* Mobile */
-        .visually-hidden-text {
-          display: none;
-          text-align: center;
-          color: #14adbd;
-          font-weight: 500;
-          margin-top: 2rem;
+        .premium-card:hover .card-glow {
+          opacity: 1;
         }
 
+        /* NAV BUTTONS */
+        .nav-btn {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          border: none;
+          background: rgba(255, 255, 255, 0.95);
+          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+          cursor: pointer;
+          z-index: 20;
+          font-size: 20px;
+          transition: 0.3s ease;
+          backdrop-filter: blur(10px);
+        }
+
+        .nav-btn:hover {
+          background: #14adbd;
+          color: white;
+          transform: translateY(-50%) scale(1.08);
+        }
+
+        .left-btn {
+          left: -8px;
+        }
+
+        .right-btn {
+          right: -8px;
+        }
+
+        /* MOBILE */
         @media (max-width: 768px) {
-          .blog-section-title {
-            font-size: 1.4rem;
+          .premium-slider-section {
+            padding: 40px 12px;
           }
-          .see-more-link {
+
+          .top-header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 16px;
+          }
+
+          .top-header h2 {
+            font-size: 1.7rem;
+          }
+
+          .premium-card {
+            min-width: 240px;
+            max-width: 240px;
+          }
+
+          .image-box {
+            height: 150px;
+          }
+
+          .card-content {
+            padding: 16px;
+          }
+
+          .card-content h3 {
+            font-size: 0.95rem;
+          }
+
+          .card-content p {
+            font-size: 12px;
+          }
+
+          .nav-btn {
             display: none;
           }
-          .visually-hidden-text {
-            display: block;
-            text-decoration: underline;
+
+          .slider-track {
+            overflow-x: auto;
+            scrollbar-width: none;
+          }
+
+          .slider-track::-webkit-scrollbar {
+            display: none;
           }
         }
       `}</style>
-    </div>
+    </section>
   );
 };
 
-export default FancyBanner16;
+export default PremiumBlogSlider;

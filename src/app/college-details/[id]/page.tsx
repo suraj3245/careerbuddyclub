@@ -3,17 +3,11 @@ import React from "react";
 import Wrapper from "@/layouts/wrapper";
 import CollegeDetailsClient from "@/app/components/college-details/CollegeDetailsClientPage";
 import FooterOne from "@/layouts/footers/footer-one";
- 
-
- 
-
 export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
   return {
-    title: `${params.id} | College Details`,
     alternates: { canonical: `https://careerbuddyclub.com/college-details/${params.id}` },
   };
 }
-
 const CollegeDetailsPage = ({ params }: { params: { id: string } }) => {
   return (
     <Wrapper>

@@ -12,21 +12,6 @@ import blog_up_neet from "@/assets/images/blog/blog_img_37.jpg";
 import blog_launchpad_tosuccess from "@/assets/images/blog/blog_img_38.webp";
 import blog_img_firstAidDay from "@/assets/images/blog/blog_img_39.jpg";
 const blog_data: IBlogDataType[] = [
-  
-
- 
-  {
-    id: 7,
-    img: blog_7,
-    grid_img: blog_7,
-    img_full: blog_7,
-    tags: ["Career Buddy Club, Dehradun"],
-    title: "Best Pharmacy Colleges in Dehradun (2025 Guide)",
-    author: "Career Buddy Club",
-    date: "07 May, 2025",
-    desc: "Pharmacy is one of the most dynamic and high-growth fields in the healthcare sector. It connects healthcare, medicine, chemistry, and biotechnology, playing a vital role in the research, development, manufacturing, and safe use of medicines. With the Indian pharmaceutical industry expanding rapidly and making a global impact, pursuing a career in pharmacy offers excellent job security, diverse opportunities, and high salary potential.Dehradun, the educational capital of Uttarakhand, has emerged as a top destination for students seeking quality pharmacy education. Known for its peaceful atmosphere and academic excellence, the city offers some of the best D.Pharm (Diploma in Pharmacy) and B.Pharm (Bachelor of Pharmacy) programs in India. These PCI-approved pharmacy courses are designed to blend classroom knowledge with hands-on training, industry internships, and modern lab facilities.Whether you're aspiring to become a registered pharmacist, a clinical researcher, a medical representative, or planning to pursue higher studies in pharmacy like M.Pharm or Pharm.D, Dehradun provides the ideal academic environment. The city’s pharmacy colleges ensure a strong foundation in both theory and practice, making students job-ready in a competitive market.According to Career Buddy Club’s Pharmacy Guide 2025, top pharmacy colleges in Dehradun include: Guru Nanak College of Pharmacy,BFIT Group of Institutions,Doon PG College of Pharmaceutical Sciences,JBIT (JB Institute of Technology)",
-    blog: "blog-one",
-  },
   {
     id: 6,
     img: blog_6,
