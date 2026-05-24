@@ -1,6 +1,5 @@
 "use client";
 import React, { useState } from "react";
-import blog_data from "@/data/blog-data";
 import blog_data1 from "@/data/blog-data1";
 import FullWidthItem from "./full-width-item";
 

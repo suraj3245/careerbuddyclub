@@ -28,11 +28,7 @@ const CollegeBlogDetailsArea = ({ item }: { item: IBlogDataType }) => {
                   height={400}
                 />
               </div>
-
-              {/* Description */}
-              {/* {item.descComponent ? <item.descComponent /> : <p className="lead">{item.desc}</p>} */}
-
-              {/* Quote */}
+              {item.descComponent ? <item.descComponent /> : <p className="lead">{item.desc}</p>}
               <blockquote className="blockquote bg-light p-4 rounded mt-4 mb-4">
                 <p className="mb-0">
                   "You don’t have to see the whole staircase, just take the first step."

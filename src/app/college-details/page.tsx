@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import Wrapper from "@/layouts/wrapper";
 import FooterOne from "@/layouts/footers/footer-one";
-import { Metadata } from "next";
-
 
 const CollegeDetailsPage = () => {
  
@@ -16,8 +14,3 @@ const CollegeDetailsPage = () => {
 };
 
 export default CollegeDetailsPage;
-export const metadata: Metadata = {
-  title: "College Details",
-  robots: "noindex",
-  alternates: { canonical: "https://careerbuddyclub.com/college-details" },
-};
