@@ -14,7 +14,7 @@ const Footer = () => {
           {/* Left Column - Branding and Contact */}
           <div className={styles.brandSection}>
             <div className={styles.logo}>
-              <Image className={styles.logoMark} src="/assets/images/logo.png" alt="Career Buddy Club logo" width={240} height={44} />
+              <Image className={styles.logoMark} src="/assets/images/logo-2.png" alt="Career Buddy Club logo" width={240} height={44} />
               {/* <span className={styles.logoSeparator} aria-hidden="true">|</span>
               <span className={styles.logoText}>Online<br />Learning</span> */}
             </div>
@@ -42,10 +42,10 @@ const Footer = () => {
             </div>
 
             <div className={styles.contactInfo}>
-              <a href="mailto:hello@careerwise.example" className={styles.contactLink}>hello@careerwise.example</a>
-              <a href="tel:+910000000000" className={styles.contactLink}>+91 00000 00000</a>
+              {/* <a href="mailto:hello@careerwise.example" className={styles.contactLink}>hello@careerwise.example</a> */}
+              <a href="tel:+917456000100" className={styles.contactLink}>+91 7456000100</a>
               <p className={styles.address}>
-                Bengaluru, India <span className={styles.coordinates}>12.97° N 77.59° E</span>
+                NH-72, Jhajra <span className={styles.coordinates}>Uttarakhand</span>
               </p>
             </div>
 
@@ -108,7 +108,7 @@ const Footer = () => {
                 <li><a href="#">Career map</a></li>
                 <li><a href="#">Compare universities</a></li>
                 <li><a href="#">Build a shortlist</a></li>
-                <li><a href="#">How CareerWise works</a></li>
+               
               </ul>
             </div>
 
@@ -117,9 +117,7 @@ const Footer = () => {
               <ul className={styles.linkList}>
                 <li><a href="#">Insights</a></li>
                 <li><a href="#">UGC entitlement, explained</a></li>
-                <li><a href="#">NAAC grades in plain English</a></li>
                 <li><a href="#">Fee calculator</a></li>
-                <li><a href="#">EMI and education loans</a></li>
                 <li><a href="#">Student stories</a></li>
               </ul>
             </div>
@@ -128,7 +126,6 @@ const Footer = () => {
               <h3 className={styles.groupTitle}>COMPANY</h3>
               <ul className={styles.linkList}>
                 <li><a href="#">About</a></li>
-                <li><a href="#">Why CareerWise</a></li>
                 <li><a href="#">Careers</a></li>
                 <li><a href="#">Press</a></li>
                 <li><a href="#">Contact</a></li>
@@ -140,7 +137,6 @@ const Footer = () => {
         {/* Footer Bottom */}
         <div className={styles.footerBottom}>
           <div className={styles.divider}>
-            <span className={styles.dividerBrand}>CAREERWISE</span>
             <div className={styles.dividerLines}></div>
             <button className={styles.backToTop} onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>
               Back to top <span>↑</span>
@@ -148,7 +144,7 @@ const Footer = () => {
           </div>
           
           <div className={styles.legalSection}>
-            <span className={styles.copyright}>© 2026 CareerWise</span>
+            <span className={styles.copyright}>© 2026 Career Buddy Club | Online Learning </span>
             <div className={styles.legalLinks}>
               <a href="#">Privacy</a>
               <a href="#">Terms</a>
@@ -158,7 +154,7 @@ const Footer = () => {
           </div>
 
           <div className={styles.disclaimer}>
-            <p>This is a design prototype. Every university, mentor, student, fee, rating and statistic shown on this page is fictional sample data written for the build — none of it describes a real institution or a verified claim.</p>
+            <p>Every university, mentor, student, fee, rating and statistic shown on this page is fictional sample data written for the build — none of it describes a real institution or a verified claim.</p>
           </div>
         </div>
       </div>
