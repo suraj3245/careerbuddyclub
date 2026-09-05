@@ -128,7 +128,7 @@ export default function Header() {
         {!isLoggedIn ? (
           <button
   type="button"
-  className="Registor"
+  className="Register"
   onClick={() => setSignupOpen(true)}
   style={{
     height: "42px",
@@ -148,7 +148,7 @@ export default function Header() {
     transition: "all 0.2s ease",
   }}
 >
-  Registor
+  Register
 </button>
         ) : (
           <div className="headerProfile" ref={profileRef}>
