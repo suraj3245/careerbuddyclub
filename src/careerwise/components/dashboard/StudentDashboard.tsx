@@ -461,11 +461,11 @@ export default function DashboardPage() {
   const logout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("username");
+    localStorage.removeItem("user");
     localStorage.removeItem("name");
     localStorage.removeItem("School_email");
     localStorage.removeItem("mobile");
-    localStorage.removeItem("school_name");
-
+    localStorage.removeItem("student_id");
     window.location.href = "/";
   };
 
