@@ -122,6 +122,15 @@ export default function RootLayout({
   const isSchoolDashboard = pathname.startsWith("/dashboard/");
   const dbsapplynow = pathname.startsWith("/dbs-apply-now");
 
+  // CareerWise routes ship their own header and footer (see
+  // src/careerwise/CareerWiseShell.tsx), so the global chrome is suppressed.
+  const CAREERWISE_PREFIXES = ["/advisor", "/roi-calculator", "/ai-finder"];
+  // The CareerWise student dashboard ships its own floating WhatsApp button.
+  const isCareerWiseDashboard = pathname.startsWith("/dashboard/student-dashboard");
+  const isCareerWise =
+    pathname === "/" ||
+    CAREERWISE_PREFIXES.some((prefix) => pathname.startsWith(prefix));
+
   // const isCollegeDetailsPage = pathname.startsWith("/college-details");
   return (
     <html lang="en">
@@ -165,8 +174,9 @@ export default function RootLayout({
             style={{ display: "none", visibility: "hidden" }}
           ></iframe>
         </noscript>
-        <HeaderTop />
-        {!isRedirectPage &&
+        {!isCareerWise && <HeaderTop />}
+        {!isCareerWise &&
+          !isRedirectPage &&
           !isAptitudeTestPage &&
           !isCandidateDashboardPage &&
           !isapplynow &&
@@ -184,7 +194,7 @@ export default function RootLayout({
 
         <Providers>{children}</Providers>
         <ToastContainer />
-        <WhatsappChatButton />
+        {!isCareerWiseDashboard && <WhatsappChatButton />}
         {/* <BackToTopCom /> */}
       </body>
     </html>

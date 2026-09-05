@@ -1,0 +1,179 @@
+@use "tokens" as *;
+
+/* ================================================================
+   UNIVERSITIES SECTION
+   ================================================================ */
+
+.universitiesSection {
+  background: #f8fbff; 
+  padding: 80px 42px;
+  text-align: center;
+}
+
+.uniContainer {
+  max-width: 1298px;
+  margin: 0 auto;
+}
+
+/* Header Elements */
+.uniEyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 16px;
+  border-radius: 20px;
+  background: #e5f7f8;
+  color: $teal;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.uniTitle {
+  font-size: clamp(32px, 4vw, 44px);
+  font-weight: 700;
+  color: $ink;
+  line-height: 1.2;
+  letter-spacing: -1.2px;
+  margin-bottom: 16px;
+  
+  .uniHighlight {
+    color: $teal;
+  }
+}
+
+.uniSubtitle {
+  font-size: 16px;
+  color: $muted;
+  max-width: 600px;
+  margin: 0 auto 48px;
+  line-height: 1.5;
+}
+
+/* Grid */
+.uniGrid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-auto-rows: 132px;
+  gap: 24px 16px;
+  margin-bottom: 48px;
+}
+
+.uniCard {
+  background: url('/assets/images/chat-bubble.png') center / 100% 100% no-repeat;
+  min-width: 0;
+  padding: 20px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s ease;
+  height: 100%;
+  position: relative;
+
+  &:hover {
+    transform: translateY(-3px);
+  }
+}
+
+.uniLogo {
+  position: relative;
+  width: 68%;
+  height: 48%;
+  min-height: 34px;
+  max-height: 58px;
+  z-index: 1;
+}
+
+.uniLogo img {
+  object-fit: contain;
+}
+
+.uniDetails {
+  width: 100%;
+  min-width: 0;
+  text-align: center;
+}
+
+.uniCardCourses {
+  display: block;
+  margin-bottom: 3px;
+  color: #8b97a8;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.uniCardName {
+  display: block;
+  display: -webkit-box;
+  overflow: hidden;
+  color: $ink;
+  font-size: clamp(9px, 0.8vw, 11px);
+  font-weight: 700;
+  line-height: 1.3;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow-wrap: anywhere;
+}
+
+/* Button */
+.uniViewAllBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background: $teal;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+
+  &:hover {
+    background: #068a9e;
+  }
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .uniGrid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+@media (max-width: 1024px) {
+  .uniGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .universitiesSection {
+    padding: 60px 32px;
+  }
+}
+
+@media (max-width: 720px) {
+  .uniGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px 12px;
+    grid-auto-rows: 140px;
+  }
+  .universitiesSection {
+    padding: 40px 20px;
+  }
+  .uniCard {
+    padding: 16px 14px 20px;
+  }
+  .uniLogo {
+    width: 64%;
+    height: 44%;
+    max-height: 54px;
+  }
+  .uniCardName {
+    font-size: 9px;
+  }
+}

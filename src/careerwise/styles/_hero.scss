@@ -1,0 +1,14 @@
+@use "tokens" as *;
+
+.hero {
+  position: relative;
+  max-width: 1370px;
+  margin: 0 auto;
+}
+
+.carousel-cell {
+  display: grid;
+  grid-template-columns: 49% 51%;
+}
+
+.hero h1 em { color: $teal; font-style: normal; }

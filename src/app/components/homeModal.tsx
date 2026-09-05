@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 import ApplyModal from "./common/popup/apply-modal";
 import PhoneForm from "./forms/phone-form";
 import StudentLoginForm2 from "./forms/studentLoginForm";
+import LoginPopup from "@/careerwise/components/LoginPopup";
+import "@/careerwise/styles/careerwise.scss";
 
 interface ModalForHeaderProps {
   isOpen: boolean;
@@ -53,152 +55,10 @@ const ModalForHeader: React.FC<ModalForHeaderProps> = ({
 
   if (!isOpen) return null;
 
-  const getModalContent = () => {
-    switch (currentModalType) {
-      case "schoolForm":
-        return <PhoneForm />;
-      case "student":
-        return <ApplyModal onSuccess={onSuccess} />;
-      case "emailLogin":
-        return <StudentLoginForm2/>;
-      default:
-        return <ApplyModal onSuccess={onSuccess} />;
-    }
-  };
-
   return (
-    <>
-      {/* Background Blur Effect */}
-      <div
-        className="modal-backdrop"
-        style={{
-          backgroundColor: "rgba(0, 0, 0, 0.4)",
-          backdropFilter: "blur(4px)",
-          zIndex: 1049,
-        }}
-        onClick={onClose}
-      ></div>
-      {/* Modal Box */}
-      <div
-        className="p-4 shadow position-fixed top-50 start-50 translate-middle popupmodalbox"
-        style={{
-          zIndex: 1050,
-          width: "90%",
-          maxWidth: getModalWidth(),
-          maxHeight: "90vh",
-          overflow: "auto",
-          scrollbarWidth: "none",
-          display: "flex",
-          flexDirection: "column",
-          border: "1px solid yellow",
-          borderRadius: "20px",
-          backgroundColor: "white",
-        }}
-        onClick={(e) => e.stopPropagation()}
-      >
-        <div className="container">
-          <div
-            className="p-2"
-            style={{
-              background: "white",
-              zIndex: 2,
-              paddingBottom: "10px",
-              paddingTop: "14px",
-              textAlign: "center",
-            }}
-          >
-            <h2 style={{ fontSize: "30px", color: "rgb(20, 173, 189)" }}>
-              {currentModalType === "student"
-                ? "Take Control Of Your Career!"
-                : "Hi, Welcome Back!"}
-            </h2>
-            <button
-              onClick={onClose}
-              className="btn-close position-absolute top-0 end-0 m-3"
-              style={{ zIndex: 1051 }}
-            />
-          </div>
-          <div className="grow" style={{ maxHeight: "74vh" }}>
-            <div className="container">{getModalContent()}</div>
-            <div className="container">
-              {currentModalType === "student" && (
-                <button
-                  className="btn col-lg-12 mt-3 text-center btnoflogin w-100"
-                  style={{
-                    color: "rgb(20, 173, 189)",
-                    textDecoration: "underline",
-                    
-                  }}
-                  onClick={() => setCurrentModalType("schoolForm")}
-                >
-                  Already a User? Login
-                </button>
-              )}
-              {currentModalType === "emailLogin" && (
-                <>
-                  <button
-                    className="btn mt-3 w-100"
-                    style={{
-                      backgroundColor: "rgb(20, 173, 189)",
-                      color: "white",
-                    }}
-                    onClick={() => setCurrentModalType("schoolForm")}
-                  >
-                    Login using Phone Number!
-                  </button>
-                  <button
-                    className="btn mt-3 w-100"
-                    style={{
-                      backgroundColor: "rgb(20, 173, 189)",
-                      color: "white",
-                    }}
-                    onClick={() => setCurrentModalType("student")}
-                  >
-                    Not a User? Apply
-                  </button>
-                </>
-              )}
-              {currentModalType === "schoolForm" && (
-                <>
-                  <button
-                    className="btn w-100 mt-3"
-                    style={{
-                      backgroundColor: "rgb(20, 173, 189)",
-                      color: "white",
-                    }}
-                    onClick={() => setCurrentModalType("emailLogin")}
-                  >
-                    Login using Email!
-                  </button>
-                  <button
-                    className="btn w-100 mt-3"
-                    style={{
-                      backgroundColor: "rgb(20, 173, 189)",
-                      color: "white",
-                    }}
-                    onClick={() => setCurrentModalType("student")}
-                  >
-                    Not a User? Apply
-                  </button>
-                </>
-              )}
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* CSS for Mobile Full-Width */}
-      <style jsx>{`
-        @media (max-width: 768px) {
-          .modal-container {
-            width: 88% !important;
-            border-radius: 0 !important;
-          }
-          .btnoflogin {
-            margin-bottom: 20px !important;
-          }
-        }
-      `}</style>
-    </>
+    <div className="cw-root">
+      <LoginPopup isOpen={isOpen} onClose={onClose} />
+    </div>
   );
 };
 

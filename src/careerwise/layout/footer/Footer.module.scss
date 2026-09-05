@@ -1,0 +1,362 @@
+// Nested under .cw-root so these module classes outrank the scope reset
+// in src/careerwise/styles/careerwise.scss (0,2,0 beats 0,1,1).
+:global(.cw-root) {
+.footer {
+  background-color: #0b0f14;
+  color: #f1f5f9;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  padding: 60px 40px 40px;
+  font-size: 14px;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+
+  @media (min-width: 1024px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+// Left Column
+.brandSection {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  max-width: 380px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logoMark {
+  width: 240px;
+  height: 44px;
+  object-fit: contain;
+}
+
+.logoSeparator {
+  color: #64748b;
+  font-size: 36px;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.logoText {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+.tagline {
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 1.2;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.newsletter {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.newsletterLabel {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #64748b;
+  text-transform: uppercase;
+}
+
+.newsletterForm {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 8px;
+  transition: border-color 0.3s ease;
+
+  &:focus-within {
+    border-color: #fff;
+  }
+}
+
+.emailInput {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  flex: 1;
+  outline: none;
+  padding: 8px 0;
+
+  &::placeholder {
+    color: #64748b;
+  }
+}
+
+.submitButton {
+  background: #fff;
+  color: #0b0f14;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+
+  &:hover {
+    transform: scale(1.05);
+    background: #f1f5f9;
+  }
+}
+
+.newsletterDesc {
+  color: #64748b;
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.contactLink {
+  color: #94a3b8;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  width: fit-content;
+
+  &:hover {
+    color: #fff;
+  }
+}
+
+.address {
+  color: #94a3b8;
+  margin: 0;
+}
+
+.coordinates {
+  font-size: 11px;
+  color: #475569;
+  margin-left: 8px;
+}
+
+.socialLinks {
+  display: flex;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.socialIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #94a3b8;
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: rgba(255, 255, 255, 0.4);
+    color: #fff;
+    transform: translateY(-2px);
+  }
+}
+
+// Right Column - Links
+.linksSection {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 40px;
+  flex: 1;
+
+  @media (min-width: 640px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px 32px;
+  }
+}
+
+.linkGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.groupTitle {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #e2ff66; /* Vibrant color based on design, or #fff depending on actual */
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.linkGroup:nth-child(n) .groupTitle {
+  color: #f1f5f9;
+}
+
+.linkList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  li a {
+    color: #8392a5;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    font-size: 14px;
+
+    &:hover {
+      color: #fff;
+    }
+  }
+}
+
+// Footer Bottom
+.footerBottom {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  color: #475569;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.dividerBrand {
+  font-weight: 700;
+}
+
+.dividerLines {
+  flex: 1;
+  height: 1px;
+  background: repeating-linear-gradient(
+    to right,
+    rgba(255,255,255,0.1),
+    rgba(255,255,255,0.1) 1px,
+    transparent 1px,
+    transparent 40px
+  );
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: 0;
+    width: 100%;
+    height: 7px;
+    background: repeating-linear-gradient(
+      to right,
+      rgba(255,255,255,0.2) 0,
+      rgba(255,255,255,0.2) 1px,
+      transparent 1px,
+      transparent 40px
+    );
+    opacity: 0.5;
+  }
+}
+
+.backToTop {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-size: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s ease;
+  padding: 0;
+
+  &:hover {
+    color: #fff;
+    
+    span {
+      transform: translateY(-2px);
+    }
+  }
+
+  span {
+    transition: transform 0.2s ease;
+  }
+}
+
+.legalSection {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  color: #64748b;
+  font-size: 13px;
+
+  @media (min-width: 640px) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.legalLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+
+  a {
+    color: #94a3b8;
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: #fff;
+    }
+  }
+}
+
+.disclaimer {
+  color: #475569;
+  font-size: 12px;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0;
+}
+
+}

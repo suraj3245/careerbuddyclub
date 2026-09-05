@@ -1,0 +1,612 @@
+@use "tokens" as *;
+
+/* ================================================================
+   ADVISOR FULL-PAGE ROUTE (Split Layout)
+   ================================================================ */
+
+.advContainer {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+/* Close Button (Top Right) */
+.advCloseFull {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #f4f7f8;
+  color: $muted;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  z-index: 10;
+
+  &:hover {
+    background: #e8edf0;
+    color: $ink;
+  }
+}
+
+/* ─── LEFT SIDEBAR (Teal) ─── */
+.advSidebar {
+  width: 340px;
+  background: $teal;
+  color: #fff;
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.advSidebarContext {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 48px;
+
+  p:first-child {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 4px;
+  }
+
+  h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: #fff;
+  }
+
+  p:last-child {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.9);
+  }
+}
+
+/* Vertical Progress Stepper */
+.advProgressVertical {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 20px;
+    bottom: 40px;
+    left: 17px;
+    width: 2px;
+    background: rgba(255, 255, 255, 0.2);
+    z-index: 1;
+  }
+}
+
+.advStepItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 32px;
+  position: relative;
+  z-index: 2;
+  opacity: 0.6;
+  transition: opacity 0.3s;
+
+  &.active {
+    opacity: 1;
+  }
+
+  &.completed {
+    opacity: 1;
+  }
+}
+
+.advStepCircle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  flex-shrink: 0;
+  transition: all 0.3s;
+}
+
+.advStepItem.active .advStepCircle {
+  background: #fff;
+  color: $teal;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.3);
+}
+
+.advStepItem.completed .advStepCircle {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.advStepText {
+  display: flex;
+  flex-direction: column;
+  padding-top: 2px;
+
+  strong {
+    font-size: 16px;
+    font-weight: 700;
+  }
+  span {
+    font-size: 13px;
+    margin-top: 2px;
+  }
+}
+
+.advSidebarFooter {
+  font-size: 12px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: auto;
+}
+
+/* ─── RIGHT CONTENT AREA (White) ─── */
+.advContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 48px 64px;
+  color: $ink;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  min-height: 0;
+}
+
+/* Question Header */
+.advStepIndicator {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: $teal;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.advQuestion {
+  font-size: 28px;
+  font-weight: 700;
+  color: $ink;
+  margin-bottom: 6px;
+  line-height: 1.2;
+}
+
+.advQuestionSub {
+  font-size: 15px;
+  color: $muted;
+  margin-bottom: 24px;
+}
+
+/* Step Body Area */
+.advStepBody {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-right: 8px;
+  min-height: 0;
+}
+
+/* ─── Specialization Cards (Small & Square) ─── */
+.advSpecGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 150px));
+  gap: 12px;
+  max-width: 660px;
+}
+
+.advSpecCard {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  border: 1.5px solid #e2ebf0;
+  border-radius: 14px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  background: #ffffff;
+  text-align: center;
+  aspect-ratio: 1 / 1;
+  min-height: 110px;
+  max-height: 145px;
+  box-shadow: 0 2px 8px rgba(18, 32, 54, 0.03);
+  user-select: none;
+
+  &:hover {
+    border-color: $teal;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(7, 157, 180, 0.12);
+  }
+
+  &.active {
+    border-color: $teal;
+    box-shadow: 0 0 0 2px rgba(7, 157, 180, 0.3);
+    
+    .advSpecLabelWrap {
+      background: $teal;
+      border-top-color: $teal;
+    }
+    .advSpecLabel {
+      color: #ffffff;
+    }
+    .advSpecIcon {
+      border-color: $teal;
+      background: rgba(7, 157, 180, 0.08);
+    }
+  }
+}
+
+.advSpecIconWrap {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 8px 6px;
+}
+
+.advSpecIcon {
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #f0f7ff;
+  border: 1.5px solid #dce9fa;
+  transition: all 0.2s;
+}
+
+.advSpecLabelWrap {
+  padding: 8px 6px;
+  background: #eef5ff;
+  border-top: 1px solid #dfeafa;
+  min-height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.advSpecLabel {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #0b57d0;
+  line-height: 1.2;
+  text-align: center;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ─── Shared Pill UI for Budget/Mode/Experience ─── */
+.advPillGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  max-width: 600px;
+}
+
+.advDarkPill {
+  padding: 12px 22px;
+  border: 1.5px solid #e3e9ec;
+  border-radius: 40px;
+  background: #fff;
+  color: $ink;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+
+  &:hover {
+    border-color: rgba(7, 157, 180, 0.5);
+    color: $teal;
+    background: #f7fcfe;
+  }
+
+  &.active {
+    background: $teal;
+    border-color: $teal;
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(7, 157, 180, 0.25);
+  }
+}
+
+/* Footer Navigation (Next/Back) */
+.advContentFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  border-top: 1px solid #e8edf0;
+  margin-top: 16px;
+  flex-shrink: 0;
+  background: #ffffff;
+  z-index: 10;
+
+  span {
+    font-size: 13px;
+    color: $muted;
+  }
+}
+
+.advActions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.advBtnBack {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: 1.5px solid #e3e9ec;
+  border-radius: 8px;
+  color: $ink;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 10px 18px;
+  transition: all 0.2s;
+
+  &:hover {
+    border-color: $teal;
+    color: $teal;
+  }
+}
+
+.advBtnNext {
+  background: $teal;
+  border: none;
+  color: #fff;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s;
+
+  &:hover:not(:disabled) {
+    background: $deep-teal;
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+}
+
+/* Results Customizations */
+.advResultsHeader h3 {
+  color: $ink;
+}
+
+/* Login Gate */
+.advLoginGate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 32px 20px;
+}
+.advLoginIcon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(7, 157, 180, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  color: $teal;
+}
+.advLoginTitle {
+  font-size: 22px;
+  font-weight: 700;
+  color: $ink;
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+.advLoginSub {
+  font-size: 14px;
+  color: $muted;
+  max-width: 380px;
+  margin-bottom: 28px;
+  line-height: 1.6;
+}
+.advLoginActions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.advLoginBtnPrimary {
+  padding: 12px 28px;
+  border-radius: 10px;
+  background: $teal;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+  &:hover {
+    background: $deep-teal;
+  }
+}
+.advLoginBtnSecondary {
+  padding: 12px 28px;
+  border-radius: 10px;
+  background: transparent;
+  color: $ink;
+  font-size: 14px;
+  font-weight: 600;
+  border: 1.5px solid #e3e9ec;
+  cursor: pointer;
+  transition: all 0.2s;
+  &:hover {
+    background: #f4f7f8;
+  }
+}
+
+/* ─── Mobile Responsiveness ─── */
+@media (max-width: 900px) {
+  .advContainer {
+    flex-direction: column;
+    height: 100vh;
+    height: 100dvh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+  }
+  .advSidebar {
+    width: 100%;
+    padding: 14px 18px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+    z-index: 20;
+  }
+  .advSidebarContext {
+    margin-bottom: 0;
+    padding: 8px 12px;
+    border-radius: 8px;
+    
+    h3 { font-size: 14px; margin: 0; }
+    p:first-child { font-size: 10px; margin-bottom: 2px; }
+    p:last-child { display: none; }
+  }
+  .advProgressVertical, .advSidebarFooter {
+    display: none;
+  }
+  .advCloseFull {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: 34px;
+    height: 34px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    flex-shrink: 0;
+  }
+  .advContent {
+    padding: 16px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    min-height: 0;
+  }
+  .advStepIndicator {
+    font-size: 10.5px;
+    margin-bottom: 4px;
+  }
+  .advQuestion {
+    font-size: 20px;
+    margin-bottom: 4px;
+  }
+  .advQuestionSub {
+    font-size: 13px;
+    margin-bottom: 14px;
+  }
+  .advStepBody {
+    flex: 1;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 12px;
+    min-height: 0;
+  }
+  .advSpecGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    max-width: 100%;
+  }
+  .advSpecCard {
+    min-height: 100px;
+    max-height: 130px;
+  }
+  .advSpecIcon {
+    font-size: 22px;
+    width: 38px;
+    height: 38px;
+  }
+  .advSpecLabel {
+    font-size: 11px;
+  }
+  .advContentFooter {
+    margin-top: auto;
+    padding: 10px 0 14px;
+    border-top: 1px solid #eef2f5;
+    background: #ffffff;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 10;
+  }
+  .advActions {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .advActions > *:only-child {
+    grid-column: span 2;
+  }
+  .advBtnBack, .advBtnNext {
+    justify-content: center;
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 8px;
+  }
+  .advBtnBack {
+    background: #ffffff;
+    border: 1.5px solid #dce4e8;
+    color: $ink;
+  }
+  .advBtnNext {
+    background: $teal;
+    color: #ffffff;
+    border: none;
+  }
+}

@@ -1,9 +1,9 @@
 "use client";
-import React, { useEffect, useMemo, useState, useCallback } from "react";
+import React, { useEffect, useLayoutEffect, useMemo, useRef, useState, useCallback } from "react";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { createTheme, ThemeProvider, styled } from "@mui/material/styles";
 import { Skeleton,
-  Box, Card, CardContent, Container, Grid, Typography, Button, CssBaseline, useMediaQuery,
+  Box, Card, CardContent, Container, Grid, Pagination, Typography, Button, CssBaseline, useMediaQuery,
 } from "@mui/material";
 import { LocationOn, Link } from "@mui/icons-material";
 import BlogSection from "./blog-section";
@@ -41,6 +41,8 @@ const FloatingButton = styled(Button)(({ theme }) => ({
   position: "fixed", bottom: 20, right: 20, zIndex: 1000, [theme.breakpoints.up("lg")]: { display: "none" },
 }));
 
+const COLLEGES_PER_PAGE = 6;
+
 function extractFromPath(pathname: string) {
   const regex = /^\/colleges(?:\/([a-z0-9-]+))?(?:\/colleges-in-([a-z0-9-]+))?/;
   const match = pathname.match(regex);
@@ -77,6 +79,9 @@ const FilterPage: React.FC<FilterPageProps> = ({ initialStreamPath }) => {
   const [streams, setStreams] = useState<any[]>(DATA_CACHE.streams ?? []);
   const [isLoading, setIsLoading] = useState(!(DATA_CACHE.colleges && DATA_CACHE.streams));
   const [streamToCollegeIdMap, setStreamToCollegeIdMap] = useState<Map<string, Set<number>>>(DATA_CACHE.map ?? new Map());
+  const [page, setPage] = useState(1);
+  const asideRef = useRef<HTMLDivElement>(null);
+  const [asideHeight, setAsideHeight] = useState<number | undefined>(undefined);
 
   // -- Fetch data only once --
   useEffect(() => {
@@ -134,12 +139,28 @@ const FilterPage: React.FC<FilterPageProps> = ({ initialStreamPath }) => {
     }
   }, [streams, allColleges, pathname, searchParams, router]); // Added dependencies
 
-  // 2. The single source of truth for filters is ALWAYS the URL search params.
-  const filters: FiltersObject = useMemo(() => {
-    return parseFiltersFromSearchParams(searchParams) ?? {};
+  // 2. The single source of truth for filters initially comes from URL search params,
+  // but we maintain local state to avoid slow Next.js server-side route transitions.
+  const [filters, setFilters] = useState<FiltersObject>(() => parseFiltersFromSearchParams(searchParams) ?? {});
+
+  // Keep filters in sync if user navigates via Next.js router (e.g. back/forward or Links)
+  useEffect(() => {
+    setFilters(parseFiltersFromSearchParams(searchParams) ?? {});
   }, [searchParams]);
 
-  // -- Canonical update, shallow routing, avoid any "page reload"!
+  // Keep filters in sync if user navigates via browser back/forward purely on pushState history
+  useEffect(() => {
+    const handlePopState = () => {
+      if (typeof window !== "undefined") {
+        const params = new URLSearchParams(window.location.search);
+        setFilters(parseFiltersFromSearchParams(params) ?? {});
+      }
+    };
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
+  }, []);
+
+  // -- Canonical update, pushState for speed, avoid any "page reload"!
   const updateFilters = useCallback((category: string, values: string[]) => {
     let nextFilters: FiltersObject = { ...filters, [category]: values };
     if ((nextFilters.Streams ?? []).length === 0) delete nextFilters.Streams;
@@ -155,8 +176,14 @@ const FilterPage: React.FC<FilterPageProps> = ({ initialStreamPath }) => {
     if (citySlug) prettyUrl += `/colleges-in-${citySlug}`;
 
     const qStr = filtersToURLParams(nextFilters);
-    router.push(`${prettyUrl}${qStr ? `?${qStr}` : ""}`, { scroll: false });
-  }, [filters, streams, router]);
+    const finalUrl = `${prettyUrl}${qStr ? `?${qStr}` : ""}`;
+    
+    // Update local state instantly
+    setFilters(nextFilters);
+    
+    // Update URL instantly without triggering Next.js server routing
+    window.history.pushState(null, "", finalUrl);
+  }, [filters, streams]);
 
   const removeFilterChip = useCallback((cat: string, val: string) => {
     const filteredVals = (filters[cat] ?? []).filter((v: string) => v !== val);
@@ -164,8 +191,9 @@ const FilterPage: React.FC<FilterPageProps> = ({ initialStreamPath }) => {
   }, [filters, updateFilters]);
 
   const handleClearAll = useCallback(() => {
-    router.push("/colleges", { scroll: false });
-  }, [router]);
+    setFilters({});
+    window.history.pushState(null, "", "/colleges");
+  }, []);
 
   const getChipLabel = useCallback(
     (cat: string, val: string) => {
@@ -210,21 +238,27 @@ const FilterPage: React.FC<FilterPageProps> = ({ initialStreamPath }) => {
     allColleges.forEach((c) => {
       if (c.city) locMap.set(c.city, (locMap.get(c.city) || 0) + 1);
     });
-    result.Location = Array.from(locMap, ([name, count]) => ({ name, count })).sort((a, b) => a.name.localeCompare(b.name));
+    result.Location = Array.from(locMap, ([name, count]) => ({ name, count }))
+      .sort((a, b) => b.count - a.count)
+      .slice(0, 50);
 
     // Types
     const typeMap = new Map<string, number>();
     allColleges.forEach((c) => {
       if (c.type) typeMap.set(c.type, (typeMap.get(c.type) || 0) + 1);
     });
-    result.Type = Array.from(typeMap, ([name, count]) => ({ name, count })).sort((a, b) => a.name.localeCompare(b.name));
+    result.Type = Array.from(typeMap, ([name, count]) => ({ name, count }))
+      .sort((a, b) => b.count - a.count)
+      .slice(0, 20);
 
     // Approved By is often null/inconsistent, so we filter out falsy values
     const appMap = new Map<string, number>();
     allColleges.forEach((c) => {
       if (c.approved_by) appMap.set(c.approved_by, (appMap.get(c.approved_by) || 0) + 1);
     });
-    result.ApprovedBy = Array.from(appMap, ([name, count]) => ({ name, count })).sort((a, b) => a.name.localeCompare(b.name));
+    result.ApprovedBy = Array.from(appMap, ([name, count]) => ({ name, count }))
+      .sort((a, b) => b.count - a.count)
+      .slice(0, 20);
 
     return result;
   }, [streams, allColleges, filters.Streams]);
@@ -257,6 +291,33 @@ const FilterPage: React.FC<FilterPageProps> = ({ initialStreamPath }) => {
 
     return filtered;
   }, [allColleges, filters, streamToCollegeIdMap]); // Dependencies are correct
+
+  // Reset to the first page whenever the active filters change the result set.
+  useEffect(() => {
+    setPage(1);
+  }, [filters]);
+
+  const pageCount = Math.max(1, Math.ceil(displayedColleges.length / COLLEGES_PER_PAGE));
+
+  const paginatedColleges = useMemo(
+    () => displayedColleges.slice((page - 1) * COLLEGES_PER_PAGE, page * COLLEGES_PER_PAGE),
+    [displayedColleges, page]
+  );
+
+  // Keep the college list column the same height as the filter sidebar so the
+  // two columns line up, scrolling the list internally when a page overflows.
+  // Measured directly (rather than via ResizeObserver) and re-measured on
+  // anything that can change the sidebar's content height.
+  useLayoutEffect(() => {
+    if (!isLargeScreen || !asideRef.current) {
+      setAsideHeight(undefined);
+      return;
+    }
+    const measure = () => setAsideHeight(asideRef.current?.getBoundingClientRect().height);
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
+  }, [isLargeScreen, filterOptions, filters]);
 
   const RegisterContent = useCallback(() => (
     <Box sx={{
@@ -303,16 +364,28 @@ const FilterPage: React.FC<FilterPageProps> = ({ initialStreamPath }) => {
         <BlogSection streams={streams} clgLocation={clgLocation} filters={filters} router={router} />
         <Grid container spacing={4}>
           <Grid item xs={12} lg={3} sx={{ position: "sticky", top: 96 }}>
-            <FilterPanel
-              filterOptions={filterOptions}
-              filters={filters}
-              onChangeCategory={updateFilters}
-              onRemoveFilterChip={removeFilterChip}
-              getChipLabel={getChipLabel}
-              onClearAll={handleClearAll}
-            />
+            <Box ref={asideRef}>
+              <FilterPanel
+                filterOptions={filterOptions}
+                filters={filters}
+                onChangeCategory={updateFilters}
+                onRemoveFilterChip={removeFilterChip}
+                getChipLabel={getChipLabel}
+                onClearAll={handleClearAll}
+              />
+            </Box>
           </Grid>
           <Grid item xs={12} lg={6} sx={{ display: 'block' }}>
+            <Box
+              sx={{
+                maxHeight: asideHeight ? `${asideHeight}px` : "none",
+                overflowY: asideHeight ? "auto" : "visible",
+                pr: asideHeight ? 1 : 0,
+                "&::-webkit-scrollbar": { display: "none" },
+                msOverflowStyle: "none",
+                scrollbarWidth: "none",
+              }}
+            >
             {isLoading ? (
               Array.from(new Array(5)).map((_, index) => (
                 <CollegeCard key={index}>
@@ -328,7 +401,7 @@ const FilterPage: React.FC<FilterPageProps> = ({ initialStreamPath }) => {
                 </CollegeCard>
               ))
             ) : displayedColleges.length > 0 ? (
-                displayedColleges.map((college: any) => (
+                paginatedColleges.map((college: any) => (
                   <CollegeCard
                     key={college.id}
                     onClick={() => router.push(`/college-details/${college.college_short_name}`)}
@@ -370,6 +443,17 @@ const FilterPage: React.FC<FilterPageProps> = ({ initialStreamPath }) => {
               <Typography variant="h6" sx={{ mt: 4, textAlign: "center" }}>
                 No colleges found matching the selected filters.
               </Typography>
+            )}
+            </Box>
+            {!isLoading && pageCount > 1 && (
+              <Box sx={{ display: "flex", justifyContent: "center", mt: 3 }}>
+                <Pagination
+                  count={pageCount}
+                  page={page}
+                  onChange={(_, value) => setPage(value)}
+                  color="primary"
+                />
+              </Box>
             )}
           </Grid>
           <Grid item lg={3} sx={{ display: isLargeScreen ? 'block' : 'none' }}>

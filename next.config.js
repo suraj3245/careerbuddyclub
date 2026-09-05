@@ -9,6 +9,11 @@ const nextConfig = {
         port: '8080',
         pathname: '/',
       },
+      // CareerWise mentor / testimonial photography
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+      },
     ],
   },
 

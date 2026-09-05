@@ -150,7 +150,7 @@ Highlights:
 • Affordable fees 
 • Strong focus on student activities 
 
-Learn more and apply: https://gnc.edu.in/Best-BBA-College-in-Dehradun-Uttarakahnd 
+Learn more and apply: https://gnc.edu.in/best-bba-college-in-dehradun 
 
 6. JBIT (JB Institute of Technology), Dehradun 
 • Affiliation: Sri Dev Suman Uttarakhand University 
@@ -322,7 +322,7 @@ Want personalized guidance to select the best BBA college for you? Contact Caree
           ],
           eligibility: "10+2 (any stream), min. 45%",
           fees: "₹50,000–₹60,000/year (approx.)",
-          website: "https://gnc.edu.in/Best-BBA-College-in-Dehradun-Uttarakahnd"
+          website: "https://gnc.edu.in/best-bba-college-in-dehradun"
         },
         {
           label: "JBIT (JB Institute of Technology)",

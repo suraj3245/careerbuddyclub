@@ -1,0 +1,331 @@
+@use "tokens" as *;
+
+/* ================================================================
+   CAREER MAP — light-bg interactive tree
+   ================================================================ */
+
+.careerMap {
+  position: relative;
+  overflow: hidden;
+  padding: 60px 0 48px;
+  background: linear-gradient(
+    180deg,
+    #f0fcfe 0%,
+    #f7ffff 40%,
+    #fff 100%
+  );
+}
+
+.careerMapShell {
+  width: 100%;
+  max-width: 1298px;
+  margin: 0 auto;
+  padding: 0 42px;
+}
+
+/* ── Section heading ── */
+
+.cmHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+@media (min-width: 1024px) {
+  .cmHeader {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+}
+
+.cmHeaderText {
+  max-width: 680px;
+}
+
+.cmLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  font-family: monospace;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: $muted;
+}
+
+.cmDot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: $teal;
+}
+
+.cmTitle {
+  font-size: clamp(30px, 4vw, 50px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -1.5px;
+  color: $ink;
+
+  em {
+    color: $teal;
+    font-style: italic;
+  }
+}
+
+.cmLede {
+  margin-top: 18px;
+  max-width: 540px;
+  font-size: 15px;
+  line-height: 1.65;
+  color: $muted;
+}
+
+/* ── Degree tabs ── */
+
+.cmTabs {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.cmTab {
+  padding: 9px 18px;
+  border-radius: 20px;
+  border: 1px solid #d8e0e4;
+  background: #fff;
+  color: $muted;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  white-space: nowrap;
+
+  &:hover {
+    border-color: $teal;
+    color: $ink;
+  }
+}
+
+.cmTabActive {
+  border-color: $teal;
+  background: $teal;
+  color: #fff;
+}
+
+/* ── Subtitle ── */
+
+.cmSubtitle {
+  margin-top: 32px;
+  font-family: monospace;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #8b97a8;
+}
+
+/* ── Desktop SVG tree ── */
+
+.cmTree {
+  display: none;
+  margin-top: 28px;
+}
+
+@media (min-width: 1024px) {
+  .cmTree {
+    display: block;
+  }
+}
+
+.cmTreeInner {
+  position: relative;
+}
+
+.cmSvg {
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  overflow: visible;
+}
+
+.cmRootLabel {
+  fill: $ink;
+  font-size: 23px;
+  font-weight: 700;
+}
+
+.cmBranchNode {
+  cursor: pointer;
+}
+
+.cmBranchLabel {
+  fill: #8b97a8;
+  font-size: 15px;
+  transition: fill 0.35s;
+}
+
+.cmBranchLabelOn {
+  fill: $ink;
+}
+
+.cmLeafLabel {
+  fill: $ink;
+  font-size: 14px;
+}
+
+.cmLeafBand {
+  fill: $teal;
+  font-family: monospace;
+  font-size: 10.5px;
+}
+
+
+
+/* ── Mobile / tablet outline ── */
+
+.cmMobile {
+  display: block;
+  margin-top: 32px;
+}
+
+@media (min-width: 1024px) {
+  .cmMobile {
+    display: none;
+  }
+}
+
+.cmMobileList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cmMobileBtn {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid #e3e9ec;
+  background: #fff;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.3s, background 0.3s;
+}
+
+.cmMobileBtnOpen {
+  border-color: rgba($teal, 0.4);
+  background: rgba($teal, 0.04);
+}
+
+.cmMobileBtnLeft {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.cmMobileDot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #8b97a8;
+  flex-shrink: 0;
+  transition: background 0.3s;
+}
+
+.cmMobileDotOpen {
+  background: $teal;
+}
+
+.cmMobileBtnText {
+  font-size: 15px;
+  color: $ink;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cmMobileCount {
+  flex-shrink: 0;
+  font-family: monospace;
+  font-size: 11px;
+  color: #8b97a8;
+}
+
+.cmMobileLeaves {
+  list-style: none;
+  overflow: hidden;
+}
+
+.cmMobileLeavesInner {
+  margin-left: 7px;
+  margin-top: 8px;
+  padding-left: 20px;
+  padding-top: 4px;
+  border-left: 1px solid rgba($teal, 0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cmMobileLeaf {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 6px 0;
+}
+
+.cmMobileLeafLabel {
+  font-size: 14px;
+  color: $ink;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+}
+
+.cmMobileLeafBand {
+  flex-shrink: 0;
+  font-family: monospace;
+  font-size: 11px;
+  color: $teal;
+}
+
+
+
+/* ── Responsive ── */
+
+@media (max-width: 720px) {
+  .careerMapShell {
+    padding: 0 20px;
+  }
+
+  .cmTitle {
+    font-size: 28px;
+    letter-spacing: -1px;
+  }
+
+  .cmTabs {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 430px) {
+  .careerMap {
+    padding: 40px 0 32px;
+  }
+
+  .cmTab {
+    padding: 7px 14px;
+    font-size: 12px;
+  }
+}

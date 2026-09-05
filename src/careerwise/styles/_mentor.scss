@@ -1,0 +1,223 @@
+@use "tokens" as *;
+
+/* ================================================================
+   MENTOR SECTION
+   ================================================================ */
+
+.mentorSection {
+  // background: #f8faff;
+  // padding: 80px 42px;
+  position: relative;
+}
+
+.msContainer {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+/* Header */
+.msHeaderCenter {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+// .msBadge {
+//   display: inline-flex;
+//   align-items: center;
+//   gap: 8px;
+//   padding: 8px 16px;
+//   border-radius: 24px;
+//   background: #e6f0ff;
+//   color: #2563eb;
+//   font-size: 14px;
+//   font-weight: 600;
+//   margin-bottom: 20px;
+// }
+
+.msTitleCenter {
+  font-size: clamp(32px, 4vw, 44px);
+  font-weight: 700;
+  color: $ink;
+  line-height: 1.2;
+  margin-bottom: 16px;
+  padding-top:40px;
+}
+
+.msLedeCenter {
+  font-size: 16px;
+  color: $muted;
+  line-height: 1.6;
+}
+
+/* Grid */
+.msGrid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px; /* Small gap instead of negative margin */
+  padding: 40px 0;
+}
+
+.mentorCard {
+  width: 280px;
+  height: 420px;
+  background: linear-gradient(180deg, #1e40af 0%, #1e3a8a 100%);
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-shadow: -10px 10px 20px rgba(0, 0, 0, 0.15), inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+  color: #fff;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), z-index 0.4s;
+  
+  
+
+
+}
+
+.mentorImageWrapper {
+  position: relative;
+  flex: 1;
+  width: 100%;
+}
+
+.mentorImg {
+  object-fit: cover;
+  opacity: 1;
+}
+
+.mentorOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(15, 23, 42, 0.95) 100%);
+  z-index: 1;
+}
+
+.mentorRating {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: rgba(255, 255, 255, 0.9);
+  color: $ink;
+  border-radius: 8px;
+  padding: 6px 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  font-size: 14px;
+  z-index: 2;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  backdrop-filter: blur(4px);
+}
+
+.mentorVerified {
+  position: absolute;
+  top: 70px;
+  left: 16px;
+  z-index: 2;
+  
+  .verifiedBadge {
+    width: 40px;
+    height: 40px;
+    background: radial-gradient(circle, #fcd34d 0%, #b45309 100%);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    border: 2px solid #fef3c7;
+    position: relative;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border: 2px dashed #b45309;
+      border-radius: 50%;
+    }
+  }
+}
+
+.playButtonWrapper {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  opacity: 1;
+}
+
+.playButton {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px);
+  border: 2px solid #fff;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background 0.2s;
+  
+  &:hover {
+    background: rgba(255, 255, 255, 0.4);
+  }
+}
+
+.mentorInfo {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 24px 20px;
+  z-index: 2;
+}
+
+.mentorInfo h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.mentorInfo p {
+  font-size: 14px;
+  color: #e2e8f0;
+  margin-bottom: 16px;
+}
+
+.mentorTags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px);
+  border-radius: 12px;
+  padding: 6px 10px;
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 600;
+  color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .msGrid {
+    flex-direction: column;
+  }
+  .mentorCard {
+    width: 100%;
+    max-width: 320px;
+  }
+}

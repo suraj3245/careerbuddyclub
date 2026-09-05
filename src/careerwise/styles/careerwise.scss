@@ -1,0 +1,132 @@
+// ============================================================================
+//  CareerWise — scoped stylesheet
+// ============================================================================
+//  careerbuddyclub loads Bootstrap 5 plus public/assets/scss/style.scss
+//  globally from the root layout. Those sheets restyle bare elements
+//  (body 20px / EB Garamond, h1 85px, h2 70px, p 16px/1.8, a underlined) and
+//  define .navbar and .card, all of which would deform the CareerWise design.
+//
+//  Everything CareerWise renders is wrapped in `.cw-root`, and this file
+//  nests the whole CareerWise stylesheet inside that class. Two things follow:
+//
+//    1. Every CareerWise selector gains one class of specificity, so
+//       `.cw-root .navbar` (0,2,0) beats Bootstrap's `.navbar` (0,1,0) and
+//       `.cw-root .hero h1` (0,2,1) beats the reset below.
+//    2. The reset below re-establishes, inside the scope only, exactly the
+//       baseline CareerWise's own globals.css provided — nothing more. Values
+//       are deliberately browser defaults, not new opinions, so the port looks
+//       identical to the standalone app.
+//
+//  Nothing here escapes `.cw-root`, so no existing careerbuddyclub page is
+//  affected.
+// ============================================================================
+
+@use "sass:meta";
+
+.cw-root {
+  // --- typography baseline (was: CareerWise `body`) ---------------------
+  --font-geist-sans: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-geist-mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo,
+    Consolas, monospace;
+  --background: #ffffff;
+  --foreground: #122036;
+
+  box-sizing: border-box;
+  // NOTE: CareerWise set `max-width: 100vw; overflow-x: hidden` on html/body,
+  // where overflow propagates to the viewport. On a plain <div> the same
+  // declarations would instead create a scroll container and break
+  // `position: sticky` descendants, so they are deliberately omitted here —
+  // CareerWise's own `.page { overflow: hidden }` already clips the bleed.
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-geist-sans);
+  font-size: 16px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: left;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  // --- CareerWise globals.css `* { margin:0; padding:0; box-sizing }` ----
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  // --- undo careerbuddyclub's bare-element rules, inside the scope only --
+  // Values are the user-agent defaults CareerWise was designed against.
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: inherit;
+    font-weight: 700;
+    color: inherit;
+    line-height: 1.2;
+    letter-spacing: normal;
+  }
+
+  h1 { font-size: 2em; }
+  h2 { font-size: 1.5em; }
+  h3 { font-size: 1.17em; }
+  h4 { font-size: 1em; }
+  h5 { font-size: 0.83em; }
+  h6 { font-size: 0.67em; }
+
+  p {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    color: inherit;
+  }
+
+  // CareerWise globals.css: `a { color: inherit; text-decoration: none; }`
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  ul,
+  ol {
+    list-style-position: outside;
+  }
+
+  img,
+  svg,
+  video,
+  canvas {
+    max-width: 100%;
+    vertical-align: middle;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+  }
+
+  hr {
+    opacity: 1;
+    margin: 0;
+  }
+
+  // --- the CareerWise stylesheet itself, nested into this scope ----------
+  @include meta.load-css("index");
+}
