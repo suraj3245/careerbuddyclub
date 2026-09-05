@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import styles from "./dashboard.module.scss";
 
-type MenuItem = "Profile" | "Q&A Panel" | "Raise a ticket";
+type MenuItem = "Profile" | "Q&A Panel" | "Raise a ticket" | "TakeYourTest";
 
 interface Student {
   name: string;
@@ -53,6 +53,23 @@ const Icon = {
       <path d="M2.5 20c.7-3.6 2.9-5.5 6.5-5.5s5.8 1.9 6.5 5.5" />
       <path d="M16 5.5a3.5 3.5 0 0 1 0 6.8" />
       <path d="M17 14.8c2.5.5 4 2.2 4.5 5.2" />
+    </svg>
+  ),
+   TakeTest: ({ size = 22, ...rest }: IconProps) => (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...rest}
+    >
+      <path d="M12 6.4a3 3 0 0 0-5.4-1.8A2.7 2.7 0 0 0 4.4 8.3 2.9 2.9 0 0 0 5 13.8 2.8 2.8 0 0 0 8.2 18a2.6 2.6 0 0 0 3.8 1" />
+      <path d="M12 6.4a3 3 0 0 1 5.4-1.8 2.7 2.7 0 0 1 2.2 3.7 2.9 2.9 0 0 1-.6 5.5A2.8 2.8 0 0 1 15.8 18a2.6 2.6 0 0 1-3.8 1" />
+      <path d="M12 6.4V19" />
     </svg>
   ),
 
@@ -375,6 +392,11 @@ const menuItems: {
     label: "Raise a ticket",
     icon: Icon.Rupee,
   },
+  {
+    id: "TakeYourTest",
+    label: "Take Your Test",
+    icon: Icon.TakeTest,
+  },
 ];
 
 /* =========================================================
@@ -388,7 +410,7 @@ export default function DashboardPage() {
     useState<MenuItem>("Profile");
 
   const [student, setStudent] = useState<Student>({
-    name: "Sidhharth Sharma",
+    name: "",
     email: "",
     mobile: "",
     school: "",
@@ -398,7 +420,7 @@ export default function DashboardPage() {
     const storedName =
       localStorage.getItem("username") ||
       localStorage.getItem("name") ||
-      "Sidhharth Sharma";
+      "";
 
     setStudent({
       name: storedName,
@@ -473,6 +495,7 @@ export default function DashboardPage() {
         }`}
       >
         <div className={styles.sidebarTop}>
+          <a href="/">
           <div className={styles.brand}>
             <div className={styles.brandLogo}>
               <span>CV</span>
@@ -483,6 +506,7 @@ export default function DashboardPage() {
               <span>STUDENT PORTAL</span>
             </div>
           </div>
+          </a>
 
           <button
             type="button"
@@ -646,6 +670,10 @@ export default function DashboardPage() {
 
           {activeMenu === "Raise a ticket" && (
             <TicketView />
+          )}
+
+           {activeMenu === "TakeYourTest" && (
+            <TakeyourTest/>
           )}
         </div>
       </main>
@@ -1224,134 +1252,484 @@ function ProfileView({
 ========================================================= */
 
 function QAPanelView() {
-  return (
-    <section className={styles.qaPage}>
-      <div className={styles.qaHero}>
-        <div className={styles.qaGlowOne} />
-        <div className={styles.qaGlowTwo} />
-
-        <div className={styles.qaPowered}>
-          <Icon.Lightning size={15} />
-          Powered by 20K+ Community Members
-        </div>
-
-        <h2>
-          Your Questions, Answered by
-          <br />
-          <span>Real Industry Experts</span>
-        </h2>
-
-        <p>
-          Get clear, expert-backed answers
-          on admissions, careers, and courses
-          <br />
-          — from people who've been there.
-        </p>
-
-        <div className={styles.qaSearch}>
-          <Icon.Search size={21} />
-
-          <input
-            type="text"
-            placeholder="Search for questions"
-          />
-
-          <span>🎙</span>
-        </div>
-
-        <div className={styles.qaActions}>
-          <button
-            type="button"
-            className={
-              styles.askQuestion
-            }
-          >
-            <Icon.Edit size={17} />
-            Ask a Question
-          </button>
-
-          <button
-            type="button"
-            className={
-              styles.browseQuestions
-            }
-          >
-            ☷ Browse Questions
-          </button>
-        </div>
-
-        <div className={styles.qaStats}>
-          <QAStat
-            icon={
-              <Icon.Lightning size={21} />
-            }
-            value="2,00,000+"
-            label="Questions Asked"
-          />
-
-          <QAStat
-            icon={
-              <Icon.Users size={21} />
-            }
-            value="24K+"
-            label="Active Members"
-          />
-
-          <QAStat
-            icon={
-              <Icon.Clock size={21} />
-            }
-            value="24 Hrs"
-            label="Avg. Response"
-          />
-        </div>
-      </div>
-
-      <div className={styles.qaContent}>
-        <div
-          className={
-            styles.qaContentHeader
-          }
-        >
-          <div>
-            <span>COMMUNITY</span>
-
-            <h3>
-              Latest Questions
-            </h3>
-          </div>
-
-          <button type="button">
-            View All
-          </button>
-        </div>
-
-        <div
-          className={
-            styles.questionCards
-          }
-        >
-          <QuestionCard
-            title="Which online MBA is best for working professionals?"
-            category="MBA"
-            answers="18 Answers"
-          />
-
-          <QuestionCard
-            title="Can I pursue MCA after completing BCA?"
-            category="Career"
-            answers="12 Answers"
-          />
-
-          <QuestionCard
-            title="What documents are required for online university admission?"
-            category="Admissions"
-            answers="9 Answers"
-          />
-        </div>
-      </div>
-    </section>
-  );
+     return (
+        <section className="cat-section">
+ 
+            {/* ================= STYLES ================= */}
+ 
+            <style>{`
+                .cat-section{position:relative;overflow:hidden;width:100%;min-height:520px;padding:52px 20px 44px;box-sizing:border-box;display:flex;align-items:center;justify-content:center;font-family:'Segoe UI',Arial,sans-serif;background:radial-gradient(120% 100% at 50% 0%,#ffffff 0%,#f4fdff 40%,#eef8ff 70%,#f7f2ff 100%)}
+                .cat-section *{box-sizing:border-box}
+ 
+                /* ---------- ANIMATIONS ---------- */
+                @keyframes catFloat{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-10px) rotate(4deg)}}
+                @keyframes catOrb{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(18px,-22px) scale(1.06)}}
+                @keyframes catGlow{0%,100%{opacity:.55;transform:scale(1)}50%{opacity:.9;transform:scale(1.06)}}
+                @keyframes catArrow{0%,100%{transform:translateX(0)}50%{transform:translateX(6px)}}
+                @keyframes catRocket{0%,100%{transform:translateY(0) rotate(-7deg)}50%{transform:translateY(-5px) rotate(7deg)}}
+                @keyframes catHand{0%,100%{transform:translateX(0)}50%{transform:translateX(-6px)}}
+                @keyframes catSparkle{0%,100%{opacity:.3;transform:scale(.8) rotate(0)}50%{opacity:1;transform:scale(1.18) rotate(14deg)}}
+                @keyframes catChar{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+                @keyframes catShine{0%{transform:translateX(-130%) skewX(-20deg)}55%,100%{transform:translateX(320%) skewX(-20deg)}}
+                @keyframes catDot{0%,100%{opacity:.35;transform:scale(.85)}50%{opacity:1;transform:scale(1.15)}}
+                @keyframes catBurst{0%,100%{opacity:.5;transform:translateY(-50%) scaleX(.85)}50%{opacity:1;transform:translateY(-50%) scaleX(1.12)}}
+                @keyframes catRise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+ 
+                /* ---------- DECOR ---------- */
+                .cat-orb{position:absolute;border-radius:50%;filter:blur(46px);pointer-events:none}
+                .cat-grid{position:absolute;inset:0;pointer-events:none;opacity:.5;background-image:radial-gradient(#c9e6f2 1px,transparent 1px);background-size:26px 26px;mask-image:radial-gradient(70% 60% at 50% 45%,#000 0%,transparent 78%);-webkit-mask-image:radial-gradient(70% 60% at 50% 45%,#000 0%,transparent 78%)}
+                .cat-emoji{position:absolute;pointer-events:none;user-select:none;filter:drop-shadow(0 6px 10px rgba(20,70,100,.10))}
+ 
+                /* ---------- CONTENT ---------- */
+                .cat-inner{position:relative;z-index:5;width:100%;max-width:980px;text-align:center;animation:catRise .7s ease both}
+ 
+                .cat-badge{display:inline-flex;align-items:center;gap:9px;padding:9px 20px 9px 14px;border-radius:50px;background:rgba(255,255,255,.92);border:1px solid rgba(12,180,203,.2);box-shadow:0 8px 22px rgba(20,90,120,.09),inset 0 1px 0 #fff;color:#0a8ea6;font-size:13px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;margin-bottom:18px;backdrop-filter:blur(6px)}
+                .cat-badge-dot{width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,#22d3ee,#0891b2);box-shadow:0 0 0 4px rgba(34,211,238,.16);animation:catDot 1.8s ease-in-out infinite}
+ 
+                .cat-heading{margin:0;font-family:Georgia,'Times New Roman',serif;font-size:clamp(40px,5.6vw,68px);line-height:1.04;letter-spacing:-2.2px;color:#0e2a4d;font-weight:700}
+                .cat-accent{position:relative;display:inline-block;background:linear-gradient(100deg,#16c3d8 0%,#0a9fbb 55%,#0b86a8 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+                .cat-accent svg{position:absolute;left:-1%;bottom:-8px;width:102%;height:12px;overflow:visible}
+ 
+                .cat-subheading{margin:18px 0 12px;font-family:Georgia,'Times New Roman',serif;font-size:clamp(21px,3vw,32px);color:#173a5b;font-weight:700}
+                .cat-mark{position:relative;display:inline-block;padding:0 10px;font-style:italic;color:#123a5c;z-index:1}
+                .cat-mark:before{content:"";position:absolute;left:0;right:0;bottom:2px;height:52%;background:linear-gradient(90deg,#ffe9a3,#ffd977);border-radius:6px;transform:skewX(-6deg);z-index:-1}
+ 
+                .cat-description{max-width:640px;margin:0 auto;color:#63809b;font-size:15.5px;line-height:1.65}
+ 
+                /* ---------- FEATURES ---------- */
+                .cat-features{display:flex;justify-content:center;align-items:stretch;gap:14px;margin:26px auto 24px}
+                .cat-feature{position:relative;display:flex;align-items:center;gap:12px;width:224px;min-height:66px;padding:13px 16px;border-radius:18px;background:rgba(255,255,255,.86);border:1px solid rgba(255,255,255,.9);box-shadow:0 10px 26px rgba(25,70,105,.07),inset 0 1px 0 #fff;text-align:left;overflow:hidden;backdrop-filter:blur(8px);transition:transform .28s cubic-bezier(.2,.8,.3,1),box-shadow .28s ease}
+                .cat-feature:before{content:"";position:absolute;left:0;top:0;width:100%;height:3px;background:var(--accent);opacity:.9}
+                .cat-feature:after{content:"";position:absolute;right:-30px;top:-30px;width:80px;height:80px;border-radius:50%;background:var(--accent);opacity:.11;transition:transform .35s ease}
+                .cat-feature:hover{transform:translateY(-6px);box-shadow:0 18px 34px rgba(25,70,105,.13)}
+                .cat-feature:hover:after{transform:scale(1.5)}
+                .cat-feature-icon{width:42px;height:42px;min-width:42px;display:flex;align-items:center;justify-content:center;border-radius:13px;font-size:21px;background:var(--tint);box-shadow:0 5px 12px rgba(30,70,100,.10)}
+                .cat-feature strong{position:relative;color:#16385a;font-size:13.5px;font-weight:700;line-height:1.4}
+ 
+                /* ---------- CTA ---------- */
+                .cat-cta-row{position:relative;display:flex;align-items:center;justify-content:center;min-height:96px}
+                .cat-btn-wrap{position:relative;display:inline-block}
+                .cat-btn-glow{position:absolute;inset:-14px;border-radius:60px;background:radial-gradient(50% 60% at 50% 50%,rgba(18,189,208,.34),transparent 70%);filter:blur(10px);animation:catGlow 2.4s ease-in-out infinite;pointer-events:none}
+                .cat-button{position:relative;z-index:5;display:inline-flex;align-items:center;justify-content:center;min-width:340px;padding:17px 30px;border:none;border-radius:50px;outline:none;cursor:pointer;overflow:hidden;color:#fff;font-family:'Segoe UI',Arial,sans-serif;font-size:18px;font-weight:700;letter-spacing:.2px;background:linear-gradient(135deg,#22cadd 0%,#0aa6bd 52%,#0687a3 100%);box-shadow:0 14px 30px rgba(6,150,175,.34),inset 0 1px 0 rgba(255,255,255,.35);transition:transform .25s ease,box-shadow .25s ease}
+                .cat-button:before{content:"";position:absolute;top:0;left:0;width:32%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.42),transparent);animation:catShine 3.4s ease-in-out infinite}
+                .cat-button:hover{transform:translateY(-2px) scale(1.035);box-shadow:0 20px 40px rgba(6,150,175,.45)}
+                .cat-button:hover .cat-arrow{transform:translateX(9px)}
+                .cat-button:active{transform:translateY(0) scale(1.01)}
+                .cat-btn-ico{display:inline-block;margin-right:10px;font-size:21px;animation:catRocket 1.6s ease-in-out infinite}
+                .cat-arrow{display:inline-block;margin-left:13px;font-size:21px;transition:transform .3s ease;animation:catArrow 1.4s ease-in-out infinite}
+ 
+                .cat-burst{position:absolute;top:50%;pointer-events:none;animation:catBurst 1.7s ease-in-out infinite}
+                .cat-burst-l{left:calc(50% - 262px)}
+                .cat-burst-r{right:calc(50% - 246px);animation-duration:2s}
+ 
+                /* ---------- CHARACTER ---------- */
+                .cat-character{position:absolute;left:calc(50% + 256px);bottom:-2px;width:86px;height:96px;z-index:7;animation:catChar 2.3s ease-in-out infinite;pointer-events:none}
+                .cat-bubble{position:absolute;right:-66px;top:-32px;padding:7px 13px;border-radius:14px 14px 14px 3px;background:#fff;box-shadow:0 8px 20px rgba(20,60,90,.14);color:#12315a;font-size:13px;font-weight:800;white-space:nowrap;transform:rotate(-4deg)}
+                .cat-head{position:absolute;left:20px;top:0;width:57px;height:57px;border-radius:50%;background:#fff;border:2.5px solid #17283d;box-shadow:0 6px 16px rgba(20,40,60,.14)}
+                .cat-eye-l,.cat-eye-r{position:absolute;top:21px;width:6px;height:9px;border-radius:50%;background:#17283d}
+                .cat-eye-l{left:15px}.cat-eye-r{right:15px}
+                .cat-smile{position:absolute;left:19px;top:35px;width:19px;height:8px;border-bottom:2.5px solid #17283d;border-radius:0 0 20px 20px}
+                .cat-blush-l,.cat-blush-r{position:absolute;top:36px;width:9px;height:5px;border-radius:50%;background:#ffb4c6}
+                .cat-blush-l{left:6px}.cat-blush-r{right:6px}
+                .cat-point{position:absolute;left:-10px;top:38px;font-size:27px;animation:catHand 1.2s ease-in-out infinite}
+                .cat-body{position:absolute;left:41px;top:57px;width:21px;height:32px;border-radius:13px;background:linear-gradient(180deg,#17283d,#2b4057)}
+                .cat-leg-l,.cat-leg-r{position:absolute;top:84px;width:5px;height:22px;border-radius:8px;background:#17283d}
+                .cat-leg-l{left:41px;transform:rotate(8deg)}
+                .cat-leg-r{left:56px;transform:rotate(-8deg)}
+ 
+                /* ---------- TRUST ---------- */
+                .cat-trust{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:6px}
+                .cat-chip{display:inline-flex;align-items:center;gap:7px;padding:7px 15px;border-radius:50px;background:rgba(255,255,255,.8);border:1px solid rgba(190,225,240,.7);box-shadow:0 4px 12px rgba(30,80,110,.05);color:#54708b;font-size:12.5px;font-weight:600}
+ 
+                /* ---------- BOTTOM ---------- */
+                .cat-bottom{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:10px;margin-top:20px}
+                .cat-word{display:inline-flex;align-items:center;gap:7px;padding:8px 17px;border-radius:50px;font-size:14px;font-weight:700;color:#1c4062;background:var(--tint);border:1px solid rgba(255,255,255,.85);box-shadow:0 5px 14px rgba(30,80,110,.06);transition:transform .25s ease}
+                .cat-word:hover{transform:translateY(-3px)}
+ 
+                /* ---------- RESPONSIVE ---------- */
+                @media (max-width:1060px){.cat-character,.cat-burst{display:none}}
+                @media (max-width:900px){.cat-emoji{display:none}}
+                @media (max-width:768px){
+                .cat-section{min-height:auto;padding:40px 16px 34px}
+                .cat-features{flex-direction:column;align-items:center;margin:22px auto}
+                .cat-feature{width:100%;max-width:340px}
+                .cat-description br{display:none}
+                .cat-button{min-width:295px;font-size:17px}
+                .cat-grid{display:none}
+                }
+                @media (max-width:480px){
+                .cat-section{padding:34px 14px 30px}
+                .cat-heading{font-size:34px;letter-spacing:-1px}
+                .cat-subheading{font-size:21px}
+                .cat-description{font-size:14px}
+                .cat-button{min-width:262px;padding:15px 20px;font-size:16px}
+                .cat-chip{font-size:11.5px;padding:6px 12px}
+                .cat-word{font-size:13px;padding:7px 14px}
+                }
+            `}</style>
+ 
+ 
+            {/* ================= BACKGROUND ORBS ================= */}
+ 
+            <div
+                className="cat-orb"
+                style={{
+                    width: "420px",
+                    height: "380px",
+                    top: "-190px",
+                    left: "-140px",
+                    background:
+                        "linear-gradient(135deg,#8ee6f7,#bfe3ff)",
+                    opacity: 0.36,
+                    animation: "catOrb 11s ease-in-out infinite",
+                }}
+            />
+ 
+            <div
+                className="cat-orb"
+                style={{
+                    width: "400px",
+                    height: "340px",
+                    bottom: "-190px",
+                    right: "-130px",
+                    background:
+                        "linear-gradient(135deg,#d5c4ff,#ffd9ee)",
+                    opacity: 0.34,
+                    animation:
+                        "catOrb 13s ease-in-out infinite reverse",
+                }}
+            />
+ 
+            <div
+                className="cat-orb"
+                style={{
+                    width: "260px",
+                    height: "220px",
+                    bottom: "-120px",
+                    left: "16%",
+                    background:
+                        "linear-gradient(135deg,#ffe9a8,#ffd6a8)",
+                    opacity: 0.34,
+                    animation: "catOrb 15s ease-in-out infinite",
+                }}
+            />
+ 
+            <div className="cat-grid" />
+ 
+ 
+            {/* ================= FLOATING EMOJIS ================= */}
+ 
+            <span
+                className="cat-emoji"
+                style={{
+                    top: "52px",
+                    left: "7%",
+                    fontSize: "26px",
+                    animation: "catFloat 3s ease-in-out infinite",
+                }}
+            >
+                ✨
+            </span>
+ 
+            <span
+                className="cat-emoji"
+                style={{
+                    top: "96px",
+                    right: "8%",
+                    fontSize: "26px",
+                    animation: "catFloat 3.6s ease-in-out infinite",
+                }}
+            >
+                🎯
+            </span>
+ 
+            <span
+                className="cat-emoji"
+                style={{
+                    bottom: "64px",
+                    left: "10%",
+                    fontSize: "24px",
+                    animation: "catFloat 3.3s ease-in-out infinite",
+                }}
+            >
+                💡
+            </span>
+ 
+            <span
+                className="cat-emoji"
+                style={{
+                    bottom: "48px",
+                    right: "11%",
+                    fontSize: "26px",
+                    animation: "catFloat 3.9s ease-in-out infinite",
+                }}
+            >
+                ⭐
+            </span>
+ 
+            <span
+                className="cat-emoji"
+                style={{
+                    top: "190px",
+                    left: "4%",
+                    fontSize: "20px",
+                    animation: "catSparkle 2.4s ease-in-out infinite",
+                }}
+            >
+                ✦
+            </span>
+ 
+            <span
+                className="cat-emoji"
+                style={{
+                    top: "230px",
+                    right: "5%",
+                    fontSize: "20px",
+                    animation: "catSparkle 2.8s ease-in-out infinite",
+                }}
+            >
+                ✦
+            </span>
+ 
+ 
+            {/* ================= CONTENT ================= */}
+ 
+            <div className="cat-inner">
+ 
+                {/* ---------------- BADGE ---------------- */}
+ 
+                <div>
+                    <div className="cat-badge">
+                        <span className="cat-badge-dot" />
+                        Discover Your Potential
+                    </div>
+                </div>
+ 
+ 
+                {/* ---------------- HEADING ---------------- */}
+ 
+                <h1 className="cat-heading">
+                    Career{" "}
+ 
+                    <span className="cat-accent">
+                        Aptitude
+ 
+                        <svg
+                            viewBox="0 0 200 15"
+                            preserveAspectRatio="none"
+                        >
+                            <path
+                                d="M3 10 C 55 2, 145 2, 197 8"
+                                stroke="#ffd25e"
+                                strokeWidth="6"
+                                strokeLinecap="round"
+                                fill="none"
+                            />
+                        </svg>
+                    </span>{" "}
+ 
+                    Test
+                </h1>
+ 
+ 
+                {/* ---------------- SUB HEADING ---------------- */}
+ 
+                <h2 className="cat-subheading">
+                    Find the Career That{" "}
+ 
+                    <span className="cat-mark">
+                        Truly Fits You
+                    </span>{" "}
+ 
+                    <span
+                        style={{
+                            display: "inline-block",
+                            animation:
+                                "catRocket 1.8s ease-in-out infinite",
+                        }}
+                    >
+                        🚀
+                    </span>
+                </h2>
+ 
+ 
+                {/* ---------------- DESCRIPTION ---------------- */}
+ 
+                <p className="cat-description">
+                    A quick, fun and personalized test to help you discover
+                    <br />
+                    your strengths, interests and the best career path for your future.
+                </p>
+ 
+ 
+                {/* ---------------- FEATURES ---------------- */}
+ 
+                <div className="cat-features">
+ 
+                    <div
+                        className="cat-feature"
+                    >
+                        <div className="cat-feature-icon">🧠</div>
+ 
+                        <strong>
+                            Know
+                            <br />
+                            Your Strengths
+                        </strong>
+                    </div>
+ 
+                    <div
+                        className="cat-feature"
+                    >
+                        <div className="cat-feature-icon">🎯</div>
+ 
+                        <strong>
+                            Get Personalized
+                            <br />
+                            Career Suggestions
+                        </strong>
+                    </div>
+ 
+                    <div
+                        className="cat-feature"
+                    >
+                        <div className="cat-feature-icon">💡</div>
+ 
+                        <strong>
+                            Build a
+                            <br />
+                            Brighter Future
+                        </strong>
+                    </div>
+                </div>
+ 
+ 
+                {/* ---------------- CTA ---------------- */}
+ 
+                <div className="cat-cta-row">
+ 
+                    <svg
+                        className="cat-burst cat-burst-l"
+                        width="56"
+                        height="76"
+                        viewBox="0 0 56 76"
+                    >
+                        <path
+                            d="M48 15 L20 5 M52 38 L16 38 M48 61 L20 71"
+                            stroke="#3fd0e2"
+                            strokeWidth="5"
+                            strokeLinecap="round"
+                        />
+                    </svg>
+ 
+                    <svg
+                        className="cat-burst cat-burst-r"
+                        width="56"
+                        height="76"
+                        viewBox="0 0 56 76"
+                    >
+                        <path
+                            d="M8 15 L36 5 M4 38 L40 38 M8 61 L36 71"
+                            stroke="#3fd0e2"
+                            strokeWidth="5"
+                            strokeLinecap="round"
+                        />
+                    </svg>
+ 
+ 
+                    <div className="cat-btn-wrap">
+ 
+                        <span className="cat-btn-glow" />
+ 
+                        <button
+                            type="button"
+                            className="cat-button"
+                            onClick={() => {
+                                window.location.href =
+                                    "/aptitudetest";
+                            }}
+                        >
+                            <span className="cat-btn-ico">✨</span>
+                           <span>Take Your Test Now</span>
+                             <span className="cat-arrow">→</span>
+                        </button>
+                    </div>
+ 
+ 
+                    {/* ---------------- CHARACTER ---------------- */}
+ 
+                    <div className="cat-character">
+ 
+                        <div className="cat-bubble">
+                            Let&apos;s Go! 🚀
+                        </div>
+ 
+                        <div className="cat-head">
+                            <span className="cat-eye-l" />
+                            <span className="cat-eye-r" />
+                            <div className="cat-smile" />
+                            <span className="cat-blush-l" />
+                            <span className="cat-blush-r" />
+                        </div>
+ 
+                        <div className="cat-point">👈</div>
+ 
+                        <div className="cat-body" />
+ 
+                        <div className="cat-leg-l" />
+ 
+                        <div className="cat-leg-r" />
+                    </div>
+                </div>
+ 
+ 
+                {/* ---------------- TRUST ---------------- */}
+ 
+                <div className="cat-trust">
+                    <span className="cat-chip">
+                        ⏱️ Takes only a few minutes
+                    </span>
+ 
+                    <span className="cat-chip">
+                        🎓 100% Student Friendly
+                    </span>
+ 
+                    <span className="cat-chip">
+                        ⭐ Discover Your Path
+                    </span>
+                </div>
+ 
+ 
+                {/* ---------------- BOTTOM WORDS ---------------- */}
+ 
+                <div className="cat-bottom">
+                    <span
+                        className="cat-word"
+                    >
+                        🌈 Dream
+                    </span>
+ 
+                    <span
+                        className="cat-word"
+                    >
+                        📚 Learn
+                    </span>
+ 
+                    <span
+                        className="cat-word"
+                    >
+                        🌱 Grow
+                    </span>
+ 
+                    <span
+                        className="cat-word"
+                    >
+                        🏆 Succeed
+                    </span>
+                </div>
+            </div>
+        </section>
+    );
 }
 
 function QAStat({
@@ -1430,7 +1808,507 @@ function QuestionCard({
     </article>
   );
 }
-
+ function TakeyourTest() {
+      return (
+        <section className="cat-section">
+ 
+            {/* ================= STYLES ================= */}
+ 
+            <style>{`
+                .cat-section{position:relative;overflow:hidden;width:100%;min-height:520px;padding:12px 20px 44px;box-sizing:border-box;display:flex;align-items:center;justify-content:center;font-family:'Segoe UI',Arial,sans-serif;background:radial-gradient(120% 100% at 50% 0%,#ffffff 0%,#f4fdff 40%,#eef8ff 70%,#f7f2ff 100%)}
+                .cat-section *{box-sizing:border-box}
+ 
+                /* ---------- ANIMATIONS ---------- */
+                @keyframes catFloat{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-10px) rotate(4deg)}}
+                @keyframes catOrb{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(18px,-22px) scale(1.06)}}
+                @keyframes catGlow{0%,100%{opacity:.55;transform:scale(1)}50%{opacity:.9;transform:scale(1.06)}}
+                @keyframes catArrow{0%,100%{transform:translateX(0)}50%{transform:translateX(6px)}}
+                @keyframes catRocket{0%,100%{transform:translateY(0) rotate(-7deg)}50%{transform:translateY(-5px) rotate(7deg)}}
+                @keyframes catHand{0%,100%{transform:translateX(0)}50%{transform:translateX(-6px)}}
+                @keyframes catSparkle{0%,100%{opacity:.3;transform:scale(.8) rotate(0)}50%{opacity:1;transform:scale(1.18) rotate(14deg)}}
+                @keyframes catChar{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+                @keyframes catShine{0%{transform:translateX(-130%) skewX(-20deg)}55%,100%{transform:translateX(320%) skewX(-20deg)}}
+                @keyframes catDot{0%,100%{opacity:.35;transform:scale(.85)}50%{opacity:1;transform:scale(1.15)}}
+                @keyframes catBurst{0%,100%{opacity:.5;transform:translateY(-50%) scaleX(.85)}50%{opacity:1;transform:translateY(-50%) scaleX(1.12)}}
+                @keyframes catRise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+ 
+                /* ---------- DECOR ---------- */
+                .cat-orb{position:absolute;border-radius:50%;filter:blur(46px);pointer-events:none}
+                .cat-grid{position:absolute;inset:0;pointer-events:none;opacity:.5;background-image:radial-gradient(#c9e6f2 1px,transparent 1px);background-size:26px 26px;mask-image:radial-gradient(70% 60% at 50% 45%,#000 0%,transparent 78%);-webkit-mask-image:radial-gradient(70% 60% at 50% 45%,#000 0%,transparent 78%)}
+                .cat-emoji{position:absolute;pointer-events:none;user-select:none;filter:drop-shadow(0 6px 10px rgba(20,70,100,.10))}
+ 
+                /* ---------- CONTENT ---------- */
+                .cat-inner{position:relative;z-index:5;width:100%;max-width:980px;text-align:center;animation:catRise .7s ease both}
+ 
+                .cat-badge{display:inline-flex;align-items:center;gap:9px;padding:9px 20px 9px 14px;border-radius:50px;background:rgba(255,255,255,.92);border:1px solid rgba(12,180,203,.2);box-shadow:0 8px 22px rgba(20,90,120,.09),inset 0 1px 0 #fff;color:#0a8ea6;font-size:13px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;margin-bottom:18px;backdrop-filter:blur(6px)}
+                .cat-badge-dot{width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,#22d3ee,#0891b2);box-shadow:0 0 0 4px rgba(34,211,238,.16);animation:catDot 1.8s ease-in-out infinite}
+ 
+                .cat-heading{margin:0;font-family:Georgia,'Times New Roman',serif;font-size:clamp(40px,5.6vw,68px);line-height:1.04;letter-spacing:-2.2px;color:#0e2a4d;font-weight:700}
+                .cat-accent{position:relative;display:inline-block;background:linear-gradient(100deg,#16c3d8 0%,#0a9fbb 55%,#0b86a8 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+                .cat-accent svg{position:absolute;left:-1%;bottom:-8px;width:102%;height:12px;overflow:visible}
+ 
+                .cat-subheading{margin:18px 0 12px;font-family:Georgia,'Times New Roman',serif;font-size:clamp(21px,3vw,32px);color:#173a5b;font-weight:700}
+                .cat-mark{position:relative;display:inline-block;padding:0 10px;font-style:italic;color:#123a5c;z-index:1}
+                .cat-mark:before{content:"";position:absolute;left:0;right:0;bottom:2px;height:52%;background:linear-gradient(90deg,#ffe9a3,#ffd977);border-radius:6px;transform:skewX(-6deg);z-index:-1}
+ 
+                .cat-description{max-width:640px;margin:0 auto;color:#63809b;font-size:15.5px;line-height:1.65}
+ 
+                /* ---------- FEATURES ---------- */
+                .cat-features{display:flex;justify-content:center;align-items:stretch;gap:14px;margin:26px auto 24px}
+                .cat-feature{position:relative;display:flex;align-items:center;gap:12px;width:224px;min-height:66px;padding:13px 16px;border-radius:18px;background:rgba(255,255,255,.86);border:1px solid rgba(255,255,255,.9);box-shadow:0 10px 26px rgba(25,70,105,.07),inset 0 1px 0 #fff;text-align:left;overflow:hidden;backdrop-filter:blur(8px);transition:transform .28s cubic-bezier(.2,.8,.3,1),box-shadow .28s ease}
+                .cat-feature:before{content:"";position:absolute;left:0;top:0;width:100%;height:3px;background:var(--accent);opacity:.9}
+                .cat-feature:after{content:"";position:absolute;right:-30px;top:-30px;width:80px;height:80px;border-radius:50%;background:var(--accent);opacity:.11;transition:transform .35s ease}
+                .cat-feature:hover{transform:translateY(-6px);box-shadow:0 18px 34px rgba(25,70,105,.13)}
+                .cat-feature:hover:after{transform:scale(1.5)}
+                .cat-feature-icon{width:42px;height:42px;min-width:42px;display:flex;align-items:center;justify-content:center;border-radius:13px;font-size:21px;background:var(--tint);box-shadow:0 5px 12px rgba(30,70,100,.10)}
+                .cat-feature strong{position:relative;color:#16385a;font-size:13.5px;font-weight:700;line-height:1.4}
+ 
+                /* ---------- CTA ---------- */
+                .cat-cta-row{position:relative;display:flex;align-items:center;justify-content:center;min-height:96px}
+                .cat-btn-wrap{position:relative;display:inline-block}
+                .cat-btn-glow{position:absolute;inset:-14px;border-radius:60px;background:radial-gradient(50% 60% at 50% 50%,rgba(18,189,208,.34),transparent 70%);filter:blur(10px);animation:catGlow 2.4s ease-in-out infinite;pointer-events:none}
+                .cat-button{position:relative;z-index:5;display:inline-flex;align-items:center;justify-content:center;min-width:340px;padding:17px 30px;border:none;border-radius:50px;outline:none;cursor:pointer;overflow:hidden;color:#fff;font-family:'Segoe UI',Arial,sans-serif;font-size:18px;font-weight:700;letter-spacing:.2px;background:linear-gradient(135deg,#22cadd 0%,#0aa6bd 52%,#0687a3 100%);box-shadow:0 14px 30px rgba(6,150,175,.34),inset 0 1px 0 rgba(255,255,255,.35);transition:transform .25s ease,box-shadow .25s ease}
+                .cat-button:before{content:"";position:absolute;top:0;left:0;width:32%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.42),transparent);animation:catShine 3.4s ease-in-out infinite}
+                .cat-button:hover{transform:translateY(-2px) scale(1.035);box-shadow:0 20px 40px rgba(6,150,175,.45)}
+                .cat-button:hover .cat-arrow{transform:translateX(9px)}
+                .cat-button:active{transform:translateY(0) scale(1.01)}
+                .cat-btn-ico{display:inline-block;margin-right:10px;font-size:21px;animation:catRocket 1.6s ease-in-out infinite}
+                .cat-arrow{display:inline-block;margin-left:13px;font-size:21px;transition:transform .3s ease;animation:catArrow 1.4s ease-in-out infinite}
+ 
+                .cat-burst{position:absolute;top:50%;pointer-events:none;animation:catBurst 1.7s ease-in-out infinite}
+                .cat-burst-l{left:calc(50% - 262px)}
+                .cat-burst-r{right:calc(50% - 246px);animation-duration:2s}
+ 
+                /* ---------- CHARACTER ---------- */
+                .cat-character{position:absolute;left:calc(50% + 256px);bottom:-2px;width:86px;height:96px;z-index:7;animation:catChar 2.3s ease-in-out infinite;pointer-events:none}
+                .cat-bubble{position:absolute;right:-66px;top:-32px;padding:7px 13px;border-radius:14px 14px 14px 3px;background:#fff;box-shadow:0 8px 20px rgba(20,60,90,.14);color:#12315a;font-size:13px;font-weight:800;white-space:nowrap;transform:rotate(-4deg)}
+                .cat-head{position:absolute;left:20px;top:0;width:57px;height:57px;border-radius:50%;background:#fff;border:2.5px solid #17283d;box-shadow:0 6px 16px rgba(20,40,60,.14)}
+                .cat-eye-l,.cat-eye-r{position:absolute;top:21px;width:6px;height:9px;border-radius:50%;background:#17283d}
+                .cat-eye-l{left:15px}.cat-eye-r{right:15px}
+                .cat-smile{position:absolute;left:19px;top:35px;width:19px;height:8px;border-bottom:2.5px solid #17283d;border-radius:0 0 20px 20px}
+                .cat-blush-l,.cat-blush-r{position:absolute;top:36px;width:9px;height:5px;border-radius:50%;background:#ffb4c6}
+                .cat-blush-l{left:6px}.cat-blush-r{right:6px}
+                .cat-point{position:absolute;left:-10px;top:38px;font-size:27px;animation:catHand 1.2s ease-in-out infinite}
+                .cat-body{position:absolute;left:41px;top:57px;width:21px;height:32px;border-radius:13px;background:linear-gradient(180deg,#17283d,#2b4057)}
+                .cat-leg-l,.cat-leg-r{position:absolute;top:84px;width:5px;height:22px;border-radius:8px;background:#17283d}
+                .cat-leg-l{left:41px;transform:rotate(8deg)}
+                .cat-leg-r{left:56px;transform:rotate(-8deg)}
+ 
+                /* ---------- TRUST ---------- */
+                .cat-trust{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:6px}
+                .cat-chip{display:inline-flex;align-items:center;gap:7px;padding:7px 15px;border-radius:50px;background:rgba(255,255,255,.8);border:1px solid rgba(190,225,240,.7);box-shadow:0 4px 12px rgba(30,80,110,.05);color:#54708b;font-size:12.5px;font-weight:600}
+ 
+                /* ---------- BOTTOM ---------- */
+                .cat-bottom{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:10px;margin-top:20px}
+                .cat-word{display:inline-flex;align-items:center;gap:7px;padding:8px 17px;border-radius:50px;font-size:14px;font-weight:700;color:#1c4062;background:var(--tint);border:1px solid rgba(255,255,255,.85);box-shadow:0 5px 14px rgba(30,80,110,.06);transition:transform .25s ease}
+                .cat-word:hover{transform:translateY(-3px)}
+ 
+                /* ---------- RESPONSIVE ---------- */
+                @media (max-width:1060px){.cat-character,.cat-burst{display:none}}
+                @media (max-width:900px){.cat-emoji{display:none}}
+                @media (max-width:1180px){.cat-mascot{display:none}}
+                @media (max-width:768px){
+                .cat-section{min-height:auto;padding:40px 16px 34px}
+                .cat-features{flex-direction:column;align-items:center;margin:22px auto}
+                .cat-feature{width:100%;max-width:340px}
+                .cat-description br{display:none}
+                .cat-button{min-width:295px;font-size:17px}
+                .cat-grid{display:none}
+                }
+                @media (max-width:480px){
+                .cat-section{padding:34px 14px 30px}
+                .cat-heading{font-size:34px;letter-spacing:-1px}
+                .cat-subheading{font-size:21px}
+                .cat-description{font-size:14px}
+                .cat-button{min-width:262px;padding:15px 20px;font-size:16px}
+                .cat-chip{font-size:11.5px;padding:6px 12px}
+                .cat-word{font-size:13px;padding:7px 14px}
+                }
+ 
+                /* ---------- MASCOT (top-left) ---------- */
+                .cat-mascot{position:absolute;top:38px;left:4.5%;width:120px;height:118px;z-index:4;pointer-events:none;animation:mascotBob 2.6s ease-in-out infinite}
+                .cat-m-head{position:absolute;left:34px;top:0;width:52px;height:52px;border-radius:50%;background:#fff;border:2.5px solid #17283d;box-shadow:0 6px 14px rgba(20,40,60,.13);z-index:2}
+                .cat-m-eye-l,.cat-m-eye-r{position:absolute;top:19px;width:5.5px;height:8px;border-radius:50%;background:#17283d}
+                .cat-m-eye-l{left:14px}.cat-m-eye-r{right:14px}
+                .cat-m-smile{position:absolute;left:17px;top:31px;width:17px;height:8px;border-bottom:2.5px solid #17283d;border-radius:0 0 20px 20px}
+                .cat-m-blush-l,.cat-m-blush-r{position:absolute;top:32px;width:8px;height:4.5px;border-radius:50%;background:#ffb4c6}
+                .cat-m-blush-l{left:5px}.cat-m-blush-r{right:5px}
+                .cat-m-tuft{position:absolute;left:24px;top:-9px;width:14px;height:14px;border-left:2.5px solid #17283d;border-top:2.5px solid #17283d;border-radius:60% 0 0 0;transform:rotate(28deg)}
+ 
+                .cat-m-card{position:absolute;left:8px;top:44px;width:92px;padding:9px 6px;border-radius:9px;background:#fff;border:2.2px solid #2ab6cf;box-shadow:0 8px 18px rgba(20,70,100,.14);color:#0d7f96;font-size:12.5px;font-weight:800;text-align:center;letter-spacing:.2px;transform:rotate(-3deg);z-index:3}
+ 
+                .cat-m-arm-l,.cat-m-arm-r{position:absolute;top:40px;width:11px;height:26px;border:2.5px solid #17283d;border-radius:9px;background:#fff;z-index:4}
+                .cat-m-arm-l{left:0;transform-origin:50% 0;animation:mascotWaveL 1.1s ease-in-out infinite}
+                .cat-m-arm-r{right:0;transform-origin:50% 0;animation:mascotWaveR 1.1s ease-in-out infinite}
+ 
+                .cat-m-leg-l,.cat-m-leg-r{position:absolute;top:82px;width:5px;height:20px;border-radius:8px;background:#17283d;z-index:1}
+                .cat-m-leg-l{left:50px;transform:rotate(6deg)}
+                .cat-m-leg-r{left:64px;transform:rotate(-6deg)}
+ 
+                .cat-m-shadow{position:absolute;left:36px;bottom:0;width:48px;height:11px;border-radius:50%;background:rgba(23,40,61,.13);filter:blur(1px);animation:mascotShadow 2.6s ease-in-out infinite}
+ 
+                @keyframes mascotBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+                @keyframes mascotShadow{0%,100%{transform:scale(1);opacity:.5}50%{transform:scale(.82);opacity:.3}}
+                @keyframes mascotWaveL{0%,100%{transform:rotate(-14deg)}50%{transform:rotate(16deg)}}
+                @keyframes mascotWaveR{0%,100%{transform:rotate(14deg)}50%{transform:rotate(-16deg)}}
+            `}</style>
+ 
+ 
+            {/* ================= BACKGROUND ORBS ================= */}
+ 
+            <div
+                className="cat-orb"
+                style={{
+                    width: "420px",
+                    height: "380px",
+                    top: "-190px",
+                    left: "-140px",
+                    background:
+                        "linear-gradient(135deg,#8ee6f7,#bfe3ff)",
+                    opacity: 0.36,
+                    animation: "catOrb 11s ease-in-out infinite",
+                }}
+            />
+ 
+            <div
+                className="cat-orb"
+                style={{
+                    width: "400px",
+                    height: "340px",
+                    bottom: "-190px",
+                    right: "-130px",
+                    background:
+                        "linear-gradient(135deg,#d5c4ff,#ffd9ee)",
+                    opacity: 0.34,
+                    animation:
+                        "catOrb 13s ease-in-out infinite reverse",
+                }}
+            />
+ 
+            <div
+                className="cat-orb"
+                style={{
+                    width: "260px",
+                    height: "220px",
+                    bottom: "-120px",
+                    left: "16%",
+                    background:
+                        "linear-gradient(135deg,#ffe9a8,#ffd6a8)",
+                    opacity: 0.34,
+                    animation: "catOrb 15s ease-in-out infinite",
+                }}
+            />
+ 
+            <div className="cat-grid" />
+ 
+ 
+            {/* ================= FLOATING EMOJIS ================= */}
+ 
+            {/* ================= MASCOT (top-left) ================= */}
+ 
+ 
+            <span
+                className="cat-emoji"
+                style={{
+                    top: "96px",
+                    right: "8%",
+                    fontSize: "26px",
+                    animation: "catFloat 3.6s ease-in-out infinite",
+                }}
+            >
+                🎯
+            </span>
+ 
+            <span
+                className="cat-emoji"
+                style={{
+                    bottom: "64px",
+                    left: "10%",
+                    fontSize: "24px",
+                    animation: "catFloat 3.3s ease-in-out infinite",
+                }}
+            >
+                💡
+            </span>
+ 
+            <span
+                className="cat-emoji"
+                style={{
+                    bottom: "48px",
+                    right: "11%",
+                    fontSize: "26px",
+                    animation: "catFloat 3.9s ease-in-out infinite",
+                }}
+            >
+                ⭐
+            </span>
+ 
+            <span
+                className="cat-emoji"
+                style={{
+                    top: "190px",
+                    left: "4%",
+                    fontSize: "20px",
+                    animation: "catSparkle 2.4s ease-in-out infinite",
+                }}
+            >
+                ✦
+            </span>
+ 
+            <span
+                className="cat-emoji"
+                style={{
+                    top: "230px",
+                    right: "5%",
+                    fontSize: "20px",
+                    animation: "catSparkle 2.8s ease-in-out infinite",
+                }}
+            >
+                ✦
+            </span>
+ 
+ 
+            {/* ================= CONTENT ================= */}
+ 
+            <div className="cat-inner">
+ 
+                {/* ---------------- BADGE ---------------- */}
+ 
+                <div>
+                    <div className="cat-badge">
+                        <span className="cat-badge-dot" />
+                        Discover Your Potential
+                    </div>
+                </div>
+ 
+ 
+                {/* ---------------- HEADING ---------------- */}
+ 
+                <h1 className="cat-heading">
+                    Career{" "}
+ 
+                    <span className="cat-accent">
+                        Aptitude
+ 
+                        <svg
+                            viewBox="0 0 200 15"
+                            preserveAspectRatio="none"
+                        >
+                            <path
+                                d="M3 10 C 55 2, 145 2, 197 8"
+                                stroke="#ffd25e"
+                                strokeWidth="6"
+                                strokeLinecap="round"
+                                fill="none"
+                            />
+                        </svg>
+                    </span>{" "}
+ 
+                    Test
+                </h1>
+ 
+ 
+                {/* ---------------- SUB HEADING ---------------- */}
+ 
+                <h2 className="cat-subheading">
+                    Find the Career That{" "}
+ 
+                    <span className="cat-mark">
+                        Truly Fits You
+                    </span>{" "}
+ 
+                    <span
+                        style={{
+                            display: "inline-block",
+                            animation:
+                                "catRocket 1.8s ease-in-out infinite",
+                        }}
+                    >
+                        🚀
+                    </span>
+                </h2>
+ 
+ 
+                {/* ---------------- DESCRIPTION ---------------- */}
+ 
+                <p className="cat-description">
+                    A quick, fun and personalized test to help you discover
+                    <br />
+                    your strengths, interests and the best career path for your future.
+                </p>
+ 
+ 
+                {/* ---------------- FEATURES ---------------- */}
+ 
+                <div className="cat-features">
+ 
+                    <div
+                        className="cat-feature"
+                    >
+                        <div className="cat-feature-icon">🧠</div>
+ 
+                        <strong>
+                            Know
+                            <br />
+                            Your Strengths
+                        </strong>
+                    </div>
+ 
+                    <div
+                        className="cat-feature"
+                    >
+                        <div className="cat-feature-icon">🎯</div>
+ 
+                        <strong>
+                            Get Personalized
+                            <br />
+                            Career Suggestions
+                        </strong>
+                    </div>
+ 
+                    <div
+                        className="cat-feature"
+                    >
+                        <div className="cat-feature-icon">💡</div>
+ 
+                        <strong>
+                            Build a
+                            <br />
+                            Brighter Future
+                        </strong>
+                    </div>
+                </div>
+ 
+ 
+                {/* ---------------- CTA ---------------- */}
+ 
+                <div className="cat-cta-row">
+ 
+                    <svg
+                        className="cat-burst cat-burst-l"
+                        width="56"
+                        height="76"
+                        viewBox="0 0 56 76"
+                    >
+                        <path
+                            d="M48 15 L20 5 M52 38 L16 38 M48 61 L20 71"
+                            stroke="#3fd0e2"
+                            strokeWidth="5"
+                            strokeLinecap="round"
+                        />
+                    </svg>
+ 
+                    <svg
+                        className="cat-burst cat-burst-r"
+                        width="56"
+                        height="76"
+                        viewBox="0 0 56 76"
+                    >
+                        <path
+                            d="M8 15 L36 5 M4 38 L40 38 M8 61 L36 71"
+                            stroke="#3fd0e2"
+                            strokeWidth="5"
+                            strokeLinecap="round"
+                        />
+                    </svg>
+ 
+ 
+                    <div className="cat-btn-wrap">
+ 
+                        <span className="cat-btn-glow" />
+ 
+                        <button
+                            type="button"
+                            className="cat-button"
+                            onClick={() => {
+                                window.location.href =
+                                    "/aptitudetest";
+                            }}
+                        >
+                            <span className="cat-btn-ico">✨</span>
+ 
+                            <span>Take Your Test Now</span>
+ 
+                            <span className="cat-arrow">→</span>
+                        </button>
+                    </div>
+ 
+ 
+                    {/* ---------------- CHARACTER ---------------- */}
+ 
+                    <div className="cat-character">
+ 
+                        <div className="cat-bubble">
+                            Let&apos;s Go! 🚀
+                        </div>
+ 
+                        <div className="cat-head">
+                            <span className="cat-eye-l" />
+                            <span className="cat-eye-r" />
+                            <div className="cat-smile" />
+                            <span className="cat-blush-l" />
+                            <span className="cat-blush-r" />
+                        </div>
+ 
+                        <div className="cat-point">👈</div>
+ 
+                        <div className="cat-body" />
+ 
+                        <div className="cat-leg-l" />
+ 
+                        <div className="cat-leg-r" />
+                    </div>
+                </div>
+ 
+ 
+                {/* ---------------- TRUST ---------------- */}
+ 
+                <div className="cat-trust">
+                    <span className="cat-chip">
+                        ⏱️ Takes only a few minutes
+                    </span>
+ 
+                    <span className="cat-chip">
+                        🎓 100% Student Friendly
+                    </span>
+ 
+                    <span className="cat-chip">
+                        ⭐ Discover Your Path
+                    </span>
+                </div>
+ 
+ 
+                {/* ---------------- BOTTOM WORDS ---------------- */}
+ 
+                <div className="cat-bottom">
+                    <span
+                        className="cat-word"
+                    >
+                        🌈 Dream
+                    </span>
+ 
+                    <span
+                        className="cat-word"
+                    >
+                        📚 Learn
+                    </span>
+ 
+                    <span
+                        className="cat-word"
+                    >
+                        🌱 Grow
+                    </span>
+ 
+                    <span
+                        className="cat-word"
+                    >
+                        🏆 Succeed
+                    </span>
+                </div>
+            </div>
+        </section>
+    );
+}
 /* =========================================================
    TICKET PAGE
 ========================================================= */
@@ -1511,7 +2389,7 @@ function TicketView() {
                 <Icon.Mail size={15} />
 
                 <span>
-                  cvcare@collegevidya.com
+                  cvcare@careerbuddyclub.com
                 </span>
               </div>
             </div>

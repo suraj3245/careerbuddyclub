@@ -70,14 +70,14 @@ export default function Header() {
     [
       "token",
       "username",
+      "student_id",
       "School_email",
+      "user",
       "mobile",
     ].forEach((key) => localStorage.removeItem(key));
-
     setIsLoggedIn(false);
     setUserName("Student");
     setProfileOpen(false);
-
     router.push("/");
   };
 
@@ -128,7 +128,7 @@ export default function Header() {
         {!isLoggedIn ? (
           <button
   type="button"
-  className="login"
+  className="Registor"
   onClick={() => setSignupOpen(true)}
   style={{
     height: "42px",
@@ -148,7 +148,7 @@ export default function Header() {
     transition: "all 0.2s ease",
   }}
 >
-  Login
+  Registor
 </button>
         ) : (
           <div className="headerProfile" ref={profileRef}>
