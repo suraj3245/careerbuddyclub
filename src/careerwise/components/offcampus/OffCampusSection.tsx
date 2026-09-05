@@ -47,16 +47,13 @@ export default function OffCampusSection() {
         <div className="offCampus__right">
           <div className="offCampus__graphic">
             <div className="offCampus__circle" />
-            <div className="offCampus__iconFloating offCampus__iconFloating--1">
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2L2 7l2 1.5V17c-1.1 0-2 .9-2 2v1h20v-1c0-1.1-.9-2-2-2V8.5l2-1.5-10-5zm-2 15H6v-6h4v6zm6 0h-4v-6h4v6z"/>
-              </svg>
-            </div>
+            
             <div className="offCampus__dots" />
             <div className="offCampus__lines" />
             {/* Using a placeholder for laptop image if it doesn't exist. User can change the src */}
             <div className="offCampus__laptopPlaceholder">
-              <img src="/assets/images/laptop-mockup.png" alt="Laptop" className="offCampus__laptopImg" />
+              <img src="/assets/images/CBC-Website-Laptop.png"
+               alt="Laptop" className="offCampus__laptopImg" />
             </div>
           </div>
         </div>
