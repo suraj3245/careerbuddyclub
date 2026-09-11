@@ -1,6 +1,6 @@
 import { Metadata } from "next";
-import CareerWiseShell from "@/careerwise/CareerWiseShell";
-import AIFinder from "@/careerwise/components/AIFinder";
+import OnlineLearningShell from "@/online-learning/OnlineLearningShell";
+import AIFinder from "@/online-learning/components/AIFinder";
 
 export const metadata: Metadata = {
   title: "AI College Finder | Career Buddy Club",
@@ -9,10 +9,10 @@ export const metadata: Metadata = {
 
 export default function AIFinderPage() {
   return (
-    <CareerWiseShell>
+    <OnlineLearningShell>
       <main style={{ backgroundColor: "var(--surface-0, #f8f8f6)" }}>
         <AIFinder />
       </main>
-    </CareerWiseShell>
+    </OnlineLearningShell>
   );
 }

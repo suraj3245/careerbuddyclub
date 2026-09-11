@@ -122,14 +122,14 @@ export default function RootLayout({
   const isSchoolDashboard = pathname.startsWith("/dashboard/");
   const dbsapplynow = pathname.startsWith("/dbs-apply-now");
 
-  // CareerWise routes ship their own header and footer (see
-  // src/careerwise/CareerWiseShell.tsx), so the global chrome is suppressed.
-  const CAREERWISE_PREFIXES = ["/advisor", "/roi-calculator", "/ai-finder"];
-  // The CareerWise student dashboard ships its own floating WhatsApp button.
-  const isCareerWiseDashboard = pathname.startsWith("/dashboard/student-dashboard");
-  const isCareerWise =
+  // online-learning routes ship their own header and footer (see
+  // src/online-learning/OnlineLearningShell.tsx), so the global chrome is suppressed.
+  const ONLINE_LEARNING_PREFIXES = ["/advisor", "/roi-calculator", "/ai-finder"];
+  // The online-learning student dashboard ships its own floating WhatsApp button.
+  const isOnlineLearningDashboard = pathname.startsWith("/dashboard/student-dashboard");
+  const isOnlineLearning =
     pathname === "/" ||
-    CAREERWISE_PREFIXES.some((prefix) => pathname.startsWith(prefix));
+    ONLINE_LEARNING_PREFIXES.some((prefix) => pathname.startsWith(prefix));
 
   // const isCollegeDetailsPage = pathname.startsWith("/college-details");
   return (
@@ -174,8 +174,8 @@ export default function RootLayout({
             style={{ display: "none", visibility: "hidden" }}
           ></iframe>
         </noscript>
-        {!isCareerWise && <HeaderTop />}
-        {!isCareerWise &&
+        {!isOnlineLearning && <HeaderTop />}
+        {!isOnlineLearning &&
           !isRedirectPage &&
           !isAptitudeTestPage &&
           !isCandidateDashboardPage &&
@@ -194,7 +194,7 @@ export default function RootLayout({
 
         <Providers>{children}</Providers>
         <ToastContainer />
-        {!isCareerWiseDashboard && <WhatsappChatButton />}
+        {!isOnlineLearningDashboard && <WhatsappChatButton />}
         {/* <BackToTopCom /> */}
       </body>
     </html>
