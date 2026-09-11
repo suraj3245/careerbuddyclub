@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['test.careerbuddyclub.com'],
+    domains: ['test.careerbuddyclub.com', 'ui-avatars.com'],
     remotePatterns: [
       {
         protocol: 'https',
@@ -34,6 +34,12 @@ const nextConfig = {
         source: '/university-details/osmu',
         destination: '/university-details/1',
         permanent: true,
+      },
+
+      {
+        source: '/verify-advisor',
+        destination: '/advisor',
+        permanent: false,
       },
     ];
   },

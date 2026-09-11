@@ -1,0 +1,664 @@
+@use "tokens" as *;
+
+/* ================================================================
+   COURSE FILTER SECTION (Replaces DegreeSection)
+   ================================================================ */
+
+.courseFilterSection {
+  max-width: 1298px;
+  width: 100%;
+  margin: 60px auto;
+  padding: 0 42px;
+  box-sizing: border-box;
+
+  @media (max-width: 1024px) {
+    padding: 0 20px;
+    margin: 40px auto;
+  }
+
+  @media (max-width: 640px) {
+    padding: 0 16px;
+    margin: 30px auto;
+  }
+}
+
+/* Header */
+.cfHeader {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.cfEyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid #d8e0e4;
+  color: $teal;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  background: #f7ffff;
+}
+
+.cfTitle {
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 700;
+  color: $ink;
+  line-height: 1.1;
+  letter-spacing: -1.2px;
+  margin-bottom: 12px;
+}
+
+.cfSubtitle {
+  font-size: 15px;
+  color: $muted;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+/* Layout Grid */
+.cfLayout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 32px;
+  align-items: start;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Sidebar */
+.cfSidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+.cfMobileScrollControls {
+  width: 100%;
+}
+
+.cfScrollBtn {
+  display: none; /* Hidden on desktop */
+}
+
+.cfCategoryList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.cfCategoryItem {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 12px 16px;
+  cursor: pointer;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  transition: all 0.2s;
+  background: #ffffff;
+  text-align: left;
+  width: 100%;
+  box-sizing: border-box;
+  box-shadow: 0 1px 4px rgba(18, 32, 54, 0.04);
+
+  &:hover:not(.active) {
+    background: #f8fafc;
+    border-color: #e2e8f0;
+  }
+
+  &.active {
+    background: $teal;
+    color: #ffffff;
+    box-shadow: 0 4px 14px rgba(7, 157, 180, 0.25);
+
+    .cfCatTitle {
+      color: #ffffff;
+      font-weight: 700;
+    }
+    .cfCatPill {
+      background: #ffffff;
+      color: $teal;
+      font-weight: 600;
+    }
+  }
+}
+
+.cfCatTitle {
+  font-size: 15px;
+  font-weight: 600;
+  color: $ink;
+  transition: color 0.2s;
+  line-height: 1.2;
+}
+
+.cfCatPill {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: #eef8fa;
+  color: $teal;
+  font-size: 11px;
+  font-weight: 600;
+  margin-top: 6px;
+  line-height: 1.2;
+  transition: all 0.2s;
+}
+
+/* Expert Card in Sidebar */
+.cfExpertCard {
+  background: #f8fbff;
+  border: 1px solid #e3edf6;
+  border-radius: 16px;
+  padding: 24px;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+}
+
+.cfExpertTitle {
+  font-size: 15px;
+  font-weight: 700;
+  color: $ink;
+  line-height: 1.3;
+  margin-bottom: 8px;
+  max-width: 140px;
+}
+
+.cfExpertDesc {
+  font-size: 12px;
+  color: $muted;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  max-width: 140px;
+}
+
+.cfExpertBtn {
+  display: inline-block;
+  padding: 8px 16px;
+  border: 1px solid $teal;
+  color: $teal;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  background: #fff;
+  transition: all 0.2s;
+  cursor: pointer;
+
+  &:hover {
+    background: $teal;
+    color: #fff;
+  }
+}
+
+.cfExpertImg {
+  position: absolute;
+  bottom: 0;
+  right: -10px;
+  width: 110px;
+  height: auto;
+}
+
+/* Main Content Area */
+.cfMain {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+/* Top Banner */
+.cfTopBanner {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: #fff;
+  border: 1px solid #e3e9ec;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(21, 62, 81, 0.02);
+}
+
+.cfFeature {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 24px;
+  border-right: 1px solid #f0f4f5;
+
+  &:last-child {
+    border-right: none;
+  }
+}
+
+.cfFeatureIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+.cff-1 { background: #e6f6f5; color: #1fbca7; }
+.cff-2 { background: #fef0df; color: #d68725; }
+.cff-3 { background: #e5f7fa; color: #079db4; }
+.cff-4 { background: #fff4e5; color: #f5a623; }
+
+.cfFeatureText {
+  display: flex;
+  flex-direction: column;
+}
+
+.cfFeatureTitle {
+  font-size: 13px;
+  font-weight: 700;
+  color: $ink;
+}
+
+.cfFeatureSub {
+  font-size: 11px;
+  color: #8b97a8;
+  margin-top: 2px;
+}
+
+
+
+/* Course Grid */
+.cfGridWrapper {
+  width: 100%;
+}
+
+/* Course Grid */
+.cfGridWrapper {
+  width: 100%;
+}
+
+.cfGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(145px, 1fr));
+  gap: 4px;
+  width: 100%;
+  max-width: 895px;
+  box-sizing: border-box;
+}
+
+.cfCard {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 1px 3px rgba(18, 32, 54, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  width: 100%;
+  height: 108px;
+  min-height: 108px;
+  max-height: 108px;
+  box-sizing: border-box;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(7, 157, 180, 0.15);
+    border-color: $teal;
+  }
+}
+
+.cfBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  height: 16px;
+  padding: 0 5px;
+  border-radius: 999px;
+  font-size: 8px;
+  font-weight: 600;
+  white-space: nowrap;
+  line-height: 1;
+  max-width: 95%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-shrink: 0;
+  margin-bottom: 2px;
+}
+
+.cfBadgeGreen {
+  background: #e0f7fa;
+  color: #087f98;
+}
+
+.cfBadgePeach {
+  background: #f1f5f9;
+  color: #475569;
+}
+
+.cfCardIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  color: $teal;
+  flex-shrink: 0;
+  margin: 1px 0;
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.cfCardTitle {
+  font-size: 11px;
+  font-weight: 600;
+  color: $ink;
+  line-height: 1.2;
+  margin: 0;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  word-break: break-word;
+  padding: 0 2px;
+}
+
+.cfCardBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 22px;
+  padding: 0 4px;
+  background: $teal;
+  color: #ffffff !important;
+  border: none;
+  border-radius: 6px;
+  font-size: 9.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  text-decoration: none !important;
+  line-height: 1;
+  box-sizing: border-box;
+  text-align: center;
+  white-space: nowrap;
+  flex-shrink: 0;
+
+  &:hover {
+    background: darken($teal, 6%);
+    color: #ffffff !important;
+  }
+}
+
+/* Bottom Banner */
+.cfBottomBanner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  border: 1px solid #e3e9ec;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 15px rgba(21, 62, 81, 0.02);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.cfbbLeft {
+  display: flex;
+  flex-direction: column;
+}
+
+.cfbbTitle {
+  font-size: 16px;
+  font-weight: 700;
+  color: $ink;
+  margin-bottom: 16px;
+}
+
+.cfbbSteps {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.cfbbStep {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cfbbStepIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: $teal;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.cfbbStepText {
+  display: flex;
+  flex-direction: column;
+}
+
+.cfbbStepTitle {
+  font-size: 12px;
+  font-weight: 700;
+  color: $ink;
+}
+
+.cfbbStepSub {
+  font-size: 10px;
+  color: $muted;
+  margin-top: 2px;
+}
+
+.cfbbArrow {
+  color: #c1c9d2;
+  flex-shrink: 0;
+}
+
+.cfbbRight {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #f4f7fa;
+  padding: 16px 32px;
+  border-radius: 12px;
+  border: 1px solid #eef2f5;
+  flex-shrink: 0;
+}
+
+.cfbbRightLabel {
+  font-size: 11px;
+  color: $muted;
+}
+
+.cfbbRightCount {
+  font-size: 18px;
+  font-weight: 800;
+  color: $ink;
+  margin: 4px 0 12px;
+}
+
+.cfbbBtn {
+  padding: 10px 24px;
+  background: $teal;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+
+  &:hover {
+    background: #068a9e;
+  }
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .cfTopBanner {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .cfFeature:nth-child(2) {
+    border-right: none;
+  }
+  .cfFeature:nth-child(1), .cfFeature:nth-child(2) {
+    border-bottom: 1px solid #f0f4f5;
+  }
+}
+
+@media (max-width: 1024px) {
+  .cfLayout {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    gap: 20px;
+  }
+  .cfSidebar {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+  .cfMobileScrollControls {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+  .cfScrollBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 1.5px solid #dce4e8;
+    color: $teal;
+    cursor: pointer;
+    flex-shrink: 0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    transition: all 0.2s;
+
+    &:hover {
+      background: #f0fdfa;
+      border-color: $teal;
+    }
+  }
+  .cfCategoryList {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    min-width: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    gap: 8px;
+    padding: 4px 2px;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  .cfCategoryItem {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    border: 1.5px solid #dce4e8;
+    border-radius: 30px;
+    padding: 8px 16px;
+    background: #ffffff;
+    color: $ink;
+    font-size: 13px;
+    font-weight: 600;
+    flex-shrink: 0;
+    white-space: nowrap;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: all 0.2s;
+    
+    .cfCatIcon, .cfCatSub, .cfCatArrow {
+      display: none;
+    }
+    
+    &.active {
+      background: $teal;
+      border-color: $teal;
+      color: #ffffff;
+      box-shadow: 0 2px 8px rgba(7, 157, 180, 0.25);
+    }
+  }
+  .cfExpertCard {
+    display: none;
+  }
+  /* Remove top banner on mobile/tablet */
+  .cfTopBanner {
+    display: none !important;
+  }
+  .cfBottomBanner {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+    width: 100%;
+  }
+  .cfbbSteps {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    width: 100%;
+  }
+  .cfbbArrow {
+    transform: rotate(90deg);
+    margin-left: 12px;
+  }
+  .cfbbRight {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+
