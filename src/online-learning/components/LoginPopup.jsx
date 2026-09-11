@@ -166,6 +166,9 @@ export default function LoginPopup({ isOpen, onClose }) {
             } catch (storageError) {
                 console.error("LOCAL STORAGE ERROR:", storageError);
             }
+
+            // Immediately notify header and other components to update UI
+            window.dispatchEvent(new Event("userLoggedIn"));
         }
 
         setVerified(true);
