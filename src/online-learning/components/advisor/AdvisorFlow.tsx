@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { AnimatePresence, motion } from "motion/react";
 import { X, ChevronRight, ChevronLeft } from "lucide-react";
@@ -12,6 +12,7 @@ import StepExperience from "@/online-learning/components/advisor/steps/StepExper
 import StepMode from "@/online-learning/components/advisor/steps/StepMode";
 import StepResults from "@/online-learning/components/advisor/steps/StepResults";
 import { CollegeDetail, Stream } from "@/online-learning/data/api";
+import LoginPopup from "@/online-learning/components/LoginPopup";
 
 const STEP_QUESTIONS: Record<number, { title: string; subtitle: string }> = {
   1: {
@@ -88,6 +89,19 @@ export default function AdvisorFlow({ collegeDetails = [], streams = [] }: Advis
   const { state, dispatch } = useAdvisorStore(courseId, courseTitle);
   const { currentStep, answers, direction } = state;
 
+  const [loginOpen, setLoginOpen] = useState(false);
+  const [pendingNext, setPendingNext] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const checkAuth = () => {
+      setIsLoggedIn(!!localStorage.getItem("token"));
+    };
+    checkAuth();
+    window.addEventListener("userLoggedIn", checkAuth);
+    return () => window.removeEventListener("userLoggedIn", checkAuth);
+  }, []);
+
   useEffect(() => {
     // Reset state on mount just in case
     dispatch({ type: "RESET", courseId, courseTitle });
@@ -98,6 +112,14 @@ export default function AdvisorFlow({ collegeDetails = [], streams = [] }: Advis
       document.body.style.overflow = "";
     };
   }, [courseId, courseTitle, dispatch]);
+
+  useEffect(() => {
+    if (isLoggedIn && pendingNext) {
+      setPendingNext(false);
+      setLoginOpen(false);
+      dispatch({ type: "NEXT_STEP" });
+    }
+  }, [isLoggedIn, pendingNext, dispatch]);
 
   const handleClose = () => {
     router.back();
@@ -120,7 +142,12 @@ export default function AdvisorFlow({ collegeDetails = [], streams = [] }: Advis
 
   const handleNext = () => {
     if (currentStep < 5 && canProceed()) {
-      dispatch({ type: "NEXT_STEP" });
+      if (currentStep === 4 && !isLoggedIn) {
+        setLoginOpen(true);
+        setPendingNext(true);
+      } else {
+        dispatch({ type: "NEXT_STEP" });
+      }
     }
   };
 
@@ -266,6 +293,14 @@ export default function AdvisorFlow({ collegeDetails = [], streams = [] }: Advis
           </div>
         )}
       </div>
+
+      <LoginPopup 
+        isOpen={loginOpen} 
+        onClose={() => {
+          setLoginOpen(false);
+          setPendingNext(false);
+        }} 
+      />
     </div>
   );
 }
