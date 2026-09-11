@@ -3,8 +3,8 @@ import React, { useState, useEffect } from "react";
 import ApplyModal from "./common/popup/apply-modal";
 import PhoneForm from "./forms/phone-form";
 import StudentLoginForm2 from "./forms/studentLoginForm";
-import LoginPopup from "@/careerwise/components/LoginPopup";
-import "@/careerwise/styles/careerwise.scss";
+import LoginPopup from "@/online-learning/components/LoginPopup";
+import "@/online-learning/styles/online-learning.scss";
 
 interface ModalForHeaderProps {
   isOpen: boolean;

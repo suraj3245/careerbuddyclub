@@ -1,6 +1,7 @@
 import { Metadata } from "next";
-import CareerWiseShell from "@/careerwise/CareerWiseShell";
-import AdvisorFlow from "@/careerwise/components/advisor/AdvisorFlow";
+import OnlineLearningShell from "@/online-learning/OnlineLearningShell";
+import AdvisorFlow from "@/online-learning/components/advisor/AdvisorFlow";
+import { fetchAllCollegesDetails, fetchOnlineStreams } from "@/online-learning/data/api";
 
 export const metadata: Metadata = {
   title: "Course Advisor | Career Buddy Club",
@@ -9,11 +10,17 @@ export const metadata: Metadata = {
 };
 
 // Full-bleed flow: it renders its own close button and locks body scroll,
-// so it deliberately opts out of the CareerWise header and footer.
-export default function AdvisorPage() {
+// so it deliberately opts out of the online-learning header and footer.
+export default async function AdvisorPage() {
+  const [colleges, streams] = await Promise.all([
+    fetchAllCollegesDetails(),
+    fetchOnlineStreams(),
+  ]);
+
   return (
-    <CareerWiseShell chrome={false}>
-      <AdvisorFlow />
-    </CareerWiseShell>
+    <OnlineLearningShell chrome={false}>
+      <AdvisorFlow collegeDetails={colleges} streams={streams} />
+    </OnlineLearningShell>
   );
 }
+

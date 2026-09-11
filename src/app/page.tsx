@@ -1,14 +1,14 @@
 import { Metadata } from "next";
-import CareerWiseShell from "@/careerwise/CareerWiseShell";
-import Hero from "@/careerwise/components/Hero";
-import Metrics from "@/careerwise/components/Metrics";
-import CourseFilter from "@/careerwise/components/filter/CourseFilter";
-import UniversitiesSection from "@/careerwise/components/universities/UniversitiesSection";
-import CareerMap from "@/careerwise/components/CareerMap";
-import Testimonials from "@/careerwise/components/Testimonials";
-import MentorSection from "@/careerwise/components/mentor/MentorSection";
-import ROICalculatorSection from "@/careerwise/components/roi/ROICalculatorSection";
-import OffCampusSection from "@/careerwise/components/offcampus/OffCampusSection";
+import OnlineLearningShell from "@/online-learning/OnlineLearningShell";
+import Hero from "@/online-learning/components/Hero";
+import Metrics from "@/online-learning/components/Metrics";
+import CourseFilter from "@/online-learning/components/filter/CourseFilter";
+import UniversitiesSection from "@/online-learning/components/universities/UniversitiesSection";
+import CareerMap from "@/online-learning/components/CareerMap";
+import Testimonials from "@/online-learning/components/Testimonials";
+import MentorSection from "@/online-learning/components/mentor/MentorSection";
+import ROICalculatorSection from "@/online-learning/components/roi/ROICalculatorSection";
+import OffCampusSection from "@/online-learning/components/offcampus/OffCampusSection";
 
 export const metadata: Metadata = {
   title: "Career Buddy Club | Career Counselling | Career Guidance",
@@ -19,18 +19,18 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <CareerWiseShell>
+    <OnlineLearningShell>
       <main id="top">
         <Hero />
         <Metrics />
         <CourseFilter />
         <UniversitiesSection />
         <CareerMap />
-        <Testimonials />
-        <MentorSection />
+        {/* <Testimonials /> */}
+        {/* <MentorSection /> */}
         <ROICalculatorSection />
         <OffCampusSection />
       </main>
-    </CareerWiseShell>
+    </OnlineLearningShell>
   );
 }
