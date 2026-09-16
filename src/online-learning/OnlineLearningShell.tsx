@@ -23,21 +23,28 @@ interface OnlineLearningShellProps {
   children: React.ReactNode;
   /** Full-bleed routes (e.g. the advisor flow) render without header/footer. */
   chrome?: boolean;
+  showHeader?: boolean;
+  showFooter?: boolean;
 }
 
 export default async function OnlineLearningShell({
   children,
   chrome = true,
+  showHeader = true,
+  showFooter = true,
 }: OnlineLearningShellProps) {
-  const streams = chrome ? await fetchOnlineStreams() : [];
+  const isHeaderVisible = chrome && showHeader;
+  const isFooterVisible = chrome && showFooter;
+  
+  const streams = isHeaderVisible ? await fetchOnlineStreams() : [];
 
   return (
     <div className="cw-root">
       <AuthProvider>
         <div className="page">
-          {chrome && <Header initialStreams={streams} />}
+          {isHeaderVisible && <Header initialStreams={streams} />}
           {children}
-          {chrome && <Footer />}
+          {isFooterVisible && <Footer />}
         </div>
       </AuthProvider>
     </div>

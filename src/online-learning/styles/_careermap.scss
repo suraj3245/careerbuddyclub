@@ -48,7 +48,7 @@
   align-items: center;
   gap: 8px;
   margin-bottom: 16px;
-  font-family: monospace;
+  font-family: var(--font-mono);
   font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.16em;
@@ -121,8 +121,8 @@
 
 .cmSubtitle {
   margin-top: 32px;
-  font-family: monospace;
-  font-size: 11px;
+  font-family: var(--font-mono);
+  font-size: 12px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: #8b97a8;
@@ -159,6 +159,21 @@
 
 .cmBranchNode {
   cursor: pointer;
+
+  &:hover circle,
+  &:focus-visible circle {
+    filter: drop-shadow(0 0 5px rgba($teal, 0.55));
+  }
+
+  &:focus-visible {
+    outline: 2px solid $teal;
+    outline-offset: 3px;
+    border-radius: 8px;
+  }
+
+  &:hover .cmBranchLabel {
+    fill: $ink;
+  }
 }
 
 .cmBranchLabel {
@@ -178,7 +193,7 @@
 
 .cmLeafBand {
   fill: $teal;
-  font-family: monospace;
+  font-family: var(--font-mono);
   font-size: 10.5px;
 }
 
@@ -255,7 +270,7 @@
 
 .cmMobileCount {
   flex-shrink: 0;
-  font-family: monospace;
+  font-family: var(--font-mono);
   font-size: 11px;
   color: #8b97a8;
 }
@@ -295,7 +310,7 @@
 
 .cmMobileLeafBand {
   flex-shrink: 0;
-  font-family: monospace;
+  font-family: var(--font-mono);
   font-size: 11px;
   color: $teal;
 }

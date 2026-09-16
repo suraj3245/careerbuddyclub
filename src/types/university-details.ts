@@ -76,8 +76,14 @@ export interface IuniversityType {
   
   whychoosepoints: string[];
   whystudypoints: string[];
-  
-
+  whychoosepointsData?: IWhyChooseCard[];
   coursesAndFees: ICourse[]; 
   reviewinfo: Ireview[];
+}
+
+export interface IWhyChooseCard {
+  title: string;
+  description: string;
+  secondaryText?: string;
+  icon?: string;
 }

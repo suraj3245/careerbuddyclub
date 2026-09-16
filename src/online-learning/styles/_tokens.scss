@@ -1,5 +1,21 @@
+// ============================================================
+// Design Tokens — single source of truth
+// ============================================================
+
+// Core palette
 $ink: #122036;
 $muted: #647085;
 $teal: #079db4;
 $deep-teal: #087d9b;
 $yellow: #ffb915;
+
+// Semantic greys (consolidates ~30 ad-hoc text colours)
+$muted-light: #8b97a8;
+$border: #e3e9ec;
+
+// Radius scale (consolidates 18 ad-hoc radii → 5)
+$radius-sm: 6px;
+$radius-md: 10px;
+$radius-lg: 14px;
+$radius-xl: 20px;
+$radius-pill: 999px;

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { GraduationCap, ChevronDown, ChevronUp } from "lucide-react";
+import { GraduationCap, ArrowRight, ChevronUp } from "lucide-react";
 import UniversityCard from "./UniversityCard";
 import { universitiesData } from "./universityData";
 
@@ -14,7 +14,7 @@ export default function UniversitiesSection() {
       <div className="uniContainer">
         <span className="uniEyebrow">
           <GraduationCap size={14} strokeWidth={2.5} />
-          {universitiesData.length}+ ONLINE UNIVERSITIES
+          Universities
         </span>
         
         <h2 className="uniTitle">
@@ -33,7 +33,7 @@ export default function UniversitiesSection() {
         
         <button className="uniViewAllBtn" onClick={() => setShowAll(!showAll)}>
           {showAll ? "Show Less Universities" : `View All ${universitiesData.length} Universities`}
-          {showAll ? <ChevronUp size={18} strokeWidth={2.5} /> : <ChevronDown size={18} strokeWidth={2.5} />}
+          {showAll ? <ChevronUp size={18} strokeWidth={2.5} /> : <ArrowRight size={18} strokeWidth={2.5} />}
         </button>
       </div>
     </section>

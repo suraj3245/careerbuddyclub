@@ -119,6 +119,26 @@ const university_details: IuniversityType[] = [
         
       ],
      
+      whychoosepointsData: [
+        {
+          title: "9-Point Grading System",
+          description: "Ensure alignment with CBSE's relative grading system (A1-E) based on performance levels and learning outcomes.",
+          secondaryText: "Supports 4-level analytical rubric with CBSE-compliant descriptors: Excellent (90-100%), Good (70-89%), Satisfactory (50-69%), and Needs Improvement (<50%). Maintains consistency across all answer scripts.",
+          icon: "check"
+        },
+        {
+          title: "Step-Marking Implementation",
+          description: "Follow CBSE's mandatory step-wise evaluation with correct formula, method, calculation, and approach for specific marks.",
+          secondaryText: "Ensures transparent and objective assessment. Evaluators can easily allocate marks per step.",
+          icon: "target"
+        },
+        {
+          title: "Bilingual & Bias-Free",
+          description: "Supports English medium of instruction with code-switching for technical terms, eliminating assessment bias.",
+          secondaryText: "Fosters inclusive learning environments and ensures fair evaluation for diverse student backgrounds.",
+          icon: "globe"
+        }
+      ],
       whychoosepoints: [
         "Student have passed 10+2 with 50% marks in science subjects. ",
         "The student should have completed 17 years as in the year of admission.",
