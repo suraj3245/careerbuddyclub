@@ -124,7 +124,7 @@ export default function RootLayout({
 
   // online-learning routes ship their own header and footer (see
   // src/online-learning/OnlineLearningShell.tsx), so the global chrome is suppressed.
-  const ONLINE_LEARNING_PREFIXES = ["/advisor", "/roi-calculator", "/ai-finder"];
+  const ONLINE_LEARNING_PREFIXES = ["/advisor", "/roi-calculator", "/ai-finder", "/online-university"];
   // The online-learning student dashboard ships its own floating WhatsApp button.
   const isOnlineLearningDashboard = pathname.startsWith("/dashboard/student-dashboard");
   const isOnlineLearning =

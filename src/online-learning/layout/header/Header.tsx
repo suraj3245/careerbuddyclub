@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import LoginPopup from "@/online-learning/components/LoginPopup";
 
 import { fetchOnlineStreams, Stream } from "@/online-learning/data/api";
+import { universitiesData } from "@/online-learning/components/universities/universityData";
 
 export default function Header({ initialStreams = [] }: { initialStreams?: Stream[] }) {
   const router = useRouter();
@@ -22,6 +23,38 @@ export default function Header({ initialStreams = [] }: { initialStreams?: Strea
   const [exploreOpen, setExploreOpen] = useState(false);
   const [exploreData, setExploreData] = useState<Stream[]>(initialStreams);
   const [activeStream, setActiveStream] = useState<string>(initialStreams.length > 0 ? initialStreams[0].title : "");
+  const exploreTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Universities Dropdown State
+  const [universitiesOpen, setUniversitiesOpen] = useState(false);
+  const universitiesTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const handleExploreEnter = () => {
+    if (exploreTimeoutRef.current) clearTimeout(exploreTimeoutRef.current);
+    setExploreOpen(true);
+  };
+
+  const handleExploreLeave = () => {
+    exploreTimeoutRef.current = setTimeout(() => setExploreOpen(false), 200);
+  };
+
+  const handleUniversitiesEnter = () => {
+    if (universitiesTimeoutRef.current) clearTimeout(universitiesTimeoutRef.current);
+    setUniversitiesOpen(true);
+  };
+
+  const handleUniversitiesLeave = () => {
+    universitiesTimeoutRef.current = setTimeout(() => setUniversitiesOpen(false), 200);
+  };
+  
+  // Extract unique online universities
+  const onlineUniversities = Array.from(
+    new Map(
+      exploreData
+        .flatMap((stream) => stream.colleges || [])
+        .map((college) => [college.id, college])
+    ).values()
+  );
 
   useEffect(() => {
     if (initialStreams.length > 0 && exploreData.length === 0) {
@@ -96,7 +129,8 @@ export default function Header({ initialStreams = [] }: { initialStreams?: Strea
   };
 
   return (
-    <header className="navbar">
+    <>
+    <header className="navbar" style={{ zIndex: 9999 }}>
 
       {/* Hamburger */}
       <div className="hamburgerMenu" aria-label="Menu" role="button">
@@ -121,8 +155,14 @@ export default function Header({ initialStreams = [] }: { initialStreams?: Strea
       <nav className="navLinks" aria-label="Main navigation">
         <div 
           className="navDropdownWrapper"
-          onMouseEnter={() => setExploreOpen(true)}
-          onMouseLeave={() => setExploreOpen(false)}
+          onMouseEnter={handleExploreEnter}
+          onMouseLeave={handleExploreLeave}
+          onFocus={handleExploreEnter}
+          onBlur={(e) => {
+            if (!e.currentTarget.contains(e.relatedTarget)) {
+              setExploreOpen(false);
+            }
+          }}
         >
           <Link href="#degrees" className="navLinkItem">
             Explore Courses
@@ -130,54 +170,130 @@ export default function Header({ initialStreams = [] }: { initialStreams?: Strea
           </Link>
           
           {exploreOpen && (
-            <div className="exploreDropdown">
-              <div className="exploreStreams">
-                {exploreData.length > 0 ? (
-                  exploreData.map(group => (
-                    <div 
-                      key={group.id || group.title} 
-                      className={`streamItem ${activeStream === group.title ? 'active' : ''}`}
-                      onMouseEnter={() => setActiveStream(group.title)}
+            <div className="exploreDropdown" style={{ marginTop: '-15px', paddingTop: '15px', background: 'transparent', border: 'none', boxShadow: 'none' }}>
+              <div style={{ display: 'flex', background: '#ffffff', borderRadius: '12px', border: '1px solid #e5edef', boxShadow: '0 10px 30px rgba(30, 70, 80, 0.12)', overflow: 'hidden' }}>
+                <div className="exploreStreams">
+                  {exploreData.length > 0 ? (
+                    exploreData.map(group => (
+                      <div 
+                        key={group.id || group.title} 
+                        className={`streamItem ${activeStream === group.title ? 'active' : ''}`}
+                        onMouseEnter={() => setActiveStream(group.title)}
+                      >
+                        {group.title}
+                        <i className="streamArrow">→</i>
+                      </div>
+                    ))
+                  ) : (
+                    <div className="streamItem">Loading...</div>
+                  )}
+                </div>
+                <div className="exploreCourses">
+                  {exploreData.find(g => g.title === activeStream)?.courses?.map(course => (
+                    <Link 
+                      key={course.id || course.name} 
+                      href={`/course/${course.id}`} 
+                      className="courseCard"
+                      onClick={(e) => {
+                        if (!isLoggedIn) {
+                          e.preventDefault();
+                          setSignupOpen(true);
+                        }
+                      }}
                     >
-                      {group.title}
-                      <i className="streamArrow">→</i>
-                    </div>
-                  ))
-                ) : (
-                  <div className="streamItem">Loading...</div>
-                )}
-              </div>
-              <div className="exploreCourses">
-                {exploreData.find(g => g.title === activeStream)?.courses?.map(course => (
-                  <Link 
-                    key={course.id || course.name} 
-                    href={`/course/${course.id}`} 
-                    className="courseCard"
-                    onClick={(e) => {
-                      if (!isLoggedIn) {
-                        e.preventDefault();
-                        setSignupOpen(true);
-                      }
-                    }}
-                  >
-                    <div className="courseIcon">
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-                    </div>
-                    <div className="courseContent">
-                      <h4>{course.name}</h4>
-                      <span className="courseLinkText">View program &rarr;</span>
-                    </div>
-                  </Link>
-                ))}
+                      <div className="courseIcon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                      </div>
+                      <div className="courseContent">
+                        <h4>{course.name}</h4>
+                        <span className="courseLinkText">View program &rarr;</span>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
               </div>
             </div>
           )}
         </div>
 
-        <a href="#universities">
-          Universities
-          <i className="chevron" />
-        </a>
+        <div 
+          className="navDropdownWrapper"
+          onMouseEnter={handleUniversitiesEnter}
+          onMouseLeave={handleUniversitiesLeave}
+          onFocus={handleUniversitiesEnter}
+          onBlur={(e) => {
+            if (!e.currentTarget.contains(e.relatedTarget)) {
+              setUniversitiesOpen(false);
+            }
+          }}
+        >
+          <a href="#universities" className="navLinkItem">
+            Universities
+            <i className="chevron" />
+          </a>
+          
+          {universitiesOpen && (
+            <div className="exploreDropdown" style={{ marginTop: '-15px', paddingTop: '15px', background: 'transparent', border: 'none', boxShadow: 'none', minWidth: '350px', display: 'block' }}>
+              <div style={{ background: '#ffffff', borderRadius: '12px', border: '1px solid #e5edef', boxShadow: '0 10px 30px rgba(30, 70, 80, 0.12)', padding: '15px' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '10px', maxHeight: '400px', overflowY: 'auto', paddingRight: '5px' }}>
+                  {onlineUniversities.length > 0 ? (
+                    onlineUniversities.map(college => {
+                      const collegeSlug = college.college_full_name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+                      const matchedData = universitiesData.find(
+                        (u) => 
+                          u.name.toLowerCase() === college.college_full_name.toLowerCase() || 
+                          u.id === collegeSlug ||
+                          collegeSlug.includes(u.id) ||
+                          u.id.includes(collegeSlug)
+                      );
+                      const logoSrc = matchedData?.logo;
+
+                      return (
+                        <Link 
+                          key={college.id} 
+                          href={`/online-university/${collegeSlug}`} 
+                          style={{
+                            padding: '10px 15px',
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '12px',
+                            color: '#333',
+                            textDecoration: 'none',
+                            borderRadius: '8px',
+                            transition: 'background 0.2s',
+                            fontWeight: '500',
+                            fontSize: '14px',
+                            lineHeight: '1.4'
+                          }}
+                          onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#f0f9fa')}
+                          onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
+                        >
+                          {logoSrc ? (
+                            <div style={{ width: '28px', height: '28px', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
+                              <img 
+                                src={logoSrc} 
+                                alt={college.college_full_name} 
+                                style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+                                onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+                              />
+                            </div>
+                          ) : (
+                            <div style={{ width: '28px', height: '28px', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#f3f4f6', borderRadius: '4px', color: '#64748b', fontWeight: 'bold' }}>
+                              {college.college_full_name.charAt(0)}
+                            </div>
+                          )}
+                          {college.college_full_name}
+                        </Link>
+                      );
+                    })
+                  ) : (
+                    <div style={{ padding: '10px 15px', color: '#666' }}>Loading...</div>
+                  )}
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
 
         <a href="#compare">Compare</a>
 
@@ -278,12 +394,13 @@ export default function Header({ initialStreams = [] }: { initialStreams?: Strea
           <span className="buttonArrow">→</span>
         </a>
       </div>
-
-      {/* Login Popup */}
-      <LoginPopup
-        isOpen={signupOpen}
-        onClose={() => setSignupOpen(false)}
-      />
     </header>
+
+    {/* Login Popup */}
+    <LoginPopup
+      isOpen={signupOpen}
+      onClose={() => setSignupOpen(false)}
+    />
+    </>
   );
 }

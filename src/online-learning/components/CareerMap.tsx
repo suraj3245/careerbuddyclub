@@ -202,9 +202,13 @@ export default function CareerMap() {
                   <g
                     key={b.id}
                     className="cmBranchNode"
+                    role="button"
+                    tabIndex={0}
+                    aria-label={`${b.label} — ${b.children?.length ?? 0} career paths. Click to explore.`}
                     onMouseEnter={() => setBranchId(b.id)}
                     onMouseLeave={() => setBranchId(null)}
                     onClick={() => setBranchId(isPicked ? null : b.id)}
+                    onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setBranchId(isPicked ? null : b.id); }}}
                   >
                     {/* Generous invisible hit area */}
                     <rect

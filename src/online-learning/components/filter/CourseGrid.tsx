@@ -98,7 +98,7 @@ export default function CourseGrid({ selectedStream, collegeDetails = [] }: Cour
               </div>
 
               {/* Course Title */}
-              <h4 className="cfCardTitle">{course.name}</h4>
+              <h3 className="cfCardTitle">{course.name}</h3>
 
               {/* Bottom Button */}
               <Link href={`/advisor/${course.id}`} className="cfCardBtn">
