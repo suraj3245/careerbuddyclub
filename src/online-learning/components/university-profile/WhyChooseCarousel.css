@@ -1,14 +1,14 @@
 .why-choose-carousel-container {
   position: relative;
   width: 100%;
-  padding: 20px 0 40px;
+  padding: 20px 0 10px;
   overflow: hidden;
 }
 
 .why-choose-swiper {
   width: 100%;
   padding-top: 20px;
-  padding-bottom: 70px;
+  padding-bottom: 40px;
 }
 
 .why-choose-slide {

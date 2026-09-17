@@ -53,6 +53,15 @@ export default function WhyChooseCarousel({ data }: WhyChooseCarouselProps) {
         slidesPerView={"auto"}
         initialSlide={1}
         loop={true}
+        observer={true}
+        observeParents={true}
+        onSwiper={(swiper) => {
+          setTimeout(() => {
+            if (swiper && !swiper.destroyed) {
+              swiper.update();
+            }
+          }, 100);
+        }}
         slideToClickedSlide={true}
         autoplay={{
           delay: 5000,

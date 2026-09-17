@@ -10,10 +10,8 @@ const sections = [
   { id: "overview", label: "Overview" },
   { id: "programs", label: "Programs" },
   { id: "fees", label: "Fees" },
-  { id: "eligibility", label: "Eligibility" },
   { id: "accreditations", label: "Accreditations" },
   { id: "experience", label: "Learning Experience" },
-  { id: "support", label: "Career Support" },
   { id: "faqs", label: "FAQs" },
 ];
 

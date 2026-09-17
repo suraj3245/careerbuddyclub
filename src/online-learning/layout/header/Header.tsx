@@ -295,7 +295,7 @@ export default function Header({ initialStreams = [] }: { initialStreams?: Strea
           )}
         </div>
 
-        <a href="#compare">Compare</a>
+
 
         <Link href="/roi-calculator">ROI</Link>
 
