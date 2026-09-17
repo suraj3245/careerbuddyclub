@@ -10,7 +10,7 @@ export default function OffCampusSection() {
          
 
           <h2 className="offCampus__title">
-            Explore Off-Campus<br />Colleges &amp; Programs
+            Not interested in <br />Online Education ?
           </h2>
           <div className="offCampus__underline" />
 
@@ -26,14 +26,14 @@ export default function OffCampusSection() {
               </svg>
             </div>
             <div className="offCampus__boxText">
-              <strong>For Off-Campus Colleges &amp; Programs</strong>
+              <strong>Study Offline</strong>
               <span>Visit our dedicated platform</span>
             </div>
           </div>
 
           <div className="offCampus__action">
             <Link href="/colleges" className="offCampus__button">
-              Visit Off-Campus Site <ArrowRight size={18} />
+              Visit<ArrowRight size={18} />
             </Link>
             <div className="offCampus__arrowGfx">
               <svg viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
