@@ -49,12 +49,12 @@ const Footer = () => {
             <div className={styles.linkGroup}>
               <h3 className={styles.groupTitle}>UNIVERSITIES</h3>
               <ul className={styles.linkList}>
-                <li><a href="#">Amity University Online</a></li>
-                <li><a href="#">Manipal University Online</a></li>
-                <li><a href="#">DY Patil University Online</a></li>
-                <li><a href="#">LPU Online</a></li>
-                <li><a href="#">Amrita University Online</a></li>
-                <li><a href="#">BIMTECH Online</a></li>
+                <li><a href="/online-university/amity-university-online">Amity University Online</a></li>
+                <li><a href="/online-university/manipal-university-online">Manipal University Online</a></li>
+                <li><a href="/online-university/lovely-professional-university-online">Lovely Professional University Online</a></li>
+                <li><a href="/online-university/chandigarh-university-online">Chandigarh University Online</a></li>
+                <li><a href="/online-university/shoolini-university-online">Shoolini University Online</a></li>
+                <li><a href="/online-university/galgotias-university-online">Galgotias University Online</a></li>
               </ul>
             </div>
 
@@ -67,7 +67,7 @@ const Footer = () => {
                 <li><a href="#">Online BCA</a></li>
                 <li><a href="#">Online M.Com</a></li>
                 <li><a href="#">Online MA</a></li>
-                <li><a href="#">PG Diploma</a></li>
+                
               </ul>
             </div>
 
@@ -86,22 +86,20 @@ const Footer = () => {
             <div className={styles.linkGroup}>
               <h3 className={styles.groupTitle}>CAREER GUIDANCE</h3>
               <ul className={styles.linkList}>
-                <li><a href="#">Talk to a mentor</a></li>
-                <li><a href="#">Start from a job title</a></li>
-                <li><a href="#">Career map</a></li>
-                <li><a href="#">Compare universities</a></li>
-                <li><a href="#">Build a shortlist</a></li>
-               
+                <li><a href="#">Talk to a Mentor</a></li>
+                <li><a href="#">Career Counselling</a></li>
+                <li><a href="#">Career Map</a></li>
+                <li><a href="#">Find Your Path</a></li>
               </ul>
             </div>
 
             <div className={styles.linkGroup}>
               <h3 className={styles.groupTitle}>RESOURCES</h3>
               <ul className={styles.linkList}>
-                <li><a href="#">Insights</a></li>
-                <li><a href="#">UGC entitlement, explained</a></li>
-                <li><a href="#">Fee calculator</a></li>
-                <li><a href="#">Student stories</a></li>
+                <li><a href="#">Insights & Blogs</a></li>
+                <li><a href="#">UGC Entitlement Explained</a></li>
+                <li><a href="/roi-calculator">ROI Calculator</a></li>
+                <li><a href="#">Student Stories</a></li>
               </ul>
             </div>
 

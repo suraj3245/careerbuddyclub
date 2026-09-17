@@ -9,11 +9,12 @@ export const universitiesData: University[] = [
   { id: "amity", name: "Amity University Online", logo: "/assets/images/college/amity.logo.jpg", coursesCount: 14 },
   { id: "manipal", name: "Manipal University Online", logo: "/assets/images/college/manipal.logo.jpg", coursesCount: 12 },
   { id: "dy-patil", name: "DY Patil University Online", logo: "/assets/images/college/DY-Patil.logo.jpg", coursesCount: 6 },
-  { id: "lpu", name: "LPU Online", logo: "/assets/images/college/lpu.logo.jpg", coursesCount: 13 },
+  { id: "lpu", name: "Lovely Professional University Online", logo: "/assets/images/college/lpu.logo.jpg", coursesCount: 13 },
   { id: "amrita", name: "Amrita University Online", logo: "/assets/images/college/amrita.logo.jpg", coursesCount: 8 },
   { id: "bimtech", name: "BIMTECH Online", logo: "/assets/images/college/bimtech.logo.png", coursesCount: 5 },
   { id: "chandigarh", name: "Chandigarh University Online", logo: "/assets/images/college/chandigarh.logo.png", coursesCount: 12 },
   { id: "lingayas", name: "Lingaya's Vidyapeeth", logo: "/assets/images/college/lingayas.logo.jpg", coursesCount: 6 },
+  { id: "galgotias", name: "Galgotias University Online", logo: "/assets/images/college/galgotias.logo.png", coursesCount: 10 },
   
   { id: "gla", name: "GLA University Online", logo: "/assets/images/college/gla.logo.jpg", coursesCount: 10 },
   { id: "liba", name: "LIBA", logo: "/assets/images/college/liba.logo.jpg", coursesCount: 6 },

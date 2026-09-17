@@ -44,7 +44,7 @@ export function HighlightsGrid({ universityName }: HighlightsGridProps) {
   const highlightsData = dynamicHighlights;
 
   return (
-    <section className="upHighlights bg-gradient-to-br from-teal-50 to-blue-50 py-16">
+    <section className="upHighlights bg-gradient-to-br from-teal-50 to-blue-50 pt-16 pb-4">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl md:text-5xl font-bold text-slate-800 text-center mb-12">
           Why Choose <span className="text-teal-500">{universityName}</span>?

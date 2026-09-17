@@ -104,28 +104,33 @@ function getIndicativeSalary(courseName: string): number {
 
 /* ── Build college data from API ───────────────────────────────────────── */
 
-/**
- * Build college/course data directly from the `getallcollegesdetails` API.
- * Each college → its courses with real name, duration, and fee from the API.
- * Only includes online colleges (those with "Online" in the name or id 64-69).
- */
 const buildCollegeData = (
-  collegeDetails: CollegeDetail[]
+  collegeDetails: CollegeDetail[],
+  streams: any[]
 ): Record<string, CollegeData> => {
   const colleges: Record<string, CollegeData> = {};
 
   if (!collegeDetails || collegeDetails.length === 0) return colleges;
 
-  // Online college IDs from the API
-  const ONLINE_IDS = new Set([64, 65, 66, 67, 68, 69]);
+  // Extract online college IDs from streams
+  const onlineCollegeIds = new Set<number>();
+  (streams || []).forEach((stream) => {
+    (stream.colleges || []).forEach((c: any) => {
+      onlineCollegeIds.add(c.id);
+    });
+  });
+
+  // Map courses to their streams
+  const courseStreamMap = new Map<number | string, string>();
+  (streams || []).forEach((stream) => {
+    (stream.courses || []).forEach((c: any) => {
+      courseStreamMap.set(c.id, stream.title || "");
+    });
+  });
 
   collegeDetails.forEach((college) => {
-    // Only include online universities
-    const isOnline =
-      ONLINE_IDS.has(college.id) ||
-      (college.college_full_name || "").toLowerCase().includes("online");
-
-    if (!isOnline) return;
+    // Only include universities associated with online streams
+    if (!onlineCollegeIds.has(college.id)) return;
 
     const key = college.id.toString();
     const collegeName = college.college_full_name || "Unknown College";
@@ -137,6 +142,11 @@ const buildCollegeData = (
 
     (college.courses || []).forEach((course) => {
       const courseKey = course.id.toString();
+      const streamTitle = courseStreamMap.get(course.id);
+      
+      // Only include courses that are explicitly associated with an online stream
+      if (!streamTitle) return;
+
       const courseName = course.name || "Unknown Course";
       const duration = parseDuration(course.duration);
       const fees = parseFee(course.pivot?.fee);
@@ -149,6 +159,7 @@ const buildCollegeData = (
         duration,
         fees,
         salary: getIndicativeSalary(courseName),
+        stream: streamTitle,
       };
     });
   });
@@ -315,7 +326,7 @@ export default function ROICalculatorClient({
   streams?: any[];
   collegeDetails?: CollegeDetail[];
 }) {
-  const COLLEGES = useMemo(() => buildCollegeData(collegeDetails), [collegeDetails]);
+  const COLLEGES = useMemo(() => buildCollegeData(collegeDetails, streams || []), [collegeDetails, streams]);
   const collegeKeys = useMemo(() => Object.keys(COLLEGES), [COLLEGES]);
   const defaultUnivKey = collegeKeys.length > 0 ? collegeKeys[0] : "";
 

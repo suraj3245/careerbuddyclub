@@ -9,7 +9,7 @@ import { SectionNav } from "./SectionNav";
 import { OverviewSection } from "./OverviewSection";
 import { HighlightsGrid } from "./HighlightsGrid";
 import { ProgramCatalog } from "./ProgramCatalog";
-import { ProgramComparison } from "./ProgramComparison";
+
 import { FeesSection } from "./FeesSection";
 
 import AccreditationsSection from "./AccreditationsSection";
@@ -28,10 +28,8 @@ const SECTIONS = [
   { id: "overview", label: "Overview" },
   { id: "programs", label: "Programs" },
   { id: "fees", label: "Fees" },
-  { id: "eligibility", label: "Eligibility" },
   { id: "accreditations", label: "Accreditations" },
   { id: "experience", label: "Learning Experience" },
-  { id: "support", label: "Career Support" },
   { id: "faqs", label: "FAQs" },
 ];
 
@@ -94,9 +92,6 @@ export default function UniversityProfilePage({ university }: Props) {
         />
       </div>
 
-      <div className="upSectionWrapper upSectionWrapper--light">
-        <ProgramComparison courses={university.courses} />
-      </div>
 
       <div className="upSectionWrapper upSectionWrapper--white">
         <FeesSection

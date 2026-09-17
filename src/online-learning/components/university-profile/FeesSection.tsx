@@ -31,7 +31,7 @@ export const FeesSection: React.FC<FeesSectionProps> = ({ courses, universityNam
 
   return (
     <section id="fees" className="upFees">
-      <h2>Fees & Financial Information</h2>
+      <h2 className="mb-4">Fees & Financial Information</h2>
 
       {coursesWithFees.length === 0 ? (
         <div className="upFeeEmpty">

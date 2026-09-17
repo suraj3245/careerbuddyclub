@@ -3,6 +3,8 @@
 import React, { useState } from "react";
 import { UniversityCourse } from "@/online-learning/data/api";
 
+import { universitiesData } from "@/online-learning/components/universities/universityData";
+
 interface ProgramCatalogProps {
   courses: UniversityCourse[];
   universityName: string;
@@ -15,6 +17,16 @@ export const ProgramCatalog: React.FC<ProgramCatalogProps> = ({
   onRequestDetails,
 }) => {
   const [showAll, setShowAll] = useState(false);
+
+  const universitySlug = universityName.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  const matchedData = universitiesData.find(
+    (u) => 
+      u.name.toLowerCase() === universityName.toLowerCase() || 
+      u.id === universitySlug ||
+      universitySlug.includes(u.id) ||
+      u.id.includes(universitySlug)
+  );
+  const logoSrc = matchedData?.logo || "/assets/images/logo/logo.png";
 
   const formatFee = (fee: string | undefined) => {
     if (!fee) return "Contact for details";
@@ -80,7 +92,7 @@ export const ProgramCatalog: React.FC<ProgramCatalogProps> = ({
                 />
                 <div className="upProgramCardLogoWrapper">
                   {/* Using a placeholder logo or university name if logo is unavailable */}
-                  <img src="/assets/images/logo/logo.png" alt="Logo" className="upProgramCardLogo" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
+                  <img src={logoSrc} alt="Logo" className="upProgramCardLogo" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
                 </div>
               </div>
               <div className="upProgramCardContent">

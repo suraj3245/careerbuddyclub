@@ -276,15 +276,17 @@ export default function ROICalculator({
       return FALLBACK_UNIVERSITIES;
     }
 
-    const ONLINE_IDS = new Set([64, 65, 66, 67, 68, 69]);
+    const onlineCollegeIds = new Set<number>();
+    (streamsData || []).forEach((stream) => {
+      (stream.colleges || []).forEach((c) => {
+        onlineCollegeIds.add(c.id);
+      });
+    });
+
     const result: Record<string, UniversityROI> = {};
 
     collegesData.forEach((college) => {
-      const isOnline =
-        ONLINE_IDS.has(college.id) ||
-        (college.college_full_name || "").toLowerCase().includes("online");
-
-      if (!isOnline) return;
+      if (!onlineCollegeIds.has(college.id)) return;
 
       const key = college.id.toString();
       const collegeName = college.college_full_name || "Unknown College";
@@ -292,11 +294,15 @@ export default function ROICalculator({
       const courses: CalculatedCourse[] = [];
 
       (college.courses || []).forEach((c) => {
+        const streamTitle = courseStreamMap.get(c.id);
+        
+        // Only include courses that are explicitly associated with an online stream
+        if (!streamTitle) return;
+
         const fees = parseFee(c.pivot?.fee);
         if (fees === 0) return;
 
         const duration = parseDuration(c.duration);
-        const streamTitle = courseStreamMap.get(c.id) || "Post Graduate";
 
         courses.push({
           id: c.id,
@@ -318,7 +324,7 @@ export default function ROICalculator({
     });
 
     return Object.keys(result).length > 0 ? result : FALLBACK_UNIVERSITIES;
-  }, [collegesData, courseStreamMap]);
+  }, [collegesData, streamsData, courseStreamMap]);
 
   const univKeys = useMemo(() => Object.keys(universities), [universities]);
   const defaultUnivKey = univKeys.length > 0 ? univKeys[0] : "65";
@@ -628,64 +634,6 @@ export default function ROICalculator({
         </div>
       )}
 
-      {/* ── Comparison Table ── */}
-      <div className={styles.comparisonSection}>
-        <h3>Compare ROI Across Universities</h3>
-        <p>
-          How does <strong>{univ.label}</strong> stack up for online degree programs?
-        </p>
-        <div className={styles.comparisonGrid}>
-          <div>
-            <table>
-              <thead>
-                <tr>
-                  <th>University</th>
-                  <th>Course</th>
-                  <th>Total Fees (₹)</th>
-                  <th>Avg. Annual Salary (₹)</th>
-                  <th>ROI</th>
-                </tr>
-              </thead>
-              <tbody>
-                {comparisonRows
-                  .sort((a, b) => b.roi - a.roi)
-                  .map((row) => (
-                    <tr key={row.key} className={row.key === activeUnivKey ? styles.highlighted : ""}>
-                      <td>
-                        {row.label}
-                        {row.key === activeUnivKey && <span className={styles.youBadge}>You</span>}
-                      </td>
-                      <td>{row.courseLabel}</td>
-                      <td>{formatINR(row.fees)}</td>
-                      <td>{formatINR(row.salary)}</td>
-                      <td className={row.roi >= 0 ? styles.roiPositive : styles.roiNegative}>
-                        {row.roi.toFixed(1)}%
-                      </td>
-                    </tr>
-                  ))}
-              </tbody>
-            </table>
-            <button className={styles.compareBtn}>
-              Compare More Universities <ExternalLink size={14} />
-            </button>
-          </div>
-
-          <div className={styles.didYouKnow}>
-            <div className={styles.dykTitle}>
-              <Star size={20} /> Did You Know?
-            </div>
-            <p>
-              ROI is calculated over the full course duration. A 2-year Online MBA at ₹1.20L with
-              ₹7.00L/yr salary gives <strong>~1066% ROI</strong> — offering exceptional returns for
-              working professionals.
-            </p>
-            <Link href="/universities">Explore Top Online Universities &rarr;</Link>
-            <div className={styles.trophyWrap}>
-              <span style={{ fontSize: "32px" }}>🏆</span>
-            </div>
-          </div>
-        </div>
-      </div>
 
       {/* ── Benefits ── */}
       <div className={styles.benefitsCards}>

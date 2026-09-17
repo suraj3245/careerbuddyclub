@@ -107,12 +107,7 @@ export function UniversityHero({ university, onEnquiryOpen }: UniversityHeroProp
                </button>
              </div>
              <div className="d-flex gap-3 flex-column flex-sm-row">
-               <button 
-                 onClick={handleScrollToPrograms}
-                 className="upHeroBtn upHeroBtn--outline"
-               >
-                 Add to Compare <span>+</span>
-               </button>
+
                <button 
                  onClick={onEnquiryOpen}
                  className="upHeroBtn upHeroBtn--text"
