@@ -1,5 +1,5 @@
 // app/colleges/page.tsx
-import React from "react";
+import React, { Suspense } from "react";
 import Wrapper from "@/layouts/wrapper";
 import FilterPage from "../components/filters/filterpage";
 import { Metadata } from "next";
@@ -15,7 +15,9 @@ const CollegePage = async () => {
   return (
     <Wrapper>
       <div className="main-page-wrapper">
-        <FilterPage initialColleges={colleges} initialStreams={streams} />
+        <Suspense fallback={<div>Loading filters...</div>}>
+          <FilterPage initialColleges={colleges} initialStreams={streams} />
+        </Suspense>
       </div>
     </Wrapper>
   );
