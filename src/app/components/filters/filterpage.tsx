@@ -19,6 +19,8 @@ import {
 
 interface FilterPageProps {
   initialStreamPath?: string;
+  initialColleges?: any[];
+  initialStreams?: any[];
 }
 
 const theme = createTheme({
@@ -55,19 +57,7 @@ function fromCitySlug(citySlug: string, allCities: string[]) {
   return allCities.find(c => toCitySlug(c) === (citySlug?.toLowerCase() || "")) || "";
 }
 
-const INIT_FETCH = {
-  colleges: undefined as any[] | undefined,
-  streams: undefined as any[] | undefined,
-};
-
-// Module-level cache to persist data across route navigations
-let DATA_CACHE: {
-  colleges?: any[];
-  streams?: any[];
-  map?: Map<string, Set<number>>;
-} = {};
-
-const FilterPage: React.FC<FilterPageProps> = ({ initialStreamPath }) => {
+const FilterPage: React.FC<FilterPageProps> = ({ initialStreamPath, initialColleges = [], initialStreams = [] }) => {
   const pathname = usePathname();
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -75,45 +65,23 @@ const FilterPage: React.FC<FilterPageProps> = ({ initialStreamPath }) => {
   const [modalType, setModalType] = useState<string | null>(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const isLargeScreen = useMediaQuery(theme.breakpoints.up("lg"));
-  const [allColleges, setAllColleges] = useState<any[]>(DATA_CACHE.colleges ?? []);
-  const [streams, setStreams] = useState<any[]>(DATA_CACHE.streams ?? []);
-  const [isLoading, setIsLoading] = useState(!(DATA_CACHE.colleges && DATA_CACHE.streams));
-  const [streamToCollegeIdMap, setStreamToCollegeIdMap] = useState<Map<string, Set<number>>>(DATA_CACHE.map ?? new Map());
+  
+  const [allColleges, setAllColleges] = useState<any[]>(initialColleges);
+  const [streams, setStreams] = useState<any[]>(initialStreams);
+  const [isLoading, setIsLoading] = useState(false);
+  
+  // Pre-process streams for fast college filtering
+  const [streamToCollegeIdMap, setStreamToCollegeIdMap] = useState<Map<string, Set<number>>>(() => {
+    const map = new Map<string, Set<number>>();
+    initialStreams.forEach((stream: any) => {
+      map.set(String(stream.id), new Set((stream.colleges ?? []).map((c: any) => c.id)));
+    });
+    return map;
+  });
+  
   const [page, setPage] = useState(1);
   const asideRef = useRef<HTMLDivElement>(null);
   const [asideHeight, setAsideHeight] = useState<number | undefined>(undefined);
-
-  // -- Fetch data only once --
-  useEffect(() => {
-    let didCancel = false;
-    // If cache is available, skip network and ensure not loading
-    if (DATA_CACHE.colleges && DATA_CACHE.streams && DATA_CACHE.map) {
-      setIsLoading(false);
-      return;
-    }
-    (async () => {
-      const [{ data: { colleges = [] } = {} }, { data: { streams: streamsData = [] } = {} }] = await Promise.all([
-        axios.post("https://test.careerbuddyclub.com:8080/api/students/getallcollegesdetails"),
-        axios.post("https://test.careerbuddyclub.com:8080/api/students/getfilterationdata"),
-      ]);
-      if (!didCancel) {
-        setAllColleges(colleges);
-        setStreams(streamsData);
-
-        // Pre-process streams for fast college filtering
-        const newMap = new Map<string, Set<number>>();
-        (streamsData ?? []).forEach((stream: any) => {
-          newMap.set(String(stream.id), new Set((stream.colleges ?? []).map((c: any) => c.id)));
-        });
-        setStreamToCollegeIdMap(newMap);
-        setIsLoading(false);
-
-        // Populate cache
-        DATA_CACHE = { colleges, streams: streamsData, map: newMap };
-      }
-    })();
-    return () => { didCancel = true; };
-  }, []);
 
   useEffect(() => {
     if (typeof window !== "undefined") setIsLoggedIn(!!localStorage.getItem("token"));
