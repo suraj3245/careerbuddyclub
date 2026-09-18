@@ -2,8 +2,7 @@ import React from "react";
 import Wrapper from "@/layouts/wrapper";
 import FilterPage from "../../components/filters/filterpage";
 import { Metadata } from "next";
-
- 
+import { fetchCollegesData } from "../api";
 
 interface PageProps {
   params?: { slug?: string | string[] };
@@ -23,7 +22,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-const CollegeFilterPage = ({ params, searchParams }: PageProps) => {
+const CollegeFilterPage = async ({ params, searchParams }: PageProps) => {
   // Compose a single slug string—for hydration if needed
   let initialSlugPath = "";
   if (params?.slug) {
@@ -32,10 +31,12 @@ const CollegeFilterPage = ({ params, searchParams }: PageProps) => {
       : params.slug || "";
   }
 
+  const { colleges, streams } = await fetchCollegesData();
+
   return (
     <Wrapper>
       <div className="main-page-wrapper">
-        <FilterPage initialStreamPath={initialSlugPath} />
+        <FilterPage initialStreamPath={initialSlugPath} initialColleges={colleges} initialStreams={streams} />
       </div>
     </Wrapper>
   );

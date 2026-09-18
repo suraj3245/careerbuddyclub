@@ -1,25 +1,24 @@
-// app/colleges/[...slug]/page.tsx
+// app/colleges/page.tsx
 import React from "react";
 import Wrapper from "@/layouts/wrapper";
-import dynamic from "next/dynamic";
+import FilterPage from "../components/filters/filterpage";
 import { Metadata } from "next";
+import { fetchCollegesData } from "./api";
 
 export const metadata: Metadata = {
   title: "Explore Top Colleges in India | Find Your Best Fit Today",
 };
 
-const FilterPage = dynamic(() => import("../components/filters/filterpage"), {
-  ssr: false,
-});
+const CollegePage = async () => {
+  const { colleges, streams } = await fetchCollegesData();
 
-const CollegePage = () => {
   return (
     <Wrapper>
       <div className="main-page-wrapper">
-        <FilterPage />
+        <FilterPage initialColleges={colleges} initialStreams={streams} />
       </div>
     </Wrapper>
   );
 };
 
-export default CollegePage;
+export default CollegePage;
