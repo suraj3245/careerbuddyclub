@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import Wrapper from "@/layouts/wrapper";
 import FilterPage from "../../components/filters/filterpage";
 import { Metadata } from "next";
@@ -36,7 +36,9 @@ const CollegeFilterPage = async ({ params, searchParams }: PageProps) => {
   return (
     <Wrapper>
       <div className="main-page-wrapper">
-        <FilterPage initialStreamPath={initialSlugPath} initialColleges={colleges} initialStreams={streams} />
+        <Suspense fallback={<div>Loading filters...</div>}>
+          <FilterPage initialStreamPath={initialSlugPath} initialColleges={colleges} initialStreams={streams} />
+        </Suspense>
       </div>
     </Wrapper>
   );
