@@ -135,26 +135,17 @@ const HeaderFour: React.FC<HeaderFourProps> = ({ user, index, onLogout }) => {
                 </Link>
               </div>
 
-              {/* Right widget - Login / Apply */}
+              {/* Right widget - Register */}
               <div className="right-widget ms-auto ms-lg-0 order-lg-2">
                 {!isUserLoggedIn && (
                   <ul className="d-flex align-items-center style-none">
                     <li>
-                      <a
-                        suppressHydrationWarning
-                        className="cursor-pointer"
-                        onClick={() => openApplyModal("emailLogin")}
-                      >
-                        Login
-                      </a>
-                    </li>
-                    <li className="d-none d-md-block ms-4">
                       <button
                         suppressHydrationWarning
                         className="fw-500 btn-five"
                         onClick={() => openApplyModal("student")}
                       >
-                        Apply Now
+                        Register
                       </button>
                     </li>
                   </ul>
@@ -282,7 +273,7 @@ const HeaderFour: React.FC<HeaderFourProps> = ({ user, index, onLogout }) => {
                           className="fw-500 btn-five"
                           onClick={() => openApplyModal("student")}
                         >
-                          Apply Now
+                          Register
                         </button>
                       </li>
                     )}
