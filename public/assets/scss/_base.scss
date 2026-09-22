@@ -14,47 +14,41 @@
   background: $color-three;
   border-radius: 10;
 }
-body {
-  font-family: var(--eb_garamond-font);
-  font-weight: normal;
-  font-size: 20px;
-  position: relative;
-  color: $text-color;
-}
+// NOTE: body font, size, heading sizes, and p line-height are now set in
+// src/app/globals.scss (CareerWise global baseline — Geist 16px).
+// The rules below have been commented out to prevent conflicts.
+// Font CSS-variable definitions (--eb_garamond-font, --gorditas-font) are still
+// injected by app/layout.tsx so component-level overrides like
+// .title-one h2.main-font { font-family: var(--gorditas-font) } still work.
+
+// body {
+//   font-family: var(--eb_garamond-font);
+//   font-weight: normal;
+//   font-size: 20px;
+//   position: relative;
+//   color: $text-color;
+// }
 .main-page-wrapper {
   overflow-x: hidden;
 }
-.h1,
-h1,
-.h2,
-h2,
-.h3,
-h3,
-.h4,
-h4,
-.h5,
-h5,
-.h6,
-h6 {
-  font-family: var(--eb_garamond-font);
-  font-weight: 500;
-  color: $text-dark;
-}
-.h1,
-h1 {
-  font-size: 85px;
-  letter-spacing: -1px;
-  line-height: 1.058em;
-}
-.h2,
-h2 {
-  font-size: 70px;
-  line-height: 1.041em;
-}
-p {
-  line-height: 1.8;
-  font-size: 16px;
-}
+// .h1, h1, .h2, h2, .h3, h3, .h4, h4, .h5, h5, .h6, h6 {
+//   font-family: var(--eb_garamond-font);
+//   font-weight: 500;
+//   color: $text-dark;
+// }
+// .h1, h1 {
+//   font-size: 85px;
+//   letter-spacing: -1px;
+//   line-height: 1.058em;
+// }
+// .h2, h2 {
+//   font-size: 70px;
+//   line-height: 1.041em;
+// }
+// p {
+//   line-height: 1.8;
+//   font-size: 16px;
+// }
 .text-lg {
   font-size: 22px;
 }
