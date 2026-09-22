@@ -520,11 +520,8 @@ export default function ROICalculatorClient({
                     Get Your Result
                     <ArrowRight size={17} aria-hidden="true" />
                   </button>
-                  <p className="roiGo__hint">Your answer is on the other side</p>
-                </div>
-
-                {/* ── Back: the answer ─────────────────────────────────── */}
-                <div
+                 </div>
+                 <div
                   className="roiFace roiFace--back"
                   ref={backRef}
                   aria-hidden={!flipped}

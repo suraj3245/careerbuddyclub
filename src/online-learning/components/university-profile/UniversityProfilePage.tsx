@@ -77,7 +77,7 @@ export default function UniversityProfilePage({ university }: Props) {
       <SectionNav activeSection={activeSection} />
 
       <div className="upSectionWrapper upSectionWrapper--white">
-        <OverviewSection universityName={university.name} />
+        <OverviewSection universityName={university.name} about={university.about} />
       </div>
 
       <div className="upSectionWrapper upSectionWrapper--light">
