@@ -69,6 +69,7 @@ export interface CollegeDetailCourse {
 export interface CollegeDetail {
   id: number;
   college_full_name: string;
+  about?: string;
   courses: CollegeDetailCourse[];
 }
 
@@ -117,6 +118,7 @@ export interface UniversityProfile {
   id: number;
   slug: string;
   name: string;
+  about?: string;
   courses: UniversityCourse[];
   streamCategories: string[];
   totalPrograms: number;
@@ -187,6 +189,7 @@ export async function fetchUniversityBySlug(
       id: college.id,
       slug,
       name: college.college_full_name,
+      about: college.about,
       courses,
       streamCategories,
       totalPrograms: courses.length,
