@@ -44,34 +44,75 @@ const HeroBannerThree = () => {
         <div className="position-relative">
           <div className="row">
             <div className="col-lg-6 col-md-7">
-              <div className="slogan fw-500 mb-5 wow fadeInUp" data-wow-delay="0.3s">
+              <div
+                className="slogan fw-500 mb-2 wow fadeInUp"
+                data-wow-delay="0.3s"
+                style={{
+                  color: "#5fa388",
+                  fontFamily: "var(--eb_garamond-font)",
+                  fontSize: "clamp(18px, 2vw, 22px)",
+                  marginBottom: "15px",
+                }}
+              >
                 #1 Best For Schools
               </div>
-              <h1 className="wow fadeInUp" data-wow-delay="0.4s">
-                Help your students in choosing the right career!
+              <h1
+                className="wow fadeInUp"
+                data-wow-delay="0.4s"
+                style={{
+                  fontFamily: "var(--eb_garamond-font)",
+                  fontSize: "clamp(48px, 6vw, 85px)",
+                  fontWeight: 600,
+                  lineHeight: 1.1,
+                  color: "#eed30d",
+                  marginBottom: "30px",
+                }}
+              >
+                Help your <br />
+                students in <br />
+                choosing the right <br />
+                career!
               </h1>
-              <p className="text-lg mt-35 md-mt-30 mb-30 md-mb-20 pe-xl-5 wow fadeInUp" data-wow-delay="0.5s">
+              <p
+                className="wow fadeInUp"
+                data-wow-delay="0.5s"
+                style={{
+                  fontFamily: "var(--eb_garamond-font)",
+                  fontSize: "clamp(18px, 2.5vw, 22px)",
+                  fontWeight: 500,
+                  lineHeight: 1.5,
+                  color: "#222",
+                  maxWidth: "500px",
+                  marginBottom: "40px",
+                }}
+              >
                 50% of students regret choosing their careers, such exposure is
                 essential at the school level.
               </p>
 
               <button
-                        type="button"
-                        className="col-lg-8"
-                        data-bs-toggle="modal"
-                        data-bs-target="#SchoolLoginFormModales"
-                        style={{backgroundColor: "rgb(20, 173, 189)",
-                          color: "rgb(255, 255, 255)",
-                          border: "none",
-                          cursor: "pointer",
-                          transition: 'all 0.6s ease-out',
-                          padding: '13px',
-                          borderRadius: '50px',
-                          fontSize: '18px',}}
-                      >
-                        School Login
-                      </button>
-
+                type="button"
+                className="wow fadeInUp"
+                data-wow-delay="0.6s"
+                data-bs-toggle="modal"
+                data-bs-target="#SchoolLoginFormModales"
+                style={{
+                  backgroundColor: "#14adbd",
+                  color: "#ffffff",
+                  border: "none",
+                  cursor: "pointer",
+                  transition: "all 0.3s ease-out",
+                  padding: "12px 40px",
+                  borderRadius: "50px",
+                  fontSize: "18px",
+                  fontFamily: "inherit",
+                  fontWeight: 600,
+                  width: "fit-content",
+                  minWidth: "220px",
+                }}
+              >
+                School Login
+              </button>
             </div>
           </div>
         </div>

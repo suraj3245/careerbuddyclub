@@ -1,11 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
-import shape_1 from "@/assets/images/shape/shape_01.svg";
-import shape_3 from "@/assets/images/shape/shape_03.svg";
-import main_img from "@/assets/images/assets/img_02.png";
 import Hire_img from "@/assets/images/assets/corporate.webp";
 
 const HeroBannerSix = () => {
@@ -22,39 +18,90 @@ const HeroBannerSix = () => {
       event.preventDefault();
       router.push("/dashboard/candidate-dashboard/profile");
     }
-    
   };
 
   return (
-    <div className="hero-banner-one container-fluid" style={{'marginTop': '10rem'}}>
+    <section
+      style={{
+        background: "transparent",
+        paddingTop: "9rem",
+        paddingBottom: "4rem",
+        overflow: "hidden",
+      }}
+    >
       <div className="container">
-          <div className="row">
-            <div className="col-lg-6">
-              <h1 className="wow fadeInUp text-black" data-wow-delay="0.3s">
-              Find & Hire{""}
-                <span style={{ color: "#eee30d" }}>Experts for any Job.
-                </span>
-              </h1>
-              <p
-                className="text-lg text-black mt-40 md-mt-30 mb-50 md-mb-30 wow fadeInUp"
-                data-wow-delay="0.4s"
-              >
-              Welcome to Career Buddy Club, Your source for top talent!!
-              </p>
-              
-            </div>
-            <div className="col-lg-6">
-            <Image
-              src={Hire_img}
-              alt="main-img"
-              className="lazy-img main-img  m-auto"  
-            />
-          </div>    
-            </div>
-        </div>
+        <div className="row align-items-center g-4">
+          
+          {/* ── Left: Text content ── */}
+          <div className="col-lg-6 col-12">
+            <h1
+              style={{
+                fontFamily: "var(--eb_garamond-font)",
+                fontSize: "clamp(48px, 6vw, 85px)",
+                fontWeight: 600,
+                lineHeight: 1.1,
+                color: "#122036",
+                marginBottom: "30px",
+              }}
+              className="wow fadeInUp"
+              data-wow-delay="0.2s"
+            >
+              Find & Hire <br />
+              <span style={{ color: "#eed30d" }}>Experts for any</span> <br />
+              <span style={{ color: "#eed30d" }}>Job.</span>
+            </h1>
 
-      <Image src={shape_3} alt="shape" className="lazy-img shapes shape_02" />
-    </div>
+            <p
+              style={{
+                fontFamily: "var(--eb_garamond-font)",
+                fontSize: "clamp(18px, 2.5vw, 24px)",
+                fontWeight: 500,
+                lineHeight: 1.5,
+                color: "#000",
+                maxWidth: "600px",
+                marginBottom: "32px",
+              }}
+              className="wow fadeInUp"
+              data-wow-delay="0.3s"
+            >
+              Welcome to Career Buddy Club, Your source for top talent!!
+            </p>
+            
+          </div>
+
+          {/* ── Right: Image ── */}
+          <div
+            className="col-lg-6 col-12 wow fadeInUp"
+            data-wow-delay="0.2s"
+            style={{ display: "flex", justifyContent: "center" }}
+          >
+            <div
+              style={{
+                maxWidth: "600px",
+                width: "100%",
+                display: "flex",
+                justifyContent: "center",
+              }}
+            >
+              <Image
+                src={Hire_img}
+                alt="Corporate Hiring"
+                width={600}
+                height={550}
+                style={{
+                  width: "100%",
+                  height: "auto",
+                  maxHeight: "550px",
+                  objectFit: "contain",
+                }}
+                priority
+              />
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
   );
 };
 

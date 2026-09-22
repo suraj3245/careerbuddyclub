@@ -15,37 +15,58 @@ const HeroBannerNine = () => {
           <div className="row">
             <div className="col-lg-6 col-md-7 text-center">
               <div
-                className="slogan fw-500 mb-5 wow fadeInUp"
+                className="slogan fw-500 mb-2 wow fadeInUp"
                 data-wow-delay="0.3s"
+                style={{
+                  color: "#5fa388",
+                  fontFamily: "var(--eb_garamond-font)",
+                  fontSize: "clamp(18px, 2vw, 22px)",
+                  marginBottom: "15px",
+                }}
               >
                 #1 Best For Campuses
               </div>
-              <h1 className="wow fadeInUp" data-wow-delay="0.4s">
-                Empowering Your Institute for Admissions and Placements!
+              <h1
+                className="wow fadeInUp"
+                data-wow-delay="0.4s"
+                style={{
+                  fontFamily: "var(--eb_garamond-font)",
+                  fontSize: "clamp(48px, 6vw, 85px)",
+                  fontWeight: 600,
+                  lineHeight: 1.1,
+                  color: "#eed30d",
+                  marginBottom: "40px",
+                }}
+              >
+                Empowering Your <br />
+                Institute for <br />
+                Admissions and <br />
+                Placements!
               </h1>
-              <p
-                className="text-lg mt-35 md-mt-30 mb-30 md-mb-20 pe-xl-5 wow fadeInUp"
-                data-wow-delay="0.5s"
-              ></p>
-
-              <a
-                href="/admission"
-                target="_blank" // This opens the link in a new tab
-                rel="noopener noreferrer"
-                className="btn-five wow fadeInUp"
+              
+              <div
+                className="d-flex justify-content-center flex-wrap wow fadeInUp"
                 data-wow-delay="0.6s"
-                style={{ marginRight: "10px" }}
+                style={{ gap: "15px" }}
               >
-                Admissions
-              </a>
+                <a
+                  href="/admission"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-five"
+                  style={{ minWidth: "160px", padding: "12px 30px", fontSize: "16px" }}
+                >
+                  Admissions
+                </a>
 
-              <Link
-                href="https://jobs.careerbuddyclub.com/"
-                className="btn-five wow fadeInUp "
-                data-wow-delay="0.6s"
-              >
-                Placements
-              </Link>
+                <Link
+                  href="https://jobs.careerbuddyclub.com/"
+                  className="btn-five"
+                  style={{ minWidth: "160px", padding: "12px 30px", fontSize: "16px" }}
+                >
+                  Placements
+                </Link>
+              </div>
             </div>
           </div>
         </div>
