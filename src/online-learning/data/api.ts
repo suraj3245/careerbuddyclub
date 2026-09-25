@@ -10,6 +10,7 @@ export interface Course {
   id: number;
   name: string;
   stream_id: string;
+  duration?: string;
 }
 
 export interface Stream {
@@ -47,6 +48,39 @@ export async function fetchOnlineStreams(): Promise<Stream[]> {
       ...stream,
       title: (stream.title || "").replace(/\s*\(?Online\)?/gi, "").trim(),
     }));
+
+    try {
+      const collegeRes = await fetch("https://test.careerbuddyclub.com:8080/api/students/getallcollegesdetails", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" }
+      });
+      if (collegeRes.ok) {
+        const collegeData = await collegeRes.json();
+        const durationMap = new Map<number, string>();
+        
+        if (collegeData.colleges) {
+          collegeData.colleges.forEach((col: any) => {
+            if (col.courses) {
+              col.courses.forEach((c: any) => {
+                if (c.duration) durationMap.set(c.id, c.duration);
+              });
+            }
+          });
+        }
+
+        cleanedStreams.forEach(stream => {
+          if (stream.courses) {
+            stream.courses.forEach(course => {
+              if (durationMap.has(course.id)) {
+                course.duration = durationMap.get(course.id);
+              }
+            });
+          }
+        });
+      }
+    } catch (err) {
+      console.error("Error fetching durations:", err);
+    }
 
     return cleanedStreams;
   } catch (error) {

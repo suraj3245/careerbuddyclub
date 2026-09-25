@@ -29,10 +29,26 @@ export function UniversityHero({ university, onEnquiryOpen }: UniversityHeroProp
   );
   const logoSrc = uData?.logo;
 
+  const isAmity = (university?.slug || "").includes("amity") || (university?.name || "").toLowerCase().includes("amity");
+  const isChandigarh = (university?.slug || "").includes("chandigarh") || (university?.name || "").toLowerCase().includes("chandigarh");
+  const isGalgotias = (university?.slug || "").includes("galgotias") || (university?.name || "").toLowerCase().includes("galgotias");
+  
+  let bannerImage = "";
+  if (isAmity) {
+    bannerImage = "/assets/images/acre/amity.png";
+  } else if (isChandigarh) {
+    bannerImage = "/assets/images/acre/Chandigarh.png";
+  } else if (isGalgotias) {
+    bannerImage = "/assets/images/acre/galgotias.png";
+  }
+
   return (
     <div className="upHeroWrapper">
       {/* Banner Section */}
-      <div className="upHeroBanner">
+      <div 
+        className="upHeroBanner"
+        style={bannerImage ? { backgroundImage: `url(${bannerImage})` } : undefined}
+      >
         <div className="d-none d-md-block upHeroBannerDots">
             <span></span>
             <span></span>

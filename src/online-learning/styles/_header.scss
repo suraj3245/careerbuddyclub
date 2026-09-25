@@ -15,13 +15,30 @@
   box-sizing: border-box;
   .hamburgerMenu {
     display: none;
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
+    padding: 0;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     gap: 5px;
+    border: 1px solid #e3e9ec;
+    border-radius: 10px;
+    background: #ffffff;
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: border-color 0.2s ease, background 0.2s ease;
+
+    &:hover,
+    &[aria-expanded="true"] {
+      border-color: rgba(7, 157, 180, 0.35);
+      background: #f0fafc;
+    }
+
+    &:focus-visible {
+      outline: 2px solid #079db4;
+      outline-offset: 2px;
+    }
     .bar {
       width: 22px;
       height: 2px;
@@ -36,6 +53,18 @@
     &:hover {
       .bar {
         background: #0b94a8;
+      }
+    }
+
+    &.open {
+      .bar:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+      .bar:nth-child(2) {
+        opacity: 0;
+      }
+      .bar:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
       }
     }
   }
@@ -74,7 +103,7 @@
 
     gap: 28px;
 
-    a {
+    a, button.navLinkItem {
       position: relative;
 
       display: inline-flex;
@@ -90,6 +119,12 @@
       line-height: 1;
 
       text-decoration: none;
+
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      font-family: inherit;
+      padding: 0;
 
       white-space: nowrap;
 
@@ -115,10 +150,15 @@
         top: -2px;
 
         transition: transform 0.2s ease;
+
+        &.open {
+          transform: rotate(-135deg);
+          top: 1px;
+        }
       }
 
       &:hover {
-        .chevron {
+        .chevron:not(.open) {
           transform: rotate(45deg) translate(1px, 1px);
         }
       }
@@ -141,160 +181,321 @@
         background: transparent;
       }
 
-      > a {
+      > a, > button {
         display: inline-flex;
         align-items: center;
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-family: inherit;
       }
 
+      // Legacy dropdown class used by Universities
       .exploreDropdown {
         position: absolute;
         top: calc(100% + 15px);
         left: -50px;
-        width: 900px;
-        background: #ffffff;
-        border: 1px solid #e5edef;
-        border-radius: 12px;
-        box-shadow: 0 10px 30px rgba(30, 70, 80, 0.12);
-        display: flex;
         z-index: 1200;
+        min-width: 350px;
         animation: headerProfileDropdownIn 0.2s ease-out;
 
-        .exploreStreams {
-          width: 30%;
-          background: #f8fafc;
-          border-right: 1px solid #e5edef;
-          max-height: 480px;
-          overflow-y: auto;
-          
-          /* Scrollbar styling */
-          &::-webkit-scrollbar {
-            width: 6px;
-          }
-          &::-webkit-scrollbar-thumb {
-            background: #cbd5e1;
-            border-radius: 4px;
-          }
+        // University names wrap instead of overflowing sideways
+        a {
+          white-space: normal;
+          line-height: 1.4;
+        }
+      }
 
-          .streamItem {
-            padding: 18px 24px;
-            font-size: 14.5px;
-            font-weight: 600;
-            color: #475569;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: all 0.2s;
-            border-bottom: 1px solid #f1f5f9;
+      // ======================================================
+      // BACKDROP OVERLAY
+      // ======================================================
+      .exploreBackdrop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.45);
+        backdrop-filter: blur(4px);
+        z-index: 9998;
+        animation: fadeIn 0.25s ease;
+      }
 
-            .streamArrow {
-              font-style: normal;
-              opacity: 0;
-              transform: translateX(-5px);
-              transition: all 0.2s;
-            }
+      // ======================================================
+      // EXPLORE PANEL (full-width overlay)
+      // ======================================================
+      .explorePanel {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 92vw;
+        max-width: 1200px;
+        height: 80vh;
+        background: #ffffff;
+        border-radius: 16px;
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15), 0 8px 20px rgba(0, 0, 0, 0.08);
+        z-index: 9999;
+        animation: explorePanelIn 0.3s ease-out;
+        overflow: hidden;
+      }
 
-            &:hover, &.active {
-              background: #ffffff;
-              color: #0891b2;
-              border-left: 3px solid #0891b2;
-              padding-left: 21px; // subtract the border width to avoid jump
-              
-              .streamArrow {
-                opacity: 1;
-                transform: translateX(0);
-              }
-            }
-          }
+      // Close button
+      .explorePanelClose {
+        position: absolute;
+        top: 16px;
+        right: 20px;
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        border-radius: 50%;
+        background: #f1f5f9;
+        color: #475569;
+        font-size: 16px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        z-index: 10;
+        font-family: inherit;
+
+        &:hover {
+          background: #e2e8f0;
+          color: #1e293b;
+          transform: rotate(90deg);
+        }
+      }
+
+      // Inner flex layout
+      .explorePanelInner {
+        display: flex;
+        width: 100%;
+        height: 100%;
+      }
+
+      // ======================================================
+      // LEFT SIDEBAR
+      // ======================================================
+      .exploreSidebar {
+        width: 260px;
+        min-width: 260px;
+        background: #f8fafc;
+        border-right: 1px solid #e5edef;
+        padding: 20px 0;
+      }
+
+      .exploreSidebarItem {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 13px 20px;
+        font-size: 14px;
+        font-weight: 500;
+        color: #475569;
+        cursor: pointer;
+        border: none;
+        background: transparent;
+        text-align: left;
+        font-family: inherit;
+        transition: all 0.2s ease;
+        border-left: 3px solid transparent;
+        line-height: 1.4;
+
+        .exploreSidebarIcon {
+          flex-shrink: 0;
+          width: 28px;
+          height: 28px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 6px;
+          background: #e8f4f6;
+          color: #64748b;
+          transition: all 0.2s ease;
         }
 
-        .exploreCourses {
-          width: 70%;
-          padding: 30px;
-          max-height: 480px;
-          overflow-y: auto;
-          display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          grid-auto-rows: min-content;
-          gap: 20px;
-          background: #fdfdfd;
+        &:hover {
+          background: #ffffff;
+          color: #0795a9;
+        }
 
-          /* Scrollbar styling */
-          &::-webkit-scrollbar {
-            width: 6px;
-          }
-          &::-webkit-scrollbar-thumb {
-            background: #cbd5e1;
-            border-radius: 4px;
-          }
+        &.active {
+          background: #0795a9;
+          color: #ffffff;
+          font-weight: 600;
+          border-left-color: #ffb915;
+          border-radius: 0 8px 8px 0;
+          margin-right: 8px;
 
-          .courseCard {
-            display: flex;
-            align-items: flex-start;
-            gap: 16px;
-            padding: 20px;
-            background: #ffffff;
-            border: 1px solid #e5edef;
-            border-radius: 12px;
-            text-decoration: none;
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
-
-            &:hover {
-              border-color: #0891b2;
-              transform: translateY(-3px);
-              box-shadow: 0 10px 24px rgba(8, 145, 178, 0.08);
-
-              .courseIcon {
-                background: #0891b2;
-                color: #ffffff;
-                transform: scale(1.05);
-              }
-              .courseLinkText {
-                color: #0891b2;
-              }
-            }
-
-            .courseIcon {
-              flex-shrink: 0;
-              width: 44px;
-              height: 44px;
-              border-radius: 10px;
-              background: #f1f5f9;
-              color: #64748b;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              transition: all 0.2s ease;
-              
-              svg {
-                width: 22px;
-                height: 22px;
-              }
-            }
-
-            .courseContent {
-              display: flex;
-              flex-direction: column;
-              gap: 6px;
-
-              h4 {
-                font-size: 15px;
-                font-weight: 600;
-                color: #1e293b;
-                margin: 0;
-                line-height: 1.3;
-              }
-
-              .courseLinkText {
-                font-size: 13px;
-                font-weight: 600;
-                color: #94a3b8;
-                transition: color 0.2s ease;
-              }
-            }
+          .exploreSidebarIcon {
+            background: rgba(255, 255, 255, 0.2);
+            color: #ffffff;
           }
         }
+      }
+
+      // ======================================================
+      // RIGHT SIDE - COURSE CARDS GRID
+      // ======================================================
+      .exploreCoursesGrid {
+        flex: 1;
+        padding: 28px 30px;
+        overflow-y: auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(195px, 1fr));
+        grid-auto-rows: min-content;
+        gap: 20px;
+        align-content: start;
+
+        /* Scrollbar styling */
+        &::-webkit-scrollbar {
+          width: 6px;
+        }
+        &::-webkit-scrollbar-thumb {
+          background: #cbd5e1;
+          border-radius: 4px;
+        }
+        &::-webkit-scrollbar-track {
+          background: transparent;
+        }
+      }
+
+      // Individual course card
+      .exploreCourseCard {
+        display: flex;
+        flex-direction: column;
+        background: #ffffff;
+        border: 1px solid #e8edf1;
+        border-radius: 14px;
+        overflow: hidden;
+        text-decoration: none;
+        transition: all 0.25s ease;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+
+        &:hover {
+          border-color: #0795a9;
+          transform: translateY(-4px);
+          box-shadow: 0 12px 28px rgba(7, 157, 180, 0.12);
+
+          .exploreCourseCardImg {
+            transform: scale(1.05);
+          }
+
+          .exploreCourseCardLink {
+            color: #087d9b;
+          }
+
+          .exploreCourseCardArrow {
+            transform: translateX(4px);
+          }
+        }
+      }
+
+      .exploreCourseCardImgWrapper {
+        width: 100%;
+        padding: 9px 9px 0 9px;
+        display: flex;
+        justify-content: center;
+        overflow: hidden;
+      }
+
+      .exploreCourseCardImg {
+        width: 177px;
+        height: 93px;
+        object-fit: cover;
+        display: block;
+        border-radius: 8px;
+        transition: transform 0.3s ease;
+      }
+
+      .exploreCourseCardBadgeWrapper {
+        display: flex;
+        justify-content: center;
+        margin-top: -12px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .exploreCourseCardPill {
+        background: #e8f5e9;
+        color: #1b5e20;
+        font-size: 10.5px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        padding: 4px 14px;
+        border-radius: 20px;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+      }
+
+      .exploreCourseCardInfo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 4px; /* Reduced gap */
+        padding: 12px 8px 12px 8px; /* Reduced padding */
+        flex-grow: 1;
+      }
+
+      .exploreCourseCardName {
+        font-size: 15px;
+        font-weight: 700;
+        color: #122036;
+        margin: 0;
+        line-height: 1.35;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      .exploreCourseCardDuration {
+        font-size: 13px;
+        font-weight: 600;
+        color: #7b889d;
+        margin: 0;
+      }
+
+      .exploreCourseCardFooter {
+        width: 100%;
+        background: #f4f8fc;
+        padding: 8px; /* Reduced padding */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-top: 1px solid #e8edf1;
+      }
+
+      .exploreCourseCardLink {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 14px;
+        font-weight: 700;
+        color: #079db4;
+        transition: color 0.2s ease;
+      }
+
+      .exploreCourseCardArrow {
+        display: inline-block;
+        transition: transform 0.2s ease;
+        font-size: 15px;
+      }
+
+      // Empty state
+      .exploreCoursesEmpty {
+        grid-column: 1 / -1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 40px;
+        color: #8b97a8;
+        font-size: 15px;
       }
     }
   }
@@ -840,10 +1041,21 @@
   }
 }
 
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
 
-// ============================================================
-// LARGE SCREEN
-// ============================================================
+@keyframes explorePanelIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -48%) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
 
 @media (max-width: 1200px) {
   .navbar {
@@ -852,7 +1064,7 @@
     .navLinks {
       gap: 20px;
 
-      a {
+      a, button {
         font-size: 14px;
       }
     }
@@ -865,6 +1077,23 @@
       .brandMark {
         width: 210px;
         height: auto;
+      }
+    }
+
+    .navDropdownWrapper {
+      .explorePanel {
+        width: 95vw;
+      }
+
+      .exploreSidebar {
+        width: 220px;
+        min-width: 220px;
+      }
+
+      .exploreCoursesGrid {
+        grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+        gap: 16px;
+        padding: 24px 20px;
       }
     }
   }
@@ -916,8 +1145,8 @@
 
     .hamburgerMenu {
       display: flex;
-
-      margin-right: 12px;
+      margin-right: 10px;
+      flex-shrink: 0;
     }
 
     .brand {
@@ -927,6 +1156,7 @@
       }
     }
 
+    // Desktop links are replaced by the .mobileNav drawer
     .navLinks {
       display: none;
     }
@@ -945,9 +1175,7 @@
 
     .login {
       height: 40px;
-
       padding: 0 8px;
-
       font-size: 14px;
     }
   }
@@ -965,8 +1193,8 @@
     padding: 0 12px;
 
     .hamburgerMenu {
-      width: 36px;
-      height: 36px;
+      width: 40px;
+      height: 40px;
 
       margin-right: 8px;
     }
@@ -1071,10 +1299,10 @@
     padding: 0 9px;
 
     .hamburgerMenu {
-      width: 34px;
-      height: 34px;
+      width: 40px;
+      height: 40px;
 
-      margin-right: 5px;
+      margin-right: 6px;
     }
 
     .brand {
@@ -1200,5 +1428,604 @@
 
       width: calc(100vw - 12px);
     }
+  }
+}
+
+// ============================================================
+// MOBILE NAVIGATION DRAWER (≤ 850px)
+// ------------------------------------------------------------
+// Rendered as a sibling of <header>. Layout follows the
+// reference: action bar on top, accordion list, inline course
+// explorer (stream tabs + 2-col cards) and university list.
+// Colours come from the Career Buddy Club palette (_tokens).
+// ============================================================
+
+$mnav-ink: #122036;
+$mnav-muted: #647085;
+$mnav-teal: #079db4;
+$mnav-deep-teal: #087d9b;
+$mnav-yellow: #ffb915;
+$mnav-border: #e3e9ec;
+$mnav-soft: #f0fafc;
+
+.mobileNavBackdrop,
+.mobileNav {
+  display: none;
+}
+
+@media (max-width: 850px) {
+  .mobileNavBackdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 100000;
+    background: rgba(18, 32, 54, 0.45);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+
+    &.open {
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 0.3s ease, visibility 0s;
+    }
+  }
+
+  .mobileNav {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 100001;
+    width: min(420px, 100%);
+    height: 100vh;
+    height: 100dvh;
+    background: #ffffff;
+    color: $mnav-ink;
+    box-shadow: 8px 0 32px rgba(18, 32, 54, 0.18);
+    transform: translateX(-100%);
+    visibility: hidden;
+    transition: transform 0.32s cubic-bezier(0.22, 0.61, 0.36, 1), visibility 0s linear 0.32s;
+    overscroll-behavior: contain;
+
+    &.open {
+      transform: translateX(0);
+      visibility: visible;
+      transition: transform 0.32s cubic-bezier(0.22, 0.61, 0.36, 1), visibility 0s;
+    }
+
+    svg {
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    button {
+      font-family: inherit;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    a,
+    button {
+      &:focus-visible {
+        outline: 2px solid $mnav-teal;
+        outline-offset: 2px;
+      }
+    }
+  }
+
+  // ----------------------------------------------------------
+  // TOP BAR
+  // ----------------------------------------------------------
+  .mobileNavTop {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    min-height: 64px;
+    padding: 10px 16px;
+    border-bottom: 1px solid $mnav-border;
+  }
+
+  .mobileNavBrand {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+
+    img {
+      width: 160px;
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+  }
+
+  .mobileNavClose {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: #f1f5f9;
+    color: $mnav-ink;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    &:hover {
+      background: #e2f7fb;
+      color: $mnav-deep-teal;
+      transform: rotate(90deg);
+    }
+  }
+
+  // ----------------------------------------------------------
+  // ACTION ROW
+  // ----------------------------------------------------------
+  .mobileNavActions {
+    flex-shrink: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding: 14px 16px;
+    background: $mnav-soft;
+    border-bottom: 1px solid $mnav-border;
+  }
+
+  .mobileNavRegister,
+  .mobileNavExpert,
+  .mobileNavUser {
+    min-height: 44px;
+    padding: 0 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    border-radius: 11px;
+    font-size: 14.5px;
+    font-weight: 600;
+    line-height: 1.15;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .mobileNavRegister {
+    border: 1px solid rgba(14, 162, 182, 0.22);
+    background: linear-gradient(135deg, #effcff 0%, #e2f8fc 100%);
+    color: #087f98;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(20, 150, 170, 0.07);
+
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    &:active {
+      transform: scale(0.98);
+    }
+  }
+
+  .mobileNavUser {
+    justify-content: flex-start;
+    border: 1px solid rgba(14, 162, 182, 0.22);
+    background: #ffffff;
+    color: #087f98;
+    min-width: 0;
+  }
+
+  .mobileNavUserIcon {
+    flex-shrink: 0;
+    display: flex;
+
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  .mobileNavUserName {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .mobileNavExpert {
+    background: $mnav-teal;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(7, 149, 169, 0.2);
+
+    &:hover,
+    &:active {
+      background: #078498;
+      color: #ffffff;
+    }
+  }
+
+  // ----------------------------------------------------------
+  // MENU BODY
+  // ----------------------------------------------------------
+  .mobileNavBody {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+    padding: 6px 16px calc(24px + env(safe-area-inset-bottom));
+
+    &::-webkit-scrollbar {
+      width: 4px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+  }
+
+  .mobileNavItem {
+    width: 100%;
+    min-height: 54px;
+    padding: 0 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    border: none;
+    border-bottom: 1px solid #edf1f4;
+    background: transparent;
+    color: $mnav-ink;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.3;
+    text-align: left;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.2s ease;
+
+    &:hover,
+    &[aria-expanded="true"] {
+      color: $mnav-deep-teal;
+    }
+  }
+
+  .mobileNavItemLabel {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .mobileNavIcon {
+    width: 19px;
+    height: 19px;
+    flex-shrink: 0;
+    color: $mnav-teal;
+  }
+
+  .mobileNavBadge {
+    padding: 3px 8px;
+    border-radius: 999px;
+    background: $mnav-ink;
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    line-height: 1.2;
+    box-shadow: 0 0 0 2px rgba(255, 185, 21, 0.9), 0 0 10px rgba(255, 185, 21, 0.55);
+  }
+
+  .mobileNavLogout {
+    color: $mnav-muted;
+
+    .mobileNavIcon {
+      color: currentColor;
+    }
+
+    &:hover {
+      color: #dc3545;
+    }
+  }
+
+  .mobileNavChevron {
+    width: 8px;
+    height: 8px;
+    flex-shrink: 0;
+    margin-right: 4px;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(45deg) translate(-2px, -2px);
+    transition: transform 0.25s ease;
+
+    [aria-expanded="true"] > & {
+      transform: rotate(-135deg) translate(-2px, -2px);
+    }
+  }
+
+  .mobileNavGroup.expanded > .mobileNavItem {
+    border-bottom-color: transparent;
+  }
+
+  .mobileNavPanel {
+    padding: 2px 0 18px;
+    border-bottom: 1px solid #edf1f4;
+    animation: mobileNavPanelIn 0.25s ease-out;
+  }
+
+  .mobileNavEmpty {
+    padding: 16px 4px;
+    color: #8b97a8;
+    font-size: 14px;
+  }
+
+  // ----------------------------------------------------------
+  // STREAM TABS (horizontal scroll)
+  // ----------------------------------------------------------
+  .mobileStreamTabs {
+    display: flex;
+    gap: 6px;
+    padding: 5px;
+    margin-bottom: 14px;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+    background: #ffffff;
+    border: 1px solid $mnav-border;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(18, 32, 54, 0.05);
+    // Fade on the right edge hints that more streams scroll into view
+    -webkit-mask-image: linear-gradient(to right, #000 85%, transparent);
+    mask-image: linear-gradient(to right, #000 85%, transparent);
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .mobileStreamTab {
+    flex: 0 0 auto;
+    max-width: 150px;
+    min-height: 44px;
+    padding: 6px 14px;
+    border: none;
+    border-radius: 9px;
+    background: transparent;
+    color: #374151;
+    font-size: 13.5px;
+    font-weight: 500;
+    line-height: 1.25;
+    text-align: center;
+    white-space: normal;
+    scroll-snap-align: start;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+
+    &:hover {
+      background: $mnav-soft;
+      color: $mnav-deep-teal;
+    }
+
+    &.active {
+      background: $mnav-teal;
+      color: #ffffff;
+      font-weight: 600;
+      box-shadow: 0 3px 10px rgba(7, 157, 180, 0.25);
+    }
+  }
+
+  // ----------------------------------------------------------
+  // COURSE CARDS (2 columns)
+  // ----------------------------------------------------------
+  .mobileCourseGrid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .mobileCourseCard {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: #ffffff;
+    border: 1px solid #e8edf1;
+    border-radius: 12px;
+    color: $mnav-ink;
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+
+    &:hover,
+    &:focus-visible {
+      border-color: $mnav-teal;
+      box-shadow: 0 8px 20px rgba(7, 157, 180, 0.12);
+    }
+
+    &:active {
+      transform: scale(0.98);
+    }
+  }
+
+  .mobileCourseImg {
+    display: block;
+    padding: 8px 8px 0;
+
+    img {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      display: block;
+      border-radius: 8px;
+      background: #eef3f6;
+    }
+  }
+
+  .mobileCourseInfo {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding: 9px 10px 10px;
+  }
+
+  .mobileCourseName {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    word-break: break-word;
+  }
+
+  .mobileCourseDuration {
+    font-size: 12.5px;
+    font-weight: 500;
+    color: $mnav-muted;
+  }
+
+  .mobileCourseMore {
+    display: block;
+    padding: 9px 6px;
+    background: #e2f7fb;
+    color: $mnav-deep-teal;
+    font-size: 13.5px;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  // ----------------------------------------------------------
+  // UNIVERSITY LIST
+  // ----------------------------------------------------------
+  .mobileUniList {
+    list-style: none;
+    display: grid;
+    gap: 8px;
+  }
+
+  .mobileUniLink {
+    min-height: 52px;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid #e8edf1;
+    border-radius: 10px;
+    background: #ffffff;
+    color: #333;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.35;
+    text-decoration: none;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+
+    &:hover,
+    &:active {
+      background: $mnav-soft;
+      border-color: rgba(7, 157, 180, 0.3);
+      color: $mnav-deep-teal;
+    }
+  }
+
+  .mobileUniLogo {
+    width: 34px;
+    height: 34px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 6px;
+    background: #f3f4f6;
+    color: #64748b;
+    font-weight: 700;
+    position: relative;
+
+    // Logo sits over the initial; if it fails to load the initial shows
+    img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #ffffff;
+    }
+  }
+
+  .mobileUniName {
+    min-width: 0;
+  }
+}
+
+// Very narrow phones (≤ 360px, e.g. Mobile S 320px)
+@media (max-width: 360px) {
+  .mobileNavTop {
+    padding: 10px 12px;
+  }
+
+  .mobileNavBrand img {
+    width: 140px;
+  }
+
+  .mobileNavActions {
+    gap: 8px;
+    padding: 12px;
+  }
+
+  .mobileNavRegister,
+  .mobileNavExpert,
+  .mobileNavUser {
+    padding: 0 8px;
+    font-size: 13px;
+  }
+
+  .mobileNavBody {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .mobileCourseGrid {
+    gap: 8px;
+  }
+
+  .mobileCourseName {
+    font-size: 13px;
+  }
+
+  .mobileCourseDuration {
+    font-size: 11.5px;
+  }
+}
+
+@keyframes mobileNavPanelIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mobileNav,
+  .mobileNavBackdrop,
+  .mobileNavPanel {
+    transition: none !important;
+    animation: none !important;
   }
 }
