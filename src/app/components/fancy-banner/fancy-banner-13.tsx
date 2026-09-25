@@ -15,7 +15,7 @@ import user_8 from "@/assets/images/assets/img_65.webp";
 import user_9 from "@/assets/images/assets/img_66.webp";
 import user_10 from "@/assets/images/assets/img_87.webp";
 import user_11 from "@/assets/images/assets/img_93.webp";
-import Speakers from "@/app/Speakers/page";
+import Speakers from "@/app/speakers/page";
 
 // expert_data
 const expert_data: {
