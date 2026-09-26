@@ -9,6 +9,15 @@ import LoginPopup from "@/online-learning/components/LoginPopup";
 import { fetchOnlineStreams, Stream } from "@/online-learning/data/api";
 import { universitiesData } from "@/online-learning/components/universities/universityData";
 
+const getCourseImage = (courseName?: string) => {
+  if (!courseName) return '/assets/images/courses/online-mba.png';
+  const normalized = String(courseName).toLowerCase();
+  if (normalized.includes('mba')) return '/assets/images/courses/online-mba.png';
+  if (normalized.includes('mca')) return '/assets/images/courses/online-mca.png';
+  // Fallback to mba if it's not strictly mca or mba, or you can use a default placeholder
+  return '/assets/images/courses/online-mba.png';
+};
+
 export default function Header({ initialStreams = [] }: { initialStreams?: Stream[] }) {
   const router = useRouter();
   const pathname = usePathname();
@@ -318,7 +327,7 @@ export default function Header({ initialStreams = [] }: { initialStreams?: Strea
                         >
                           <div className="exploreCourseCardImgWrapper">
                             <img 
-                              src={`https://picsum.photos/seed/course${course.id}/400/240`}
+                              src={getCourseImage(course.name)}
                               alt={course.name}
                               className="exploreCourseCardImg"
                             />
@@ -638,7 +647,7 @@ export default function Header({ initialStreams = [] }: { initialStreams?: Strea
                         >
                           <span className="mobileCourseImg">
                             <img
-                              src={`https://picsum.photos/seed/course${course.id}/400/240`}
+                              src={getCourseImage(course.name)}
                               alt=""
                               loading="lazy"
                               decoding="async"
