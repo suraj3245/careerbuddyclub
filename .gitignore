@@ -129,3 +129,13 @@ dist
 # Original standalone CareerWise app — ported into src/careerwise/ and src/app/.
 # Kept on disk for reference; it has its own .git, node_modules and .next.
 /CareerWise/
+
+# Local API dumps, AI-session logs and one-off scripts — never needed by the app
+/*.json
+!/package.json
+!/package-lock.json
+!/tsconfig.json
+/allText.txt
+/subagent_texts.txt
+/restore.js
+/src/online-learning/data/api_response_sample.json
