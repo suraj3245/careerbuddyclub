@@ -35,11 +35,11 @@ export function UniversityHero({ university, onEnquiryOpen }: UniversityHeroProp
   
   let bannerImage = "";
   if (isAmity) {
-    bannerImage = "/assets/images/acre/amity.png";
+    bannerImage = "/assets/images/acre/amity.webp";
   } else if (isChandigarh) {
-    bannerImage = "/assets/images/acre/Chandigarh.png";
+    bannerImage = "/assets/images/acre/Chandigarh.webp";
   } else if (isGalgotias) {
-    bannerImage = "/assets/images/acre/galgotias.png";
+    bannerImage = "/assets/images/acre/galgotias.webp";
   }
 
   return (

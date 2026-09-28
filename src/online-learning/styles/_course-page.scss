@@ -1,0 +1,726 @@
+@use "tokens" as *;
+
+/* ================================================================
+   COURSE DETAIL PAGE  (/online-course/<slug>)
+   Prefix: cd
+   ================================================================ */
+
+.cdPage { background: #fff; color: $ink; }
+
+/* ── Hero ─────────────────────────────────────────────────────── */
+.cdHero {
+  background:
+    radial-gradient(circle at 85% 20%, rgba(7, 157, 180, 0.10) 0, transparent 45%),
+    linear-gradient(180deg, #f3fbfd 0%, #fff 100%);
+  border-bottom: 1px solid #edf2f4;
+}
+.cdHeroInner {
+  max-width: 1370px;
+  margin: 0 auto;
+  padding: 36px 40px 44px;
+  display: flex;
+  gap: 48px;
+  align-items: center;
+}
+.cdHero--compact .cdHeroInner { padding-bottom: 36px; }
+.cdHeroCopy { flex: 1; min-width: 0; }
+
+.cdBreadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 18px;
+  font-size: 12px;
+  color: $muted;
+  a { color: $teal; font-weight: 600; &:hover { color: $deep-teal; } }
+  span[aria-hidden] { color: #b5c0c7; }
+}
+.cdBreadcrumbCurrent { color: $muted; }
+
+.cdEyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 13px 6px 10px;
+  border-radius: $radius-pill;
+  background: #e5f7f8;
+  color: #0788a1;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.cdEyebrowDot { width: 7px; height: 7px; border-radius: 50%; background: $yellow; }
+
+.cdHeroTitle {
+  font-size: clamp(32px, 4vw, 50px) !important;
+  font-weight: 800;
+  line-height: 1.08 !important;
+  letter-spacing: -1.4px !important;
+  color: $ink;
+  margin-bottom: 8px !important;
+}
+.cdHeroFullName { font-size: 16px; font-weight: 600; color: $deep-teal; margin-bottom: 14px !important; }
+.cdHeroTagline { font-size: 16px; line-height: 1.65; color: $muted; max-width: 620px; margin-bottom: 22px !important; }
+
+.cdHeroFacts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style: none;
+  margin-bottom: 26px !important;
+}
+.cdFactChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 14px;
+  border-radius: $radius-pill;
+  background: #fff;
+  border: 1px solid #d5f0f3;
+  box-shadow: 0 2px 8px rgba(18, 49, 72, 0.04);
+  font-size: 13px;
+  font-weight: 600;
+  color: #0a7e94;
+  svg { color: $teal; flex-shrink: 0; }
+}
+
+.cdHeroCtas { display: flex; flex-wrap: wrap; gap: 12px; }
+
+.cdBtnPrimary,
+.cdBtnSecondary,
+.cdBtnYellow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 26px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  white-space: nowrap;
+}
+.cdBtnPrimary {
+  background: $teal;
+  color: #fff !important;
+  border: none;
+  box-shadow: 0 8px 20px rgba(7, 157, 180, 0.22);
+  &:hover { background: $deep-teal; transform: translateY(-1px); }
+}
+.cdBtnSecondary {
+  background: #fff;
+  color: $teal !important;
+  border: 1.5px solid $teal;
+  &:hover { background: #f0fafb; }
+}
+.cdBtnYellow {
+  background: $yellow;
+  color: #17202e;
+  border: none;
+  &:hover { background: #f5ab00; transform: translateY(-1px); }
+}
+
+/* Hero side card */
+.cdHeroCard {
+  flex: 0 0 380px;
+  background: #fff;
+  border: 1px solid #e8edf1;
+  border-radius: 18px;
+  padding: 12px;
+  box-shadow: 0 18px 40px rgba(18, 49, 72, 0.10);
+}
+.cdHeroImgWrap { border-radius: 12px; overflow: hidden; aspect-ratio: 16 / 9; background: #eef6f8; }
+.cdHeroImg { width: 100%; height: 100%; object-fit: cover; display: block; }
+.cdGlance { padding: 8px 8px 2px; margin: 0; }
+.cdGlanceRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 0;
+  border-bottom: 1px dashed #e3e9ec;
+  font-size: 13px;
+  &:last-child { border-bottom: none; }
+  dt { color: $muted; font-weight: 600; flex-shrink: 0; }
+  dd { margin: 0; color: $ink; font-weight: 700; text-align: right; }
+}
+
+/* ── Sticky section nav ───────────────────────────────────────── */
+.cdSectionNav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.97);
+  border-bottom: 1px solid #edf2f4;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 2px 12px rgba(18, 49, 72, 0.04);
+}
+.cdNavList {
+  display: flex;
+  max-width: 1370px;
+  margin: 0 auto;
+  padding: 0 40px;
+  list-style: none;
+  overflow-x: auto;
+  scrollbar-width: none;
+  &::-webkit-scrollbar { display: none; }
+}
+.cdNavItem {
+  display: block;
+  padding: 15px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  color: $muted !important;
+  white-space: nowrap;
+  border-bottom: 2.5px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+  &:hover { color: $teal !important; }
+}
+.cdNavActive { color: $teal !important; border-bottom-color: $teal; }
+
+/* ── Section bands ────────────────────────────────────────────── */
+.cdBand { width: 100%; scroll-margin-top: 64px; }
+.cdBand--white { background: #fff; }
+.cdBand--light { background: #f8fbff; }
+
+.cdSection { max-width: 1370px; margin: 0 auto; padding: 56px 40px; }
+.cdSection--tight { padding-top: 32px; padding-bottom: 32px; }
+
+.cdSectionTitle {
+  font-size: clamp(24px, 2.6vw, 32px) !important;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: $ink;
+  margin-bottom: 24px !important;
+}
+.cdSubTitle { font-size: 20px !important; font-weight: 800; color: $ink; margin: 40px 0 18px !important; }
+.cdPara { font-size: 15px; line-height: 1.8; color: #3f4b5e; margin-bottom: 16px !important; }
+.cdPara--muted { color: $muted; font-size: 14px; margin-bottom: 24px !important; }
+
+/* ── Overview ─────────────────────────────────────────────────── */
+.cdOverview { display: grid; grid-template-columns: minmax(0, 1fr) 420px; gap: 48px; align-items: start; }
+
+.cdNotice {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+  padding: 16px 18px;
+  border-radius: 12px;
+  background: #fff8e6;
+  border: 1px solid #ffe3a1;
+  p { font-size: 13.5px; line-height: 1.65; color: #6b4e00; }
+}
+.cdNoticeIcon { color: #c98a00; flex-shrink: 0; margin-top: 1px; }
+
+/* ── Course banner (beside "About") ───────────────────────────── */
+.cdBanner {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  border-radius: 18px;
+  background: linear-gradient(125deg, #0b6f78 0%, #0f8f98 38%, #22b3bd 72%, #3fd0d6 100%);
+  box-shadow: 0 18px 40px rgba(7, 125, 155, 0.22);
+  color: #fff;
+  isolation: isolate;
+}
+// fine "mesh" lines, top-right
+.cdBannerWaves {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  path { fill: none; stroke: rgba(255, 255, 255, 0.16); stroke-width: 0.8; }
+}
+// soft rounded shapes, like the reference banner
+.cdBannerBlob {
+  position: absolute;
+  z-index: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.07);
+  transform: rotate(-35deg);
+}
+.cdBannerBlob--1 { width: 70%; height: 32%; left: -18%; bottom: 8%; }
+.cdBannerBlob--2 { width: 55%; height: 26%; left: 30%; top: -6%; background: rgba(255, 255, 255, 0.05); }
+
+// photo on the right, fading into the gradient
+.cdBannerPhoto {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 58%;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 38%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 38%);
+  img { width: 100%; height: 100%; object-fit: cover; object-position: 62% center; display: block; }
+}
+
+.cdBannerCopy {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  width: 58%;
+  padding: 9% 0 9% 8%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.cdBannerTitle {
+  display: flex;
+  flex-direction: column;
+  font-size: 44px !important;
+  font-weight: 900;
+  line-height: 1 !important;
+  letter-spacing: -0.5px;
+  text-transform: uppercase;
+  color: #fff !important;
+  text-shadow: 0 2px 12px rgba(6, 60, 70, 0.25);
+  margin-bottom: 12px !important;
+}
+.cdBanner--sm .cdBannerTitle { font-size: 34px !important; }
+.cdBanner--xs .cdBannerTitle { font-size: 26px !important; }
+.cdBannerTagline {
+  font-size: 19px !important;
+  font-weight: 700;
+  line-height: 1.25 !important;
+  color: #fff !important;
+  max-width: 190px;
+  margin-bottom: 22px !important;
+}
+.cdBannerBtn {
+  align-self: flex-start;
+  padding: 11px 18px;
+  border-radius: 8px;
+  border: none;
+  background: #fff;
+  color: #0b5f69;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(6, 60, 70, 0.22);
+  transition: transform 0.15s, box-shadow 0.2s;
+  &:hover { transform: translateY(-1px); box-shadow: 0 10px 22px rgba(6, 60, 70, 0.28); }
+}
+
+// when a designed banner image is supplied
+.cdBannerImgBtn {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: none;
+  border-radius: 18px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 18px 40px rgba(7, 125, 155, 0.18);
+}
+.cdBannerImg { width: 100%; height: auto; display: block; }
+
+/* ── Benefits ─────────────────────────────────────────────────── */
+.cdBenefitGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.cdBenefitCard {
+  position: relative;
+  padding: 26px 22px;
+  border-radius: 16px;
+  background: #fff;
+  border: 1px solid #e8edf1;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  &:hover { transform: translateY(-3px); border-color: #b9e6ee; box-shadow: 0 12px 28px rgba(7, 157, 180, 0.10); }
+  h3 { font-size: 16px !important; font-weight: 700; margin: 12px 0 8px !important; color: $ink; }
+  p { font-size: 13.5px; line-height: 1.65; color: $muted; }
+}
+.cdBenefitNum { font-size: 13px; font-weight: 800; color: $teal; background: #e5f7f8; padding: 4px 10px; border-radius: $radius-pill; }
+
+/* ── Eligibility & documents ──────────────────────────────────── */
+.cdEligibility { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 28px; align-items: start; }
+.cdCheckList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  li {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 14px 16px;
+    border-radius: 12px;
+    background: #f8fbff;
+    border: 1px solid #edf2f4;
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: #3f4b5e;
+  }
+}
+.cdCheckIcon {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #dcf5f0;
+  color: #0f8a6a;
+  flex-shrink: 0;
+  svg { width: 14px; height: 14px; }
+}
+.cdEntranceNote {
+  padding: 22px;
+  border-radius: 14px;
+  background: #f0fafb;
+  border: 1px solid #d5f0f3;
+  h3 { font-size: 16px !important; font-weight: 800; margin-bottom: 8px !important; color: $deep-teal; }
+  p { font-size: 14px; line-height: 1.7; color: #3f4b5e; }
+}
+
+.cdDocGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.cdDocCard {
+  display: flex;
+  gap: 14px;
+  padding: 18px;
+  border-radius: 14px;
+  border: 1px solid #e8edf1;
+  background: #fff;
+  h4 { font-size: 14.5px !important; font-weight: 700; margin-bottom: 6px !important; color: $ink; }
+  p { font-size: 13px; line-height: 1.6; color: $muted; }
+}
+.cdDocIcon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #e5f7f8;
+  color: $teal;
+  flex-shrink: 0;
+}
+
+/* ── Admission steps ──────────────────────────────────────────── */
+.cdSteps {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  counter-reset: none;
+}
+.cdStep {
+  position: relative;
+  padding: 22px 18px;
+  border-radius: 16px;
+  background: #fff;
+  border: 1px solid #e8edf1;
+  h3 { font-size: 15px !important; font-weight: 700; margin: 14px 0 6px !important; color: $ink; }
+  p { font-size: 13px; line-height: 1.6; color: $muted; }
+  // connector arrow between steps
+  &:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 38px;
+    right: -13px;
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid #9fd8e2;
+    border-right: 2px solid #9fd8e2;
+    transform: rotate(45deg);
+  }
+}
+.cdStepNum {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: $teal;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 800;
+  box-shadow: 0 6px 14px rgba(7, 157, 180, 0.25);
+}
+
+/* ── CTA band ─────────────────────────────────────────────────── */
+.cdCtaBand {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 30px 36px;
+  border-radius: 20px;
+  background: linear-gradient(110deg, #087d9b 0%, #079db4 60%, #22b6c9 100%);
+  color: #fff;
+  box-shadow: 0 16px 36px rgba(7, 125, 155, 0.22);
+  h2 { font-size: clamp(20px, 2.2vw, 26px) !important; font-weight: 800; margin-bottom: 6px !important; color: #fff; }
+  p { font-size: 14.5px; line-height: 1.6; color: rgba(255, 255, 255, 0.9); max-width: 680px; }
+}
+
+/* ── Fees ─────────────────────────────────────────────────────── */
+.cdFeeStats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
+.cdFeeStat {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 18px 20px;
+  border-radius: 14px;
+  background: #f0fafb;
+  border: 1px solid #d5f0f3;
+}
+.cdFeeStatLabel { font-size: 11px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; color: $muted; }
+.cdFeeStatValue { font-size: 18px; font-weight: 800; color: $ink; }
+
+.cdTableWrap {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid #e3e9ec;
+  border-radius: 14px;
+  background: #fff;
+}
+.cdTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  min-width: 560px;
+  thead th {
+    background: #f4f8fc;
+    color: $muted;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    text-align: left;
+    padding: 14px 18px;
+    border-bottom: 1px solid #e3e9ec;
+  }
+  tbody td { padding: 14px 18px; border-bottom: 1px solid #edf2f4; color: #3f4b5e; vertical-align: middle; }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:hover td { background: #fafdff; }
+}
+.cdTable--careers td { line-height: 1.55; }
+.cdTableLink { color: $ink !important; font-weight: 700; &:hover { color: $teal !important; } }
+.cdTableRole { font-weight: 700; color: $ink !important; white-space: nowrap; }
+.cdTableFee { font-weight: 700; color: $deep-teal !important; white-space: nowrap; }
+.cdTableBtn {
+  padding: 7px 16px;
+  border-radius: 8px;
+  border: 1.5px solid $teal;
+  background: #fff;
+  color: $teal;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  &:hover { background: $teal; color: #fff; }
+}
+.cdFootnote { font-size: 12px; color: $muted-light; margin-top: 12px !important; line-height: 1.6; }
+.cdInlineLink { background: none; border: none; color: $teal; font-weight: 700; cursor: pointer; padding: 0; &:hover { text-decoration: underline; } }
+.cdSrOnly { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* ── Universities ─────────────────────────────────────────────── */
+.cdUniGrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; }
+.cdUniCard {
+  display: flex;
+  flex-direction: column;
+  padding: 22px;
+  border-radius: 16px;
+  background: #fff;
+  border: 1px solid #e8edf1;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  &:hover { transform: translateY(-3px); border-color: $teal; box-shadow: 0 12px 28px rgba(7, 157, 180, 0.12); }
+}
+.cdUniLogo {
+  width: 100%;
+  height: 72px;
+  border-radius: 12px;
+  background: #f8fbff;
+  border: 1px solid #edf2f4;
+  display: grid;
+  place-items: center;
+  padding: 10px;
+  margin-bottom: 16px;
+  img { max-height: 52px; width: auto; object-fit: contain; }
+  span { font-size: 28px; font-weight: 800; color: $teal; }
+}
+.cdUniName { font-size: 16px !important; font-weight: 700; color: $ink; margin-bottom: 12px !important; line-height: 1.35 !important; }
+.cdUniTags { display: flex; flex-wrap: wrap; gap: 6px; margin: -4px 0 14px !important; }
+.cdUniTag {
+  padding: 4px 10px;
+  border-radius: $radius-pill;
+  background: #e8f5e9;
+  color: #1b5e20;
+  font-size: 11.5px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+.cdUniTag--muted { background: #f1f5f9; color: $muted; }
+.cdUniNote { font-size: 12.5px; line-height: 1.55; color: $muted; margin: -6px 0 14px !important; strong { color: $ink; } }
+.cdUniMeta {
+  display: flex;
+  gap: 12px;
+  margin: 0 0 18px;
+  div { flex: 1; padding: 10px 12px; border-radius: 10px; background: #f4f8fc; }
+  dt { font-size: 11px; font-weight: 700; color: $muted; text-transform: uppercase; letter-spacing: 0.4px; }
+  dd { margin: 2px 0 0; font-size: 14px; font-weight: 800; color: $ink; }
+}
+.cdUniActions { display: flex; gap: 10px; margin-top: auto; }
+.cdUniView,
+.cdUniEnquire {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+.cdUniView { border: 1.5px solid $teal; color: $teal !important; background: #fff; &:hover { background: #f0fafb; } }
+.cdUniEnquire { border: none; background: $teal; color: #fff; &:hover { background: $deep-teal; } }
+
+/* ── Specialisations ──────────────────────────────────────────── */
+.cdSpecGrid { list-style: none; display: flex; flex-wrap: wrap; gap: 12px; }
+.cdSpecChip {
+  padding: 11px 18px;
+  border-radius: 12px;
+  background: #fff;
+  border: 1px solid #d5f0f3;
+  font-size: 14px;
+  font-weight: 600;
+  color: $ink;
+  box-shadow: 0 2px 6px rgba(18, 49, 72, 0.03);
+  &::before { content: "◆"; color: $yellow; font-size: 10px; margin-right: 8px; vertical-align: 2px; }
+}
+
+/* ── Syllabus ─────────────────────────────────────────────────── */
+.cdSyllabusGrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+.cdSyllabusCard {
+  border-radius: 16px;
+  background: #fff;
+  border: 1px solid #e8edf1;
+  overflow: hidden;
+  h3 {
+    font-size: 15px !important;
+    font-weight: 800;
+    padding: 14px 20px;
+    background: #e5f7f8;
+    color: $deep-teal;
+  }
+  ul { list-style: none; padding: 10px 20px 16px; }
+  li {
+    position: relative;
+    padding: 9px 0 9px 18px;
+    font-size: 13.5px;
+    line-height: 1.5;
+    color: #3f4b5e;
+    border-bottom: 1px dashed #edf2f4;
+    &:last-child { border-bottom: none; }
+    &::before { content: ""; position: absolute; left: 0; top: 16px; width: 7px; height: 7px; border-radius: 50%; background: $teal; }
+  }
+}
+
+/* ── FAQs ─────────────────────────────────────────────────────── */
+.cdFaqList { max-width: 880px; display: flex; flex-direction: column; gap: 10px; }
+.cdFaqItem {
+  border: 1px solid #e8edf1;
+  border-radius: 12px;
+  background: #fff;
+  overflow: hidden;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.cdFaqItem--open { border-color: #b9e6ee; box-shadow: 0 6px 18px rgba(7, 157, 180, 0.08); }
+.cdFaqQ {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 20px;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 15px;
+  font-weight: 700;
+  color: $ink;
+  cursor: pointer;
+  .cdFaqItem--open & { color: $deep-teal; }
+}
+.cdFaqToggle {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #f0fafb;
+  color: $teal;
+  font-size: 18px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.cdFaqA { padding: 0 20px 18px; p { font-size: 14px; line-height: 1.75; color: #3f4b5e; } }
+
+/* ── Related / index cards ────────────────────────────────────── */
+.cdRelatedGrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
+.cdRelatedCard {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 20px;
+  border-radius: 14px;
+  background: #fff;
+  border: 1px solid #e8edf1;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  &:hover { transform: translateY(-3px); border-color: $teal; box-shadow: 0 12px 28px rgba(7, 157, 180, 0.12); }
+}
+.cdRelatedName { font-size: 16px; font-weight: 800; color: $ink; line-height: 1.35; }
+.cdRelatedMeta { font-size: 13px; font-weight: 600; color: $muted-light; }
+.cdRelatedDesc { font-size: 13px; line-height: 1.55; color: $muted; margin-top: 4px; }
+.cdRelatedMore { margin-top: auto; padding-top: 10px; font-size: 13px; font-weight: 700; color: $teal; }
+
+/* ================================================================
+   RESPONSIVE
+   ================================================================ */
+@media (max-width: 1100px) {
+  .cdHeroCard { flex-basis: 330px; }
+  .cdOverview { grid-template-columns: 1fr; }
+  .cdBanner, .cdBannerImgBtn { max-width: 560px; }
+  .cdBenefitGrid, .cdDocGrid { grid-template-columns: repeat(2, 1fr); }
+  .cdSteps { grid-template-columns: repeat(3, 1fr); }
+  .cdStep:nth-child(3)::after { display: none; }
+}
+
+@media (max-width: 900px) {
+  .cdHeroInner { flex-direction: column; align-items: stretch; padding: 24px 20px 32px; gap: 28px; }
+  .cdHeroCard { flex-basis: auto; max-width: 520px; }
+  .cdNavList { padding: 0 12px; }
+  .cdSection { padding: 40px 20px; }
+  .cdSection--tight { padding-top: 24px; padding-bottom: 24px; }
+  .cdEligibility { grid-template-columns: 1fr; }
+  .cdCtaBand { flex-direction: column; align-items: flex-start; padding: 26px 22px; }
+}
+
+@media (max-width: 640px) {
+  .cdHeroTagline { font-size: 15px; }
+  .cdHeroCtas { flex-direction: column; }
+  .cdBtnPrimary, .cdBtnSecondary, .cdBtnYellow { width: 100%; }
+  .cdFactChip { font-size: 12px; padding: 6px 11px; }
+  .cdNavItem { padding: 13px 12px; font-size: 12.5px; }
+  .cdBenefitGrid, .cdDocGrid, .cdFeeStats { grid-template-columns: 1fr; }
+  .cdSteps { grid-template-columns: 1fr; }
+  .cdStep::after { display: none; }
+  .cdStep { display: grid; grid-template-columns: 34px 1fr; column-gap: 14px; h3 { margin-top: 5px !important; } p { grid-column: 2; } }
+  .cdUniGrid, .cdRelatedGrid { grid-template-columns: 1fr; }
+  .cdBannerTitle { font-size: 34px !important; }
+  .cdBanner--sm .cdBannerTitle { font-size: 28px !important; }
+  .cdBanner--xs .cdBannerTitle { font-size: 22px !important; }
+  .cdBannerTagline { font-size: 16px !important; margin-bottom: 16px !important; }
+  .cdBannerBtn { padding: 9px 14px; font-size: 12.5px; }
+}
+
+@media (max-width: 720px) {
+  .cdPage { padding-bottom: 72px; } // room for the sticky mobile CTA
+}
