@@ -1,0 +1,1202 @@
+@use "tokens" as *;
+
+// ============================================================
+// TALK TO A CAREER EXPERT — callback modal
+// Desktop: centred card. Mobile (≤ 560px): bottom sheet.
+// ============================================================
+
+$xp-ink: $ink;
+$xp-muted: $muted;
+$xp-teal: $teal;
+$xp-deep: $deep-teal;
+$xp-yellow: $yellow;
+$xp-line: #e1e8ec;
+$xp-soft: #f3fafb;
+$xp-danger: #d64545;
+$xp-ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+.xpOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100050;
+  display: grid;
+  place-items: center;
+  padding: 24px 16px;
+  overflow-y: auto;
+  background: rgba(10, 22, 38, 0.55);
+  backdrop-filter: blur(6px) saturate(120%);
+  -webkit-backdrop-filter: blur(6px) saturate(120%);
+  animation: xpFade 0.25s ease-out both;
+  font-family: var(--cw-font-sans, inherit);
+}
+
+.xpDialog {
+  position: relative;
+  width: 100%;
+  max-width: 460px;
+  margin: auto;
+  border-radius: 24px;
+  background: #ffffff;
+  color: $xp-ink;
+  box-shadow:
+    0 30px 80px -20px rgba(10, 22, 38, 0.45),
+    0 0 0 1px rgba(255, 255, 255, 0.6) inset;
+  overflow: hidden;
+  isolation: isolate;
+  animation: xpRise 0.45s $xp-ease both;
+
+  svg {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  button {
+    font-family: inherit;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  button:focus-visible,
+  input:focus-visible {
+    outline: none;
+  }
+  button:focus-visible {
+    box-shadow: 0 0 0 3px rgba($xp-teal, 0.35);
+  }
+}
+
+// soft brand glow in the top area
+.xpGlow {
+  position: absolute;
+  inset: -40% -20% auto;
+  height: 320px;
+  z-index: -1;
+  background:
+    radial-gradient(closest-side at 30% 60%, rgba($xp-teal, 0.18), transparent),
+    radial-gradient(closest-side at 75% 45%, rgba($xp-yellow, 0.18), transparent);
+  filter: blur(10px);
+  pointer-events: none;
+}
+
+.xpClose {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 2;
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.85);
+  color: $xp-muted;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(10, 22, 38, 0.08);
+  transition: transform 0.25s $xp-ease, color 0.2s, background 0.2s;
+
+  svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  &:hover {
+    color: $xp-ink;
+    background: #ffffff;
+    transform: rotate(90deg);
+  }
+}
+
+.xpBody {
+  padding: 34px 30px 24px;
+}
+
+// ── Heading ─────────────────────────────────────────────────
+.xpHead {
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+.xpBadge {
+  position: relative;
+  width: 58px;
+  height: 58px;
+  margin: 0 auto 14px;
+  display: grid;
+  place-items: center;
+  border-radius: 18px;
+  color: #ffffff;
+  background: linear-gradient(140deg, #1bb8cd 0%, $xp-teal 45%, $xp-deep 100%);
+  box-shadow: 0 12px 24px -8px rgba($xp-teal, 0.6);
+
+  svg {
+    width: 26px;
+    height: 26px;
+    animation: xpRing 2.8s ease-in-out 0.8s infinite;
+    transform-origin: 50% 50%;
+  }
+
+  // pulse ring
+  &::after {
+    content: "";
+    position: absolute;
+    inset: -6px;
+    border-radius: 22px;
+    border: 2px solid rgba($xp-teal, 0.35);
+    animation: xpPulse 2.4s ease-out infinite;
+  }
+}
+
+.xpTitle {
+  margin: 0;
+  font-size: 23px !important;
+  line-height: 1.25 !important;
+  font-weight: 700;
+  letter-spacing: -0.4px;
+  color: $xp-ink;
+}
+
+.xpSub {
+  margin: 8px auto 0 !important;
+  max-width: 330px;
+  font-size: 14.5px;
+  line-height: 1.55 !important;
+  color: $xp-muted;
+}
+
+.xpPrefilled {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin: -8px 0 14px !important;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: #1f7a4a;
+  animation: xpFade 0.3s ease-out both;
+
+  .xpTick {
+    width: 14px;
+    height: 14px;
+    stroke-width: 2.6;
+  }
+}
+
+// ── Floating-label fields ───────────────────────────────────
+.xpField {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 56px;
+  border: 1.5px solid $xp-line;
+  border-radius: 14px;
+  background: #ffffff;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+
+  &:hover {
+    border-color: #cfdbe1;
+  }
+
+  &:focus-within {
+    border-color: $xp-teal;
+    box-shadow: 0 0 0 4px rgba($xp-teal, 0.12);
+  }
+
+  &.has-error {
+    border-color: $xp-danger;
+    box-shadow: 0 0 0 4px rgba($xp-danger, 0.08);
+    animation: xpShake 0.35s ease;
+  }
+}
+
+.xpFieldIcon {
+  flex-shrink: 0;
+  width: 46px;
+  display: grid;
+  place-items: center;
+  color: #9aa7b6;
+  transition: color 0.2s;
+
+  svg {
+    width: 19px;
+    height: 19px;
+  }
+
+  .xpField:focus-within & {
+    color: $xp-teal;
+  }
+}
+
+.xpPrefix {
+  flex-shrink: 0;
+  height: 60%;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 12px 0 14px;
+  margin-right: 2px;
+  border-right: 1.5px solid $xp-line;
+  font-size: 15px;
+  font-weight: 600;
+  color: $xp-ink;
+}
+
+.xpFlag {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.xpInput {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  padding: 18px 14px 4px 0 !important;
+  border: none !important;
+  outline: none;
+  background: transparent !important;
+  box-shadow: none !important;
+  font-size: 15.5px !important;
+  font-weight: 500;
+  color: $xp-ink !important;
+  letter-spacing: 0.1px;
+
+  .xpField--phone & {
+    padding-left: 12px !important;
+    letter-spacing: 0.6px;
+  }
+}
+
+.xpLabel {
+  position: absolute;
+  left: 46px;
+  top: 50%;
+  transform: translateY(-50%);
+  transform-origin: left center;
+  font-size: 15px;
+  color: #8a97a7;
+  pointer-events: none;
+  transition: transform 0.2s $xp-ease, color 0.2s, top 0.2s $xp-ease;
+
+  .xpField--phone & {
+    left: 104px;
+  }
+
+  // float up when focused or filled
+  .xpInput:focus + &,
+  .xpInput:not(:placeholder-shown) + & {
+    top: 15px;
+    transform: translateY(-50%) scale(0.78);
+    color: $xp-teal;
+    font-weight: 600;
+  }
+  .has-error .xpInput:not(:focus) + & {
+    color: $xp-danger;
+  }
+}
+
+.xpValid {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  margin-right: 12px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #e3f7ec;
+  color: #1f9d5c;
+  animation: xpPop 0.3s $xp-ease both;
+
+  .xpTick {
+    width: 14px;
+    height: 14px;
+    stroke-width: 3;
+  }
+}
+
+.xpError {
+  min-height: 18px;
+  margin: 5px 4px 6px !important;
+  font-size: 12.5px;
+  line-height: 1.4 !important;
+  color: $xp-danger;
+}
+
+// ── Timing picker ───────────────────────────────────────────
+.xpTiming {
+  border: none;
+  margin: 4px 0 0;
+  padding: 0;
+  min-width: 0;
+}
+
+.xpLegend {
+  float: none;
+  width: auto;
+  margin: 0 0 10px;
+  padding: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: $xp-ink;
+}
+
+.xpOptions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.xpOption {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: 12px 6px 11px;
+  border: 1.5px solid $xp-line;
+  border-radius: 14px;
+  background: #ffffff;
+  color: $xp-ink;
+  cursor: pointer;
+  text-align: center;
+  transition: border-color 0.2s, background 0.2s, transform 0.2s $xp-ease, box-shadow 0.2s;
+
+  &:hover:not(:disabled):not(.is-active) {
+    border-color: #c5d6dd;
+    transform: translateY(-2px);
+  }
+
+  &:active:not(:disabled) {
+    transform: scale(0.97);
+  }
+
+  &:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+  }
+
+  &.is-active {
+    border-color: $xp-teal;
+    background: $xp-soft;
+    box-shadow: 0 8px 18px -10px rgba($xp-teal, 0.7);
+
+    .xpOptionIcon {
+      color: #ffffff;
+      background: $xp-teal;
+      transform: scale(1.06);
+    }
+
+    // selected tick
+    &::after {
+      content: "";
+      position: absolute;
+      top: 7px;
+      right: 7px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: $xp-yellow;
+      box-shadow: 0 0 0 3px rgba($xp-yellow, 0.25);
+    }
+  }
+}
+
+.xpOptionIcon {
+  width: 34px;
+  height: 34px;
+  margin-bottom: 4px;
+  display: grid;
+  place-items: center;
+  border-radius: 11px;
+  background: #eef6f8;
+  color: $xp-deep;
+  transition: background 0.25s, color 0.25s, transform 0.25s $xp-ease;
+
+  svg {
+    width: 17px;
+    height: 17px;
+  }
+}
+
+.xpOption--asap .xpOptionIcon svg {
+  fill: currentColor;
+  stroke-width: 1.5;
+}
+
+.xpOptionTitle {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.xpOptionHint {
+  font-size: 11.5px;
+  color: $xp-muted;
+  line-height: 1.2;
+}
+
+// expandable schedule panel (grid-rows trick for smooth height)
+.xpSchedule {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition: grid-template-rows 0.35s $xp-ease, opacity 0.25s, margin 0.35s $xp-ease;
+
+  &.is-open {
+    grid-template-rows: 1fr;
+    opacity: 1;
+    margin-top: 12px;
+  }
+}
+
+.xpScheduleInner {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.xpDays {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 2px 2px 8px;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.xpDay {
+  flex: 0 0 62px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  padding: 8px 4px;
+  border: 1.5px solid $xp-line;
+  border-radius: 12px;
+  background: #ffffff;
+  color: $xp-ink;
+  cursor: pointer;
+  scroll-snap-align: start;
+  transition: all 0.2s $xp-ease;
+
+  &:hover:not(.is-active) {
+    border-color: #c5d6dd;
+  }
+
+  &.is-active {
+    border-color: $xp-teal;
+    background: $xp-teal;
+    color: #ffffff;
+
+    .xpDayName,
+    .xpDayMonth {
+      color: rgba(255, 255, 255, 0.85);
+    }
+  }
+}
+
+.xpDayName {
+  font-size: 11px;
+  font-weight: 600;
+  color: $xp-muted;
+}
+
+.xpDayNum {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.xpDayMonth {
+  font-size: 10.5px;
+  color: $xp-muted;
+}
+
+.xpSlots {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.xpSlot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 9px 4px;
+  border: 1.5px dashed #cfdbe1;
+  border-radius: 12px;
+  background: #ffffff;
+  color: $xp-ink;
+  cursor: pointer;
+  transition: all 0.2s $xp-ease;
+
+  strong {
+    font-size: 13px;
+  }
+  span {
+    font-size: 11px;
+    color: $xp-muted;
+  }
+
+  &.is-active {
+    border-style: solid;
+    border-color: $xp-teal;
+    background: $xp-soft;
+
+    strong {
+      color: $xp-deep;
+    }
+  }
+}
+
+// ── Submit ──────────────────────────────────────────────────
+.xpSubmitError {
+  margin: 14px 0 0 !important;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: #fdeeee;
+  color: #b33a3a;
+  font-size: 13px;
+  line-height: 1.4 !important;
+}
+
+.xpSubmit {
+  position: relative;
+  width: 100%;
+  min-height: 54px;
+  margin-top: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: none;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #12b0c6 0%, $xp-teal 50%, $xp-deep 100%);
+  background-size: 160% 100%;
+  background-position: 0% 0;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: 0 14px 28px -12px rgba($xp-teal, 0.75);
+  transition: background-position 0.4s $xp-ease, transform 0.2s $xp-ease, box-shadow 0.25s;
+
+  // sheen
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -60%;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+    transform: skewX(-20deg);
+    transition: left 0.6s $xp-ease;
+  }
+
+  &:hover:not(:disabled) {
+    background-position: 100% 0;
+    transform: translateY(-1px);
+    box-shadow: 0 18px 32px -12px rgba($xp-teal, 0.85);
+
+    &::before {
+      left: 130%;
+    }
+    .xpArrow {
+      transform: translateX(4px);
+    }
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0) scale(0.99);
+  }
+
+  &:disabled {
+    cursor: progress;
+    opacity: 0.85;
+  }
+
+  &:focus-visible {
+    box-shadow: 0 0 0 4px rgba($xp-teal, 0.3), 0 14px 28px -12px rgba($xp-teal, 0.75) !important;
+  }
+}
+
+.xpArrow {
+  width: 18px;
+  height: 18px;
+  stroke-width: 2.4;
+  transition: transform 0.25s $xp-ease;
+}
+
+.xpSpinner {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2.5px solid rgba(255, 255, 255, 0.35);
+  border-top-color: #ffffff;
+  animation: xpSpin 0.7s linear infinite;
+}
+
+.xpSafe {
+  margin: 14px 0 0 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 12.5px;
+  color: $xp-muted;
+
+  svg {
+    width: 14px;
+    height: 14px;
+    color: #1f9d5c;
+  }
+}
+
+// ── Success state ───────────────────────────────────────────
+.xpSuccess {
+  position: relative;
+  text-align: center;
+  padding-top: 40px;
+  animation: xpFade 0.35s ease-out both;
+
+  .xpSub {
+    max-width: 300px;
+  }
+}
+
+.xpCheck {
+  position: relative;
+  width: 84px;
+  height: 84px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #e9fbf2, #d7f4e5);
+  box-shadow: 0 12px 30px -10px rgba(31, 157, 92, 0.55);
+  animation: xpPop 0.5s $xp-ease both;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.xpCheckCircle {
+  stroke: #1f9d5c;
+  stroke-width: 2.5;
+  stroke-dasharray: 151;
+  stroke-dashoffset: 151;
+  animation: xpDraw 0.6s $xp-ease 0.15s forwards;
+}
+
+.xpCheckMark {
+  stroke: #1f9d5c;
+  stroke-width: 3.5;
+  stroke-dasharray: 36;
+  stroke-dashoffset: 36;
+  animation: xpDraw 0.4s $xp-ease 0.6s forwards;
+}
+
+// small celebratory burst behind the check
+.xpBurst {
+  position: absolute;
+  top: 82px;
+  left: 50%;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+
+  span {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+    background: $xp-teal;
+    opacity: 0;
+    transform: rotate(calc(var(--i) * 30deg)) translateY(0);
+    animation: xpBurst 0.9s $xp-ease 0.55s forwards;
+
+    &:nth-child(3n) {
+      background: $xp-yellow;
+      border-radius: 50%;
+    }
+    &:nth-child(3n + 1) {
+      background: #1f9d5c;
+      width: 6px;
+      height: 10px;
+    }
+  }
+}
+
+.xpSuccessEyebrow {
+  display: inline-block;
+  margin: 0 0 8px !important;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: #e3f7ec;
+  color: #1f7a4a;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+.xpSummary {
+  margin-top: 22px;
+  padding: 6px 16px;
+  border: 1px solid $xp-line;
+  border-radius: 16px;
+  background: linear-gradient(180deg, #fbfdfe, $xp-soft);
+  text-align: left;
+}
+
+.xpSummaryRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+
+  & + & {
+    border-top: 1px dashed $xp-line;
+  }
+
+  > div {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+  }
+}
+
+.xpSummaryIcon {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: 11px;
+  background: #ffffff;
+  color: $xp-teal;
+  box-shadow: 0 2px 8px rgba(10, 22, 38, 0.06);
+
+  svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+.xpSummaryLabel {
+  font-size: 12px;
+  color: $xp-muted;
+}
+
+.xpSummaryValue {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: $xp-ink;
+}
+
+// ── Mobile: bottom sheet ────────────────────────────────────
+@media (max-width: 560px) {
+  .xpOverlay {
+    place-items: end center;
+    padding: 0;
+  }
+
+  .xpDialog {
+    max-width: none;
+    margin: 0;
+    max-height: 94dvh;
+    overflow-y: auto;
+    border-radius: 24px 24px 0 0;
+    animation: xpSheet 0.45s $xp-ease both;
+    overscroll-behavior: contain;
+
+    // grab handle
+    &::before {
+      content: "";
+      position: sticky;
+      top: 8px;
+      display: block;
+      width: 40px;
+      height: 4px;
+      margin: 8px auto -12px;
+      border-radius: 4px;
+      background: #d6e0e5;
+      z-index: 3;
+    }
+  }
+
+  .xpBody {
+    padding: 26px 18px calc(18px + env(safe-area-inset-bottom));
+  }
+
+  .xpTitle {
+    font-size: 21px !important;
+  }
+
+  .xpOptions {
+    gap: 8px;
+  }
+
+  .xpOptionHint {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 360px) {
+  .xpBody {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+  .xpOption {
+    padding: 10px 4px;
+  }
+  .xpOptionTitle {
+    font-size: 13px;
+  }
+}
+
+// ── Animations ──────────────────────────────────────────────
+@keyframes xpFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes xpRise {
+  from { opacity: 0; transform: translateY(24px) scale(0.96); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes xpSheet {
+  from { transform: translateY(100%); }
+  to { transform: none; }
+}
+@keyframes xpPulse {
+  0% { opacity: 0.9; transform: scale(0.92); }
+  100% { opacity: 0; transform: scale(1.25); }
+}
+@keyframes xpRing {
+  0%, 60%, 100% { transform: rotate(0); }
+  64% { transform: rotate(-14deg); }
+  68% { transform: rotate(12deg); }
+  72% { transform: rotate(-10deg); }
+  76% { transform: rotate(8deg); }
+  80% { transform: rotate(0); }
+}
+@keyframes xpShake {
+  25% { transform: translateX(-4px); }
+  50% { transform: translateX(4px); }
+  75% { transform: translateX(-2px); }
+}
+@keyframes xpPop {
+  from { opacity: 0; transform: scale(0.5); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes xpSpin {
+  to { transform: rotate(360deg); }
+}
+@keyframes xpDraw {
+  to { stroke-dashoffset: 0; }
+}
+@keyframes xpBurst {
+  0% { opacity: 1; transform: rotate(calc(var(--i) * 30deg)) translateY(0) scale(0.6); }
+  100% { opacity: 0; transform: rotate(calc(var(--i) * 30deg)) translateY(-70px) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .xpOverlay,
+  .xpDialog,
+  .xpSuccess,
+  .xpCheck,
+  .xpBadge svg,
+  .xpBadge::after,
+  .xpBurst span,
+  .xpField.has-error {
+    animation: none !important;
+  }
+  .xpCheckCircle,
+  .xpCheckMark {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+  .xpSchedule {
+    transition: none;
+  }
+}
+
+// ============================================================
+// COMPACT SIZING — matches the Register pop-up's proportions
+// (48px fields & button, tighter heading and spacing)
+// ============================================================
+.xpBody {
+  padding: 26px 28px 20px;
+}
+
+.xpHead {
+  margin-bottom: 16px;
+}
+
+.xpBadge {
+  width: 44px;
+  height: 44px;
+  margin-bottom: 10px;
+  border-radius: 14px;
+
+  svg {
+    width: 21px;
+    height: 21px;
+  }
+
+  &::after {
+    inset: -5px;
+    border-radius: 17px;
+  }
+}
+
+.xpTitle {
+  font-size: 20px !important;
+}
+
+.xpSub {
+  margin-top: 4px !important;
+  font-size: 13.5px;
+  line-height: 1.45 !important;
+}
+
+.xpPrefilled {
+  margin: -6px 0 10px !important;
+  font-size: 12px;
+}
+
+.xpClose {
+  top: 12px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+// fields
+.xpField {
+  height: 48px;
+  border-radius: 12px;
+}
+
+.xpFieldIcon {
+  width: 42px;
+
+  svg {
+    width: 17px;
+    height: 17px;
+  }
+}
+
+.xpInput {
+  padding-top: 15px !important;
+  font-size: 14.5px !important;
+}
+
+.xpLabel {
+  left: 42px;
+  font-size: 14px;
+
+  .xpField--phone & {
+    left: 100px;
+  }
+
+  .xpInput:focus + &,
+  .xpInput:not(:placeholder-shown) + & {
+    top: 12px;
+  }
+}
+
+.xpPrefix {
+  font-size: 14px;
+  padding-left: 12px;
+}
+
+.xpValid {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+// error text only takes space when there is an error
+.xpError {
+  min-height: 0;
+  margin: 4px 4px 0 !important;
+  font-size: 12px;
+
+  &:empty {
+    display: none;
+  }
+}
+
+.xpField + .xpError,
+.xpError + .xpField,
+.xpField + .xpField {
+  margin-top: 12px;
+}
+.xpField + .xpError {
+  margin-top: 4px !important;
+}
+
+// timing
+.xpTiming {
+  margin-top: 14px;
+}
+
+.xpLegend {
+  margin-bottom: 8px;
+  font-size: 13.5px;
+}
+
+.xpOptions {
+  gap: 8px;
+}
+
+.xpOption {
+  gap: 1px;
+  padding: 8px 4px 7px;
+  border-radius: 12px;
+}
+
+.xpOptionIcon {
+  width: 28px;
+  height: 28px;
+  margin-bottom: 3px;
+  border-radius: 9px;
+
+  svg {
+    width: 15px;
+    height: 15px;
+  }
+}
+
+.xpOptionTitle {
+  font-size: 13px;
+}
+
+.xpOptionHint {
+  font-size: 11px;
+}
+
+.xpSchedule.is-open {
+  margin-top: 10px;
+}
+
+.xpDay {
+  flex-basis: 56px;
+  padding: 6px 4px;
+}
+
+.xpDayNum {
+  font-size: 16px;
+}
+
+.xpSlot {
+  padding: 7px 4px;
+}
+
+// submit
+.xpSubmit {
+  min-height: 48px;
+  margin-top: 16px;
+  border-radius: 12px;
+  font-size: 15px;
+}
+
+.xpSubmitError {
+  margin-top: 12px !important;
+  padding: 8px 12px;
+  font-size: 12.5px;
+}
+
+.xpSafe {
+  margin-top: 10px !important;
+  font-size: 12px;
+}
+
+// success state
+.xpSuccess {
+  padding-top: 30px;
+}
+
+.xpCheck {
+  width: 68px;
+  height: 68px;
+  margin-bottom: 12px;
+}
+
+.xpBurst {
+  top: 64px;
+}
+
+.xpSummary {
+  margin-top: 16px;
+  padding: 2px 14px;
+}
+
+.xpSummaryRow {
+  padding: 10px 0;
+}
+
+.xpSummaryIcon {
+  width: 32px;
+  height: 32px;
+}
+
+@media (max-width: 560px) {
+  .xpBody {
+    padding: 22px 16px calc(16px + env(safe-area-inset-bottom));
+  }
+
+  .xpTitle {
+    font-size: 19px !important;
+  }
+}
+
+// Context chip — shown when opened from a university / program
+.xpContext {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  max-width: 100%;
+  margin-top: 10px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: #eef8fa;
+  border: 1px solid rgba($teal, 0.18);
+  color: $deep-teal;
+  font-size: 12.5px;
+  line-height: 1.35;
+
+  svg {
+    flex-shrink: 0;
+    width: 15px;
+    height: 15px;
+  }
+
+  span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  strong {
+    font-weight: 700;
+    color: $ink;
+  }
+}

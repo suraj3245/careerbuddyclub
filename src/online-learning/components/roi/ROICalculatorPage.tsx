@@ -302,7 +302,7 @@ export default function ROICalculator({
         const fees = parseFee(c.pivot?.fee);
         if (fees === 0) return;
 
-        const duration = parseDuration(c.duration);
+        const duration = parseDuration(c.duration ?? undefined);
 
         courses.push({
           id: c.id,

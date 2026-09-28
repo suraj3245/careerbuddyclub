@@ -5,9 +5,11 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import LoginPopup from "@/online-learning/components/LoginPopup";
+import { openExpertModal } from "@/online-learning/components/ExpertCallbackModal";
 
 import { fetchOnlineStreams, Stream } from "@/online-learning/data/api";
 import { universitiesData } from "@/online-learning/components/universities/universityData";
+import { getCourseHref } from "@/online-learning/data/courseSlugs";
 
 const getCourseImage = (courseName?: string) => {
   if (!courseName) return '/assets/images/courses/online-mba.png';
@@ -115,11 +117,38 @@ export default function Header({ initialStreams = [] }: { initialStreams?: Strea
     if (!mobileStream && exploreData.length > 0) setMobileStream(exploreData[0].title);
   }, [exploreData, mobileStream]);
 
-  // Close the drawer whenever the route changes
+  // Close the drawer / dropdowns whenever the route changes
   useEffect(() => {
     closeMobileMenu();
     setExploreOpen(false);
+    setUniversitiesOpen(false);
   }, [pathname]);
+
+  // Prefetch every university page in the background once the header is
+  // idle, so clicking a university swaps the URL and page instantly instead
+  // of waiting for the server. (Prefetching only runs in production builds.)
+  const universitySlugsKey = onlineUniversities
+    .map((c) => getCollegeSlug(c.college_full_name))
+    .join("|");
+
+  useEffect(() => {
+    if (!universitySlugsKey) return;
+    const prefetchAll = () =>
+      universitySlugsKey
+        .split("|")
+        .forEach((slug) => router.prefetch(`/online-university/${slug}`));
+
+    const w = window as Window & {
+      requestIdleCallback?: (cb: () => void) => number;
+      cancelIdleCallback?: (id: number) => void;
+    };
+    if (w.requestIdleCallback) {
+      const id = w.requestIdleCallback(prefetchAll);
+      return () => w.cancelIdleCallback?.(id);
+    }
+    const t = window.setTimeout(prefetchAll, 1500);
+    return () => window.clearTimeout(t);
+  }, [universitySlugsKey, router]);
 
   // Drawer open: lock page scroll, close on Escape, move focus into drawer.
   // Drawer closed: return focus to the hamburger.
@@ -316,7 +345,7 @@ export default function Header({ initialStreams = [] }: { initialStreams?: Strea
                       return (
                         <Link 
                           key={course.id || course.name} 
-                          href={`/course/${course.id}`} 
+                          href={getCourseHref(course.name)} 
                           className="exploreCourseCard"
                           onClick={(e) => {
                             if (!isLoggedIn) {
@@ -398,6 +427,7 @@ export default function Header({ initialStreams = [] }: { initialStreams?: Strea
                         <Link 
                           key={college.id} 
                           href={`/online-university/${collegeSlug}`} 
+                          onClick={() => setUniversitiesOpen(false)}
                           style={{
                             padding: '10px 15px',
                             display: 'flex',
@@ -535,10 +565,15 @@ export default function Header({ initialStreams = [] }: { initialStreams?: Strea
         )}
 
         {/* Expert */}
-        <a className="expertButton" href="#counselling">
+        <button
+          type="button"
+          className="expertButton"
+          onClick={openExpertModal}
+          aria-haspopup="dialog"
+        >
           Talk to an Expert
           <span className="buttonArrow">→</span>
-        </a>
+        </button>
       </div>
     </header>
 
@@ -590,9 +625,17 @@ export default function Header({ initialStreams = [] }: { initialStreams?: Strea
             <span className="mobileNavUserName">Hi, {userName}</span>
           </div>
         )}
-        <a className="mobileNavExpert" href="#counselling" onClick={closeMobileMenu}>
+        <button
+          type="button"
+          className="mobileNavExpert"
+          aria-haspopup="dialog"
+          onClick={() => {
+            closeMobileMenu();
+            openExpertModal();
+          }}
+        >
           Talk to an Expert <span aria-hidden="true">→</span>
-        </a>
+        </button>
       </div>
 
       {/* Scrollable menu body */}
@@ -634,7 +677,7 @@ export default function Header({ initialStreams = [] }: { initialStreams?: Strea
                       {mobileCourses.map((course) => (
                         <Link
                           key={course.id || course.name}
-                          href={`/course/${course.id}`}
+                          href={getCourseHref(course.name)}
                           className="mobileCourseCard"
                           onClick={(e) => {
                             if (!isLoggedIn) {
@@ -757,4 +800,4 @@ export default function Header({ initialStreams = [] }: { initialStreams?: Strea
     />
     </>
   );
-}
+}

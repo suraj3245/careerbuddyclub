@@ -1,4 +1,16 @@
 export async function fetchCollegesData() {
+  // The API can be unreachable or slow (e.g. during `next build`). Never let a
+  // network failure crash the page/build — fall back to empty data instead;
+  // `revalidate` refreshes it once the API responds again.
+  try {
+    return await loadCollegesData();
+  } catch (error) {
+    console.error("Error fetching colleges data:", error);
+    return { colleges: [], streams: [] };
+  }
+}
+
+async function loadCollegesData() {
   const [collegesRes, streamsRes] = await Promise.all([
     fetch("https://test.careerbuddyclub.com:8080/api/students/getallcollegesdetails", {
       method: "POST",

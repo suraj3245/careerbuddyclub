@@ -17,7 +17,7 @@ import LearningExperience from "./LearningExperience";
 
 import StudentStories from "./StudentStories";
 import FAQAccordion from "./FAQAccordion";
-import EnquiryForm from "./EnquiryForm";
+import { openExpertModal } from "@/online-learning/components/ExpertCallbackModal";
 import { StickyMobileCTA } from "./StickyMobileCTA";
 
 interface Props {
@@ -34,15 +34,16 @@ const SECTIONS = [
 ];
 
 export default function UniversityProfilePage({ university }: Props) {
-  const [enquiryOpen, setEnquiryOpen] = useState(false);
-  const [preselectedProgram, setPreselectedProgram] = useState<string>("");
   const [activeSection, setActiveSection] = useState("overview");
 
-  const openEnquiry = useCallback((programName?: string) => {
-    if (programName) setPreselectedProgram(programName);
-    else setPreselectedProgram("");
-    setEnquiryOpen(true);
-  }, []);
+  // Every enquiry CTA on this page (hero buttons, "Read more" on programs,
+  // sticky mobile bar) opens the site-wide "Talk to a Career Expert" modal,
+  // tagged with this university and — when relevant — the program.
+  const openEnquiry = useCallback(
+    (programName?: string) =>
+      openExpertModal({ university: university.name, program: programName || "" }),
+    [university.name]
+  );
 
   // Scroll spy
   useEffect(() => {
@@ -119,15 +120,6 @@ export default function UniversityProfilePage({ university }: Props) {
           totalPrograms={university.totalPrograms}
         />
       </div>
-
-      {/* Enquiry Form Modal */}
-      <EnquiryForm
-        isOpen={enquiryOpen}
-        onClose={() => setEnquiryOpen(false)}
-        universityName={university.name}
-        programs={university.courses.map((c) => ({ id: c.id, name: c.name }))}
-        preselectedProgram={preselectedProgram}
-      />
 
       {/* Sticky Mobile CTA */}
       <StickyMobileCTA onEnquiryOpen={() => openEnquiry()} />

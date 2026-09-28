@@ -61,12 +61,12 @@ const Footer = () => {
             <div className={styles.linkGroup}>
               <h3 className={styles.groupTitle}>PROGRAMMES</h3>
               <ul className={styles.linkList}>
-                <li><a href="#">Online MBA</a></li>
-                <li><a href="#">Online MCA</a></li>
-                <li><a href="#">Online BBA</a></li>
-                <li><a href="#">Online BCA</a></li>
-                <li><a href="#">Online M.Com</a></li>
-                <li><a href="#">Online MA</a></li>
+                <li><a href="/online-course/online-mba">Online MBA</a></li>
+                <li><a href="/online-course/online-mca">Online MCA</a></li>
+                <li><a href="/online-course/online-bba">Online BBA</a></li>
+                <li><a href="/online-course/online-bca">Online BCA</a></li>
+                <li><a href="/online-course/online-mcom">Online M.Com</a></li>
+                <li><a href="/online-course/online-ma">Online MA</a></li>
                 
               </ul>
             </div>

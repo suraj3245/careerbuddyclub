@@ -148,7 +148,7 @@ const buildCollegeData = (
       if (!streamTitle) return;
 
       const courseName = course.name || "Unknown Course";
-      const duration = parseDuration(course.duration);
+      const duration = parseDuration(course.duration ?? undefined);
       const fees = parseFee(course.pivot?.fee);
 
       if (fees === 0) return; // skip courses with no fee data
