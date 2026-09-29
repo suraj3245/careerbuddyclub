@@ -9,15 +9,43 @@ import { openExpertModal } from "@/online-learning/components/ExpertCallbackModa
 
 import { fetchOnlineStreams, Stream } from "@/online-learning/data/api";
 import { universitiesData } from "@/online-learning/components/universities/universityData";
-import { getCourseHref } from "@/online-learning/data/courseSlugs";
+import { getCourseHref, getCourseSlug } from "@/online-learning/data/courseSlugs";
 
-const getCourseImage = (courseName?: string) => {
-  if (!courseName) return '/assets/images/courses/online-mba.png';
-  const normalized = String(courseName).toLowerCase();
-  if (normalized.includes('mba')) return '/assets/images/courses/online-mba.png';
-  if (normalized.includes('mca')) return '/assets/images/courses/online-mca.png';
-  // Fallback to mba if it's not strictly mca or mba, or you can use a default placeholder
-  return '/assets/images/courses/online-mba.png';
+/** Map each course to its dedicated image using the same slug logic as the URL routing. */
+const COURSE_IMAGE_MAP: Record<string, string> = {
+  'online-mba':                    '/assets/images/courses/online-mba.jpg',
+  'one-year-online-mba':           '/assets/images/courses/one-year-online-mba.jpg',
+  'dual-mba-online':               '/assets/images/courses/dual-mba-online.jpg',
+  'mba-and-doctorate-combo':       '/assets/images/courses/mba-and-doctorate-combo.jpg',
+  'executive-mba-online':          '/assets/images/courses/executive-mba-online.jpg',
+  'executive-pg-management-online':'/assets/images/courses/executive-pg-management-online.jpg',
+  'senior-management-programme':   '/assets/images/courses/senior-management-programme.jpg',
+  'phd-in-management':             '/assets/images/courses/phd-in-management.jpg',
+  'phd-in-education':              '/assets/images/courses/phd-in-education.jpg',
+  'phd-in-computer-science':       '/assets/images/courses/phd-in-computer-science.jpg',
+  'med-and-edd-combo':             '/assets/images/courses/med-and-edd-combo.jpg',
+  'online-med':                    '/assets/images/courses/online-med.jpg',
+  'pg-in-ai-online':               '/assets/images/courses/pg-in-ai-online.jpg',
+  'pg-in-data-science-online':     '/assets/images/courses/pg-in-data-science-online.jpg',
+  'online-ma-economics':           '/assets/images/courses/online-ma-economics.jpg',
+  'online-ma-political-science':   '/assets/images/courses/online-ma-political-science.jpg',
+  'online-ma-english':             '/assets/images/courses/online-ma-english.jpg',
+  'online-msc':                    '/assets/images/courses/online-msc.jpg',
+  'online-mcom':                   '/assets/images/courses/online-mcom.jpg',
+  'online-mca':                    '/assets/images/courses/online-mca.jpg',
+  'online-ma':                     '/assets/images/courses/online-ma.jpg',
+  'online-bcom':                   '/assets/images/courses/online-bcom.jpg',
+  'online-bba':                    '/assets/images/courses/online-bba.jpg',
+  'online-bca':                    '/assets/images/courses/online-bca.jpg',
+  'online-ba':                     '/assets/images/courses/online-ba.jpg',
+};
+
+const DEFAULT_COURSE_IMAGE = '/assets/images/courses/default-course.jpg';
+
+const getCourseImage = (courseName?: string): string => {
+  if (!courseName) return DEFAULT_COURSE_IMAGE;
+  const slug = getCourseSlug(courseName);
+  return COURSE_IMAGE_MAP[slug] || DEFAULT_COURSE_IMAGE;
 };
 
 export default function Header({ initialStreams = [] }: { initialStreams?: Stream[] }) {
