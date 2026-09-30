@@ -45,21 +45,21 @@ const COLLEGE_META: Record<
     location: "Noida, Uttar Pradesh",
     rating: 4.8,
     reviews: 1420,
-    logo: "/assets/images/college/amity.logo.jpg",
+    logo: "/assets/images/college/amity.logo.png",
     accreditations: ["NAAC A+", "UGC Entitled", "AICTE Approved"],
   },
   65: {
     location: "Jaipur, Rajasthan",
     rating: 4.8,
     reviews: 2150,
-    logo: "/assets/images/college/manipal.logo.jpg",
+    logo: "/assets/images/college/manipal.logo.png",
     accreditations: ["NAAC A+", "WES Recognized", "UGC Entitled"],
   },
   66: {
     location: "Phagwara, Punjab",
     rating: 4.7,
     reviews: 1980,
-    logo: "/assets/images/college/lpu.logo.jpg",
+    logo: "/assets/images/college/lpu.logo.png",
     accreditations: ["NAAC A++", "UGC Entitled", "NIRF Ranked"],
   },
   67: {
@@ -73,14 +73,14 @@ const COLLEGE_META: Record<
     location: "Bangalore, Karnataka",
     rating: 4.6,
     reviews: 1100,
-    logo: "/assets/images/college/amity.logo.jpg",
+    logo: "/assets/images/college/amity.logo.png",
     accreditations: ["NAAC A++", "UGC Entitled", "AICTE Approved"],
   },
   69: {
     location: "Solan, Himachal Pradesh",
     rating: 4.6,
     reviews: 860,
-    logo: "/assets/images/college/shoolini.logo.jpg",
+    logo: "/assets/images/college/shoolini.logo.png",
     accreditations: ["NAAC A+", "NIRF Top 100", "UGC Entitled"],
   },
 };
@@ -112,7 +112,7 @@ export default function StepResults({ courseId, answers, collegeDetails = [] }: 
           location: "India",
           rating: 4.6,
           reviews: 950,
-          logo: "/assets/images/college/amity.logo.jpg",
+          logo: "/assets/images/college/amity.logo.png",
           accreditations: ["NAAC Accredited", "UGC Entitled"],
         };
 

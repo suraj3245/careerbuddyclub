@@ -111,7 +111,7 @@ export const advisorUniversities: AdvisorUniversity[] = [
   {
     id: "amity-001",
     name: "Amity University Online",
-    logo: "/assets/images/college/amity.logo.jpg",
+    logo: "/assets/images/college/amity.logo.png",
     location: "Noida, India",
     rating: 4.5,
     reviews: 1250,
@@ -130,7 +130,7 @@ export const advisorUniversities: AdvisorUniversity[] = [
   {
     id: "manipal-002",
     name: "Manipal University Jaipur (Online)",
-    logo: "/assets/images/college/manipal.logo.jpg",
+    logo: "/assets/images/college/manipal.logo.png",
     location: "Jaipur, India",
     rating: 4.6,
     reviews: 2100,
@@ -149,7 +149,7 @@ export const advisorUniversities: AdvisorUniversity[] = [
   {
     id: "dy-patil-003",
     name: "D.Y. Patil University (Online)",
-    logo: "/assets/images/college/DY-Patil.logo.jpg",
+    logo: "/assets/images/college/DY-Patil.logo.png",
     location: "Navi Mumbai, India",
     rating: 4.3,
     reviews: 840,
@@ -167,7 +167,7 @@ export const advisorUniversities: AdvisorUniversity[] = [
   {
     id: "lpu-004",
     name: "Lovely Professional University (LPU) Online",
-    logo: "/assets/images/college/lpu.logo.jpg",
+    logo: "/assets/images/college/lpu.logo.png",
     location: "Phagwara, India",
     rating: 4.4,
     reviews: 1800,
@@ -204,7 +204,7 @@ export const advisorUniversities: AdvisorUniversity[] = [
   {
     id: "nmims-006",
     name: "NMIMS Global Access",
-    logo: "/assets/images/college/nmims.logo.jpg",
+    logo: "/assets/images/college/nmims.logo.png",
     location: "Mumbai, India",
     rating: 4.7,
     reviews: 3200,
@@ -223,7 +223,7 @@ export const advisorUniversities: AdvisorUniversity[] = [
   {
     id: "vit-007",
     name: "VIT Online Learning",
-    logo: "/assets/images/college/vit.logo.jpg",
+    logo: "/assets/images/college/vit.logo.png",
     location: "Vellore, India",
     rating: 4.6,
     reviews: 950,
@@ -241,7 +241,7 @@ export const advisorUniversities: AdvisorUniversity[] = [
   {
     id: "jain-008",
     name: "JAIN (Deemed-to-be University) Online",
-    logo: "/assets/images/college/amity.logo.jpg", 
+    logo: "/assets/images/college/amity.logo.png", 
     location: "Bangalore, India",
     rating: 4.4,
     reviews: 1100,
@@ -259,7 +259,7 @@ export const advisorUniversities: AdvisorUniversity[] = [
   {
     id: "shoolini-009",
     name: "Shoolini University Online",
-    logo: "/assets/images/college/shoolini.logo.jpg",
+    logo: "/assets/images/college/shoolini.logo.png",
     location: "Himachal Pradesh, India",
     rating: 4.6,
     reviews: 780,
