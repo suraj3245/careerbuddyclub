@@ -117,9 +117,12 @@ function toCrmValues(f: LeadForm) {
   const college = listedCollege || typedCollege;
   if (!listedCollege) keep("Interested college", typedCollege);
 
-  const prefId = PREFERRED_CITY_IDS[key(f.preferred_city)];
-  const preferredCity = prefId ? String(prefId) : "";
-  if (!preferredCity) keep("Preferred city", f.preferred_city);
+  // Preferred city: the CRM's city ID when the city is in its list, otherwise the
+  // text exactly as the student typed it. Always also shown in Remarks.
+  const typedPrefCity = f.preferred_city.trim().replace(/\s+/g, " ");
+  const prefId = PREFERRED_CITY_IDS[key(typedPrefCity)];
+  const preferredCity = prefId ? String(prefId) : typedPrefCity;
+  keep("Preferred city", typedPrefCity);
 
   const occupation = OCCUPATION_IDS[key(f.father_occupation)] || "";
   if (!occupation) keep("Father's occupation", f.father_occupation);
@@ -190,7 +193,7 @@ export async function POST(request: Request) {
     Field5: crm.stream, // Arts / Science / Commerce
     Field6: crm.college, // interested college (CRM name, or as typed by the student)
     BatchApplied: crm.batch, // 11th / 12th
-    Field7: crm.preferredCity, // prefferedcityID
+    Field7: crm.preferredCity, // prefferedcityID, or the city as typed
     Field8: "", // fee budget id — form ranges don't match the CRM's (kept in Remarks)
     Field3: crm.occupation, // occupationId
     Field9: "", // income text — form ranges don't match the CRM's (kept in Remarks)
