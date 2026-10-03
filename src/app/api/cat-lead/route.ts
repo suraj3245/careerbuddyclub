@@ -5,12 +5,14 @@
  * pushes it to ExtraaEdge's SaveRequest API. Running this on the server keeps
  * the ExtraaEdge AuthToken out of the browser.
  *
- * Field mapping, AuthToken and Source are as in the original PHP script, plus
- * Field2 = school Id (from the CAT form's school dropdown);
- * values are forwarded as received (no trimming or other changes).
+ * Keys, AuthToken and Source are exactly as in the PHP script (action.php), and
+ * values are converted to the PHP form's format by toCrmValues() below.
  */
 
 import { NextResponse } from "next/server";
+import {
+  CITY_NAMES, INTERESTED_COLLEGES, OCCUPATION_IDS, PREFERRED_CITY_IDS, SCORE_CODES, STATES_AND_DISTRICTS,
+} from "./crmLists";
 
 
 const EXTRAAEDGE_URL = "https://thirdpartyapi.extraaedge.com/api/SaveRequest";
@@ -38,7 +40,7 @@ const FORM_KEYS = [
   "Streams", "interested_college_university", "current_education_level",
   "preferred_city", "fee_budget", "father_occupation", "father_income",
   "cbc_membership", "school_name", "address", "state", "district", "city_name",
-  "college", "level", "program", "source", "campaign", "website", "school_id",
+  "college", "level", "program", "source", "campaign", "website",
 ] as const;
 
 type FormKey = (typeof FORM_KEYS)[number];
@@ -64,6 +66,83 @@ function validate(f: LeadForm) {
   if (!f.state) errors.state = "Please select your state";
   if (!f.city_name.trim()) errors.city_name = "Please enter your city";
   return errors;
+}
+
+// ── Form answer -> the value the working PHP form sent to ExtraaEdge ──────────
+const GENDER_CODES: Record<string, string> = { male: "M", female: "F", other: "O" };
+const CLASS_TO_BATCH: Record<string, string> = { "class 11": "11th", "class 12": "12th" };
+/** Our state names -> the CRM's state names (CRM has no Ladakh / Andaman / merged DNH-DD) */
+const STATE_ALIASES: Record<string, string> = {
+  delhi: "Delhi (NCT)", chandigarh: "Chandigarh (UT)", puducherry: "Puducherry (UT)",
+  lakshadweep: "Lakshadweep (UT)",
+};
+const key = (v: string) => v.trim().replace(/\s+/g, " ").toLowerCase();
+
+function crmStream(v: string): string {
+  const k = key(v);
+  if (k.startsWith("science")) return "Science";
+  if (k.startsWith("commerce")) return "Commerce";
+  if (k.startsWith("arts")) return "Arts";
+  return "";
+}
+
+/**
+ * Converts the CAT form's answers into ExtraaEdge's own codes / IDs / names
+ * (same as the PHP form). Anything that has no matching CRM value is sent
+ * empty — like an unselected field in the PHP form — and kept in Remarks
+ * so the counsellor still sees what the student entered.
+ */
+function toCrmValues(f: LeadForm) {
+  const notes: string[] = [];
+  const keep = (label: string, value: string) => {
+    if (value.trim()) notes.push(`${label}: ${value.trim()}`);
+  };
+
+  const gender = GENDER_CODES[key(f.gender)] || "";
+  if (!gender) keep("Gender", f.gender);
+
+  const batch = CLASS_TO_BATCH[key(f.current_education_level)] || "";
+  keep("Class", f.current_education_level); // always useful (CRM has only 11th / 12th)
+
+  const stream = crmStream(f.Streams);
+  keep("Stream", f.Streams); // keeps PCM / PCB / etc.
+
+  const score = SCORE_CODES.find((c) => key(c) === key(f.score)) || "";
+  if (!score) keep("Last exam score (%)", f.score);
+
+  // A college from the CRM's list is sent with the CRM's exact spelling; any other
+  // college the student typed is sent as typed (and also kept in Remarks as a backup).
+  const typedCollege = f.interested_college_university.trim().replace(/\s+/g, " ");
+  const listedCollege = INTERESTED_COLLEGES.find((c) => key(c) === key(typedCollege));
+  const college = listedCollege || typedCollege;
+  if (!listedCollege) keep("Interested college", typedCollege);
+
+  const prefId = PREFERRED_CITY_IDS[key(f.preferred_city)];
+  const preferredCity = prefId ? String(prefId) : "";
+  if (!preferredCity) keep("Preferred city", f.preferred_city);
+
+  const occupation = OCCUPATION_IDS[key(f.father_occupation)] || "";
+  if (!occupation) keep("Father's occupation", f.father_occupation);
+
+  // The form's fee-budget / income ranges differ from the CRM's ranges, so they go to Remarks
+  keep("Fee budget", f.fee_budget);
+  keep("Father's annual income", f.father_income);
+
+  const state =
+    STATE_ALIASES[key(f.state)] ||
+    Object.keys(STATES_AND_DISTRICTS).find((s) => key(s) === key(f.state)) ||
+    "";
+  if (!state) keep("State", f.state);
+
+  const district = (STATES_AND_DISTRICTS[state] || []).find((d) => key(d) === key(f.district)) || "";
+  if (!district) keep("District", f.district);
+
+  const city = CITY_NAMES[key(f.city_name)] || "";
+  if (!city) keep("City", f.city_name);
+
+  const remarks = [f.remarks.trim(), ...notes].filter(Boolean).join(" | ");
+
+  return { gender, batch, stream, score, college, preferredCity, occupation, state, district, city, remarks };
 }
 
 export async function POST(request: Request) {
@@ -95,31 +174,32 @@ export async function POST(request: Request) {
     );
   }
 
-  // Same field mapping as the original PHP script
+  // Same 27 keys, in the same order, as the PHP script (action.php),
+  // with values in the same format the PHP form sent.
+  const crm = toCrmValues(f);
   const payload = {
     AuthToken: AUTH_TOKEN,
     Source: SOURCE,
-    FirstName: f.firstName,
-    Email: f.email,
+    FirstName: f.firstName.trim(),
+    Email: f.email.trim(),
     MobileNumber: f.mobile,
-    Field4: f.score,
-    Remarks: f.remarks,
+    Field4: crm.score, // CAT result code (e.g. "AES") or empty
+    Remarks: crm.remarks,
     AlternateMobileNumber: f.alternate_no,
-    Gender: f.gender,
-    Field5: f.Streams,
-    Field6: f.interested_college_university,
-    BatchApplied: f.current_education_level,
-    Field7: f.preferred_city,
-    Field8: f.fee_budget,
-    Field3: f.father_occupation,
-    Field9: f.father_income,
+    Gender: crm.gender, // M / F / O
+    Field5: crm.stream, // Arts / Science / Commerce
+    Field6: crm.college, // interested college (CRM name, or as typed by the student)
+    BatchApplied: crm.batch, // 11th / 12th
+    Field7: crm.preferredCity, // prefferedcityID
+    Field8: "", // fee budget id — form ranges don't match the CRM's (kept in Remarks)
+    Field3: crm.occupation, // occupationId
+    Field9: "", // income text — form ranges don't match the CRM's (kept in Remarks)
     Field1: f.cbc_membership,
-    Field2: f.school_id, // school Id from Applycbc-Data.xlsx (empty when "Other")
-    sourceTo: f.school_name,
-    Address: f.address,
-    States: f.state,
-    Districts: f.district,
-    City: f.city_name,
+    sourceTo: f.school_name.trim(),
+    Address: f.address.trim(),
+    States: crm.state,
+    Districts: crm.district,
+    City: crm.city,
     Course: f.college,
     Center: f.level,
     Location: f.program,
