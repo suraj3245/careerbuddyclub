@@ -72,7 +72,7 @@ const EMPTY = {
   current_education_level: "", Streams: "", score: "",
   // school_select = the dropdown choice; school_name = what is sent to ExtraaEdge
   school_select: "", school_name: "",
-  interested_college_university: "", preferred_city: "", fee_budget: "",
+  interested_course: "", interested_college_university: "", preferred_city: "", fee_budget: "",
   father_occupation: "", father_income: "",
   address: "", state: "", district: "", city_name: "",
 };
@@ -646,13 +646,16 @@ export default function CatLeadModal() {
                         <TextInput k="school_name" maxLength={120} placeholder="Type your school name" autoFocus />
                       </Field>
                     )}
+                    <Field k="interested_course" label="Preferred Course / Program">
+                      <TextInput k="interested_course" maxLength={100} placeholder="e.g. B.Tech, MBBS, BBA" />
+                    </Field>
                     <Field k="interested_college_university" label="Interested college / university">
                       <TextInput k="interested_college_university" maxLength={120} placeholder="Dream college" />
                     </Field>
                     <Field k="preferred_city" label="Preferred city for study">
                       <TextInput k="preferred_city" maxLength={60} placeholder="e.g. Delhi" />
                     </Field>
-                    <Field k="fee_budget" label="Fee budget (per year)" span="full">
+                    <Field k="fee_budget" label="Fee budget (per year)">
                       <Select k="fee_budget" options={FEE_BUDGETS} />
                     </Field>
                   </Section>

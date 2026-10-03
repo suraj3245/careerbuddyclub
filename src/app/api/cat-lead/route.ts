@@ -37,7 +37,7 @@ const MOBILE_RE = /^[6-9]\d{9}$/;
 /** Form keys accepted from the client (same names as the original PHP $_POST keys). */
 const FORM_KEYS = [
   "firstName", "email", "mobile", "score", "remarks", "alternate_no", "gender",
-  "Streams", "interested_college_university", "current_education_level",
+  "Streams", "interested_course", "interested_college_university", "current_education_level",
   "preferred_city", "fee_budget", "father_occupation", "father_income",
   "cbc_membership", "school_name", "address", "state", "district", "city_name",
   "college", "level", "program", "source", "campaign", "website",
@@ -106,6 +106,11 @@ function toCrmValues(f: LeadForm) {
 
   const stream = crmStream(f.Streams);
   keep("Stream", f.Streams); // keeps PCM / PCB / etc.
+
+  // Preferred course / program: the CRM has no course master list for this form (its "Course"
+  // key holds the CRM's own college/course ID, "Yet to decide"), so the student's
+  // course is sent in Remarks, where counsellors see it on the lead.
+  keep("Preferred Course / Program", f.interested_course.trim().replace(/\s+/g, " "));
 
   const score = SCORE_CODES.find((c) => key(c) === key(f.score)) || "";
   if (!score) keep("Last exam score (%)", f.score);
