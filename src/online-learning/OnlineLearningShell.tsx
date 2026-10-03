@@ -18,6 +18,7 @@ import { AuthProvider } from "@/online-learning/context/AuthContext";
 import Header from "@/online-learning/layout/header/Header";
 import Footer from "@/online-learning/layout/footer/Footer";
 import ExpertCallbackModal from "@/online-learning/components/ExpertCallbackModal";
+import CatLeadModal from "@/online-learning/components/CatLeadModal";
 import { fetchOnlineStreams } from "./data/api";
 
 interface OnlineLearningShellProps {
@@ -47,6 +48,7 @@ export default async function OnlineLearningShell({
           {children}
           {isFooterVisible && <Footer />}
           <ExpertCallbackModal />
+          <CatLeadModal />
         </div>
       </AuthProvider>
     </div>

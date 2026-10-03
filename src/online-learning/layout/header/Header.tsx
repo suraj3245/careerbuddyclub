@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import LoginPopup from "@/online-learning/components/LoginPopup";
 import { openExpertModal } from "@/online-learning/components/ExpertCallbackModal";
+import { openCatLeadModal } from "@/online-learning/components/CatLeadModal";
 
 import { fetchOnlineStreams, Stream } from "@/online-learning/data/api";
 import { universitiesData } from "@/online-learning/components/universities/universityData";
@@ -65,6 +66,39 @@ export default function Header({ initialStreams = [] }: { initialStreams?: Strea
   const profileRef = useRef<HTMLDivElement | null>(null);
   const hamburgerRef = useRef<HTMLButtonElement | null>(null);
   const mobileCloseRef = useRef<HTMLButtonElement | null>(null);
+
+  // CAT flow: login first (if needed) -> CAT lead form -> career-aptitude page.
+  // Remembers that the login popup was opened from the CAT button.
+  const catAfterLoginRef = useRef(false);
+
+  const handleCatClick = () => {
+    let loggedIn = false;
+    try {
+      loggedIn = !!localStorage.getItem("token");
+    } catch {
+      /* storage unavailable — treat as signed out */
+    }
+    if (loggedIn) {
+      openCatLeadModal();
+    } else {
+      catAfterLoginRef.current = true;
+      setSignupOpen(true);
+    }
+  };
+
+  // Login popup closes itself ~1.2s after a successful login (and on cancel)
+  const handleLoginPopupClose = () => {
+    setSignupOpen(false);
+    if (!catAfterLoginRef.current) return;
+    catAfterLoginRef.current = false;
+    let loggedIn = false;
+    try {
+      loggedIn = !!localStorage.getItem("token");
+    } catch {
+      /* ignore */
+    }
+    if (loggedIn) openCatLeadModal();
+  };
 
   const closeMobileMenu = () => {
     setMobileMenuOpen(false);
@@ -592,6 +626,36 @@ export default function Header({ initialStreams = [] }: { initialStreams?: Strea
           </div>
         )}
 
+        {/* CAT - Career Aptitude Test */}
+        <button
+          type="button"
+          className="catButton"
+          onClick={handleCatClick}
+          aria-haspopup="dialog"
+          style={{
+            height: "42px",
+            minWidth: "70px",
+            padding: "0 18px",
+            display: "inline-flex",
+            alignItems: "center",
+            justifyContent: "center",
+            borderRadius: "11px",
+            background: "#eed30d", // theme yellow ($color-four, same as the scrollbar)
+            color: "#254035",
+            fontSize: "15px",
+            fontWeight: 700,
+            fontFamily: "inherit",
+            cursor: "pointer",
+            boxShadow: "0 2px 8px rgba(238, 211, 13, 0.35)",
+            transition: "all 0.2s ease",
+            textDecoration: "none",
+            letterSpacing: "0.5px",
+            border: "1.5px solid #d9bf0b",
+          }}
+        >
+          CAT
+        </button>
+
         {/* Expert */}
         <button
           type="button"
@@ -653,6 +717,36 @@ export default function Header({ initialStreams = [] }: { initialStreams?: Strea
             <span className="mobileNavUserName">Hi, {userName}</span>
           </div>
         )}
+        <button
+          type="button"
+          className="mobileNavCAT"
+          aria-haspopup="dialog"
+          onClick={() => {
+            closeMobileMenu();
+            handleCatClick();
+          }}
+          style={{
+            display: "flex",
+            width: "100%",
+            cursor: "pointer",
+            fontFamily: "inherit",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "8px",
+            padding: "12px 20px",
+            borderRadius: "12px",
+            background: "#eed30d", // theme yellow ($color-four, same as the scrollbar)
+            color: "#254035",
+            fontSize: "15px",
+            fontWeight: 700,
+            textDecoration: "none",
+            border: "1.5px solid #d9bf0b",
+            letterSpacing: "0.5px",
+          }}
+        >
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/><path d="M8 7h6"/><path d="M8 11h8"/></svg>
+          CAT
+        </button>
         <button
           type="button"
           className="mobileNavExpert"
@@ -824,7 +918,7 @@ export default function Header({ initialStreams = [] }: { initialStreams?: Strea
     {/* Login Popup */}
     <LoginPopup
       isOpen={signupOpen}
-      onClose={() => setSignupOpen(false)}
+      onClose={handleLoginPopupClose}
     />
     </>
   );

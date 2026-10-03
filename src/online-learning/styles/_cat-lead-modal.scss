@@ -1,0 +1,770 @@
+// ============================================================
+// CAT (Career Aptitude Test) LEAD FORM — modal
+// Styled after the Register / Sign-in popup (_signpopup.scss):
+// logo above the card, serif heading, pill inputs, teal pill button.
+// Header + footer are fixed; only the fields scroll.
+// ============================================================
+
+$cl-heading: #002e3b;
+$cl-text: #0f172a;
+$cl-body: #475569;
+$cl-muted: #64748b;
+$cl-placeholder: #94a3b8;
+$cl-border: #cbd5e1;
+$cl-line: #e2e8f0;
+$cl-teal: #00bfa5;
+$cl-teal-dark: #00a891;
+$cl-teal-soft: #e6faf7;
+$cl-danger: #e11d48;
+$cl-ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+// ── Overlay + logo ──────────────────────────────────────────
+.clOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100050;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow: hidden; // the card scrolls inside, never the overlay
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  animation: clFade 0.3s ease both;
+}
+
+.clBrand {
+  flex-shrink: 0;
+  margin-bottom: 18px;
+  animation: clRise 0.3s $cl-ease both;
+
+  img {
+    display: block;
+    height: 46px;
+    width: auto;
+  }
+}
+
+// ── Card ────────────────────────────────────────────────────
+.clDialog {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 760px;
+  // full height minus overlay padding (40) and logo block (64)
+  max-height: calc(100dvh - 104px);
+  min-height: 0;
+  background: #ffffff;
+  border: 1px solid $cl-line;
+  border-radius: 16px;
+  box-shadow: 0 24px 60px -20px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+  color: $cl-text;
+  animation: clRise 0.3s $cl-ease both;
+
+  &.is-success {
+    max-width: 480px;
+  }
+
+  svg {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+}
+
+.clClose {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  z-index: 3;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: $cl-placeholder;
+  cursor: pointer;
+  transition: color 0.2s, transform 0.2s, background 0.2s;
+
+  &:hover {
+    color: $cl-text;
+    background: #f1f5f9;
+    transform: rotate(90deg);
+  }
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px $cl-teal;
+  }
+
+  span {
+    position: absolute;
+    width: 16px;
+    height: 2px;
+    border-radius: 2px;
+    background: currentColor;
+
+    &:first-child { transform: rotate(45deg); }
+    &:last-child { transform: rotate(-45deg); }
+  }
+}
+
+.clForm {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+
+// Header CAT buttons (colours set inline in Header.tsx) — hover feedback
+.catButton:hover {
+  background: #e3c80b !important;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px -4px rgba(238, 211, 13, 0.6) !important;
+}
+
+.mobileNavCAT:active {
+  background: #e3c80b !important;
+}
+
+// ── Fixed header ────────────────────────────────────────────
+.clHead {
+  flex-shrink: 0;
+  padding: 32px 44px 18px;
+  border-bottom: 1px solid $cl-line;
+}
+
+.clEyebrow {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: #fdf6c3;
+  border: 1px solid #eed30d;
+  color: #5c4f00; // theme yellow, matches the header CAT button
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+}
+
+.clTitle {
+  margin: 0 0 6px !important;
+  padding-right: 40px;
+  font-family: serif !important;
+  font-size: 28px !important;
+  line-height: 1.2 !important;
+  font-weight: 700 !important;
+  color: $cl-heading !important;
+}
+
+.clSub {
+  margin: 0 !important;
+  font-size: 15px !important;
+  line-height: 1.5 !important;
+  color: $cl-body !important;
+}
+
+// ── Scrollable body ─────────────────────────────────────────
+.clScroll {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  padding: 6px 44px 22px;
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 transparent;
+
+  // soft shadows show there is more content above / below
+  background:
+    linear-gradient(#ffffff 30%, rgba(255, 255, 255, 0)) top / 100% 24px no-repeat local,
+    linear-gradient(rgba(255, 255, 255, 0), #ffffff 70%) bottom / 100% 24px no-repeat local,
+    radial-gradient(farthest-side at 50% 0, rgba(15, 23, 42, 0.12), transparent) top / 100% 10px no-repeat scroll,
+    radial-gradient(farthest-side at 50% 100%, rgba(15, 23, 42, 0.12), transparent) bottom / 100% 10px no-repeat scroll;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 8px;
+    border: 2px solid #ffffff;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+}
+
+.clSection {
+  padding-top: 20px;
+
+  & + & {
+    margin-top: 6px;
+    border-top: 1px dashed $cl-line;
+  }
+}
+
+.clSectionTitle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 14px !important;
+  font-family: inherit !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  color: $cl-heading !important;
+}
+
+.clStep {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 50%;
+  background: $cl-teal-soft;
+  color: $cl-teal-dark;
+  font-size: 12.5px;
+  font-weight: 700;
+}
+
+.clGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px 18px;
+
+  &--3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.clField {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+
+  &--full {
+    grid-column: 1 / -1;
+  }
+}
+
+.clLabel {
+  margin: 0 0 6px 4px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #334155;
+}
+
+.clReq {
+  margin-left: 2px;
+  color: $cl-danger;
+}
+
+// pill field — same as .signup-input
+.clInputWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 48px;
+  padding: 0 18px;
+  border: 1px solid $cl-border;
+  border-radius: 24px;
+  background: #ffffff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+
+  &:hover {
+    border-color: #94a3b8;
+  }
+
+  &:focus-within {
+    border-color: $cl-teal;
+    box-shadow: 0 0 0 1px $cl-teal, 0 0 0 5px rgba($cl-teal, 0.12);
+  }
+
+  .has-error & {
+    border-color: $cl-danger;
+    box-shadow: 0 0 0 1px $cl-danger;
+  }
+}
+
+.clInput {
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+  padding: 0 !important;
+  border: none !important;
+  outline: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  font-size: 15px !important;
+  color: $cl-text !important;
+
+  &::placeholder {
+    color: $cl-placeholder;
+    opacity: 1;
+  }
+
+  // hide number spinners
+  &[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+// ── Custom dropdown ─────────────────────────────────────────
+.clDropdown {
+  position: relative;
+
+  &.is-open {
+    z-index: 5;
+  }
+}
+
+// trigger looks exactly like the pill inputs
+.clTrigger {
+  width: 100%;
+  gap: 10px;
+  margin: 0;
+  text-align: left;
+  font: inherit;
+  font-size: 15px !important;
+  color: $cl-text !important;
+  cursor: pointer;
+  outline: none !important;
+
+  &.is-empty .clTriggerText {
+    color: $cl-placeholder;
+  }
+
+  &:disabled {
+    background: #f8fafc;
+    border-color: $cl-line;
+    cursor: not-allowed;
+
+    .clChevron {
+      opacity: 0.45;
+    }
+  }
+
+  .clDropdown.is-open & {
+    border-color: $cl-teal;
+    box-shadow: 0 0 0 1px $cl-teal, 0 0 0 5px rgba($cl-teal, 0.12);
+  }
+}
+
+.clTriggerText {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.clChevron {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  color: $cl-muted;
+  stroke-width: 2.2 !important;
+  transition: transform 0.2s $cl-ease, color 0.2s;
+
+  .clDropdown.is-open & {
+    transform: rotate(180deg);
+    color: $cl-teal-dark;
+  }
+}
+
+.clMenu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  width: max(100%, 260px);
+  max-width: calc(100vw - 48px);
+  padding: 6px;
+  background: #ffffff;
+  border: 1px solid $cl-line;
+  border-radius: 18px;
+  box-shadow: 0 18px 40px -12px rgba(15, 23, 42, 0.25), 0 2px 6px rgba(15, 23, 42, 0.06);
+  animation: clMenuIn 0.16s $cl-ease both;
+  scroll-margin: 12px; // breathing room when scrolled into view
+  transform-origin: top center;
+
+  .clDropdown.is-up & {
+    top: auto;
+    bottom: calc(100% + 8px);
+    transform-origin: bottom center;
+  }
+}
+
+.clMenuSearch {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 40px;
+  margin: 0 0 6px;
+  padding: 0 12px;
+  border: 1px solid $cl-line;
+  border-radius: 12px;
+  background: #f8fafc;
+  color: $cl-placeholder;
+
+  &:focus-within {
+    border-color: $cl-teal;
+    background: #ffffff;
+  }
+
+  svg {
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+  }
+
+  input {
+    flex: 1;
+    min-width: 0;
+    height: 100%;
+    padding: 0 !important;
+    border: none !important;
+    outline: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    font-size: 14px !important;
+    color: $cl-text !important;
+
+    &::placeholder {
+      color: $cl-placeholder;
+    }
+  }
+}
+
+.clMenuList {
+  position: relative; // offsetTop of options is measured from the list
+  max-height: 232px;
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  outline: none;
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 transparent;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 6px;
+  }
+}
+
+.clOption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  min-height: 40px;
+  padding: 9px 14px;
+  border-radius: 12px;
+  font-size: 14.5px;
+  line-height: 1.3;
+  color: $cl-text;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.12s, color 0.12s;
+
+  &.is-active {
+    background: #f1f5f9;
+  }
+
+  &.is-selected {
+    background: $cl-teal-soft;
+    color: $cl-teal-dark;
+    font-weight: 600;
+  }
+}
+
+// "Other" choice — always visible at the bottom of a long list
+.clOption--pinned {
+  position: sticky;
+  bottom: 0;
+  margin-top: 4px;
+  border-top: 1px solid $cl-line;
+  border-radius: 0 0 12px 12px;
+  background: #ffffff;
+  color: $cl-teal-dark;
+  font-weight: 600;
+
+  &.is-active {
+    background: #f1f5f9;
+  }
+}
+
+.clCheck {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  stroke-width: 2.8 !important;
+  color: $cl-teal-dark;
+}
+
+.clMenuEmpty {
+  padding: 12px 14px;
+  font-size: 14px;
+  color: $cl-muted;
+}
+
+@keyframes clMenuIn {
+  from { opacity: 0; transform: translateY(-4px) scale(0.98); }
+  to { opacity: 1; transform: none; }
+}
+
+.clCode {
+  flex-shrink: 0;
+  margin-right: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  color: $cl-body;
+}
+
+.clDivider {
+  flex-shrink: 0;
+  width: 1px;
+  height: 20px;
+  margin-right: 12px;
+  background: $cl-border;
+}
+
+.clError {
+  margin: 5px 0 0 16px !important;
+  font-size: 12.5px !important;
+  line-height: 1.4 !important;
+  color: $cl-danger !important;
+}
+
+// honeypot
+.clHp {
+  position: absolute !important;
+  left: -9999px !important;
+  width: 1px !important;
+  height: 1px !important;
+  opacity: 0 !important;
+}
+
+// ── Fixed footer ────────────────────────────────────────────
+.clFoot {
+  flex-shrink: 0;
+  padding: 16px 44px 20px;
+  border-top: 1px solid $cl-line;
+  background: #ffffff;
+}
+
+.clSubmitError {
+  margin: 0 0 12px !important;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: #fff1f2;
+  color: #be123c !important;
+  font-size: 13.5px !important;
+  line-height: 1.4 !important;
+}
+
+// same as .signup-submit
+.clSubmit {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
+  border-radius: 24px;
+  background: $cl-teal;
+  color: #ffffff !important;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none !important;
+  cursor: pointer;
+  box-shadow: 0 10px 22px -12px rgba($cl-teal, 0.9);
+  transition: background 0.2s, transform 0.2s;
+
+  &:hover:not(:disabled) {
+    background: $cl-teal-dark;
+    transform: translateY(-1px);
+  }
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba($cl-teal, 0.35);
+  }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+}
+
+.clLoader {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: clSpin 0.8s linear infinite;
+}
+
+.clSafe {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin: 10px 0 0 !important;
+  font-size: 12.5px !important;
+  color: $cl-muted !important;
+
+  svg {
+    width: 14px;
+    height: 14px;
+    color: #10b981;
+  }
+}
+
+// ── Success ─────────────────────────────────────────────────
+.clSuccess {
+  padding: 44px 40px 36px;
+  text-align: center;
+
+  .clTitle {
+    padding-right: 0;
+  }
+
+  .clSub {
+    margin-bottom: 24px !important;
+  }
+}
+
+.clSuccessCircle {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #10b981;
+  color: #ffffff;
+  font-size: 32px;
+  animation: clPop 0.4s $cl-ease both;
+}
+
+// ── Responsive ──────────────────────────────────────────────
+@media (max-width: 700px) {
+  .clGrid--3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    .clField--full {
+      grid-column: 1 / -1;
+    }
+  }
+}
+
+@media (max-width: 560px) {
+  .clOverlay {
+    padding: 12px;
+  }
+
+  .clBrand {
+    margin-bottom: 12px;
+
+    img {
+      height: 36px;
+    }
+  }
+
+  .clDialog {
+    max-height: calc(100dvh - 72px);
+  }
+
+  .clHead {
+    padding: 24px 20px 14px;
+  }
+
+  .clTitle {
+    font-size: 23px !important;
+  }
+
+  .clSub {
+    font-size: 14px !important;
+  }
+
+  .clScroll {
+    padding: 2px 20px 18px;
+  }
+
+  .clFoot {
+    padding: 12px 20px 16px;
+  }
+
+  .clGrid,
+  .clGrid--3 {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .clSuccess {
+    padding: 36px 22px 28px;
+  }
+}
+
+// very short screens (landscape phones): drop the logo to give fields room
+@media (max-height: 560px) {
+  .clBrand {
+    display: none;
+  }
+  .clDialog {
+    max-height: calc(100dvh - 24px);
+  }
+}
+
+// ── Animations ──────────────────────────────────────────────
+@keyframes clFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes clRise {
+  from { opacity: 0; transform: translateY(20px) scale(0.97); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes clPop {
+  from { transform: scale(0); }
+  to { transform: scale(1); }
+}
+@keyframes clSpin {
+  to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .clOverlay,
+  .clBrand,
+  .clDialog,
+  .clSuccessCircle,
+  .clMenu {
+    animation: none !important;
+  }
+}
