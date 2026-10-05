@@ -184,7 +184,10 @@ const DashboardResult = ({ setIsOpenSidebar }: IProps) => {
   const checkTestStatus = async (): Promise<string> => {
     const token = localStorage.getItem("token");
     const storedStatus = localStorage.getItem("testStatus");
-
+    const studentname = localStorage.getItem("username");
+    if (studentname) {
+      setStudentName(studentname);
+    }
     if (storedStatus) {
       setTestStatus(storedStatus);
       return storedStatus;
@@ -215,7 +218,11 @@ const DashboardResult = ({ setIsOpenSidebar }: IProps) => {
   useEffect(() => {
     const checkAndFetch = async () => {
       try {
-        setShowLoader(true); // Start loader
+        setShowLoader(true); // Start loader\
+        const studentname = localStorage.getItem("username")
+        if(studentname){
+          setStudentName(studentname)
+        }
         const status = await checkTestStatus();
         if (status === "Test completed") {
           await fetchCatResult();
@@ -402,7 +409,7 @@ const DashboardResult = ({ setIsOpenSidebar }: IProps) => {
                           fontStyle: "italic",
                         }}
                       >
-                        Student:  {studentname}
+                        Student: {studentname}
                       </h2>
                     </div>
                     <div className="col-12 col-md-4">
