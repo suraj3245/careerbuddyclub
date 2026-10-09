@@ -4,7 +4,6 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import axios from "axios";
 import dynamic from "next/dynamic";
-import "react-toastify/dist/ReactToastify.css";
 import TopCareer from "../../top-company/top-career";
 import YourCareer from "../../top-company/Your-career";
 import { jsPDF } from "jspdf";
@@ -24,6 +23,7 @@ const DashboardResult = ({ setIsOpenSidebar }: IProps) => {
   const [careerResult, setCareerResult] = useState<any | null>(null);
   const [isLoading, setIsLoading] = useState(true); // Loader flag
   const [showLoader, setShowLoader] = useState(false); // Optional loader control
+  const [studentname, setStudentName] = useState<string>("");
 
   const barColors = [
     "#FF4560",
@@ -40,9 +40,9 @@ const DashboardResult = ({ setIsOpenSidebar }: IProps) => {
   const downloadResultsAsPDF = async () => {
     const input = document.getElementById("resultsContainer");
     const button = document.getElementById("downloadBtn");
-  
+
     if (!input) return;
-  
+
     // 🔹 Hide button temporarily
     let buttonParent: Node | null = null;
     let buttonNextSibling: ChildNode | null = null;
@@ -51,7 +51,7 @@ const DashboardResult = ({ setIsOpenSidebar }: IProps) => {
       buttonNextSibling = button.nextSibling;
       if (buttonParent) buttonParent.removeChild(button);
     }
-  
+
     const canvas = await html2canvas(input, {
       scale: 2,
       useCORS: true,
@@ -72,24 +72,24 @@ const DashboardResult = ({ setIsOpenSidebar }: IProps) => {
       marginRight = 25;
     const usablePageWidth = pageWidth - marginLeft - marginRight;
     const usablePageHeight = pageHeight - marginTop - marginBottom;
-  
+
     const pdf = new jsPDF("p", "pt", "a4");
     let yPosition = 0;
     let pageIndex = 0;
-  
+
     // 🔹 Safe context
     const ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
     if (!ctx) return;
-  
+
     const pageCanvas = document.createElement("canvas");
     const pageContext = pageCanvas.getContext("2d");
-  
+
     while (yPosition < canvas.height) {
       let sliceHeight = (usablePageHeight * canvas.width) / usablePageWidth;
       if (yPosition + sliceHeight > canvas.height) {
         sliceHeight = canvas.height - yPosition;
       }
-  
+
       // --- Smart check: avoid cutting black text/images
       const buffer = 15; // adjust 15px area
       let adjustedSliceHeight = sliceHeight;
@@ -98,9 +98,9 @@ const DashboardResult = ({ setIsOpenSidebar }: IProps) => {
           0,
           yPosition + sliceHeight - buffer,
           canvas.width,
-          buffer
+          buffer,
         );
-  
+
         let hasDarkPixels = false;
         for (let i = 0; i < imageData.data.length; i += 4) {
           const r = imageData.data[i];
@@ -111,12 +111,12 @@ const DashboardResult = ({ setIsOpenSidebar }: IProps) => {
             break;
           }
         }
-  
+
         if (hasDarkPixels) {
           adjustedSliceHeight -= buffer; // move cut a bit up
         }
       }
-  
+
       if (!pageContext) return;
       pageCanvas.width = canvas.width;
       pageCanvas.height = adjustedSliceHeight;
@@ -130,14 +130,13 @@ const DashboardResult = ({ setIsOpenSidebar }: IProps) => {
         0,
         0,
         canvas.width,
-        adjustedSliceHeight
+        adjustedSliceHeight,
       );
-  
+
       const imgData = pageCanvas.toDataURL("image/jpeg", 0.7);
-  
+
       if (pageIndex > 0) pdf.addPage();
-      const imgHeight =
-        (adjustedSliceHeight * usablePageWidth) / canvas.width;
+      const imgHeight = (adjustedSliceHeight * usablePageWidth) / canvas.width;
       pdf.addImage(
         imgData,
         "JPEG",
@@ -146,19 +145,22 @@ const DashboardResult = ({ setIsOpenSidebar }: IProps) => {
         usablePageWidth,
         imgHeight,
         undefined,
-        "FAST"
+        "FAST",
       );
-  
+
       yPosition += adjustedSliceHeight;
       pageIndex++;
     }
-  
+
     pdf.save("Career-Aptitude-Test.pdf");
   };
 
   const fetchCatResult = async () => {
     const token = localStorage.getItem("token");
-
+    const studentname = localStorage.getItem("username");
+    if (studentname) {
+      setStudentName(studentname);
+    }
     if (!token) {
       console.error("Token not found.");
       return;
@@ -170,7 +172,7 @@ const DashboardResult = ({ setIsOpenSidebar }: IProps) => {
         {},
         {
           headers: { Accept: "*/*", Authorization: `Bearer ${token}` },
-        }
+        },
       );
       const data = response.data || {};
       setResults(data);
@@ -182,7 +184,10 @@ const DashboardResult = ({ setIsOpenSidebar }: IProps) => {
   const checkTestStatus = async (): Promise<string> => {
     const token = localStorage.getItem("token");
     const storedStatus = localStorage.getItem("testStatus");
-
+    const studentname = localStorage.getItem("username");
+    if (studentname) {
+      setStudentName(studentname);
+    }
     if (storedStatus) {
       setTestStatus(storedStatus);
       return storedStatus;
@@ -199,7 +204,7 @@ const DashboardResult = ({ setIsOpenSidebar }: IProps) => {
         {},
         {
           headers: { Accept: "*/*", Authorization: `Bearer ${token}` },
-        }
+        },
       );
       const message = res.data?.message || "Unknown";
       setTestStatus(message);
@@ -213,7 +218,11 @@ const DashboardResult = ({ setIsOpenSidebar }: IProps) => {
   useEffect(() => {
     const checkAndFetch = async () => {
       try {
-        setShowLoader(true); // Start loader
+        setShowLoader(true); // Start loader\
+        const studentname = localStorage.getItem("username")
+        if(studentname){
+          setStudentName(studentname)
+        }
         const status = await checkTestStatus();
         if (status === "Test completed") {
           await fetchCatResult();
@@ -237,11 +246,11 @@ const DashboardResult = ({ setIsOpenSidebar }: IProps) => {
     const categories = Object.keys(results)
       .filter(
         (key) =>
-          key.toLowerCase() !== "letters" && key.toLowerCase() !== "resultdata"
+          key.toLowerCase() !== "letters" && key.toLowerCase() !== "resultdata",
       )
       .map(
         (key) =>
-          key.charAt(0).toUpperCase() + key.slice(1).replace("_score", "")
+          key.charAt(0).toUpperCase() + key.slice(1).replace("_score", ""),
       );
 
     const dataPoints = categories
@@ -375,7 +384,7 @@ const DashboardResult = ({ setIsOpenSidebar }: IProps) => {
                 style={{ position: "relative", zIndex: 1, textAlign: "center" }}
               >
                 <div className="container my-5">
-                  <div className="row align-items-center text-center justify-between">
+                  <div className="row align-items-center justify-content-start">
                     <div className="col-12 col-md-8">
                       <h1
                         className="fw-bold display-4"
@@ -387,10 +396,10 @@ const DashboardResult = ({ setIsOpenSidebar }: IProps) => {
                           fontStyle: "italic",
                         }}
                       >
-                        Career Aptitude Test
+                        Career Aptitude Test Result
                       </h1>
                       <h2
-                        className="mb-3 pb-20 text-green"
+                        className="mb-3 pb-10 text-green"
                         style={{
                           fontSize: "28px",
                           lineHeight: "1.4",
@@ -400,7 +409,7 @@ const DashboardResult = ({ setIsOpenSidebar }: IProps) => {
                           fontStyle: "italic",
                         }}
                       >
-                        Quiz Result
+                        Student: {studentname}
                       </h2>
                     </div>
                     <div className="col-12 col-md-4">
@@ -540,7 +549,6 @@ const DashboardResult = ({ setIsOpenSidebar }: IProps) => {
                 </div>
               </div>
             )}
-              
           </div>
         </div>
       )}
