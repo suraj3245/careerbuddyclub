@@ -1,10 +1,7 @@
-import ErrorPageArea from "../components/error/error-page-area";
+import { notFound } from "next/navigation";
 
-
-export default function NotFound() {
-  return (
-    <div>
-      <ErrorPageArea/>
-    </div>
-  );
+// Any URL that doesn't match a real route lands here.
+// notFound() renders app/not-found.tsx with a real HTTP 404 (not 200).
+export default function CatchAllNotFound() {
+  notFound();
 }

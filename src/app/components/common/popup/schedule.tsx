@@ -19,7 +19,7 @@ const ScheduleModal = () => {
               aria-label="Close"
             ></button>
             <div className="text-center">
-              <h2>Schedule a Call</h2>
+              <div className="h2">Schedule a Call</div>
               <p>our expert counsellors will get back to you soon.</p>
             </div>
             <div className="form-wrapper m-auto">

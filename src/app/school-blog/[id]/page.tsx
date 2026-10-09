@@ -1,4 +1,5 @@
 import React from "react";
+import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import Wrapper from "@/layouts/wrapper";
 import CompanyBreadcrumb from "../../components/common/common-breadcrumb";
@@ -50,22 +51,13 @@ export async function generateMetadata(
 const BlogDetailsDynamicPage = ({ params }: { params: { id: string } }) => {
   const blog = blog_data1.find((b) => b.id === params.id);
 
-  if (!blog) {
-    return (
-      <Wrapper>
-        <div className="main-page-wrapper py-5 text-center">
-          <h2>Blog Not Found 😓</h2>
-          <p>We couldn't find the blog you're looking for.</p>
-        </div>
-      </Wrapper>
-    );
-  }
+  if (!blog) notFound();
 
   return (
     <Wrapper>
       <div className="main-page-wrapper">
         <CompanyBreadcrumb
-          title="Insights"
+          title="Insights" asLabel
           subtitle="Read our blog from top talents"
         />
         <CollegeBlogDetailsArea item={blog} />

@@ -71,7 +71,7 @@ const bptDescription = () => {
       <div className="main-page-wrapper">
         {/* ✅ Hero Section */}
         <CompanyBreadcrumb
-          title="Insights"
+          title="Insights" asLabel
           subtitle="Read our blog from top talents"
         />
         <div
@@ -131,9 +131,9 @@ const bptDescription = () => {
                           }}
                         >
                           <div className="card-body">
-                            <h2 className="card-title text-success fs-2">
+                            <div className="h2 card-title text-success fs-2">
                               Table of Contents
-                            </h2>
+                            </div>
                             <ul className="list-unstyled mt-3 mb-0 text-primary lh-lg">
                               <li>
                                 <a
@@ -641,7 +641,7 @@ const bptDescription = () => {
                           on your academic journey.
                           <hr className="mt-10 border-bottom border-3 border-dark mt-4" />
                           {/* Tags*/}
-                          <h2 className="mt-4 mb-3 fs-2">Tags</h2>
+                          <div className="h2 mt-4 mb-3 fs-2">Tags</div>
                           <p>
                             <strong>
                               Pharmacy Colleges in Dehradun, Best D.Pharm

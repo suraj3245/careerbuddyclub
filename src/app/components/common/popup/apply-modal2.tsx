@@ -42,9 +42,9 @@ const ApplyModalSchool = () => {
               aria-label="Close"
             ></button>
             <div className="text-center p-2">
-              <h2 style={{ color: "rgb(20, 173, 189)" }}>
+              <div className="h2" style={{ color: "rgb(20, 173, 189)" }}>
                 Register Your School!
-              </h2>
+              </div>
             </div>
             <div className="form-wrapper m-auto">
               {isSuccess ? (

@@ -86,8 +86,7 @@ const Footer = () => {
             <div className={styles.linkGroup}>
               <h3 className={styles.groupTitle}>CAREER GUIDANCE</h3>
               <ul className={styles.linkList}>
-                <li><a href="#">Talk to a Mentor</a></li>
-                <li><a href="#">Career Counselling</a></li>
+                <li><a href="#">Talk to an Expert</a></li>
                 <li><a href="#">Career Map</a></li>
                 <li><a href="#">Find Your Path</a></li>
               </ul>
@@ -97,7 +96,6 @@ const Footer = () => {
               <h3 className={styles.groupTitle}>RESOURCES</h3>
               <ul className={styles.linkList}>
                 <li><a href="#">Insights & Blogs</a></li>
-                <li><a href="#">UGC Entitlement Explained</a></li>
                 <li><a href="/roi-calculator">ROI Calculator</a></li>
                 <li><a href="#">Student Stories</a></li>
               </ul>
@@ -106,7 +104,7 @@ const Footer = () => {
             <div className={styles.linkGroup}>
               <h3 className={styles.groupTitle}>COMPANY</h3>
               <ul className={styles.linkList}>
-                <li><a href="#">About</a></li>
+                <li><a href="/about-us">About</a></li>
                 <li><a href="#">Careers</a></li>
                 <li><a href="#">Press</a></li>
                 <li><a href="#">Contact</a></li>
@@ -129,14 +127,13 @@ const Footer = () => {
             <div className={styles.legalLinks}>
               <a href="#">Privacy</a>
               <a href="#">Terms</a>
-              <a href="#">Sitemap</a>
               <a href="#">Accessibility</a>
             </div>
           </div>
 
-          <div className={styles.disclaimer}>
+          {/* <div className={styles.disclaimer}>
             <p>Every university, mentor, student, fee, rating and statistic shown on this page is fictional sample data written for the build — none of it describes a real institution or a verified claim.</p>
-          </div>
+          </div> */}
         </div>
       </div>
     </footer>

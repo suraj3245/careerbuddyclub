@@ -22,7 +22,7 @@ const RegisterModal = () => {
               aria-label="Close"
             ></button>
             <div className="text-center">
-              <h2>Hi, Welcome Back!</h2>
+              <div className="h2">Hi, Welcome Back!</div>
             </div>
             <div className="form-wrapper m-auto">
               <RegisterForm />

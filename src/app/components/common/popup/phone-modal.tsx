@@ -18,7 +18,7 @@ const PhoneModal = () => {
               aria-label="Close"
             ></button>
             <div className="p-2">
-              <h2 className="text-center" style={{color: "rgb(20, 173, 189)", fontSize: '45px'}}>Hi, Welcome Back!</h2>
+              <div className="h2 text-center" style={{color: "rgb(20, 173, 189)", fontSize: '45px'}}>Hi, Welcome Back!</div>
             </div>
             <div className="form-wrapper m-auto">
               <StudentLoginForm />

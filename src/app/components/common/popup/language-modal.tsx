@@ -19,7 +19,7 @@ const LanguageModal = () => {
               aria-label="Close"
             ></button>
             <div className="text-center">
-              <h2>Career Buddy Club In Your Language</h2>
+              <div className="h2">Career Buddy Club In Your Language</div>
               <p>Choose your Language</p>
             </div>
             <div

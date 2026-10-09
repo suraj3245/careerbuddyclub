@@ -20,7 +20,7 @@ const LogoutModal = () => {
               aria-label="Close"
             ></button>
             <Image src={icon} alt="icon" className="lazy-img m-auto" />
-            <h2>Are you sure?</h2>
+            <div className="h2">Are you sure?</div>
             <p>Are you sure to delete your account? All data will be lost.</p>
             <div className="button-group d-inline-flex justify-content-center align-items-center pt-15">
               <a href="#" className="confirm-btn fw-500 tran3s me-3">

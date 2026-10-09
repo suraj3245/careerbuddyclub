@@ -1,21 +1,25 @@
 import React from "react";
-import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import Wrapper from "@/layouts/wrapper";
 import CompanyBreadcrumbuniversity from "@/app/components/common/common-breadcrumb-university";
 import FooterOne from "@/layouts/footers/footer-one";
-import dubai_details from "@/data/dubai-details";
-import DubaiDetailsArea from "@/app/components/company-details/dubai-details-area";
+import university_details from "@/data/university-details";
+import UniversityDetailsArea from "@/app/components/company-details/university-details-area";
 
-export const metadata: Metadata = {
-  title: "International University Details",
-};
+export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
+  const details = university_details.find((j) => String(j.id) === String(params.id));
+  const title = details ? `${details.college} | University Details` : `University Details`;
+  const canonicalUrl = `https://careerbuddyclub.com/university-details/${params.id}`;
+  return {
+    title,
+    alternates: { canonical: canonicalUrl },
+  };
+}
 
-const DubaiDetailsPage = ({ params }: { params: { id: string } }) => {
-  const details = dubai_details.find(
+const UniversityDetailsPage = ({ params }: { params: { id: string } }) => {
+  const details = university_details.find(
     (j) => Number(j.id) === Number(params.id)
   );
-  if (!details) notFound();
   return (
     <Wrapper>
       <div className="main-page-wrapper">
@@ -34,7 +38,7 @@ const DubaiDetailsPage = ({ params }: { params: { id: string } }) => {
         {/*breadcrumb end */}
 
         {/* company details area start */}
-        {details && <DubaiDetailsArea details={details} />}
+        {details && <UniversityDetailsArea details={details} />}
 
         {/* company details area end */}
 
@@ -54,4 +58,4 @@ const DubaiDetailsPage = ({ params }: { params: { id: string } }) => {
   );
 };
 
-export default DubaiDetailsPage;
+export default UniversityDetailsPage;

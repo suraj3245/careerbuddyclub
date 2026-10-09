@@ -308,7 +308,7 @@ const TopPharmacyCollegesPage = () => {
 
                     {/* Tags */}
                     <div className="text-muted mt-4">
-                        <h6>Tags:</h6>
+                        <div className="h6">Tags:</div>
                         <p>
                             Pharmacy Colleges in Dehradun, Best D.Pharm Colleges Dehradun, Top B.Pharm Institutes Uttarakhand,
                             Pharmacy Admission 2025, Career in Pharmacy India

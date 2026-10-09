@@ -31,6 +31,12 @@ const nextConfig = {
         permanent: true,
       },
       {
+        // Old second homepage -> real homepage
+        source: '/home',
+        destination: '/',
+        statusCode: 301,
+      },
+      {
         source: '/university-details/osmu',
         destination: '/university-details/1',
         permanent: true,

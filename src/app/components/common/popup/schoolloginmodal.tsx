@@ -21,12 +21,12 @@ const SchoolLoginFormModal = () => {
 
             <div className="row">
               <div className="p-2">
-                <h2
-                  className="text-center"
+                <div
+                  className="h2 text-center"
                   style={{ color: "rgb(20, 173, 189)", fontSize: "45px" }}
                 >
                   Hi, Welcome Back!
-                </h2>
+                </div>
               </div>
               <div className="col-lg-11" style={{ margin: "auto" }}>
                 <div className="tab-content mt-3">

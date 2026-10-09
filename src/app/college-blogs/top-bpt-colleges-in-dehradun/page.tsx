@@ -21,7 +21,7 @@ const BScNursingUttarakhandAdmission2026 = () => {
       <div className="main-page-wrapper">
         {/* ✅ Hero Section */}
         <CompanyBreadcrumb
-          title="Insights"
+          title="Insights" asLabel
           subtitle="Read our blog from top talents"
         />
         <div
@@ -92,9 +92,9 @@ const BScNursingUttarakhandAdmission2026 = () => {
                           }}
                         >
                           <div className="card-body">
-                            <h2 className="card-title text-success fs-2">
+                            <div className="h2 card-title text-success fs-2">
                               Table of Contents
-                            </h2>
+                            </div>
                             <ul className="list-unstyled mt-3 mb-0 text-primary lh-lg">
                               <li>
                                 <a
@@ -589,9 +589,9 @@ const BScNursingUttarakhandAdmission2026 = () => {
                           <hr className="mt-10 border-bottom border-3 border-dark mt-4" />
 
                           {/* Tags*/}
-                          <h2 id="" className="mt-4 mb-3 fs-2">
+                          <div id="" className="h2 mt-4 mb-3 fs-2">
                             Tags
-                          </h2>
+                          </div>
                           <p>
                             <strong>
                               BPT Colleges in Dehradun, Best Physiotherapy

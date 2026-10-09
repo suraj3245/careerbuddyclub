@@ -93,7 +93,7 @@ const BScNursingUttarakhandAdmission2026 = () => {
       <div className="main-page-wrapper">
         {/* ✅ Hero Section */}
         <CompanyBreadcrumb
-          title="Insights"
+          title="Insights" asLabel
           subtitle="Read our blog from top talents"
         />
         <div
@@ -163,9 +163,9 @@ const BScNursingUttarakhandAdmission2026 = () => {
                           }}
                         >
                           <div className="card-body">
-                            <h2 className="card-title text-success fs-2">
+                            <div className="h2 card-title text-success fs-2">
                               Table of Contents
-                            </h2>
+                            </div>
                             <ul className="list-unstyled mt-3 mb-0 text-primary lh-lg">
                               <li>
                                 <a

@@ -7,7 +7,7 @@ const TopSchoolsinDehradun2025 = () => {
       {/* Table of Contents */}
       <div className="card mb-5 mx-auto" style={{ maxWidth: "800px" }}>
         <div className="card-body">
-          <h2 className="card-title text-success fs-2">Table of Contents</h2>
+          <div className="h2 card-title text-success fs-2">Table of Contents</div>
           <ul className="list-unstyled mt-3 mb-0 text-primary lh-lg">
             <li>
               <a href="#doon" className="text-decoration-none">

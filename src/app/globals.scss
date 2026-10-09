@@ -63,3 +63,9 @@ a {
   text-decoration: none;
   transition:      color 0.2s ease;
 }
+
+// Pop-up titles were <h2> inside .user-data-form; they are now <div class="h2"> (SEO: no headings in pop-ups).
+// Mirror the theme's `.user-data-form h2` rules so they look exactly the same.
+.user-data-form .h2 { font-size: 50px; font-weight: normal; color: #244034; }
+@media (max-width: 1199px) { .user-data-form .h2 { font-size: 40px; } }
+@media (max-width: 767px) { .user-data-form .h2 { font-size: 35px; } }

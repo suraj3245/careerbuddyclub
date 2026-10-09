@@ -1,4 +1,5 @@
 import React from "react";
+import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import Wrapper from "@/layouts/wrapper";
 import CompanyBreadcrumbuniversity from "@/app/components/common/common-breadcrumb-university";
@@ -20,6 +21,7 @@ const UniversityDetailsPage = ({ params }: { params: { id: string } }) => {
   const details = university_details.find(
     (j) => Number(j.id) === Number(params.id)
   );
+  if (!details) notFound();
   return (
     <Wrapper>
       <div className="main-page-wrapper">
