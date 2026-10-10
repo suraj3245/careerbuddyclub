@@ -121,6 +121,9 @@ export default function RootLayout({
   const isapplynow = pathname.startsWith("/apply-now");
   const isSchoolDashboard = pathname.startsWith("/dashboard/");
   const dbsapplynow = pathname.startsWith("/dbs-apply-now");
+  // Admin pages (e.g. /admin/cat-results) have their own minimal chrome.
+  // (exact segment match so "/admission" is not treated as admin)
+  const isAdminPage = pathname === "/admin" || pathname.startsWith("/admin/");
 
   // online-learning routes ship their own header and footer (see
   // src/online-learning/OnlineLearningShell.tsx), so the global chrome is suppressed.
@@ -174,14 +177,15 @@ export default function RootLayout({
             style={{ display: "none", visibility: "hidden" }}
           ></iframe>
         </noscript>
-        {!isOnlineLearning && <HeaderTop />}
+        {!isOnlineLearning && !isAdminPage && <HeaderTop />}
         {!isOnlineLearning &&
           !isRedirectPage &&
           !isAptitudeTestPage &&
           !isCandidateDashboardPage &&
           !isapplynow &&
           !isSchoolDashboard &&
-          !dbsapplynow && (
+          !dbsapplynow &&
+          !isAdminPage && (
             <div>
               <HeaderFour
                 user={user}
@@ -194,7 +198,7 @@ export default function RootLayout({
 
         <Providers>{children}</Providers>
         <ToastContainer />
-        {!isOnlineLearningDashboard && <WhatsappChatButton />}
+        {!isOnlineLearningDashboard && !isAdminPage && <WhatsappChatButton />}
         {/* <BackToTopCom /> */}
       </body>
     </html>
