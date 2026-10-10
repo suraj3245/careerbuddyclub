@@ -24,6 +24,7 @@ export default function LoginPopup({ isOpen, onClose }) {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [mobile, setMobile] = useState("");
+    const [agreedToTerms, setAgreedToTerms] = useState(false);
 
     const [otpStep, setOtpStep] = useState(false);
     const [otp, setOtp] = useState([...EMPTY_OTP]);
@@ -79,6 +80,7 @@ export default function LoginPopup({ isOpen, onClose }) {
         setName("");
         setEmail("");
         setMobile("");
+        setAgreedToTerms(false);
         setOtpStep(false);
         setOtp([...EMPTY_OTP]);
         setVerified(false);
@@ -216,6 +218,7 @@ export default function LoginPopup({ isOpen, onClose }) {
         if (!cleanEmail) return toast.error("Please enter your email.");
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(cleanEmail)) return toast.error("Please enter a valid email address.");
         if (!/^[0-9]{10}$/.test(cleanMobile)) return toast.error("Enter valid 10 digit mobile number.");
+        if (!agreedToTerms) return toast.error("Please accept the Terms & Conditions to create your account.");
 
         try {
             setLoading(true);
@@ -265,6 +268,7 @@ export default function LoginPopup({ isOpen, onClose }) {
         setName("");
         setEmail("");
         setMobile("");
+        setAgreedToTerms(false);
         setOtpStep(false);
         setOtp([...EMPTY_OTP]);
     };
@@ -502,9 +506,18 @@ export default function LoginPopup({ isOpen, onClose }) {
 
                             {!isLogin && (
                                 <label className="signup-terms">
-                                    <input type="checkbox" required />
+                                    <input
+                                        type="checkbox"
+                                        checked={agreedToTerms}
+                                        onChange={(e) => setAgreedToTerms(e.target.checked)}
+                                        required
+                                    />
                                     <span className="terms-text">
-                                        I agree to the <a href="/terms">Terms & Conditions</a>.
+                                        I agree to the{" "}
+                                        <a href="/terms-condition" target="_blank" rel="noopener noreferrer">
+                                            Terms & Conditions
+                                        </a>
+                                        .
                                     </span>
                                 </label>
                             )}

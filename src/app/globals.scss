@@ -5,6 +5,17 @@
 @import "~slick-carousel/slick/slick.css";
 @import '/public/assets/scss/style.scss';
 
+// ── Toast messages always on top ─────────────────────────────────────────────
+// Popups and their backdrops use very high z-indexes (signup/login popup 99999,
+// mobile menu 100001, CAT lead / expert modals 100050). react-toastify's default
+// (9999) put success/error messages behind them, so raise it above all of them.
+:root {
+  --toastify-z-index: 1000000;
+}
+.Toastify__toast-container {
+  z-index: 1000000 !important;
+}
+
 // ── CareerWise global baseline ────────────────────────────────────────────────
 // Applies the online-learning design system (Geist font, teal/yellow palette,
 // 16px base type scale) across every page of the website.
