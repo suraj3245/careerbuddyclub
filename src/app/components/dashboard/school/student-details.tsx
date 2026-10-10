@@ -7,7 +7,7 @@ import * as XLSX from "xlsx";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
 import "./studentdetails.css";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import StudentScoreModal from "./studentscore-modal";
 
 const StudentTable: React.FC = () => {
@@ -248,7 +248,6 @@ const StudentTable: React.FC = () => {
 
   return (
     <>
-      <ToastContainer />
       {loading ? (
         <div
           className="student-table d-flex justify-content-center align-items-center"
