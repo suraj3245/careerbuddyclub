@@ -6,67 +6,15 @@ import FooterOne from "@/layouts/footers/footer-one";
 import CompanyBreadcrumb from "../../components/common/common-breadcrumb";
 import Link from "next/link";
 import { Metadata } from "next";
-export const metadata: Metadata = {
-  metadataBase: new URL("https://careerbuddyclub.com"),
-  title: "Best BBA Colleges in Dehradun 2026 | Fees, Admission & Placements",
-  description:
-    "Compare the best BBA colleges in Dehradun for 2026. Explore fees, admission process, eligibility, curriculum, placements and career scope after BBA.",
-  keywords: [
-    "best bba colleges in dehradun",
-    "top bba colleges in dehradun",
-    "bba colleges in dehradun",
-    "bba colleges in dehradun fees",
-    "bba admission in dehradun 2026",
-    "bba eligibility criteria",
-    "bba course after 12th",
-    "private bba colleges in dehradun",
-    "government bba colleges in dehradun",
-    "management colleges in dehradun",
-    "bba colleges in uttarakhand",
-    "best management colleges in uttarakhand",
-    "bba placement colleges in dehradun",
-    "career after bba",
-    "jobs after bba",
-    "bba salary in india",
-    "bba marketing colleges",
-    "bba finance colleges",
-    "bba hr colleges",
-    "bba vs bcom",
-    "is bba good after 12th",
-  ],
-  category: "Education",
-  authors: [{ name: "Career Buddy Club" }],
-  robots: {
-    index: true,
-    follow: true,
-  },
-  alternates: {
-    canonical:
-      "https://careerbuddyclub.com/college-blogs/top-bba-colleges-in-dehradun",
-  },
-  openGraph: {
-    title: "Best BBA Colleges in Dehradun 2026 – Fees & Placements",
-    description:
-      "Looking for the best BBA colleges in Dehradun? Compare fees, admission, curriculum, placements and career opportunities after BBA.",
-    url: "https://careerbuddyclub.com/college-blogs/top-bba-colleges-in-dehradun",
-    type: "article",
-    images: [
-      {
-        url: "https://careerbuddyclub.com/images/top-bba-colleges-in-dehradun",
-        width: 1200,
-        height: 630,
-        alt: "Best BBA Colleges in Dehradun",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Best BBA Colleges in Dehradun 2026",
-    description:
-      "Compare top BBA colleges in Dehradun with fees, admission process, placements and career scope after BBA.",
-    images: ["https://careerbuddyclub.com/images/top-bba-colleges-in-dehradun"],
-  },
-};
+import { getGuide } from "@/data/guides";
+import { buildGuideMetadata } from "@/lib/guides/seo";
+import GuideHeader from "@/app/components/college-blogs/guide/guide-header";
+import GuideSchema from "@/app/components/college-blogs/guide/guide-schema";
+import FaqBlock from "@/app/components/college-blogs/guide/faq-block";
+import ComparisonTable from "@/app/components/college-blogs/guide/comparison-table";
+const guide = getGuide("top-bba-colleges-in-dehradun");
+
+export const metadata: Metadata = buildGuideMetadata(guide);
 
 const bptDescription = () => {
   const contactDetails = {
@@ -81,6 +29,7 @@ const bptDescription = () => {
   };
   return (
     <Wrapper>
+      <GuideSchema guide={guide} />
       <div className="main-page-wrapper">
         {/* ✅ Hero Section */}
         <CompanyBreadcrumb
@@ -99,21 +48,7 @@ const bptDescription = () => {
                 {/* Main Content */}
                 <div className="col-lg-8">
                   <div className="pe-lg-4">
-                    <div className="mb-2 text-muted small mt-5">
-                      <p>Bba · 10 July, 2025 · By Career Buddy Club</p>
-                    </div>
-                    {/* Title */}
-                    <h1
-                      className="fw-semibold mb-3 mt-5 leading-none"
-                      style={{
-                        marginTop: "2rem",
-                        lineHeight: "3.5rem",
-                        fontSize: "2rem",
-                      }}
-                    >
-                      Top BBA Colleges in Dehradun: Fees, Location, Curriculum &
-                      Career Prospects
-                    </h1>
+                    <GuideHeader guide={guide} />
                     <p>
                       If you're planning to pursue a Bachelor of Business
                       Administration (BBA), Dehradun is emerging as a premier
@@ -129,7 +64,7 @@ const bptDescription = () => {
                     <div className="mb-4">
                       <Image
                         src="/assets/images/blog/bba_blog800.jpg"
-                        alt="logo"
+                        alt={guide.imageAlt ?? guide.headline}
                         className="img-fluid rounded shadow-sm"
                         width={800}
                         height={400}
@@ -196,7 +131,7 @@ const bptDescription = () => {
                                 </a>
                               </li>
                               <li>
-                                <a href="#faq" className="text-decoration-none">
+                                <a href="#faqs" className="text-decoration-none">
                                   FAQs
                                 </a>
                               </li>
@@ -478,6 +413,9 @@ const bptDescription = () => {
 
                           <hr className="mt-10 border-bottom border-3 border-dark mt-4" />
 
+                          {guide.comparison && <ComparisonTable data={guide.comparison} />}
+                          <hr className="mt-10 border-bottom border-3 border-dark mt-4" />
+
                           {/* Key Advantages */}
                           <h2 id="curriculum" className="mb-3 fs-3 mt-4">
                             Key Advantages of Doing BBA in Dehradun
@@ -597,7 +535,7 @@ const bptDescription = () => {
                           <hr className="mt-10 border-bottom border-3 border-dark mt-4" />
 
                           {/* Final Thoughts */}
-                          <h2 id="faq" className="mb-3 fs-3 mt-4">
+                          <h2 id="final-thoughts" className="mb-3 fs-3 mt-4">
                             Final Thoughts
                           </h2>
                           <p className="mb-5">
@@ -612,33 +550,7 @@ const bptDescription = () => {
 
                           <hr className="mt-10 border-bottom border-3 border-dark mt-4" />
 
-                          {/* FAQs */}
-                          <h2 id="cbc" className="mb-3 fs-3 mt-4">
-                            Frequently Asked Questions (FAQs)
-                          </h2>
-                          <p>
-                            <strong>
-                              Q1. What is the average fee for BBA in Dehradun?
-                            </strong>
-                            <br />
-                            A: Fees range from ₹85,000 to ₹2.6 Lakhs per year,
-                            depending on the university.
-                          </p>
-                          <p>
-                            <strong>
-                              Q2. Is hostel accommodation available?
-                            </strong>
-                            <br />
-                            A: Yes, most colleges offer on-campus or partnered
-                            hostel facilities.
-                          </p>
-                          <p>
-                            <strong>Q3. Are BBA programs UGC approved?</strong>
-                            <br />
-                            A: Yes, all the colleges mentioned above are
-                            UGC-recognized and follow NEP-aligned curriculums.
-                          </p>
-
+                          <FaqBlock items={guide.faqs ?? []} />
                           <hr className="mt-10 border-bottom border-3 border-dark mt-4" />
 
                           {/* Career Buddy Club */}

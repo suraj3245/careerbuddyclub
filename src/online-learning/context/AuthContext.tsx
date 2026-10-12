@@ -1,6 +1,7 @@
 "use client";
 
 import { createContext, useContext, useState, ReactNode } from "react";
+import { clearUserSession } from "@/utils/logout";
 
 export interface AuthContextValue {
   isAuthenticated: boolean;
@@ -21,6 +22,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
   
   const logout = () => {
+    clearUserSession();
     setIsAuthenticated(false);
     setUser(null);
   };

@@ -6,67 +6,19 @@ import FooterOne from "@/layouts/footers/footer-one";
 import CompanyBreadcrumb from "../../components/common/common-breadcrumb";
 import Link from "next/link";
 import { Metadata } from "next";
-export const metadata: Metadata = {
-  metadataBase: new URL("https://careerbuddyclub.com"),
-  title: "Best BMLT Colleges in Dehradun 2026 | Fees & Admission",
-  description:
-    "Explore the best BMLT colleges in Dehradun and Uttarakhand for 2026. Compare fees, eligibility, admission process, syllabus, placements, and career opportunities in Medical Laboratory Technology.",
-  keywords: [
-    "top bmlt colleges in dehradun",
-    "best bmlt colleges in dehradun",
-    "bmlt colleges in dehradun",
-    "bmlt colleges in uttarakhand",
-    "best bmlt college in uttarakhand",
-    "top bmlt colleges in uttarakhand",
-    "bmlt admission 2026",
-    "medical laboratory technology colleges",
-    "paramedical colleges in dehradun",
-    "bmlt course fees in dehradun",
-    "bmlt admission process dehradun",
-    "bmlt eligibility criteria",
-    "government bmlt colleges in dehradun",
-    "private bmlt colleges in dehradun",
-    "bmlt colleges with placement",
-    "medical lab technician course dehradun",
-  ],
+import { getGuide } from "@/data/guides";
+import { buildGuideMetadata } from "@/lib/guides/seo";
+import GuideHeader from "@/app/components/college-blogs/guide/guide-header";
+import GuideSchema from "@/app/components/college-blogs/guide/guide-schema";
+import FaqBlock from "@/app/components/college-blogs/guide/faq-block";
+const guide = getGuide("best-bmlt-colleges-in-dehradun");
 
-  authors: [{ name: "Career Buddy Club" }],
-
-  category: "Education",
-
-  robots: {
-    index: true,
-    follow: true,
-  },
-
-  alternates: {
-    canonical:
-      "https://careerbuddyclub.com/college-blogs/best-bmlt-colleges-in-dehradun",
-  },
-
-  openGraph: {
-    title: "Best BMLT Colleges in Dehradun 2026 – Fees, Admission & Placements",
-
-    description:
-      "Looking for the best BMLT colleges in Dehradun? Compare top Medical Laboratory Technology colleges with fees, eligibility, admission process and placement details.",
-
-    url: "https://careerbuddyclub.com/college-blogs/best-bmlt-colleges-in-dehradun",
-    siteName: "Career Buddy Club",
-    type: "article",
-    images: [
-      {
-        url: "https://careerbuddyclub.com/college-blogs/best-bmlt-colleges-in-dehradun",
-        width: 1200,
-        height: 630,
-        alt: "Best BMLT colleges in Dehradun – Medical Laboratory Technology students in laboratory training",
-      },
-    ],
-  },
-};
+export const metadata: Metadata = buildGuideMetadata(guide);
 
 const bptDescription = () => {
   return (
     <Wrapper>
+      <GuideSchema guide={guide} />
       <div className="main-page-wrapper">
         {/* ✅ Hero Section */}
         <CompanyBreadcrumb
@@ -85,24 +37,7 @@ const bptDescription = () => {
                 {/* Main Content */}
                 <div className="col-lg-8">
                   <div className="pe-lg-4">
-                    <div className="mb-2 text-muted small mt-5">
-                      <p>
-                        Paramedical / Allied Healthcare | Admission 2026 | By
-                        Career Buddy Club
-                      </p>
-                    </div>
-                    {/* Title */}
-                    <h1
-                      className="fw-semibold mb-3 mt-5 leading-none"
-                      style={{
-                        marginTop: "2rem",
-                        lineHeight: "3.5rem",
-                        fontSize: "2rem",
-                      }}
-                    >
-                      Best BMLT Colleges in Dehradun (2026) – Fees, Eligibility,
-                      Admission & Career Guide
-                    </h1>
+                    <GuideHeader guide={guide} />
                     <p>
                       Healthcare today depends heavily on diagnostics and
                       laboratory investigations. Whether doctors diagnose
@@ -127,7 +62,7 @@ const bptDescription = () => {
                     <div className="mb-4">
                       <Image
                         src="/assets/images/blog/bmlt_course_img_blog.jpg"
-                        alt="best pharmacy college in dehradun"
+                        alt={guide.imageAlt ?? guide.headline}
                         className="img-fluid rounded shadow-sm"
                         width={800}
                         height={400}
@@ -281,7 +216,7 @@ const bptDescription = () => {
                               </li>
                               <li>
                                 <a
-                                  href="#tags"
+                                  href="#faqs"
                                   className="text-decoration-none"
                                 >
                                   • FAQs
@@ -854,49 +789,7 @@ const bptDescription = () => {
                             <li>Healthcare Courses After Class 12 PCB</li>
                           </ul>
                           <hr className="mt-10 border-bottom border-3 border-dark mt-4" />
-                          <h2 id="top-colleges" className="mt-4 mb-4 fs-2">Frequently Asked Questions</h2>
-                          <h4>What is the duration of BMLT?</h4>
-                          <p>
-                            BMLT generally lasts 3–3.5 years including
-                            internship training.
-                          </p>
-                          <h4>Is NEET required for BMLT?</h4>
-                          <p>
-                            No. Most colleges provide admission through
-                            merit-based or institutional processes.
-                          </p>
-                          <h4>
-                            Which BMLT college offers good placement
-                            opportunities in Dehradun?
-                          </h4>
-                          <p>
-                            Placement opportunities differ among institutions
-                            and depend on internships, industry exposure, and
-                            institutional support.
-                          </p>
-                          <h4>Can PCM students apply for BMLT?</h4>
-                          <p>
-                            Eligibility varies among institutions, though many
-                            colleges prefer PCB backgrounds.
-                          </p>
-                          <h4>Is BMLT better than DMLT?</h4>
-                          <p>
-                            BMLT is a degree program with broader academic and
-                            career scope, while DMLT is a diploma program.
-                          </p>
-                          <h4>
-                            What is the average fee for BMLT in Uttarakhand?
-                          </h4>
-                          <p>
-                            Annual fees generally range from ₹40,000–₹90,000
-                            depending on institution and facilities.
-                          </p>
-                          <h4>Is BMLT a good career option in 2026?</h4>
-                          <p>
-                            Yes. Growing healthcare diagnostics and pathology
-                            services continue creating strong demand for trained
-                            laboratory professionals.
-                          </p>
+                          <FaqBlock items={guide.faqs ?? []} />
                           <hr className="mt-10 border-bottom border-3 border-dark mt-4" />
                           <p>
                             <strong>Tags:</strong> BMLT Colleges in Dehradun,

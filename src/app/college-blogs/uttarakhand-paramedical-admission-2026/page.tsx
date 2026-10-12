@@ -6,77 +6,15 @@ import FooterOne from "@/layouts/footers/footer-one";
 import CompanyBreadcrumb from "../../components/common/common-breadcrumb";
 import Link from "next/link";
 import { Metadata } from "next";
+import { getGuide } from "@/data/guides";
+import { buildGuideMetadata } from "@/lib/guides/seo";
+import GuideHeader from "@/app/components/college-blogs/guide/guide-header";
+import GuideSchema from "@/app/components/college-blogs/guide/guide-schema";
+import FaqBlock from "@/app/components/college-blogs/guide/faq-block";
 
-export const metadata: Metadata = {
-  metadataBase: new URL("https://careerbuddyclub.com"),
-  title:
-    "Uttarakhand Paramedical Admission 2026: Dates, Eligibility & Colleges",
-  description:
-    "Get details on Uttarakhand Paramedical Admission 2026 including exam dates, eligibility, application process, counselling, and top colleges in Uttarakhand.",
-  keywords: [
-    "Uttarakhand Paramedical Admission 2026",
-    "Uttarakhand Paramedical Entrance Exam 2026",
-    "HNBUMU Paramedical Admission 2026",
-    "Paramedical Admission in Uttarakhand 2026",
-    "Paramedical Colleges in Uttarakhand",
-    "BPT Admission Uttarakhand 2026",
-    "BSc Paramedical Admission Uttarakhand",
-    "MSc MLT Admission Uttarakhand",
-    "MPT Admission Uttarakhand",
-    "eligibility for paramedical courses in uttarakhand",
-    "how to apply for uttarakhand paramedical entrance exam",
-    "uttarakhand paramedical counselling 2026",
-    "list of paramedical colleges in uttarakhand",
-    "paramedical entrance exam syllabus uttarakhand",
-    "paramedical courses after 12th",
-    "career after paramedical courses",
-    "government paramedical colleges in uttarakhand",
-    "private paramedical colleges in uttarakhand",
-  ],
-  authors: [{ name: "Career Buddy Club" }],
-  category: "Education",
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-snippet": -1,
-      "max-image-preview": "large",
-      "max-video-preview": -1,
-    },
-  },
+const guide = getGuide("uttarakhand-paramedical-admission-2026");
 
-  alternates: {
-    canonical:
-      "https://careerbuddyclub.com/college-blogs/uttarakhand-paramedical-admission-2026",
-  },
-
-  openGraph: {
-    title:
-      "Uttarakhand Paramedical Admission 2026 – Dates, Eligibility & Colleges",
-    description:
-      "Check Uttarakhand Paramedical Admission 2026 details including entrance exam, eligibility, counselling process and top colleges.",
-    url: "https://careerbuddyclub.com/college-blogs/uttarakhand-paramedical-admission-2026",
-    siteName: "Career Buddy Club",
-    type: "article",
-    images: [
-      {
-        url: "/images/uttarakhand-paramedical-admission-2026.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Uttarakhand Paramedical Admission 2026",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Uttarakhand Paramedical Admission 2026",
-    description:
-      "Complete guide to Uttarakhand Paramedical Admission 2026 – exam dates, eligibility, counselling & colleges.",
-    images: ["/images/uttarakhand-paramedical-admission-2026.jpg"],
-  },
-};
+export const metadata: Metadata = buildGuideMetadata(guide);
 const BScNursingUttarakhandAdmission2026 = () => {
   const contactDetails = {
     email: "admission@careerbuddyclub.com",
@@ -90,6 +28,7 @@ const BScNursingUttarakhandAdmission2026 = () => {
   };
   return (
     <Wrapper>
+      <GuideSchema guide={guide} />
       <div className="main-page-wrapper">
         {/* ✅ Hero Section */}
         <CompanyBreadcrumb
@@ -108,18 +47,7 @@ const BScNursingUttarakhandAdmission2026 = () => {
                 {/* Main Content */}
                 <div className="col-lg-8">
                   <div className="pe-lg-4">
-                    {/* Title */}
-                    <h1
-                      className="fw-semibold mb-3 mt-5 leading-none"
-                      style={{
-                        marginTop: "2rem",
-                        lineHeight: "3.5rem",
-                        fontSize: "2rem",
-                      }}
-                    >
-                      Uttarakhand Paramedical Admission 2026: Dates,
-                      Eligibility, Entrance Exam, Counselling & Top Colleges
-                    </h1>
+                    <GuideHeader guide={guide} />
                     <p>
                       Planning a career in healthcare and allied medical
                       sciences? Pursuing a paramedical degree in Uttarakhand
@@ -144,7 +72,7 @@ const BScNursingUttarakhandAdmission2026 = () => {
                     <div className="mb-4">
                       <Image
                         src="/assets/images/blog/uttarakhand-paramedical-admission-2026.png"
-                        alt="logo"
+                        alt={guide.imageAlt ?? guide.headline}
                         className="img-fluid rounded shadow-sm"
                         width={800}
                         height={400}
@@ -230,7 +158,7 @@ const BScNursingUttarakhandAdmission2026 = () => {
                               </li>
                               <li>
                                 <a
-                                  href="#faqs"
+                                  href="#top-colleges"
                                   className="text-decoration-none"
                                 >
                                   9. Top Paramedical Colleges in Uttarakhand
@@ -238,7 +166,7 @@ const BScNursingUttarakhandAdmission2026 = () => {
                               </li>
                               <li>
                                 <a
-                                  href="#faqs"
+                                  href="#comparison-table"
                                   className="text-decoration-none"
                                 >
                                   10. College Comparison Table
@@ -254,7 +182,7 @@ const BScNursingUttarakhandAdmission2026 = () => {
                               </li>
                               <li>
                                 <a
-                                  href="#faqs"
+                                  href="#why-cbc"
                                   className="text-decoration-none"
                                 >
                                   12. Why Career Buddy Club Matters
@@ -541,7 +469,7 @@ const BScNursingUttarakhandAdmission2026 = () => {
                           </ul>
                           <hr />
 
-                          <h3 id="faqs" className="fs-3">
+                          <h3 id="top-colleges" className="fs-3">
                             9. Top Paramedical Colleges in Uttarakhand (2026)
                           </h3>
                           <table className="table table-bordered table-striped mt-3 mb-4">
@@ -605,7 +533,7 @@ const BScNursingUttarakhandAdmission2026 = () => {
                             </tbody>
                           </table>
                           <hr />
-                          <h3 id="faqs" className="fs-3">
+                          <h3 id="comparison-table" className="fs-3">
                             10. Comparison of Leading Colleges (2026)
                           </h3>
                           <table className="table table-bordered table-striped mt-3 mb-4">
@@ -663,23 +591,9 @@ const BScNursingUttarakhandAdmission2026 = () => {
                             </tbody>
                           </table>
                           <hr />
-                          <h3>11. FAQs (2026)</h3>
-                          <h5>Q1. Is admission based on entrance?</h5>
-                          <p>
-                            Yes. Admission is entrance-based followed by
-                            counselling.
-                          </p>
-                          <h5>Q2. Eligibility for BSc Paramedical?</h5>
-                          <p>10+2 PCB with minimum 50% marks.</p>
-                          <h5>Q3. When will 2026 forms be released?</h5>
-                          <p>Expected in May 2026.</p>
-                          <h5>Q4. Which programs are offered?</h5>
-                          <p>
-                            BPT, BSc Paramedical, MPT, MSc MLT, and allied
-                            health sciences.
-                          </p>
+                          <FaqBlock items={guide.faqs ?? []} heading="11. FAQs (2026)" headingLevel={3} />
                           <hr />
-                          <h4>12. Why Career Buddy Club Matters</h4>
+                          <h4 id="why-cbc">12. Why Career Buddy Club Matters</h4>
                           <p>
                             Career Buddy Club assists students through verified
                             college data, admission guidance, placement

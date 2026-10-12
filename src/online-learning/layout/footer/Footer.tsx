@@ -95,7 +95,7 @@ const Footer = () => {
             <div className={styles.linkGroup}>
               <h3 className={styles.groupTitle}>RESOURCES</h3>
               <ul className={styles.linkList}>
-                <li><a href="#">Insights & Blogs</a></li>
+                <li><a href="#"> Blogs</a></li>
                 <li><a href="/roi-calculator">ROI Calculator</a></li>
                 <li><a href="#">Student Stories</a></li>
               </ul>

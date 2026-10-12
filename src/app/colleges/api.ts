@@ -1,4 +1,7 @@
-export async function fetchCollegesData() {
+import { cache } from "react";
+
+// Wrapped in React cache() so generateMetadata and the page share one fetch per request.
+export const fetchCollegesData = cache(async function fetchCollegesData() {
   // The API can be unreachable or slow (e.g. during `next build`). Never let a
   // network failure crash the page/build — fall back to empty data instead;
   // `revalidate` refreshes it once the API responds again.
@@ -8,7 +11,7 @@ export async function fetchCollegesData() {
     console.error("Error fetching colleges data:", error);
     return { colleges: [], streams: [] };
   }
-}
+});
 
 async function loadCollegesData() {
   const [collegesRes, streamsRes] = await Promise.all([

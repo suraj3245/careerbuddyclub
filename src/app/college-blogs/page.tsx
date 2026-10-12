@@ -6,9 +6,19 @@ import FooterOne from "@/layouts/footers/footer-one";
 import ThreeColumnBlogSection from "../components/college-blogs/three-col-blog";
 
 export const metadata: Metadata = {
-  title: "Explore Best Colleges & Universities | Career Buddy Club",
+  title: "College Guides: Best Colleges in Dehradun | Career Buddy Club",
+  description:
+    "College guides for 2026: compare top nursing, pharmacy, BBA, BPT, BMLT and MHA colleges in Dehradun and Uttarakhand by fees, eligibility and admission.",
   alternates: {
     canonical: "https://careerbuddyclub.com/college-blogs",
+  },
+  openGraph: {
+    title: "College Guides: Best Colleges in Dehradun | Career Buddy Club",
+    description:
+      "Compare top nursing, pharmacy, BBA, BPT, BMLT and MHA colleges in Dehradun and Uttarakhand by fees, eligibility and admission.",
+    url: "https://careerbuddyclub.com/college-blogs",
+    siteName: "Career Buddy Club",
+    type: "website",
   },
 };
 
@@ -21,7 +31,8 @@ const BlogV4Page = () => {
 
         {/*breadcrumb start */}
         <CompanyBreadcrumb
-          title="Explore Best Colleges"
+          asH1
+          title="College Guides: Explore the Best Colleges"
           subtitle="Find the best colleges and universities in your area"
           backgroundImage="/assets/images/blog/grad_blog1.jpg"
         />

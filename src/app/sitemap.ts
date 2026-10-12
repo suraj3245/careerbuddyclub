@@ -1,3 +1,4 @@
+import { toStreamPath } from '@/utils/streamPath'
 import type { MetadataRoute } from 'next'
 import axios from 'axios'
 
@@ -93,7 +94,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }
 
   const streamUrls: MetadataRoute.Sitemap = streams
-    .map(stream => (stream.title || '').toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, ''))
+    .filter(stream => !(stream.title || '').toLowerCase().includes('(online)'))
+    .map(stream => toStreamPath(stream.title || ''))
     .filter(Boolean)
     .map(slug => ({
       url: `${baseUrl}/colleges/${slug}`,

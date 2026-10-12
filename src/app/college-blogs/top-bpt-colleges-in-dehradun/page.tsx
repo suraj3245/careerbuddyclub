@@ -5,6 +5,15 @@ import CollegeBlogSidebar from "@/app/components/college-blogs/blog-sidebar/asid
 import FooterOne from "@/layouts/footers/footer-one";
 import CompanyBreadcrumb from "../../components/common/common-breadcrumb";
 import Link from "next/link";
+import { Metadata } from "next";
+import { getGuide } from "@/data/guides";
+import { buildGuideMetadata } from "@/lib/guides/seo";
+import GuideHeader from "@/app/components/college-blogs/guide/guide-header";
+import GuideSchema from "@/app/components/college-blogs/guide/guide-schema";
+import ComparisonTable from "@/app/components/college-blogs/guide/comparison-table";
+const guide = getGuide("top-bpt-colleges-in-dehradun");
+
+export const metadata: Metadata = buildGuideMetadata(guide);
 const BScNursingUttarakhandAdmission2026 = () => {
   const contactDetails = {
     email: "admission@careerbuddyclub.com",
@@ -18,6 +27,7 @@ const BScNursingUttarakhandAdmission2026 = () => {
   };
   return (
     <Wrapper>
+      <GuideSchema guide={guide} />
       <div className="main-page-wrapper">
         {/* ✅ Hero Section */}
         <CompanyBreadcrumb
@@ -36,22 +46,7 @@ const BScNursingUttarakhandAdmission2026 = () => {
                 {/* Main Content */}
                 <div className="col-lg-8">
                   <div className="pe-lg-4">
-                    <div className="mb-2 text-muted small mt-5">
-                      <p>
-                        Physiotherapy · 12 August, 2025 · By Career Buddy Club
-                      </p>
-                    </div>
-                    {/* Title */}
-                    <h2
-                      className="fw-semibold mb-3 mt-5 leading-none"
-                      style={{
-                        marginTop: "2rem",
-                        lineHeight: "3.5rem",
-                        fontSize: "2rem",
-                      }}
-                    >
-                      Top BPT Colleges in Dehradun (2025)
-                    </h2>
+                    <GuideHeader guide={guide} />
                     <p>
                       Dehradun, nestled in the picturesque hills of Uttarakhand,
                       is steadily gaining recognition as a center for healthcare
@@ -71,7 +66,7 @@ const BScNursingUttarakhandAdmission2026 = () => {
                     <div className="mb-4">
                       <Image
                         src="/assets/images/blog/bpt_blog220.jpg"
-                        alt="logo"
+                        alt={guide.imageAlt ?? guide.headline}
                         className="img-fluid rounded shadow-sm"
                         width={800}
                         height={400}
@@ -156,7 +151,7 @@ const BScNursingUttarakhandAdmission2026 = () => {
                                   href="#career"
                                   className="text-decoration-none"
                                 >
-                                  Career Opportunities After Pharmacy
+                                  Career Opportunities After BPT
                                 </a>
                               </li>
                               <li>
@@ -515,6 +510,9 @@ const BScNursingUttarakhandAdmission2026 = () => {
                             </li>
                           </ul>
 
+                          <hr className="mt-10 border-bottom border-3 border-dark mt-4" />
+
+                          {guide.comparison && <ComparisonTable data={guide.comparison} />}
                           <hr className="mt-10 border-bottom border-3 border-dark mt-4" />
 
                           {/* Career Prospects */}

@@ -1,47 +1,18 @@
-import React, { Suspense } from "react";
-import Wrapper from "@/layouts/wrapper";
-import FilterPage from "../../components/filters/filterpage";
 import { Metadata } from "next";
 import { fetchCollegesData } from "../api";
+import { listingMetadata, resolveListing, type SearchParams } from "../listing";
+import CollegeListingPage from "../listing-page";
 
 interface PageProps {
   params?: { slug?: string | string[] };
-  searchParams?: { [key: string]: string | string[] | undefined };
+  searchParams?: SearchParams;
 }
 
-// This version parses the "slug" param (for catch-all routes)
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  let stream = "";
-  if (params?.slug) {
-    if (Array.isArray(params.slug)) stream = params.slug[0];
-    else stream = params.slug || "";
-  }
-  return {
-    title: `Explore ${stream} Colleges in India | Career Buddy Club`,
-    description: `Browse and compare colleges under ${stream} across India. Find fees, placements, and more.`,
-  };
+export async function generateMetadata({ params, searchParams }: PageProps): Promise<Metadata> {
+  const data = await fetchCollegesData();
+  return listingMetadata(resolveListing(params?.slug, searchParams, data));
 }
 
-const CollegeFilterPage = async ({ params, searchParams }: PageProps) => {
-  // Compose a single slug string—for hydration if needed
-  let initialSlugPath = "";
-  if (params?.slug) {
-    initialSlugPath = Array.isArray(params.slug)
-      ? params.slug.join("/")
-      : params.slug || "";
-  }
-
-  const { colleges, streams } = await fetchCollegesData();
-
-  return (
-    <Wrapper>
-      <div className="main-page-wrapper">
-        <Suspense fallback={<div>Loading filters...</div>}>
-          <FilterPage initialStreamPath={initialSlugPath} initialColleges={colleges} initialStreams={streams} />
-        </Suspense>
-      </div>
-    </Wrapper>
-  );
-};
-
-export default CollegeFilterPage;
+export default function CollegeFilterPage({ params, searchParams }: PageProps) {
+  return <CollegeListingPage slug={params?.slug} searchParams={searchParams} />;
+}

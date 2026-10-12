@@ -11,6 +11,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import HeaderTop from "@/layouts/headers/header-top";
 import WhatsappChatButton from "./components/modal/whatsappChat";
+import { clearUserSession } from "@/utils/logout";
 
 const gordita = localFont({
   src: [
@@ -95,12 +96,8 @@ export default function RootLayout({
   }, []);
 
   const handleLogout = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("testStatus"); // Clear the stored test status
-    localStorage.removeItem("username");
-    localStorage.removeItem("location");
-    localStorage.removeItem("schoolName");
-    localStorage.removeItem("School_email");
+    // Clears localStorage AND sessionStorage (token, profile data, test status, wishlist, …)
+    clearUserSession();
 
     setUser({ value: null }); // Update the user state to reflect logout
     // Any additional logout logic goes here

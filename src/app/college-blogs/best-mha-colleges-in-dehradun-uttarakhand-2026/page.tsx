@@ -5,69 +5,20 @@ import CollegeBlogSidebar from "@/app/components/college-blogs/blog-sidebar/asid
 import FooterOne from "@/layouts/footers/footer-one";
 import CompanyBreadcrumb from "../../components/common/common-breadcrumb";
 import { Metadata } from "next";
+import { getGuide } from "@/data/guides";
+import { buildGuideMetadata } from "@/lib/guides/seo";
+import GuideHeader from "@/app/components/college-blogs/guide/guide-header";
+import GuideSchema from "@/app/components/college-blogs/guide/guide-schema";
+import FaqBlock from "@/app/components/college-blogs/guide/faq-block";
 
-export const metadata: Metadata = {
-  title:
-    "Best MHA Colleges in Dehradun, Uttarakhand 2026 | Fees, Admission, Ranking",
-  description:
-    "Explore the best MHA (Master of Hospital Administration) colleges in Dehradun, Uttarakhand for 2026. Check fees, eligibility, admission process, placements, and top colleges list.",
-  keywords: [
-    "best MHA colleges in Dehradun",
-    "top MHA colleges in Dehradun 2026",
-    "MHA colleges in Uttarakhand",
-    "hospital administration colleges in Dehradun",
-    "MHA course fees in Dehradun",
-    "MHA admission 2026 Uttarakhand",
-    "eligibility for MHA in Dehradun",
-    "private MHA colleges in Uttarakhand",
-    "government MHA colleges in Uttarakhand",
-    "MHA colleges with placement in Dehradun",
-    "best hospital management colleges in India",
-    "MHA salary in India",
-    "career after MHA course",
-    "which college is best for MHA in Dehradun",
-    "CareerBuddyClub MHA guide",
-  ],
-  alternates: {
-    canonical:
-      "https://careerbuddyclub.com/college-blogs/best-mha-colleges-in-dehradun-uttarakhand-2026",
-  },
+const guide = getGuide("best-mha-colleges-in-dehradun-uttarakhand-2026");
 
-  openGraph: {
-    title: "Best MHA Colleges in Dehradun 2026",
-    description:
-      "Find top MHA colleges in Dehradun with fees, admission details, and placement insights.",
-    url: "https://careerbuddyclub.com/college-blogs/best-mha-colleges-in-dehradun-uttarakhand-2026",
-    siteName: "CareerBuddyClub",
-    images: [
-      {
-        url: "https://careerbuddyclub.com/college-blogs/best-mha-colleges-in-dehradun-uttarakhand-2026",
-        width: 1200,
-        height: 630,
-        alt: "Best MHA Colleges in Dehradun",
-      },
-    ],
-    locale: "en_IN",
-    type: "article",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Best MHA Colleges in Dehradun 2026",
-    description:
-      "Top MHA colleges in Dehradun with fees, eligibility & admission details.",
-    images: [
-      "https://careerbuddyclub.com/college-blogs/best-mha-colleges-in-dehradun-uttarakhand-2026",
-    ],
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
-};
+export const metadata: Metadata = buildGuideMetadata(guide);
 const Bestmhacolleges = () => {
   return (
     <>
       <Wrapper>
+      <GuideSchema guide={guide} />
         <div className="main-page-wrapper">
           <CompanyBreadcrumb
             title="Insights" asLabel
@@ -85,24 +36,7 @@ const Bestmhacolleges = () => {
                   {/* Main Content */}
                   <div className="col-lg-8">
                     <div className="pe-lg-4">
-                      <div className="mb-2 text-muted small mt-5">
-                        <p>
-                          MHA colleges in Dehradun · By
-                          Career Buddy Club
-                        </p>
-                      </div>
-                      {/* Title */}
-                      <h2
-                        className="fw-semibold mb-3 mt-5 leading-none"
-                        style={{
-                          marginTop: "2rem",
-                          lineHeight: "3.5rem",
-                          fontSize: "2rem",
-                        }}
-                      >
-                        Best MHA Colleges in Dehradun 2026 | Top Hospital
-                        Administration Colleges in Uttarakhand
-                      </h2>
+                      <GuideHeader guide={guide} />
 
                       <p>
                         Discover why Dehradun is emerging as a leading
@@ -117,7 +51,7 @@ const Bestmhacolleges = () => {
                       <div className="mb-4">
                         <Image
                           src="/assets/images/blog/MHA_800.jpg"
-                          alt="logo"
+                          alt={guide.imageAlt ?? guide.headline}
                           className="img-fluid rounded shadow-sm"
                           width={800}
                           height={400}
@@ -889,6 +823,10 @@ const Bestmhacolleges = () => {
 
                           <hr className="mt-10 border-bottom border-3 border-dark mt-4" />
 
+                          <FaqBlock items={guide.faqs ?? []} />
+
+                          <hr className="mt-10 border-bottom border-3 border-dark mt-4" />
+
                           {/* Conclusion  */}
                           <div className="mt-4" id="conclusion">
                             <h2 className="mb-3 fs-2 mt-4">Conclusion</h2>
@@ -943,25 +881,6 @@ const Bestmhacolleges = () => {
         </div>
         <FooterOne />
       </Wrapper>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            mainEntity: [
-              {
-                "@type": "Question",
-                name: "Which is the best MHA college in Dehradun?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "BFIT College Dehradun and Guru Nanak College are among the popular choices for MHA in Dehradun, offering good academic programs and infrastructure.",
-                },
-              },
-            ],
-          }),
-        }}
-      />
     </>
   );
 };
