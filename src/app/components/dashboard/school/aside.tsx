@@ -13,6 +13,7 @@ import nav_39_active from "@/assets/dashboard/images/icon/icon_39_active.svg";
 import { useEffect } from "react";
 import axios from "axios";
 import { isUserLoggedIn } from "@/utils/auth";
+import { clearUserSession } from "@/utils/logout";
 
 // nav data
 const nav_data: {
@@ -96,10 +97,7 @@ const SchoolAside = ({ isOpenSidebar, setIsOpenSidebar }: IProps) => {
     userName && userName.length > 0 ? userName[0].toUpperCase() : "?";
 
   function onLogout() {
-    localStorage.removeItem("token");
-    localStorage.removeItem("schoolName");
-    localStorage.removeItem("School_email");
-    localStorage.removeItem("School_id");
+    clearUserSession();
   }
 
   return (

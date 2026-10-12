@@ -1,7 +1,6 @@
 "use client";
 
-import React, { useState, useMemo, useEffect } from "react";
-import { useSearchParams, useRouter } from "next/navigation";
+import React, { useMemo, useState } from "react";
 import {
   Box,
   Button,
@@ -15,78 +14,39 @@ import {
   Link,
 } from "@mui/material";
 import { ExpandMore, ExpandLess } from "@mui/icons-material";
-import { FiltersObject, setFilterCategory } from "@/utils/filters.utils";
+import { toCitySlug } from "@/utils/streamPath";
 
 //   DATA FETCHER  For blog Section---
 
-import blogData, { type BlogContent } from "@/data/college-blog";
+import blogData from "@/data/college-blog";
 
-interface Stream {
-  id: number | null;
-  title: string;
-  description: string;
-}
+const DEFAULT_DESCRIPTION =
+  "India boasts a rich educational landscape with a diverse range of colleges and universities offering many courses across various streams. Whether you're interested in engineering, medicine, arts, commerce, or emerging fields like data science and AI, India has institutions that cater to every academic pursuit. We are here to provide insights into the top colleges in India, covering aspects like rankings, admission processes, course offerings, fee structures, placement records, campus facilities, and student reviews. Stay tuned to make informed decisions about your higher education journey in India.";
 
 interface BlogSectionProps {
-  streams: Stream[];
-  clgLocation: string[];
-  filters: FiltersObject;
-  router: any;
+  /** Page heading — built on the server from the category display name, city and RANKING_YEAR. */
+  h1: string;
+  streamId: number | null;
+  streamDescription?: string | null;
+  city?: string | null;
 }
 
-const BlogSection: React.FC<BlogSectionProps> = ({
-  streams,
-  clgLocation,
-  filters = {},
-  router,
-}) => {
-  const searchParams = useSearchParams();
-
-  // Use commmon canonical filters object (filters param)
-  const streamId = filters.Streams?.[0] ? parseInt(filters.Streams[0], 10) : null;
-  const selectedStream = streams.find((stream) => stream.id === streamId) ||
-    {
-      id: null,
-      title: "Best: Ranking 2025, Admissions, Courses, Fees, Placements,Campus,Reviews",
-      description: "India boasts a rich educational landscape with a diverse range of colleges and universities offering many courses across various streams. Whether you're interested in engineering, medicine, arts, commerce, or emerging fields like data science and AI, India has institutions that cater to every academic pursuit. We are here to provide insights into the top colleges in India , covering aspects like rankings, admission processes, course offerings, fee structures, placement records, campus facilities, and student reviews. Stay tuned to make informed decisions about your higher education journey in India.",
-    };
-
+const BlogSection: React.FC<BlogSectionProps> = ({ h1, streamId, streamDescription, city }) => {
   const [expanded, setExpanded] = useState(false);
-  const [blogContent, setBlogContent] = useState<BlogContent | undefined>(undefined);
-  const [isLoading, setIsLoading] = useState(false);
-  const [displayBlog, setDisplayBlog] = useState(true);
+
+  // Resolved synchronously so the intro is in the server-rendered HTML.
+  const blogContent = useMemo(() => {
+    const base = streamId ? blogData[streamId] : undefined;
+    const variant = city && base?.variants ? base.variants[toCitySlug(city)] : undefined;
+    const content = variant ?? base;
+    // With a city filter, only show stream copy that is actually about that city.
+    const show = !city || !!variant || !content || content.title.toLowerCase().includes(city.toLowerCase());
+    return show ? content : undefined;
+  }, [streamId, city]);
 
   const maxPreviewHeight = 120;
 
-  // Derive matched city from blog content and available locations
-  const matchedCity = useMemo(() => {
-    // Prioritize city from URL filter if it exists
-    const cityFromFilter = filters.Location?.[0];
-    if (cityFromFilter && clgLocation.includes(cityFromFilter)) return cityFromFilter;
-
-    const titleToCheck = (blogContent?.title || selectedStream.title || "").toLowerCase();
-    return clgLocation.find((city) => titleToCheck.includes(city.toLowerCase())) || null;
-  }, [clgLocation, blogContent, selectedStream.title, filters.Location]);
-
-  // Resolve blog content synchronously and decide if it should be displayed
-  useEffect(() => {
-    const toCitySlug = (city: string) => city?.toLowerCase().replace(/\s+/g, "-") || "";
-    const cityFromFilter = filters.Location?.[0];
-    const base = streamId ? blogData[streamId] : undefined;
-    const citySlug = cityFromFilter ? toCitySlug(cityFromFilter) : null;
-    const variant = citySlug && base?.variants ? base.variants[citySlug] : undefined;
-    const content = variant ?? base;
-    setBlogContent(content);
-    if (cityFromFilter) {
-      if (variant) setDisplayBlog(true);
-      else setDisplayBlog(!!content?.title && content.title.toLowerCase().includes(cityFromFilter.toLowerCase()));
-    } else {
-      setDisplayBlog(true);
-    }
-  }, [streamId, filters.Location]);
-
-  // Do not show the blog section if it's not relevant to the selected city filter.
-  if (!displayBlog && !isLoading) return null;
+  const description = blogContent?.description || streamDescription || DEFAULT_DESCRIPTION;
 
   return (
     <Paper
@@ -99,7 +59,7 @@ const BlogSection: React.FC<BlogSectionProps> = ({
         marginBottom: "3rem",
       }}
     >
-      {/* Blog Title */}
+      {/* Page title — the page's one <h1> */}
       <Typography
         variant="h1"
         gutterBottom
@@ -109,8 +69,16 @@ const BlogSection: React.FC<BlogSectionProps> = ({
           lineHeight: 1.3,
         }}
       >
-        {blogContent?.title || selectedStream.title}
+        {h1}
       </Typography>
+      {blogContent?.title && (
+        <Typography
+          variant="h2"
+          sx={{ fontSize: { xs: "1.15rem", md: "1.3rem" }, fontWeight: 600, lineHeight: 1.4, mb: 1.5 }}
+        >
+          {blogContent.title}
+        </Typography>
+      )}
 
       {/* Description & Table */}
       <Box
@@ -127,12 +95,12 @@ const BlogSection: React.FC<BlogSectionProps> = ({
           paragraph
           sx={{ whiteSpace: "pre-line", color: "text.secondary", lineHeight: 1.6 }}
         >
-          {blogContent?.description || selectedStream.description}
+          {description}
         </Typography>
         {/* Table */}
         {blogContent?.tableData && (
           <>
-            <Typography variant="h6" sx={{ mt: 3, mb: 1, fontWeight: "bold" }}>
+            <Typography variant="h6" component="h3" sx={{ mt: 3, mb: 1, fontWeight: "bold" }}>
               {blogContent.tableData.heading}
             </Typography>
             <Box

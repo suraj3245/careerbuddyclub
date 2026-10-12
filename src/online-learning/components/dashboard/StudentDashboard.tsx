@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import styles from "./dashboard.module.scss";
+import { clearUserSession } from "@/utils/logout";
 
 type MenuItem = "Profile" | "Q&A Panel" | "Raise a ticket" | "TakeYourTest";
 
@@ -459,13 +460,7 @@ export default function DashboardPage() {
   };
 
   const logout = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("username");
-    localStorage.removeItem("user");
-    localStorage.removeItem("name");
-    localStorage.removeItem("School_email");
-    localStorage.removeItem("mobile");
-    localStorage.removeItem("student_id");
+    clearUserSession();
     window.location.href = "/";
   };
 

@@ -6,68 +6,20 @@ import FooterOne from "@/layouts/footers/footer-one";
 import CompanyBreadcrumb from "../../components/common/common-breadcrumb";
 import Link from "next/link";
 import { Metadata } from "next";
+import { getGuide } from "@/data/guides";
+import { buildGuideMetadata } from "@/lib/guides/seo";
+import GuideHeader from "@/app/components/college-blogs/guide/guide-header";
+import GuideSchema from "@/app/components/college-blogs/guide/guide-schema";
+import FaqBlock from "@/app/components/college-blogs/guide/faq-block";
+import ComparisonTable from "@/app/components/college-blogs/guide/comparison-table";
 
-export const metadata: Metadata = {
-  title: "Best Pharmacy Colleges in Dehradun 2026 | D.Pharm & B.Pharm",
-  description:
-    "Compare the best pharmacy colleges in Dehradun for 2026. Explore D.Pharm, B.Pharm & Pharm.D courses, fees, eligibility and PCI-approved institutes.",
-  keywords: [
-    "best pharmacy colleges in dehradun",
-    "top pharmacy colleges in dehradun",
-    "pharmacy colleges in dehradun",
-    "b pharm colleges in dehradun",
-    "d pharm colleges in dehradun",
-    "pharm d colleges in dehradun",
-    "pharmacy admission in dehradun 2026",
-    "pharmacy college fees in dehradun",
-    "pharmacy admission process dehradun",
-    "pharmacy eligibility criteria dehradun",
-    "pci approved pharmacy colleges in dehradun",
-    "government pharmacy colleges in dehradun",
-    "private pharmacy colleges in dehradun",
-    "pharmacy colleges in dehradun with placement",
-    "pharmacy colleges in uttarakhand",
-  ],
-  authors: [{ name: "Career Buddy Club" }],
-  category: "Education",
-  robots: {
-    index: true,
-    follow: true,
-  },
-  alternates: {
-    canonical:
-      "https://careerbuddyclub.com/college-blogs/best-pharmacy-colleges-in-dehradun",
-  },
-  openGraph: {
-    title:
-      "Best Pharmacy Colleges in Dehradun 2026 – Fees, Courses & Admission",
-    description:
-      "Looking for the best pharmacy colleges in Dehradun? Compare PCI-approved D.Pharm, B.Pharm & Pharm.D colleges with fees, eligibility and placement details.",
-    url: "https://careerbuddyclub.com/college-blogs/best-pharmacy-colleges-in-dehradun",
-    siteName: "Career Buddy Club",
-    type: "article",
-    images: [
-      {
-        url: "https://careerbuddyclub.com/images/pharmacy-college-dehradun.jpeg",
-        width: 1200,
-        height: 630,
-        alt: "Best Pharmacy Colleges in Dehradun",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Best Pharmacy Colleges in Dehradun 2026",
-    description:
-      "Compare D.Pharm, B.Pharm & Pharm.D colleges in Dehradun with fees, eligibility and career scope.",
-    images: [
-      "https://careerbuddyclub.com/images/pharmacy-college-dehradun.jpg",
-    ],
-  },
-};
+const guide = getGuide("best-pharmacy-colleges-in-dehradun");
+
+export const metadata: Metadata = buildGuideMetadata(guide);
 const bptDescription = () => {
   return (
     <Wrapper>
+      <GuideSchema guide={guide} />
       <div className="main-page-wrapper">
         {/* ✅ Hero Section */}
         <CompanyBreadcrumb
@@ -86,21 +38,7 @@ const bptDescription = () => {
                 {/* Main Content */}
                 <div className="col-lg-8">
                   <div className="pe-lg-4">
-                    <div className="mb-2 text-muted small mt-5">
-                      <p>Pharmacy · 10 July, 2025 · By Career Buddy Club</p>
-                    </div>
-                    {/* Title */}
-                    <h1
-                      className="fw-semibold mb-3 mt-5 leading-none"
-                      style={{
-                        marginTop: "2rem",
-                        lineHeight: "3.5rem",
-                        fontSize: "2rem",
-                      }}
-                    >
-                      Best Pharmacy Colleges in Dehradun (2026) – Complete
-                      Admission & Career Guide
-                    </h1>
+                    <GuideHeader guide={guide} />
                     <p>
                       Explore the best pharmacy colleges in Dehradun for 2026.
                       This detailed guide covers D.Pharm, B.Pharm, Pharm.D
@@ -111,7 +49,7 @@ const bptDescription = () => {
                     <div className="mb-4">
                       <Image
                         src="/assets/images/blog/pharmacy-college-dehradun.jpeg"
-                        alt="best pharmacy college in dehradun"
+                        alt={guide.imageAlt ?? guide.headline}
                         className="img-fluid rounded shadow-sm"
                         width={800}
                         height={400}
@@ -498,14 +436,6 @@ const bptDescription = () => {
                               <h3>5. Maya Devi University, Dehradun</h3>
                               <br />
                               <p>
-                                <Link
-                                  href="https://careerbuddyclub.com/college-details/JBIT?utm_source=CBC-Website&utm_medium=Online&utm_campaign=JBIT"
-                                  className="text-primary"
-                                >
-                                  🔗 Visit Website
-                                </Link>
-                              </p>
-                              <p>
                                 <strong>Maya Devi University</strong> is a
                                 multidisciplinary private university offering a
                                 complete pharmacy education pathway from diploma
@@ -544,14 +474,6 @@ const bptDescription = () => {
                               </h3>
                               <br />
                               <p>
-                                <Link
-                                  href="https://careerbuddyclub.com/college-details/JBIT?utm_source=CBC-Website&utm_medium=Online&utm_campaign=JBIT"
-                                  className="text-primary"
-                                >
-                                  🔗 Visit Website
-                                </Link>
-                              </p>
-                              <p>
                                 Known for its Pharm.D and advanced pharmacy
                                 programs, this institute is a recognized name in
                                 Uttarakhand’s pharmacy education ecosystem.
@@ -562,6 +484,8 @@ const bptDescription = () => {
                             Best For: Students targeting clinical pharmacy and
                             hospital-based roles.
                           </p>
+                          <hr className="mt-10 border-bottom border-3 border-dark mt-4" />
+                          {guide.comparison && <ComparisonTable data={guide.comparison} />}
                           <hr className="mt-10 border-bottom border-3 border-dark mt-4" />
                           <h2 className="mb-3 fs-2 mt-4">
                             Career Opportunities After Pharmacy
@@ -653,79 +577,8 @@ const bptDescription = () => {
                             </strong>
                           </p>
                         </div>
-                        <h4>FAQs – Pharmacy Colleges in Dehradun (2026)</h4>
-                        <div className="mb-4">
-                          <h5>
-                            1. Which are the top pharmacy colleges in Dehradun?
-                          </h5>
-                          <p>
-                            Some of the best pharmacy colleges in Dehradun for
-                            2026 include Guru Nanak College, BFIT Group of
-                            Institutions, Maya Devi University, Doon PG College
-                            of Agriculture and Allied Sciences, and JB Institute
-                            of Technology. The best choice depends on budget,
-                            course preference, and career goals.
-                          </p>
-                          <h5>
-                            2. What is the eligibility for B.Pharm admission in
-                            Dehradun colleges?
-                          </h5>
-                          <p>
-                            To apply for B.Pharm in Dehradun, candidates must
-                            have passed 10+2 with Physics and Chemistry, along
-                            with Biology or Mathematics, securing at least 45%
-                            marks (40% for reserved categories).
-                          </p>
-                          <h5>
-                            3. What is the average fee for pharmacy courses in
-                            Dehradun?
-                          </h5>
-                          <p>
-                            • D.Pharm: ₹40,000 – ₹60,000 per year
-                            <br />• B.Pharm: ₹70,000 – ₹90,000 per year
-                            <br />
-                            • Pharm.D: ₹1.8 – ₹2.5 lakh per year (varies by
-                            university) <br />
-                            Fees depend on infrastructure, university status,
-                            and facilities
-                          </p>
-                          <h5>4. Is Pharmacy a good career option in 2026?</h5>
-                          <p>
-                            Yes. Pharmacy remains a strong career option in 2026
-                            due to growth in pharmaceutical manufacturing,
-                            clinical research, e-pharmacy, pharmacovigilance,
-                            and healthcare services in India and abroad.
-                          </p>
-                          <h5>5. Can I do Pharm.D in Dehradun?</h5>
-                          <p>
-                            Yes. Maya Devi University and select institutes
-                            around Dehradun offer Pharm.D (Doctor of Pharmacy)
-                            programs approved by PCI.
-                          </p>
-                          <h5>6. What are the career options after D.Pharm?</h5>
-                          <p>
-                            After D.Pharm, students can work as:
-                            <br />
-                          </p>
-                          <ul>
-                            <li>Registered Pharmacist</li>
-                            <li> Hospital Pharmacist</li>
-                            <li>Medical Sales Representative</li>
-                            <li>
-                              Quality Control Assistant <br />
-                              They can also opt for lateral entry into B.Pharm
-                              (2nd year).
-                            </li>
-                          </ul>
-                          <h5>
-                            7. Which pharmacy course has the highest salary?
-                          </h5>
-                          <p>
-                            Among pharmacy courses, Pharm.D, M.Pharm (Regulatory
-                            Affairs/Clinical Research), and Pharmacovigilance
-                            roles generally offer higher salary potential,
-                            especially in multinational companies.
-                          </p>
+                        <div className="pt-0">
+                          <FaqBlock items={guide.faqs ?? []} heading="FAQs – Pharmacy Colleges in Dehradun (2026)" />
                         </div>
                       </section>
                     </div>

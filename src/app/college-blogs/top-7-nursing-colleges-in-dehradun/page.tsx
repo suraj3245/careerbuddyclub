@@ -5,60 +5,14 @@ import CollegeBlogSidebar from "@/app/components/college-blogs/blog-sidebar/asid
 import FooterOne from "@/layouts/footers/footer-one";
 import CompanyBreadcrumb from "../../components/common/common-breadcrumb";
 import { Metadata } from "next";
-export const metadata: Metadata = {
-  title:
-    "Top Nursing Colleges in Dehradun (2026) | B.Sc Nursing, GNM, ANM, Fees & Admission",
-  description:
-    "Discover the top and government-recognized nursing colleges in Dehradun and Uttarakhand for 2026 admissions. Compare B.Sc Nursing, GNM and ANM courses, fees structure, eligibility criteria, admission process, hospital training, placements, and career scope in India. Get free expert counselling from Career Buddy Club.",
-  keywords: [
-    "top nursing colleges in dehradun",
-    "best nursing colleges in dehradun",
-    "best nursing colleges in dehradun 2026",
-    "nursing colleges dehradun 2026",
-    "bsc nursing colleges dehradun",
-    "gnm nursing college dehradun",
-    "anm nursing colleges uttarakhand",
-    "nursing admission dehradun",
-    "nursing fees structure dehradun",
-    "best nursing college in uttarakhand",
-    "nursing placement colleges india",
-    "career after nursing",
-  ],
+import { getGuide } from "@/data/guides";
+import { buildGuideMetadata } from "@/lib/guides/seo";
+import GuideHeader from "@/app/components/college-blogs/guide/guide-header";
+import GuideSchema from "@/app/components/college-blogs/guide/guide-schema";
+import FaqBlock from "@/app/components/college-blogs/guide/faq-block";
+const guide = getGuide("top-7-nursing-colleges-in-dehradun");
 
-  alternates: {
-    canonical:
-      "https://careerbuddyclub.com/college-blogs/top-7-nursing-colleges-in-dehradun",
-  },
-
-  openGraph: {
-    title:
-      "Top 7 Nursing Colleges in Dehradun (2026) | Fees, Admission & Placements",
-    description:
-      "Looking for the best nursing colleges in Dehradun? Compare B.Sc Nursing, GNM and ANM colleges with updated 2026 fees, eligibility, admission process, hospital training and placement opportunities.",
-    url: "https://careerbuddyclub.com/college-blogs/top-7-nursing-colleges-in-dehradun",
-    siteName: "Career Buddy Club",
-    type: "article",
-    images: [
-      {
-        url: "https://careerbuddyclub.com/images/nursing-dehradun-2026.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Top Nursing Colleges in Dehradun 2026",
-      },
-    ],
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-snippet": -1,
-      "max-image-preview": "large",
-      "max-video-preview": -1,
-    },
-  },
-};
+export const metadata: Metadata = buildGuideMetadata(guide);
 
 const bptDescription = () => {
   const contactDetails = {
@@ -73,6 +27,7 @@ const bptDescription = () => {
   };
   return (
     <Wrapper>
+      <GuideSchema guide={guide} />
       <div className="main-page-wrapper">
         {/* ✅ Hero Section */}
         <CompanyBreadcrumb
@@ -91,21 +46,7 @@ const bptDescription = () => {
                 {/* Main Content */}
                 <div className="col-lg-8">
                   <div className="pe-lg-4">
-                    <div className="mb-2 text-muted small mt-5">
-                      <p>By Career Buddy Club</p>
-                    </div>
-                    {/* Title */}
-                    <h2
-                      className="fw-semibold mb-3 mt-5 leading-none"
-                      style={{
-                        marginTop: "2rem",
-                        lineHeight: "3.5rem",
-                        fontSize: "2rem",
-                      }}
-                    >
-                      Top Nursing Colleges in Dehradun (2026): Courses, Fees,
-                      Eligibility, Placement & Career Scope
-                    </h2>
+                    <GuideHeader guide={guide} />
                     <p>
                       Dehradun has evolved into a major hub for healthcare and
                       paramedical education in North India. With rising demand
@@ -129,7 +70,7 @@ const bptDescription = () => {
                     <div className="mb-4">
                       <Image
                         src="/assets/images/blog/nursing_blog_2026.png"
-                        alt="logo"
+                        alt={guide.imageAlt ?? guide.headline}
                         className="img-fluid rounded shadow-sm"
                         width={800}
                         height={400}
@@ -232,7 +173,7 @@ const bptDescription = () => {
                               </li>
                               <li>
                                 <a
-                                  href="#tags"
+                                  href="#faqs"
                                   className="text-decoration-none"
                                 >
                                   9. FAQs
@@ -695,35 +636,7 @@ const bptDescription = () => {
                             <li>Education Loans via Nationalized Banks</li>
                           </ul>
                           <hr />
-                          <h3>9. FREQUENTLY ASKED QUESTIONS (FAQs)</h3>
-                          <h5>Q1: Is B.Sc Nursing better than GNM in 2026?</h5>
-                          <p>
-                            B.Sc Nursing is preferred for long-term growth and
-                            overseas migration. GNM suits applicants seeking
-                            quicker hospital entry.
-                          </p>
-                          <h5>
-                            Q2: Do nursing colleges in Dehradun provide
-                            placements?
-                          </h5>
-                          <p>
-                            Yes. Placement support is offered by most private
-                            institutions and university campuses.
-                          </p>
-                          <h5>
-                            Q3: Can male candidates apply for nursing in
-                            Uttarakhand?
-                          </h5>
-                          <p>
-                            Yes. There is no gender restriction for ANM, GNM, or
-                            B.Sc Nursing.
-                          </p>
-                          <h5>Q4: Is NEET required for B.Sc Nursing?</h5>
-                          <p>
-                            NEET is not mandatory for most Uttarakhand nursing
-                            colleges.
-                          </p>
-
+                          <FaqBlock items={guide.faqs ?? []} heading="9. Frequently Asked Questions (FAQs)" headingLevel={3} />
                           <hr />
                           <h3>10. CONCLUSION & COUNSELLING SUPPORT</h3>
                           <p>

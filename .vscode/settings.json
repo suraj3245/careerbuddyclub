@@ -1,0 +1,15 @@
+{
+  // .next/trace is Next.js's dev timing log: one JSON array per line (JSON Lines),
+  // not a single JSON document, so the JSON validator reports "End of file expected".
+  // Open it as plain text instead, and keep build output out of search/file watching.
+  "files.associations": {
+    "**/.next/trace": "plaintext",
+    "**/.next/**/trace": "plaintext"
+  },
+  "search.exclude": {
+    "**/.next": true
+  },
+  "files.watcherExclude": {
+    "**/.next/**": true
+  }
+}

@@ -1,26 +1,40 @@
 "use client";
-import React, { useEffect, useLayoutEffect, useMemo, useRef, useState, useCallback } from "react";
-import { useRouter, usePathname, useSearchParams } from "next/navigation";
+import React, { useCallback, useEffect, useLayoutEffect, useRef, useState, useTransition } from "react";
+import NextLink from "next/link";
+import { useRouter } from "next/navigation";
 import { createTheme, ThemeProvider, styled } from "@mui/material/styles";
-import { Skeleton,
-  Box, Card, CardContent, Container, Grid, Pagination, Typography, Button, CssBaseline, useMediaQuery,
+import {
+  Skeleton, Box, Card, CardContent, Container, Grid, Pagination, PaginationItem, Typography, Button,
+  CssBaseline, useMediaQuery,
 } from "@mui/material";
 import { LocationOn, Link } from "@mui/icons-material";
 import BlogSection from "./blog-section";
 import FilterPanel from "./filterpanel";
-import axios from "axios";
 import ModalHeader from "@/app/components/homeModal";
-import { toStreamPath, findStreamIdByPathTitle } from "@/utils/streamPath";
-import {
-  parseFiltersFromSearchParams,
-  filtersToURLParams,
-  FiltersObject,
-} from "@/utils/filters.utils";
+import { toCitySlug } from "@/utils/streamPath";
+import type { FiltersObject } from "@/utils/filters.utils";
+import { COLLEGES_PER_PAGE } from "@/config/site";
+import type { CollegeCardData, StreamLink } from "@/app/colleges/listing";
 
+/**
+ * College listing UI. Filtering and pagination are done on the server
+ * (see app/colleges/listing.ts) — this component only receives the 20 colleges
+ * for the current page and navigates to a new URL when filters/page change.
+ */
 interface FilterPageProps {
-  initialStreamPath?: string;
-  initialColleges?: any[];
-  initialStreams?: any[];
+  h1: string;
+  streamId: number | null;
+  streamDescription: string | null;
+  city: string | null;
+  colleges: CollegeCardData[];
+  total: number;
+  page: number;
+  pageCount: number;
+  basePath: string;
+  extraQuery: string;
+  filters: FiltersObject;
+  filterOptions: Record<string, any[]>;
+  streams: StreamLink[];
 }
 
 const theme = createTheme({
@@ -43,43 +57,40 @@ const FloatingButton = styled(Button)(({ theme }) => ({
   position: "fixed", bottom: 20, right: 20, zIndex: 1000, [theme.breakpoints.up("lg")]: { display: "none" },
 }));
 
-const COLLEGES_PER_PAGE = 6;
+/** Build the listing URL for a filter set: stream + first city go in the path, the rest in the query. */
+function buildListingUrl(filters: FiltersObject, streams: StreamLink[]): string {
+  const stream = streams.find((s) => String(s.id) === (filters.Streams?.[0] ?? ""));
+  const [city, ...otherCities] = filters.Location ?? [];
+  let path = "/colleges";
+  if (stream) path += `/${stream.slug}`;
+  if (city) path += `/colleges-in-${toCitySlug(city)}`;
 
-function extractFromPath(pathname: string) {
-  const regex = /^\/colleges(?:\/([a-z0-9-]+))?(?:\/colleges-in-([a-z0-9-]+))?/;
-  const match = pathname.match(regex);
-  return { streamSlug: match?.[1] || "", citySlug: match?.[2] || "" };
-}
-function toCitySlug(city: string) {
-  return city?.toLowerCase().replace(/\s+/g, "-") || "";
-}
-function fromCitySlug(citySlug: string, allCities: string[]) {
-  return allCities.find(c => toCitySlug(c) === (citySlug?.toLowerCase() || "")) || "";
+  const q = new URLSearchParams();
+  otherCities.forEach((c) => q.append("Location", c));
+  (["Type", "ApprovedBy", "Courses"] as const).forEach((key) =>
+    (filters[key] ?? []).forEach((v) => q.append(key, v))
+  );
+  const qs = q.toString();
+  return qs ? `${path}?${qs}` : path;
 }
 
-const FilterPage: React.FC<FilterPageProps> = ({ initialStreamPath, initialColleges = [], initialStreams = [] }) => {
-  const pathname = usePathname();
+function pageHref(basePath: string, extraQuery: string, page: number): string {
+  const q = new URLSearchParams(extraQuery);
+  if (page > 1) q.set("page", String(page));
+  const qs = q.toString();
+  return qs ? `${basePath}?${qs}` : basePath;
+}
+
+const FilterPage: React.FC<FilterPageProps> = ({
+  h1, streamId, streamDescription, city, colleges, total, page, pageCount, basePath, extraQuery,
+  filters, filterOptions, streams,
+}) => {
   const router = useRouter();
-  const searchParams = useSearchParams();
+  const [isPending, startTransition] = useTransition();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalType, setModalType] = useState<string | null>(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const isLargeScreen = useMediaQuery(theme.breakpoints.up("lg"));
-  
-  const [allColleges, setAllColleges] = useState<any[]>(initialColleges);
-  const [streams, setStreams] = useState<any[]>(initialStreams);
-  const [isLoading, setIsLoading] = useState(false);
-  
-  // Pre-process streams for fast college filtering
-  const [streamToCollegeIdMap, setStreamToCollegeIdMap] = useState<Map<string, Set<number>>>(() => {
-    const map = new Map<string, Set<number>>();
-    initialStreams.forEach((stream: any) => {
-      map.set(String(stream.id), new Set((stream.colleges ?? []).map((c: any) => c.id)));
-    });
-    return map;
-  });
-  
-  const [page, setPage] = useState(1);
   const asideRef = useRef<HTMLDivElement>(null);
   const [asideHeight, setAsideHeight] = useState<number | undefined>(undefined);
 
@@ -87,195 +98,39 @@ const FilterPage: React.FC<FilterPageProps> = ({ initialStreamPath, initialColle
     if (typeof window !== "undefined") setIsLoggedIn(!!localStorage.getItem("token"));
   }, []);
 
-  // --- URL Synchronization Logic ---
-  // On initial page load, if the URL has a "pretty path", sync it to the query params.
-  useEffect(() => {
-    if (streams.length === 0 || allColleges.length === 0) return; // Wait for data
+  const navigate = useCallback(
+    (url: string) => startTransition(() => router.push(url, { scroll: false })),
+    [router]
+  );
 
-    const { streamSlug, citySlug } = extractFromPath(pathname ?? "");
-    const currentParams = new URLSearchParams(searchParams.toString());
+  const updateFilters = useCallback(
+    (category: string, values: string[]) => {
+      const next: FiltersObject = { ...filters, [category]: values };
+      Object.keys(next).forEach((k) => (next[k] ?? []).length === 0 && delete next[k]);
+      // Picking a new stream clears course filters from the previous one.
+      if (category === "Streams") delete next.Courses;
+      navigate(buildListingUrl(next, streams));
+    },
+    [filters, streams, navigate]
+  );
 
-    if (streamSlug && !currentParams.has("Streams")) {
-      const foundId = findStreamIdByPathTitle(streamSlug, streams);
-      // On initial load, we replace the URL instead of pushing to history
-      if (foundId) router.replace(`/colleges/${streamSlug}?Streams=${foundId}`, { scroll: false });
-    } else if (citySlug && !currentParams.has("Location")) {
-      const allCities = Array.from(new Set(allColleges.map((c: any) => c.city).filter(Boolean)));
-      const city = fromCitySlug(citySlug, allCities);
-      // On initial load, we replace the URL
-      if (city) router.replace(`/colleges/colleges-in-${citySlug}?Location=${city}`, { scroll: false });
-    }
-  }, [streams, allColleges, pathname, searchParams, router]); // Added dependencies
+  const removeFilterChip = useCallback(
+    (cat: string, val: string) => updateFilters(cat, (filters[cat] ?? []).filter((v) => v !== val)),
+    [filters, updateFilters]
+  );
 
-  // 2. The single source of truth for filters initially comes from URL search params,
-  // but we maintain local state to avoid slow Next.js server-side route transitions.
-  const [filters, setFilters] = useState<FiltersObject>(() => parseFiltersFromSearchParams(searchParams) ?? {});
-
-  // Keep filters in sync if user navigates via Next.js router (e.g. back/forward or Links)
-  useEffect(() => {
-    setFilters(parseFiltersFromSearchParams(searchParams) ?? {});
-  }, [searchParams]);
-
-  // Keep filters in sync if user navigates via browser back/forward purely on pushState history
-  useEffect(() => {
-    const handlePopState = () => {
-      if (typeof window !== "undefined") {
-        const params = new URLSearchParams(window.location.search);
-        setFilters(parseFiltersFromSearchParams(params) ?? {});
-      }
-    };
-    window.addEventListener("popstate", handlePopState);
-    return () => window.removeEventListener("popstate", handlePopState);
-  }, []);
-
-  // -- Canonical update, pushState for speed, avoid any "page reload"!
-  const updateFilters = useCallback((category: string, values: string[]) => {
-    let nextFilters: FiltersObject = { ...filters, [category]: values };
-    if ((nextFilters.Streams ?? []).length === 0) delete nextFilters.Streams;
-    if ((nextFilters.Location ?? []).length === 0) delete nextFilters.Location;
-
-    const stream = streams.find(s => String(s.id) === (nextFilters.Streams?.[0] ?? ""));
-    const streamSlug = stream ? toStreamPath(stream.title, stream.id) : null;
-    const city = nextFilters.Location?.[0];
-    const citySlug = city ? toCitySlug(city) : null;
-
-    let prettyUrl = "/colleges";
-    if (streamSlug) prettyUrl += `/${streamSlug}`;
-    if (citySlug) prettyUrl += `/colleges-in-${citySlug}`;
-
-    const qStr = filtersToURLParams(nextFilters);
-    const finalUrl = `${prettyUrl}${qStr ? `?${qStr}` : ""}`;
-    
-    // Update local state instantly
-    setFilters(nextFilters);
-    
-    // Update URL instantly without triggering Next.js server routing
-    window.history.pushState(null, "", finalUrl);
-  }, [filters, streams]);
-
-  const removeFilterChip = useCallback((cat: string, val: string) => {
-    const filteredVals = (filters[cat] ?? []).filter((v: string) => v !== val);
-    updateFilters(cat, filteredVals);
-  }, [filters, updateFilters]);
-
-  const handleClearAll = useCallback(() => {
-    setFilters({});
-    window.history.pushState(null, "", "/colleges");
-  }, []);
+  const handleClearAll = useCallback(() => navigate("/colleges"), [navigate]);
 
   const getChipLabel = useCallback(
     (cat: string, val: string) => {
-      if (cat === "Streams") {
-        const stream = streams.find((s: any) => String(s.id) === val);
-        return stream ? stream.title : val;
-      }
+      if (cat === "Streams") return streams.find((s) => String(s.id) === val)?.title ?? val;
       return val;
     },
     [streams]
   );
 
-  // -- Memoize all derived/filtering logic, minimal re-renders --
-  const clgLocation = useMemo(
-    () => Array.from(new Set(allColleges.map((c: any) => c.city).filter(Boolean))),
-    [allColleges]
-  );
-
-  const filterOptions = useMemo(() => {
-    if (!allColleges.length || !streams.length) return {};
-
-    const selectedStreamId = filters.Streams?.[0];
-    const result: Record<string, any[]> = {};
-
-    // If no stream is selected, show the Streams filter.
-    // If a stream IS selected, hide the Streams filter.
-    if (!selectedStreamId) {
-      result.Streams = streams.map((s) => ({
-        name: s.title,
-        id: String(s.id),
-      }));
-    } else {
-      // If a stream is selected, find it and show its related courses.
-      const selectedStream = streams.find(s => String(s.id) === selectedStreamId);
-      if (selectedStream && selectedStream.courses) {
-        result.Courses = selectedStream.courses.map((c: any) => ({ name: c.name }));
-      }
-    }
-
-    // Locations
-    const locMap = new Map<string, number>();
-    allColleges.forEach((c) => {
-      if (c.city) locMap.set(c.city, (locMap.get(c.city) || 0) + 1);
-    });
-    result.Location = Array.from(locMap, ([name, count]) => ({ name, count }))
-      .sort((a, b) => b.count - a.count)
-      .slice(0, 50);
-
-    // Types
-    const typeMap = new Map<string, number>();
-    allColleges.forEach((c) => {
-      if (c.type) typeMap.set(c.type, (typeMap.get(c.type) || 0) + 1);
-    });
-    result.Type = Array.from(typeMap, ([name, count]) => ({ name, count }))
-      .sort((a, b) => b.count - a.count)
-      .slice(0, 20);
-
-    // Approved By is often null/inconsistent, so we filter out falsy values
-    const appMap = new Map<string, number>();
-    allColleges.forEach((c) => {
-      if (c.approved_by) appMap.set(c.approved_by, (appMap.get(c.approved_by) || 0) + 1);
-    });
-    result.ApprovedBy = Array.from(appMap, ([name, count]) => ({ name, count }))
-      .sort((a, b) => b.count - a.count)
-      .slice(0, 20);
-
-    return result;
-  }, [streams, allColleges, filters.Streams]);
-
-  const displayedColleges = useMemo(() => {
-    let filtered = allColleges;
-
-    // 1. Filter by Stream
-    const selectedStreamIds = filters.Streams ?? [];
-    if (selectedStreamIds.length > 0) {
-      const validCollegeIds = new Set<number>();
-      selectedStreamIds.forEach((streamId: string) => {
-        streamToCollegeIdMap.get(streamId)?.forEach((collegeId: number) => validCollegeIds.add(collegeId));
-      });
-      filtered = filtered.filter((c: any) => validCollegeIds.has(c.id));
-    }
-
-    // 2. Filter by other categories
-    if ((filters.Location ?? []).length) filtered = filtered.filter((c: any) => filters.Location?.includes(c.city));
-    if ((filters.Type ?? []).length) filtered = filtered.filter((c: any) => filters.Type?.includes(c.type));
-    if ((filters.ApprovedBy ?? []).length) filtered = filtered.filter((c: any) => filters.ApprovedBy?.includes(c.approved_by));
-
-    // 3. Filter by Courses (if a stream is selected)
-    const selectedCourses = filters.Courses ?? [];
-    if (selectedCourses.length > 0) {
-      filtered = filtered.filter(college =>
-        college.courses?.some((course: any) => selectedCourses.includes(course.name))
-      );
-    }
-
-    return filtered;
-  }, [allColleges, filters, streamToCollegeIdMap]); // Dependencies are correct
-
-  // Reset to the first page whenever the active filters change the result set.
-  useEffect(() => {
-    setPage(1);
-  }, [filters]);
-
-  const pageCount = Math.max(1, Math.ceil(displayedColleges.length / COLLEGES_PER_PAGE));
-
-  const paginatedColleges = useMemo(
-    () => displayedColleges.slice((page - 1) * COLLEGES_PER_PAGE, page * COLLEGES_PER_PAGE),
-    [displayedColleges, page]
-  );
-
   // Keep the college list column the same height as the filter sidebar so the
   // two columns line up, scrolling the list internally when a page overflows.
-  // Measured directly (rather than via ResizeObserver) and re-measured on
-  // anything that can change the sidebar's content height.
   useLayoutEffect(() => {
     if (!isLargeScreen || !asideRef.current) {
       setAsideHeight(undefined);
@@ -292,7 +147,7 @@ const FilterPage: React.FC<FilterPageProps> = ({ initialStreamPath, initialColle
       p: 3, bgcolor: "#FFD700", borderRadius: 3, boxShadow: "0 2px 10px rgba(0,0,0,0.08)",
       minWidth: 320, maxWidth: 340, mx: "auto",
     }}>
-      <Typography variant="h6" gutterBottom>
+      <Typography variant="h6" component="p" gutterBottom>
         Get personalised college<br/>recommendations
       </Typography>
       <Typography variant="body2" sx={{ mb: 2 }}>
@@ -320,16 +175,20 @@ const FilterPage: React.FC<FilterPageProps> = ({ initialStreamPath, initialColle
   ), [isLoggedIn]);
 
   const handleApplyNow = useCallback((e: React.MouseEvent) => {
+    e.preventDefault();
     e.stopPropagation();
     setModalType("student");
     setIsModalOpen(true);
   }, []);
 
+  const firstShown = total === 0 ? 0 : (page - 1) * COLLEGES_PER_PAGE + 1;
+  const lastShown = Math.min(total, firstShown + colleges.length - 1);
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Container maxWidth="lg" sx={{ py: 4, pt: 20 }}>
-        <BlogSection streams={streams} clgLocation={clgLocation} filters={filters} router={router} />
+        <BlogSection h1={h1} streamId={streamId} streamDescription={streamDescription} city={city} />
         <Grid container spacing={4}>
           <Grid item xs={12} lg={3} sx={{ position: "sticky", top: 96 }}>
             <Box ref={asideRef}>
@@ -343,7 +202,12 @@ const FilterPage: React.FC<FilterPageProps> = ({ initialStreamPath, initialColle
               />
             </Box>
           </Grid>
-          <Grid item xs={12} lg={6} sx={{ display: 'block' }}>
+          <Grid item xs={12} lg={6} sx={{ display: "block" }}>
+            {total > 0 && (
+              <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+                Showing {firstShown}–{lastShown} of {total} colleges
+              </Typography>
+            )}
             <Box
               sx={{
                 maxHeight: asideHeight ? `${asideHeight}px` : "none",
@@ -354,7 +218,7 @@ const FilterPage: React.FC<FilterPageProps> = ({ initialStreamPath, initialColle
                 scrollbarWidth: "none",
               }}
             >
-            {isLoading ? (
+            {isPending ? (
               Array.from(new Array(5)).map((_, index) => (
                 <CollegeCard key={index}>
                   <CardContent>
@@ -368,8 +232,8 @@ const FilterPage: React.FC<FilterPageProps> = ({ initialStreamPath, initialColle
                   </CardContent>
                 </CollegeCard>
               ))
-            ) : displayedColleges.length > 0 ? (
-                paginatedColleges.map((college: any) => (
+            ) : colleges.length > 0 ? (
+                colleges.map((college) => (
                   <CollegeCard
                     key={college.id}
                     onClick={() => router.push(`/college-details/${college.college_short_name}`)}
@@ -380,8 +244,14 @@ const FilterPage: React.FC<FilterPageProps> = ({ initialStreamPath, initialColle
                     }}
                   >
                     <CardContent>
-                      <Typography variant="subtitle1" fontWeight={600}>
-                        {college.college_full_name} ({college.college_short_name})
+                      <Typography variant="subtitle1" component="h2" fontWeight={600} sx={{ fontSize: "1rem" }}>
+                        <NextLink
+                          href={`/college-details/${college.college_short_name}`}
+                          onClick={(e) => e.stopPropagation()}
+                          style={{ color: "inherit", textDecoration: "none" }}
+                        >
+                          {college.college_full_name} ({college.college_short_name})
+                        </NextLink>
                       </Typography>
                       <Box sx={{ display: "flex", alignItems: "center", mt: 1 }}>
                         <LocationOn sx={{ mr: 1, fontSize: 18 }} />
@@ -408,23 +278,29 @@ const FilterPage: React.FC<FilterPageProps> = ({ initialStreamPath, initialColle
                   </CollegeCard>
                 ))
             ) : (
-              <Typography variant="h6" sx={{ mt: 4, textAlign: "center" }}>
+              <Typography variant="h6" component="p" sx={{ mt: 4, textAlign: "center" }}>
                 No colleges found matching the selected filters.
               </Typography>
             )}
             </Box>
-            {!isLoading && pageCount > 1 && (
-              <Box sx={{ display: "flex", justifyContent: "center", mt: 3 }}>
+            {pageCount > 1 && (
+              <Box component="nav" aria-label="College list pages" sx={{ display: "flex", justifyContent: "center", mt: 3 }}>
                 <Pagination
                   count={pageCount}
                   page={page}
-                  onChange={(_, value) => setPage(value)}
                   color="primary"
+                  renderItem={(item) => (
+                    <PaginationItem
+                      component={NextLink}
+                      href={pageHref(basePath, extraQuery, item.page ?? 1)}
+                      {...item}
+                    />
+                  )}
                 />
               </Box>
             )}
           </Grid>
-          <Grid item lg={3} sx={{ display: isLargeScreen ? 'block' : 'none' }}>
+          <Grid item lg={3} sx={{ display: isLargeScreen ? "block" : "none" }}>
             <RegisterBanner><RegisterContent /></RegisterBanner>
           </Grid>
         </Grid>

@@ -20,6 +20,7 @@ import nav_6_active from "@/assets/dashboard/images/icon/icon_6_active.svg";
 import { useEffect } from "react";
 import axios from "axios";
 import { isUserLoggedIn } from "@/utils/auth";
+import { clearUserSession } from "@/utils/logout";
 // nav data
 const nav_data: {
   id: number;
@@ -84,11 +85,7 @@ const CandidateAside = ({ isOpenSidebar, setIsOpenSidebar }: IProps) => {
   isUserLoggedIn();
 
   function onLogout() {
-    localStorage.removeItem("token");
-    localStorage.removeItem("username");
-    localStorage.removeItem("School_email");
-    localStorage.removeItem("quizSubmitted");
-    localStorage.removeItem("testStatus");
+    clearUserSession();
   }
 
   const fetchUserData = async () => {

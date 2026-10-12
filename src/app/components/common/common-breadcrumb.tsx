@@ -7,14 +7,17 @@ const CommonBreadcrumb = ({
   subtitle,
   backgroundImage,
   asLabel = false,
+  asH1 = false,
 }: {
   title: string;
   subtitle: string;
   backgroundImage?: string;
   /** Render the title as a styled label instead of an <h2> (e.g. generic "Insights" banners on guides). */
   asLabel?: boolean;
+  /** Render the title as the page's <h1> (for index pages whose banner title is the main heading). */
+  asH1?: boolean;
 }) => {
-  const TitleTag = asLabel ? "div" : "h2";
+  const TitleTag = asH1 ? "h1" : asLabel ? "div" : "h2";
   const containerStyle = backgroundImage
     ? {
         backgroundImage: `url(${backgroundImage})`,
