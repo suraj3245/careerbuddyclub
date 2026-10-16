@@ -46,7 +46,7 @@ const bptDescription = () => {
                 {/* Main Content */}
                 <div className="col-lg-8">
                   <div className="pe-lg-4">
-                    <GuideHeader guide={guide} />
+                    <h1 className="mt-4">Top 7 Nursing Colleges in Dehradun 2027 – B.Sc Nursing and GNM Colleges Compared</h1>
                     <p>
                       Dehradun has evolved into a major hub for healthcare and
                       paramedical education in North India. With rising demand

@@ -48,7 +48,7 @@ const bptDescription = () => {
                 {/* Main Content */}
                 <div className="col-lg-8">
                   <div className="pe-lg-4">
-                    <GuideHeader guide={guide} />
+                    <h1 className="mt-4">Top 5 BBA Colleges in Dehradun 2027 – Fees, Placements and Comparison</h1>
                     <p>
                       If you're planning to pursue a Bachelor of Business
                       Administration (BBA), Dehradun is emerging as a premier

@@ -46,7 +46,7 @@ const BScNursingUttarakhandAdmission2026 = () => {
                 {/* Main Content */}
                 <div className="col-lg-8">
                   <div className="pe-lg-4">
-                    <GuideHeader guide={guide} />
+                    <h1 className="mt-4">Top 5 BPT Colleges in Dehradun 2027 – Physiotherapy Colleges Compared</h1>
                     <p>
                       Dehradun, nestled in the picturesque hills of Uttarakhand,
                       is steadily gaining recognition as a center for healthcare

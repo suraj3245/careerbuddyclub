@@ -37,7 +37,7 @@ const bptDescription = () => {
                 {/* Main Content */}
                 <div className="col-lg-8">
                   <div className="pe-lg-4">
-                    <GuideHeader guide={guide} />
+                     <h1 className="mt-4">Top 5 BMLT Colleges in Dehradun & Uttarakhand 2027 – Comparison, Fees and Admission Process</h1>
                     <p>
                       Healthcare today depends heavily on diagnostics and
                       laboratory investigations. Whether doctors diagnose

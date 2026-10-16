@@ -12,10 +12,10 @@ import GuideHeader from "@/app/components/college-blogs/guide/guide-header";
 import GuideSchema from "@/app/components/college-blogs/guide/guide-schema";
 import FaqBlock from "@/app/components/college-blogs/guide/faq-block";
 
-const guide = getGuide("uttarakhand-paramedical-admission-2026");
+const guide = getGuide("uttarakhand-paramedical-admission");
 
 export const metadata: Metadata = buildGuideMetadata(guide);
-const BScNursingUttarakhandAdmission2026 = () => {
+const BScNursingUttarakhandAdmission2027 = () => {
   const contactDetails = {
     email: "admission@careerbuddyclub.com",
     phone: "+917456000100",
@@ -32,7 +32,8 @@ const BScNursingUttarakhandAdmission2026 = () => {
       <div className="main-page-wrapper">
         {/* ✅ Hero Section */}
         <CompanyBreadcrumb
-          title="Insights" asLabel
+          title="Insights"
+          asLabel
           subtitle="Read our blog from top talents"
         />
         <div
@@ -47,7 +48,10 @@ const BScNursingUttarakhandAdmission2026 = () => {
                 {/* Main Content */}
                 <div className="col-lg-8">
                   <div className="pe-lg-4">
-                    <GuideHeader guide={guide} />
+                    <h1 className="mt-4">
+                      Uttarakhand Paramedical Admission 2027 – Dates, Entrance
+                      Exam, Admission Process and Colleges
+                    </h1>
                     <p>
                       Planning a career in healthcare and allied medical
                       sciences? Pursuing a paramedical degree in Uttarakhand
@@ -59,7 +63,7 @@ const BScNursingUttarakhandAdmission2026 = () => {
                       and postgraduate (MPT, MSc MLT) admissions in the state.
                     </p>
                     <p>
-                      For 2026, admissions are expected to follow the standard
+                      For 2027, admissions are expected to follow the standard
                       sequence of entrance exam, merit list publication,
                       centralised online counselling, seat allotment, and
                       reporting.
@@ -67,11 +71,11 @@ const BScNursingUttarakhandAdmission2026 = () => {
                     <p>
                       This guide provides verified details on admission dates,
                       eligibility, counselling, fees, syllabus, and top colleges
-                      for Uttarakhand Paramedical Admission 2026.
+                      for Uttarakhand Paramedical Admission 2027.
                     </p>
                     <div className="mb-4">
                       <Image
-                        src="/assets/images/blog/uttarakhand-paramedical-admission-2026.png"
+                        src="/assets/images/blog/uttarakhand-paramedical-admission-2026.jpg"
                         alt={guide.imageAlt ?? guide.headline}
                         className="img-fluid rounded shadow-sm"
                         width={800}
@@ -108,7 +112,7 @@ const BScNursingUttarakhandAdmission2026 = () => {
                                   href="#dates"
                                   className="text-decoration-none"
                                 >
-                                  2. Important Dates 2026
+                                  2. Important Dates 2027
                                 </a>
                               </li>
                               <li>
@@ -195,7 +199,7 @@ const BScNursingUttarakhandAdmission2026 = () => {
                         {/* Content Start */}
                         <div className="mt-4">
                           <h3 id="highlights" className="fs-3">
-                            1. Uttarakhand Paramedical Admission 2026:
+                            1. Uttarakhand Paramedical Admission 2027:
                             Highlights
                           </h3>
                           <table className="table table-bordered table-striped mt-3 mb-4">
@@ -209,7 +213,7 @@ const BScNursingUttarakhandAdmission2026 = () => {
                                   <strong>Exam</strong>
                                 </td>
                                 <td>
-                                  Uttarakhand Paramedical Entrance Exam 2026
+                                  Uttarakhand Paramedical Entrance Exam 2027
                                 </td>
                               </tr>
                               <tr>
@@ -256,7 +260,7 @@ const BScNursingUttarakhandAdmission2026 = () => {
                           <hr />
 
                           <h3 id="dates" className="fs-3">
-                            2. Uttarakhand Paramedical Admission Dates 2026
+                            2. Uttarakhand Paramedical Admission Dates 2027
                             (Tentative)
                           </h3>
                           <table className="table table-bordered table-striped mt-3 mb-4">
@@ -269,23 +273,23 @@ const BScNursingUttarakhandAdmission2026 = () => {
                             <tbody>
                               <tr>
                                 <td>Online Registration</td>
-                                <td>May 2026</td>
+                                <td>May</td>
                               </tr>
                               <tr>
                                 <td>Admit Card Release</td>
-                                <td>June 2026</td>
+                                <td>June </td>
                               </tr>
                               <tr>
                                 <td>Entrance Examination</td>
-                                <td>June 2026</td>
+                                <td>June</td>
                               </tr>
                               <tr>
                                 <td>Result Declaration</td>
-                                <td>June/July 2026</td>
+                                <td>June/July</td>
                               </tr>
                               <tr>
                                 <td>Counselling Round 1</td>
-                                <td>July 2026 onwards</td>
+                                <td>July onwards</td>
                               </tr>
                             </tbody>
                           </table>
@@ -297,7 +301,7 @@ const BScNursingUttarakhandAdmission2026 = () => {
                           <hr />
 
                           <h3 id="process" className="fs-3">
-                            3. Uttarakhand Paramedical Admission Process 2026
+                            3. Uttarakhand Paramedical Admission Process 2027
                           </h3>
                           <p>
                             Admissions will be conducted online via
@@ -315,7 +319,7 @@ const BScNursingUttarakhandAdmission2026 = () => {
                           </ol>
                           <hr />
                           <h3 id="eligibility" className="fs-3">
-                            Eligibility Criteria 2026
+                            Eligibility Criteria 2027
                           </h3>
                           <p>
                             <strong>
@@ -332,7 +336,7 @@ const BScNursingUttarakhandAdmission2026 = () => {
                               for reserved categories)
                             </li>
                             <li>
-                              Minimum age: 17 years as on 31 December 2026
+                              Minimum age: 17 years as on 31 December 2027
                             </li>
                           </ul>
                           <p>
@@ -356,7 +360,7 @@ const BScNursingUttarakhandAdmission2026 = () => {
                           </ul>
                           <hr />
                           <h3 id="fee" className="fs-3">
-                            Uttarakhand Paramedical Application Fee 2026
+                            Uttarakhand Paramedical Application Fee 2027
                           </h3>
                           <table className="table table-bordered table-striped mt-3 mb-4">
                             <thead>
@@ -394,7 +398,7 @@ const BScNursingUttarakhandAdmission2026 = () => {
                           </ul>
                           <hr />
                           <h3 id="counselling" className="fs-3">
-                            7. Counselling Process 2026
+                            7. Counselling Process 2027
                           </h3>
                           <p>
                             After publication of the merit list, HNBUMU will
@@ -416,7 +420,7 @@ const BScNursingUttarakhandAdmission2026 = () => {
                           </ul>
                           <hr />
                           <h3 id="colleges" className="fs-3">
-                            8. Entrance Exam Pattern & Syllabus (2026)
+                            8. Entrance Exam Pattern & Syllabus (2027)
                           </h3>
                           <p>Exam Pattern</p>
                           <table className="table table-bordered table-striped mt-3 mb-4">
@@ -470,7 +474,7 @@ const BScNursingUttarakhandAdmission2026 = () => {
                           <hr />
 
                           <h3 id="top-colleges" className="fs-3">
-                            9. Top Paramedical Colleges in Uttarakhand (2026)
+                            9. Top Paramedical Colleges in Uttarakhand (2027)
                           </h3>
                           <table className="table table-bordered table-striped mt-3 mb-4">
                             <thead>
@@ -534,7 +538,7 @@ const BScNursingUttarakhandAdmission2026 = () => {
                           </table>
                           <hr />
                           <h3 id="comparison-table" className="fs-3">
-                            10. Comparison of Leading Colleges (2026)
+                            10. Comparison of Leading Colleges (2027)
                           </h3>
                           <table className="table table-bordered table-striped mt-3 mb-4">
                             <thead>
@@ -591,9 +595,15 @@ const BScNursingUttarakhandAdmission2026 = () => {
                             </tbody>
                           </table>
                           <hr />
-                          <FaqBlock items={guide.faqs ?? []} heading="11. FAQs (2026)" headingLevel={3} />
+                          <FaqBlock
+                            items={guide.faqs ?? []}
+                            heading="11. FAQs (2027)"
+                            headingLevel={3}
+                          />
                           <hr />
-                          <h4 id="why-cbc">12. Why Career Buddy Club Matters</h4>
+                          <h4 id="why-cbc">
+                            12. Why Career Buddy Club Matters
+                          </h4>
                           <p>
                             Career Buddy Club assists students through verified
                             college data, admission guidance, placement
@@ -619,4 +629,4 @@ const BScNursingUttarakhandAdmission2026 = () => {
   );
 };
 
-export default BScNursingUttarakhandAdmission2026;
+export default BScNursingUttarakhandAdmission2027;
