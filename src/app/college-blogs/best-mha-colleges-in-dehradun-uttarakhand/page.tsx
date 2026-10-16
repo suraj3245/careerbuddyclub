@@ -11,7 +11,7 @@ import GuideHeader from "@/app/components/college-blogs/guide/guide-header";
 import GuideSchema from "@/app/components/college-blogs/guide/guide-schema";
 import FaqBlock from "@/app/components/college-blogs/guide/faq-block";
 
-const guide = getGuide("best-mha-colleges-in-dehradun-uttarakhand-2026");
+const guide = getGuide("best-mha-colleges-in-dehradun-uttarakhand");
 
 export const metadata: Metadata = buildGuideMetadata(guide);
 const Bestmhacolleges = () => {
@@ -36,8 +36,7 @@ const Bestmhacolleges = () => {
                   {/* Main Content */}
                   <div className="col-lg-8">
                     <div className="pe-lg-4">
-                      <GuideHeader guide={guide} />
-
+                     <h1 className="mt-4">Best MHA Colleges in Dehradun and Uttarakhand 2027 – Comparison and Admission Process</h1>
                       <p>
                         Discover why Dehradun is emerging as a leading
                         destination for Master of Hospital Administration (MHA)

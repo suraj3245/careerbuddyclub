@@ -12,7 +12,7 @@ import GuideHeader from "@/app/components/college-blogs/guide/guide-header";
 import GuideSchema from "@/app/components/college-blogs/guide/guide-schema";
 import FaqBlock from "@/app/components/college-blogs/guide/faq-block";
 import ComparisonTable from "@/app/components/college-blogs/guide/comparison-table";
-const guide = getGuide("bsc-nursing-admission-uttarakhand-2026");
+const guide = getGuide("bsc-nursing-admission-uttarakhand");
 
 export const metadata: Metadata = buildGuideMetadata(guide);
 
@@ -23,7 +23,8 @@ const BScNursingUttarakhandAdmission2026 = () => {
       <div className="main-page-wrapper">
         {/* ✅ Hero Section */}
         <CompanyBreadcrumb
-          title="Insights" asLabel
+          title="Insights"
+          asLabel
           subtitle="Read our blog from top talents"
         />
         <div
@@ -37,7 +38,10 @@ const BScNursingUttarakhandAdmission2026 = () => {
               <div className="row gy-5">
                 <div className="col-lg-8">
                   <div className="pe-lg-4">
-                    <GuideHeader guide={guide} />
+                    <h1 className="mt-4">
+                      B.Sc Nursing Admission Process in Uttarakhand 2027 –
+                      Eligibility, Entrance Exam and Colleges
+                    </h1>
                     <p>
                       Discover the complete BSc Nursing admission process in
                       Uttarakhand 2026 — including eligibility, entrance exam
@@ -46,7 +50,7 @@ const BScNursingUttarakhandAdmission2026 = () => {
                     </p>
                     <div className="mb-4">
                       <Image
-                        src="/assets/images/blog/nursing_blog.webp"
+                        src="/assets/images/blog/nursing_blog.jpg"
                         alt={guide.imageAlt ?? guide.headline}
                         className="img-fluid rounded shadow-sm"
                         width={800}
@@ -476,7 +480,12 @@ const BScNursingUttarakhandAdmission2026 = () => {
 
                         <hr className="mt-10 border-bottom border-3 border-dark mt-4" />
 
-                        {guide.comparison && <ComparisonTable data={guide.comparison} headingLevel={3} />}
+                        {guide.comparison && (
+                          <ComparisonTable
+                            data={guide.comparison}
+                            headingLevel={3}
+                          />
+                        )}
                         <hr className="mt-10 border-bottom border-3 border-dark mt-4" />
 
                         <div className="mt-4">

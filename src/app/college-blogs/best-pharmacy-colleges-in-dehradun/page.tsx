@@ -38,9 +38,9 @@ const bptDescription = () => {
                 {/* Main Content */}
                 <div className="col-lg-8">
                   <div className="pe-lg-4">
-                    <GuideHeader guide={guide} />
+                    <h1 className="mt-4">Top 5 Pharmacy Colleges in Dehradun & Uttarakhand 2027 – B.Pharm and D.Pharm Compared</h1>
                     <p>
-                      Explore the best pharmacy colleges in Dehradun for 2026.
+                      Explore the best pharmacy colleges in Dehradun for 2027.
                       This detailed guide covers D.Pharm, B.Pharm, Pharm.D
                       courses, eligibility criteria, fee structure, approvals,
                       and career opportunities to help students make informed
@@ -48,7 +48,7 @@ const bptDescription = () => {
                     </p>
                     <div className="mb-4">
                       <Image
-                        src="/assets/images/blog/pharmacy-college-dehradun.jpeg"
+                        src="/assets/images/blog/pharmacy-college-dehradun.jpg"
                         alt={guide.imageAlt ?? guide.headline}
                         className="img-fluid rounded shadow-sm"
                         width={800}
@@ -86,7 +86,7 @@ const bptDescription = () => {
                                   href="#top-colleges"
                                   className="text-decoration-none"
                                 >
-                                  Top Pharmacy Colleges in Dehradun (2026){" "}
+                                  Top Pharmacy Colleges in Dehradun (2027){" "}
                                 </a>
                               </li>
                               <li>
@@ -160,7 +160,7 @@ const bptDescription = () => {
                           <hr className="mt-10 border-bottom border-3 border-dark mt-4" />
                           {/* Top Colleges */}
                           <h2 id="gnc" className="mt-5 mb-4 fs-2 mt-4">
-                            Top Pharmacy Colleges in Dehradun (2026)
+                            Top Pharmacy Colleges in Dehradun (2027)
                           </h2>
                           <p>
                             The following colleges are known for PCI-compliant
@@ -537,7 +537,7 @@ const bptDescription = () => {
                             Bhoomi Institute offer PCI-approved programs, modern
                             infrastructure, and strong career pathways.
                             <br />
-                            Choosing the right college in 2026 is crucial for
+                            Choosing the right college in 2027 is crucial for
                             long-term success in the pharmaceutical industry.
                             Students are strongly advised to verify approvals
                             via the Pharmacy Council of India (PCI) and seek
@@ -570,7 +570,7 @@ const bptDescription = () => {
                             <strong>
                               Pharmacy Colleges in Dehradun, Best D.Pharm
                               Colleges Dehradun, Top B.Pharm Colleges
-                              Uttarakhand, Pharmacy Admission 2026, PCI Approved
+                              Uttarakhand, Pharmacy Admission 2027, PCI Approved
                               Pharmacy Colleges Dehradun, Pharm.D Colleges
                               Dehradun, Career After Pharmacy, Pharmacy Courses
                               in India
@@ -578,7 +578,7 @@ const bptDescription = () => {
                           </p>
                         </div>
                         <div className="pt-0">
-                          <FaqBlock items={guide.faqs ?? []} heading="FAQs – Pharmacy Colleges in Dehradun (2026)" />
+                          <FaqBlock items={guide.faqs ?? []} heading="FAQs – Pharmacy Colleges in Dehradun (2027)" />
                         </div>
                       </section>
                     </div>
