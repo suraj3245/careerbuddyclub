@@ -10,6 +10,7 @@ import { buildGuideMetadata } from "@/lib/guides/seo";
 import GuideHeader from "@/app/components/college-blogs/guide/guide-header";
 import GuideSchema from "@/app/components/college-blogs/guide/guide-schema";
 import FaqBlock from "@/app/components/college-blogs/guide/faq-block";
+import Link from "next/link";
 
 const guide = getGuide("best-mha-colleges-in-dehradun-uttarakhand");
 
@@ -18,10 +19,11 @@ const Bestmhacolleges = () => {
   return (
     <>
       <Wrapper>
-      <GuideSchema guide={guide} />
+        <GuideSchema guide={guide} />
         <div className="main-page-wrapper">
           <CompanyBreadcrumb
-            title="Insights" asLabel
+            title="Insights"
+            asLabel
             subtitle="Read our blog from top talents"
           />
           <div
@@ -36,7 +38,10 @@ const Bestmhacolleges = () => {
                   {/* Main Content */}
                   <div className="col-lg-8">
                     <div className="pe-lg-4">
-                     <h1 className="mt-4">Best MHA Colleges in Dehradun and Uttarakhand 2027 – Comparison and Admission Process</h1>
+                      <h1 className="mt-4">
+                        Best MHA Colleges in Dehradun and Uttarakhand 2027 –
+                        Comparison and Admission Process
+                      </h1>
                       <p>
                         Discover why Dehradun is emerging as a leading
                         destination for Master of Hospital Administration (MHA)
@@ -279,7 +284,6 @@ const Bestmhacolleges = () => {
                                 <h3 id="bfit">
                                   1. BFIT Group of Institutions, Dehradun
                                 </h3>
-                                <br />
                                 <p>
                                   <strong>Affiliation:</strong> HNB Garhwal
                                   Central University
@@ -343,7 +347,14 @@ const Bestmhacolleges = () => {
                             <ul className="mb-5 list-unstyled">
                               <li>
                                 <h3>2. Guru Nanak College, Dehradun</h3>
-                                <br />
+                                <p className="mt-2">
+                                  <Link
+                                    href="https://gnc.edu.in/paramedical-college-in-dehradun-uttarakhand"
+                                    className="text-primary"
+                                  >
+                                    🔗 Visit Website
+                                  </Link>
+                                </p>
                                 <p>
                                   <strong>Affiliation:</strong> HNB Garhwal
                                   University
@@ -402,7 +413,6 @@ const Bestmhacolleges = () => {
                             <ul className="mb-5 list-unstyled">
                               <li>
                                 <h3>3. Graphic Era University, Dehradun</h3>
-                                <br />
                                 <p>
                                   <strong>Type:</strong> Deemed to be University
                                   (NAAC A+ Accredited)
@@ -467,7 +477,6 @@ const Bestmhacolleges = () => {
                                   4. Himalayan Institute of Medical Sciences
                                   (HIMS), Jolly Grant
                                 </h3>
-                                <br />
                                 <p>
                                   <strong>Constituent of:</strong> Swami Rama
                                   Himalayan University (SRHU)
@@ -534,7 +543,6 @@ const Bestmhacolleges = () => {
                                   5. Hemwati Nandan Bahuguna (HNB) Uttarakhand
                                   Medical Education University
                                 </h3>
-                                <br />
                                 <p>
                                   <strong>Type:</strong> State Government
                                   University
@@ -594,7 +602,6 @@ const Bestmhacolleges = () => {
                                 <h3>
                                   6. Government Doon Medical College, Dehradun
                                 </h3>
-                                <br />
                                 <p>
                                   <strong>Affiliation:</strong> HNB Garhwal
                                   University

@@ -54,7 +54,7 @@ const bptDescription = () => {
                       approach, skill-based curriculum, and growing employment
                       opportunities. If you are searching for the best BMLT
                       colleges in Dehradun or looking for BMLT admission in
-                      Uttarakhand for 2026, this detailed guide covers course
+                      Uttarakhand for 2027, this detailed guide covers course
                       details, admission process, fees, syllabus, top colleges,
                       placements, salary prospects, and future career
                       opportunities.
@@ -263,7 +263,7 @@ const bptDescription = () => {
                           </p>
                           <hr className="mt-10 border-bottom border-3 border-dark mt-4" />
                           <h2 id="gnc" className="mt-5 mb-4 fs-2 mt-4">
-                            Why Choose BMLT as a Career in 2026?
+                            Why Choose BMLT as a Career in 2027?
                           </h2>
                           <p>
                             Healthcare diagnostics is among the fastest-growing
@@ -381,7 +381,7 @@ const bptDescription = () => {
                             policies.
                           </p>
                           <hr className="mt-10 border-bottom border-3 border-dark mt-4" />
-                          <h2 id="top-colleges" className="mt-4 mb-4 fs-2">BMLT Admission Process 2026</h2>
+                          <h2 id="top-colleges" className="mt-4 mb-4 fs-2">BMLT Admission Process 2027</h2>
                           <p>Admissions generally follow these steps:</p>
                           <h4>Step 1: Registration</h4>
                           <p>Submit application forms online or offline.</p>
@@ -416,7 +416,7 @@ const bptDescription = () => {
                           <hr className="mt-10 border-bottom border-3 border-dark mt-4" />
                           <h2 id="top-colleges" className="mt-4 mb-4 fs-2">
                             Best BMLT Colleges in Dehradun & Uttarakhand for
-                            2026 Admissions
+                            2027 Admissions
                           </h2>
                           <p>
                             Dehradun has become one of India's preferred
@@ -444,6 +444,15 @@ const bptDescription = () => {
                               <h3 id="">
                                 1. Guru Nanak College (GNC), Dehradun
                               </h3>
+                               <p>
+                                <Link
+                                  href="https://gnc.edu.in/best-bmlt-college-in-dehradun"
+                                  className="text-primary"
+                                  target="_blank"
+                                >
+                                  🔗 Visit Website
+                                </Link>
+                              </p>
                               <p>
                                 Guru Nanak College has gained recognition for
                                 allied healthcare and science education.
@@ -797,7 +806,7 @@ const bptDescription = () => {
                             Laboratory{" "}
                           </p>
                           <p>
-                            Technology Admission 2026, Paramedical Colleges
+                            Technology Admission 2027, Paramedical Colleges
                             Dehradun, Allied Healthcare Courses, BMLT Career
                             Scope, Healthcare Education Uttarakhand, BMLT Fees
                             Dehradun

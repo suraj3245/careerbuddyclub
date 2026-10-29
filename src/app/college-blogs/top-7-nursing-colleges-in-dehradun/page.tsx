@@ -10,6 +10,7 @@ import { buildGuideMetadata } from "@/lib/guides/seo";
 import GuideHeader from "@/app/components/college-blogs/guide/guide-header";
 import GuideSchema from "@/app/components/college-blogs/guide/guide-schema";
 import FaqBlock from "@/app/components/college-blogs/guide/faq-block";
+import Link from "next/link";
 const guide = getGuide("top-7-nursing-colleges-in-dehradun");
 
 export const metadata: Metadata = buildGuideMetadata(guide);
@@ -57,7 +58,7 @@ const bptDescription = () => {
                       options.
                     </p>
                     <p>
-                      In this 2026 guide by Career Buddy Club, we present the
+                      In this 2027 guide by Career Buddy Club, we present the
                       Top Nursing Colleges in Dehradun, including details on
                       courses offered, eligibility, fees, clinical exposure,
                       approvals, placements, and career prospects. Special
@@ -69,7 +70,7 @@ const bptDescription = () => {
                     <hr />
                     <div className="mb-4">
                       <Image
-                        src="/assets/images/blog/nursing_blog_2026.png"
+                        src="/assets/images/blog/nursing_blog_2027.png"
                         alt={guide.imageAlt ?? guide.headline}
                         className="img-fluid rounded shadow-sm"
                         width={800}
@@ -77,7 +78,7 @@ const bptDescription = () => {
                       />
                     </div>
                     <hr />
-                    <h4>QUICK SUMMARY (For 2026 Admissions)</h4>
+                    <h4>QUICK SUMMARY (For 2027 Admissions)</h4>
                     <p>
                       Best For: B.Sc Nursing, GNM, ANM admissions in Uttarakhand
                     </p>
@@ -112,7 +113,7 @@ const bptDescription = () => {
                                   href="#why-nursing"
                                   className="text-decoration-none"
                                 >
-                                  1. Why Choose Nursing in 2026?
+                                  1. Why Choose Nursing in 2027?
                                 </a>
                               </li>
                               <li>
@@ -128,7 +129,7 @@ const bptDescription = () => {
                                   href="#career"
                                   className="text-decoration-none"
                                 >
-                                  3. Nursing Admission Process (2026)
+                                  3. Nursing Admission Process (2027)
                                 </a>
                               </li>
                               <li>
@@ -144,7 +145,7 @@ const bptDescription = () => {
                                   href="#tags"
                                   className="text-decoration-none"
                                 >
-                                  5. Top 7 Nursing Colleges in Dehradun (2026)
+                                  5. Top 7 Nursing Colleges in Dehradun (2027)
                                 </a>
                               </li>
                               <li>
@@ -193,7 +194,7 @@ const bptDescription = () => {
                         {/* Why Dehradun */}
                         <div className="mt-4">
                           <h2 id="why-nursing" className="mt-5 mb-4 fs-3 mt-4">
-                            1. WHY CHOOSE NURSING IN 2026?
+                            1. WHY CHOOSE NURSING IN 2027?
                           </h2>
                           <p>
                             Nursing remains one of the most reliable healthcare
@@ -275,7 +276,7 @@ const bptDescription = () => {
 
                           <ul className="mb-5 mt-4 list-unstyled">
                             <li className="mt-5">
-                              <h3>3. NURSING ADMISSION PROCESS (2026)</h3>
+                              <h3>3. NURSING ADMISSION PROCESS (2027)</h3>
                               <h4>The standard admission flow involves:</h4>
                               <ol>
                                 <li>
@@ -293,9 +294,9 @@ const bptDescription = () => {
                             </li>
                           </ul>
                           <h5>Admission Window:</h5>
-                          <h5>March to September 2026 (peak period)</h5>
+                          <h5>March to September 2027 (peak period)</h5>
                           <hr />
-                          <h3>4. ENTRANCE EXAMS FOR NURSING (2026)</h3>
+                          <h3>4. ENTRANCE EXAMS FOR NURSING (2027)</h3>
                           <h5>Common exams include:</h5>
                           <ul>
                             <li>HNBUMU Nursing Entrance</li>
@@ -306,9 +307,18 @@ const bptDescription = () => {
                             </li>
                           </ul>
                           <hr />
-                          <h3>5. TOP 7 NURSING COLLEGES IN DEHRADUN (2026)</h3>
+                          <h3>5. TOP 7 NURSING COLLEGES IN DEHRADUN (2027)</h3>
                           <h5>Below are the featured institutions:</h5>
                           <h3>1. GURU NANAK COLLEGE (GNC), DEHRADUN</h3>
+                           <p>
+                                <Link
+                                  href="https://gnc.edu.in/nursing-college-in-dehradun-uttarakhand"
+                                  className="text-primary"
+                                  target="_blank"
+                                >
+                                  🔗 Visit Website
+                                </Link>
+                              </p>
                           <p>
                             GNC is one of the fastest-growing nursing
                             institutions in Dehradun, recognized for ethical
@@ -505,7 +515,7 @@ const bptDescription = () => {
                             structured placement support and affordable fee
                             options.
                           </p>
-                          <h5>Programs (Projected for 2026):</h5>
+                          <h5>Programs (Projected for 2027):</h5>
                           <ul>
                             <li>B.Sc Nursing</li>
                             <li>GNM</li>
@@ -525,7 +535,7 @@ const bptDescription = () => {
                             </li>
                           </ul>
                           <hr />
-                          <h5>6. COMPARISON SNAPSHOT (2026)</h5>
+                          <h5>6. COMPARISON SNAPSHOT (2027)</h5>
                           <table className="table">
                             <thead>
                               <tr>
@@ -589,7 +599,7 @@ const bptDescription = () => {
                             </tbody>
                           </table>
                           <hr />
-                          <h3>7. NURSING CAREER PATHWAYS & SALARY (2026)</h3>
+                          <h3>7. NURSING CAREER PATHWAYS & SALARY (2027)</h3>
                           <h5>Immediate Roles:</h5>
                           <ul>
                             <li>Staff Nurse</li>
@@ -651,7 +661,7 @@ const bptDescription = () => {
                             career growth.
                           </p>
                           <p>
-                            If you need assistance with 2026 admissions, Career
+                            If you need assistance with 2027 admissions, Career
                             Buddy Club offers free counselling and college
                             selection support for B.Sc Nursing, ANM, and GNM
                             programs across Uttarakhand.

@@ -176,7 +176,7 @@ const bptDescription = () => {
                               <br />
                               <p>
                                 <Link
-                                  href="https://www.gnc.edu.in/Pharmacy-College-in-Dehradun-Uttarakhand"
+                                  href="https://gnc.edu.in/pharmacy-college-in-dehradun-uttarakhand"
                                   className="text-primary"
                                 >
                                   🔗 Visit Guru Nanak College Website

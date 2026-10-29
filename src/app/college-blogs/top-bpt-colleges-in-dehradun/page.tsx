@@ -14,7 +14,7 @@ import ComparisonTable from "@/app/components/college-blogs/guide/comparison-tab
 const guide = getGuide("top-bpt-colleges-in-dehradun");
 
 export const metadata: Metadata = buildGuideMetadata(guide);
-const BScNursingUttarakhandAdmission2026 = () => {
+const BScNursingUttarakhandAdmission2027 = () => {
   const contactDetails = {
     email: "admission@careerbuddyclub.com",
     phone: "+917456000100",
@@ -248,7 +248,7 @@ const BScNursingUttarakhandAdmission2026 = () => {
                               <br />
                               <p>
                                 <Link
-                                  href="https://gnc.edu.in/Best-BPT-college-in-Dehradun-Uttarakhand"
+                                  href="https://gnc.edu.in/best-bpt-college-indehradun-uttarakhand"
                                   className="text-primary"
                                 >
                                   🔗 Visit Website
@@ -637,4 +637,4 @@ const BScNursingUttarakhandAdmission2026 = () => {
   );
 };
 
-export default BScNursingUttarakhandAdmission2026;
+export default BScNursingUttarakhandAdmission2027;

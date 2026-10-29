@@ -50,13 +50,13 @@ const STATIC_PAGES: { path: string; changeFrequency: ChangeFreq; priority: numbe
 // Guides / blog posts (static folders under app/college-blogs and app/universities)
 const CONTENT_PAGES: string[] = [
   '/college-blogs/best-bmlt-colleges-in-dehradun',
-  '/college-blogs/best-mha-colleges-in-dehradun-uttarakhand-2026',
+  '/college-blogs/best-mha-colleges-in-dehradun-uttarakhand',
   '/college-blogs/best-pharmacy-colleges-in-dehradun',
-  '/college-blogs/bsc-nursing-admission-uttarakhand-2026',
+  '/college-blogs/bsc-nursing-admission-uttarakhand',
   '/college-blogs/top-7-nursing-colleges-in-dehradun',
   '/college-blogs/top-bba-colleges-in-dehradun',
   '/college-blogs/top-bpt-colleges-in-dehradun',
-  '/college-blogs/uttarakhand-paramedical-admission-2026',
+  '/college-blogs/uttarakhand-paramedical-admission',
   '/universities/hemwati-nandan-bahuguna-uttarakhand-medical-education-university-dehradun',
   '/universities/icfai-university-dehradun',
   '/universities/ims-unison-university-dehradun',
