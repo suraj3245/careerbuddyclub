@@ -995,7 +995,11 @@ const QuizForm: React.FC = () => {
                   }}
                 />
               </div>
-              <strong style={{ fontSize: 14, marginTop: 8 }}>
+              <strong
+                className="notranslate"
+                translate="no"
+                style={{ fontSize: 14, marginTop: 8 }}
+              >
                 Page {Math.min(currentPage + 1, Math.max(totalPages, 1))} of{" "}
                 {totalPages}
               </strong>
