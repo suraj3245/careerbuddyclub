@@ -16,7 +16,7 @@ const guide = getGuide("bsc-nursing-admission-uttarakhand");
 
 export const metadata: Metadata = buildGuideMetadata(guide);
 
-const BScNursingUttarakhandAdmission2026 = () => {
+const BScNursingUttarakhandAdmission2027 = () => {
   return (
     <Wrapper>
       <GuideSchema guide={guide} />
@@ -44,7 +44,7 @@ const BScNursingUttarakhandAdmission2026 = () => {
                     </h1>
                     <p>
                       Discover the complete BSc Nursing admission process in
-                      Uttarakhand 2026 — including eligibility, entrance exam
+                      Uttarakhand 2027 — including eligibility, entrance exam
                       (HNBUMU), counseling, top colleges, and career
                       opportunities.
                     </p>
@@ -65,7 +65,7 @@ const BScNursingUttarakhandAdmission2026 = () => {
                         <div className="mt-4">
                           <h2 className="mt-2 mb-3 fs-2">
                             Admission Process of BSc Nursing in Uttarakhand:
-                            Step-by-Step Guide 2026
+                            Step-by-Step Guide 2027
                           </h2>
                           <p>
                             The Bachelor of Science in Nursing (BSc Nursing) is
@@ -354,14 +354,14 @@ const BScNursingUttarakhandAdmission2026 = () => {
                           </p>
                           <p>
                             Here are some of the top BSc Nursing colleges in
-                            Uttarakhand for 2026:
+                            Uttarakhand for 2027:
                           </p>
                           <ol className="mb-3">
                             <li>
                               <strong>Guru Nanak College, Dehradun</strong>
                               <p className="mt-2">
                                 <Link
-                                  href="https://careerbuddyclub.com/college-details/GNC?utm_source=CBC-Website&utm_medium=Online&utm_campaign=GNC"
+                                  href="https://gnc.edu.in/best-b-sc-nursing-colleges-in-dehradun"
                                   className="text-primary"
                                 >
                                   🔗 Visit Website
@@ -623,4 +623,4 @@ const BScNursingUttarakhandAdmission2026 = () => {
   );
 };
 
-export default BScNursingUttarakhandAdmission2026;
+export default BScNursingUttarakhandAdmission2027;

@@ -75,7 +75,7 @@ const BScNursingUttarakhandAdmission2027 = () => {
                     </p>
                     <div className="mb-4">
                       <Image
-                        src="/assets/images/blog/uttarakhand-paramedical-admission-2026.jpg"
+                        src="/assets/images/blog/uttarakhand-paramedical-admission-2027.jpg"
                         alt={guide.imageAlt ?? guide.headline}
                         className="img-fluid rounded shadow-sm"
                         width={800}
@@ -202,6 +202,14 @@ const BScNursingUttarakhandAdmission2027 = () => {
                             1. Uttarakhand Paramedical Admission 2027:
                             Highlights
                           </h3>
+                          <p className="mt-2">
+                            <Link
+                              href="https://gnc.edu.in/paramedical-college-in-dehradun-uttarakhand"
+                              className="text-primary"
+                            >
+                              🔗 Visit Website
+                            </Link>
+                          </p>
                           <table className="table table-bordered table-striped mt-3 mb-4">
                             <tbody>
                               <tr>

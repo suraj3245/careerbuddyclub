@@ -111,7 +111,7 @@ const guides = {
       rows: [
         {
           college: "Guru Nanak College (GNC)",
-          collegeHref: "https://www.gnc.edu.in/Pharmacy-College-in-Dehradun-Uttarakhand",
+          collegeHref: "https://gnc.edu.in/pharmacy-college-in-dehradun-uttarakhand",
           location: "Dehradun",
           courses: "D.Pharm, B.Pharm",
           approval: "PCI-approved",
@@ -204,7 +204,7 @@ const guides = {
 
   "bsc-nursing-admission-uttarakhand": {
     slug: "bsc-nursing-admission-uttarakhand",
-    title: "B.Sc Nursing Admission Uttarakhand 2027 | Eligibility, Fees, Colleges",
+    title: "B.Sc Nursing Admission Uttarakhand 2027 | Process & Eligibility",
     description:
       "B.Sc Nursing admission in Uttarakhand 2027: eligibility, entrance exam, application, fees, counselling process and top nursing colleges.",
     headline: "BSc Nursing Admission Process in Uttarakhand 2027 | Eligibility, Entrance Exam & Top Colleges",
@@ -213,7 +213,7 @@ const guides = {
     imageAlt: "BSc Nursing admission in Uttarakhand 2027",
     datePublished: "2025-11-03",
     dateModified: "2027-10-12",
-    ogTitle: "B.Sc Nursing Admission Uttarakhand 2027 – Eligibility, Fees & Colleges",
+    ogTitle: "B.Sc Nursing Admission Uttarakhand 2027 | Process & Eligibility",
     ogDescription:
       "Check B.Sc Nursing admission process in Uttarakhand 2027. Know eligibility, entrance exam, fees, counselling dates and top nursing colleges.",
     keywords: [
@@ -272,7 +272,7 @@ const guides = {
 
   "top-7-nursing-colleges-in-dehradun": {
     slug: "top-7-nursing-colleges-in-dehradun",
-    title: "Top Nursing Colleges in Dehradun 2027 | B.Sc Nursing, GNM, ANM",
+    title: "Top 7 Nursing Colleges in Dehradun 2027 | Comparison",
     description:
       "Top nursing colleges in Dehradun for 2027: compare B.Sc Nursing, GNM and ANM fees, eligibility, admission, hospital training and placements.",
     headline: "Top Nursing Colleges in Dehradun (2027): Courses, Fees, Eligibility, Placement & Career Scope",
@@ -309,7 +309,7 @@ const guides = {
 
   "top-bba-colleges-in-dehradun": {
     slug: "top-bba-colleges-in-dehradun",
-    title: "Best BBA Colleges in Dehradun 2027 | Fees, Admission & Placements",
+    title: "Top 5 BBA Colleges in Dehradun 2027 | Comparison & Placements",
     description:
       "Compare the best BBA colleges in Dehradun for 2027. Explore fees, admission process, eligibility, curriculum, placements and career scope after BBA.",
     headline: "Top BBA Colleges in Dehradun: Fees, Location, Curriculum & Career Prospects",
@@ -318,7 +318,7 @@ const guides = {
     imageAlt: "Top BBA colleges in Dehradun",
     datePublished: "2025-07-10",
     dateModified: "2027-10-12",
-    ogTitle: "Best BBA Colleges in Dehradun 2027 – Fees & Placements",
+    ogTitle: "Top 5 BBA Colleges in Dehradun 2027 | Comparison & Placements",
     ogDescription:
       "Looking for the best BBA colleges in Dehradun? Compare fees, admission, curriculum, placements and career opportunities after BBA.",
     keywords: [
@@ -412,10 +412,10 @@ const guides = {
 
   "top-bpt-colleges-in-dehradun": {
     slug: "top-bpt-colleges-in-dehradun",
-    title: "Top BPT Colleges in Dehradun | Fees, Eligibility & Careers",
+    title: "Top 5 BPT Colleges in Dehradun 2027 | Comparison",
     description:
       "Compare the top BPT colleges in Dehradun — Guru Nanak College, BFIT, Doon PG College and New Anmol — with fees, eligibility, campus highlights and careers.",
-    headline: "Top BPT Colleges in Dehradun (2025)",
+    headline: "Top 5 BPT Colleges in Dehradun 2027 | Comparison",
     excerpt:
       "Dehradun is steadily gaining recognition as a center for healthcare and rehabilitation education. This guide covers the top BPT colleges in Dehradun with program details, fees, eligibility, campus highlights and career scope.",
     category: "Physiotherapy",
@@ -434,7 +434,7 @@ const guides = {
       rows: [
         {
           college: "Guru Nanak College (GNC)",
-          collegeHref: "https://gnc.edu.in/Best-BPT-college-in-Dehradun-Uttarakhand",
+          collegeHref: "https://gnc.edu.in/best-bpt-college-indehradun-uttarakhand",
           location: "Dehradun",
           courses: "BPT",
           fee: "₹80,000–₹95,000",

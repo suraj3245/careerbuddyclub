@@ -92,11 +92,11 @@ const TopPharmacyCollegesPage = () => {
 
                                 <div className="text-center">Website :
                                 <a
-                                        href="https://www.gnc.edu.in/Pharmacy-College-in-Dehradun-Uttarakhand"
+                                        href="https://gnc.edu.in/pharmacy-college-in-dehradun-uttarakhand"
                                         className="text-decoration-underline text-primary"
                                         target="_blank"
                                     >
-                                        https://www.gnc.edu.in/Pharmacy-College-in-Dehradun-Uttarakhand
+                                        https://gnc.edu.in/pharmacy-college-in-dehradun-uttarakhand
                                     </a>
                                 </div>
 
