@@ -27,6 +27,13 @@ async function collegeExists(id: string): Promise<boolean | null> {
 }
 
 export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
+  if (params.id === "GNC") {
+    return {
+      title: "Guru Nanak College (GNC), Dehradun – Courses, Fees & Admission 2027",
+      description: "Explore Guru Nanak College (GNC), Dehradun courses, fees and admission details for 2027. Visit the official college website for current information.",
+      alternates: { canonical: `https://careerbuddyclub.com/college-details/${params.id}` },
+    };
+  }
   return {
     alternates: { canonical: `https://careerbuddyclub.com/college-details/${params.id}` },
   };

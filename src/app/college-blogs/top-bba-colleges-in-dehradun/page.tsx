@@ -8,7 +8,7 @@ import Link from "next/link";
 import { Metadata } from "next";
 import { getGuide } from "@/data/guides";
 import { buildGuideMetadata } from "@/lib/guides/seo";
-import GuideHeader from "@/app/components/college-blogs/guide/guide-header";
+import GuideUpdated from "@/app/components/college-blogs/guide/guide-updated";
 import GuideSchema from "@/app/components/college-blogs/guide/guide-schema";
 import FaqBlock from "@/app/components/college-blogs/guide/faq-block";
 import ComparisonTable from "@/app/components/college-blogs/guide/comparison-table";
@@ -49,6 +49,7 @@ const bptDescription = () => {
                 <div className="col-lg-8">
                   <div className="pe-lg-4">
                     <h1 className="mt-4">Top 5 BBA Colleges in Dehradun 2027 – Fees, Placements and Comparison</h1>
+                    <GuideUpdated guide={guide} />
                     <p>
                       If you're planning to pursue a Bachelor of Business
                       Administration (BBA), Dehradun is emerging as a premier

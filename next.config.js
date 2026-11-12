@@ -37,6 +37,21 @@ const nextConfig = {
         statusCode: 301,
       },
       {
+        source: '/college-blogs/bsc-nursing-admission-uttarakhand-2026',
+        destination: '/college-blogs/bsc-nursing-admission-uttarakhand',
+        statusCode: 301,
+      },
+      {
+        source: '/college-blogs/uttarakhand-paramedical-admission-2026',
+        destination: '/college-blogs/uttarakhand-paramedical-admission',
+        statusCode: 301,
+      },
+      {
+        source: '/college-blogs/best-mha-colleges-in-dehradun-uttarakhand-2026',
+        destination: '/college-blogs/best-mha-colleges-in-dehradun-uttarakhand',
+        statusCode: 301,
+      },
+      {
         source: '/university-details/osmu',
         destination: '/university-details/1',
         permanent: true,

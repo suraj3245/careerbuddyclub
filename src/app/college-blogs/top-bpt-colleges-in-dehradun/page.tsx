@@ -8,7 +8,7 @@ import Link from "next/link";
 import { Metadata } from "next";
 import { getGuide } from "@/data/guides";
 import { buildGuideMetadata } from "@/lib/guides/seo";
-import GuideHeader from "@/app/components/college-blogs/guide/guide-header";
+import GuideUpdated from "@/app/components/college-blogs/guide/guide-updated";
 import GuideSchema from "@/app/components/college-blogs/guide/guide-schema";
 import ComparisonTable from "@/app/components/college-blogs/guide/comparison-table";
 const guide = getGuide("top-bpt-colleges-in-dehradun");
@@ -47,6 +47,7 @@ const BScNursingUttarakhandAdmission2027 = () => {
                 <div className="col-lg-8">
                   <div className="pe-lg-4">
                     <h1 className="mt-4">Top 5 BPT Colleges in Dehradun 2027 – Physiotherapy Colleges Compared</h1>
+                    <GuideUpdated guide={guide} />
                     <p>
                       Dehradun, nestled in the picturesque hills of Uttarakhand,
                       is steadily gaining recognition as a center for healthcare
@@ -104,7 +105,7 @@ const BScNursingUttarakhandAdmission2027 = () => {
                                   href="#top-colleges"
                                   className="text-decoration-none"
                                 >
-                                  Top BPT Colleges in Dehradun (2025){" "}
+                                  Top BPT Colleges in Dehradun (2027){" "}
                                 </a>
 
                                 <ul
@@ -228,7 +229,7 @@ const BScNursingUttarakhandAdmission2027 = () => {
 
                           {/* Top Colleges */}
                           <h2 id="gnc" className="mt-5 mb-4 fs-2 mt-4">
-                            Top BPT Colleges in Dehradun (2025)
+                            Top BPT Colleges in Dehradun (2027)
                           </h2>
 
                           <p>
@@ -248,7 +249,7 @@ const BScNursingUttarakhandAdmission2027 = () => {
                               <br />
                               <p>
                                 <Link
-                                  href="https://gnc.edu.in/best-bpt-college-indehradun-uttarakhand"
+                                  href="https://gnc.edu.in/best-bpt-college-in-dehradun-uttarakhand"
                                   className="text-primary"
                                 >
                                   🔗 Visit Website

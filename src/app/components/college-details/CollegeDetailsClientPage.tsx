@@ -297,6 +297,16 @@ const CollegeDetailsClient: React.FC<{ id: string }> = ({ id }) => {
 
   return (
       <div style={styles.pageFont}>
+        {id === "GNC" && (
+          <header className="container pt-5">
+            <h1>Guru Nanak College (GNC), Dehradun</h1>
+            <p>
+              <a href="https://gnc.edu.in/" target="_blank" rel="noopener noreferrer">
+                Visit the official Guru Nanak College website
+              </a>
+            </p>
+          </header>
+        )}
         {details ? (
           <div style={styles.mainPageWrapper}>
             <CompanyBreadcrumbjob

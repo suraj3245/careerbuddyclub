@@ -7,7 +7,7 @@ import CompanyBreadcrumb from "../../components/common/common-breadcrumb";
 import { Metadata } from "next";
 import { getGuide } from "@/data/guides";
 import { buildGuideMetadata } from "@/lib/guides/seo";
-import GuideHeader from "@/app/components/college-blogs/guide/guide-header";
+import GuideUpdated from "@/app/components/college-blogs/guide/guide-updated";
 import GuideSchema from "@/app/components/college-blogs/guide/guide-schema";
 import FaqBlock from "@/app/components/college-blogs/guide/faq-block";
 import Link from "next/link";
@@ -48,6 +48,7 @@ const bptDescription = () => {
                 <div className="col-lg-8">
                   <div className="pe-lg-4">
                     <h1 className="mt-4">Top 7 Nursing Colleges in Dehradun 2027 – B.Sc Nursing and GNM Colleges Compared</h1>
+                    <GuideUpdated guide={guide} />
                     <p>
                       Dehradun has evolved into a major hub for healthcare and
                       paramedical education in North India. With rising demand

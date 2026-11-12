@@ -15,6 +15,43 @@
 import type { Guide } from "@/lib/guides/types";
 
 const guides = {
+  "top-bca-colleges-in-dehradun": {
+    slug: "top-bca-colleges-in-dehradun",
+    title: "Top 5 BCA Colleges in Dehradun 2027 | Fees & Comparison",
+    description: "Compare the top BCA colleges in Dehradun for 2027: Graphic Era, Guru Nanak College, UPES, DIT and Maya Devi University. Eligibility, fees and careers.",
+    headline: "Top 5 BCA Colleges in Dehradun 2027 – Fees, Eligibility and Comparison",
+    category: "Computer Applications",
+    image: "/assets/images/blog/bca-colleges-dehradun-banner.png",
+    imageAlt: "Top BCA Colleges in Dehradun with students studying computer science",
+    datePublished: "2026-11-12",
+    dateModified: "2026-11-12",
+    ogTitle: "Top 5 BCA Colleges in Dehradun 2027 | Fees & Comparison",
+    ogDescription: "Compare BCA colleges in Dehradun for 2027 by fees, eligibility, specialisations and career options.",
+    keywords: ["BCA colleges in Dehradun", "best BCA college in Dehradun 2027", "BCA admission Dehradun 2027", "BCA fees in Dehradun", "BCA colleges in Uttarakhand", "BCA course after 12th"],
+    comparison: {
+      heading: "BCA colleges in Dehradun: comparison table",
+      note: "Fees change each year. Compare the complete fee sheet, including examination, lab and hostel charges.",
+      rows: [
+        { college: "Graphic Era", location: "Clement Town", approval: "Deemed university", fee: "Check official site", placements: "Big-university experience" },
+        { college: "Guru Nanak College", location: "Chakrata Road, Jhajhra", approval: "College", fee: "₹45,000", placements: "Value and personal attention" },
+        { college: "UPES", location: "Bidholi", approval: "Private university", fee: "Check official site", placements: "Specialisations, premium campus" },
+        { college: "DIT University", location: "Mussoorie Diversion Road", approval: "Private university", fee: "Check official site", placements: "Engineering-style environment" },
+        { college: "Maya Devi University", location: "Selaqui", approval: "State private university", fee: "Check official site", placements: "AI, data science, full-stack" },
+      ],
+    },
+    faqs: [
+      { question: "Which is the best BCA college in Dehradun for 2027?", answer: "It depends on your budget and goals. Graphic Era is one of the best-known private universities in the state. Guru Nanak College is the best choice for value, with a BCA tuition fee of ₹45,000 a year and merit scholarships of up to a full tuition waiver. UPES, DIT University and Maya Devi University are strong options for specialisations." },
+      { question: "What is the eligibility for BCA admission in Dehradun 2027?", answer: "You need to pass Class 12 from a recognised board. Most colleges ask for 45% to 50% aggregate. At Guru Nanak College, students from Maths, Biology or Agriculture streams are eligible with 45% (40% for SC/ST)." },
+      { question: "Is there an entrance exam for BCA in Dehradun?", answer: "Most BCA colleges in Dehradun admit students on Class 12 marks, followed by counselling or an interview. Some universities also accept CUET or run their own test, so check each college’s 2027 admission notice." },
+      { question: "What is the BCA fee in Dehradun?", answer: "Fees vary widely. Large private universities can charge several lakh rupees for the full three years. Guru Nanak College’s BCA tuition is ₹45,000 a year. Always compare the full fee sheet, including exam, lab and hostel charges." },
+      { question: "Can I do BCA without Maths in Class 12?", answer: "At some colleges, yes. Guru Nanak College accepts Class 12 students from Maths, Biology or Agriculture streams. Other colleges may require Maths or Computer Science, so check before you apply." },
+      { question: "Is BCA a good course after 12th?", answer: "Yes, if you enjoy computers and problem-solving. BCA is a three-year degree that leads directly to software and IT jobs, and it is a common route to an MCA." },
+      { question: "Which is better, BCA or B.Tech CSE?", answer: "BCA is three years and focused on applications and programming. B.Tech CSE is four years and goes deeper into engineering and mathematics. BCA is the faster, lower-cost route into software roles; B.Tech suits core engineering careers." },
+      { question: "Which BCA specialisation has the best scope?", answer: "Artificial intelligence and machine learning, data science, cyber security, cloud computing and full-stack development are in strong demand. The best choice is the one you will practise seriously, with projects and internships." },
+      { question: "Do BCA colleges in Dehradun offer hostels?", answer: "Yes. Most colleges on this list have on-campus hostels. At Guru Nanak College, hostel fees start from ₹58,000 a year with a package, depending on room sharing." },
+      { question: "What can I do after BCA?", answer: "You can start work as a software developer, web developer, tester, or data or support analyst, or study further with an MCA, an MBA (IT) or a master’s in data science or cyber security." },
+    ],
+  },
   "best-bmlt-colleges-in-dehradun": {
     slug: "best-bmlt-colleges-in-dehradun",
     title: "Top 5 BMLT Colleges in Dehradun 2027 | Comparison & Admission",
@@ -24,8 +61,8 @@ const guides = {
     category: "Paramedical / Allied Healthcare",
     image: "/assets/images/blog/bmlt_course_img_blog.jpg",
     imageAlt: "Medical Laboratory Technology students training in a laboratory",
-    datePublished: "2027-05-22",
-    dateModified: "2027-05-22",
+    datePublished: "2025-11-14",
+    dateModified: "2026-11-12",
     ogTitle: "Best BMLT Colleges in Dehradun 2027 – Fees, Admission & Placements",
     ogDescription:
       "Looking for the best BMLT colleges in Dehradun? Compare top Medical Laboratory Technology colleges with fees, eligibility, admission process and placement details.",
@@ -64,7 +101,7 @@ const guides = {
     image: "/assets/images/blog/MHA_800.jpg",
     imageAlt: "Best MHA colleges in Dehradun, Uttarakhand",
     datePublished: "2025-12-06",
-    dateModified: "2027-04-18",
+    dateModified: "2026-11-12",
     ogTitle: "Best MHA Colleges in Dehradun 2027",
     ogDescription: "Find top MHA colleges in Dehradun with fees, admission details, and placement insights.",
     keywords: [
@@ -93,7 +130,7 @@ const guides = {
     image: "/assets/images/blog/pharmacy-college-dehradun.jpg",
     imageAlt: "Best pharmacy colleges in Dehradun",
     datePublished: "2025-07-10",
-    dateModified: "2027-10-12",
+    dateModified: "2026-11-12",
     ogTitle: "Best Pharmacy Colleges in Dehradun 2027 – Fees, Courses & Admission",
     ogDescription:
       "Looking for the best pharmacy colleges in Dehradun? Compare PCI-approved D.Pharm, B.Pharm & Pharm.D colleges with fees, eligibility and placement details.",
@@ -212,7 +249,7 @@ const guides = {
     image: "/assets/images/blog/nursing_blog.jpg",
     imageAlt: "BSc Nursing admission in Uttarakhand 2027",
     datePublished: "2025-11-03",
-    dateModified: "2027-10-12",
+    dateModified: "2026-11-12",
     ogTitle: "B.Sc Nursing Admission Uttarakhand 2027 | Process & Eligibility",
     ogDescription:
       "Check B.Sc Nursing admission process in Uttarakhand 2027. Know eligibility, entrance exam, fees, counselling dates and top nursing colleges.",
@@ -279,8 +316,8 @@ const guides = {
     category: "Nursing",
     image: "/assets/images/blog/nursing_blog_2027.png",
     imageAlt: "Top nursing colleges in Dehradun 2027",
-    datePublished: "2027-01-17",
-    dateModified: "2027-01-24",
+    datePublished: "2025-07-10",
+    dateModified: "2026-11-12",
     ogTitle: "Top 7 Nursing Colleges in Dehradun (2027) | Fees, Admission & Placements",
     ogDescription:
       "Looking for the best nursing colleges in Dehradun? Compare B.Sc Nursing, GNM and ANM colleges with updated 2027 fees, eligibility, admission process, hospital training and placement opportunities.",
@@ -317,7 +354,7 @@ const guides = {
     image: "/assets/images/blog/bba_blog800.jpg",
     imageAlt: "Top BBA colleges in Dehradun",
     datePublished: "2025-07-10",
-    dateModified: "2027-10-12",
+    dateModified: "2026-11-12",
     ogTitle: "Top 5 BBA Colleges in Dehradun 2027 | Comparison & Placements",
     ogDescription:
       "Looking for the best BBA colleges in Dehradun? Compare fees, admission, curriculum, placements and career opportunities after BBA.",
@@ -422,7 +459,7 @@ const guides = {
     image: "/assets/images/blog/bpt_blog220.jpg",
     imageAlt: "Top BPT (Bachelor of Physiotherapy) colleges in Dehradun",
     datePublished: "2025-08-12",
-    dateModified: "2027-10-12",
+    dateModified: "2026-11-12",
     keywords: [
       "top bpt colleges in dehradun", "best bpt colleges in dehradun", "bpt colleges in dehradun",
       "bachelor of physiotherapy dehradun", "bpt fees in dehradun", "bpt admission dehradun",
@@ -434,7 +471,7 @@ const guides = {
       rows: [
         {
           college: "Guru Nanak College (GNC)",
-          collegeHref: "https://gnc.edu.in/best-bpt-college-indehradun-uttarakhand",
+          collegeHref: "https://gnc.edu.in/best-bpt-college-in-dehradun-uttarakhand",
           location: "Dehradun",
           courses: "BPT",
           fee: "₹80,000–₹95,000",
@@ -461,8 +498,8 @@ const guides = {
     category: "Paramedical",
     image: "/assets/images/blog/uttarakhand-paramedical-admission-2027.jpg",
     imageAlt: "Uttarakhand Paramedical Admission 2027",
-    datePublished: "2027-01-24",
-    dateModified: "2027-01-24",
+    datePublished: "2025-08-19",
+    dateModified: "2026-11-12",
     ogTitle: "Uttarakhand Paramedical Admission 2027 – Dates, Eligibility & Colleges",
     ogDescription:
       "Check Uttarakhand Paramedical Admission 2027 details including entrance exam, eligibility, counselling process and top colleges.",

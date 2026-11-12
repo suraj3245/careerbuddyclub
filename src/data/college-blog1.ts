@@ -1,5 +1,18 @@
 const blog_data1 = [
   {
+    id: "top-bca-colleges-in-dehradun",
+    img: "/assets/images/blog/bca-colleges-dehradun-banner.png",
+    grid_img: "/assets/images/blog/bca-colleges-dehradun-banner.png",
+    img_full: "/assets/images/blog/bca-colleges-dehradun-banner.png",
+    title: "Top 5 BCA Colleges in Dehradun 2027 | Fees & Comparison",
+    desc: "Compare Graphic Era, Guru Nanak College, UPES, DIT University and Maya Devi University by BCA fees, eligibility, specialisations and career options.",
+    author: "Career Buddy Club Editorial Team",
+    date: "12 November, 2026",
+    blog: "Top BCA colleges in Dehradun for 2027 admissions",
+    tags: ["BCA", "Computer Applications", "Dehradun"],
+    metaDescription: "Compare the top BCA colleges in Dehradun for 2027: Graphic Era, Guru Nanak College, UPES, DIT and Maya Devi University. Eligibility, fees and careers.",
+  },
+  {
     id: "best-pharmacy-colleges-in-dehradun",
     img: "/assets/images/blog/pharmacy-college-dehradun.jpg",
     grid_img: "/assets/images/blog/pharmacy-college-dehradun.jpeg",
@@ -86,10 +99,10 @@ const blog_data1 = [
     desc: "Discover the complete BSc Nursing admission process in Uttarakhand 2026 — including eligibility, entrance exam (HNBUMU), counseling, top colleges, and career opportunities.",
     author: "Career Buddy Club",
     date: "03 November, 2025",
-    blog: "BSc Nursing Admission Process in Uttarakhand 2026",
+    blog: "BSc Nursing Admission Process in Uttarakhand 2027",
     tags: [
       "BSc Nursing Admission in Uttarakhand",
-      "BSc Nursing Admission Process 2026",
+      "BSc Nursing Admission Process 2027",
       "Uttarakhand Nursing Entrance Exam",
       "HNBUMU BSc Nursing Admission",
       "Top BSc Nursing Colleges in Uttarakhand",
