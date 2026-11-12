@@ -7,7 +7,7 @@ import CompanyBreadcrumb from "../../components/common/common-breadcrumb";
 import { Metadata } from "next";
 import { getGuide } from "@/data/guides";
 import { buildGuideMetadata } from "@/lib/guides/seo";
-import GuideHeader from "@/app/components/college-blogs/guide/guide-header";
+import GuideUpdated from "@/app/components/college-blogs/guide/guide-updated";
 import GuideSchema from "@/app/components/college-blogs/guide/guide-schema";
 import FaqBlock from "@/app/components/college-blogs/guide/faq-block";
 import Link from "next/link";
@@ -42,6 +42,7 @@ const Bestmhacolleges = () => {
                         Best MHA Colleges in Dehradun and Uttarakhand 2027 –
                         Comparison and Admission Process
                       </h1>
+                    <GuideUpdated guide={guide} />
                       <p>
                         Discover why Dehradun is emerging as a leading
                         destination for Master of Hospital Administration (MHA)
@@ -349,7 +350,7 @@ const Bestmhacolleges = () => {
                                 <h3>2. Guru Nanak College, Dehradun</h3>
                                 <p className="mt-2">
                                   <Link
-                                    href="https://gnc.edu.in/paramedical-college-in-dehradun-uttarakhand"
+                                    href="https://gnc.edu.in/master-of-hospital-administration"
                                     className="text-primary"
                                   >
                                     🔗 Visit Website

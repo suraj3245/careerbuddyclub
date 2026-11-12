@@ -8,7 +8,7 @@ import Link from "next/link";
 import { Metadata } from "next";
 import { getGuide } from "@/data/guides";
 import { buildGuideMetadata } from "@/lib/guides/seo";
-import GuideHeader from "@/app/components/college-blogs/guide/guide-header";
+import GuideUpdated from "@/app/components/college-blogs/guide/guide-updated";
 import GuideSchema from "@/app/components/college-blogs/guide/guide-schema";
 import FaqBlock from "@/app/components/college-blogs/guide/faq-block";
 
@@ -52,6 +52,7 @@ const BScNursingUttarakhandAdmission2027 = () => {
                       Uttarakhand Paramedical Admission 2027 – Dates, Entrance
                       Exam, Admission Process and Colleges
                     </h1>
+                    <GuideUpdated guide={guide} />
                     <p>
                       Planning a career in healthcare and allied medical
                       sciences? Pursuing a paramedical degree in Uttarakhand

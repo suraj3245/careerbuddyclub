@@ -54,6 +54,7 @@ const CONTENT_PAGES: string[] = [
   '/college-blogs/best-pharmacy-colleges-in-dehradun',
   '/college-blogs/bsc-nursing-admission-uttarakhand',
   '/college-blogs/top-7-nursing-colleges-in-dehradun',
+  '/college-blogs/top-bca-colleges-in-dehradun',
   '/college-blogs/top-bba-colleges-in-dehradun',
   '/college-blogs/top-bpt-colleges-in-dehradun',
   '/college-blogs/uttarakhand-paramedical-admission',

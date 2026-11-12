@@ -8,7 +8,7 @@ import Link from "next/link";
 import { Metadata } from "next";
 import { getGuide } from "@/data/guides";
 import { buildGuideMetadata } from "@/lib/guides/seo";
-import GuideHeader from "@/app/components/college-blogs/guide/guide-header";
+import GuideUpdated from "@/app/components/college-blogs/guide/guide-updated";
 import GuideSchema from "@/app/components/college-blogs/guide/guide-schema";
 import FaqBlock from "@/app/components/college-blogs/guide/faq-block";
 import ComparisonTable from "@/app/components/college-blogs/guide/comparison-table";
@@ -42,6 +42,7 @@ const BScNursingUttarakhandAdmission2027 = () => {
                       B.Sc Nursing Admission Process in Uttarakhand 2027 –
                       Eligibility, Entrance Exam and Colleges
                     </h1>
+                    <GuideUpdated guide={guide} />
                     <p>
                       Discover the complete BSc Nursing admission process in
                       Uttarakhand 2027 — including eligibility, entrance exam

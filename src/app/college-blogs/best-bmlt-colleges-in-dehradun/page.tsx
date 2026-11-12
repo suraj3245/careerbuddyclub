@@ -8,7 +8,7 @@ import Link from "next/link";
 import { Metadata } from "next";
 import { getGuide } from "@/data/guides";
 import { buildGuideMetadata } from "@/lib/guides/seo";
-import GuideHeader from "@/app/components/college-blogs/guide/guide-header";
+import GuideUpdated from "@/app/components/college-blogs/guide/guide-updated";
 import GuideSchema from "@/app/components/college-blogs/guide/guide-schema";
 import FaqBlock from "@/app/components/college-blogs/guide/faq-block";
 const guide = getGuide("best-bmlt-colleges-in-dehradun");
@@ -38,6 +38,7 @@ const bptDescription = () => {
                 <div className="col-lg-8">
                   <div className="pe-lg-4">
                      <h1 className="mt-4">Top 5 BMLT Colleges in Dehradun & Uttarakhand 2027 – Comparison, Fees and Admission Process</h1>
+                    <GuideUpdated guide={guide} />
                     <p>
                       Healthcare today depends heavily on diagnostics and
                       laboratory investigations. Whether doctors diagnose
